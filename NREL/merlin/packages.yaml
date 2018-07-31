@@ -30,6 +30,8 @@ packages:
     version: [3.8.0]
   all:
     compiler: [gcc@4.9.2, intel@17.0.2]
+    # Spack uses build_type=RelWithDebInfo by default for CMake packages
+    # and creates huge binaries unless you do this:
     variants: build_type=Release
     providers:
       mpi: [openmpi@3.1.1, intel-mpi@2017.2.174]

@@ -26,6 +26,8 @@ packages:
       python@2.7.10: /usr
     buildable: False
   all:
+    # Spack uses build_type=RelWithDebInfo by default for CMake packages
+    # and creates huge binaries unless you do this:
     variants: build_type=Release
     providers:
       mpi: [openmpi@3.1.1]
