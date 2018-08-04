@@ -1,0 +1,4 @@
+config:
+  # Temporary directory to use for Spack builds.
+  build_stage:
+    - /scratch/$user

@@ -1,0 +1,42 @@
+modules:
+  # Only generate Lua modules
+  enable::
+    - lmod
+  lmod:
+    core_compilers:
+      - 'gcc@4.8.5'
+    # Don't generate module files for anything built with the core compiler
+    blacklist:
+      - '%gcc@4.8.5'
+    # Except other compilers
+    whitelist:
+      - gcc
+      - intel
+      - intel-parallel-studio
+      - nag
+      - pgi
+    # Set additional environment variables
+    converge:
+      environment:
+        set:
+          RLM_LICENSE: '27111@licman1.mcs.anl.gov'
+    intel:
+      environment:
+        set:
+          INTEL_LICENSE_FILE: '28518@lic001.cels.anl.gov'
+    intel-parallel-studio:
+      environment:
+        set:
+          INTEL_LICENSE_FILE: '28518@lic001.cels.anl.gov'
+    matlab:
+      environment:
+        set:
+          LM_LICENSE_FILE: '27000@lic001.cels.anl.gov'
+    nag:
+      environment:
+        set:
+          NAG_KUSARI_FILE: 'licman1.mcs.anl.gov:'
+    pgi:
+      environment:
+        set:
+          PGROUPD_LICENSE_FILE: '27200@licman1.mcs.anl.gov'

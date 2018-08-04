@@ -1,0 +1,94 @@
+packages:
+  all:
+    # Set Intel as default compiler
+    compiler: [intel, gcc, pgi, nag]
+    providers:
+      # Set Intel MKL as default BLAS/LAPACK provider
+      blas:   [intel-mkl, openblas]
+      lapack: [intel-mkl, openblas]
+      # Set Intel MPI as default MPI implementation
+      mpi: [intel-mpi, mvapich2, mpich, openmpi]
+    variants: ~mpi+openmp
+  # External Packages
+  # Many of these are build dependencies, so it doesn't really matter
+  # if we build with the latest version. Just use the system installation.
+  autoconf:
+    paths:
+      autoconf@2.69 arch=linux-centos7-x86_64: /usr
+      autoconf@2.63 arch=linux-centos6-x86_64: /usr
+    buildable: False
+  automake:
+    paths:
+      automake@1.13.4 arch=linux-centos7-x86_64: /usr
+      automake@1.11.1 arch=linux-centos6-x86_64: /usr
+    buildable: False
+  bison:
+    paths:
+      bison@2.7   arch=linux-centos7-x86_64: /usr
+      bison@2.4.1 arch=linux-centos6-x86_64: /usr
+    buildable: False
+  cmake:
+    paths:
+      cmake@2.8.12.2 arch=linux-centos6-x86_64: /usr
+  flex:
+    paths:
+      flex@2.5.37 arch=linux-centos7-x86_64: /usr
+      flex@2.5.35 arch=linux-centos6-x86_64: /usr
+    buildable: False
+  libtool:
+    paths:
+      libtool@2.4.2 arch=linux-centos7-x86_64: /usr
+      libtool@2.2.6b arch=linux-centos6-x86_64: /usr
+    buildable: False
+  m4:
+    paths:
+      m4@1.4.16 arch=linux-centos7-x86_64: /usr
+      m4@1.4.13 arch=linux-centos6-x86_64: /usr
+    buildable: False
+  openssl:
+    # Instead of rebuilding everything when a security update comes out,
+    # always build with the system openssl. It is more likely to be
+    # updated if the bug is serious enough
+    paths:
+      openssl@1.0.1e arch=linux-centos7-x86_64: /usr
+      openssl@1.0.1e arch=linux-centos6-x86_64: /usr
+    buildable: False
+  #perl:
+  #  # Perl cannot be built with the Intel compilers
+  #  paths:
+  #    perl@5.16.3 arch=linux-centos7-x86_64: /usr
+  #    perl@5.10.1 arch=linux-centos6-x86_64: /usr
+  #  buildable: False
+  pkg-config:
+    paths:
+      pkg-config@0.27.1 arch=linux-centos7-x86_64: /usr
+      pkg-config@0.23   arch=linux-centos6-x86_64: /usr
+    buildable: False
+  # Build all compilers with the system compiler
+  gcc:
+    compiler: [gcc@4.8.5]
+    variants: ~binutils
+  intel:
+    compiler: [gcc@4.8.5]
+  intel-parallel-studio:
+    compiler: [gcc@4.8.5]
+    variants: +all
+  nag:
+    compiler: [gcc@4.8.5]
+  pgi:
+    compiler: [gcc@4.8.5]
+  # Set default variants
+  cantera:
+    variants: +python
+  gromacs:
+    variants: +plumed
+  hdf:
+    variants: +szip
+  hdf5:
+    variants: +szip~mpi
+  mvapich2:
+    variants: ch3_rank_bits=32 fabrics=psm process_managers=slurm threads=multiple
+  netcdf:
+    variants: +hdf4+dap+cdmremote~mpi
+  openmpi:
+    variants: fabrics=psm2 schedulers=slurm +thread_multiple
