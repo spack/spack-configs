@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Continuously edit Spack packages
+# Use Ctrl+C to exit
+
+while true
+do
+    read -p "spack edit " package
+    spack edit $package
+done
+

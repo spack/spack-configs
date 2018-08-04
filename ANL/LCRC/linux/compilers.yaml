@@ -1,0 +1,302 @@
+compilers:
+- compiler:
+    environment: {}
+    extra_rpaths:
+    - /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-7.1.0-4bgguypumyezlt6vfhha3ukntrlrx7fq/lib64
+    flags: {}
+    modules: []
+    operating_system: centos7
+    paths:
+      cc: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-7.1.0-4bgguypumyezlt6vfhha3ukntrlrx7fq/bin/gcc
+      cxx: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-7.1.0-4bgguypumyezlt6vfhha3ukntrlrx7fq/bin/g++
+      f77: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-7.1.0-4bgguypumyezlt6vfhha3ukntrlrx7fq/bin/gfortran
+      fc: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-7.1.0-4bgguypumyezlt6vfhha3ukntrlrx7fq/bin/gfortran
+    spec: gcc@7.1.0
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules: []
+    operating_system: centos7
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /usr/bin/gfortran
+      fc: /usr/bin/gfortran
+    spec: gcc@4.8.5
+    target: x86_64
+- compiler:
+    environment:
+      set:
+        INTEL_LICENSE_FILE: '28518@lic001.cels.anl.gov'
+    extra_rpaths:
+    - /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/intel-17.0.4-74uvhjiulyqgvsmywifbbuo46v5n42xc/compilers_and_libraries_2017.4.193/linux/compiler/lib/intel64_lin
+    flags:
+      cflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+      cxxflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+      fflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+    modules: []
+    operating_system: centos7
+    paths:
+      cc: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/intel-17.0.4-74uvhjiulyqgvsmywifbbuo46v5n42xc/bin/icc
+      cxx: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/intel-17.0.4-74uvhjiulyqgvsmywifbbuo46v5n42xc/bin/icpc
+      f77: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/intel-17.0.4-74uvhjiulyqgvsmywifbbuo46v5n42xc/bin/ifort
+      fc: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/intel-17.0.4-74uvhjiulyqgvsmywifbbuo46v5n42xc/bin/ifort
+    spec: intel@17.0.4
+    target: x86_64
+- compiler:
+    environment:
+      set:
+        INTEL_LICENSE_FILE: '28518@lic001.cels.anl.gov'
+    extra_rpaths:
+    - /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/intel-17.0.3-gbgtimncxmczihdqphudp4l3gye5fqmq/compilers_and_libraries_2017.3.191/linux/compiler/lib/intel64_lin
+    flags:
+      cflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+      cxxflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+      fflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+    modules: []
+    operating_system: centos7
+    paths:
+      cc: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/intel-17.0.3-gbgtimncxmczihdqphudp4l3gye5fqmq/bin/icc
+      cxx: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/intel-17.0.3-gbgtimncxmczihdqphudp4l3gye5fqmq/bin/icpc
+      f77: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/intel-17.0.3-gbgtimncxmczihdqphudp4l3gye5fqmq/bin/ifort
+      fc: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/intel-17.0.3-gbgtimncxmczihdqphudp4l3gye5fqmq/bin/ifort
+    spec: intel@17.0.3
+    target: x86_64
+- compiler:
+    environment:
+      set:
+        LM_LICENSE_FILE: '27200@licman1.mcs.anl.gov'
+    extra_rpaths:
+    - /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/pgi-17.4-fjzvt2vqrqvcr6f55vgguqwockjj6nru/linux86-64/17.4/lib
+    flags:
+      cflags: -tp=haswell,sandybridge
+      cxxflags: -tp=haswell,sandybridge
+      fflags: -tp=haswell,sandybridge
+    modules: []
+    operating_system: centos7
+    paths:
+      cc: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/pgi-17.4-fjzvt2vqrqvcr6f55vgguqwockjj6nru/linux86-64/17.4/bin/pgcc
+      cxx: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/pgi-17.4-fjzvt2vqrqvcr6f55vgguqwockjj6nru/linux86-64/17.4/bin/pgc++
+      f77: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/pgi-17.4-fjzvt2vqrqvcr6f55vgguqwockjj6nru/linux86-64/17.4/bin/pgfortran
+      fc: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/pgi-17.4-fjzvt2vqrqvcr6f55vgguqwockjj6nru/linux86-64/17.4/bin/pgfortran
+    spec: pgi@17.4
+    target: x86_64
+- compiler:
+    environment:
+      set:
+        NAG_KUSARI_FILE: 'licman1.mcs.anl.gov:'
+    extra_rpaths:
+    - /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/nag-6.1-o2w7eeprc2brnvtrumpvkj3ktebgp7bv/lib
+    flags:
+      fflags: -mismatch -dusty
+    modules: []
+    operating_system: centos7
+    paths:
+      cc: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-7.1.0-4bgguypumyezlt6vfhha3ukntrlrx7fq/bin/gcc
+      cxx: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/gcc-7.1.0-4bgguypumyezlt6vfhha3ukntrlrx7fq/bin/g++
+      f77: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/nag-6.1-o2w7eeprc2brnvtrumpvkj3ktebgp7bv/bin/nagfor
+      fc: /blues/gpfs/home/software/spack-0.10.1/opt/spack/linux-centos7-x86_64/gcc-4.8.5/nag-6.1-o2w7eeprc2brnvtrumpvkj3ktebgp7bv/bin/nagfor
+    spec: nag@6.1
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths:
+    - /soft/spack/opt/spack/linux-x86_64/gcc-5.3.0/gcc-6.1.0-q2zosj3igepi3pjnqt74bwazmptr5gpj/lib64
+    flags: {}
+    modules: []
+    operating_system: centos6
+    paths:
+      cc: /soft/spack/opt/spack/linux-x86_64/gcc-5.3.0/gcc-6.1.0-q2zosj3igepi3pjnqt74bwazmptr5gpj/bin/gcc
+      cxx: /soft/spack/opt/spack/linux-x86_64/gcc-5.3.0/gcc-6.1.0-q2zosj3igepi3pjnqt74bwazmptr5gpj/bin/g++
+      f77: /soft/spack/opt/spack/linux-x86_64/gcc-5.3.0/gcc-6.1.0-q2zosj3igepi3pjnqt74bwazmptr5gpj/bin/gfortran
+      fc: /soft/spack/opt/spack/linux-x86_64/gcc-5.3.0/gcc-6.1.0-q2zosj3igepi3pjnqt74bwazmptr5gpj/bin/gfortran
+    spec: gcc@6.1.0
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules: []
+    operating_system: centos6
+    paths:
+      cc: /soft/spack/opt/spack/linux-x86_64/gcc-4.4.7/gcc-5.3.0-fygfl7rvyuiteto27dlhmilp5cstw2o2/bin/gcc
+      cxx: /soft/spack/opt/spack/linux-x86_64/gcc-4.4.7/gcc-5.3.0-fygfl7rvyuiteto27dlhmilp5cstw2o2/bin/g++
+      f77: /soft/spack/opt/spack/linux-x86_64/gcc-4.4.7/gcc-5.3.0-fygfl7rvyuiteto27dlhmilp5cstw2o2/bin/gfortran
+      fc: /soft/spack/opt/spack/linux-x86_64/gcc-4.4.7/gcc-5.3.0-fygfl7rvyuiteto27dlhmilp5cstw2o2/bin/gfortran
+    spec: gcc@5.3.0
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules: []
+    operating_system: centos6
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /usr/bin/gfortran
+      fc: /usr/bin/gfortran
+    spec: gcc@4.4.7
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags:
+      cflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+      cxxflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+      fflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+    modules: []
+    operating_system: centos6
+    paths:
+      cc: /soft/spack-0.10.0/opt/spack/linux-centos6-x86_64/gcc-4.4.7/intel-parallel-studio-professional.2017.2-jp3cadfrr6u7wbi4g7udaqyo2zlminit/bin/icc
+      cxx: /soft/spack-0.10.0/opt/spack/linux-centos6-x86_64/gcc-4.4.7/intel-parallel-studio-professional.2017.2-jp3cadfrr6u7wbi4g7udaqyo2zlminit/bin/icpc
+      f77: /soft/spack-0.10.0/opt/spack/linux-centos6-x86_64/gcc-4.4.7/intel-parallel-studio-professional.2017.2-jp3cadfrr6u7wbi4g7udaqyo2zlminit/bin/ifort
+      fc: /soft/spack-0.10.0/opt/spack/linux-centos6-x86_64/gcc-4.4.7/intel-parallel-studio-professional.2017.2-jp3cadfrr6u7wbi4g7udaqyo2zlminit/bin/ifort
+    spec: intel@17.0.2
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags:
+      cflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+      cxxflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+      fflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+    modules: []
+    operating_system: centos6
+    paths:
+      cc: /soft/spack-0.10.0/opt/spack/linux-centos6-x86_64/gcc-4.4.7/intel-parallel-studio-professional.2017.1-zaq5tbp664b2ye2gdx3ry35t3wd4rjn4/bin/icc
+      cxx: /soft/spack-0.10.0/opt/spack/linux-centos6-x86_64/gcc-4.4.7/intel-parallel-studio-professional.2017.1-zaq5tbp664b2ye2gdx3ry35t3wd4rjn4/bin/icpc
+      f77: /soft/spack-0.10.0/opt/spack/linux-centos6-x86_64/gcc-4.4.7/intel-parallel-studio-professional.2017.1-zaq5tbp664b2ye2gdx3ry35t3wd4rjn4/bin/ifort
+      fc: /soft/spack-0.10.0/opt/spack/linux-centos6-x86_64/gcc-4.4.7/intel-parallel-studio-professional.2017.1-zaq5tbp664b2ye2gdx3ry35t3wd4rjn4/bin/ifort
+    spec: intel@17.0.1
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags:
+      cflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+      cxxflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+      fflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+    modules: []
+    operating_system: centos6
+    paths:
+      cc: /soft/spack-0.9.1/opt/spack/linux-centos6-x86_64/gcc-4.4.7/intel-parallel-studio-professional.2017.0-7o7tfdlavk3ibijg7mnqwpnutao5busx/bin/icc
+      cxx: /soft/spack-0.9.1/opt/spack/linux-centos6-x86_64/gcc-4.4.7/intel-parallel-studio-professional.2017.0-7o7tfdlavk3ibijg7mnqwpnutao5busx/bin/icpc
+      f77: /soft/spack-0.9.1/opt/spack/linux-centos6-x86_64/gcc-4.4.7/intel-parallel-studio-professional.2017.0-7o7tfdlavk3ibijg7mnqwpnutao5busx/bin/ifort
+      fc: /soft/spack-0.9.1/opt/spack/linux-centos6-x86_64/gcc-4.4.7/intel-parallel-studio-professional.2017.0-7o7tfdlavk3ibijg7mnqwpnutao5busx/bin/ifort
+    spec: intel@17.0.0
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags:
+      cflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+      cxxflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+      fflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+    modules: []
+    operating_system: centos6
+    paths:
+      cc: /soft/spack/opt/spack/linux-x86_64/gcc-4.4.7/intel-parallel-studio-professional.2016.3-qngbkcn6rc6lj7utluon6eis6x6vnoai/bin/icc
+      cxx: /soft/spack/opt/spack/linux-x86_64/gcc-4.4.7/intel-parallel-studio-professional.2016.3-qngbkcn6rc6lj7utluon6eis6x6vnoai/bin/icpc
+      f77: /soft/spack/opt/spack/linux-x86_64/gcc-4.4.7/intel-parallel-studio-professional.2016.3-qngbkcn6rc6lj7utluon6eis6x6vnoai/bin/ifort
+      fc: /soft/spack/opt/spack/linux-x86_64/gcc-4.4.7/intel-parallel-studio-professional.2016.3-qngbkcn6rc6lj7utluon6eis6x6vnoai/bin/ifort
+    spec: intel@16.0.3
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags:
+      cflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+      cxxflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+      fflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+    modules: []
+    operating_system: centos6
+    paths:
+      cc: /soft/intel/15.0.1/composer_xe_2015.0.090/bin/intel64/icc
+      cxx: /soft/intel/15.0.1/composer_xe_2015.0.090/bin/intel64/icpc
+      f77: /soft/intel/15.0.1/composer_xe_2015.0.090/bin/intel64/ifort
+      fc: /soft/intel/15.0.1/composer_xe_2015.0.090/bin/intel64/ifort
+    spec: intel@15.0.0
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags:
+      cflags: -tp=haswell,sandybridge
+      cxxflags: -tp=haswell,sandybridge
+      fflags: -tp=haswell,sandybridge
+    modules: []
+    operating_system: centos6
+    paths:
+      cc: /soft/spack-0.10.0/opt/spack/linux-centos6-x86_64/gcc-4.4.7/pgi-16.10-bt6eoob2inbikjbeguj2ma2hb6545mc4/linux86-64/16.10/bin/pgcc
+      cxx: /soft/spack-0.10.0/opt/spack/linux-centos6-x86_64/gcc-4.4.7/pgi-16.10-bt6eoob2inbikjbeguj2ma2hb6545mc4/linux86-64/16.10/bin/pgc++
+      f77: /soft/spack-0.10.0/opt/spack/linux-centos6-x86_64/gcc-4.4.7/pgi-16.10-bt6eoob2inbikjbeguj2ma2hb6545mc4/linux86-64/16.10/bin/pgfortran
+      fc: /soft/spack-0.10.0/opt/spack/linux-centos6-x86_64/gcc-4.4.7/pgi-16.10-bt6eoob2inbikjbeguj2ma2hb6545mc4/linux86-64/16.10/bin/pgfortran
+    spec: pgi@16.10-0
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags:
+      cflags: -tp=haswell,sandybridge
+      cxxflags: -tp=haswell,sandybridge
+      fflags: -tp=haswell,sandybridge
+    modules: []
+    operating_system: centos6
+    paths:
+      cc: /soft/spack-0.9.1/opt/spack/linux-centos6-x86_64/gcc-4.4.7/pgi-16.5-pa5hji6khmosol3h7u65zhw6cy2dnekn/linux86-64/16.5/bin/pgcc
+      cxx: /soft/spack-0.9.1/opt/spack/linux-centos6-x86_64/gcc-4.4.7/pgi-16.5-pa5hji6khmosol3h7u65zhw6cy2dnekn/linux86-64/16.5/bin/pgc++
+      f77: /soft/spack-0.9.1/opt/spack/linux-centos6-x86_64/gcc-4.4.7/pgi-16.5-pa5hji6khmosol3h7u65zhw6cy2dnekn/linux86-64/16.5/bin/pgfortran
+      fc: /soft/spack-0.9.1/opt/spack/linux-centos6-x86_64/gcc-4.4.7/pgi-16.5-pa5hji6khmosol3h7u65zhw6cy2dnekn/linux86-64/16.5/bin/pgfortran
+    spec: pgi@16.5-0
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags:
+      cflags: -tp=haswell,sandybridge
+      cxxflags: -tp=haswell,sandybridge
+      fflags: -tp=haswell,sandybridge
+    modules: []
+    operating_system: centos6
+    paths:
+      cc: /soft/spack/opt/spack/linux-x86_64/gcc-4.4.7/pgi-16.3-pmaodxbocdbltuvqbqidgpcbzpj5t3v3/linux86-64/16.3/bin/pgcc
+      cxx: /soft/spack/opt/spack/linux-x86_64/gcc-4.4.7/pgi-16.3-pmaodxbocdbltuvqbqidgpcbzpj5t3v3/linux86-64/16.3/bin/pgc++
+      f77: /soft/spack/opt/spack/linux-x86_64/gcc-4.4.7/pgi-16.3-pmaodxbocdbltuvqbqidgpcbzpj5t3v3/linux86-64/16.3/bin/pgfortran
+      fc: /soft/spack/opt/spack/linux-x86_64/gcc-4.4.7/pgi-16.3-pmaodxbocdbltuvqbqidgpcbzpj5t3v3/linux86-64/16.3/bin/pgfortran
+    spec: pgi@16.3-0
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags:
+      cflags: -tp=haswell,sandybridge
+      cxxflags: -tp=haswell,sandybridge
+      fflags: -tp=haswell,sandybridge
+    modules: []
+    operating_system: centos6
+    paths:
+      cc: /soft/spack-0.10.0/opt/spack/linux-centos6-x86_64/gcc-6.1.0/pgi-15.7-age336zkw4sxdufu5b7ee3hfd5nsok4y/linux86-64/15.7/bin/pgcc
+      cxx: /soft/spack-0.10.0/opt/spack/linux-centos6-x86_64/gcc-6.1.0/pgi-15.7-age336zkw4sxdufu5b7ee3hfd5nsok4y/linux86-64/15.7/bin/pgc++
+      f77: /soft/spack-0.10.0/opt/spack/linux-centos6-x86_64/gcc-6.1.0/pgi-15.7-age336zkw4sxdufu5b7ee3hfd5nsok4y/linux86-64/15.7/bin/pgfortran
+      fc: /soft/spack-0.10.0/opt/spack/linux-centos6-x86_64/gcc-6.1.0/pgi-15.7-age336zkw4sxdufu5b7ee3hfd5nsok4y/linux86-64/15.7/bin/pgfortran
+    spec: pgi@15.7-0
+    target: x86_64
+- compiler:
+    environment:
+      set:
+        NAG_KUSARI_FILE: 'licman1.mcs.anl.gov:'
+    extra_rpaths: []
+    flags:
+      fflags: -mismatch -dusty
+    modules: []
+    operating_system: centos6
+    paths:
+      cc: /soft/spack/opt/spack/linux-x86_64/gcc-5.3.0/gcc-6.1.0-q2zosj3igepi3pjnqt74bwazmptr5gpj/bin/gcc
+      cxx: /soft/spack/opt/spack/linux-x86_64/gcc-5.3.0/gcc-6.1.0-q2zosj3igepi3pjnqt74bwazmptr5gpj/bin/g++
+      f77: /soft/spack/opt/spack/linux-x86_64/gcc-4.4.7/nag-6.1-jt3h5hwt5myezgqguhfsan52zcskqene/bin/nagfor
+      fc: /soft/spack/opt/spack/linux-x86_64/gcc-4.4.7/nag-6.1-jt3h5hwt5myezgqguhfsan52zcskqene/bin/nagfor
+    spec: nag@6.1
+    target: x86_64
