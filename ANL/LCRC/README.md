@@ -1,6 +1,6 @@
 # ANL - LCRC Example Spack Configurations
 
-Maintained by Adam J. Stewart (@adamjstewart)
+Maintained by Adam J. Stewart ([@adamjstewart](https://github.com/adamjstewart))
 
 These configuration files were used up until 2017 and may be outdated. Consult your LCRC staff for newer copies.
 
