@@ -1,6 +1,6 @@
 # NREL Example Spack Configurations
 
-Maintained by Jon Rood (@jrood-nrel)
+Maintained by Jon Rood ([@jrood-nrel](https://github.com/jrood-nrel))
 
 Machines at NREL:
 1. Peregrine - Large HPC machine
