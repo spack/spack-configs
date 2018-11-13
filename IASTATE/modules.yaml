@@ -1,0 +1,13 @@
+modules:
+  enable::
+    - lmod
+  lmod:
+    hash_length: 1
+    # naming_scheme:: '${PACKAGE}/${VERSION}-${COMPILERNAME}-${COMPILERVER}'
+    all:
+      autoload: 'direct'
+      suffixes:
+        '^python@2.7': 'py2.7'
+        '^python@3.7': 'py3.7'
+    hierarchy::
+      - None
