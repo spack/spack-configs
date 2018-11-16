@@ -1,0 +1,109 @@
+# -------------------------------------------------------------------------
+# This file controls default concretization preferences for Spack.
+#
+# Settings here are versioned with Spack and are intended to provide
+# sensible defaults out of the box. Spack maintainers should edit this
+# file to keep it current.
+#
+# Users can override these settings by editing the following files.
+#
+# Per-spack-instance settings (overrides defaults):
+#   $SPACK_ROOT/etc/spack/packages.yaml
+#
+# Per-user settings (overrides default and site settings):
+#   ~/.spack/packages.yaml
+# -------------------------------------------------------------------------
+packages:
+  all::
+    compiler: [gcc@4.8.5]
+    providers:
+      awk: [gawk]
+      blas: [openblas]
+      daal: [intel-daal]
+      elf: [elfutils]
+      golang: [gcc]
+      ipp: [intel-ipp]
+      java: [jdk]
+      lapack: [openblas]
+      mkl: [intel-mkl]
+      mpe: [mpe2]
+      mpi: [openmpi]
+      opencl: [pocl]
+      openfoam: [openfoam-com, openfoam-org, foam-extend]
+      pil: [py-pillow]
+      scalapack: [netlib-scalapack]
+      szip: [libszip, libaec]
+      tbb: [intel-tbb]
+      jpeg: [libjpeg-turbo, libjpeg]
+  python:
+    variants: +dbm~optimizations+pic+shared+tk~ucs4
+    version: [2.7.14]
+  openmpi:
+    variants: fabrics=libfabric ~java schedulers=slurm +pmi ~sqlite3~thread_multiple+vt
+    version: [3.1.0]
+  libfabric:
+    variants: fabrics=psm,psm2,sockets,udp,verbs
+    version: [1.6.0] 
+  boost:
+    variants: +atomic+chrono~clanglibcpp+date_time~debug+filesystem~graph~icu+iostreams+locale+log+math+mpi+multithreaded +program_options+python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave arch=linux-rhel7-x86_64 
+  blast-plus:
+    variants: +bzip2+freetype+gnutls+jpeg+lzo+openssl+pcre+perl+png+python~static+zlib
+  perl:
+    variants: +cpanm+shared
+    version: [5.24.1]
+  r:
+    version: [3.5.0]
+    variants: +X+external-lapack
+  cairo:
+    variants: +X
+  pango:
+    variants: +X
+  openblas:
+    variants: ~ilp64+pic+shared threads=none ~virtual_machine
+  opencv:
+    variants: +core~cuda~dnn+eigen~gtk+highgui+imgproc+ipp+jasper+java+jpeg+openmp+png+python~qt+shared+tiff~vtk+zlib
+  fftw:
+    variants: +openmp
+  gnuplot:
+    variants: +X+cairo+gd+libcerf ~pbm~wx
+  eigen:
+    version: [3.3.3]
+    variants: +fftw+metis+mpfr+scotch+suitesparse
+  suite-sparse:
+    version: [5.1.0]
+    variants: +cuda~openmp+pic~tbb
+  libjpeg-turbo:
+    version: [1.5.0]
+  nasm:
+    version: [2.11.06]
+  libpng:
+    version: [1.6.29]
+  protobuf:
+    version: [3.1.0]
+  py-setuptools:
+    version: [35.0.2]
+  py-packaging:
+    version: [16.8]
+  py-six:
+    version: [1.10.0]
+  sqlite:
+    version: [3.21.0]
+  glib:
+    version: [2.55.1]
+  flex:
+    version: [2.6.4]
+    variants: +lex
+  ncurses:
+    version: [6.0]
+  tcl:
+    version: [8.6.6]
+  tk:
+    version: [8.6.6]
+  libxcb:
+    version: [1.12]
+  xcb-proto:
+    version: [1.12]
+  slurm:
+    buildable: False
+    paths:
+      slurm@17-02-6-1: /usr       
