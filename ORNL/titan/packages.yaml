@@ -1,0 +1,160 @@
+packages:
+    all:
+        compiler: [gcc@6.3.0, pgi@18.4.0, intel@17.0.0.098, cce@8.6.4]
+        providers:
+            mpi: [mpich]
+            mkl: [intel-mkl]
+            blas: [intel-mkl, cray-libsci]
+            scalapack: [intel-mkl, cray-libsci]
+            pkgconfig: [pkg-config]
+    cmake:
+        buildable: False
+        modules:
+            cmake@2.8.10.2: cmake/2.8.10.2
+            cmake@3.9.0: cmake3/3.9.0
+    autoconf:
+        buildable: False
+        modules:
+            autoconf@2.69: autoconf/2.69
+        paths:
+            autoconf@2.63: /usr
+    m4:
+        buildable: False
+        paths:
+            m4@1.4.12: /usr
+        modules:
+            m4@1.4.16: m4/1.4.16
+    flex:
+        buildable: False
+        paths:
+            flex@2.5.35: /usr
+    libtool:
+        buildable: False
+        paths:
+            libtool@2.2.6: /usr
+        modules:
+            libtool@2.4.2: libtool/2.4.2
+    python:
+        paths:
+            python@2.6.9: /usr
+        modules:
+            python@2.7.9: python/2.7.9
+            python@3.6.5: python/3.6.5
+    automake:
+        buildable: False
+        paths:
+            automake@1.10.1: /usr
+        modules:
+            automake@1.12: automake/1.12
+            automake@1.14: automake/1.14
+    pkg-config:
+        paths:
+            pkg-config@0.28: /usr
+    gettext:
+        paths:
+            gettext@0.17: /usr
+    tar:
+        paths:
+            tar@1.26: /
+    bison:
+        paths:
+            bison@2.3: /usr
+    zsh:
+        paths:
+            zsh@4.3.6: /usr
+    curl:
+        paths:
+            curl@7.37: /usr
+        modules:
+            curl@7.30.0: curl/7.30.0
+            curl@7.50.3: curl/7.50.3
+    mpich:
+        buildable: false
+        modules:
+            mpich@7.6.3%gcc: cray-mpich/7.6.3
+            mpich@7.6.3%pgi: cray-mpich/7.6.3
+            mpich@7.6.3%intel: cray-mpich/7.6.3
+            mpich@7.6.3%cce: cray-mpich/7.6.3
+    intel-mkl:
+        buildable: false
+        paths:
+            intel-mkl@2018.1.163%gcc: /opt/intel
+            intel-mkl@2018.1.163%pgi: /opt/intel
+            intel-mkl@2018.1.163%intel: /opt/intel
+            intel-mkl@2018.1.163%cce: /opt/intel
+    fftw:
+        buildable: false
+        modules:
+            fftw@3.3.6.2%gcc+openmp: cray-fftw/3.3.6.2
+            fftw@3.3.6.2%pgi+openmp: cray-fftw/3.3.6.2
+            fftw@3.3.6.2%intel+openmp: cray-fftw/3.3.6.2
+            fftw@3.3.6.2%cce+openmp: cray-fftw/3.3.6.2
+    hdf5:
+        buildable: false
+        modules:
+            hdf5@1.10.0.3%gcc~mpi+hl: cray-hdf5/1.10.0.3
+            hdf5@1.10.0.3%gcc+mpi+hl: cray-hdf5-parallel/1.10.0.3
+            hdf5@1.10.0.3%pgi~mpi+hl: cray-hdf5/1.10.0.3
+            hdf5@1.10.0.3%pgi+mpi+hl: cray-hdf5-parallel/1.10.0.3
+            hdf5@1.10.0.3%intel~mpi+hl: cray-hdf5/1.10.0.3
+            hdf5@1.10.0.3%intel+mpi+hl: cray-hdf5-parallel/1.10.0.3
+            hdf5@1.10.0.3%cce~mpi+hl: cray-hdf5/1.10.0.3
+            hdf5@1.10.0.3%cce+mpi+hl: cray-hdf5-parallel/1.10.0.3
+    petsc:
+         buildable: false
+         modules:
+            petsc@3.7.6.3%gcc~complex~int64 : cray-petsc/3.7.6.3
+            petsc@3.7.6.3%pgi~complex~int64 : cray-petsc/3.7.6.3
+            petsc@3.7.6.3%intel~complex~int64 : cray-petsc/3.7.6.3
+            petsc@3.7.6.3%cce~complex~int64: cray-petsc/3.7.6.3
+            petsc@3.7.6.3%gcc+complex~int64 : cray-petsc-complex/3.7.6.3
+            petsc@3.7.6.3%pgi+complex~int64 : cray-petsc-complex/3.7.6.3
+            petsc@3.7.6.3%intel+complex~int64 : cray-petsc-complex/3.7.6.3
+            petsc@3.7.6.3%cce+complex~int64: cray-petsc-complex/3.7.6.3
+            petsc@3.7.6.3%gcc~complex+int64 : cray-petsc-64/3.7.6.3
+            petsc@3.7.6.3%pgi~complex+int64 : cray-petsc-64/3.7.6.3
+            petsc@3.7.6.3%intel~complex+int64: cray-petsc-64/3.7.6.3
+            petsc@3.7.6.3%cce~complex+int64: cray-petsc-64/3.7.6.3
+            petsc@3.7.6.3%gcc+complex+int64 : cray-petsc-complex-64/3.7.6.3
+            petsc@3.7.6.3%pgi+complex+int64 : cray-petsc-complex-64/3.7.6.3
+            petsc@3.7.6.3%intel+complex+int64 : cray-petsc-complex-64/3.7.6.3
+            petsc@3.7.6.3%cce+complex+int64: cray-petsc-complex-64/3.7.6.3
+    cray-libsci:
+        buildable: false
+        modules:
+            cray-libsci@16.11.1%gcc: cray-libsci/16.11.1
+            cray-libsci@16.11.1%pgi: cray-libsci/16.11.1
+            cray-libsci@16.11.1%intel: cray-libsci/16.11.1
+            cray-libsci@16.11.1%cce: cray-libsci/16.11.1
+    netcdf:
+        buildable: false
+        modules:
+            netcdf@4.4.1.1.3%gcc+parallel-netcdf+mpi: cray-netcdf-hdf5parallel/4.4.1.1.3
+            netcdf@4.4.1.1.3%pgi+parallel-netcdf+mpi: cray-netcdf-hdf5parallel/4.4.1.1.3
+            netcdf@4.4.1.1.3%intel+parallel-netcdf+mpi: cray-netcdf-hdf5parallel/4.4.1.1.3
+            netcdf@4.4.1.1.3%cce+parallel-netcdf+mpi: cray-netcdf-hdf5parallel/4.4.1.1.3
+            netcdf@4.4.1.1.3%gcc~parallel-netcdf~mpi: cray-netcdf/4.4.1.1.3
+            netcdf@4.4.1.1.3%pgi~parallel-netcdf~mpi: cray-netcdf/4.4.1.1.3
+            netcdf@4.4.1.1.3%intel~parallel-netcdf~mpi: cray-netcdf/4.4.1.1.3
+            netcdf@4.4.1.1.3%cce~parallel-netcdf~mpi: cray-netcdf/4.4.1.1.3
+    netcdf-fortran:
+        buildable: false
+        modules:
+            netcdf-fortran@4.4.1.1.3%gcc: cray-netcdf-hdf5parallel/4.4.1.1.3
+            netcdf-fortran@4.4.1.1.3%pgi: cray-netcdf-hdf5parallel/4.4.1.1.3
+            netcdf-fortran@4.4.1.1.3%intel: cray-netcdf-hdf5parallel/4.4.1.1.3
+            netcdf-fortran@4.4.1.1.3%cce: cray-netcdf-hdf5parallel/4.4.1.1.3
+    papi:
+        buildable: false
+        modules:
+            papi@5.6.0.2%gcc: papi/5.6.0.2
+            papi@5.6.0.2%pgi: papi/5.6.0.2
+            papi@5.6.0.2%intel: papi/5.6.0.2
+            papi@5.6.0.2%cce: papi/5.6.0.2
+    trilinos:
+        buildable: false
+        modules:
+            trilinos@12.10.1.1%gcc: cray-trilinos/12.10.1.1
+            trilinos@12.10.1.1%pgi: cray-trilinos/12.10.1.1
+            trilinos@12.10.1.1%intel: cray-trilinos/12.10.1.1
+            trilinos@12.10.1.1%cce: cray-trilinos/12.10.1.1
