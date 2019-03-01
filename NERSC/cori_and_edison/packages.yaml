@@ -1,7 +1,7 @@
-# NERSC config used as of 10/26/2018
+# NERSC config used as of 03/01/2019
 packages:
     all:
-        compiler: [intel@18.0.1.163, gcc@7.1.0, cce@8.6.2]
+        compiler: [intel@18.0.1.163, gcc@7.3.0, cce@8.6.5]
         providers:
             mpi: [mpich, openmpi]
             mkl: [intel-mkl]
@@ -19,9 +19,9 @@ packages:
     mpich:
         buildable: false
         modules:
-            mpich@7.6.2%gcc: cray-mpich
-            mpich@7.6.2%intel: cray-mpich
-            mpich@7.6.2%cce: cray-mpich
+            mpich@7.7.3%gcc: cray-mpich
+            mpich@7.7.3%intel: cray-mpich
+            mpich@7.7.3%cce: cray-mpich
     intel-mkl:
         buildable: false
         paths:
@@ -31,67 +31,64 @@ packages:
     fftw:
         buildable: false
         modules:
-            fftw@3.3.6.2%gcc+openmp: cray-fftw
-            fftw@3.3.6.2%intel+openmp: cray-fftw
-            fftw@3.3.6.2%cce+openmp: cray-fftw
+            fftw@3.3.8.1%gcc+openmp: cray-fftw
+            fftw@3.3.8.1%intel+openmp: cray-fftw
+            fftw@3.3.8.1%cce+openmp: cray-fftw
     hdf5:
         buildable: false
         modules:
-            hdf5%intel~mpi+hl: cray-hdf5
-            hdf5%gcc~mpi+hl: cray-hdf5
-            hdf5%cce~mpi+hl: cray-hdf5
-            hdf5%intel+mpi+hl: cray-hdf5-parallel
-            hdf5%gcc+mpi+hl: cray-hdf5-parallel
-            hdf5%cce+mpi+hl: cray-hdf5-parallel
+            hdf5@1.10.2.0%intel~mpi+hl: cray-hdf5
+            hdf5@1.10.2.0%gcc~mpi+hl: cray-hdf5
+            hdf5@1.10.2.0%cce~mpi+hl: cray-hdf5
+            hdf5@1.10.2.0%intel+mpi+hl: cray-hdf5-parallel
+            hdf5@1.10.2.0%gcc+mpi+hl: cray-hdf5-parallel
     petsc:
          buildable: false
          modules:
-            petsc@3.7.6.0%gcc~complex~int64 : cray-petsc
-            petsc@3.7.6.0%intel~complex~int64 : cray-petsc
-            petsc@3.7.6.0%cce~complex~int64: cray-petsc
-            petsc@3.7.6.0%gcc+complex~int64 : cray-petsc-complex
-            petsc@3.7.6.0%intel+complex~int64 : cray-petsc-complex
-            petsc@3.7.6.0%cce+complex~int64: cray-petsc-complex
-            petsc@3.7.6.0%gcc~complex+int64 : cray-petsc-64
-            petsc@3.7.6.0%intel~complex+int64: cray-petsc-64
-            petsc@3.7.6.0%cce~complex+int64: cray-petsc-64
-            petsc@3.7.6.0%gcc+complex+int64 : cray-petsc-complex-64
-            petsc@3.7.6.0%intel+complex+int64 : cray-petsc-complex-64
-            petsc@3.7.6.0%cce+complex+int64: cray-petsc-complex-64
+            petsc@3.8.4.0%gcc~complex~int64 : cray-petsc/3.8.4.0
+            petsc@3.8.4.0%intel~complex~int64 : cray-petsc/3.8.4.0
+            petsc@3.8.4.0%cce~complex~int64: cray-petsc/3.8.4.0
+            petsc@3.8.4.0%gcc+complex~int64 : cray-petsc-complex/3.8.4.0
+            petsc@3.8.4.0%intel+complex~int64 : cray-petsc-complex/3.8.4.0
+            petsc@3.8.4.0%cce+complex~int64: cray-petsc-complex/3.8.4.0
+            petsc@3.8.4.0%gcc~complex+int64 : cray-petsc-64/3.8.4.0
+            petsc@3.8.4.0%intel~complex+int64: cray-petsc-64/3.8.4.0
+            petsc@3.8.4.0%cce~complex+int64: cray-petsc-64/3.8.4.0
+            petsc@3.8.4.0%gcc+complex+int64 : cray-petsc-complex-64/3.8.4.0
+            petsc@3.8.4.0%intel+complex+int64 : cray-petsc-complex-64/3.8.4.0
+            petsc@3.8.4.0%cce+complex+int64: cray-petsc-complex-64/3.8.4.0
     cray-libsci:
         buildable: false
         modules:
-            cray-libsci@16.07.1%gcc: cray-libsci
-            cray-libsci@16.07.1%intel: cray-libsci
-            cray-libsci@16.07.1%cce: cray-libsci
+            cray-libsci@18.07.1%gcc: cray-libsci
+            cray-libsci@18.07.1%intel: cray-libsci
+            cray-libsci@18.07.1%cce: cray-libsci
     netcdf:
         buildable: false
         modules:
-            netcdf@4.4.1.1.3%gcc+parallel-netcdf+mpi: cray-netcdf-hdf5parallel
-            netcdf@4.4.1.1.3%intel+parallel-netcdf+mpi: cray-netcdf-hdf5parallel
-            netcdf@4.4.1.1.3%cce+parallel-netcdf+mpi: cray-netcdf-hdf5parallel
-            netcdf@4.4.1.1.3%gcc~parallel-netcdf~mpi: cray-netcdf
-            netcdf@4.4.1.1.3%intel~parallel-netcdf~mpi: cray-netcdf
-            netcdf@4.4.1.1.3%cce~parallel-netcdf~mpi: cray-netcdf
+            netcdf@4.6.1.3%gcc+parallel-netcdf+mpi: cray-netcdf-hdf5parallel
+            netcdf@4.6.1.3%intel+parallel-netcdf+mpi: cray-netcdf-hdf5parallel
+            netcdf@4.6.1.3%cce+parallel-netcdf+mpi: cray-netcdf-hdf5parallel
+            netcdf@4.6.1.3%gcc~parallel-netcdf~mpi: cray-netcdf
+            netcdf@4.6.1.3%intel~parallel-netcdf~mpi: cray-netcdf
+            netcdf@4.6.1.3%cce~parallel-netcdf~mpi: cray-netcdf
     netcdf-fortran:
         buildable: false
         modules:
-            netcdf-fortran@4.4.1.1.3%intel: cray-netcdf-hdf5parallel
-            netcdf-fortran@4.4.1.1.3%cce: cray-netcdf-hdf5parallel
-            netcdf-fortran@4.4.1.1.3%gcc: cray-netcdf-hdf5parallel
+            netcdf-fortran@4.6.1.3%intel: cray-netcdf-hdf5parallel
+            netcdf-fortran@4.6.1.3%cce: cray-netcdf-hdf5parallel
+            netcdf-fortran@4.6.1.3%gcc: cray-netcdf-hdf5parallel
     papi:
         buildable: false
         modules:
-            papi@5.5.1.3%gcc: papi
-            papi@5.5.1.3%intel: papi
-            papi@5.5.1.3%cce: papi
+            papi@5.6.0.3%gcc: papi
+            papi@5.6.0.3%intel: papi
+            papi@5.6.0.3%cce: papi
     trilinos:
         buildable: false
         modules:
-            trilinos@12.10.1.1%gcc: cray-trilinos
-            trilinos@12.10.1.1%intel: cray-trilinos
-            trilinos@12.10.1.1%cce: cray-trilinos
-    perl:
-        compiler: [intel@17.0.3.191, gcc, cce]
+            trilinos@12.12.1.1%gcc: cray-trilinos
+            trilinos@12.12.1.1%intel: cray-trilinos
+            trilinos@12.12.1.1%cce: cray-trilinos
     python:
         variants: +shared
