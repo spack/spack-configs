@@ -1,4 +1,4 @@
-# NERSC config used as of 03/01/2019
+# NERSC config used as of 04/03/2019
 packages:
     all:
         compiler: [intel@18.0.1.163, gcc@7.3.0, cce@8.6.5]
@@ -8,14 +8,6 @@ packages:
             blas: [intel-mkl, cray-libsci]
             scalapack: [intel-mkl, cray-libsci]
             pkgconfig: [pkg-config]
-    pkg-config:
-        buildable: false
-        paths:
-            pkg-config@0.28: /usr
-    cmake:
-        buildable: false
-        paths:
-            cmake@3.5.2: /usr
     mpich:
         buildable: false
         modules:
@@ -90,5 +82,3 @@ packages:
             trilinos@12.12.1.1%gcc: cray-trilinos
             trilinos@12.12.1.1%intel: cray-trilinos
             trilinos@12.12.1.1%cce: cray-trilinos
-    python:
-        variants: +shared
