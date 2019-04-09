@@ -122,3 +122,7 @@ packages:
         buildable: false
         paths:
              libtool@2.4.2: /usr
+    lz4:
+        buildable: false
+        paths:
+             lz4@1.7.4: /usr
