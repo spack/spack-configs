@@ -102,3 +102,7 @@ packages:
         buildable: false
         paths:
              cmake@3.5.2: /usr
+    curl:
+        buildable: false
+        paths:
+             curl@7.37.0: /usr
