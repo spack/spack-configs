@@ -146,3 +146,7 @@ packages:
         buildable: false
         paths:
              xz@5.0.5: /usr
+    readline:
+        buildable: false
+        paths:
+             readline@6.3: /usr
