@@ -114,3 +114,7 @@ packages:
         buildable: false
         paths:
              gawk@4.1.0: /usr
+    gettext:
+        buildable: false
+        paths:
+             gettext@0.19.2: /usr
