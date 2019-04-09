@@ -142,3 +142,7 @@ packages:
         buildable: false
         paths:
              tar@1.27.1: /bin
+    xz:
+        buildable: false
+        paths:
+             xz@5.0.5: /usr
