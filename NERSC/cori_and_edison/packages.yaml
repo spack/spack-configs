@@ -126,3 +126,7 @@ packages:
         buildable: false
         paths:
              lz4@1.7.4: /usr
+    m4:
+        buildable: false
+        paths:
+             m4@1.4.16: /usr
