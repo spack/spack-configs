@@ -94,3 +94,7 @@ packages:
         buildable: false
         paths:
              automake@1.13.4: /usr
+    bzip2:
+        buildable: false
+        paths:
+             bzip2@1.0.6: /usr
