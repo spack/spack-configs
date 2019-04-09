@@ -98,3 +98,7 @@ packages:
         buildable: false
         paths:
              bzip2@1.0.6: /usr
+    cmake:
+        buildable: false
+        paths:
+             cmake@3.5.2: /usr
