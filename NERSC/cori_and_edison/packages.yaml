@@ -130,3 +130,7 @@ packages:
         buildable: false
         paths:
              m4@1.4.16: /usr
+    perl:
+        buildable: false
+        paths:
+             perl@5.18.2: /usr
