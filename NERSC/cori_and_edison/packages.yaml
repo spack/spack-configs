@@ -110,3 +110,7 @@ packages:
         buildable: false
         paths:
              diffutils@3.3: /usr
+    gawk:
+        buildable: false
+        paths:
+             gawk@4.1.0: /usr
