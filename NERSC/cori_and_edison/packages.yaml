@@ -90,3 +90,7 @@ packages:
         buildable: false
         paths:
              autoconf@2.69: /usr
+    automake:
+        buildable: false
+        paths:
+             automake@1.13.4: /usr
