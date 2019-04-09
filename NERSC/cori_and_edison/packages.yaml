@@ -138,3 +138,7 @@ packages:
         buildable: false
         paths:
              pkg-config@0.28: /usr
+    tar:
+        buildable: false
+        paths:
+             tar@1.27.1: /bin
