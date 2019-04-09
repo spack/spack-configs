@@ -134,3 +134,7 @@ packages:
         buildable: false
         paths:
              perl@5.18.2: /usr
+    pkg-config:
+        buildable: false
+        paths:
+             pkg-config@0.28: /usr
