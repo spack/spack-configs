@@ -82,3 +82,7 @@ packages:
             trilinos@12.12.1.1%gcc: cray-trilinos
             trilinos@12.12.1.1%intel: cray-trilinos
             trilinos@12.12.1.1%cce: cray-trilinos
+    openssl:
+        buildable: false
+        paths:
+             openssl@1.0.2j-fips: /usr
