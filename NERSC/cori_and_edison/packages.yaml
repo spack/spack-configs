@@ -150,3 +150,7 @@ packages:
         buildable: false
         paths:
              readline@6.3: /usr
+    zlib:
+        buildable: false
+        paths:
+             zlib@1.2.8: /usr
