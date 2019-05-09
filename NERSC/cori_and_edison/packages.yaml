@@ -140,9 +140,18 @@ packages:
     papi:
         buildable: false
         modules:
-            papi@5.6.0.3%gcc: papi
-            papi@5.6.0.3%intel: papi
-            papi@5.6.0.3%cce: papi
+            papi@5.5.1.4%gcc:   papi/5.5.1.4
+            papi@5.5.1.4%intel: papi/5.5.1.4
+            papi@5.5.1.4%cce:   papi/5.5.1.4
+            papi@5.6.0.3%gcc:   papi/5.6.0.3
+            papi@5.6.0.3%intel: papi/5.6.0.3
+            papi@5.6.0.3%cce:   papi/5.6.0.3
+            papi@5.6.0.5%gcc:   papi/5.6.0.5
+            papi@5.6.0.5%intel: papi/5.6.0.5
+            papi@5.6.0.5%cce:   papi/5.6.0.5
+            papi@5.6.0.6%gcc:   papi/5.6.0.6
+            papi@5.6.0.6%intel: papi/5.6.0.6
+            papi@5.6.0.6%cce:   papi/5.6.0.6
     trilinos:
         buildable: false
         modules:
