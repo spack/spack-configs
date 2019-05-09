@@ -17,9 +17,12 @@ packages:
     intel-mkl:
         buildable: false
         paths:
-            intel-mkl@2018.1.163%intel: /opt/intel
-            intel-mkl@2018.1.163%gcc: /opt/intel
-            intel-mkl@2018.1.163%cce: /opt/intel
+            intel-mkl@2018.1.163%intel+ilp64 threads=tbb:  /opt/intel
+            intel-mkl@2018.1.163%gcc+ilp64 threads=tbb:    /opt/intel
+            intel-mkl@2018.1.163%cce+ilp64 threads=tbb:    /opt/intel
+            intel-mkl@2018.1.163%intel~ilp64 threads=none: /opt/intel
+            intel-mkl@2018.1.163%gcc~ilp64 threads=none:   /opt/intel
+            intel-mkl@2018.1.163%cce~ilp64 threads=none:   /opt/intel
     fftw:
         buildable: false
         modules:
