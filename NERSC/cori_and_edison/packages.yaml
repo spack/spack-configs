@@ -101,9 +101,18 @@ packages:
     cray-libsci:
         buildable: false
         modules:
-            cray-libsci@18.07.1%gcc: cray-libsci
-            cray-libsci@18.07.1%intel: cray-libsci
-            cray-libsci@18.07.1%cce: cray-libsci
+            cray-libsci@18.03.1%gcc:   cray-libsci/18.03.1
+            cray-libsci@18.03.1%intel: cray-libsci/18.03.1
+            cray-libsci@18.03.1%cce:   cray-libsci/18.03.1
+            cray-libsci@18.07.1%gcc:   cray-libsci/18.07.1
+            cray-libsci@18.07.1%intel: cray-libsci/18.07.1
+            cray-libsci@18.07.1%cce:   cray-libsci/18.07.1
+            cray-libsci@18.12.1%gcc:   cray-libsci/18.12.1
+            cray-libsci@18.12.1%intel: cray-libsci/18.12.1
+            cray-libsci@18.12.1%cce:   cray-libsci/18.12.1
+            cray-libsci@19.02.1%gcc:   cray-libsci/19.02.1
+            cray-libsci@19.02.1%intel: cray-libsci/19.02.1
+            cray-libsci@19.02.1%cce:   cray-libsci/19.02.1
     netcdf:
         buildable: false
         modules:
