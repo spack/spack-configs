@@ -116,18 +116,27 @@ packages:
     netcdf:
         buildable: false
         modules:
-            netcdf@4.6.1.3%gcc+parallel-netcdf+mpi: cray-netcdf-hdf5parallel
-            netcdf@4.6.1.3%intel+parallel-netcdf+mpi: cray-netcdf-hdf5parallel
-            netcdf@4.6.1.3%cce+parallel-netcdf+mpi: cray-netcdf-hdf5parallel
-            netcdf@4.6.1.3%gcc~parallel-netcdf~mpi: cray-netcdf
-            netcdf@4.6.1.3%intel~parallel-netcdf~mpi: cray-netcdf
-            netcdf@4.6.1.3%cce~parallel-netcdf~mpi: cray-netcdf
+            netcdf@4.4.1.1.6%gcc+parallel-netcdf+mpi:   cray-netcdf-hdf5parallel/4.4.1.1.6
+            netcdf@4.4.1.1.6%intel+parallel-netcdf+mpi: cray-netcdf-hdf5parallel/4.4.1.1.6
+            netcdf@4.4.1.1.6%cce+parallel-netcdf+mpi:   cray-netcdf-hdf5parallel/4.4.1.1.6
+            netcdf@4.6.1.3%gcc+parallel-netcdf+mpi:     cray-netcdf-hdf5parallel/4.6.1.3
+            netcdf@4.6.1.3%intel+parallel-netcdf+mpi:   cray-netcdf-hdf5parallel/4.6.1.3
+            netcdf@4.6.1.3%cce+parallel-netcdf+mpi:     cray-netcdf-hdf5parallel/4.6.1.3
+            netcdf@4.4.1.1.6%gcc~parallel-netcdf~mpi:   cray-netcdf/4.4.1.1.6
+            netcdf@4.4.1.1.6%intel~parallel-netcdf~mpi: cray-netcdf/4.4.1.1.6
+            netcdf@4.4.1.1.6%cce~parallel-netcdf~mpi:   cray-netcdf/4.4.1.1.6
+            netcdf@4.6.1.3%gcc~parallel-netcdf~mpi:     cray-netcdf/4.6.1.3
+            netcdf@4.6.1.3%intel~parallel-netcdf~mpi:   cray-netcdf/4.6.1.3
+            netcdf@4.6.1.3%cce~parallel-netcdf~mpi:     cray-netcdf/4.6.1.3
     netcdf-fortran:
         buildable: false
         modules:
-            netcdf-fortran@4.6.1.3%intel: cray-netcdf-hdf5parallel
-            netcdf-fortran@4.6.1.3%cce: cray-netcdf-hdf5parallel
-            netcdf-fortran@4.6.1.3%gcc: cray-netcdf-hdf5parallel
+            netcdf-fortran@4.4.1.1.6%intel: cray-netcdf-hdf5parallel/4.4.1.1.6
+            netcdf-fortran@4.4.1.1.6%cce:   cray-netcdf-hdf5parallel/4.4.1.1.6
+            netcdf-fortran@4.4.1.1.6%gcc:   cray-netcdf-hdf5parallel/4.4.1.1.6
+            netcdf-fortran@4.6.1.3%intel:   cray-netcdf-hdf5parallel/4.6.1.3
+            netcdf-fortran@4.6.1.3%cce:     cray-netcdf-hdf5parallel/4.6.1.3
+            netcdf-fortran@4.6.1.3%gcc:     cray-netcdf-hdf5parallel/4.6.1.3
     papi:
         buildable: false
         modules:
