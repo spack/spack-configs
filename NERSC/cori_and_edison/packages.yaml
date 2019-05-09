@@ -97,6 +97,12 @@ packages:
     cmake:
         paths:
              cmake@3.5.2: /usr
+        modules:
+             cmake@3.3.2:  cmake/3.3.2
+             cmake@3.5.2:  cmake/3.5.2
+             cmake@3.8.2:  cmake/3.8.2
+             cmake@3.11.4: cmake/3.11.4
+             cmake@3.14.0: cmake/3.14.0
     curl:
         paths:
              curl@7.37.0: /usr
