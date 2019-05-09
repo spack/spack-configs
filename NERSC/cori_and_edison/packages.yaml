@@ -47,11 +47,18 @@ packages:
     hdf5:
         buildable: false
         modules:
-            hdf5@1.10.2.0%intel~mpi+hl: cray-hdf5
-            hdf5@1.10.2.0%gcc~mpi+hl: cray-hdf5
-            hdf5@1.10.2.0%cce~mpi+hl: cray-hdf5
-            hdf5@1.10.2.0%intel+mpi+hl: cray-hdf5-parallel
-            hdf5@1.10.2.0%gcc+mpi+hl: cray-hdf5-parallel
+            hdf5@1.10.1.1%intel~mpi+hl: cray-hdf5/1.10.1.1
+            hdf5@1.10.1.1%gcc~mpi+hl:   cray-hdf5/1.10.1.1
+            hdf5@1.10.1.1%cce~mpi+hl:   cray-hdf5/1.10.1.1
+            hdf5@1.10.2.0%intel~mpi+hl: cray-hdf5/1.10.2.0
+            hdf5@1.10.2.0%gcc~mpi+hl:   cray-hdf5/1.10.2.0
+            hdf5@1.10.2.0%cce~mpi+hl:   cray-hdf5/1.10.2.0
+            hdf5@1.10.1.1%intel+mpi+hl: cray-hdf5-parallel/1.10.1.1
+            hdf5@1.10.1.1%gcc+mpi+hl:   cray-hdf5-parallel/1.10.1.1
+            hdf5@1.10.1.1%cce+mpi+hl:   cray-hdf5-parallel/1.10.1.1
+            hdf5@1.10.2.0%intel+mpi+hl: cray-hdf5-parallel/1.10.2.0
+            hdf5@1.10.2.0%gcc+mpi+hl:   cray-hdf5-parallel/1.10.2.0
+            hdf5@1.10.2.0%cce+mpi+hl:   cray-hdf5-parallel/1.10.2.0
     petsc:
          buildable: false
          modules:
