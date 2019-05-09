@@ -83,78 +83,59 @@ packages:
             trilinos@12.12.1.1%intel: cray-trilinos
             trilinos@12.12.1.1%cce: cray-trilinos
     openssl:
-        buildable: false
         paths:
              openssl@1.0.2j-fips: /usr
     autoconf:
-        buildable: false
         paths:
              autoconf@2.69: /usr
     automake:
-        buildable: false
         paths:
              automake@1.13.4: /usr
     bzip2:
-        buildable: false
         paths:
              bzip2@1.0.6: /usr
     cmake:
-        buildable: false
         paths:
              cmake@3.5.2: /usr
     curl:
-        buildable: false
         paths:
              curl@7.37.0: /usr
     diffutils:
-        buildable: false
         paths:
              diffutils@3.3: /usr
     gawk:
-        buildable: false
         paths:
              gawk@4.1.0: /usr
     gettext:
-        buildable: false
         paths:
              gettext@0.19.2: /usr
     libtool:
-        buildable: false
         paths:
              libtool@2.4.2: /usr
     lz4:
-        buildable: false
         paths:
              lz4@1.7.4: /usr
     m4:
-        buildable: false
         paths:
              m4@1.4.16: /usr
     perl:
-        buildable: false
         paths:
              perl@5.18.2: /usr
     pkg-config:
-        buildable: false
         paths:
              pkg-config@0.28: /usr
     tar:
-        buildable: false
         paths:
              tar@1.27.1: /bin
     xz:
-        buildable: false
         paths:
              xz@5.0.5: /usr
     readline:
-        buildable: false
         paths:
              readline@6.3: /usr
     zlib:
-        buildable: false
         paths:
              zlib@1.2.8: /usr
     python:
-        buildable: false
         paths:
              python@2.7.13: /usr
