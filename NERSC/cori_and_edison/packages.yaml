@@ -62,18 +62,42 @@ packages:
     petsc:
          buildable: false
          modules:
-            petsc@3.8.4.0%gcc~complex~int64 : cray-petsc/3.8.4.0
-            petsc@3.8.4.0%intel~complex~int64 : cray-petsc/3.8.4.0
-            petsc@3.8.4.0%cce~complex~int64: cray-petsc/3.8.4.0
-            petsc@3.8.4.0%gcc+complex~int64 : cray-petsc-complex/3.8.4.0
-            petsc@3.8.4.0%intel+complex~int64 : cray-petsc-complex/3.8.4.0
-            petsc@3.8.4.0%cce+complex~int64: cray-petsc-complex/3.8.4.0
-            petsc@3.8.4.0%gcc~complex+int64 : cray-petsc-64/3.8.4.0
-            petsc@3.8.4.0%intel~complex+int64: cray-petsc-64/3.8.4.0
-            petsc@3.8.4.0%cce~complex+int64: cray-petsc-64/3.8.4.0
-            petsc@3.8.4.0%gcc+complex+int64 : cray-petsc-complex-64/3.8.4.0
-            petsc@3.8.4.0%intel+complex+int64 : cray-petsc-complex-64/3.8.4.0
-            petsc@3.8.4.0%cce+complex+int64: cray-petsc-complex-64/3.8.4.0
+            petsc@3.7.6.2%gcc~complex~int64:    cray-petsc/3.7.6.2
+            petsc@3.7.6.2%intel~complex~int64:  cray-petsc/3.7.6.2
+            petsc@3.7.6.2%cce~complex~int64:    cray-petsc/3.7.6.2
+            petsc@3.8.4.0%gcc~complex~int64:    cray-petsc/3.8.4.0
+            petsc@3.8.4.0%intel~complex~int64:  cray-petsc/3.8.4.0
+            petsc@3.8.4.0%cce~complex~int64:    cray-petsc/3.8.4.0
+            petsc@3.9.3.0%gcc~complex~int64:    cray-petsc/3.9.3.0
+            petsc@3.9.3.0%intel~complex~int64:  cray-petsc/3.9.3.0
+            petsc@3.9.3.0%cce~complex~int64:    cray-petsc/3.9.3.0
+            petsc@3.7.6.2%gcc+complex~int64:    cray-petsc-complex/3.7.6.2
+            petsc@3.7.6.2%intel+complex~int64:  cray-petsc-complex/3.7.6.2
+            petsc@3.7.6.2%cce+complex~int64:    cray-petsc-complex/3.7.6.2
+            petsc@3.8.4.0%gcc+complex~int64:    cray-petsc-complex/3.8.4.0
+            petsc@3.8.4.0%intel+complex~int64:  cray-petsc-complex/3.8.4.0
+            petsc@3.8.4.0%cce+complex~int64:    cray-petsc-complex/3.8.4.0
+            petsc@3.9.3.0%gcc+complex~int64:    cray-petsc-complex/3.9.3.0
+            petsc@3.9.3.0%intel+complex~int64:  cray-petsc-complex/3.9.3.0
+            petsc@3.9.3.0%cce+complex~int64:    cray-petsc-complex/3.9.3.0
+            petsc@3.7.6.2%gcc~complex+int64:    cray-petsc-64/3.7.6.2
+            petsc@3.7.6.2%intel~complex+int64:  cray-petsc-64/3.7.6.2
+            petsc@3.7.6.2%cce~complex+int64:    cray-petsc-64/3.7.6.2
+            petsc@3.8.4.0%gcc~complex+int64:    cray-petsc-64/3.8.4.0
+            petsc@3.8.4.0%intel~complex+int64:  cray-petsc-64/3.8.4.0
+            petsc@3.8.4.0%cce~complex+int64:    cray-petsc-64/3.8.4.0
+            petsc@3.9.3.0%gcc~complex+int64:    cray-petsc-64/3.9.3.0
+            petsc@3.9.3.0%intel~complex+int64:  cray-petsc-64/3.9.3.0
+            petsc@3.9.3.0%cce~complex+int64:    cray-petsc-64/3.9.3.0
+            petsc@3.7.6.2%gcc+complex+int64:    cray-petsc-complex-64/3.7.6.2
+            petsc@3.7.6.2%intel+complex+int64:  cray-petsc-complex-64/3.7.6.2
+            petsc@3.7.6.2%cce+complex+int64:    cray-petsc-complex-64/3.7.6.2
+            petsc@3.8.4.0%gcc+complex+int64:    cray-petsc-complex-64/3.8.4.0
+            petsc@3.8.4.0%intel+complex+int64:  cray-petsc-complex-64/3.8.4.0
+            petsc@3.8.4.0%cce+complex+int64:    cray-petsc-complex-64/3.8.4.0
+            petsc@3.9.3.0%gcc+complex+int64:    cray-petsc-complex-64/3.9.3.0
+            petsc@3.9.3.0%intel+complex+int64:  cray-petsc-complex-64/3.9.3.0
+            petsc@3.9.3.0%cce+complex+int64:    cray-petsc-complex-64/3.9.3.0
     cray-libsci:
         buildable: false
         modules:
