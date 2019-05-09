@@ -139,3 +139,8 @@ packages:
     python:
         paths:
              python@2.7.13: /usr
+        modules:
+             python@2.7.13: python/2.7-anaconda-4.4
+             python@2.7.15: python/2.7-anaconda-5.2
+             python@3.5.2:  python/3.5-anaconda
+             python@3.6.8:  python/3.6-anaconda-5.2
