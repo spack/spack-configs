@@ -35,9 +35,15 @@ packages:
     fftw:
         buildable: false
         modules:
-            fftw@3.3.8.1%gcc+openmp: cray-fftw
-            fftw@3.3.8.1%intel+openmp: cray-fftw
-            fftw@3.3.8.1%cce+openmp: cray-fftw
+            fftw@3.3.6.3%gcc+openmp:   cray-fftw/3.3.6.3
+            fftw@3.3.6.3%intel+openmp: cray-fftw/3.3.6.3
+            fftw@3.3.6.3%cce+openmp:   cray-fftw/3.3.6.3
+            fftw@3.3.8.1%gcc+openmp:   cray-fftw/3.3.8.1
+            fftw@3.3.8.1%intel+openmp: cray-fftw/3.3.8.1
+            fftw@3.3.8.1%cce+openmp:   cray-fftw/3.3.8.1
+            fftw@3.3.8.2%gcc+openmp:   cray-fftw/3.3.8.2
+            fftw@3.3.8.2%intel+openmp: cray-fftw/3.3.8.2
+            fftw@3.3.8.2%cce+openmp:   cray-fftw/3.3.8.2
     hdf5:
         buildable: false
         modules:
