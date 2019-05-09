@@ -11,9 +11,18 @@ packages:
     mpich:
         buildable: false
         modules:
-            mpich@7.7.3%gcc: cray-mpich
-            mpich@7.7.3%intel: cray-mpich
-            mpich@7.7.3%cce: cray-mpich
+            mpich@7.7.0%gcc:   cray-mpich/7.7.0
+            mpich@7.7.0%intel: cray-mpich/7.7.0
+            mpich@7.7.0%cce:   cray-mpich/7.7.0
+            mpich@7.7.3%gcc:   cray-mpich/7.7.3
+            mpich@7.7.3%intel: cray-mpich/7.7.3
+            mpich@7.7.3%cce:   cray-mpich/7.7.3
+            mpich@7.7.4%gcc:   cray-mpich/7.7.4
+            mpich@7.7.4%intel: cray-mpich/7.7.4
+            mpich@7.7.4%cce:   cray-mpich/7.7.4
+            mpich@7.7.6%gcc:   cray-mpich/7.7.6
+            mpich@7.7.6%intel: cray-mpich/7.7.6
+            mpich@7.7.6%cce:   cray-mpich/7.7.6
     intel-mkl:
         buildable: false
         paths:
