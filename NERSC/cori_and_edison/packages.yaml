@@ -11,74 +11,227 @@ packages:
     mpich:
         buildable: false
         modules:
-            mpich@7.7.3%gcc: cray-mpich
-            mpich@7.7.3%intel: cray-mpich
-            mpich@7.7.3%cce: cray-mpich
+            mpich@7.7.0%gcc:   cray-mpich/7.7.0
+            mpich@7.7.0%intel: cray-mpich/7.7.0
+            mpich@7.7.0%cce:   cray-mpich/7.7.0
+            mpich@7.7.3%gcc:   cray-mpich/7.7.3
+            mpich@7.7.3%intel: cray-mpich/7.7.3
+            mpich@7.7.3%cce:   cray-mpich/7.7.3
+            mpich@7.7.4%gcc:   cray-mpich/7.7.4
+            mpich@7.7.4%intel: cray-mpich/7.7.4
+            mpich@7.7.4%cce:   cray-mpich/7.7.4
+            mpich@7.7.6%gcc:   cray-mpich/7.7.6
+            mpich@7.7.6%intel: cray-mpich/7.7.6
+            mpich@7.7.6%cce:   cray-mpich/7.7.6
     intel-mkl:
         buildable: false
         paths:
-            intel-mkl@2018.1.163%intel: /opt/intel
-            intel-mkl@2018.1.163%gcc: /opt/intel
-            intel-mkl@2018.1.163%cce: /opt/intel
+            intel-mkl@2018.1.163%intel+ilp64 threads=tbb:  /opt/intel
+            intel-mkl@2018.1.163%gcc+ilp64 threads=tbb:    /opt/intel
+            intel-mkl@2018.1.163%cce+ilp64 threads=tbb:    /opt/intel
+            intel-mkl@2018.1.163%intel~ilp64 threads=none: /opt/intel
+            intel-mkl@2018.1.163%gcc~ilp64 threads=none:   /opt/intel
+            intel-mkl@2018.1.163%cce~ilp64 threads=none:   /opt/intel
     fftw:
         buildable: false
         modules:
-            fftw@3.3.8.1%gcc+openmp: cray-fftw
-            fftw@3.3.8.1%intel+openmp: cray-fftw
-            fftw@3.3.8.1%cce+openmp: cray-fftw
+            fftw@3.3.6.3%gcc+openmp:   cray-fftw/3.3.6.3
+            fftw@3.3.6.3%intel+openmp: cray-fftw/3.3.6.3
+            fftw@3.3.6.3%cce+openmp:   cray-fftw/3.3.6.3
+            fftw@3.3.8.1%gcc+openmp:   cray-fftw/3.3.8.1
+            fftw@3.3.8.1%intel+openmp: cray-fftw/3.3.8.1
+            fftw@3.3.8.1%cce+openmp:   cray-fftw/3.3.8.1
+            fftw@3.3.8.2%gcc+openmp:   cray-fftw/3.3.8.2
+            fftw@3.3.8.2%intel+openmp: cray-fftw/3.3.8.2
+            fftw@3.3.8.2%cce+openmp:   cray-fftw/3.3.8.2
     hdf5:
         buildable: false
         modules:
-            hdf5@1.10.2.0%intel~mpi+hl: cray-hdf5
-            hdf5@1.10.2.0%gcc~mpi+hl: cray-hdf5
-            hdf5@1.10.2.0%cce~mpi+hl: cray-hdf5
-            hdf5@1.10.2.0%intel+mpi+hl: cray-hdf5-parallel
-            hdf5@1.10.2.0%gcc+mpi+hl: cray-hdf5-parallel
+            hdf5@1.10.1.1%intel~mpi+hl: cray-hdf5/1.10.1.1
+            hdf5@1.10.1.1%gcc~mpi+hl:   cray-hdf5/1.10.1.1
+            hdf5@1.10.1.1%cce~mpi+hl:   cray-hdf5/1.10.1.1
+            hdf5@1.10.2.0%intel~mpi+hl: cray-hdf5/1.10.2.0
+            hdf5@1.10.2.0%gcc~mpi+hl:   cray-hdf5/1.10.2.0
+            hdf5@1.10.2.0%cce~mpi+hl:   cray-hdf5/1.10.2.0
+            hdf5@1.10.1.1%intel+mpi+hl: cray-hdf5-parallel/1.10.1.1
+            hdf5@1.10.1.1%gcc+mpi+hl:   cray-hdf5-parallel/1.10.1.1
+            hdf5@1.10.1.1%cce+mpi+hl:   cray-hdf5-parallel/1.10.1.1
+            hdf5@1.10.2.0%intel+mpi+hl: cray-hdf5-parallel/1.10.2.0
+            hdf5@1.10.2.0%gcc+mpi+hl:   cray-hdf5-parallel/1.10.2.0
+            hdf5@1.10.2.0%cce+mpi+hl:   cray-hdf5-parallel/1.10.2.0
     petsc:
          buildable: false
          modules:
-            petsc@3.8.4.0%gcc~complex~int64 : cray-petsc/3.8.4.0
-            petsc@3.8.4.0%intel~complex~int64 : cray-petsc/3.8.4.0
-            petsc@3.8.4.0%cce~complex~int64: cray-petsc/3.8.4.0
-            petsc@3.8.4.0%gcc+complex~int64 : cray-petsc-complex/3.8.4.0
-            petsc@3.8.4.0%intel+complex~int64 : cray-petsc-complex/3.8.4.0
-            petsc@3.8.4.0%cce+complex~int64: cray-petsc-complex/3.8.4.0
-            petsc@3.8.4.0%gcc~complex+int64 : cray-petsc-64/3.8.4.0
-            petsc@3.8.4.0%intel~complex+int64: cray-petsc-64/3.8.4.0
-            petsc@3.8.4.0%cce~complex+int64: cray-petsc-64/3.8.4.0
-            petsc@3.8.4.0%gcc+complex+int64 : cray-petsc-complex-64/3.8.4.0
-            petsc@3.8.4.0%intel+complex+int64 : cray-petsc-complex-64/3.8.4.0
-            petsc@3.8.4.0%cce+complex+int64: cray-petsc-complex-64/3.8.4.0
+            petsc@3.7.6.2%gcc~complex~int64:    cray-petsc/3.7.6.2
+            petsc@3.7.6.2%intel~complex~int64:  cray-petsc/3.7.6.2
+            petsc@3.7.6.2%cce~complex~int64:    cray-petsc/3.7.6.2
+            petsc@3.8.4.0%gcc~complex~int64:    cray-petsc/3.8.4.0
+            petsc@3.8.4.0%intel~complex~int64:  cray-petsc/3.8.4.0
+            petsc@3.8.4.0%cce~complex~int64:    cray-petsc/3.8.4.0
+            petsc@3.9.3.0%gcc~complex~int64:    cray-petsc/3.9.3.0
+            petsc@3.9.3.0%intel~complex~int64:  cray-petsc/3.9.3.0
+            petsc@3.9.3.0%cce~complex~int64:    cray-petsc/3.9.3.0
+            petsc@3.7.6.2%gcc+complex~int64:    cray-petsc-complex/3.7.6.2
+            petsc@3.7.6.2%intel+complex~int64:  cray-petsc-complex/3.7.6.2
+            petsc@3.7.6.2%cce+complex~int64:    cray-petsc-complex/3.7.6.2
+            petsc@3.8.4.0%gcc+complex~int64:    cray-petsc-complex/3.8.4.0
+            petsc@3.8.4.0%intel+complex~int64:  cray-petsc-complex/3.8.4.0
+            petsc@3.8.4.0%cce+complex~int64:    cray-petsc-complex/3.8.4.0
+            petsc@3.9.3.0%gcc+complex~int64:    cray-petsc-complex/3.9.3.0
+            petsc@3.9.3.0%intel+complex~int64:  cray-petsc-complex/3.9.3.0
+            petsc@3.9.3.0%cce+complex~int64:    cray-petsc-complex/3.9.3.0
+            petsc@3.7.6.2%gcc~complex+int64:    cray-petsc-64/3.7.6.2
+            petsc@3.7.6.2%intel~complex+int64:  cray-petsc-64/3.7.6.2
+            petsc@3.7.6.2%cce~complex+int64:    cray-petsc-64/3.7.6.2
+            petsc@3.8.4.0%gcc~complex+int64:    cray-petsc-64/3.8.4.0
+            petsc@3.8.4.0%intel~complex+int64:  cray-petsc-64/3.8.4.0
+            petsc@3.8.4.0%cce~complex+int64:    cray-petsc-64/3.8.4.0
+            petsc@3.9.3.0%gcc~complex+int64:    cray-petsc-64/3.9.3.0
+            petsc@3.9.3.0%intel~complex+int64:  cray-petsc-64/3.9.3.0
+            petsc@3.9.3.0%cce~complex+int64:    cray-petsc-64/3.9.3.0
+            petsc@3.7.6.2%gcc+complex+int64:    cray-petsc-complex-64/3.7.6.2
+            petsc@3.7.6.2%intel+complex+int64:  cray-petsc-complex-64/3.7.6.2
+            petsc@3.7.6.2%cce+complex+int64:    cray-petsc-complex-64/3.7.6.2
+            petsc@3.8.4.0%gcc+complex+int64:    cray-petsc-complex-64/3.8.4.0
+            petsc@3.8.4.0%intel+complex+int64:  cray-petsc-complex-64/3.8.4.0
+            petsc@3.8.4.0%cce+complex+int64:    cray-petsc-complex-64/3.8.4.0
+            petsc@3.9.3.0%gcc+complex+int64:    cray-petsc-complex-64/3.9.3.0
+            petsc@3.9.3.0%intel+complex+int64:  cray-petsc-complex-64/3.9.3.0
+            petsc@3.9.3.0%cce+complex+int64:    cray-petsc-complex-64/3.9.3.0
     cray-libsci:
         buildable: false
         modules:
-            cray-libsci@18.07.1%gcc: cray-libsci
-            cray-libsci@18.07.1%intel: cray-libsci
-            cray-libsci@18.07.1%cce: cray-libsci
+            cray-libsci@18.03.1%gcc:   cray-libsci/18.03.1
+            cray-libsci@18.03.1%intel: cray-libsci/18.03.1
+            cray-libsci@18.03.1%cce:   cray-libsci/18.03.1
+            cray-libsci@18.07.1%gcc:   cray-libsci/18.07.1
+            cray-libsci@18.07.1%intel: cray-libsci/18.07.1
+            cray-libsci@18.07.1%cce:   cray-libsci/18.07.1
+            cray-libsci@18.12.1%gcc:   cray-libsci/18.12.1
+            cray-libsci@18.12.1%intel: cray-libsci/18.12.1
+            cray-libsci@18.12.1%cce:   cray-libsci/18.12.1
+            cray-libsci@19.02.1%gcc:   cray-libsci/19.02.1
+            cray-libsci@19.02.1%intel: cray-libsci/19.02.1
+            cray-libsci@19.02.1%cce:   cray-libsci/19.02.1
     netcdf:
         buildable: false
         modules:
-            netcdf@4.6.1.3%gcc+parallel-netcdf+mpi: cray-netcdf-hdf5parallel
-            netcdf@4.6.1.3%intel+parallel-netcdf+mpi: cray-netcdf-hdf5parallel
-            netcdf@4.6.1.3%cce+parallel-netcdf+mpi: cray-netcdf-hdf5parallel
-            netcdf@4.6.1.3%gcc~parallel-netcdf~mpi: cray-netcdf
-            netcdf@4.6.1.3%intel~parallel-netcdf~mpi: cray-netcdf
-            netcdf@4.6.1.3%cce~parallel-netcdf~mpi: cray-netcdf
+            netcdf@4.4.1.1.6%gcc+parallel-netcdf+mpi:   cray-netcdf-hdf5parallel/4.4.1.1.6
+            netcdf@4.4.1.1.6%intel+parallel-netcdf+mpi: cray-netcdf-hdf5parallel/4.4.1.1.6
+            netcdf@4.4.1.1.6%cce+parallel-netcdf+mpi:   cray-netcdf-hdf5parallel/4.4.1.1.6
+            netcdf@4.6.1.3%gcc+parallel-netcdf+mpi:     cray-netcdf-hdf5parallel/4.6.1.3
+            netcdf@4.6.1.3%intel+parallel-netcdf+mpi:   cray-netcdf-hdf5parallel/4.6.1.3
+            netcdf@4.6.1.3%cce+parallel-netcdf+mpi:     cray-netcdf-hdf5parallel/4.6.1.3
+            netcdf@4.4.1.1.6%gcc~parallel-netcdf~mpi:   cray-netcdf/4.4.1.1.6
+            netcdf@4.4.1.1.6%intel~parallel-netcdf~mpi: cray-netcdf/4.4.1.1.6
+            netcdf@4.4.1.1.6%cce~parallel-netcdf~mpi:   cray-netcdf/4.4.1.1.6
+            netcdf@4.6.1.3%gcc~parallel-netcdf~mpi:     cray-netcdf/4.6.1.3
+            netcdf@4.6.1.3%intel~parallel-netcdf~mpi:   cray-netcdf/4.6.1.3
+            netcdf@4.6.1.3%cce~parallel-netcdf~mpi:     cray-netcdf/4.6.1.3
     netcdf-fortran:
         buildable: false
         modules:
-            netcdf-fortran@4.6.1.3%intel: cray-netcdf-hdf5parallel
-            netcdf-fortran@4.6.1.3%cce: cray-netcdf-hdf5parallel
-            netcdf-fortran@4.6.1.3%gcc: cray-netcdf-hdf5parallel
+            netcdf-fortran@4.4.1.1.6%intel: cray-netcdf-hdf5parallel/4.4.1.1.6
+            netcdf-fortran@4.4.1.1.6%cce:   cray-netcdf-hdf5parallel/4.4.1.1.6
+            netcdf-fortran@4.4.1.1.6%gcc:   cray-netcdf-hdf5parallel/4.4.1.1.6
+            netcdf-fortran@4.6.1.3%intel:   cray-netcdf-hdf5parallel/4.6.1.3
+            netcdf-fortran@4.6.1.3%cce:     cray-netcdf-hdf5parallel/4.6.1.3
+            netcdf-fortran@4.6.1.3%gcc:     cray-netcdf-hdf5parallel/4.6.1.3
     papi:
         buildable: false
         modules:
-            papi@5.6.0.3%gcc: papi
-            papi@5.6.0.3%intel: papi
-            papi@5.6.0.3%cce: papi
+            papi@5.5.1.4%gcc:   papi/5.5.1.4
+            papi@5.5.1.4%intel: papi/5.5.1.4
+            papi@5.5.1.4%cce:   papi/5.5.1.4
+            papi@5.6.0.3%gcc:   papi/5.6.0.3
+            papi@5.6.0.3%intel: papi/5.6.0.3
+            papi@5.6.0.3%cce:   papi/5.6.0.3
+            papi@5.6.0.5%gcc:   papi/5.6.0.5
+            papi@5.6.0.5%intel: papi/5.6.0.5
+            papi@5.6.0.5%cce:   papi/5.6.0.5
+            papi@5.6.0.6%gcc:   papi/5.6.0.6
+            papi@5.6.0.6%intel: papi/5.6.0.6
+            papi@5.6.0.6%cce:   papi/5.6.0.6
     trilinos:
         buildable: false
         modules:
-            trilinos@12.12.1.1%gcc: cray-trilinos
-            trilinos@12.12.1.1%intel: cray-trilinos
-            trilinos@12.12.1.1%cce: cray-trilinos
+            trilinos@12.10.1.2%gcc:   cray-trilinos/12.10.1.2
+            trilinos@12.10.1.2%intel: cray-trilinos/12.10.1.2
+            trilinos@12.10.1.2%cce:   cray-trilinos/12.10.1.2
+            trilinos@12.12.1.1%gcc:   cray-trilinos/12.12.1.1
+            trilinos@12.12.1.1%intel: cray-trilinos/12.12.1.1
+            trilinos@12.12.1.1%cce:   cray-trilinos/12.12.1.1
+    openssl:
+        paths:
+             openssl@1.0.2j-fips: /usr
+    autoconf:
+        paths:
+             autoconf@2.69: /usr
+    automake:
+        paths:
+             automake@1.13.4: /usr
+    bzip2:
+        paths:
+             bzip2@1.0.6: /usr
+    cmake:
+        paths:
+             cmake@3.5.2: /usr
+        modules:
+             cmake@3.3.2:  cmake/3.3.2
+             cmake@3.5.2:  cmake/3.5.2
+             cmake@3.8.2:  cmake/3.8.2
+             cmake@3.11.4: cmake/3.11.4
+             cmake@3.14.0: cmake/3.14.0
+    curl:
+        paths:
+             curl@7.37.0: /usr
+    diffutils:
+        paths:
+             diffutils@3.3: /usr
+    gawk:
+        paths:
+             gawk@4.1.0: /usr
+    gettext:
+        paths:
+             gettext@0.19.2: /usr
+    libtool:
+        paths:
+             libtool@2.4.2: /usr
+    lz4:
+        paths:
+             lz4@1.7.4: /usr
+    m4:
+        paths:
+             m4@1.4.16: /usr
+    perl:
+        paths:
+             perl@5.18.2: /usr
+    pkg-config:
+        paths:
+             pkg-config@0.28: /usr
+    tar:
+        paths:
+             tar@1.27.1: /bin
+    xz:
+        paths:
+             xz@5.0.5: /usr
+    readline:
+        paths:
+             readline@6.3: /usr
+    zlib:
+        paths:
+             zlib@1.2.8: /usr
+    python:
+        paths:
+             python@2.7.13: /usr
+        modules:
+             python@2.7.13: python/2.7-anaconda-4.4
+             python@2.7.15: python/2.7-anaconda-5.2
+             python@3.5.2:  python/3.5-anaconda
+             python@3.6.8:  python/3.6-anaconda-5.2
+
+    boost:
+        modules:
+             boost@1.67.0: boost/1.67.0
+             boost@1.69.0: boost/1.69.0
+             boost@1.70.0: boost/1.70.0
