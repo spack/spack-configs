@@ -11,18 +11,28 @@ packages:
     mpich:
         buildable: false
         modules:
-            mpich@7.7.0%gcc:   cray-mpich/7.7.0
-            mpich@7.7.0%intel: cray-mpich/7.7.0
-            mpich@7.7.0%cce:   cray-mpich/7.7.0
-            mpich@7.7.3%gcc:   cray-mpich/7.7.3
-            mpich@7.7.3%intel: cray-mpich/7.7.3
-            mpich@7.7.3%cce:   cray-mpich/7.7.3
-            mpich@7.7.4%gcc:   cray-mpich/7.7.4
-            mpich@7.7.4%intel: cray-mpich/7.7.4
-            mpich@7.7.4%cce:   cray-mpich/7.7.4
-            mpich@7.7.6%gcc:   cray-mpich/7.7.6
-            mpich@7.7.6%intel: cray-mpich/7.7.6
-            mpich@7.7.6%cce:   cray-mpich/7.7.6
+            # Cray MPI is based on MPICH, but Cray MPI versions do not
+            # correlated with MPICH versions. One can find out which version of
+            # MPICH a particular Cray MPI is based on by compiling any MPI
+            # program and running it with the environment variable
+            # MPICH_VERSION_DISPLAY=1. It will print something like:
+            #
+            # user@nid12345:~> MPICH_VERSION_DISPLAY=1 srun -n 1 ./a.out
+            # MPI VERSION    : CRAY MPICH version 7.7.6 (ANL base 3.2)
+            # MPI BUILD INFO : Built Mon Feb 18 14:57:41 2019 (git hash 3abffaa) MT-G
+            # Hello world from processor nid12345, rank 0 out of 1 processors
+            #
+            # Typically the compute node images have several versions of
+            # cray-mpich modules available, but often the the different
+            # versions of cray-mpich are based on the same base MPICH. So
+            # there's no easy way to list all of the cray-mpich modules here
+            # because they all satisfy the same dependency and version (e.g.,
+            # mpich@3.2). In that case, we can just list the current default
+            # cray-mpich, and figure out another solution if Spack users want
+            # to use something other than the default.
+            mpich@3.2%gcc:   cray-mpich/7.7.3
+            mpich@3.2%intel: cray-mpich/7.7.3
+            mpich@3.2%cce:   cray-mpich/7.7.3
     intel-mkl:
         buildable: false
         paths:
