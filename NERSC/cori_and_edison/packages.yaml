@@ -245,3 +245,21 @@ packages:
              boost@1.67.0: boost/1.67.0
              boost@1.69.0: boost/1.69.0
              boost@1.70.0: boost/1.70.0
+    binutils:
+        paths:
+            binutils@2.31: /usr
+    gmp:
+        paths:
+            gmp@5.1.3: /usr
+    ncurses:
+        paths:
+            ncurses@5.9: /usr
+    isl:
+        paths:
+            isl@0.12: /usr
+    libedit:
+        paths:
+            libedit@3.1: /usr
+    py-setuptools:
+        paths:
+            py-setuptools@18.0.1: /usr
