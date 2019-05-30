@@ -173,19 +173,19 @@ packages:
             trilinos@12.12.1.1%cce:   cray-trilinos/12.12.1.1
     openssl:
         paths:
-             openssl@1.0.2j-fips: /usr
+             openssl@1.0.2j-fips%gcc@4.8.5: /usr
     autoconf:
         paths:
-             autoconf@2.69: /usr
+             autoconf@2.69%gcc@4.8.5: /usr
     automake:
         paths:
-             automake@1.13.4: /usr
+             automake@1.13.4%gcc@4.8.5: /usr
     bzip2:
         paths:
-             bzip2@1.0.6: /usr
+             bzip2@1.0.6%gcc@4.8.5: /usr
     cmake:
         paths:
-             cmake@3.5.2: /usr
+             cmake@3.5.2%gcc@4.8.5: /usr
         modules:
              cmake@3.3.2:  cmake/3.3.2
              cmake@3.5.2:  cmake/3.5.2
@@ -194,46 +194,46 @@ packages:
              cmake@3.14.0: cmake/3.14.0
     curl:
         paths:
-             curl@7.37.0: /usr
+             curl@7.37.0%gcc@4.8.5: /usr
     diffutils:
         paths:
-             diffutils@3.3: /usr
+             diffutils@3.3%gcc@4.8.5: /usr
     gawk:
         paths:
-             gawk@4.1.0: /usr
+             gawk@4.1.0%gcc@4.8.5: /usr
     gettext:
         paths:
-             gettext@0.19.2: /usr
+             gettext@0.19.2%gcc@4.8.5: /usr
     libtool:
         paths:
-             libtool@2.4.2: /usr
+             libtool@2.4.2%gcc@4.8.5: /usr
     lz4:
         paths:
-             lz4@1.7.4: /usr
+             lz4@1.7.4%gcc@4.8.5: /usr
     m4:
         paths:
-             m4@1.4.16: /usr
+             m4@1.4.16%gcc@4.8.5: /usr
     perl:
         paths:
-             perl@5.18.2: /usr
+             perl@5.18.2%gcc@4.8.5: /usr
     pkg-config:
         paths:
-             pkg-config@0.28: /usr
+             pkg-config@0.28%gcc@4.8.5: /usr
     tar:
         paths:
-             tar@1.27.1: /bin
+             tar@1.27.1%gcc@4.8.5: /bin
     xz:
         paths:
-             xz@5.0.5: /usr
+             xz@5.0.5%gcc@4.8.5: /usr
     readline:
         paths:
-             readline@6.3: /usr
+             readline@6.3%gcc@4.8.5: /usr
     zlib:
         paths:
-             zlib@1.2.8: /usr
+             zlib@1.2.8%gcc@4.8.5: /usr
     python:
         paths:
-             python@2.7.13: /usr
+             python@2.7.13%gcc@4.8.5: /usr
         modules:
              python@2.7.13: python/2.7-anaconda-4.4
              python@2.7.15: python/2.7-anaconda-5.2
@@ -245,3 +245,21 @@ packages:
              boost@1.67.0: boost/1.67.0
              boost@1.69.0: boost/1.69.0
              boost@1.70.0: boost/1.70.0
+    binutils:
+        paths:
+            binutils@2.31%gcc@4.8.5: /usr
+    gmp:
+        paths:
+            gmp@5.1.3%gcc@4.8.5: /usr
+    ncurses:
+        paths:
+            ncurses@5.9%gcc@4.8.5: /usr
+    isl:
+        paths:
+            isl@0.12%gcc@4.8.5: /usr
+    libedit:
+        paths:
+            libedit@3.1%gcc@4.8.5: /usr
+    py-setuptools:
+        paths:
+            py-setuptools@18.0.1%gcc@4.8.5: /usr
