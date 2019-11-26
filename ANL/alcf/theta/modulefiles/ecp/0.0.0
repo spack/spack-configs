@@ -1,0 +1,26 @@
+#%Module2.0
+#
+# Module spack
+# installed by Frank Willmore, Mar 2019
+# willmore@anl.gov
+#
+# needs additional work to enforce what modules are loaded on compute vs service
+
+puts stderr "ECP\n"
+
+set PREFIX /soft/spack/spack-dev/share/spack/modules/cray-cnl8-mic_knl
+prepend-path MODULEPATH $PREFIX
+
+set PREFIX /soft/spack/spack-dev/share/spack/modules/linux-sles12-x86_64
+prepend-path MODULEPATH $PREFIX
+
+#set SPACK_ROOT /soft/spack/spack-dev
+#setenv SPACK_ROOT $SPACK_ROOT
+
+#puts stderr "SPACK_ROOT = $SPACK_ROOT"
+
+#prepend-path LD_LIBRARY_PATH $PREFIX/lib 
+#prepend-path PATH $PREFIX/bin 
+
+#prepend-path PATH $SPACK_ROOT/bin 
+

@@ -1,0 +1,362 @@
+compilers:
+- compiler:
+    environment:
+      set:
+        CRAYPE_LINK_TYPE: dynamic
+        LTCFLAGS: ${SPACK_CFLAGS}
+        LTCC: ${SPACK_CC}
+        MKLROOT: /soft/compilers/intel/19.0.2.187/compilers_and_libraries_2019.2.187/linux/mkl 
+        PKG_CONFIG_PATH: /soft/perftools/darshan/darshan-3.1.5/lib/pkgconfig:/opt/cray/rca/2.2.18-6.0.6.0_19.14__g2aa4f39.ari/lib64/pkgconfig:/opt/cray/alps/6.6.1-6.0.6.1_4.1__ga6396bb.ari/lib64/pkgconfig:/opt/cray/xpmem/2.2.14-6.0.6.0_10.1__g34333c9.ari/lib64/pkgconfig:/opt/cray/gni-headers/5.0.12-6.0.6.0_3.26__g527b6e1.ari/lib64/pkgconfig:/opt/cray/dmapp/7.1.1-6.0.6.0_51.37__g5a674e0.ari/lib64/pkgconfig:/opt/cray/pe/pmi/5.0.14/lib64/pkgconfig:/opt/cray/ugni/6.0.14-6.0.6.0_18.12__g777707d.ari/lib64/pkgconfig:/opt/cray/udreg/2.3.2-6.0.6.0_15.18__g5196236.ari/lib64/pkgconfig:/opt/cray/pe/craype/2.5.15/pkg-config:/opt/cray/pe/iobuf/2.0.8/lib/pkgconfig:/opt/cray/pe/atp/2.1.3/lib/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig:/opt/cray/krca/2.2.4-6.0.6.0_8.14__g8505b97.ari/lib64/pkgconfig:/opt/cray/wlm_detect/1.3.2-6.0.6.0_3.8__g388ccd5.ari/lib64/pkgconfig
+        OLD_PKG_CONFIG_PATH: /opt/cray/wlm_detect/1.1.0-4.2/lib64/pkgconfig:/opt/cray/krca/1.0.0-3.55/lib64/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig
+        MODULEPATH: /lus/theta-fs0/software/packaging/spack/share/spack/modules/linux-sles12-x86_64:/lus/theta-fs0/software/packaging/spack/share/spack/modules/cray-CNL-mic_knl:/home/${USER}/testmodules:/opt/cray/pe/modulefiles:/opt/cray/modulefiles:/opt/modulefiles:/soft/environment/modules/modulefiles:/opt/cray/ari/modulefiles:/opt/cray/pe/ari/modulefiles
+    extra_rpaths: ['/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-5.5.0-oq6pmo3jjexynohcwvpkctoo6yrzxoum/lib64','/soft/compilers/intel/19.0.2.187/compilers_and_libraries_2019.2.187/linux/compiler/lib/intel64','/soft/compilers/intel/19.0.2.187/compilers_and_libraries_2019.2.187/linux/mkl/lib/intel64']
+    flags:
+      cflags: -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise  -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-5.5.0-oq6pmo3jjexynohcwvpkctoo6yrzxoum/bin/gcc
+      fflags:  -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-5.5.0-oq6pmo3jjexynohcwvpkctoo6yrzxoum/bin/gcc
+      cxxflags: -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gxx-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-5.5.0-oq6pmo3jjexynohcwvpkctoo6yrzxoum/bin/g++
+    modules:
+    - modules/3.2.11.1
+    - cce
+    - intel/19.0.2.187
+    - PrgEnv-intel/6.0.4
+    - intel/19.0.2.187
+    operating_system: cnl6
+    paths:
+      cc: cc 
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: intel@19.0.2.187.5.5.0.6.0.4.7.7.4
+    target: any
+- compiler:
+    environment:
+      set:
+        CRAYPE_LINK_TYPE: dynamic
+        LTCFLAGS: ${SPACK_CFLAGS}
+        LTCC: ${SPACK_CC}
+        MKLROOT: /soft/compilers/intel/19.0.2.187/compilers_and_libraries_2019.2.187/linux/mkl 
+        PKG_CONFIG_PATH: /soft/perftools/darshan/darshan-3.1.5/lib/pkgconfig:/opt/cray/rca/2.2.18-6.0.6.0_19.14__g2aa4f39.ari/lib64/pkgconfig:/opt/cray/alps/6.6.1-6.0.6.1_4.1__ga6396bb.ari/lib64/pkgconfig:/opt/cray/xpmem/2.2.14-6.0.6.0_10.1__g34333c9.ari/lib64/pkgconfig:/opt/cray/gni-headers/5.0.12-6.0.6.0_3.26__g527b6e1.ari/lib64/pkgconfig:/opt/cray/dmapp/7.1.1-6.0.6.0_51.37__g5a674e0.ari/lib64/pkgconfig:/opt/cray/pe/pmi/5.0.14/lib64/pkgconfig:/opt/cray/ugni/6.0.14-6.0.6.0_18.12__g777707d.ari/lib64/pkgconfig:/opt/cray/udreg/2.3.2-6.0.6.0_15.18__g5196236.ari/lib64/pkgconfig:/opt/cray/pe/craype/2.5.15/pkg-config:/opt/cray/pe/iobuf/2.0.8/lib/pkgconfig:/opt/cray/pe/atp/2.1.3/lib/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig:/opt/cray/krca/2.2.4-6.0.6.0_8.14__g8505b97.ari/lib64/pkgconfig:/opt/cray/wlm_detect/1.3.2-6.0.6.0_3.8__g388ccd5.ari/lib64/pkgconfig
+        OLD_PKG_CONFIG_PATH: /opt/cray/wlm_detect/1.1.0-4.2/lib64/pkgconfig:/opt/cray/krca/1.0.0-3.55/lib64/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig
+        MODULEPATH: /lus/theta-fs0/software/packaging/spack/share/spack/modules/linux-sles12-x86_64:/lus/theta-fs0/software/packaging/spack/share/spack/modules/cray-CNL-mic_knl:/home/${USER}/testmodules:/opt/cray/pe/modulefiles:/opt/cray/modulefiles:/opt/modulefiles:/soft/environment/modules/modulefiles:/opt/cray/ari/modulefiles:/opt/cray/pe/ari/modulefiles
+    extra_rpaths: ['/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/lib64','/soft/compilers/intel/19.0.2.187/compilers_and_libraries_2019.2.187/linux/compiler/lib/intel64','/soft/compilers/intel/19.0.2.187/compilers_and_libraries_2019.2.187/linux/mkl/lib/intel64']
+    flags:
+      cflags: -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise  -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/gcc
+      fflags:  -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/gcc
+      cxxflags: -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gxx-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/g++
+    modules:
+    - modules/3.2.11.1
+    - cce
+    - intel/19.0.2.187
+    - PrgEnv-intel/6.0.4
+    - intel/19.0.2.187
+    operating_system: cnl6
+    paths:
+      cc: cc 
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: intel@19.0.2.187.4.9.4.6.0.4.7.7.4
+    target: any
+- compiler:
+    environment:
+      set:
+        CRAYPE_LINK_TYPE: dynamic
+        LTCFLAGS: ${SPACK_CFLAGS}
+        LTCC: ${SPACK_CC}
+        MKLROOT: /soft/compilers/intel/19.0.2.187/compilers_and_libraries_2019.2.187/linux/mkl 
+        PKG_CONFIG_PATH: /soft/perftools/darshan/darshan-3.1.5/lib/pkgconfig:/opt/cray/rca/2.2.18-6.0.6.0_19.14__g2aa4f39.ari/lib64/pkgconfig:/opt/cray/alps/6.6.1-6.0.6.1_4.1__ga6396bb.ari/lib64/pkgconfig:/opt/cray/xpmem/2.2.14-6.0.6.0_10.1__g34333c9.ari/lib64/pkgconfig:/opt/cray/gni-headers/5.0.12-6.0.6.0_3.26__g527b6e1.ari/lib64/pkgconfig:/opt/cray/dmapp/7.1.1-6.0.6.0_51.37__g5a674e0.ari/lib64/pkgconfig:/opt/cray/pe/pmi/5.0.14/lib64/pkgconfig:/opt/cray/ugni/6.0.14-6.0.6.0_18.12__g777707d.ari/lib64/pkgconfig:/opt/cray/udreg/2.3.2-6.0.6.0_15.18__g5196236.ari/lib64/pkgconfig:/opt/cray/pe/craype/2.5.15/pkg-config:/opt/cray/pe/iobuf/2.0.8/lib/pkgconfig:/opt/cray/pe/atp/2.1.3/lib/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig:/opt/cray/krca/2.2.4-6.0.6.0_8.14__g8505b97.ari/lib64/pkgconfig:/opt/cray/wlm_detect/1.3.2-6.0.6.0_3.8__g388ccd5.ari/lib64/pkgconfig
+        OLD_PKG_CONFIG_PATH: /opt/cray/wlm_detect/1.1.0-4.2/lib64/pkgconfig:/opt/cray/krca/1.0.0-3.55/lib64/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig
+        MODULEPATH: /lus/theta-fs0/software/packaging/spack/share/spack/modules/linux-sles12-x86_64:/lus/theta-fs0/software/packaging/spack/share/spack/modules/cray-CNL-mic_knl:/home/${USER}/testmodules:/opt/cray/pe/modulefiles:/opt/cray/modulefiles:/opt/modulefiles:/soft/environment/modules/modulefiles:/opt/cray/ari/modulefiles:/opt/cray/pe/ari/modulefiles
+    extra_rpaths: ['/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/lib64','/soft/compilers/intel/19.0.2.187/compilers_and_libraries_2019.2.187/linux/compiler/lib/intel64','/soft/compilers/intel/19.0.2.187/compilers_and_libraries_2019.2.187/linux/mkl/lib/intel64']
+    flags:
+      cflags: -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise  -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/gcc
+      fflags:  -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/gcc
+      cxxflags: -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gxx-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/g++
+      ldflags: -g -diag-disable=10121 -fPIC -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -shared-intel -L${MKLROOT}/lib/intel64 -lmkl_rt 
+    modules:
+    - modules/3.2.11.1
+    - cce
+    - intel/19.0.2.187
+    - PrgEnv-intel/6.0.4
+    - intel/19.0.2.187
+    operating_system: cnl6
+    paths:
+      cc: cc 
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: intel@19.0.2.187.4.9.4.6.0.4.7.7.3
+    target: any
+- compiler:
+    environment:
+      set:
+        CRAYPE_LINK_TYPE: dynamic
+        LTCFLAGS: ${SPACK_CFLAGS}
+        LTCC: ${SPACK_CC}
+        MKLROOT: /opt/intel/compilers_and_libraries_2018.2.199/linux/mkl 
+        PKG_CONFIG_PATH: /soft/perftools/darshan/darshan-3.1.5/lib/pkgconfig:/opt/cray/rca/2.2.18-6.0.6.0_19.14__g2aa4f39.ari/lib64/pkgconfig:/opt/cray/alps/6.6.1-6.0.6.1_4.1__ga6396bb.ari/lib64/pkgconfig:/opt/cray/xpmem/2.2.14-6.0.6.0_10.1__g34333c9.ari/lib64/pkgconfig:/opt/cray/gni-headers/5.0.12-6.0.6.0_3.26__g527b6e1.ari/lib64/pkgconfig:/opt/cray/dmapp/7.1.1-6.0.6.0_51.37__g5a674e0.ari/lib64/pkgconfig:/opt/cray/pe/pmi/5.0.14/lib64/pkgconfig:/opt/cray/ugni/6.0.14-6.0.6.0_18.12__g777707d.ari/lib64/pkgconfig:/opt/cray/udreg/2.3.2-6.0.6.0_15.18__g5196236.ari/lib64/pkgconfig:/opt/cray/pe/craype/2.5.15/pkg-config:/opt/cray/pe/iobuf/2.0.8/lib/pkgconfig:/opt/cray/pe/atp/2.1.3/lib/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig:/opt/cray/krca/2.2.4-6.0.6.0_8.14__g8505b97.ari/lib64/pkgconfig:/opt/cray/wlm_detect/1.3.2-6.0.6.0_3.8__g388ccd5.ari/lib64/pkgconfig
+        OLD_PKG_CONFIG_PATH: /opt/cray/wlm_detect/1.1.0-4.2/lib64/pkgconfig:/opt/cray/krca/1.0.0-3.55/lib64/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig
+        MODULEPATH: /lus/theta-fs0/software/packaging/spack/share/spack/modules/linux-sles12-x86_64:/lus/theta-fs0/software/packaging/spack/share/spack/modules/cray-CNL-mic_knl:/home/${USER}/testmodules:/opt/cray/pe/modulefiles:/opt/cray/modulefiles:/opt/modulefiles:/soft/environment/modules/modulefiles:/opt/cray/ari/modulefiles:/opt/cray/pe/ari/modulefiles
+    extra_rpaths: ['/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/lib64','/opt/intel/compilers_and_libraries_2018.2.199/linux/compiler/lib/intel64','/opt/intel/compilers_and_libraries_2018.2.199/linux/mkl/lib/intel64']
+    flags:
+      cflags: -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise  -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/gcc
+      fflags:  -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/gcc
+      cxxflags: -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gxx-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/g++
+      ldflags: -g -diag-disable=10121 -fPIC -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -shared-intel -L${MKLROOT}/lib/intel64 -lmkl_rt 
+    modules:
+    - modules/3.2.11.1
+    - cce
+    - intel/18.0.2.199
+    - PrgEnv-intel/6.0.4
+    - intel/18.0.2.199
+    operating_system: cnl6
+    paths:
+      cc: cc 
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: intel@18.0.2.199.4.9.4.6.0.4.7.7.3
+    target: any
+- compiler:
+    environment:
+      set:
+        CRAYPE_LINK_TYPE: dynamic
+        LTCFLAGS: ${SPACK_CFLAGS}
+        LTCC: ${SPACK_CC}
+        MKLROOT: /opt/intel/compilers_and_libraries_2018.2.199/linux/mkl 
+        PKG_CONFIG_PATH: /soft/perftools/darshan/darshan-3.1.5/lib/pkgconfig:/opt/cray/rca/2.2.18-6.0.6.0_19.14__g2aa4f39.ari/lib64/pkgconfig:/opt/cray/alps/6.6.1-6.0.6.1_4.1__ga6396bb.ari/lib64/pkgconfig:/opt/cray/xpmem/2.2.14-6.0.6.0_10.1__g34333c9.ari/lib64/pkgconfig:/opt/cray/gni-headers/5.0.12-6.0.6.0_3.26__g527b6e1.ari/lib64/pkgconfig:/opt/cray/dmapp/7.1.1-6.0.6.0_51.37__g5a674e0.ari/lib64/pkgconfig:/opt/cray/pe/pmi/5.0.14/lib64/pkgconfig:/opt/cray/ugni/6.0.14-6.0.6.0_18.12__g777707d.ari/lib64/pkgconfig:/opt/cray/udreg/2.3.2-6.0.6.0_15.18__g5196236.ari/lib64/pkgconfig:/opt/cray/pe/craype/2.5.15/pkg-config:/opt/cray/pe/iobuf/2.0.8/lib/pkgconfig:/opt/cray/pe/atp/2.1.3/lib/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig:/opt/cray/krca/2.2.4-6.0.6.0_8.14__g8505b97.ari/lib64/pkgconfig:/opt/cray/wlm_detect/1.3.2-6.0.6.0_3.8__g388ccd5.ari/lib64/pkgconfig
+        OLD_PKG_CONFIG_PATH: /opt/cray/wlm_detect/1.1.0-4.2/lib64/pkgconfig:/opt/cray/krca/1.0.0-3.55/lib64/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig
+        MODULEPATH: /lus/theta-fs0/software/packaging/spack/share/spack/modules/linux-sles12-x86_64:/lus/theta-fs0/software/packaging/spack/share/spack/modules/cray-CNL-mic_knl:/home/${USER}/testmodules:/opt/cray/pe/modulefiles:/opt/cray/modulefiles:/opt/modulefiles:/soft/environment/modules/modulefiles:/opt/cray/ari/modulefiles:/opt/cray/pe/ari/modulefiles
+    extra_rpaths: ['/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-5.5.0-oq6pmo3jjexynohcwvpkctoo6yrzxoum/lib64','/opt/intel/compilers_and_libraries_2018.2.199/linux/compiler/lib/intel64','/opt/intel/compilers_and_libraries_2018.2.199/linux/mkl/lib/intel64']
+    flags:
+      cflags: -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise  -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-5.5.0-oq6pmo3jjexynohcwvpkctoo6yrzxoum/bin/gcc
+      fflags:  -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-5.5.0-oq6pmo3jjexynohcwvpkctoo6yrzxoum/bin/gcc
+      cxxflags: -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gxx-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-5.5.0-oq6pmo3jjexynohcwvpkctoo6yrzxoum/bin/g++
+      ldflags: -g -diag-disable=10121 -fPIC -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -shared-intel -L${MKLROOT}/lib/intel64 -lmkl_rt 
+    modules:
+    - modules/3.2.11.1
+    - cce
+    - intel/18.0.2.199
+    - PrgEnv-intel/6.0.4
+    - intel/18.0.2.199
+    operating_system: cnl6
+    paths:
+      cc: cc 
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: intel@18.0.2.199.5.5.0.6.0.4.7.7.3
+    target: any
+- compiler:
+    environment:
+      set:
+        CRAYPE_LINK_TYPE: dynamic
+        LTCFLAGS: ${SPACK_CFLAGS}
+        LTCC: ${SPACK_CC}
+        MKLROOT: /opt/intel/compilers_and_libraries_2018.2.199/linux/mkl 
+        PKG_CONFIG_PATH: /soft/perftools/darshan/darshan-3.1.5/lib/pkgconfig:/opt/cray/rca/2.2.18-6.0.6.0_19.14__g2aa4f39.ari/lib64/pkgconfig:/opt/cray/alps/6.6.1-6.0.6.1_4.1__ga6396bb.ari/lib64/pkgconfig:/opt/cray/xpmem/2.2.14-6.0.6.0_10.1__g34333c9.ari/lib64/pkgconfig:/opt/cray/gni-headers/5.0.12-6.0.6.0_3.26__g527b6e1.ari/lib64/pkgconfig:/opt/cray/dmapp/7.1.1-6.0.6.0_51.37__g5a674e0.ari/lib64/pkgconfig:/opt/cray/pe/pmi/5.0.14/lib64/pkgconfig:/opt/cray/ugni/6.0.14-6.0.6.0_18.12__g777707d.ari/lib64/pkgconfig:/opt/cray/udreg/2.3.2-6.0.6.0_15.18__g5196236.ari/lib64/pkgconfig:/opt/cray/pe/craype/2.5.15/pkg-config:/opt/cray/pe/iobuf/2.0.8/lib/pkgconfig:/opt/cray/pe/atp/2.1.2/lib/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig:/opt/cray/krca/2.2.4-6.0.6.0_8.14__g8505b97.ari/lib64/pkgconfig:/opt/cray/wlm_detect/1.3.2-6.0.6.0_3.8__g388ccd5.ari/lib64/pkgconfig
+        OLD_PKG_CONFIG_PATH: /opt/cray/wlm_detect/1.1.0-4.2/lib64/pkgconfig:/opt/cray/krca/1.0.0-3.55/lib64/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig
+        MODULEPATH: /lus/theta-fs0/software/packaging/spack/share/spack/modules/linux-sles12-x86_64:/lus/theta-fs0/software/packaging/spack/share/spack/modules/cray-CNL-mic_knl:/home/${USER}/testmodules:/opt/cray/pe/modulefiles:/opt/cray/modulefiles:/opt/modulefiles:/soft/environment/modules/modulefiles:/opt/cray/ari/modulefiles:/opt/cray/pe/ari/modulefiles
+    extra_rpaths: ['/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/lib64','/opt/intel/compilers_and_libraries_2018.2.199/linux/compiler/lib/intel64','/opt/intel/compilers_and_libraries_2018.2.199/linux/mkl/lib/intel64']
+    flags:
+      cflags: -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise  -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/gcc
+      fflags:  -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/gcc
+      cxxflags: -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gxx-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/g++
+#      ldflags: -g -fPIC -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -shared-intel -L${MKLROOT}/lib/intel64 -lmkl_rt 
+    modules:
+    - modules/3.2.10.6
+    - binutils-2.31.1-gcc-4.9.4-h4ohv3d
+    - gcc-4.9.4-gcc-4.9.4-72li5xx
+    - intel/18.0.2.199
+    - PrgEnv-intel/6.0.4
+    - intel/18.0.2.199
+    operating_system: cnl6
+    paths:
+      cc: cc 
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: intel@18.0.2.199.4.9.4.6.0.4.7.7.2
+    target: any
+- compiler:
+    environment:
+      set:
+        CRAYPE_LINK_TYPE: dynamic
+        LTCFLAGS: ${SPACK_CFLAGS}
+        LTCC: ${SPACK_CC}
+        MKLROOT: /opt/intel/compilers_and_libraries_2018.2.199/linux/mkl 
+        PKG_CONFIG_PATH: /soft/perftools/darshan/darshan-3.1.5/lib/pkgconfig:/opt/cray/rca/2.2.15-6.0.4.1_13.1__g46acb0f.ari/lib64/pkgconfig:/opt/cray/alps/6.4.2-6.0.4.1_3.1__gb8adc61.ari/lib64/pkgconfig:/opt/cray/xpmem/2.2.2-6.0.4.1_18.2__g43b0535.ari/lib64/pkgconfig:/opt/cray/gni-headers/5.0.11-6.0.4.0_7.2__g7136988.ari/lib64/pkgconfig:/opt/cray/dmapp/7.1.1-6.0.4.0_46.2__gb8abda2.ari/lib64/pkgconfig:/opt/cray/pe/pmi/5.0.13/lib64/pkgconfig:/opt/cray/ugni/6.0.14-6.0.4.0_14.1__ge7db4a2.ari/lib64/pkgconfig:/opt/cray/udreg/2.3.2-6.0.4.0_12.2__g2f9c3ee.ari/lib64/pkgconfig:/opt/cray/pe/craype/2.5.13/pkg-config:/opt/cray/pe/iobuf/2.0.8/lib/pkgconfig:/opt/cray/pe/atp/2.1.1/lib/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig:/opt/cray/krca/2.2.2-6.0.4.1_18.3__g4614cf3.ari/lib64/pkgconfig:/opt/cray/wlm_detect/1.2.1-6.0.4.0_22.1__gd26a3dc.ari/lib64/pkgconfig
+        OLD_PKG_CONFIG_PATH: /opt/cray/wlm_detect/1.1.0-4.2/lib64/pkgconfig:/opt/cray/krca/1.0.0-3.55/lib64/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig
+        MODULEPATH: /lus/theta-fs0/software/packaging/spack/share/spack/modules/linux-sles12-x86_64:/lus/theta-fs0/software/packaging/spack/share/spack/modules/cray-CNL-mic_knl:/home/${USER}/testmodules:/opt/cray/pe/modulefiles:/opt/cray/modulefiles:/opt/modulefiles:/soft/environment/modules/modulefiles:/opt/cray/ari/modulefiles:/opt/cray/pe/ari/modulefiles
+    extra_rpaths: ['/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/lib64','/opt/intel/compilers_and_libraries_2018.2.199/linux/compiler/lib/intel64','/opt/intel/compilers_and_libraries_2018.2.199/linux/mkl/lib/intel64']
+    flags:
+      cflags: -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise  -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/gcc
+      fflags:  -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/gcc
+      cxxflags: -g -diag-disable=10121 -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gxx-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/g++
+      ldflags: -g -fPIC -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -shared-intel -L${MKLROOT}/lib/intel64 -lmkl_rt 
+    modules:
+    - modules/3.2.10.6
+    - binutils-2.31.1-gcc-4.9.4-h4ohv3d
+    - gcc-4.9.4-gcc-4.9.4-72li5xx
+    - intel/18.0.2.199
+    - PrgEnv-intel/6.0.4
+    - intel/18.0.2.199
+    operating_system: cnl6
+    paths:
+      cc: cc 
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: intel@18.0.2.199.4.9.4.6.0.4.7.7.0
+    target: any
+- compiler:
+    environment:
+      set:
+        CRAYPE_LINK_TYPE: dynamic
+        LTCFLAGS: ${SPACK_CFLAGS}
+        LTCC: ${SPACK_CC}
+        MKLROOT: /opt/intel/compilers_and_libraries_2018.2.199/linux/mkl 
+        PKG_CONFIG_PATH: /soft/perftools/darshan/darshan-3.1.5/lib/pkgconfig:/opt/cray/rca/2.2.15-6.0.4.1_13.1__g46acb0f.ari/lib64/pkgconfig:/opt/cray/alps/6.4.2-6.0.4.1_3.1__gb8adc61.ari/lib64/pkgconfig:/opt/cray/xpmem/2.2.2-6.0.4.1_18.2__g43b0535.ari/lib64/pkgconfig:/opt/cray/gni-headers/5.0.11-6.0.4.0_7.2__g7136988.ari/lib64/pkgconfig:/opt/cray/dmapp/7.1.1-6.0.4.0_46.2__gb8abda2.ari/lib64/pkgconfig:/opt/cray/pe/pmi/5.0.13/lib64/pkgconfig:/opt/cray/ugni/6.0.14-6.0.4.0_14.1__ge7db4a2.ari/lib64/pkgconfig:/opt/cray/udreg/2.3.2-6.0.4.0_12.2__g2f9c3ee.ari/lib64/pkgconfig:/opt/cray/pe/craype/2.5.13/pkg-config:/opt/cray/pe/iobuf/2.0.8/lib/pkgconfig:/opt/cray/pe/atp/2.1.1/lib/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig:/opt/cray/krca/2.2.2-6.0.4.1_18.3__g4614cf3.ari/lib64/pkgconfig:/opt/cray/wlm_detect/1.2.1-6.0.4.0_22.1__gd26a3dc.ari/lib64/pkgconfig
+        OLD_PKG_CONFIG_PATH: /opt/cray/wlm_detect/1.1.0-4.2/lib64/pkgconfig:/opt/cray/krca/1.0.0-3.55/lib64/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig
+        MODULEPATH: /lus/theta-fs0/software/packaging/spack/share/spack/modules/linux-sles12-x86_64:/lus/theta-fs0/software/packaging/spack/share/spack/modules/cray-CNL-mic_knl:/home/${USER}/testmodules:/opt/cray/pe/modulefiles:/opt/cray/modulefiles:/opt/modulefiles:/soft/environment/modules/modulefiles:/opt/cray/ari/modulefiles:/opt/cray/pe/ari/modulefiles
+    extra_rpaths: ['/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/lib64','/opt/intel/compilers_and_libraries_2018.2.199/linux/compiler/lib/intel64','/opt/intel/compilers_and_libraries_2018.2.199/linux/mkl/lib/intel64']
+    flags:
+      cflags: -g -fprotect-parens -fPIC -fp-model:source -fp-model:precise  -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/gcc
+      fflags:  -g -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/gcc
+      cxxflags: -g -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gxx-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/g++
+      ldflags: -g -fPIC -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -shared-intel -L${MKLROOT}/lib/intel64 -lmkl_rt 
+    modules:
+    - modules/3.2.10.6
+    - cce
+    - intel/18.0.2.199
+    - PrgEnv-intel/6.0.4
+    - intel/18.0.2.199
+    operating_system: CNL
+    paths:
+      cc: cc 
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: intel@18.0.2.199.4.9.4.6.0.4.7.7.0
+    target: any
+- compiler:
+    environment:
+      set:
+        CRAYPE_LINK_TYPE: dynamic
+        LTCFLAGS: ${SPACK_CFLAGS}
+        LTCC: ${SPACK_CC}
+        MKLROOT: /opt/intel/compilers_and_libraries_2018.2.199/linux/mkl 
+        PKG_CONFIG_PATH: /soft/perftools/darshan/darshan-3.1.5/lib/pkgconfig:/opt/cray/rca/2.2.15-6.0.4.1_13.1__g46acb0f.ari/lib64/pkgconfig:/opt/cray/alps/6.4.2-6.0.4.1_3.1__gb8adc61.ari/lib64/pkgconfig:/opt/cray/xpmem/2.2.2-6.0.4.1_18.2__g43b0535.ari/lib64/pkgconfig:/opt/cray/gni-headers/5.0.11-6.0.4.0_7.2__g7136988.ari/lib64/pkgconfig:/opt/cray/dmapp/7.1.1-6.0.4.0_46.2__gb8abda2.ari/lib64/pkgconfig:/opt/cray/pe/pmi/5.0.13/lib64/pkgconfig:/opt/cray/ugni/6.0.14-6.0.4.0_14.1__ge7db4a2.ari/lib64/pkgconfig:/opt/cray/udreg/2.3.2-6.0.4.0_12.2__g2f9c3ee.ari/lib64/pkgconfig:/opt/cray/pe/craype/2.5.13/pkg-config:/opt/cray/pe/iobuf/2.0.8/lib/pkgconfig:/opt/cray/pe/atp/2.1.1/lib/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig:/opt/cray/krca/2.2.2-6.0.4.1_18.3__g4614cf3.ari/lib64/pkgconfig:/opt/cray/wlm_detect/1.2.1-6.0.4.0_22.1__gd26a3dc.ari/lib64/pkgconfig
+        OLD_PKG_CONFIG_PATH: /opt/cray/wlm_detect/1.1.0-4.2/lib64/pkgconfig:/opt/cray/krca/1.0.0-3.55/lib64/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig
+        MODULEPATH: /lus/theta-fs0/software/packaging/spack/share/spack/modules/linux-sles12-x86_64:/lus/theta-fs0/software/packaging/spack/share/spack/modules/cray-CNL-mic_knl:/home/${USER}/testmodules:/opt/cray/pe/modulefiles:/opt/cray/modulefiles:/opt/modulefiles:/soft/environment/modules/modulefiles:/opt/cray/ari/modulefiles:/opt/cray/pe/ari/modulefiles
+    extra_rpaths: ['/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-5.5.0-oq6pmo3jjexynohcwvpkctoo6yrzxoum/lib64','/opt/intel/compilers_and_libraries_2018.2.199/linux/compiler/lib/intel64','/opt/intel/compilers_and_libraries_2018.2.199/linux/mkl/lib/intel64']
+    flags:
+      cflags: -g -fprotect-parens -fPIC -fp-model:source -fp-model:precise  -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-5.5.0-oq6pmo3jjexynohcwvpkctoo6yrzxoum/bin/gcc
+      fflags:  -g -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-5.5.0-oq6pmo3jjexynohcwvpkctoo6yrzxoum/bin/gcc
+      cxxflags: -g -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -gxx-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-5.5.0-oq6pmo3jjexynohcwvpkctoo6yrzxoum/bin/g++
+      ldflags: -g -fPIC -xCORE-AVX2 -mtune=knl -axMIC-AVX512 -shared-intel -L${MKLROOT}/lib/intel64 -lmkl_rt 
+    modules:
+    - modules/3.2.10.6
+    - cce
+    - intel/18.0.2.199
+    - PrgEnv-intel/6.0.4
+    - intel/18.0.2.199
+    operating_system: CNL
+    paths:
+      cc: cc 
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: intel@18.0.2.199.5.5.0.6.0.4.7.7.0
+    target: any
+- compiler:
+    environment:
+      set:
+        CRAYPE_LINK_TYPE: dynamic
+        LTCFLAGS: ${SPACK_CFLAGS}
+        LTCC: ${SPACK_CC}
+        MKLROOT: /opt/intel/compilers_and_libraries_2018.0.128/linux/mkl 
+        PKG_CONFIG_PATH: /soft/perftools/darshan/darshan-3.1.5/lib/pkgconfig:/opt/cray/rca/2.2.15-6.0.4.1_13.1__g46acb0f.ari/lib64/pkgconfig:/opt/cray/alps/6.4.2-6.0.4.1_3.1__gb8adc61.ari/lib64/pkgconfig:/opt/cray/xpmem/2.2.2-6.0.4.1_18.2__g43b0535.ari/lib64/pkgconfig:/opt/cray/gni-headers/5.0.11-6.0.4.0_7.2__g7136988.ari/lib64/pkgconfig:/opt/cray/dmapp/7.1.1-6.0.4.0_46.2__gb8abda2.ari/lib64/pkgconfig:/opt/cray/pe/pmi/5.0.13/lib64/pkgconfig:/opt/cray/ugni/6.0.14-6.0.4.0_14.1__ge7db4a2.ari/lib64/pkgconfig:/opt/cray/udreg/2.3.2-6.0.4.0_12.2__g2f9c3ee.ari/lib64/pkgconfig:/opt/cray/pe/craype/2.5.13/pkg-config:/opt/cray/pe/iobuf/2.0.8/lib/pkgconfig:/opt/cray/pe/atp/2.1.1/lib/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig:/opt/cray/krca/2.2.2-6.0.4.1_18.3__g4614cf3.ari/lib64/pkgconfig:/opt/cray/wlm_detect/1.2.1-6.0.4.0_22.1__gd26a3dc.ari/lib64/pkgconfig
+        OLD_PKG_CONFIG_PATH: /opt/cray/wlm_detect/1.1.0-4.2/lib64/pkgconfig:/opt/cray/krca/1.0.0-3.55/lib64/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig
+        MODULEPATH: /lus/theta-fs0/software/packaging/spack/share/spack/modules/linux-sles12-x86_64:/lus/theta-fs0/software/packaging/spack/share/spack/modules/cray-CNL-mic_knl:/home/${USER}/testmodules:/opt/cray/pe/modulefiles:/opt/cray/modulefiles:/opt/modulefiles:/soft/environment/modules/modulefiles:/opt/cray/ari/modulefiles:/opt/cray/pe/ari/modulefiles
+    extra_rpaths: ['/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/lib64','/opt/intel/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64','/opt/intel/compilers_and_libraries_2018.0.128/linux/mkl/lib/intel64']
+    flags:
+      cflags: -g -fprotect-parens -fPIC -fp-model:source -fp-model:precise  -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/gcc
+      fflags:  -g -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/gcc
+      cxxflags: -g -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -axMIC-AVX512 -gxx-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/g++
+      ldflags: -g -fPIC -xCORE-AVX2 -axMIC-AVX512 -shared-intel -L${MKLROOT}/lib/intel64 -lmkl_rt 
+    modules:
+    - modules/3.2.10.6
+    - cce
+    - intel/18.0.0.128
+    - PrgEnv-intel/6.0.4
+    - intel/18.0.0.128
+    operating_system: cnl6
+    paths:
+      cc: cc 
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: intel@18.0.0.128.4.9.4.6.0.4.7.7.0
+    target: any
+- compiler:
+    environment:
+      set:
+        CRAYPE_LINK_TYPE: dynamic
+        LTCFLAGS: ${SPACK_CFLAGS}
+        LTCC: ${SPACK_CC}
+        MKLROOT: /opt/intel/compilers_and_libraries_2018.0.128/linux/mkl 
+        PKG_CONFIG_PATH: /soft/perftools/darshan/darshan-3.1.5/lib/pkgconfig:/opt/cray/rca/2.2.15-6.0.4.1_13.1__g46acb0f.ari/lib64/pkgconfig:/opt/cray/alps/6.4.2-6.0.4.1_3.1__gb8adc61.ari/lib64/pkgconfig:/opt/cray/xpmem/2.2.2-6.0.4.1_18.2__g43b0535.ari/lib64/pkgconfig:/opt/cray/gni-headers/5.0.11-6.0.4.0_7.2__g7136988.ari/lib64/pkgconfig:/opt/cray/dmapp/7.1.1-6.0.4.0_46.2__gb8abda2.ari/lib64/pkgconfig:/opt/cray/pe/pmi/5.0.13/lib64/pkgconfig:/opt/cray/ugni/6.0.14-6.0.4.0_14.1__ge7db4a2.ari/lib64/pkgconfig:/opt/cray/udreg/2.3.2-6.0.4.0_12.2__g2f9c3ee.ari/lib64/pkgconfig:/opt/cray/pe/craype/2.5.13/pkg-config:/opt/cray/pe/iobuf/2.0.8/lib/pkgconfig:/opt/cray/pe/atp/2.1.1/lib/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig:/opt/cray/krca/2.2.2-6.0.4.1_18.3__g4614cf3.ari/lib64/pkgconfig:/opt/cray/wlm_detect/1.2.1-6.0.4.0_22.1__gd26a3dc.ari/lib64/pkgconfig
+        OLD_PKG_CONFIG_PATH: /opt/cray/wlm_detect/1.1.0-4.2/lib64/pkgconfig:/opt/cray/krca/1.0.0-3.55/lib64/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig
+        MODULEPATH: /lus/theta-fs0/software/packaging/spack/share/spack/modules/linux-sles12-x86_64:/lus/theta-fs0/software/packaging/spack/share/spack/modules/cray-CNL-mic_knl:/home/${USER}/testmodules:/opt/cray/pe/modulefiles:/opt/cray/modulefiles:/opt/modulefiles:/soft/environment/modules/modulefiles:/opt/cray/ari/modulefiles:/opt/cray/pe/ari/modulefiles
+    extra_rpaths: ['/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/lib64','/opt/intel/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64','/opt/intel/compilers_and_libraries_2018.0.128/linux/mkl/lib/intel64']
+    flags:
+      cflags: -g -fprotect-parens -fPIC -fp-model:source -fp-model:precise  -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/gcc
+      fflags:  -g -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/gcc
+      cxxflags: -g -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -axMIC-AVX512 -gxx-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-4.9.4-72li5xx5d7lyhsc7dxuwtxorkzahukl6/bin/g++
+      ldflags: -g -fPIC -xCORE-AVX2 -axMIC-AVX512 -shared-intel -L${MKLROOT}/lib/intel64 -lmkl_rt 
+    modules:
+    - modules/3.2.10.6
+    - cce
+    - intel/18.0.0.128
+    - PrgEnv-intel/6.0.4
+    - intel/18.0.0.128
+    operating_system: CNL
+    paths:
+      cc: cc 
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: intel@18.0.0.128.4.9.4.6.0.4.7.7.0
+    target: any
+- compiler:
+    environment:
+      set:
+        CRAYPE_LINK_TYPE: dynamic
+        LTCFLAGS: ${SPACK_CFLAGS}
+        LTCC: ${SPACK_CC}
+        MKLROOT: /opt/intel/compilers_and_libraries_2018.0.128/linux/mkl 
+        PKG_CONFIG_PATH: /soft/perftools/darshan/darshan-3.1.5/lib/pkgconfig:/opt/cray/rca/2.2.15-6.0.4.1_13.1__g46acb0f.ari/lib64/pkgconfig:/opt/cray/alps/6.4.2-6.0.4.1_3.1__gb8adc61.ari/lib64/pkgconfig:/opt/cray/xpmem/2.2.2-6.0.4.1_18.2__g43b0535.ari/lib64/pkgconfig:/opt/cray/gni-headers/5.0.11-6.0.4.0_7.2__g7136988.ari/lib64/pkgconfig:/opt/cray/dmapp/7.1.1-6.0.4.0_46.2__gb8abda2.ari/lib64/pkgconfig:/opt/cray/pe/pmi/5.0.13/lib64/pkgconfig:/opt/cray/ugni/6.0.14-6.0.4.0_14.1__ge7db4a2.ari/lib64/pkgconfig:/opt/cray/udreg/2.3.2-6.0.4.0_12.2__g2f9c3ee.ari/lib64/pkgconfig:/opt/cray/pe/craype/2.5.13/pkg-config:/opt/cray/pe/iobuf/2.0.8/lib/pkgconfig:/opt/cray/pe/atp/2.1.1/lib/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig:/opt/cray/krca/2.2.2-6.0.4.1_18.3__g4614cf3.ari/lib64/pkgconfig:/opt/cray/wlm_detect/1.2.1-6.0.4.0_22.1__gd26a3dc.ari/lib64/pkgconfig
+        OLD_PKG_CONFIG_PATH: /opt/cray/wlm_detect/1.1.0-4.2/lib64/pkgconfig:/opt/cray/krca/1.0.0-3.55/lib64/pkgconfig:/opt/cray-hss-devel/8.0.0/lib/pkgconfig
+        MODULEPATH: /lus/theta-fs0/software/packaging/spack/share/spack/modules/linux-sles12-x86_64:/lus/theta-fs0/software/packaging/spack/share/spack/modules/cray-CNL-mic_knl:/home/${USER}/testmodules:/opt/cray/pe/modulefiles:/opt/cray/modulefiles:/opt/modulefiles:/soft/environment/modules/modulefiles:/opt/cray/ari/modulefiles:/opt/cray/pe/ari/modulefiles
+    extra_rpaths: ['/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-5.5.0-oq6pmo3jjexynohcwvpkctoo6yrzxoum/lib64','/opt/intel/compilers_and_libraries_2018.0.128/linux/compiler/lib/intel64','/opt/intel/compilers_and_libraries_2018.0.128/linux/mkl/lib/intel64']
+    flags:
+      cflags: -g -fprotect-parens -fPIC -fp-model:source -fp-model:precise  -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-5.5.0-oq6pmo3jjexynohcwvpkctoo6yrzxoum/bin/gcc
+      fflags:  -g -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -axMIC-AVX512 -gcc-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-5.5.0-oq6pmo3jjexynohcwvpkctoo6yrzxoum/bin/gcc
+      cxxflags: -g -fprotect-parens -fPIC -fp-model:source -fp-model:precise -shared-intel -I${MKLROOT}/include -xCORE-AVX2 -axMIC-AVX512 -gxx-name=/soft/packaging/spack/builds/linux-sles12-x86_64/gcc-4.9.4/gcc-5.5.0-oq6pmo3jjexynohcwvpkctoo6yrzxoum/bin/g++
+      ldflags: -g -fPIC -xCORE-AVX2 -axMIC-AVX512 -shared-intel -L${MKLROOT}/lib/intel64 -lmkl_rt 
+    modules:
+    - modules/3.2.10.6
+    - cce
+    - intel/18.0.0.128
+    - PrgEnv-intel/6.0.4
+    - intel/18.0.0.128
+    operating_system: CNL
+    paths:
+      cc: cc 
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: intel@18.0.0.128.5.5.0.6.0.4.7.7.0
+    target: any
+

@@ -1,0 +1,51 @@
+#%Module2.0
+#
+# Module spack
+# installed by Frank Willmore, Mar 2019
+# willmore@anl.gov
+#
+# needs additional work to enforce what modules are loaded on compute vs service
+
+#prereq cce
+#conflict craype-mic-knl
+
+# get the root from environment
+# set SPACK_ROOT $::env(SPACK_ROOT) 
+
+# use the template to get the value here
+set SPACK_ROOT SPACK_ROOT_GOES_HERE
+
+# set the value outside the module
+setenv SPACK_ROOT $SPACK_ROOT
+
+# need to unload craype-mic-knl in order to use cce with spack, because otherwise the module system generates
+# errors, which spack then tries to interpret as python 
+if { [ module-info mode load ] } { 
+  # Newer spack needs a working python3 installation
+  module load intelpython36
+  module load cce
+  module unload craype-mic-knl
+  puts stderr "\n"
+  puts stderr "For better command line support, copy and paste the folowing,\n which will source the spack setup script:\n"
+  #puts stderr ". /soft/spack/spack-dev/share/spack/setup-env.sh \n\n"
+  puts stderr ". $SPACK_ROOT/share/spack/setup-env.sh \n\n"
+  # puts stderr "If using spack to install to system area, make sure to set umask 0002 "
+  # puts stderr "so that group write access is available to the software Linux group. \n"
+}
+
+if { [ module-info mode remove ] } { 
+  module unload cce
+  module load craype-mic-knl
+  module unload intelpython36
+}
+
+#set PREFIX /soft/spack/spack-dev/share/spack/modules/cray-cnl6-mic_knl
+set PREFIX $SPACK_ROOT/share/spack/modules/cray-cnl6-mic_knl
+prepend-path MODULEPATH $PREFIX
+
+#set PREFIX /soft/spack/spack-dev/share/spack/modules/linux-sles12-x86_64
+set PREFIX $SPACK_ROOT/share/spack/modules/linux-sles12-x86_64
+prepend-path MODULEPATH $PREFIX
+
+prepend-path PATH $SPACK_ROOT/bin 
+
