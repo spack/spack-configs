@@ -1,0 +1,39 @@
+spack:
+  specs:
+  - bc
+  - bison
+  - bzip2
+  - cmake
+  - cppcheck
+  - curl
+  - flex
+  - flex@2.5.39
+  - emacs
+  - git
+  - gdb
+  - gnuplot+wx ^llvm@8.0.0 ~cuda cuda_arch=none
+  - gnutls
+  - htop
+  - imagemagick ^llvm@8.0.0 ~cuda cuda_arch=none
+  - libxml2
+  - likwid
+  - ninja
+  - makedepend
+  - patch
+  - pkg-config
+  - python
+  - python@2.7.18
+  - rsync
+  - screen
+  - stow
+  - strace
+  - texinfo
+  - texlive ^llvm@8.0.0 ~cuda cuda_arch=none
+  - tmux
+  - unzip
+  - vim
+  - wget
+  - zsh
+  #- global
+  #- xterm
+  view: false

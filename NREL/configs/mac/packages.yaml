@@ -1,0 +1,18 @@
+packages:
+  #cmake:
+  #  paths:
+  #    cmake@3.17.3: /usr/local/Cellar/cmake/3.17.3
+  #  buildable: False
+  #pkg-config:
+  #  paths:
+  #    pkg-config@0.29.2: /usr/local/Cellar/pkg-config/0.29.2
+  #  buildable: False
+  #python:
+  #  paths:
+  #    python@2.7.16: /usr
+  #  buildable: False
+  all:
+    providers:
+      mpi: [openmpi]
+      blas: [netlib-lapack]
+      lapack: [netlib-lapack]

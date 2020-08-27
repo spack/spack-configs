@@ -1,0 +1,38 @@
+diff -ruN spack-src/buildlib/rdma_man.cmake spack-src2/buildlib/rdma_man.cmake
+--- spack-src/buildlib/rdma_man.cmake	2020-06-11 00:14:19.000000000 -0600
++++ spack-src2/buildlib/rdma_man.cmake	2020-07-31 16:25:45.000000000 -0600
+@@ -37,9 +37,9 @@
+     rdma_man_get_prebuilt(${SRC} OBJ)
+   endif()
+ 
+-  install(FILES "${OBJ}"
+-    RENAME "${MANFN}"
+-    DESTINATION "${CMAKE_INSTALL_MANDIR}/man${MAN_SECT}/")
++  #install(FILES "${OBJ}"
++  #  RENAME "${MANFN}"
++  #  DESTINATION "${CMAKE_INSTALL_MANDIR}/man${MAN_SECT}/")
+ endfunction()
+ 
+ function(rdma_rst_man_page SRC MAN_SECT MANFN)
+@@ -59,9 +59,9 @@
+     rdma_man_get_prebuilt(${SRC} OBJ)
+   endif()
+ 
+-  install(FILES "${OBJ}"
+-    RENAME "${MANFN}"
+-    DESTINATION "${CMAKE_INSTALL_MANDIR}/man${MAN_SECT}/")
++  #install(FILES "${OBJ}"
++  #  RENAME "${MANFN}"
++  #  DESTINATION "${CMAKE_INSTALL_MANDIR}/man${MAN_SECT}/")
+ endfunction()
+ 
+ # Install man pages. This deduces the section from the trailing integer in the
+@@ -97,7 +97,7 @@
+ 	RENAME "${BASE_NAME}")
+     else()
+       string(REGEX REPLACE "^.+[.](.+)$" "\\1" MAN_SECT "${I}")
+-      install(FILES "${I}" DESTINATION "${CMAKE_INSTALL_MANDIR}/man${MAN_SECT}/")
++      #install(FILES "${I}" DESTINATION "${CMAKE_INSTALL_MANDIR}/man${MAN_SECT}/")
+     endif()
+   endforeach()
+ endfunction()

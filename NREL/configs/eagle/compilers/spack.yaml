@@ -1,0 +1,24 @@
+spack:
+  specs:
+    - binutils 
+    - cuda@11.0.2
+    - cuda@10.2.89
+    - cuda@10.1.243
+    - cuda@10.0.130
+    - cuda@9.2.88
+    - gcc@10.1.0
+    - gcc@9.3.0
+    - gcc@8.4.0
+    - gcc@7.5.0
+    - gcc@6.5.0
+    - gcc@5.5.0
+    - gcc@4.9.4
+    - go@1.14.4
+    - llvm@10.0.0
+    - llvm@9.0.1 ~cuda cuda_arch=none
+    - llvm@8.0.0 ~cuda cuda_arch=none
+    - intel-parallel-studio@cluster.2020.2
+    - intel-parallel-studio@cluster.2019.5
+    - intel-parallel-studio@cluster.2018.4
+    - pgi@19.10
+  view: False

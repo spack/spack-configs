@@ -1,0 +1,15 @@
+modules:
+  enable:
+    - tcl
+  tcl:
+    projections:
+      all: '{compiler.name}-{compiler.version}/{name}/{version}/{hash:4}'
+    hash_length: 0
+    all:
+      conflict:
+        - '{name}'
+      environment:
+        set:
+          '{name}_ROOT_DIR': '{prefix}'
+    #^python:
+    #  autoload: 'direct'

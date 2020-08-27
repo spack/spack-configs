@@ -1,0 +1,23 @@
+modules:
+  enable:
+    - tcl
+  tcl:
+    projections:
+      all: '{compiler.name}-{compiler.version}/{name}/{version}/{hash:4}'
+    hash_length: 0
+    all:
+      conflict:
+        - '{name}'
+      environment:
+        set:
+          '{name}_ROOT_DIR': '{prefix}'
+    intel-parallel-studio:
+      environment:
+        set:
+          INTEL_LICENSE_FILE: '28519@license-1.hpc.nrel.gov'
+    pgi:
+      environment:
+        set:
+          PGROUPD_LICENSE_FILE: '27001@license-1.hpc.nrel.gov'
+    whitelist: ['cuda', 'gcc', 'go', 'llvm', 'intel-parallel-studio', 'binutils', 'pgi']
+    blacklist: ['%gcc']

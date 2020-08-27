@@ -1,0 +1,19 @@
+spack:
+  specs:
+    - binutils 
+    - gcc@10.1.0
+    - gcc@9.3.0
+    - gcc@8.4.0
+    - gcc@7.5.0
+    - gcc@6.5.0
+    - gcc@5.5.0
+    - gcc@4.9.4
+    - go@1.14.4
+    - llvm@10.0.0
+    - llvm@9.0.1
+    - llvm@8.0.0
+    - intel-parallel-studio@cluster.2020.2~advisor~inspector~vtune
+    - intel-parallel-studio@cluster.2019.5
+    - intel-parallel-studio@cluster.2018.4
+    - pgi@19.10
+  view: False

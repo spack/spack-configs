@@ -1,0 +1,48 @@
+packages:
+  mesa:
+    variants: +opengl +glx swr=skx
+  llvm:
+    variants: +omp_debug+omp_tsan+cuda cuda_arch=70 build_type=Release
+  slurm:
+    paths:
+      slurm@19.05.2: /nopt/slurm/current
+    buildable: False
+  hwloc:
+    variants: +cuda
+  cuda:
+    version: [10.1.243]
+  cudnn:
+    version: [7.6.5.32-10.1-linux-x64]
+  openmpi:
+    variants: +pmi +cuda fabrics=verbs schedulers=slurm legacylaunchers=true ~vt
+  mpich:
+    variants: netmod=ucx device=ch4 +slurm +hydra
+  py-horovod:
+    variants: tensor_ops=mpi frameworks=pytorch,tensorflow
+  py-tensorflow:
+    variants: +cuda cuda_arch=70 +mpi +nccl
+  py-torch:
+    variants: +cuda cuda_arch=70 +cudnn +nccl
+  fftw:
+    variants: +mpi+fma simd=avx512
+  libfabric:
+    variants: fabrics=verbs
+  pgi:
+    variants: +nvidia
+  ucx:
+    variants: +optimizations+gdrcopy
+    version: [1.8.1]
+  mpt:
+    version: [2.22]
+    paths:
+      mpt@2.22: /opt/hpe/hpc/mpt/mpt-2.22
+    buildable: False
+  all:
+    compiler: [gcc@8.4.0, intel@18.0.4, clang@10.0.0]
+    variants: build_type=Release +mpi
+    providers:
+      mpi: [mpt, intel-mpi]
+      blas: [netlib-lapack, intel-mkl]
+      lapack: [netlib-lapack, intel-mkl]
+      gl: [osmesa+opengl]
+      glx: [osmesa+glx]

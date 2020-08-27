@@ -1,0 +1,5 @@
+spack:
+  specs:
+    - gcc@8.4.0
+    - environment-modules
+  view: False
