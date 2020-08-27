@@ -1,0 +1,5 @@
+upstreams:
+  spack-utilities:
+    install_tree: /opt/utilities/2020-07/spack/opt/spack
+  spack-compilers:
+    install_tree: /opt/compilers/2020-07/spack/opt/spack

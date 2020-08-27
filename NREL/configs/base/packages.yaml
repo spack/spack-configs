@@ -1,0 +1,84 @@
+packages:
+  ascent:
+    variants: +python
+  binutils:
+    version: [2.34]
+  boost:
+    version: [1.68.0]
+  catalyst:
+    variants: +osmesa~python+python3+essentials+extras+rendering
+  cmake:
+    version: [3.17.3]
+  emacs:
+    variants: +tls
+  fftw:
+    variants: +fma
+  gcc:
+    variants: languages=c,c++,fortran,go
+  hdf5:
+    version: [1.10.4]
+    variants: +cxx+hl
+  hypre:
+    version: [2.18.2]
+    variants: +int64~superlu-dist
+  intel-parallel-studio:
+    variants: +advisor+inspector+itac+mkl+vtune
+  intel-mpi:
+    version: [2018.4.274]
+  intel-mkl:
+    version: [2018.4.274]
+  libxml2:
+    version: [2.9.8]
+  llvm:
+    variants: +omp_debug+omp_tsan+python build_type=Release
+  nalu-wind:
+    variants: +openfast+tioga+hypre+fftw build_type=Release
+  netcdf-c:
+    version: [4.7.3]
+    variants: +parallel-netcdf maxdims=65536 maxvars=524288
+  openfast:
+    version: [develop]
+    variants: +cxx build_type=Release
+  openmpi:
+    version: [4.0.4]
+  paraview:
+    variants: +hdf5+python3~python+osmesa build_type=Release
+  python:
+    version: [3.7.7]
+  py-yt:
+    variants: ~astropy
+  py-numpy:
+    version: [1.18.5]
+  mpich:
+    version: [3.3.2]
+  parallel-netcdf:
+    version: [1.12.1]
+  netlib-lapack:
+    version: [3.8.0]
+  sensei:
+    variants: +catalyst+hdf5+python build_type=Release
+  superlu:
+    version: [4.3]
+  texlive:
+    variants: scheme=full
+  tioga:
+    version: [develop]
+  trilinos:
+    version: [develop]
+    variants: ~python~complex+explicit_template_instantiation~float~fortran~openmp~xsdkflags+boost~cgns+exodus+gtest+hdf5~hypre~metis~mumps+pnetcdf~suite-sparse~superlu-dist+superlu~x11+zlib~alloptpkgs~amesos+amesos2~anasazi~aztec+belos~epetra~epetraext~ifpack+ifpack2~intrepid~intrepid2~isorropia+kokkos~ml~minitensor+muelu~nox~piro~phalanx~rol~rythmos~sacado~shylu+stk+shards~teko~tempus+teuchos+tpetra+zoltan+zoltan2~dtk~fortrilinos build_type=Release
+  visit:
+    variants: ~gui+hdf5+python+silo+adios2
+  vim:
+    variants: +python+huge+cscope
+  zsh:
+    version: [5.7.1]
+  all:
+    compiler: [apple-clang, gcc@8.4.0, intel@18.0.4, clang]
+    variants: build_type=Release +mpi
+    providers:
+      mpi: [openmpi, intel-mpi]
+      blas: [netlib-lapack, intel-mkl]
+      lapack: [netlib-lapack, intel-mkl]
+      gl: [osmesa+opengl]
+      glx: [osmesa+glx]
+

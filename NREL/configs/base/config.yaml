@@ -1,0 +1,29 @@
+config:
+  install_tree: $spack/opt/spack
+  template_dirs:
+    - $spack/share/spack/templates
+  install_path_scheme: "${ARCHITECTURE}/${COMPILERNAME}-${COMPILERVER}/${PACKAGE}-${VERSION}-${HASH}"
+  module_roots:
+    tcl:    $spack/share/spack/modules
+    lmod:   $spack/share/spack/lmod
+  #build_stage:
+    #- /scratch/$user/.spack/stage
+    #- $spack/var/spack/stage
+    #- $tempdir/$user/spack-stage
+    #- ~/.spack/stage
+  source_cache: ~/.spack/downloads
+  misc_cache: ~/.spack/cache
+  connect_timeout: 10
+  verify_ssl: true
+  suppress_gpg_warnings: false
+  install_missing_compilers: False
+  checksum: true
+  dirty: false
+  build_language: C
+  locks: true
+  build_jobs: 16
+  ccache: false
+  db_lock_timeout: 3
+  package_lock_timeout: null
+  shared_linking: 'rpath'
+  allow_sgid: true

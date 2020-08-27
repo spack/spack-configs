@@ -1,0 +1,218 @@
+compilers:
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    modules: []
+    operating_system: centos7
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /usr/bin/gfortran
+      fc: /usr/bin/gfortran
+    spec: gcc@4.8.5
+    target: x86_64
+- compiler:
+    extra_rpaths:
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-4.9.4-h5l33keuh7q4gmbqnmprly6y6l3qzom4/lib64
+    modules: []
+    operating_system: centos7
+    paths:
+      cc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-4.9.4-h5l33keuh7q4gmbqnmprly6y6l3qzom4/bin/gcc
+      cxx: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-4.9.4-h5l33keuh7q4gmbqnmprly6y6l3qzom4/bin/g++
+      f77: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-4.9.4-h5l33keuh7q4gmbqnmprly6y6l3qzom4/bin/gfortran
+      fc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-4.9.4-h5l33keuh7q4gmbqnmprly6y6l3qzom4/bin/gfortran
+    spec: gcc@4.9.4
+    target: x86_64
+- compiler:
+    extra_rpaths:
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-5.5.0-mjwqargc722xu5h3khrti5x4sg5zd627/lib64
+    modules: []
+    operating_system: centos7
+    paths:
+      cc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-5.5.0-mjwqargc722xu5h3khrti5x4sg5zd627/bin/gcc
+      cxx: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-5.5.0-mjwqargc722xu5h3khrti5x4sg5zd627/bin/g++
+      f77: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-5.5.0-mjwqargc722xu5h3khrti5x4sg5zd627/bin/gfortran
+      fc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-5.5.0-mjwqargc722xu5h3khrti5x4sg5zd627/bin/gfortran
+    spec: gcc@5.5.0
+    target: x86_64
+- compiler:
+    extra_rpaths:
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-6.5.0-4suzn3n4bcnvgauc3ld2itrqqvmhfkmi/lib64
+    modules: []
+    operating_system: centos7
+    paths:
+      cc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-6.5.0-4suzn3n4bcnvgauc3ld2itrqqvmhfkmi/bin/gcc
+      cxx: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-6.5.0-4suzn3n4bcnvgauc3ld2itrqqvmhfkmi/bin/g++
+      f77: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-6.5.0-4suzn3n4bcnvgauc3ld2itrqqvmhfkmi/bin/gfortran
+      fc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-6.5.0-4suzn3n4bcnvgauc3ld2itrqqvmhfkmi/bin/gfortran
+    spec: gcc@6.5.0
+    target: x86_64
+- compiler:
+    extra_rpaths:
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-7.5.0-jrfxr7ebhyh4xhq37zaqsc7mzsxs7ggt/lib64
+    modules: []
+    operating_system: centos7
+    paths:
+      cc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-7.5.0-jrfxr7ebhyh4xhq37zaqsc7mzsxs7ggt/bin/gcc
+      cxx: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-7.5.0-jrfxr7ebhyh4xhq37zaqsc7mzsxs7ggt/bin/g++
+      f77: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-7.5.0-jrfxr7ebhyh4xhq37zaqsc7mzsxs7ggt/bin/gfortran
+      fc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-7.5.0-jrfxr7ebhyh4xhq37zaqsc7mzsxs7ggt/bin/gfortran
+    spec: gcc@7.5.0
+    target: x86_64
+- compiler:
+    extra_rpaths:
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-8.4.0-26fck7zymxe7v7a7bpybuzqnq43klean/lib64
+    modules: []
+    operating_system: centos7
+    paths:
+      cc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-8.4.0-26fck7zymxe7v7a7bpybuzqnq43klean/bin/gcc
+      cxx: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-8.4.0-26fck7zymxe7v7a7bpybuzqnq43klean/bin/g++
+      f77: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-8.4.0-26fck7zymxe7v7a7bpybuzqnq43klean/bin/gfortran
+      fc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-8.4.0-26fck7zymxe7v7a7bpybuzqnq43klean/bin/gfortran
+    spec: gcc@8.4.0
+    target: x86_64
+- compiler:
+    extra_rpaths:
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-9.3.0-x5jehyzpwqee2ywu7scqcagjyz3nyim3/lib64
+    modules: []
+    operating_system: centos7
+    paths:
+      cc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-9.3.0-x5jehyzpwqee2ywu7scqcagjyz3nyim3/bin/gcc
+      cxx: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-9.3.0-x5jehyzpwqee2ywu7scqcagjyz3nyim3/bin/g++
+      f77: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-9.3.0-x5jehyzpwqee2ywu7scqcagjyz3nyim3/bin/gfortran
+      fc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-9.3.0-x5jehyzpwqee2ywu7scqcagjyz3nyim3/bin/gfortran
+    spec: gcc@9.3.0
+    target: x86_64
+- compiler:
+    extra_rpaths:
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-10.1.0-ij6an7jl2g5y3tsvkdhwgazppoeenjxf/lib64
+    modules: []
+    operating_system: centos7
+    paths:
+      cc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-10.1.0-ij6an7jl2g5y3tsvkdhwgazppoeenjxf/bin/gcc
+      cxx: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-10.1.0-ij6an7jl2g5y3tsvkdhwgazppoeenjxf/bin/g++
+      f77: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-10.1.0-ij6an7jl2g5y3tsvkdhwgazppoeenjxf/bin/gfortran
+      fc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-10.1.0-ij6an7jl2g5y3tsvkdhwgazppoeenjxf/bin/gfortran
+    spec: gcc@10.1.0
+    target: x86_64
+- compiler:
+    environment:
+      set:
+        INTEL_LICENSE_FILE: 28519@license-1.hpc.nrel.gov
+    extra_rpaths:
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/intel-parallel-studio-cluster.2018.4-cykqqjzavipzalujhly6qtlgigoyvitb/compilers_and_libraries/linux/lib/intel64
+     #- /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-8.4.0-26fck7zymxe7v7a7bpybuzqnq43klean/lib64
+    #flags:
+    #  cflags: -O2 -xCORE-AVX2
+    #  cxxflags: -O2 -xCORE-AVX2
+    #  fflags: -O2 -xCORE-AVX2
+    modules: []
+    operating_system: centos7
+    paths:
+      cc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/intel-parallel-studio-cluster.2018.4-cykqqjzavipzalujhly6qtlgigoyvitb/compilers_and_libraries/linux/bin/intel64/icc
+      cxx: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/intel-parallel-studio-cluster.2018.4-cykqqjzavipzalujhly6qtlgigoyvitb/compilers_and_libraries/linux/bin/intel64/icpc
+      f77: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/intel-parallel-studio-cluster.2018.4-cykqqjzavipzalujhly6qtlgigoyvitb/compilers_and_libraries/linux/bin/intel64/ifort
+      fc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/intel-parallel-studio-cluster.2018.4-cykqqjzavipzalujhly6qtlgigoyvitb/compilers_and_libraries/linux/bin/intel64/ifort
+    spec: intel@18.0.4
+    target: x86_64
+- compiler:
+    environment:
+      set:
+        INTEL_LICENSE_FILE: 28519@license-1.hpc.nrel.gov
+    extra_rpaths:
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/intel-parallel-studio-cluster.2019.5-37mctejur3kz27ewdthhqdy65jpvkku7/compilers_and_libraries/linux/lib/intel64
+     #- /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-8.4.0-26fck7zymxe7v7a7bpybuzqnq43klean/lib64
+    #flags:
+    #  cflags: -O2 -xCORE-AVX2
+    #  cxxflags: -O2 -xCORE-AVX2
+    #  fflags: -O2 -xCORE-AVX2
+    modules: []
+    operating_system: centos7
+    paths:
+      cc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/intel-parallel-studio-cluster.2019.5-37mctejur3kz27ewdthhqdy65jpvkku7/compilers_and_libraries/linux/bin/intel64/icc
+      cxx: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/intel-parallel-studio-cluster.2019.5-37mctejur3kz27ewdthhqdy65jpvkku7/compilers_and_libraries/linux/bin/intel64/icpc
+      f77: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/intel-parallel-studio-cluster.2019.5-37mctejur3kz27ewdthhqdy65jpvkku7/compilers_and_libraries/linux/bin/intel64/ifort
+      fc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/intel-parallel-studio-cluster.2019.5-37mctejur3kz27ewdthhqdy65jpvkku7/compilers_and_libraries/linux/bin/intel64/ifort
+    spec: intel@19.0.5
+    target: x86_64
+- compiler:
+    environment:
+      set:
+        INTEL_LICENSE_FILE: 28519@license-1.hpc.nrel.gov
+    extra_rpaths:
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/intel-parallel-studio-cluster.2020.2-wehyqthdi6kpopfitwktzcy6vqikyc2c/compilers_and_libraries/linux/lib/intel64
+     #- /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-8.4.0-26fck7zymxe7v7a7bpybuzqnq43klean/lib64
+    #flags:
+    #  cflags: -O2 -xCORE-AVX2
+    #  cxxflags: -O2 -xCORE-AVX2
+    #  fflags: -O2 -xCORE-AVX2
+    modules: []
+    operating_system: centos7
+    paths:
+      cc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/intel-parallel-studio-cluster.2020.2-wehyqthdi6kpopfitwktzcy6vqikyc2c/compilers_and_libraries/linux/bin/intel64/icc
+      cxx: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/intel-parallel-studio-cluster.2020.2-wehyqthdi6kpopfitwktzcy6vqikyc2c/compilers_and_libraries/linux/bin/intel64/icpc
+      f77: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/intel-parallel-studio-cluster.2020.2-wehyqthdi6kpopfitwktzcy6vqikyc2c/compilers_and_libraries/linux/bin/intel64/ifort
+      fc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/intel-parallel-studio-cluster.2020.2-wehyqthdi6kpopfitwktzcy6vqikyc2c/compilers_and_libraries/linux/bin/intel64/ifort
+    spec: intel@20.0.2
+    target: x86_64
+- compiler:
+    extra_rpaths:
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/llvm-8.0.0-zsrlldhrzzrx2jmwc7tx5pmodym25lei/lib
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/llvm-8.0.0-zsrlldhrzzrx2jmwc7tx5pmodym25lei/lib/clang/8.0.0/lib/linux
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-8.4.0-26fck7zymxe7v7a7bpybuzqnq43klean/lib64
+    modules: []
+    operating_system: centos7
+    paths:
+      cc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/llvm-8.0.0-zsrlldhrzzrx2jmwc7tx5pmodym25lei/bin/clang
+      cxx: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/llvm-8.0.0-zsrlldhrzzrx2jmwc7tx5pmodym25lei/bin/clang++
+      f77: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-8.4.0-26fck7zymxe7v7a7bpybuzqnq43klean/bin/gfortran
+      fc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-8.4.0-26fck7zymxe7v7a7bpybuzqnq43klean/bin/gfortran
+    spec: clang@8.0.0
+    target: x86_64
+- compiler:
+    extra_rpaths:
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/llvm-9.0.1-azkfqrcynex7erh44f6i4c6old2gulfu/lib
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/llvm-9.0.1-azkfqrcynex7erh44f6i4c6old2gulfu/lib/clang/9.0.1/lib/linux
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-8.4.0-26fck7zymxe7v7a7bpybuzqnq43klean/lib64
+    modules: []
+    operating_system: centos7
+    paths:
+      cc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/llvm-9.0.1-azkfqrcynex7erh44f6i4c6old2gulfu/bin/clang
+      cxx: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/llvm-9.0.1-azkfqrcynex7erh44f6i4c6old2gulfu/bin/clang++
+      f77: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-8.4.0-26fck7zymxe7v7a7bpybuzqnq43klean/bin/gfortran
+      fc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-8.4.0-26fck7zymxe7v7a7bpybuzqnq43klean/bin/gfortran
+    spec: clang@9.0.1
+    target: x86_64
+- compiler:
+    extra_rpaths:
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/llvm-10.0.0-tto53szdcqggs7juaofrutajro3tzfp3/lib
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/llvm-10.0.0-tto53szdcqggs7juaofrutajro3tzfp3/lib/clang/10.0.0/lib/linux
+     - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-8.4.0-26fck7zymxe7v7a7bpybuzqnq43klean/lib64
+    modules: []
+    operating_system: centos7
+    paths:
+      cc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/llvm-10.0.0-tto53szdcqggs7juaofrutajro3tzfp3/bin/clang
+      cxx: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/llvm-10.0.0-tto53szdcqggs7juaofrutajro3tzfp3/bin/clang++
+      f77: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-8.4.0-26fck7zymxe7v7a7bpybuzqnq43klean/bin/gfortran
+      fc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/gcc-8.4.0-26fck7zymxe7v7a7bpybuzqnq43klean/bin/gfortran
+    spec: clang@10.0.0
+    target: x86_64
+- compiler:
+    environment:
+      set:
+        PGROUPD_LICENSE_FILE: 27001@license-1.hpc.nrel.gov
+    extra_rpaths:
+      - /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/pgi-19.10-wqpxb7wr53gi7x7irghd5mguyohpmyvr/linux86-64/19.10/lib
+    flags:
+      cflags: -fast -tp=haswell -fPIC -c11
+      cxxflags: -fast -tp=haswell -fPIC
+      fflags: -fast -tp=haswell -fPIC
+    modules: []
+    operating_system: centos7
+    paths:
+      cc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/pgi-19.10-wqpxb7wr53gi7x7irghd5mguyohpmyvr/linux86-64/19.10/bin/pgcc
+      cxx: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/pgi-19.10-wqpxb7wr53gi7x7irghd5mguyohpmyvr/linux86-64/19.10/bin/pgc++
+      f77: /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/pgi-19.10-wqpxb7wr53gi7x7irghd5mguyohpmyvr/linux86-64/19.10/bin/pgfortran
+      fc:  /opt/compilers/2020-07/spack/opt/spack/linux-centos7-broadwell/gcc-8.4.0/pgi-19.10-wqpxb7wr53gi7x7irghd5mguyohpmyvr/linux86-64/19.10/bin/pgfortran
+    spec: pgi@19.10
+    target: x86_64

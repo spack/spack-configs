@@ -1,0 +1,11 @@
+packages:
+  mesa:
+    variants: +opengl +glx swr=avx2
+  fftw:
+    variants: simd=avx2
+  py-horovod:
+    variants: tensor_ops=mpi frameworks=pytorch,tensorflow
+  py-tensorflow:
+    variants: ~cuda ~nccl +mpi
+  py-torch:
+    variants: ~cuda ~cudnn ~nccl

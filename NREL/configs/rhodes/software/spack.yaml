@@ -1,0 +1,38 @@
+spack:
+  specs:
+  - osu-micro-benchmarks
+  - py-numpy
+  - py-matplotlib
+  - py-pandas
+  - py-nose
+  - py-autopep8
+  - py-flake8
+  - py-horovod
+  - py-jedi
+  - py-pip
+  - py-pyyaml
+  - py-seaborn
+  - py-sphinx
+  - py-scipy
+  - py-tensorflow
+  - py-torch
+  - py-yapf
+  - py-yt
+  - percept
+  - masa
+  - valgrind
+  - ascent
+  - nccmp
+  - netcdf-fortran
+  - sundials
+  - amrvis dims=3
+  - amrvis+profiling dims=2
+  - paraview
+  - sensei
+  - nalu-wind~catalyst
+  - intel-mkl %intel
+  - osu-micro-benchmarks %intel ^intel-mpi
+  - nalu-wind~catalyst %intel ^intel-mpi
+  - nalu-wind~catalyst %clang
+  - osu-micro-benchmarks %clang
+  view: false

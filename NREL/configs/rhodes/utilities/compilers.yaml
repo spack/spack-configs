@@ -1,0 +1,14 @@
+compilers:
+- compiler:
+    environment: {}
+    extra_rpaths:
+     - /opt/base/2020-07/spack/opt/spack/linux-centos7-haswell/gcc-4.8.5/gcc-8.4.0-4iywi2akqzf45diaq3f2vnoxnlybwdgo/lib64
+    modules: []
+    operating_system: centos7
+    paths:
+      cc: /opt/base/2020-07/spack/opt/spack/linux-centos7-haswell/gcc-4.8.5/gcc-8.4.0-4iywi2akqzf45diaq3f2vnoxnlybwdgo/bin/gcc
+      cxx: /opt/base/2020-07/spack/opt/spack/linux-centos7-haswell/gcc-4.8.5/gcc-8.4.0-4iywi2akqzf45diaq3f2vnoxnlybwdgo/bin/g++
+      f77: /opt/base/2020-07/spack/opt/spack/linux-centos7-haswell/gcc-4.8.5/gcc-8.4.0-4iywi2akqzf45diaq3f2vnoxnlybwdgo/bin/gfortran
+      fc: /opt/base/2020-07/spack/opt/spack/linux-centos7-haswell/gcc-4.8.5/gcc-8.4.0-4iywi2akqzf45diaq3f2vnoxnlybwdgo/bin/gfortran
+    spec: gcc@8.4.0
+    target: x86_64

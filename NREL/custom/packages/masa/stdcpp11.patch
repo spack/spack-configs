@@ -1,0 +1,13 @@
+diff --git a/m4/common/ax_cxx_minopt.m4 b/m4/common/ax_cxx_minopt.m4
+index 4839329..ca89371 100644
+--- a/m4/common/ax_cxx_minopt.m4
++++ b/m4/common/ax_cxx_minopt.m4
+@@ -56,7 +56,7 @@ if test "$ac_test_CXXFLAGS" != "set"; then
+ 
+   # Baseline disable
+ 
+-  CXXFLAGS="-O0"	
++  CXXFLAGS="-O0 -std=c++11"
+ 
+   # Vendor specific settings for reduced optimization or
+   # floating-point accuracy.
