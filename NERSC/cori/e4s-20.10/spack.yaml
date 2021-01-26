@@ -1,0 +1,311 @@
+spack:
+  concretization: separately
+  view: false
+  config:
+    install_tree: $spack/$padding:64
+    build_stage: $tempdir/$user/spack-stage
+    misc_cache: $spack/misc_cache
+
+  mirrors:
+    e4s-2020-10: /global/common/software/spackecp/mirrors/e4s-2020-10
+
+  definitions:
+  - e4s:   
+    - adios2@2.6.0 
+    - aml@0.1.0
+    - arborx@0.9-beta +openmp
+    - bolt@1.0
+    - caliper@2.4.0
+    - darshan-runtime@3.2.1 +slurm
+    - darshan-util@3.2.1 +bzip2 
+    - flit@2.1.0
+    - gasnet@2020.3.0 +udp
+    - ginkgo@1.2.0
+    - globalarrays@5.7 +blas +lapack +scalapack
+    - gotcha@1.0.3 +test
+    - hdf5@1.10.6 +cxx +debug +fortran +szip +threadsafe +hl
+    - hypre@2.20.0 +mixedint
+    - kokkos-kernels@3.2.00 +mkl +openmp
+    - kokkos@3.2.00 +debug +debug_dualview_modify_check +compiler_warnings +examples +hwloc +memkind +numactl +openmp +pic +tests
+    - libnrm@0.1.0
+    - libquo@1.3.1
+    - mercury@1.0.1 +udreg
+    - mfem@4.1.0 +examples +gnutls +gslib +lapack +libunwind +openmp +threadsafe +pumi +umpire  
+    - ninja@1.10.1
+    - openpmd-api@0.12.0
+    - papi@6.0.0.1 +example +static_tools
+    - parallel-netcdf@1.12.1
+    - pdt@3.25.1 +pic
+    - petsc@3.14.0    
+    - pumi@2.2.2 +fortran
+    - py-libensemble@0.7.0 +mpi +nlopt +scipy
+    - py-petsc4py@3.13.0
+    - qthreads@1.14 ~hwloc
+    - raja@0.12.1
+    - slepc@3.14.0 
+    - stc@0.8.3 
+    - sundials@5.4.0 +examples-cxx +examples-f2003 ~examples-f77 +f2003 +klu +openmp +hypre +lapack 
+    - superlu@5.2.1
+    - superlu-dist@6.3.1
+    - swig@4.0.2
+    - sz@2.1.10 +fortran +hdf5 +python +time_compression +random_access +netcdf +pastri
+    - tasmanian@7.3 +blas +fortran +mpi +python +xsdkflags 
+    - turbine@1.2.3 +hdf5 +python
+    - umap@2.1.0 +tests
+    - umpire@4.0.1 +fortran +numa +openmp
+    - upcxx@2020.3.0
+    - veloc@1.4
+    - zfp@0.5.5
+
+    
+  # - adios@1.13.1 +netcdf +szip +fortran +bzip2  module already installed
+  # - ascent@develop skipping package because its on develop
+  # - axom@0.3.3 skip build for now, spack ci rebuild issue
+  # issue with concretization of dyninst:  "%intel" conflicts with "dyninst" see https://software.nersc.gov/ecp/nersc-e4s/-/jobs/46526
+  # - dyninst@10.2.1 +static
+  # - faodel@1.1906.1 network=libfabric issue with build https://software.nersc.gov/NERSC/nersc-e4s/-/jobs/60284
+  # flesci concretization issue: https://github.com/spack/spack/issues/19292
+  # - flecsi@1 +cinch +coverage +doc +doxygen +graphviz +hdf5 +tutorial
+  # - hpctoolkit@2020.08.03 +all-static +cray +mpi  # depends on dyninst
+  # - hpx@1.5.1 issue with installing boost
+  # - legion@20.03.0 failed to build se https://software.nersc.gov/ecp/e4s/facilitypipelines/nersc-e4s/-/jobs/59787
+  # - magma@2.5.3 this package requires GPU, this is not applicable for Cori
+  # - mpifileutils@0.10.1 +gpfs +lustre # fails on libcircle requires MPICC wrapper see https://software.nersc.gov/ecp/e4s/facilitypipelines/nersc-e4s/-/jobs/57907 we could install OpenMPI and build this with the wrapper.
+  #- openmpi            # skip openmpi 
+  # - omega-h@9.29.0
+  # - papi@6.0.0.1 +example +static_tools   module already installed  
+  # - phist@1.9.1 see https://software.nersc.gov/NERSC/nersc-e4s/-/jobs/63409
+  # concretization issue "%intel" conflicts with "plasma" see https://software.nersc.gov/ecp/nersc-e4s/-/jobs/46533
+  # - plasma@20.9.20
+  # - precice@2.1.0 issue finding PETSC
+  # - py-jupyterhub@1.0.0
+  # error building rempi https://software.nersc.gov/ecp/nersc-e4s/-/jobs/32884
+  # - rempi@1.1.0
+  # - scr@2.0.0  # async_api=CRAY_DW issue finding DATAWARP libraries -- Could NOT find DATAWARP (missing: DATAWARP_LIBRARIES DATAWARP_INCLUDE_DIRS) see https://software.nersc.gov/ecp/e4s/facilitypipelines/nersc-e4s/-/jobs/59782
+  # - slate@develop package tied to develop skipping this build
+  # - strumpack@4.0.0 +shared ~butterflypack ~cuda +count_flops +build_dev_tests +build_tests 
+  # error building otf2, we can disable tau with otf2 support 
+  # - tau@2.29 +craycnl +openmp +mpi
+  # - trilinos@13.0.0 +debug +float +openmp +pnetcdf +zlib
+  # - unifyfs@0.9.0 +hdf5. can't find MPICC see https://software.nersc.gov/NERSC/nersc-e4s/-/jobs/63408
+  
+  
+  - arch:
+    - '%intel@19.1.2.254 arch=cray-cnl7-haswell'
+  specs:
+  - matrix:
+    - - $e4s
+    - - $arch
+
+  compilers:
+  - compiler:
+      spec: intel@19.1.2.254
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: cnl7
+      target: any
+      modules:
+      - PrgEnv-intel
+      - intel/19.1.2.254
+      environment: {unset: []}
+      extra_rpaths: []
+
+
+  packages:
+    all:
+      compiler: [intel@19.1.2.254]
+      target: [haswell]
+      providers:
+        mpi: [mpich]
+        mkl: [intel-mkl, cray-libsci]
+        blas: [intel-mkl, cray-libsci]
+        scalapack: [intel-mkl, cray-libsci]
+        pkgconfig: [pkg-config]
+            
+    berkeley-db:
+      version: [18.1.4]
+
+    boost:
+      version: [1.74.0]   
+
+    bzip2:
+      buildable: false
+      externals:
+      - spec: bzip2
+        prefix: /usr
+
+    cmake:
+      version: [3.16.5]  # issue with cmake 3.17.3 using 3.16.5 for now see https://github.com/spack/spack/issues/17605  
+
+    cray-libsci:
+      buildable: false
+      externals:
+      - spec: cray-libsci@19.06.1%intel
+        modules:
+        - cray-libsci/19.06.1
+    
+    diffutils:
+      version: [3.7]
+    
+    elfutils:
+      version: [0.180]
+    
+    expat:
+      version: [2.2.9]
+
+    fftw:
+      buildable: false
+      externals:
+      - spec: fftw@3.3.8.4%intel
+        modules: 
+          - cray-fftw/3.3.8.4
+    
+    gdbm:
+      version: [1.18.1]
+    
+    gettext:
+      buildable: false      
+      externals:
+      - spec: gettext
+        prefix: /usr
+    
+    help2man:
+      version: [1.47.11]
+
+    hwloc:
+      buildable: false
+      externals:
+      - spec: hwloc
+        prefix: /usr 
+    
+    hypre:
+      version: [2.20.0]
+
+    intel-mkl:
+      buildable: false
+      externals:
+      - spec: intel-mkl@19.1.2.254
+        modules:
+          - intel/19.1.2.254    
+    
+    libbsd:
+      version: [0.10.0]
+
+    libiconv:
+      version: [1.16]
+    
+    libsigsegv:
+      version: [2.12]
+
+    libxml2:
+      version: [2.9.10]  
+
+    lz4:
+      buildable: false
+      externals:
+      - spec: lz4
+        prefix: /usr
+
+    m4:
+      buildable: false
+      externals:
+      - spec: m4
+        prefix: /usr  
+
+    mpi:
+      buildable: false
+
+    mpich:
+      buildable: false
+      externals:
+      - spec: mpich@3.1
+        modules:
+        - cray-mpich/7.7.10 
+
+    openssl:
+      buildable: false
+      externals:
+      - spec: openssl@1.1.1g
+        prefix: /usr 
+     
+    ncurses:
+      version: [6.2]  
+
+    netcdf:
+      buildable: false
+      externals:
+      - spec: netcdf@4.6.3.2%intel
+        modules: 
+          - cray-netcdf/4.6.3.2
+       
+    perl:
+      buildable: false
+      externals:
+      - spec: perl
+        prefix: /usr 
+
+    petsc:
+      version: [3.14.0]
+
+    pdsh: # required for scr 
+      buildable: false
+      externals:
+      - spec: pdsh
+        prefix: /usr    
+        
+    pkgconf:
+      version: [1.7.3]
+    
+    sqlite:
+      version: [3.31.1]
+        
+    tar:
+      buildable: false
+      externals:
+      - spec: tar
+        prefix: /usr
+
+    xz:
+      buildable: false
+      externals:
+      - spec: xz
+        prefix: /usr
+
+    zlib:
+      version: [1.2.11]
+
+  gitlab-ci:
+    mappings:
+    - match: [os=cnl7]
+      runner-attributes:
+        tags:
+        - cori
+        script:
+          - export SPACK_GNUPGHOME=~/.gnugpghome-spack/
+          - hostname
+          - . setclonepath.sh
+          - git clone ${SPACK_REPOSITORY}  ${SPACK_CLONE_PATH}
+          - cd ${SPACK_CLONE_PATH}  && git reset ${COMMIT_SHA} --hard && cd ${CI_PROJECT_DIR}            
+          - . ${SPACK_CLONE_PATH}/share/spack/setup-env.sh 
+          - echo $SPACK_ROOT         
+          - rm -rf ~/.spack/mirrors.yaml
+          - spack compiler find
+          - spack compiler list          
+          - spack env create e4s spack.yaml
+          - spack env activate e4s
+          - spack env st
+          - spack ci rebuild
+          - rm -rf ${SPACK_CLONE_PATH}
+
+    enable-artifacts-buildcache: false
+  
+  cdash:
+    build-group: DOE nightly E4S builds 
+    url: https://cdash.spack.io
+    project: Spack
+    site: NERSC - Cori E4S 20.10
+
