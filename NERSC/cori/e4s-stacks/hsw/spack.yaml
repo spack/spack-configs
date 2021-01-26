@@ -1,0 +1,108 @@
+# -------- CORI HSW NODE INSTALLATIONS ---------- #
+# It describes a set of packages to be installed, along with
+# configuration settings.
+#
+spack:
+  include:
+  - ../spack-configs
+  specs:
+  - cmake@3.14.4%gcc arch=cray-cnl7-haswell
+  - gsl@2.5%gcc arch=cray-cnl7-haswell
+  - gsl%intel
+  - gsl%cce
+  - adios%gcc+bzip2+fortran+hdf5 arch=cray-cnl7-haswell
+  - adios%intel+bzip2+fortran+hdf5 arch=cray-cnl7-haswell
+  - adios2@2.4.0%gcc+python ^py-numpy@1.16.4
+  - adios2@2.4.0%intel+python ^py-numpy@1.16.4
+  - emacs@25.3%gcc arch=cray-cnl7-haswell
+  - nco@4.7.9%gcc+doc arch=cray-cnl7-haswell
+  - nco@4.7.9%intel+doc arch=cray-cnl7-haswell
+  - bowtie2@2.0.2
+  - picard@2.7.1%gcc arch=cray-cnl7-haswell
+  - blast-plus%gcc+static
+  - blat@35%gcc
+  - bwa@0.7.12%gcc
+  - samtools@1.9%gcc
+  - samtools@1.9%intel
+  - samtools@1.3.1%gcc
+  - samtools@1.3.1%intel
+  - samtools@1.2%gcc
+  - hmmer@3.1b2%gcc+gsl~mpi
+  - cfitsio%intel
+  - cfitsio%gcc
+  - boost%gcc+clanglibcpp cxxstd=98 +date_time+icu+mpi+numpy+pic+python^python@3.5.0
+  - fftw%gcc+openmp arch=cray-cnl7-haswell
+  - fftw%intel+openmp arch=cray-cnl7-haswell
+  - geos%gcc+python arch=cray-cnl7-haswell
+  - geos%intel+python arch=cray-cnl7-haswell
+  - glog%gcc arch=cray-cnl7-haswell
+  - krb5%intel
+  - krb5%gcc
+  - leveldb%gcc
+  - leveldb%intel
+  - maven%gcc
+  - memkind%gcc
+  - memkind%intel
+  - metis%gcc
+  - metis%intel
+  - metis%gcc+int64+real64
+  - metis%intel+int64+real64
+  - otf2%intel
+  - otf2%gcc
+  - pcre%gcc
+  - pcre%intel
+  - protobuf%gcc
+  - qhull@2015.2%gcc arch=cray-cnl7-haswell
+  - scons%gcc
+  - scons%intel
+  - scorep%gcc
+  - scorep%intel
+  - swig%gcc
+  - swig%intel
+  - subversion%intel
+  - subversion%gcc
+  - hdf%gcc+szip
+  - doxygen%gcc+graphviz
+  - eigen%gcc+fftw+metis+mpfr+scotch+suitesparse
+  - eigen%intel+fftw+metis+mpfr+scotch+suitesparse
+  - amrex%gcc+amrdata+eb+fortran+openmp+particles+sundials
+  - amrex%intel+amrdata+eb+fortran+openmp+particles+sundials
+  - zlib
+  - libpciaccess
+  - hwloc
+  - hwloc~shared
+  - opari2%gcc arch=cray-cnl7-haswell
+  - mrnet@5.0.1-3%gcc arch=cray-cnl7-haswell
+  - slatec%gcc arch=cray-cnl7-haswell
+  - slatec%intel arch=cray-cnl7-haswell
+  - slatec%cce arch=cray-cnl7-haswell
+  - parallel
+  - parmetis%intel arch=cray-cnl7-haswell
+  - metis%intel arch=cray-cnl7-haswell
+  - numactl%intel
+  - numactl%gcc
+  - grib-api@1.24.0%gcc arch=cray-cnl7-haswell
+  - cubelib@4.4.4%intel arch=cray-cnl7-haswell
+  - parmetis@4.0.3%gcc arch=cray-cnl7-haswell
+  - hypre@2.15.1~debug~int64~internal-superlu+mpi~shared~superlu-dist
+  - xerces-c@3.2.2%intel@19.0.3.199 cxxstd=default transcoder=gnuiconv arch=cray-cnl7-haswell
+  - otf2%gcc arch=cray-cnl7-haswell
+  - petsc
+  - petsc~shared
+  - petsc+complex
+  - petsc+complex~shared
+  - petsc+complex+int64~shared
+  - petsc+int64~shared
+  - eccodes%gcc arch=cray-cnl7-haswell
+  - parmetis%intel+shared arch=cray-cnl7-haswell
+  - parmetis%gcc~shared arch=cray-cnl7-haswell
+  - qbox+mkl+static
+  - qbox+mkl+openmp+static
+  view: false
+  mirrors: {}
+  modules:
+    enable: []
+  repos: []
+  packages: {}
+  config: {}
+  upstreams: {}

@@ -1,0 +1,20 @@
+# -------- CORI KNL NODE INSTALLATIONS ---------- #
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  include:
+  - ../spack-configs
+  specs:
+  - qhull@2015.2%gcc arch=cray-cnl7-mic_knl
+  - hwloc arch=cray-None-mic_knl
+  - hwloc~shared arch=cray-None-mic_knl
+  - qbox+mkl+openmp+static arch=cray-None-mic_knl
+  - qbox+mkl+static arch=cray-None-mic_knl
+  view: false
+  mirrors: {}
+  modules:
+    enable: []
+  repos: []
+  packages: {}
+  config: {}
+  upstreams: {}

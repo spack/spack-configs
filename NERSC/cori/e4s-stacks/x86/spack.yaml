@@ -1,0 +1,101 @@
+# -------- FRONTEND X86_64 INSTALLATIONS ---------- #
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  include:
+  - ../spack-configs
+  specs:
+  - git%gcc arch=cray-sles15-x86_64
+  - git-lfs%gcc arch=cray-sles15-x86_64
+  - go%gcc arch=cray-sles15-x86_64
+  - libdwarf%gcc arch=cray-sles15-x86_64
+  - libelf%gcc arch=cray-sles15-x86_64
+  - libtool%gcc arch=cray-sles15-x86_64
+  - libunwind%gcc arch=cray-sles15-x86_64
+  - libxml2%gcc arch=cray-sles15-x86_64
+  - pigz%gcc arch=cray-sles15-x86_64
+  - bzip2%gcc arch=cray-sles15-x86_64
+  - cmake%gcc arch=cray-sles15-x86_64
+  - ffmpeg%gcc+aom+x264 arch=cray-sles15-x86_64
+  - ffmpeg%intel+aom+x264 arch=cray-sles15-x86_64
+  - gmp%gcc arch=cray-sles15-x86_64
+  - go-bootstrap%gcc arch=cray-sles15-x86_64
+  - gobject-introspection%gcc arch=cray-sles15-x86_64
+  - mercurial%gcc arch=cray-sles15-x86_64
+  - nano%gcc arch=cray-sles15-x86_64
+  - perl@5.26.2%gcc arch=cray-sles15-x86_64
+  - libpng%gcc arch=cray-sles15-x86_64
+  - subversion%gcc+perl arch=cray-sles15-x86_64
+  - libszip%gcc arch=cray-sles15-x86_64
+  - tcl%gcc arch=cray-sles15-x86_64
+  - cairo%gcc arch=cray-sles15-x86_64
+  - openjpeg%gcc arch=cray-sles15-x86_64
+  - zsh%gcc arch=cray-sles15-x86_64
+  - libjpeg%gcc arch=cray-sles15-x86_64
+  - sbt%gcc arch=cray-sles15-x86_64
+  - texlive%gcc scheme=full arch=cray-sles15-x86_64
+  - texinfo%gcc arch=cray-sles15-x86_64
+  - curl%gcc+gssapi+libssh2+nghttp2 arch=cray-sles15-x86_64
+  - gnuplot%gcc+X+qt+wx arch=cray-sles15-x86_64 ^python@3.7.3
+  - vim%gcc+cscope+huge+lua+perl+python+ruby+x arch=cray-sles15-x86_64
+  - elfutils%gcc+bzip2+xz arch=cray-sles15-x86_64
+  - libffi%gcc arch=cray-sles15-x86_64
+  - tree%gcc arch=cray-sles15-x86_64
+  - allinea-forge@19.1.1-Suse-15.0-x86_64%gcc arch=cray-sles15-x86_64
+  - allinea-forge@19.1-Suse-15.0-x86_64%gcc arch=cray-sles15-x86_64
+  - allinea-reports@19.1.1-Suse-15.0-x86_64%gcc arch=cray-sles15-x86_64
+  - allinea-reports@19.1-Suse-15.0-x86_64%gcc arch=cray-sles15-x86_64
+  - libbsd%gcc arch=cray-sles15-x86_64
+  - expat%gcc arch=cray-sles15-x86_64
+  - ncurses%gcc arch=cray-sles15-x86_64
+  - readline%gcc arch=cray-sles15-x86_64
+  - gdbm%gcc arch=cray-sles15-x86_64
+  - openssl%gcc arch=cray-sles15-x86_64
+  - sqlite%gcc arch=cray-sles15-x86_64
+  - gdb@8.3%gcc~python arch=cray-sles15-x86_64
+  - dyninst%gcc arch=cray-sles15-x86_64
+  - libiconv%gcc arch=cray-sles15-x86_64
+  - tar%gcc arch=cray-sles15-x86_64
+  - gettext%gcc arch=cray-sles15-x86_64
+  - elfutils%gcc arch=cray-sles15-x86_64
+  - intel-tbb%gcc arch=cray-sles15-x86_64
+  - libiberty%gcc arch=cray-sles15-x86_64
+  - tmux%gcc arch=cray-sles15-x86_64
+  - jq%gcc arch=cray-sles15-x86_64
+  - htop@2.2.0%gcc arch=cray-sles15-x86_64
+  - pcre@8.43%gcc arch=cray-sles15-x86_64
+  - pcre2@10.32%gcc arch=cray-sles15-x86_64
+  - pcre2@10.33%gcc arch=cray-sles15-x86_64
+  - zfp@0.5.5%gcc arch=cray-sles15-x86_64
+  - openspeedshop%gcc arch=cray-sles15-x86_64
+  - dyninst%gcc build_type=RelWithDebInfo +openmp~stat_dysect~static arch=cray-sles15-x86_64
+  - pixman@0.38.4%gcc arch=cray-sles15-x86_64
+  - pdt%gcc arch=cray-sles15-x86_64
+  - emacs%gcc+X+tls arch=cray-sles15-x86_64 ^python@3.7.3
+  - libxslt@1.1.33%gcc arch=cray-sles15-x86_64
+  - libgpg-error%gcc arch=cray-sles15-x86_64
+  - libgcrypt%gcc arch=cray-sles15-x86_64
+  - pkg-config%gcc arch=cray-sles15-x86_64
+  - xz%gcc arch=cray-sles15-x86_64
+  - zlib%gcc arch=cray-sles15-x86_64
+  - git-lfs@2.8.0%gcc arch=cray-sles15-x86_64
+  - ffmpeg%intel@19.0.3.199+aom arch=cray-sles15-x86_64
+  - cubelib@4.4.4%gcc arch=cray-sles15-x86_64
+  - cubew@4.4.3%gcc arch=cray-sles15-x86_64
+  - otf2@2.2%gcc arch=cray-sles15-x86_64
+  - opari2@2.0.5%gcc arch=cray-sles15-x86_64
+  - metis%gcc+shared arch=cray-sles15-x86_64
+  - wxwidgets%gcc arch=cray-sles15-x86_64 ^python@3.7.3
+  - openjdk@1.8.0_202-b08%gcc arch=cray-sles15-x86_64
+  - openjdk@11.0.1%gcc arch=cray-sles15-x86_64
+  - graphviz%gcc arch=cray-sles15-x86_64
+  - graphviz@2.40.1%gcc arch=cray-sles15-x86_64
+  view: false
+  mirrors: {}
+  modules:
+    enable: []
+  repos: []
+  packages: {}
+  config: {}
+  upstreams: {}
+  definitions: []

@@ -1,0 +1,80 @@
+# NERSC config used as of 04/03/2019
+packages:
+    all:
+        compiler: [intel@19.0.3.199, gcc@8.2.0]
+        providers:
+            mpi: [mpich, openmpi]
+            mkl: [intel-mkl, cray-libsci]
+            blas: [intel-mkl, cray-libsci]
+            scalapack: [intel-mkl, cray-libsci]
+            pkgconfig: [pkg-config]
+        permissions:
+            read: world
+            write: group
+            group: nstaff
+    mpich:
+        buildable: false
+        modules:
+            mpich@3.1%intel: cray-mpich/7.7.6
+            mpich@3.1%gcc: cray-mpich/7.7.6
+            mpich@3.1%cce: cray-mpich/7.7.6
+    intel-mkl:
+        paths:
+            intel-mkl@19.0.3.199%intel: /opt/intel/compilers_and_libraries_2019.3.199/linux/mkl
+    cray-libsci:
+        modules:
+            cray-libsci@19.02.1%intel: cray-libsci/19.02.1
+            cray-libsci@19.02.1%gcc: cray-libsci/19.02.1
+            cray-libsci@19.02.1%cce: cray-libsci/19.02.1
+    netcdf:
+        modules:
+            netcdf@4.6.1.3%intel: cray-netcdf/4.6.1.3
+            netcdf@4.6.1.3%gcc: cray-netcdf/4.6.1.3
+            netcdf@4.6.1.3%cce: cray-netcdf/4.6.1.3
+    parallel-netcdf:
+        modules:
+            parallel-netcdf@1.8.1.4%intel: cray-parallel-netcdf/1.8.1.4
+            parallel-netcdf@1.8.1.4%gcc: cray-parallel-netcdf/1.8.1.4
+            parallel-netcdf@1.8.1.4%cce: cray-parallel-netcdf/1.8.1.4
+    hdf5:
+        modules:
+            hdf5@1.10.2.0+shared+fortran%intel+hl: cray-hdf5/1.10.2.0
+            hdf5@1.10.2.0+shared+fortran%gcc+hl: cray-hdf5/1.10.2.0
+            hdf5@1.10.2.0+shared+fortran%cce+hl: cray-hdf5/1.10.2.0
+            hdf5@1.10.2.0~shared+fortran%intel+hl: cray-hdf5/1.10.2.0
+            hdf5@1.10.2.0~shared+fortran%gcc+hl: cray-hdf5/1.10.2.0
+            hdf5@1.10.2.0~shared+fortran%cce+hl: cray-hdf5/1.10.2.0
+            hdf5@1.10.2.0+shared~fortran%intel+hl: cray-hdf5/1.10.2.0
+            hdf5@1.10.2.0+shared~fortran%gcc+hl: cray-hdf5/1.10.2.0
+            hdf5@1.10.2.0+shared~fortran%cce+hl: cray-hdf5/1.10.2.0
+            hdf5@1.10.2.0~shared~fortran%intel+hl: cray-hdf5/1.10.2.0
+            hdf5@1.10.2.0~shared~fortran%gcc+hl: cray-hdf5/1.10.2.0
+            hdf5@1.10.2.0~shared~fortran%cce+hl: cray-hdf5/1.10.2.0
+    fftw:
+        modules:
+            fftw@3.3.8.2%intel: cray-fftw/3.3.8.2
+            fftw@3.3.8.2%gcc: cray-fftw/3.3.8.2
+            fftw@3.3.8.2%cce: cray-fftw/3.3.8.2
+    trilinos:
+        modules:
+            trilinos@12.12.1.1%intel: cray-trilinos/12.12.1.1
+            trilinos@12.12.1.1%gcc: cray-trilinos/12.12.1.1
+            trilinos@12.12.1.1%cce: cray-trilinos/12.12.1.1
+    cmake:
+        modules:
+            cmake@3.14.4%intel: cmake/3.14.4
+            cmake@3.14.4%gcc: cmake/3.14.4
+            cmake@3.14.4%cce: cmake/3.14.4
+    papi:
+        modules:
+            papi@5.7.0: papi/5.7.0.1
+            papi: papi
+    m4:
+        version: [1.4.18]
+        paths:
+            m4: /usr
+    perl:
+      paths:
+        perl: /usr
+    bzip2:
+      version: [1.0.6]

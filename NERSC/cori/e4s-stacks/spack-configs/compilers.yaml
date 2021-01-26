@@ -1,0 +1,255 @@
+compilers:
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - PrgEnv-intel
+    - intel/18.0.1.163
+    operating_system: cnl7
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: intel@18.0.1.163
+    target: haswell
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - PrgEnv-intel
+    - intel/18.0.3.222
+    operating_system: cnl7
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: intel@18.0.3.222
+    target: haswell
+- compiler:
+    environment: {}
+    extra_rpaths:
+    - /opt/intel/compilers_and_libraries_2019.3.199/linux/compiler/lib/intel64
+    flags: {}
+    modules:
+    - PrgEnv-intel
+    - intel/19.0.3.199
+    operating_system: cnl7
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: intel@19.0.3.199
+    target: haswell
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags:
+        cflags: -march=core-avx2 -axMIC-AVX512
+        cxxflags: -march=core-avx2 -axMIC-AVX512
+        fflags: -march=core-avx2 -axMIC-AVX512
+        ldflags: -march=core-avx2 -axMIC-AVX512
+    modules:
+    - PrgEnv-intel
+    - intel/18.0.1.163
+    operating_system: cnl7
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: intel@18.0.1.163
+    target: mic_knl
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags:
+        cflags: -march=core-avx2 -axMIC-AVX512
+        cxxflags: -march=core-avx2 -axMIC-AVX512
+        fflags: -march=core-avx2 -axMIC-AVX512
+        ldflags: -march=core-avx2 -axMIC-AVX512
+    modules:
+    - PrgEnv-intel
+    - intel/18.0.3.222
+    operating_system: cnl7
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: intel@18.0.3.222
+    target: mic_knl
+- compiler:
+    environment: {}
+    extra_rpaths:
+    - /opt/intel/compilers_and_libraries_2019.3.199/linux/compiler/lib/intel64
+    flags:
+        cflags: -march=core-avx2 -axMIC-AVX512
+        cxxflags: -march=core-avx2 -axMIC-AVX512
+        fflags: -march=core-avx2 -axMIC-AVX512
+        ldflags: -march=core-avx2 -axMIC-AVX512
+    modules:
+    - PrgEnv-intel
+    - intel/19.0.3.199
+    operating_system: cnl7
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: intel@19.0.3.199
+    target: mic_knl
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules: []
+    operating_system: sles15
+    paths:
+      cc: !!python/unicode '/usr/bin/gcc-7'
+      cxx: !!python/unicode '/usr/bin/g++-7'
+      f77: null
+      fc: null
+    spec: gcc@7.4.1
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - PrgEnv-cray
+    - cce/8.7.9
+    operating_system: cnl7
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: cce@8.7.9
+    target: any
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - PrgEnv-cray
+    - cce/9.0.0
+    - cdt/19.06
+    operating_system: cnl7
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: cce@9.0.0
+    target: any
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - PrgEnv-gnu
+    - gcc/6.1.0
+    operating_system: cnl7
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: gcc@6.1.0
+    target: any
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - PrgEnv-gnu
+    - gcc/8.1.0
+    operating_system: cnl7
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: gcc@8.1.0
+    target: any
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - PrgEnv-gnu
+    - gcc/8.3.0
+    operating_system: cnl7
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: gcc@8.3.0
+    target: any
+- compiler:
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    modules:
+    - PrgEnv-gnu
+    - gcc/7.3.0
+    operating_system: cnl7
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: gcc@7.3.0
+    target: any
+- compiler:
+    environment: {}
+    extra_rpaths:
+    - /opt/gcc/8.2.0/snos/lib64
+    - /opt/gcc/8.2.0/snos/lib
+    flags: {}
+    modules:
+    - PrgEnv-gnu
+    - gcc/8.2.0
+    operating_system: cnl7
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    spec: gcc@8.2.0
+    target: any
+- compiler:
+    environment: {}
+    flags: {}
+    modules: []
+    operating_system: sles15
+    paths:
+        cc: /opt/gcc/8.2.0/bin/gcc
+        cxx:  /opt/gcc/8.2.0/bin/g++
+        f77: /opt/gcc/8.2.0/bin/gfortran
+        fc: /opt/gcc/8.2.0/bin/gfortran
+    extra_rpaths:
+        - /opt/gcc/8.2.0/snos/lib64
+        - /opt/gcc/8.2.0/snos/lib
+    spec: gcc@8.2.0
+    target: x86_64
+- compiler:
+    environment: {}
+    extra_rpaths: 
+      - /opt/intel/compilers_and_libraries_2019.3.199/linux/compiler/lib/intel64
+    flags: {}
+    modules: []
+    operating_system: sles15
+    paths:
+        cc: /opt/intel/compilers_and_libraries_2019.3.199/linux/bin/intel64/icc
+        cxx: /opt/intel/compilers_and_libraries_2019.3.199/linux/bin/intel64/icpc
+        f77: /opt/intel/compilers_and_libraries_2019.3.199/linux/bin/intel64/ifort
+        fc: /opt/intel/compilers_and_libraries_2019.3.199/linux/bin/intel64/ifort
+    spec: intel@19.0.3.199
+    target: x86_64

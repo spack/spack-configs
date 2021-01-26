@@ -1,0 +1,36 @@
+modules:
+  tcl:
+   hash_length: 0
+   naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
+   all:
+     conflict:
+       - '{name}'
+     filter:
+       environment_blacklist:
+         - 'CPATH'
+         - 'LIBRARY_PATH'
+     suffixes:
+       "^python@3.0:3.99": "py3"
+   elfutils:
+     suffixes:
+       "+xz": '+xz'
+   pcre:
+     suffixes:
+       "+jit": '+jit'
+   cairo:
+     suffixes:
+       "+pdf": "+pdf"
+   curl:
+     suffixes:
+       "~gssapi ~libssh2": "minimal"
+   gobject-introspection:
+     suffixes:
+       "^cairo+X+pdf": "cairo"
+   metis:
+     suffixes:
+       "+int64": "int64"
+       "+read64": "real64"
+   numactl:
+     environment:
+       set:
+         "LIBNUMA_LIB_PATH": "{prefix.lib}"

@@ -1,0 +1,122 @@
+variables:
+  SCHEDULER_PARAMETERS: "-C haswell -M escori -q xfer -N1 -t 12:00:00"
+  SPACK_REPOSITORY: https://github.com/spack/spack.git
+  COMMIT_SHA: "e1e0bbb4cbe11a3f0d7e50466ffa86071ee653b7"
+
+stages:
+  - generate
+  - build
+  - deploy
+  - post-test
+
+remove_buildcache:
+  stage: generate
+  tags: [cori]
+  only:
+    variables:
+      - $REMOVE_BUILDCACHE == "True"
+  script:
+    rm -rf /global/common/software/spackecp/mirrors/e4s-2020-10/
+
+    
+generate-spack-pipeline:
+  stage: generate
+  tags: [cori]
+  only:
+    variables:
+      - $SPACK_BUILD_E4S == "True"
+    changes:
+      - spack.yaml
+  before_script:
+  - pwd
+  - git clone ${SPACK_REPOSITORY} 
+  - cd spack  
+  - git reset ${COMMIT_SHA} --hard
+  - git log  --oneline -1
+  - . share/spack/setup-env.sh
+  - echo $SPACK_ROOT
+  - cd $CI_PROJECT_DIR
+  script:
+  - hostname  
+  - echo $SPACK_ROOT $SPACK_REPOSITORY 
+  - cd $CI_PROJECT_DIR  
+  - rm -rf $HOME/.spack
+  - spack compiler find
+  - spack compiler list
+  - spack env activate .
+  - spack env st
+  - export SPACK_GNUPGHOME=$HOME/.gnupg
+  - spack gpg list
+  - spack concretize -f 2>&1 
+  - spack ci generate --dependencies --optimize  --output-file ${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml  
+  after_script:
+  - echo $SPACK_ROOT
+  - rm -rf $SPACK_ROOT
+  artifacts:
+    paths:
+    - jobs_scratch_dir/pipeline.yml    
+
+
+build-e4s:
+  stage: build
+  only:
+    variables:
+      - $SPACK_BUILD_E4S == "True"
+    changes:
+      - "spack.yaml"
+  trigger:
+    include:
+    - artifact: "jobs_scratch_dir/pipeline.yml"
+      job: generate-spack-pipeline
+    strategy: depend
+
+deploy-e4s:
+  stage: deploy
+  tags: [cori]
+  only:
+    variables:
+      - $DEPLOY_STACK == "True"
+    changes:
+      - "prod/spack.yaml"
+  script:
+    - cd /global/common/software/spackecp/e4s-20.10
+    - rm -rf spack
+    - git clone ${SPACK_REPOSITORY} 
+    - cd spack  
+    - git reset ${COMMIT_SHA} --hard
+    - export SPACK_GNUPGHOME=$HOME/.gnupg
+    - . share/spack/setup-env.sh
+    - cd $CI_PROJECT_DIR/prod 
+    - spack env create e4s-2010 spack.yaml
+    - spack env activate e4s-2010
+    - spack env st
+    - spack buildcache update-index -d /global/common/software/spackecp/mirrors/e4s-2020-10
+    - spack buildcache list -L
+    - spack install --cache-only
+    #- spack buildcache list -L | awk '{print $1}' | tail -n +2 | while read line; do spack install --cache-only /$line; done
+    - spack module tcl refresh --delete-tree -y
+    - spack find
+
+post-test-e4s:
+  stage: post-test
+  tags: [cori]
+  only: 
+    variables: 
+      - $POST_TEST == "True"
+  script:
+    - git clone --depth 1 https://github.com/buildtesters/buildtest
+    - cd buildtest && git log --pretty=oneline -1 && cd $CI_PROJECT_DIR
+    - git clone --depth 1 https://github.com/buildtesters/buildtest-cori     
+    - module load python
+    - conda env create -n buildtest python=3.8
+    - source activate buildtest
+    - source buildtest/setup.sh
+    - buildtest --version
+    - mkdir -p $HOME/.buildtest
+    - cp buildtest-cori/.buildtest/config.yml $HOME/.buildtest/config.yml
+    - buildtest buildspec find --root $CI_PROJECT_DIR/buildtest-cori
+    - buildtest buildspec find --filter tags=e4s
+    - buildtest build --tags e4s
+    - buildtest report --filter tags=e4s --format name,id,tags,executor,starttime,endtime,runtime,state,returncode,command,buildspec
+    - source deactivate
+    - conda env remove -n buildtest -y

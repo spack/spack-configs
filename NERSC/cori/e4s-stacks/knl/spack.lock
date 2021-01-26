@@ -1,0 +1,950 @@
+{
+ "concrete_specs": {
+  "xch243635lf2vbf2zoqocb2nqfjuvxig": {
+   "mpich": {
+    "version": "3.1",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "intel",
+     "version": "19.0.3.199"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "device": "ch3",
+     "hydra": true,
+     "netmod": "tcp",
+     "pci": true,
+     "pmi": "pmi",
+     "romio": true,
+     "slurm": false,
+     "verbs": false,
+     "wrapperrpath": true,
+     "cflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "cppflags": [],
+     "cxxflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "fflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldlibs": []
+    },
+    "external": {
+     "path": "/opt/cray/pe/mpt/7.7.6/gni/mpich-intel/16.0",
+     "module": "cray-mpich/7.7.6"
+    },
+    "hash": "xch243635lf2vbf2zoqocb2nqfjuvxig"
+   }
+  },
+  "lgld2emqhjqpsxhlbkg3cdrovj4dheix": {
+   "xz": {
+    "version": "5.2.4",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "intel",
+     "version": "19.0.3.199"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "shared": true,
+     "cflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "cppflags": [],
+     "cxxflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "fflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldlibs": []
+    },
+    "hash": "lgld2emqhjqpsxhlbkg3cdrovj4dheix"
+   }
+  },
+  "x5im4au5dh2nuy27dq74wvladcasbvqm": {
+   "util-macros": {
+    "version": "1.19.1",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "intel",
+     "version": "19.0.3.199"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "cflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "cppflags": [],
+     "cxxflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "fflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldlibs": []
+    },
+    "hash": "x5im4au5dh2nuy27dq74wvladcasbvqm"
+   }
+  },
+  "mototac7jrtwiqbzz3zduld35nm7pcjo": {
+   "xerces-c": {
+    "version": "3.2.2",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "intel",
+     "version": "19.0.3.199"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "cxxstd": "default",
+     "transcoder": "gnuiconv",
+     "cflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "cppflags": [],
+     "cxxflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "fflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldlibs": []
+    },
+    "dependencies": {
+     "libiconv": {
+      "hash": "3wqg2iqimh4wvhcilx7mhivjcnkpushd",
+      "type": [
+       "link"
+      ]
+     }
+    },
+    "hash": "mototac7jrtwiqbzz3zduld35nm7pcjo"
+   }
+  },
+  "mw2ywkzbvh5ls7np5wymvmqzphovs67c": {
+   "qhull": {
+    "version": "2015.2",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "gcc",
+     "version": "8.2.0"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "build_type": "RelWithDebInfo",
+     "patches": [
+      "10ddc62a1600b0ede23fb0502e29dca389d18689fd8dfe7a849e3a989c0e607e"
+     ],
+     "cflags": [],
+     "cppflags": [],
+     "cxxflags": [],
+     "fflags": [],
+     "ldflags": [],
+     "ldlibs": []
+    },
+    "patches": [
+     "10ddc62a1600b0ede23fb0502e29dca389d18689fd8dfe7a849e3a989c0e607e"
+    ],
+    "dependencies": {
+     "cmake": {
+      "hash": "kiyp2qmf6ibo6c4lpie7tyr2sb6fhjw2",
+      "type": [
+       "build"
+      ]
+     }
+    },
+    "hash": "t62wwixevdwrrlaqlgrgou6bpgwge5jf"
+   }
+  },
+  "m65p4wxumbybqac2l35sjxowiknf4byo": {
+   "libpciaccess": {
+    "version": "0.13.5",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "intel",
+     "version": "19.0.3.199"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "shared": true,
+     "cflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "cppflags": [],
+     "cxxflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "fflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldlibs": []
+    },
+    "dependencies": {
+     "libtool": {
+      "hash": "cugcpynszzartjwwmepoyt47jfefpxzq",
+      "type": [
+       "build"
+      ]
+     },
+     "pkg-config": {
+      "hash": "jce6grtf4fvo6xlbbrmedz4g3bshvduf",
+      "type": [
+       "build"
+      ]
+     },
+     "util-macros": {
+      "hash": "x5im4au5dh2nuy27dq74wvladcasbvqm",
+      "type": [
+       "build"
+      ]
+     }
+    },
+    "hash": "67tvy7qyj4yqj3qwa3fr5fhmn6trdugl"
+   }
+  },
+  "ztv4iptumst6m6gykzcviuqixncs4ytl": {
+   "hwloc": {
+    "version": "2.0.2",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "intel",
+     "version": "19.0.3.199"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "cairo": false,
+     "cuda": false,
+     "gl": false,
+     "libxml2": true,
+     "netloc": false,
+     "nvml": false,
+     "pci": true,
+     "shared": false,
+     "cflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "cppflags": [],
+     "cxxflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "fflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldlibs": []
+    },
+    "dependencies": {
+     "libpciaccess": {
+      "hash": "m65p4wxumbybqac2l35sjxowiknf4byo",
+      "type": [
+       "build",
+       "link"
+      ]
+     },
+     "libxml2": {
+      "hash": "63ipwc3hasceckkjahjni3czrk7xexy3",
+      "type": [
+       "build",
+       "link"
+      ]
+     },
+     "pkg-config": {
+      "hash": "jce6grtf4fvo6xlbbrmedz4g3bshvduf",
+      "type": [
+       "build"
+      ]
+     }
+    },
+    "hash": "gouzw5anunzq6vtheq6imvddhpirei4p"
+   }
+  },
+  "63ipwc3hasceckkjahjni3czrk7xexy3": {
+   "libxml2": {
+    "version": "2.9.9",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "intel",
+     "version": "19.0.3.199"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "python": false,
+     "shared": true,
+     "cflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "cppflags": [],
+     "cxxflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "fflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldlibs": []
+    },
+    "dependencies": {
+     "libiconv": {
+      "hash": "sp2nn35jl75kpbdloumrae622yp3zpki",
+      "type": [
+       "build",
+       "link"
+      ]
+     },
+     "pkg-config": {
+      "hash": "jce6grtf4fvo6xlbbrmedz4g3bshvduf",
+      "type": [
+       "build"
+      ]
+     },
+     "xz": {
+      "hash": "lgld2emqhjqpsxhlbkg3cdrovj4dheix",
+      "type": [
+       "build",
+       "link"
+      ]
+     },
+     "zlib": {
+      "hash": "k3mqtyidyjdldj3drw2l5lbj2g3djofc",
+      "type": [
+       "build",
+       "link"
+      ]
+     }
+    },
+    "hash": "ez7cwnddviffr34bf7sw6svbiil7pymt"
+   }
+  },
+  "cqmkvzwsggqgpdewa4gq3yghhohs5joz": {
+   "hwloc": {
+    "version": "2.0.2",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "intel",
+     "version": "19.0.3.199"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "cairo": false,
+     "cuda": false,
+     "gl": false,
+     "libxml2": true,
+     "netloc": false,
+     "nvml": false,
+     "pci": true,
+     "shared": true,
+     "cflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "cppflags": [],
+     "cxxflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "fflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldlibs": []
+    },
+    "dependencies": {
+     "libpciaccess": {
+      "hash": "m65p4wxumbybqac2l35sjxowiknf4byo",
+      "type": [
+       "build",
+       "link"
+      ]
+     },
+     "libxml2": {
+      "hash": "63ipwc3hasceckkjahjni3czrk7xexy3",
+      "type": [
+       "build",
+       "link"
+      ]
+     },
+     "pkg-config": {
+      "hash": "jce6grtf4fvo6xlbbrmedz4g3bshvduf",
+      "type": [
+       "build"
+      ]
+     }
+    },
+    "hash": "mwsl644a7wmmtnmvpg35elf2wswcq5up"
+   }
+  },
+  "cugcpynszzartjwwmepoyt47jfefpxzq": {
+   "libtool": {
+    "version": "2.4.6",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "intel",
+     "version": "19.0.3.199"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "cflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "cppflags": [],
+     "cxxflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "fflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldlibs": []
+    },
+    "dependencies": {
+     "m4": {
+      "hash": "zotn6rwmqkqbpqd6ofeqm6vx7hw4fv2e",
+      "type": [
+       "build"
+      ]
+     }
+    },
+    "hash": "geg2abkw2vs2re3ra2gw2qqahkqy36q6"
+   }
+  },
+  "xxlvjxci3ichvlbwym2pof3cpx6qpokj": {
+   "qbox": {
+    "version": "1.67.4",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "intel",
+     "version": "19.0.3.199"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "mkl": true,
+     "openmp": true,
+     "static": true,
+     "cflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "cppflags": [],
+     "cxxflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "fflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldlibs": []
+    },
+    "dependencies": {
+     "intel-mkl": {
+      "hash": "k46ljxstx5uiuiscsr7brsv5g57mqnlu",
+      "type": [
+       "build",
+       "link"
+      ]
+     },
+     "libiconv": {
+      "hash": "3wqg2iqimh4wvhcilx7mhivjcnkpushd",
+      "type": [
+       "build",
+       "link"
+      ]
+     },
+     "mpich": {
+      "hash": "xch243635lf2vbf2zoqocb2nqfjuvxig",
+      "type": [
+       "build",
+       "link"
+      ]
+     },
+     "xerces-c": {
+      "hash": "mototac7jrtwiqbzz3zduld35nm7pcjo",
+      "type": [
+       "build",
+       "link"
+      ]
+     }
+    },
+    "hash": "xxlvjxci3ichvlbwym2pof3cpx6qpokj"
+   }
+  },
+  "kiyp2qmf6ibo6c4lpie7tyr2sb6fhjw2": {
+   "cmake": {
+    "version": "3.14.4",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "gcc",
+     "version": "8.2.0"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "doc": false,
+     "ncurses": true,
+     "openssl": true,
+     "ownlibs": true,
+     "qt": false,
+     "cflags": [],
+     "cppflags": [],
+     "cxxflags": [],
+     "fflags": [],
+     "ldflags": [],
+     "ldlibs": []
+    },
+    "external": {
+     "path": "/global/common/sw/cray/cnl7/haswell/cmake/3.14.4/gcc/8.2.0/2hef55n",
+     "module": "cmake/3.14.4"
+    },
+    "hash": "kiyp2qmf6ibo6c4lpie7tyr2sb6fhjw2"
+   }
+  },
+  "jce6grtf4fvo6xlbbrmedz4g3bshvduf": {
+   "pkg-config": {
+    "version": "0.29.2",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "intel",
+     "version": "19.0.3.199"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "internal_glib": true,
+     "cflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "cppflags": [],
+     "cxxflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "fflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldlibs": []
+    },
+    "hash": "jce6grtf4fvo6xlbbrmedz4g3bshvduf"
+   }
+  },
+  "sp2nn35jl75kpbdloumrae622yp3zpki": {
+   "libiconv": {
+    "version": "1.15",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "intel",
+     "version": "19.0.3.199"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "static": false,
+     "cflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "cppflags": [],
+     "cxxflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "fflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldlibs": []
+    },
+    "hash": "sp2nn35jl75kpbdloumrae622yp3zpki"
+   }
+  },
+  "k3mqtyidyjdldj3drw2l5lbj2g3djofc": {
+   "zlib": {
+    "version": "1.2.11",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "intel",
+     "version": "19.0.3.199"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "optimize": true,
+     "pic": true,
+     "shared": true,
+     "cflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "cppflags": [],
+     "cxxflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "fflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldlibs": []
+    },
+    "hash": "k3mqtyidyjdldj3drw2l5lbj2g3djofc"
+   }
+  },
+  "zotn6rwmqkqbpqd6ofeqm6vx7hw4fv2e": {
+   "m4": {
+    "version": "1.4.18",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "intel",
+     "version": "19.0.3.199"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "patches": [
+      "3877ab548f88597ab2327a2230ee048d2d07ace1062efe81fc92e91b7f39cd00",
+      "fc9b61654a3ba1a8d6cd78ce087e7c96366c290bc8d2c299f09828d793b853c8"
+     ],
+     "sigsegv": true,
+     "cflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "cppflags": [],
+     "cxxflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "fflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldlibs": []
+    },
+    "external": {
+     "path": "/usr",
+     "module": null
+    },
+    "patches": [
+     "3877ab548f88597ab2327a2230ee048d2d07ace1062efe81fc92e91b7f39cd00",
+     "fc9b61654a3ba1a8d6cd78ce087e7c96366c290bc8d2c299f09828d793b853c8"
+    ],
+    "hash": "zotn6rwmqkqbpqd6ofeqm6vx7hw4fv2e"
+   }
+  },
+  "oufnord2cxrcbinjgib7uv2emyatqfno": {
+   "qbox": {
+    "version": "1.67.4",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "intel",
+     "version": "19.0.3.199"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "mkl": true,
+     "openmp": false,
+     "static": true,
+     "cflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "cppflags": [],
+     "cxxflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "fflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldlibs": []
+    },
+    "dependencies": {
+     "intel-mkl": {
+      "hash": "k46ljxstx5uiuiscsr7brsv5g57mqnlu",
+      "type": [
+       "build",
+       "link"
+      ]
+     },
+     "libiconv": {
+      "hash": "3wqg2iqimh4wvhcilx7mhivjcnkpushd",
+      "type": [
+       "build",
+       "link"
+      ]
+     },
+     "mpich": {
+      "hash": "xch243635lf2vbf2zoqocb2nqfjuvxig",
+      "type": [
+       "build",
+       "link"
+      ]
+     },
+     "xerces-c": {
+      "hash": "mototac7jrtwiqbzz3zduld35nm7pcjo",
+      "type": [
+       "build",
+       "link"
+      ]
+     }
+    },
+    "hash": "oufnord2cxrcbinjgib7uv2emyatqfno"
+   }
+  },
+  "3wqg2iqimh4wvhcilx7mhivjcnkpushd": {
+   "libiconv": {
+    "version": "1.15",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "intel",
+     "version": "19.0.3.199"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "static": true,
+     "cflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "cppflags": [],
+     "cxxflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "fflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldlibs": []
+    },
+    "hash": "3wqg2iqimh4wvhcilx7mhivjcnkpushd"
+   }
+  },
+  "k46ljxstx5uiuiscsr7brsv5g57mqnlu": {
+   "intel-mkl": {
+    "version": "19.0.3.199",
+    "arch": {
+     "platform": "cray",
+     "platform_os": "cnl7",
+     "target": "mic_knl"
+    },
+    "compiler": {
+     "name": "intel",
+     "version": "19.0.3.199"
+    },
+    "namespace": "builtin",
+    "parameters": {
+     "ilp64": false,
+     "shared": true,
+     "threads": "none",
+     "cflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "cppflags": [],
+     "cxxflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "fflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldflags": [
+      "-march=core-avx2",
+      "-axMIC-AVX512"
+     ],
+     "ldlibs": []
+    },
+    "external": {
+     "path": "/opt/intel/compilers_and_libraries_2019.3.199/linux/mkl",
+     "module": null
+    },
+    "hash": "k46ljxstx5uiuiscsr7brsv5g57mqnlu"
+   }
+  }
+ },
+ "_meta": {
+  "lockfile-version": 2,
+  "file-type": "spack-lockfile"
+ },
+ "roots": [
+  {
+   "hash": "mw2ywkzbvh5ls7np5wymvmqzphovs67c",
+   "spec": "qhull@2015.2%gcc arch=cray-cnl7-mic_knl"
+  },
+  {
+   "hash": "cqmkvzwsggqgpdewa4gq3yghhohs5joz",
+   "spec": "hwloc arch=cray-None-mic_knl"
+  },
+  {
+   "hash": "ztv4iptumst6m6gykzcviuqixncs4ytl",
+   "spec": "hwloc~shared arch=cray-None-mic_knl"
+  },
+  {
+   "hash": "xxlvjxci3ichvlbwym2pof3cpx6qpokj",
+   "spec": "qbox+mkl+openmp+static arch=cray-None-mic_knl"
+  },
+  {
+   "hash": "oufnord2cxrcbinjgib7uv2emyatqfno",
+   "spec": "qbox+mkl+static arch=cray-None-mic_knl"
+  }
+ ]
+}
