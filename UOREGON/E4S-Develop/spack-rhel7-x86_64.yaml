@@ -1,0 +1,207 @@
+spack:
+  view: false
+
+  concretization: separately
+
+  config:
+    install_tree:
+      root: /spack-software
+      padded_length: 64
+  
+  packages:
+
+    all:
+      compiler:
+        - gcc@8.1.0
+      providers:
+        blas:
+          - openblas
+        mpi:
+          - mpich
+      target:
+        - x86_64
+      variants: +mpi
+      
+    autoconf:
+      version:
+        - 2.69
+    automake:
+      version:
+        - 1.16.2
+    berkeley-db:
+      version:
+        - 18.1.40
+    binutils:
+      variants: +gold+headers+libiberty~nls
+      version:
+        - 2.33.1
+    boost:
+      version:
+        - 1.74.0
+    bzip2:
+      version:
+        - 1.0.8
+    cmake:
+      version:
+        - 3.18.4
+    diffutils:
+      version:
+        - 3.7
+    elfutils:
+      version:
+        - 0.182
+    expat:
+      version:
+        - 2.2.10
+    gdbm:
+      version:
+        - 1.18.1
+    gettext:
+      version:
+        - 0.21
+    hdf5:
+      variants: +fortran
+      version:
+        - 1.10.7
+    help2man:
+      version:
+        - 1.47.11
+    hip:
+      version:
+        - 4.0.0
+    libbsd:
+      version:
+        - 0.10.0
+    libiconv:
+      version:
+        - 1.16
+    libsigsegv:
+      version:
+        - 2.12
+    libunwind:
+      version:
+        - 1.4.0
+    libxml2:
+      version:
+        - 2.9.10
+    m4:
+      version:
+        - 1.4.18
+    mpich:
+      variants: ~wrapperrpath
+      version:
+        - 3.3.2
+    ncurses:
+      version:
+        - 6.2
+    openblas:
+      version:
+        - 0.3.10
+    perl:
+      version:
+        - 5.32.0
+    pkgconf:
+      version:
+        - 1.7.3
+    python:
+      version:
+        - 3.8.6
+    readline:
+      version:
+        - 8
+    sqlite:
+      version:
+        - 3.33.0
+    tar:
+      version:
+        - 1.32
+    texinfo:
+      version:
+        - 6.5
+    xz:
+      version:
+        - 5.2.5
+    zlib:
+      version:
+        - 1.2.11
+
+  specs:
+  - adios
+  - adios2
+  - aml
+  - arborx
+  - argobots
+  - ascent
+  - axom
+  - bolt
+  - caliper
+  - chai~benchmarks+rocm amdgpu_target=gfx906
+  - darshan-runtime
+  - darshan-util
+  - dyninst
+  - faodel
+  - flecsi+cinch
+  - flit
+  - gasnet
+  - ginkgo
+  - globalarrays
+  - gotcha
+  - hdf5
+  - hpctoolkit
+  - hpx
+  - hypre
+  - kokkos-kernels+openmp
+  - kokkos+cuda cuda_arch=70 ^cuda@10.2.89
+  - kokkos+rocm amdgpu_target=gfx906
+  - kokkos+openmp
+  - legion
+  - libnrm
+  - libquo
+  - magma cuda_arch=70 ^cuda@10.2.89
+  - mercury
+  - mfem
+  - mpifileutils@develop~xattr
+  - ninja
+  - omega-h
+  - openmpi
+  - openpmd-api
+  - papi
+  - papyrus@1.0.1
+  - parallel-netcdf
+  - pdt
+  - petsc
+  - phist
+  - plasma
+  - precice
+  - pumi
+  - py-jupyterhub
+  - py-libensemble
+  - py-petsc4py
+  - qthreads scheduler=distrib
+  - raja
+  - raja+rocm~openmp amdgpu_target=gfx906
+  - rempi
+  - scr
+  - slate ^openblas@0.3.5 ^cuda@10.2.89
+  - slepc
+  - stc
+  - strumpack
+  - strumpack+rocm amdgpu_target=gfx906
+  - sundials
+  - superlu
+  - superlu-dist
+  - swig
+  - sz
+  - tasmanian
+  - tau
+  - trilinos
+  - turbine
+  - umap
+  - umpire
+  - umpire+rocm amdgpu_target=gfx906
+  - unifyfs
+  - upcxx
+  - veloc
+  - zfp
+  #- amrex
+  #- dealii
