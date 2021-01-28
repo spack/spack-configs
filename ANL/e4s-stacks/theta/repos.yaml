@@ -1,0 +1,10 @@
+# -------------------------------------------------------------------------
+# This is the alcf spack repository configuration.
+#
+# -------------------------------------------------------------------------
+repos:
+# Site/machine specific settings for building packages on theta. Intent is that fixes here eventually be upstreamed to builtin.
+  - $spack/../alcf/repos/theta
+# Settings to be kept more in-sync with develop branch of builtin repo. Perhaps this should be a separate entity within spack? 
+  - $spack/../alcf/repos/develop/builtin
+

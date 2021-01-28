@@ -1,0 +1,119 @@
+# -------------------------------------------------------------------------
+# This file controls default concretization preferences for Spack.
+#
+# Settings here are versioned with Spack and are intended to provide
+# sensible defaults out of the box. Spack maintainers should edit this
+# file to keep it current.
+#
+# Users can override these settings by editing the following files.
+#
+# Per-spack-instance settings (overrides defaults):
+#   $SPACK_ROOT/etc/spack/packages.yaml
+#
+# Per-user settings (overrides default and site settings):
+#   ~/.spack/packages.yaml
+# -------------------------------------------------------------------------
+packages:
+  intel-mkl:
+    paths:
+      intel-mkl@2017.2.174: /opt/intel/compilers_and_libraries_2017.2.174/linux/mkl
+      intel-mkl@2017.0.1.132: /opt/intel/compilers_and_libraries_2017.1.132/linux/mkl
+      intel-mkl@2018.0.0.128: /opt/intel/compilers_and_libraries_2018.0.128/linux/mkl
+      intel-mkl@2018.0.2.199: /opt/intel/compilers_and_libraries_2018.2.199/linux/mkl
+      intel-mkl@2018.2.199%intel@18.0.2.199.4.9.4.6.0.4.7.7.0 threads=openmp: /opt/intel/compilers_and_libraries_2018.2.199/linux/mkl
+      intel-mkl@2019.2.187: /soft/compilers/intel/19.0.2.187/compilers_and_libraries_2019.2.187/linux/mkl
+    version: [ 2019.2.187, 2018.0.0.128, 2018.2.199, 2017.2.174, 2017.0.2.174, 2017.0.1.132, 2017.1.132 ]
+    buildable: False
+  cray-mpich:
+    modules:
+      cray-mpich@7.7.4: cray-mpich/7.7.4
+      cray-mpich@7.7.3: cray-mpich/7.7.3
+      cray-mpich@7.7.2: cray-mpich/7.7.2
+      cray-mpich@7.7.0: cray-mpich/7.7.0
+      cray-mpich@7.5.2: cray-mpich/7.5.2
+      cray-mpich@7.5.3: cray-mpich/7.5.3
+    buildable: False
+  cray-pe:
+    modules:
+      cray-pe@2.5.15: craype/2.5.15
+      cray-pe@2.5.14: craype/2.5.14
+      cray-pe@2.5.13: craype/2.5.13
+      cray-pe@2.5.9: craype/2.5.9
+    buildable: False
+  cray-prgenv:
+    modules:
+      cray-prgenv@6.0.4%intel: PrgEnv-intel/6.0.4
+    buildable: False
+  cray-udreg:
+    modules:
+      cray-udreg@2.3.2-6.0.6.0_15.18__g5196236.ari: udreg/2.3.2-6.0.6.0_15.18__g5196236.ari
+      cray-udreg@2.3.2-6.0.4.0_12.2__g2f9c3ee.ari: udreg/2.3.2-6.0.4.0_12.2__g2f9c3ee.ari
+    buildable: False
+  cray-ugni:
+    modules:
+      cray-ugni@6.0.14-6.0.6.0_18.12__g777707d.ari: ugni/6.0.14-6.0.6.0_18.12__g777707d.ari
+      cray-ugni@6.0.14-6.0.4.0_14.1__ge7db4a2.ari: ugni/6.0.14-6.0.4.0_14.1__ge7db4a2.ari
+    buildable: False
+  cray-pmi:
+    modules:
+      cray-pmi@5.0.14: pmi/5.0.14
+      cray-pmi@5.0.13: pmi/5.0.13
+    buildable: False
+  cray-dmapp:
+    modules:
+      cray-dmapp@7.1.1-6.0.6.0_51.37__g5a674e0.ari: dmapp/7.1.1-6.0.6.0_51.37__g5a674e0.ari
+      cray-dmapp@7.1.1-6.0.4.0_46.2__gb8abda2.ari: dmapp/7.1.1-6.0.4.0_46.2__gb8abda2.ari
+    buildable: False
+  cray-gni-headers:
+    modules:
+      cray-gni-headers@5.0.12-6.0.6.0_3.26__g527b6e1.ari: gni-headers/5.0.12-6.0.6.0_3.26__g527b6e1.ari
+      cray-gni-headers@5.0.11-6.0.4.0_7.2__g7136988.ari: gni-headers/5.0.11-6.0.4.0_7.2__g7136988.ari
+    buildable: False
+  cray-xpmem:
+    modules:
+      cray-xpmem@2.2.14-6.0.6.0_10.1__g34333c9.ari: xpmem/2.2.14-6.0.6.0_10.1__g34333c9.ari
+      cray-xpmem@2.2.2-6.0.4.1_18.2__g43b0535.ari: xpmem/2.2.2-6.0.4.1_18.2__g43b0535.ari
+      cray-xpmem@2.2.2-6.0.4.0_3.1__g43b0535.ari: xpmem/2.2.2-6.0.4.0_3.1__g43b0535.ari
+    buildable: False
+  cray-job:
+    modules:
+      cray-job@2.2.3-6.0.6.0_9.47__g6c4e934.ari: job/2.2.3-6.0.6.0_9.47__g6c4e934.ari
+      cray-job@2.2.2-6.0.4.0_8.2__g3c644b5.ari: job/2.2.2-6.0.4.0_8.2__g3c644b5.ari
+    buildable: False
+  cray-dvs:
+    modules:
+      cray-dvs@2.7_2.2.95-6.0.6.1_9.3__gd0b8528: dvs/2.7_2.2.95-6.0.6.1_9.3__gd0b8528
+      cray-dvs@2.7_2.2.32-6.0.4.1_7.2__ged1923a: dvs/2.7_2.2.32-6.0.4.1_7.2__ged1923a
+    buildable: False
+  cray-alps:
+    modules:
+      cray-alps@6.6.1-6.0.6.1_4.1__ga6396bb.ari: alps/6.6.1-6.0.6.1_4.1__ga6396bb.ari
+      cray-alps@6.4.2-6.0.4.1_3.1__gb8adc61.ari: alps/6.4.2-6.0.4.1_3.1__gb8adc61.ari
+    buildable: False
+  cray-rca:
+    modules:
+      cray-rca@2.2.18-6.0.6.0_19.14__g2aa4f39.ari: rca/2.2.18-6.0.6.0_19.14__g2aa4f39.ari
+      cray-rca@2.2.15-6.0.4.1_13.1__g46acb0f.ari: rca/2.2.15-6.0.4.1_13.1__g46acb0f.ari
+    buildable: False
+  cray-atp:
+    modules:
+      cray-atp@2.1.3: atp/2.1.3
+      cray-atp@2.1.1: atp/2.1.1
+    buildable: False
+  cray-perftools-base:
+    modules:
+      cray-perftools-base@7.0.4: perftools-base/7.0.4
+      cray-perftools-base@7.0.1: perftools-base/7.0.1
+      cray-perftools-base@7.0.0: perftools-base/7.0.0
+    buildable: False
+  all:
+    compiler: [intel, gcc, clang]
+    providers:
+      mpi: [ cray-mpich, mpich ]
+      blas: [intel-mkl]
+      lapack: [intel-mkl]
+      pil: [py-pillow]
+      pkgconfig: [pkg-config]
+    permissions:
+      write: group
+      group: software

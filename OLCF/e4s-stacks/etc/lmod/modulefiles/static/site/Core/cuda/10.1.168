@@ -1,0 +1,26 @@
+#%Module1.0#####################################################################
+##
+## cuda modulefile
+##
+##
+proc ModulesHelp { } {
+        global version
+
+        puts stderr "\tTools to use CUDA"
+        puts stderr "\n\tVersion $version\n"
+}
+
+module-whatis "Changes the CUDA module"
+
+# for Tcl script use only
+set     version     10.1.168
+
+prepend-path  PATH            /sw/peak/cuda/$version/bin
+prepend-path  LD_LIBRARY_PATH /sw/peak/cuda/$version/lib64
+prepend-path  MANPATH         /sw/peak/cuda/$version/doc/man
+prepend-path  CPATH           /sw/peak/cuda/$version/include
+
+setenv CUDA_DIR /sw/peak/cuda/$version
+setenv CUDA_TOOLKIT_ROOT_DIR /sw/peak/cuda/$version
+setenv OLCF_CUDA_ROOT /sw/peak/cuda/$version
+setenv CUDAPATH /sw/peak/cuda/$version
