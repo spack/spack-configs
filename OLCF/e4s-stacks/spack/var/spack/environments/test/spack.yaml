@@ -1,0 +1,490 @@
+# OLCF Peak Spack Environment
+
+spack:
+  #############################################################################
+  definitions:
+  - core_compilers:
+    - '%gcc@4.8.5'
+  - gcc_compilers:
+    - '%gcc@4.8.5'
+    - '%gcc@5.4.0'
+    - '%gcc@6.4.0'
+    - '%gcc@8.1.1'
+    - '%gcc@9.1.0'
+  - xl_compilers:
+    - '%xl@16.1.1-4'
+    - '%xl@16.1.1-5'
+  - llvm_compilers:
+    - '%clang@9.0.0-2'
+  - pgi_compilers:
+    - '%pgi@18.10'
+    - '%pgi@19.5'
+    - '%pgi@19.7'
+  - all_compilers:
+    - $gcc_compilers
+    - $xl_compilers
+    - $llvm_compilers
+    - $pgi_compilers
+  - core_packages:
+    - readline
+    - git
+    - htop
+    - tmux
+    - cmake
+    - go
+    - git-lfs
+    - screen
+    - vim
+    - emacs ~X
+    - nano
+    - gnuplot
+    - subversion
+    - darshan-util
+    - python@2.7.15
+    - python@3.7.0
+    - mercurial ^python@2.7.15
+    - gnuplot@5.0.1
+    - libevent@2.0.21 +openssl
+    - valgrind ~mpi~boost
+    - papi
+    - gdb
+    - zeromq
+    - gnupg
+    - gsl
+    - c-blosc +avx2
+    - lz4
+    - zfp bsws=64 +shared
+  - core_only_compute_packages:
+    - matrix:
+      - - py-nose
+        - py-numpy
+        - py-h5py~mpi
+        - py-mpi4py
+      - - ^python@3.7.0
+    - darshan-runtime
+    - darshan-runtime hdf5=pre1.10
+    - darshan-runtime hdf5=post1.10
+    - valgrind +mpi+boost
+    - adios2 +python ^python@3.7.0
+  - general_compute_packages:
+    - netlib-lapack
+    - netlib-scalapack ^netlib-lapack
+    - fftw +mpi
+    - hdf5 ~mpi
+    - hdf5 +mpi
+    - hdf5@1.8.18 ~mpi
+    - hdf5@1.8.18 +mpi
+    - boost ~mpi
+    - boost +mpi
+    - netcdf
+    - netcdf-fortran
+    - netcdf-cxx
+    - parallel-netcdf
+    - parallel-io
+    - hypre
+    - mpip
+    - adios2 ~python
+  specs:
+    # Core packages
+    - matrix:
+      - - $core_packages
+      - - $core_compilers
+    - matrix:
+      - - spectrum-mpi
+      - - $all_compilers
+    - matrix:
+      - - $core_only_compute_packages
+      - - $core_compilers
+    - matrix:
+      - - openblas@0.3.5 threads=openmp cpu_target=POWER8
+        - openblas@0.3.5 threads=none cpu_target=POWER8
+      - - '%gcc@4.8.5'
+        - '%gcc@5.4.0'
+    - matrix:
+      - - openblas threads=openmp
+        - openblas threads=none
+      - - '%gcc@6.4.0'
+        - '%gcc@8.1.1'
+        - '%gcc@9.1.0'
+    - matrix:
+      - - netlib-scalapack ^openblas@0.3.5 threads=openmp cpu_target=POWER8
+      - - '%gcc@4.8.5'
+        - '%gcc@5.4.0'
+    - matrix:
+      - - netlib-scalapack ^openblas threads=openmp
+      - - '%gcc@6.4.0'
+        - '%gcc@8.1.1'
+        - '%gcc@9.1.0'
+    - matrix:
+      - - $general_compute_packages
+        - amgx +mpi+openmp
+        - amgx +mpi~openmp
+        - raja@0.1.0 +cuda
+        - raja +cuda
+        - magma
+        - nco
+        - petsc +mpi+mumps~int64~superlu-dist
+      - - $gcc_compilers
+      exclude:
+      - 'amgx%gcc@9:'
+      - 'raja@0.1.0%gcc@5:'
+      - raja@0.2:%gcc@:4
+      - 'raja%gcc@8:' # See NOTE (NOTES.md)
+      - 'magma%gcc@9:'
+    # XL
+    - matrix:
+      - - $general_compute_packages
+      - - $xl_compilers
+      exclude:
+      - boost%xl
+      - boost%pgi
+    - matrix:
+      - - boost@1.59.0 ~mpi
+        - boost@1.59.0 +mpi
+      - - $xl_compilers
+    - matrix:
+      - - $general_compute_packages
+        - petsc +mpi+mumps~int64~superlu-dist
+      - - $llvm_compilers
+      - - ^elfutils%gcc@4.8.5
+    - matrix:
+      - - $general_compute_packages
+        - petsc +mpi~mumps~int64~superlu-dist~metis
+      - - $pgi_compilers
+      - - ^bzip2%gcc@4.8.5
+      - - ^perl%gcc@4.8.5
+      - - ^pkgconf%gcc@4.8.5
+      - - ^zeromq%gcc@4.8.5
+      - - ^zfp%gcc@4.8.5
+      exclude:
+      - mpip%pgi
+  #############################################################################
+  mirrors:
+    peak_builds: /sw/sources/spack/mirrors/builds/peak
+  #############################################################################
+  repos:
+  - /sw/.testing/belhorn/spack/site-stacks/share/spack/repos/olcf
+  #############################################################################
+  packages:
+    # General Settings
+    all:
+      compiler: [gcc@4.8.5, gcc, clang, xl, pgi]
+      providers:
+        mpi: [spectrum-mpi]
+        lapack: [netlib-lapack]
+        blas: [netlib-lapack]
+        scalapack: [netlib-scalapack]
+      buildable: true
+      version: []
+      target: []
+      paths: {}
+      modules: {}
+    # Site-provided Packages
+    cuda:
+      buildable: false
+      version: [10.1.168]
+      modules:
+        cuda@10.1.105: cuda/10.1.168
+      target: []
+      providers: {}
+      paths: {}
+      compiler: []
+    spectrum-mpi:
+      buildable: false
+      version:
+      - 10.3.0.1-20190611
+      modules:
+        spectrum-mpi@10.3.0.1-20190611: spectrum-mpi/10.3.0.1-20190611
+      target: []
+      providers: {}
+      paths: {}
+      compiler: []
+    go-bootstrap:
+      buildable: false
+      version: [1.7.1-bootstrap]
+      paths:
+        go-bootstrap@1.7.1-bootstrap: /sw/peak/go/1.7.1-bootstrap
+      target: []
+      providers: {}
+      modules: {}
+      compiler: []
+    # OS-Provided Packages
+    gtkplus:
+      version: [2.10.0]
+      buildable: false
+      paths:
+        gtkplus@2.10.0: /usr
+      target: []
+      providers: {}
+      modules: {}
+      compiler: []
+    openssl:
+      buildable: false
+      version: [1.0.2]
+      paths:
+        openssl@1.0.2: /usr
+      target: []
+      providers: {}
+      modules: {}
+      compiler: []
+    libtool:
+      version: [2.4.6, 2.4.2]
+      paths:
+        libtool@2.4.2: /usr
+      buildable: true
+      target: []
+      providers: {}
+      modules: {}
+      compiler: []
+    # Self-provided GCC-only build dependencies.
+    cmake:
+      variants: +ownlibs
+      buildable: true
+      modules:
+        cmake%xl: cmake
+        cmake%pgi: cmake
+        cmake%clang: cmake
+      version: []
+      target: []
+      providers: {}
+      paths: {}
+      compiler: []
+    autoconf:
+      version: []
+      buildable: true
+      paths: {}
+      target: []
+      providers: {}
+      modules:
+        autoconf%xl: autoconf
+        autoconf%pgi: autoconf
+      compiler: []
+    automake:
+      version: []
+      buildable: true
+      paths: {}
+      target: []
+      providers: {}
+      modules:
+        automake%xl: automake
+        automake%pgi: automake
+      compiler: []
+    pkg-config:
+      version: []
+      buildable: true
+      paths: {}
+      target: []
+      providers: {}
+      modules:
+        pkg-config%xl: pkg-config
+        pkg-config%pgi: pkg-config
+      compiler: []
+    diffutils:
+      version: []
+      buildable: true
+      paths: {}
+      target: []
+      providers: {}
+      modules:
+        diffutils%xl: diffutils
+        diffutils%pgi: diffutils
+      compiler: []
+    # Machine-specific Customizations
+    openblas:
+      buildable: true
+      variants: cpu_target=POWER9
+      version: []
+      target: []
+      providers: {}
+      paths: {}
+      modules: {}
+      compiler: []
+    fftw:
+      variants: precision=float,double,long_double
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      paths: {}
+      modules: {}
+      compiler: []
+    papi:
+      variants: cpu=POWER9
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      paths: {}
+      modules: {}
+      compiler: []
+    magma:
+      variants: gpus=volta
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      paths: {}
+      modules: {}
+      compiler: []
+    netlib-scalapack:
+      variants: +fpic
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      paths: {}
+      modules: {}
+      compiler: []
+    netcdf:
+      variants: ~hdf4+mpi+parallel-netcdf+shared
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      paths: {}
+      modules: {}
+      compiler: []
+    parallel-netcdf:
+      variants: +cxx+fortran+fpic
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      paths: {}
+      modules: {}
+      compiler: []
+    darshan-runtime:
+      variants: +lsf+grouplogs logpath=/gpfs/alpine/darshan/peak
+      buildable: true
+      version: []
+      target: []
+      providers: {}
+      paths: {}
+      modules: {}
+      compiler: []
+    # PGI Exceptions
+    python:
+      version: [3.7.0, 2.7.15]
+      modules:
+        python@3.7.0%pgi: python/3.7.0
+        python@2.7.15%pgi: python/2.7.15
+      buildable: true
+      target: []
+      providers: {}
+      paths: {}
+      compiler: []
+  #############################################################################
+  view: false
+  #############################################################################
+  modules:
+    enable:
+    - lmod
+    lmod:
+      core_compilers: [gcc@4.8.5]
+      all:
+        suffixes:
+          ^python@2.0:2.99: py2
+          ^python@3.0:3.99: py3
+        environment:
+          set:
+            OLCF_${PACKAGE}_ROOT: ${PREFIX}
+          unset: []
+        filter:
+          environment_blacklist: []
+        load: []
+        conflict: []
+      pgi:
+        filter:
+          # Exclude changes to any of these variables
+          environment_blacklist: [CPATH, LIBRARY_PATH]
+        load: []
+        environment:
+          unset: []
+        conflict: []
+      spectrum-mpi:
+        environment:
+          set:
+            PAMI_IBV_ENABLE_OOO_AR: '1'
+            PAMI_IBV_QP_SERVICE_LEVEL: '8'
+          unset: []
+        filter:
+          environment_blacklist: []
+        load: []
+        conflict: []
+      pcre:
+        suffixes:
+          pcre+jit: jit
+        filter:
+          environment_blacklist: []
+        load: []
+        environment:
+          unset: []
+        conflict: []
+      amgx:
+        suffixes:
+          amgx~openmp: unthreaded
+        filter:
+          environment_blacklist: []
+        load: []
+        environment:
+          unset: []
+        conflict: []
+      spectral:
+        template: olcf/modules/spectral.lua
+        filter:
+          environment_blacklist: []
+        load: []
+        environment:
+          unset: []
+        conflict: []
+      darshan-runtime:
+        suffixes:
+          hdf5=pre1.10: hdf5pre110
+          hdf5=post1.10: hdf5post110
+        filter:
+          environment_blacklist: []
+        load: []
+        environment:
+          unset: []
+        conflict: []
+      blacklist_implicits: false
+      verbose: true
+      whitelist: []
+      blacklist: []
+      hash_length: 0
+      hierarchy: []
+  #############################################################################
+  config:
+    install_tree: /gpfs/alpine/world-shared/stf007/belhorn/spack/stacks/peak/production/opt
+    install_path_scheme: ${ARCHITECTURE}/${COMPILERNAME}-${COMPILERVER}/${PACKAGE}-${VERSION}-${HASH}
+    template_dirs:
+    - /sw/.testing/belhorn/spack/site-stacks/hosts/peak/templates
+    - /sw/.testing/belhorn/spack/site-stacks/share/spack/templates
+    - $spack/share/spack/templates
+    module_roots:
+      tcl: /gpfs/alpine/world-shared/stf007/belhorn/spack/stacks/peak/production/modules/tmod
+      lmod: /gpfs/alpine/world-shared/stf007/belhorn/spack/stacks/peak/production/modules/lmod
+    build_stage:
+    - /gpfs/alpine/world-shared/stf007/belhorn/spack/stacks/peak/production/tmp
+    - $tmpdir
+    - $spack/var/spack/stage
+    source_cache: /sw/.testing/belhorn/spack/site-stacks/hosts/peak/var/cache
+    misc_cache: /sw/.testing/belhorn/spack/site-stacks/hosts/peak/var/mcache
+    verify_ssl: true
+    install_missing_compilers: false
+    checksum: true
+    dirty: false
+    build_language: C
+    build_jobs: 6
+    ccache: false
+    db_lock_timeout: 120
+    package_lock_timeout:
+  #############################################################################
+  # upstreams:
+  #   peak-compute:
+  #     install_tree: /sw/peak/.swci/1-compute/opt/spack/20180914
+  #     modules:
+  #       lmod: /sw/peak/modulefiles/site
+  #############################################################################
+  concretization: separately
+  upstreams: {}

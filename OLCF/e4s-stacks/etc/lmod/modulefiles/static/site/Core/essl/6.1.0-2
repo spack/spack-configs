@@ -1,0 +1,19 @@
+#%Module
+proc ModulesHelp { } {
+   puts stderr "ESSL 6.1.0-2"
+   puts stderr ""
+}
+# One line description
+module-whatis "ESSL 6.1.0-2"
+
+set PREFIX     /sw/peak/essl/6.1.0-2/essl/6.1
+
+# Common Paths
+prepend-path LD_LIBRARY_PATH $PREFIX/lib64
+
+# Place XL libs at lowest priority so they are present for all compilers but
+# eclipsed by XL libs provided by XL compiler module if one is loaded.
+append-path LD_LIBRARY_PATH /sw/peak/xl/16.1.1-1/lib
+
+prepend-path MANPATH        $PREFIX/man
+setenv OLCF_ESSL_ROOT       $PREFIX

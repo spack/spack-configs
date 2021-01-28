@@ -1,0 +1,648 @@
+compilers:
+- compiler:
+    spec: gcc@4.8.5
+    operating_system: rhel7
+    modules: [gcc/4.8.5]
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /usr/bin/gfortran
+      fc: /usr/bin/gfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: gcc@5.4.0
+    operating_system: rhel7
+    modules: [gcc/5.4.0]
+    paths:
+      cc: gcc
+      cxx: g++
+      f77: gfortran
+      fc: gfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: gcc@6.4.0
+    operating_system: rhel7
+    modules: [gcc/6.4.0]
+    paths:
+      cc: gcc
+      cxx: g++
+      f77: gfortran
+      fc: gfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: gcc@8.1.0
+    operating_system: rhel7
+    modules: [gcc/8.1.0]
+    paths:
+      cc: gcc
+      cxx: g++
+      f77: gfortran
+      fc: gfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: gcc@8.1.1
+    operating_system: rhel7
+    modules: [gcc/8.1.1]
+    paths:
+      cc: gcc
+      cxx: g++
+      f77: gfortran
+      fc: gfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: gcc@9.1.0
+    operating_system: rhel7
+    modules: [gcc/9.1.0]
+    paths:
+      cc: gcc
+      cxx: g++
+      f77: gfortran
+      fc: gfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: pgi@17.9
+    operating_system: rhel7
+    modules: [pgi/17.9]
+    paths:
+      cc:  pgcc
+      cxx: pgc++
+      f77: pgfortran
+      fc:  pgfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: pgi@17.10
+    operating_system: rhel7
+    modules: [pgi/17.10]
+    paths:
+      cc:  pgcc
+      cxx: pgc++
+      f77: pgfortran
+      fc:  pgfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: pgi@18.1
+    operating_system: rhel7
+    modules: [pgi/18.1]
+    paths:
+      cc:  pgcc
+      cxx: pgc++
+      f77: pgfortran
+      fc:  pgfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: pgi@18.3
+    operating_system: rhel7
+    modules: [pgi/18.3]
+    paths:
+      cc:  pgcc
+      cxx: pgc++
+      f77: pgfortran
+      fc:  pgfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: pgi@18.4
+    operating_system: rhel7
+    modules: [pgi/18.4]
+    paths:
+      cc:  pgcc
+      cxx: pgc++
+      f77: pgfortran
+      fc:  pgfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: pgi@18.5
+    operating_system: rhel7
+    modules: [pgi/18.5]
+    paths:
+      cc:  pgcc
+      cxx: pgc++
+      f77: pgfortran
+      fc:  pgfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: pgi@18.7
+    operating_system: rhel7
+    modules: [pgi/18.7]
+    paths:
+      cc:  pgcc
+      cxx: pgc++
+      f77: pgfortran
+      fc:  pgfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: pgi@18.10
+    operating_system: rhel7
+    modules: [pgi/18.10]
+    paths:
+      cc:  pgcc
+      cxx: pgc++
+      f77: pgfortran
+      fc:  pgfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: pgi@19.1
+    operating_system: rhel7
+    modules: [pgi/19.1]
+    paths:
+      cc:  pgcc
+      cxx: pgc++
+      f77: pgfortran
+      fc:  pgfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: pgi@19.3
+    operating_system: rhel7
+    modules: [pgi/19.3]
+    paths:
+      cc:  pgcc
+      cxx: pgc++
+      f77: pgfortran
+      fc:  pgfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: pgi@19.4
+    operating_system: rhel7
+    modules: [pgi/19.4]
+    paths:
+      cc:  pgcc
+      cxx: pgc++
+      f77: pgfortran
+      fc:  pgfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: pgi@19.5
+    operating_system: rhel7
+    modules: [pgi/19.5]
+    paths:
+      cc:  pgcc
+      cxx: pgc++
+      f77: pgfortran
+      fc:  pgfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: pgi@19.7
+    operating_system: rhel7
+    modules: [pgi/19.7]
+    paths:
+      cc:  pgcc
+      cxx: pgc++
+      f77: pgfortran
+      fc:  pgfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: clang@1.0-20171110
+    operating_system: rhel7
+    modules: [llvm/1.0-20171110]
+    paths:
+      cc:  /sw/peak/llvm/1.0-20171110/bin/clang
+      cxx: /sw/peak/llvm/1.0-20171110/bin/clang++
+      f77: /sw/peak/llvm/1.0-20171110/bin/xlflang
+      fc:  /sw/peak/llvm/1.0-20171110/bin/xlflang
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: clang@1.0-20180406
+    operating_system: rhel7
+    modules: [llvm/1.0-20180406]
+    paths:
+      cc:  /sw/peak/llvm/1.0-20180406/bin/clang
+      cxx: /sw/peak/llvm/1.0-20180406/bin/clang++
+      f77: /sw/peak/xl/20180502/xlf/16.1.0/bin/xlf
+      fc:  /sw/peak/xl/20180502/xlf/16.1.0/bin/xlf
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: clang@1.0-20180531
+    operating_system: rhel7
+    modules: [llvm/1.0-20180531]
+    paths:
+      cc:  /sw/peak/llvm/1.0-20180531/bin/clang
+      cxx: /sw/peak/llvm/1.0-20180531/bin/clang++
+      f77: /sw/peak/xl/20180502/xlf/16.1.0/bin/xlf
+      fc:  /sw/peak/xl/20180502/xlf/16.1.0/bin/xlf
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: clang@9.0.0-1
+    operating_system: rhel7
+    modules: [cuda/10.1.105, llvm/9.0.0-1]
+    paths:
+      cc:  /sw/peak/llvm/9.0.0/9.0.0.patch001.cuda-10.1.105/bin/clang
+      cxx: /sw/peak/llvm/9.0.0/9.0.0.patch001.cuda-10.1.105/bin/clang++
+      f77: /usr/bin/gfortran
+      fc:  /usr/bin/gfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: clang@9.0.0-2
+    operating_system: rhel7
+    modules: [cuda/10.1.168, llvm/9.0.0-2]
+    paths:
+      cc:  /sw/peak/llvm/9.0.0/9.0.0.patch001.cuda-10.1.168/bin/clang
+      cxx: /sw/peak/llvm/9.0.0/9.0.0.patch001.cuda-10.1.168/bin/clang++
+      f77: /usr/bin/gfortran
+      fc:  /usr/bin/gfortran
+    extra_rpaths: []
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@20171023-beta
+    operating_system: rhel7
+    modules: [xl/20171023-beta]
+    paths:
+      cc:  /sw/peak/xl/20171023-beta/xlC/13.1.6/bin/xlc
+      cxx: /sw/peak/xl/20171023-beta/xlC/13.1.6/bin/xlc++
+      f77: /sw/peak/xl/20171023-beta/xlf/15.1.6/bin/xlf
+      fc:  /sw/peak/xl/20171023-beta/xlf/15.1.6/bin/xlf
+    extra_rpaths:
+      - /sw/peak/xl/20171023-beta/lib
+      - /sw/peak/xl/20171023-beta/xlf/15.1.6/lib
+      - /sw/peak/xl/20171023-beta/xlC/13.1.6/lib 
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@20171120-beta
+    operating_system: rhel7
+    modules: [xl/20171120-beta]
+    paths:
+      cc:  /sw/peak/xl/20171120-beta/xlC/13.1.6/bin/xlc
+      cxx: /sw/peak/xl/20171120-beta/xlC/13.1.6/bin/xlc++
+      f77: /sw/peak/xl/20171120-beta/xlf/15.1.6/bin/xlf
+      fc:  /sw/peak/xl/20171120-beta/xlf/15.1.6/bin/xlf
+    extra_rpaths:
+      - /sw/peak/xl/20171120-beta/lib
+      - /sw/peak/xl/20171120-beta/xlf/15.1.6/lib
+      - /sw/peak/xl/20171120-beta/xlC/13.1.6/lib 
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@20171127-beta
+    operating_system: rhel7
+    modules: [xl/20171127-beta]
+    paths:
+      cc:  /sw/peak/xl/20171127-beta/xlC/13.1.6/bin/xlc
+      cxx: /sw/peak/xl/20171127-beta/xlC/13.1.6/bin/xlc++
+      f77: /sw/peak/xl/20171127-beta/xlf/15.1.6/bin/xlf
+      fc:  /sw/peak/xl/20171127-beta/xlf/15.1.6/bin/xlf
+    extra_rpaths:
+      - /sw/peak/xl/20171127-beta/lib
+      - /sw/peak/xl/20171127-beta/xlf/15.1.6/lib
+      - /sw/peak/xl/20171127-beta/xlC/13.1.6/lib 
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@20180125
+    operating_system: rhel7
+    modules: [xl/20180125]
+    paths:
+      cc:  /sw/peak/xl/20180125/xlC/13.1.6/bin/xlc
+      cxx: /sw/peak/xl/20180125/xlC/13.1.6/bin/xlc++
+      f77: /sw/peak/xl/20180125/xlf/15.1.6/bin/xlf
+      fc:  /sw/peak/xl/20180125/xlf/15.1.6/bin/xlf
+    extra_rpaths:
+      - /sw/peak/xl/20180125/lib
+      - /sw/peak/xl/20180125/xlf/15.1.6/lib
+      - /sw/peak/xl/20180125/xlC/13.1.6/lib 
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@20180213-beta
+    operating_system: rhel7
+    modules: [xl/20180213-beta]
+    paths:
+      cc:  /sw/peak/xl/20180213-beta/xlC/13.1.7/bin/xlc
+      cxx: /sw/peak/xl/20180213-beta/xlC/13.1.7/bin/xlc++
+      f77: /sw/peak/xl/20180213-beta/xlf/15.1.7/bin/xlf
+      fc:  /sw/peak/xl/20180213-beta/xlf/15.1.7/bin/xlf
+    extra_rpaths:
+      - /sw/peak/xl/20180213-beta/lib
+      - /sw/peak/xl/20180213-beta/xlf/15.1.7/lib
+      - /sw/peak/xl/20180213-beta/xlC/13.1.7/lib 
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@20180223-beta
+    operating_system: rhel7
+    modules: [xl/20180223-beta]
+    paths:
+      cc:  /sw/peak/xl/20180223-beta/xlC/13.1.7/bin/xlc
+      cxx: /sw/peak/xl/20180223-beta/xlC/13.1.7/bin/xlc++
+      f77: /sw/peak/xl/20180223-beta/xlf/15.1.7/bin/xlf
+      fc:  /sw/peak/xl/20180223-beta/xlf/15.1.7/bin/xlf
+    extra_rpaths:
+      - /sw/peak/xl/20180223-beta/lib
+      - /sw/peak/xl/20180223-beta/xlf/15.1.7/lib
+      - /sw/peak/xl/20180223-beta/xlC/13.1.7/lib 
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@20180319-beta
+    operating_system: rhel7
+    modules: [xl/20180319-beta]
+    paths:
+      cc:  /sw/peak/xl/20180319-beta/xlC/13.1.7/bin/xlc
+      cxx: /sw/peak/xl/20180319-beta/xlC/13.1.7/bin/xlc++
+      f77: /sw/peak/xl/20180319-beta/xlf/15.1.7/bin/xlf
+      fc:  /sw/peak/xl/20180319-beta/xlf/15.1.7/bin/xlf
+    extra_rpaths:
+      - /sw/peak/xl/20180319-beta/lib
+      - /sw/peak/xl/20180319-beta/xlf/15.1.7/lib
+      - /sw/peak/xl/20180319-beta/xlC/13.1.7/lib 
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@20180406-beta
+    operating_system: rhel7
+    modules: [xl/20180406-beta]
+    paths:
+      cc:  /sw/peak/xl/20180406-beta/xlC/16.1.0/bin/xlc
+      cxx: /sw/peak/xl/20180406-beta/xlC/16.1.0/bin/xlc++
+      f77: /sw/peak/xl/20180406-beta/xlf/16.1.0/bin/xlf
+      fc:  /sw/peak/xl/20180406-beta/xlf/16.1.0/bin/xlf
+    extra_rpaths:
+      - /sw/peak/xl/20180406-beta/lib
+      - /sw/peak/xl/20180406-beta/xlf/16.1.0/lib
+      - /sw/peak/xl/20180406-beta/xlC/16.1.0/lib 
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@20180430
+    operating_system: rhel7
+    modules: [xl/20180430]
+    paths:
+      cc:  /sw/peak/xl/20180430/xlC/16.1.0/bin/xlc
+      cxx: /sw/peak/xl/20180430/xlC/16.1.0/bin/xlc++
+      f77: /sw/peak/xl/20180430/xlf/16.1.0/bin/xlf
+      fc:  /sw/peak/xl/20180430/xlf/16.1.0/bin/xlf
+    extra_rpaths:
+      - /sw/peak/xl/20180430/lib
+      - /sw/peak/xl/20180430/xlf/16.1.0/lib
+      - /sw/peak/xl/20180430/xlC/16.1.0/lib
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@20180502
+    operating_system: rhel7
+    modules: [xl/20180502]
+    paths:
+      cc:  /sw/peak/xl/20180502/xlC/16.1.0/bin/xlc
+      cxx: /sw/peak/xl/20180502/xlC/16.1.0/bin/xlc++
+      f77: /sw/peak/xl/20180502/xlf/16.1.0/bin/xlf
+      fc:  /sw/peak/xl/20180502/xlf/16.1.0/bin/xlf
+    extra_rpaths:
+      - /sw/peak/xl/20180502/lib
+      - /sw/peak/xl/20180502/xlf/16.1.0/lib
+      - /sw/peak/xl/20180502/xlC/16.1.0/lib 
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@16.1.1-beta1
+    operating_system: rhel7
+    modules: [xl/16.1.1-beta1]
+    paths:
+      cc:  /sw/peak/xl/16.1.1-beta1/xlC/16.1.1/bin/xlc
+      cxx: /sw/peak/xl/16.1.1-beta1/xlC/16.1.1/bin/xlc++
+      f77: /sw/peak/xl/16.1.1-beta1/xlf/16.1.1/bin/xlf
+      fc:  /sw/peak/xl/16.1.1-beta1/xlf/16.1.1/bin/xlf
+    extra_rpaths:
+      - /sw/peak/xl/16.1.1-beta1/lib
+      - /sw/peak/xl/16.1.1-beta1/xlf/16.1.1/lib
+      - /sw/peak/xl/16.1.1-beta1/xlC/16.1.1/lib
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@16.1.1-beta2
+    operating_system: rhel7
+    modules: [xl/16.1.1-beta2]
+    paths:
+      cc:  /sw/peak/xl/16.1.1-beta2/xlC/16.1.1/bin/xlc
+      cxx: /sw/peak/xl/16.1.1-beta2/xlC/16.1.1/bin/xlc++
+      f77: /sw/peak/xl/16.1.1-beta2/xlf/16.1.1/bin/xlf
+      fc:  /sw/peak/xl/16.1.1-beta2/xlf/16.1.1/bin/xlf
+    extra_rpaths:
+      - /sw/peak/xl/16.1.1-beta2/lib
+      - /sw/peak/xl/16.1.1-beta2/xlf/16.1.1/lib
+      - /sw/peak/xl/16.1.1-beta2/xlC/16.1.1/lib
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@16.1.1-beta3
+    operating_system: rhel7
+    modules: [xl/16.1.1-beta3]
+    paths:
+      cc:  /sw/peak/xl/16.1.1-beta3/xlC/16.1.1/bin/xlc
+      cxx: /sw/peak/xl/16.1.1-beta3/xlC/16.1.1/bin/xlc++
+      f77: /sw/peak/xl/16.1.1-beta3/xlf/16.1.1/bin/xlf
+      fc:  /sw/peak/xl/16.1.1-beta3/xlf/16.1.1/bin/xlf
+    extra_rpaths:
+      - /sw/peak/xl/16.1.1-beta3/lib
+      - /sw/peak/xl/16.1.1-beta3/xlf/16.1.1/lib
+      - /sw/peak/xl/16.1.1-beta3/xlC/16.1.1/lib
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@16.1.1-beta4
+    operating_system: rhel7
+    modules: [xl/16.1.1-beta4]
+    paths:
+      cc:  /sw/peak/xl/16.1.1-beta4/xlC/16.1.1/bin/xlc
+      cxx: /sw/peak/xl/16.1.1-beta4/xlC/16.1.1/bin/xlc++
+      f77: /sw/peak/xl/16.1.1-beta4/xlf/16.1.1/bin/xlf
+      fc:  /sw/peak/xl/16.1.1-beta4/xlf/16.1.1/bin/xlf
+    extra_rpaths:
+      - /sw/peak/xl/16.1.1-beta4/lib
+      - /sw/peak/xl/16.1.1-beta4/xlf/16.1.1/lib
+      - /sw/peak/xl/16.1.1-beta4/xlC/16.1.1/lib
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@16.1.1-beta5
+    operating_system: rhel7
+    modules: [xl/16.1.1-beta5]
+    paths:
+      cc:  /sw/peak/xl/16.1.1-beta5/xlC/16.1.1/bin/xlc
+      cxx: /sw/peak/xl/16.1.1-beta5/xlC/16.1.1/bin/xlc++
+      f77: /sw/peak/xl/16.1.1-beta5/xlf/16.1.1/bin/xlf
+      fc:  /sw/peak/xl/16.1.1-beta5/xlf/16.1.1/bin/xlf
+    extra_rpaths:
+      - /sw/peak/xl/16.1.1-beta5/lib
+      - /sw/peak/xl/16.1.1-beta5/xlf/16.1.1/lib
+      - /sw/peak/xl/16.1.1-beta5/xlC/16.1.1/lib
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@16.1.1-beta6
+    operating_system: rhel7
+    modules: [xl/16.1.1-beta6]
+    paths:
+      cc:  /sw/peak/xl/16.1.1-beta6/xlC/16.1.1/bin/xlc_r
+      cxx: /sw/peak/xl/16.1.1-beta6/xlC/16.1.1/bin/xlc++_r
+      f77: /sw/peak/xl/16.1.1-beta6/xlf/16.1.1/bin/xlf_r
+      fc:  /sw/peak/xl/16.1.1-beta6/xlf/16.1.1/bin/xlf2008_r
+    extra_rpaths:
+      - /sw/peak/xl/16.1.1-beta6/lib
+      - /sw/peak/xl/16.1.1-beta6/xlf/16.1.1/lib
+      - /sw/peak/xl/16.1.1-beta6/xlC/16.1.1/lib
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@16.1.1-1
+    operating_system: rhel7
+    modules: [xl/16.1.1-1]
+    paths:
+      cc:  /sw/peak/xl/16.1.1-1/xlC/16.1.1/bin/xlc_r
+      cxx: /sw/peak/xl/16.1.1-1/xlC/16.1.1/bin/xlc++_r
+      f77: /sw/peak/xl/16.1.1-1/xlf/16.1.1/bin/xlf_r
+      fc:  /sw/peak/xl/16.1.1-1/xlf/16.1.1/bin/xlf2008_r
+    extra_rpaths:
+      - /sw/peak/xl/16.1.1-1/lib
+      - /sw/peak/xl/16.1.1-1/xlf/16.1.1/lib
+      - /sw/peak/xl/16.1.1-1/xlC/16.1.1/lib
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@16.1.1-2
+    operating_system: rhel7
+    modules: [xl/16.1.1-2]
+    paths:
+      cc:  /sw/peak/xl/16.1.1-2/xlC/16.1.1/bin/xlc_r
+      cxx: /sw/peak/xl/16.1.1-2/xlC/16.1.1/bin/xlc++_r
+      f77: /sw/peak/xl/16.1.1-2/xlf/16.1.1/bin/xlf_r
+      fc:  /sw/peak/xl/16.1.1-2/xlf/16.1.1/bin/xlf2008_r
+    extra_rpaths:
+      - /sw/peak/xl/16.1.1-2/lib
+      - /sw/peak/xl/16.1.1-2/xlf/16.1.1/lib
+      - /sw/peak/xl/16.1.1-2/xlC/16.1.1/lib
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@16.1.1-3
+    operating_system: rhel7
+    modules: [xl/16.1.1-3]
+    paths:
+      cc:  /sw/peak/xl/16.1.1-3/xlC/16.1.1/bin/xlc_r
+      cxx: /sw/peak/xl/16.1.1-3/xlC/16.1.1/bin/xlc++_r
+      f77: /sw/peak/xl/16.1.1-3/xlf/16.1.1/bin/xlf_r
+      fc:  /sw/peak/xl/16.1.1-3/xlf/16.1.1/bin/xlf2008_r
+    extra_rpaths:
+      - /sw/peak/xl/16.1.1-3/lib
+      - /sw/peak/xl/16.1.1-3/xlf/16.1.1/lib
+      - /sw/peak/xl/16.1.1-3/xlC/16.1.1/lib
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@16.1.1-4
+    operating_system: rhel7
+    modules: [xl/16.1.1-4]
+    paths:
+      cc:  /sw/peak/xl/16.1.1-4/xlC/16.1.1/bin/xlc_r
+      cxx: /sw/peak/xl/16.1.1-4/xlC/16.1.1/bin/xlc++_r
+      f77: /sw/peak/xl/16.1.1-4/xlf/16.1.1/bin/xlf_r
+      fc:  /sw/peak/xl/16.1.1-4/xlf/16.1.1/bin/xlf2008_r
+    extra_rpaths:
+      - /sw/peak/xl/16.1.1-4/lib
+      - /sw/peak/xl/16.1.1-4/xlf/16.1.1/lib
+      - /sw/peak/xl/16.1.1-4/xlC/16.1.1/lib
+    environment: {}
+    flags: {}
+
+- compiler:
+    spec: xl@16.1.1-5
+    operating_system: rhel7
+    modules: [xl/16.1.1-5]
+    paths:
+      cc:  /sw/peak/xl/16.1.1-5/xlC/16.1.1/bin/xlc_r
+      cxx: /sw/peak/xl/16.1.1-5/xlC/16.1.1/bin/xlc++_r
+      f77: /sw/peak/xl/16.1.1-5/xlf/16.1.1/bin/xlf_r
+      fc:  /sw/peak/xl/16.1.1-5/xlf/16.1.1/bin/xlf2008_r
+    extra_rpaths:
+      - /sw/peak/xl/16.1.1-5/lib
+      - /sw/peak/xl/16.1.1-5/xlf/16.1.1/lib
+      - /sw/peak/xl/16.1.1-5/xlC/16.1.1/lib
+    environment: {}
+    flags: {}

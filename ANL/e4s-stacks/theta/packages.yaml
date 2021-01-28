@@ -1,0 +1,228 @@
+packages:
+  all:
+    compiler: [ intel@19.0.5.281, gcc@7.3.0, cce@9.0.2, clang@5.0 ]
+    providers:
+      mpi: [mpich]
+      mkl: [intel-mkl]
+      blas: [intel-mkl, cray-libsci]
+      scalapack: [intel-mkl, cray-libsci]
+      pkgconfig: [pkg-config]
+    permissions:
+      write: group
+      group: software
+  cmake:
+    paths:
+      cmake@3.5.2:  /usr
+      cmake@3.14.5: /lus/theta-fs0/software/spack/spack-dev/opt/spack/linux-sles12-x86_64/gcc-8.2.0/cmake-3.14.5-lk5npubi6w6oyssemfzfjj44zyi52qk7
+      cmake@3.15.2: /lus/theta-fs0/software/spack/spack-dev/opt/spack/linux-sles12-x86_64/gcc-4.8/cmake-3.15.2-wb7sdyxf5sou3tvrz6oxoic7y6wyg4fj
+    modules:
+      cmake@3.9.1:  cmake/3.9.1 # soft
+      cmake@3.11.4: cmake/3.11.4 # soft 
+  python:
+    paths:
+      python@2.7.13: /usr #system python
+#      python@3.7.4%gcc arch=cray-cnl-mic_knl: /lus/theta-fs0/software/spack/spack-dev/opt/spack/cray-cnl6-mic_knl/gcc-7.3.0/python-3.7.4-ean6rjfhflgnbyrpxipm7xard2vvcn7r #spack-built for KNL
+      python@3.6.8 %intel: /soft/interpreters/python/3.6/intel/2019.3.075
+#    modules:
+#      python@2.7%intel@18.0.0.128: intelpython27/2019.3.075 #intel version
+#      python@3.6%intel@18.0.0.128: intelpython36/2019.3.075 #intel version
+    buildable: False
+  pkg-config:
+    paths:
+      pkg-config@0.28: /usr
+    buildable: False 
+  autoconf:
+    paths:
+      autoconf@2.69: /usr
+    buildable: False
+  automake:
+    paths:
+      automake@1.13.4: /usr
+    buildable: False
+  libtool:
+    paths:
+      libtool@2.4.2: /usr
+      libtool@2.4.6: /lus/theta-fs0/software/spack/spack-dev/opt/spack/linux-sles12-x86_64/gcc-4.8/libtool-2.4.6-c676oevuxuyxcsucepvxyegtpnjtnc6g
+    buildable: False
+  zlib:
+    paths:
+      zlib@1.2.8: /usr
+      zlib@1.2.11: /lus/theta-fs0/software/spack/spack-dev/opt/spack/linux-sles12-x86_64/gcc-4.8/zlib-1.2.11-phw2nxzseuvvoh4omy6dkwlwyrx3mjhn
+    buildable: False
+  bzip2:
+    paths:
+      bzip2@1.0.6%gcc@4.8.5: /usr
+    buildable: False
+  gettext:
+    paths:
+      gettext@0.19.2: /usr
+    buildable: False
+  ffmpeg:
+    paths:
+      ffmpeg@4.1.1: /lus/theta-fs0/software/spack/spack-dev/opt/spack/linux-sles12-x86_64/gcc-8.2.0/ffmpeg-4.1.1-nf56ofgzsw7l6elr6xl5hax4wd6kio3o
+    buildable: False 
+  libjpeg:
+    paths:
+      libjpeg@9c: /lus/theta-fs0/software/spack/spack-dev/opt/spack/linux-sles12-x86_64/gcc-8.2.0/libjpeg-9c-fc3kcdu7jti6kro2qbpxcfnnxzuie6xv
+    buildable: False 
+  libpng:
+    paths:
+      libpng@1.6.8: /usr
+      libpng@1.6.34: /lus/theta-fs0/software/spack/spack-dev/opt/spack/linux-sles12-x86_64/gcc-8.2.0/libpng-1.6.34-mcirstlhyn6mvfbxnms6pfhrs655kqzo
+    buildable: False 
+  yasm:
+    paths:
+      yasm@1.3.0: /lus/theta-fs0/software/spack/spack-dev/opt/spack/linux-sles12-x86_64/gcc-8.2.0/yasm-1.3.0-xgu53bnckvfa3b7ftm35syv5acabdd72
+  binutils:
+    paths:
+      binutils@2.31: /usr
+    buildable: False 
+  gmp:
+    paths:
+      gmp@5.1.3: /usr
+    buildable: False 
+  ncurses:
+    paths:
+      ncurses@5.9: /usr
+    buildable: False 
+  isl:
+    paths:
+      isl@0.12: /usr
+    buildable: False 
+  libedit:
+    paths:
+      libedit@3.1: /usr
+    buildable: False 
+  hwloc:
+    paths:
+      hwloc@1.11.1: /usr
+    buildable: False
+  m4:
+    paths:
+      m4@1.4.16: /usr
+      m4@1.4.18: /lus/theta-fs0/software/spack/spack-dev/opt/spack/cray-cnl6-mic_knl/gcc-7.3.0/m4-1.4.18-j4rwynsduaibydsf73qdwn7ii2sf3ka3
+    buildable: False
+  diffutils:
+    paths:
+      diffutils@3.3: /usr
+    buildable: False
+  readline:
+    paths:
+      readline@6.3: /usr
+      readline@7.0: /lus/theta-fs0/software/spack/spack-dev/opt/spack/linux-sles12-x86_64/gcc-4.8/readline-7.0-3sdd46jnsbpef3a72ioj2reblfmf2e4a
+    buildable: False
+  libpciaccess:
+    paths:
+     libpciaccess@0.11.1: /usr
+    buildable: False
+  openssl:
+    paths:
+      openssl@1.0.2j-fips%gcc@4.8.5: /usr
+    buildable: False
+  gdbm:
+    paths:
+      gdbm@1.18.1: /usr
+    buildable: False
+  xz:
+    paths:
+      xz@5.0.5: /usr
+      xz@5.2.4 arch=cray-cnl6-mic_knl: /lus/theta-fs0/software/spack/spack-dev/opt/spack/cray-cnl6-mic_knl/gcc-7.3.0/xz-5.2.4-jxygelhjpqa6ypauglfattdxsao6llkm
+    buildable: False
+  libiconv:
+    paths:
+      libiconv@1.15: /lus/theta-fs0/software/spack/spack-dev/opt/spack/linux-sles12-x86_64/gcc-4.8/libiconv-1.15-6e4qkekpdqcpnc27onvsm53fraw6qhml
+    buildable: False
+  libxml2:
+    paths:
+     libxml2@2.9.9 arch=cray-cnl6-mic_knl: /lus/theta-fs0/software/spack/spack-dev/opt/spack/cray-cnl6-mic_knl/gcc-7.3.0/libxml2-2.9.9-qmwjunqbmjoewz5muxgfhkqozcwvpppk
+    buildable: False
+  intel-mkl:
+    paths:
+      intel-mkl@18.0.0.128: /opt/intel
+    buildable: False
+  mpich:
+    modules:
+      mpich@3.1 arch=cray-cnl6-mic_knl: cray-mpich/7.7.10 # only for cnl, never on service nodes
+    buildable: false
+  curl:
+    paths:
+      curl@7.37.0%gcc@4.8.5: /usr
+  gawk:
+    paths:
+      gawk@4.1.0%gcc@4.8.5: /usr
+  lz4:
+    paths:
+      lz4@1.7.4%gcc@4.8.5: /usr
+  perl:
+    paths:
+      perl@5.18.2%gcc@4.8.5: /usr
+  tar:
+    paths:
+      tar@1.27.1%gcc@4.8.5: /bin
+  libfabric:
+    variants: fabrics=gni
+    paths:
+      libfabric@1.2.2: /usr
+  fftw:
+    modules:
+      fftw@3.3.6.3+openmp:   cray-fftw/3.3.6.3
+      fftw@3.3.8.1+openmp:   cray-fftw/3.3.8.1
+      fftw@3.3.8.2+openmp:   cray-fftw/3.3.8.2
+    buildable: False
+  hdf5:
+    modules:
+      hdf5@1.10.1.1%intel~mpi+hl: cray-hdf5/1.10.1.1
+      hdf5@1.10.1.1%gcc~mpi+hl:   cray-hdf5/1.10.1.1
+      hdf5@1.10.1.1%cce~mpi+hl:   cray-hdf5/1.10.1.1
+      hdf5@1.10.2.0%intel~mpi+hl: cray-hdf5/1.10.2.0
+      hdf5@1.10.2.0%gcc~mpi+hl:   cray-hdf5/1.10.2.0
+      hdf5@1.10.2.0%cce~mpi+hl:   cray-hdf5/1.10.2.0
+      hdf5@1.10.1.1%intel+mpi+hl: cray-hdf5-parallel/1.10.1.1
+      hdf5@1.10.1.1%gcc+mpi+hl:   cray-hdf5-parallel/1.10.1.1
+      hdf5@1.10.1.1%cce+mpi+hl:   cray-hdf5-parallel/1.10.1.1
+      hdf5@1.10.2.0%intel+mpi+hl: cray-hdf5-parallel/1.10.2.0
+      hdf5@1.10.2.0%gcc+mpi+hl:   cray-hdf5-parallel/1.10.2.0
+      hdf5@1.10.2.0%cce+mpi+hl:   cray-hdf5-parallel/1.10.2.0
+    buildable: false
+  cray-libsci:
+    modules:
+      cray-libsci@18.07.1%gcc:   cray-libsci/18.07.1
+      cray-libsci@18.07.1%intel: cray-libsci/18.07.1
+      cray-libsci@18.07.1%cce:   cray-libsci/18.07.1
+      cray-libsci@18.12.1%gcc:   cray-libsci/18.12.1
+      cray-libsci@18.12.1%intel: cray-libsci/18.12.1
+      cray-libsci@18.12.1%cce:   cray-libsci/18.12.1
+    buildable: false
+  netcdf:
+    modules:
+      netcdf@4.4.1.1.6%gcc+parallel-netcdf+mpi:   cray-netcdf-hdf5parallel/4.4.1.1.6
+      netcdf@4.4.1.1.6%intel+parallel-netcdf+mpi: cray-netcdf-hdf5parallel/4.4.1.1.6
+      netcdf@4.4.1.1.6%cce+parallel-netcdf+mpi:   cray-netcdf-hdf5parallel/4.4.1.1.6
+      netcdf@4.6.1.3%gcc+parallel-netcdf+mpi:     cray-netcdf-hdf5parallel/4.6.1.3
+      netcdf@4.6.1.3%intel+parallel-netcdf+mpi:   cray-netcdf-hdf5parallel/4.6.1.3
+      netcdf@4.6.1.3%cce+parallel-netcdf+mpi:     cray-netcdf-hdf5parallel/4.6.1.3
+      netcdf@4.4.1.1.6%gcc~parallel-netcdf~mpi:   cray-netcdf/4.4.1.1.6
+      netcdf@4.4.1.1.6%intel~parallel-netcdf~mpi: cray-netcdf/4.4.1.1.6
+      netcdf@4.4.1.1.6%cce~parallel-netcdf~mpi:   cray-netcdf/4.4.1.1.6
+      netcdf@4.6.1.3%gcc~parallel-netcdf~mpi:     cray-netcdf/4.6.1.3
+      netcdf@4.6.1.3%intel~parallel-netcdf~mpi:   cray-netcdf/4.6.1.3
+      netcdf@4.6.1.3%cce~parallel-netcdf~mpi:     cray-netcdf/4.6.1.3
+    buildable: false
+  netcdf-fortran:
+    modules:
+      netcdf-fortran@4.4.1.1.6%intel: cray-netcdf-hdf5parallel/4.4.1.1.6
+      netcdf-fortran@4.4.1.1.6%cce:   cray-netcdf-hdf5parallel/4.4.1.1.6
+      netcdf-fortran@4.4.1.1.6%gcc:   cray-netcdf-hdf5parallel/4.4.1.1.6
+      netcdf-fortran@4.6.1.3%intel:   cray-netcdf-hdf5parallel/4.6.1.3
+      netcdf-fortran@4.6.1.3%cce:     cray-netcdf-hdf5parallel/4.6.1.3
+      netcdf-fortran@4.6.1.3%gcc:     cray-netcdf-hdf5parallel/4.6.1.3
+    buildable: false
+  papi:
+    modules:
+      papi@5.5.1.4%gcc:   papi/5.5.1.4
+      papi@5.5.1.4%intel: papi/5.5.1.4
+      papi@5.5.1.4%cce:   papi/5.5.1.4
+      papi@5.6.0.5%gcc:   papi/5.6.0.5
+      papi@5.6.0.5%intel: papi/5.6.0.5
+      papi@5.6.0.5%cce:   papi/5.6.0.5
+    buildable: false

@@ -1,0 +1,12 @@
+#%Module2.0
+#
+# Module spack-curated
+# installed by Frank Willmore, Nov 2019
+# willmore@anl.gov
+#
+
+# Loading this module will place MODULES_DIR in the MODULEPATH
+# use the template to get the value here
+set CURATED_MODULES_DIR CURATED_MODULES_DIR_GOES_HERE
+prepend-path MODULEPATH $CURATED_MODULES_DIR
+
