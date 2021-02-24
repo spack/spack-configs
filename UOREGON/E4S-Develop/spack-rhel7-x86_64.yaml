@@ -1,15 +1,12 @@
 spack:
   view: false
-
   concretization: separately
-
   config:
+    build_jobs: 8
     install_tree:
       root: /spack-software
       padded_length: 64
-  
   packages:
-
     all:
       compiler:
         - gcc@8.1.0
@@ -21,10 +18,9 @@ spack:
       target:
         - x86_64
       variants: +mpi
-      
     autoconf:
       version:
-        - 2.69
+        - '2.69'
     automake:
       version:
         - 1.16.2
@@ -84,6 +80,10 @@ spack:
     libxml2:
       version:
         - 2.9.10
+    llvm-doe:
+      variants: +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
+      version:
+        - doe
     m4:
       version:
         - 1.4.18
@@ -124,7 +124,6 @@ spack:
     zlib:
       version:
         - 1.2.11
-
   specs:
   - adios
   - adios2
@@ -152,11 +151,12 @@ spack:
   - hypre
   - kokkos-kernels+openmp
   - kokkos+cuda cuda_arch=70 ^cuda@10.2.89
-  - kokkos+rocm amdgpu_target=gfx906
   - kokkos+openmp
+  - kokkos+rocm amdgpu_target=gfx906
   - legion
   - libnrm
   - libquo
+  - llvm-doe
   - magma cuda_arch=70 ^cuda@10.2.89
   - mercury
   - mfem
@@ -185,8 +185,8 @@ spack:
   - slate ^openblas@0.3.5 ^cuda@10.2.89
   - slepc
   - stc
-  - strumpack
-  - strumpack+rocm amdgpu_target=gfx906
+  - strumpack~slate ^openblas threads=openmp
+  - strumpack~slate+rocm amdgpu_target=gfx906 ^openblas threads=openmp
   - sundials
   - superlu
   - superlu-dist
