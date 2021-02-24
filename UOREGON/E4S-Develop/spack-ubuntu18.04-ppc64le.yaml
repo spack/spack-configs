@@ -5,7 +5,7 @@ spack:
     build_jobs: 8
     install_tree:
       root: /spack-software
-      padded_length: 64
+      padded_length: 114
   packages:
     all:
       compiler:
