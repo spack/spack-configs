@@ -135,7 +135,6 @@ spack:
   - axom
   - bolt
   - caliper
-  - chai~benchmarks+rocm amdgpu_target=gfx906
   - darshan-runtime
   - darshan-util
   - dyninst
@@ -201,7 +200,8 @@ spack:
   - upcxx
   - veloc
   - zfp
-  # - dealii
-  # - kokkos+cuda cuda_arch=70 ^cuda@10.2.89 # cuda conflict with %gcc@9
-  # - magma cuda_arch=70 ^cuda@10.2.89
-  # - slate ^openblas@0.3.5 ^cuda@10.2.89
+  - kokkos+cuda+wrapper cuda_arch=70
+  #- chai~benchmarks+rocm amdgpu_target=gfx906
+  #- dealii
+  #- magma cuda_arch=70 ^cuda@10.2.89
+  #- slate ^openblas@0.3.5 ^cuda@10.2.89

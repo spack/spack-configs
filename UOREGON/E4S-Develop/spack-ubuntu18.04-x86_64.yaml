@@ -135,7 +135,6 @@ spack:
   - axom
   - bolt
   - caliper
-  - chai~benchmarks+rocm amdgpu_target=gfx906 ^hip@4.0.0
   - darshan-runtime
   - darshan-util
   - dyninst
@@ -151,7 +150,6 @@ spack:
   - hpx
   - hypre
   - kokkos-kernels+openmp
-  - kokkos+cuda cuda_arch=70 ^cuda@10.2.89
   - kokkos+openmp
   - kokkos+rocm amdgpu_target=gfx906
   - legion
@@ -204,4 +202,6 @@ spack:
   - upcxx
   - veloc
   - zfp
+  - kokkos+cuda+wrapper cuda_arch=70 ^cuda@10.2.89
+  #- chai~benchmarks+rocm amdgpu_target=gfx906 ^hip@4.0.0
   #- dealii
