@@ -9,7 +9,7 @@ spack:
   packages:
     all:
       compiler:
-        - gcc@7.5.0
+        - gcc@9.3.0
       providers:
         blas:
           - openblas
@@ -23,7 +23,7 @@ spack:
         - '2.69'
     automake:
       version:
-        - 1.16.2
+        - 1.16.3
     berkeley-db:
       version:
         - 18.1.40
@@ -33,13 +33,13 @@ spack:
         - 2.33.1
     boost:
       version:
-        - 1.74.0
+        - 1.75.0
     bzip2:
       version:
         - 1.0.8
     cmake:
       version:
-        - 3.18.4
+        - 3.19.5
     diffutils:
       version:
         - 3.7
@@ -61,7 +61,7 @@ spack:
         - 1.10.7
     help2man:
       version:
-        - 1.47.11
+        - 1.47.16
     hip:
       version:
         - 4.0.0
@@ -76,7 +76,7 @@ spack:
         - 2.12
     libunwind:
       version:
-        - 1.4.0
+        - 1.5.0
     libxml2:
       version:
         - 2.9.10
@@ -90,7 +90,7 @@ spack:
     mpich:
       variants: ~wrapperrpath
       version:
-        - 3.3.2
+        - 3.4.1
     ncurses:
       version:
         - 6.2
@@ -99,19 +99,19 @@ spack:
         - 0.3.10
     perl:
       version:
-        - 5.32.0
+        - 5.32.1
     pkgconf:
       version:
         - 1.7.3
     python:
       version:
-        - 3.8.6
+        - 3.8.8
     readline:
       version:
         - 8
     sqlite:
       version:
-        - 3.33.0
+        - 3.34.0
     tar:
       version:
         - 1.32
@@ -131,7 +131,7 @@ spack:
   - amrex
   - arborx
   - argobots
-  - ascent
+  - ascent ^cmake@3.18.2
   - axom
   - bolt
   - caliper
@@ -150,6 +150,7 @@ spack:
   - hpx
   - hypre
   - kokkos-kernels+openmp
+  - kokkos+cuda+wrapper cuda_arch=70 ^cuda@10.2.89
   - kokkos+openmp
   - kokkos+rocm amdgpu_target=gfx906
   - legion
@@ -159,7 +160,7 @@ spack:
   - magma cuda_arch=70 ^cuda@10.2.89
   - mercury
   - mfem
-  - mpifileutils@develop~xattr
+  - mpifileutils@0.10.1 ~xattr #@develop~xattr
   - ninja
   - omega-h
   - openmpi
@@ -181,7 +182,8 @@ spack:
   - raja+rocm~openmp amdgpu_target=gfx906 ^hip@4.0.0
   - rempi
   - scr
-  - slate ^openblas@0.3.5 ^cuda@10.2.89
+  - slate~cuda ^openblas@0.3.5
+  - slate+cuda ^openblas@0.3.5 ^cuda@10.2.89 ^blaspp+cuda
   - slepc
   - stc
   - strumpack~slate ^openblas threads=openmp
@@ -190,6 +192,7 @@ spack:
   - superlu
   - superlu-dist
   - swig
+  - swig@4.0.2-fortran
   - sz
   - tasmanian
   - tau
@@ -202,6 +205,5 @@ spack:
   - upcxx
   - veloc
   - zfp
-  - kokkos+cuda+wrapper cuda_arch=70 ^cuda@10.2.89
   #- chai~benchmarks+rocm amdgpu_target=gfx906 ^hip@4.0.0
   #- dealii
