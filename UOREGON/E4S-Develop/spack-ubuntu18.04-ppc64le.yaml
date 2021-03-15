@@ -4,14 +4,14 @@ spack:
   packages:
     all:
       compiler:
-        - gcc@9.3.0
+        - gcc@7.5.0
       providers:
         blas:
           - openblas
         mpi:
           - mpich
       target:
-        - x86_64
+        - ppc64le
       variants: +mpi
     autoconf:
       version:

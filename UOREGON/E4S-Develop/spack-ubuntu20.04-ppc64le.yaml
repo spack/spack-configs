@@ -11,7 +11,7 @@ spack:
         mpi:
           - mpich
       target:
-        - x86_64
+        - ppc64le
       variants: +mpi
     autoconf:
       version:

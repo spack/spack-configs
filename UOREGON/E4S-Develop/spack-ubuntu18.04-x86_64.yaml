@@ -4,7 +4,7 @@ spack:
   packages:
     all:
       compiler:
-        - gcc@9.3.0
+        - gcc@7.5.0
       providers:
         blas:
           - openblas
