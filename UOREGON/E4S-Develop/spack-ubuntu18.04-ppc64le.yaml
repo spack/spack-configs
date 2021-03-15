@@ -1,11 +1,6 @@
 spack:
   view: false
   concretization: separately
-  config:
-    build_jobs: 8
-    install_tree:
-      root: /spack-software
-      padded_length: 114
   packages:
     all:
       compiler:
@@ -124,6 +119,7 @@ spack:
     zlib:
       version:
         - 1.2.11
+
   specs:
   - adios
   - adios2
