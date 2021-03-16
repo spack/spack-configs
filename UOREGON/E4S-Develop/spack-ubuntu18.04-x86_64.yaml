@@ -178,8 +178,8 @@ spack:
   - raja+rocm~openmp amdgpu_target=gfx906 ^hip@4.0.0
   - rempi
   - scr
-  - slate~cuda ^openblas@0.3.5
-  - slate+cuda ^openblas@0.3.5 ^cuda@10.2.89 ^blaspp+cuda
+  - slate~cuda
+  - slate+cuda ^cuda@10.2.89 ^blaspp+cuda
   - slepc
   - stc
   - strumpack~slate ^openblas threads=openmp

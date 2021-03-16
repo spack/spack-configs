@@ -124,7 +124,6 @@ spack:
   - adios
   - adios2
   - aml
-  - amrex
   - arborx
   - argobots
   - ascent ^cmake@3.18.2
@@ -193,6 +192,7 @@ spack:
   - upcxx
   - veloc
   - zfp
+  #- amrex # conflict with gcc 8.1.0
   #- chai
   #- dealii
   #- phist
