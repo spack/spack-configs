@@ -23,7 +23,7 @@ spack:
       version:
         - 18.1.40
     binutils:
-      variants: +gold+headers+libiberty~nls
+      variants: +gold+headers+libiberty~nls+plugins
       version:
         - 2.33.1
     boost:
@@ -32,56 +32,85 @@ spack:
     bzip2:
       version:
         - 1.0.8
+    c-blosc:
+      version:
+        - 1.21.0
     cmake:
       version:
-        - 3.19.5
+        - 3.19.7
+    curl:
+      version:
+        - 7.76.0
     diffutils:
       version:
         - 3.7
     elfutils:
       version:
         - 0.182
+      variants: +bzip2~nls+xz
     expat:
       version:
         - 2.2.10
+    findutils:
+      version:
+        - 4.8.0
     gdbm:
       version:
         - 1.18.1
     gettext:
       version:
         - 0.21
+    git:
+      version:
+        - 2.31.0
     hdf5:
-      variants: +fortran
+      variants: +fortran+hl+shared
       version:
         - 1.10.7
     help2man:
       version:
         - 1.47.16
-    hip:
+    hwloc:
       version:
-        - 4.0.0
+        - 2.4.1
+    json-c:
+      version:
+        - 0.13.1
     libbsd:
       version:
         - 0.10.0
+    libfabric:
+      version:
+        - 1.12.1
     libiconv:
       version:
         - 1.16
     libsigsegv:
       version:
         - 2.12
+    libpciaccess:
+      version:
+        - 0.16
+    libtool:
+      version:
+        - 2.4.6
     libunwind:
       version:
         - 1.5.0
+      variants: +pic+xz
     libxml2:
       version:
         - 2.9.10
-    llvm-doe:
-      variants: +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
+    lz4:
       version:
-        - doe
+        - 1.9.3
     m4:
       version:
         - 1.4.18
+    mesa:
+      variants: ~llvm
+    mesa18:
+      variants: ~llvm
     mpich:
       variants: ~wrapperrpath
       version:
@@ -89,6 +118,10 @@ spack:
     ncurses:
       version:
         - 6.2
+      variants: +termlib
+    numactl:
+      version:
+        - 2.0.14
     openblas:
       version:
         - 0.3.10
@@ -116,10 +149,13 @@ spack:
     xz:
       version:
         - 5.2.5
+      variants: +pic
     zlib:
       version:
         - 1.2.11
-
+    zstd:
+      version:
+        - 1.4.9
   specs:
   - adios
   - adios2
@@ -138,21 +174,26 @@ spack:
   - flecsi+cinch
   - flit
   - gasnet
+  - geopm
   - ginkgo
   - globalarrays
+  - gmp
   - gotcha
   - hdf5
   - hpctoolkit
   - hpx
   - hypre
-  - kokkos-kernels+openmp
   - kokkos+openmp
+  - kokkos-kernels+openmp
   - legion
   - libnrm
   - libquo
-  - llvm-doe
+  - libunwind
+  - llvm-doe@doe +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
+  - loki
   - mercury
   - mfem
+  - mpark-variant
   - mpifileutils@0.10.1 ~xattr #@develop~xattr
   - ninja
   - omega-h
@@ -169,7 +210,9 @@ spack:
   - py-jupyterhub
   - py-libensemble
   - py-petsc4py
+  - qt
   - qthreads scheduler=distrib
+  - qwt
   - raja
   - rempi
   - scr
@@ -190,6 +233,7 @@ spack:
   - umpire
   - unifyfs
   - upcxx
+  - variorum
   - veloc
   - zfp
   #- chai
