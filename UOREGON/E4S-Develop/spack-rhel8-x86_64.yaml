@@ -196,6 +196,7 @@ spack:
   - loki
   - magma cuda_arch=70 ^cuda@10.2.89
   - mercury
+  - metall
   - mfem
   - mpark-variant
   - mpifileutils@0.10.1 ~xattr #@develop~xattr

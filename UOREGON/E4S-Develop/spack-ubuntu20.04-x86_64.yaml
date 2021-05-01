@@ -195,6 +195,7 @@ spack:
   - llvm-doe@doe +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
   - loki
   - mercury
+  - metall
   - mfem
   - mpark-variant
   - mpifileutils@0.10.1 ~xattr #@develop~xattr
