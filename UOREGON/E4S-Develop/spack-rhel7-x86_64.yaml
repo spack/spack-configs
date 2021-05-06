@@ -215,7 +215,6 @@ spack:
   - py-petsc4py
   - qthreads scheduler=distrib
   - raja
-  - raja+rocm~openmp amdgpu_target=gfx906
   - rempi
   - scr
   - slate+cuda ^cuda@10.2.89 ^blaspp+cuda
@@ -245,3 +244,4 @@ spack:
   #- amrex # conflicts with gcc 8.1.0
   #- chai~benchmarks+rocm amdgpu_target=gfx906
   #- dealii
+  #- raja+rocm~openmp amdgpu_target=gfx906

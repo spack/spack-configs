@@ -220,7 +220,6 @@ spack:
   - qthreads scheduler=distrib
   - qwt
   - raja
-  - raja+rocm~openmp amdgpu_target=gfx906
   - rempi
   - scr
   - slate+cuda ^cuda@10.2.89 ^blaspp+cuda
@@ -249,3 +248,4 @@ spack:
   - zfp
   #- chai~benchmarks+rocm amdgpu_target=gfx906
   #- dealii
+  #- raja+rocm~openmp amdgpu_target=gfx906
