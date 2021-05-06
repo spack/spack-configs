@@ -168,6 +168,7 @@ spack:
   - axom
   - bolt
   - caliper
+  - conduit
   - darshan-runtime
   - darshan-util
   - dyninst
@@ -240,7 +241,6 @@ spack:
   - turbine
   - umap
   - umpire
-  - umpire+rocm amdgpu_target=gfx906
   - unifyfs
   - upcxx
   - variorum
@@ -249,3 +249,4 @@ spack:
   #- chai~benchmarks+rocm amdgpu_target=gfx906
   #- dealii
   #- raja+rocm~openmp amdgpu_target=gfx906
+  #- umpire+rocm amdgpu_target=gfx906

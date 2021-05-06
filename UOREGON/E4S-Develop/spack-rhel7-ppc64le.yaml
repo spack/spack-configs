@@ -167,6 +167,7 @@ spack:
   - axom
   - bolt
   - caliper
+  - conduit
   - darshan-runtime
   - darshan-util
   - dyninst
