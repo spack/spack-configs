@@ -23,7 +23,7 @@ spack:
       version:
       - 18.1.40
     binutils:
-      variants: +gold+headers+libiberty~nls+plugins
+      variants: +ld+gold+headers+libiberty~nls+plugins
       version:
       - 2.33.1
     boost:
@@ -63,6 +63,9 @@ spack:
     git:
       version:
       - 2.31.0
+    glib:
+      version:
+      - 2.66.8
     hdf5:
       variants: +fortran+hl+shared
       version:
@@ -125,6 +128,9 @@ spack:
     openblas:
       version:
       - 0.3.10
+    openssl:
+      version:
+        - 1.1.1k
     perl:
       version:
       - 5.32.1

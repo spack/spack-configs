@@ -23,7 +23,7 @@ spack:
       version:
         - 18.1.40
     binutils:
-      variants: +gold+headers+libiberty~nls+plugins
+      variants: +ld+gold+headers+libiberty~nls+plugins
       version:
         - 2.33.1
     boost:
