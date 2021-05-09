@@ -178,7 +178,7 @@ spack:
   - faodel
   - flecsi+cinch
   - flit
-  - fortilinos
+  - fortrilinos ^trilinos+nox+superlu-dist+stratimikos
   - gasnet
   - geopm
   - ginkgo
