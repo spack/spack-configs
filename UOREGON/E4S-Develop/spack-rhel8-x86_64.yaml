@@ -37,7 +37,7 @@ spack:
         - 1.21.0
     cmake:
       version:
-        - 3.19.7
+        - 3.20.2
     curl:
       version:
         - 7.76.0
@@ -82,6 +82,7 @@ spack:
     libfabric:
       version:
         - 1.12.1
+      variants: fabrics=sockets,tcp,udp,rxm
     libiconv:
       version:
         - 1.16
@@ -125,6 +126,7 @@ spack:
     openblas:
       version:
         - 0.3.10
+      variants: threads=openmp
     perl:
       version:
         - 5.32.1
@@ -133,7 +135,7 @@ spack:
         - 1.7.3
     python:
       version:
-        - 3.8.8
+        - 3.8.10
     readline:
       version:
         - 8
@@ -164,9 +166,10 @@ spack:
   - amrex
   - arborx
   - argobots
-  - ascent ^cmake@3.18.2
+  - ascent
   - axom
   - bolt
+  - cabana
   - caliper
   - conduit
   - darshan-runtime
@@ -175,6 +178,7 @@ spack:
   - faodel
   - flecsi+cinch
   - flit
+  - fortilinos
   - gasnet
   - geopm
   - ginkgo
@@ -200,7 +204,7 @@ spack:
   - metall
   - mfem
   - mpark-variant
-  - mpifileutils@0.10.1 ~xattr #@develop~xattr
+  - mpifileutils ~xattr
   - ninja
   - omega-h
   - openmpi
