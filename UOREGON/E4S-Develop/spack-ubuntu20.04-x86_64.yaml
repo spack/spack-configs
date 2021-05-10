@@ -226,6 +226,9 @@ spack:
   - py-jupyterhub
   - py-libensemble
   - py-petsc4py
+  - py-warpx ^warpx dims=3
+  - py-warpx ^warpx dims=2
+  - py-warpx ^warpx dims=rz
   - qt
   - qthreads scheduler=distrib
   - qwt
