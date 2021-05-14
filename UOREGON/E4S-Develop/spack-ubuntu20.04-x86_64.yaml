@@ -186,7 +186,6 @@ spack:
   - flit
   - fortrilinos ^trilinos+nox+superlu-dist+stratimikos
   - gasnet
-  - geopm
   - ginkgo
   - globalarrays
   - gmp
@@ -226,8 +225,8 @@ spack:
   - py-jupyterhub
   - py-libensemble
   - py-petsc4py
-  - py-warpx ^warpx dims=3
   - py-warpx ^warpx dims=2
+  - py-warpx ^warpx dims=3
   - py-warpx ^warpx dims=rz
   - qt
   - qthreads scheduler=distrib
@@ -237,8 +236,8 @@ spack:
   - scr
   - slepc
   - stc
-  - strumpack~slate ^openblas threads=openmp
-  - strumpack~slate+rocm amdgpu_target=gfx906 ^openblas threads=openmp
+  - strumpack~slate
+  - strumpack~slate+rocm amdgpu_target=gfx906
   - sundials
   - superlu
   - superlu-dist
@@ -252,17 +251,18 @@ spack:
   - turbine
   - umap
   - umpire
-  - unifyfs
+  - unifyfs@0.9.1
   - upcxx
-  - variorum
-  - veloc
   - zfp
+  #- veloc # issue filed
   #- chai~benchmarks+rocm amdgpu_target=gfx906
   #- dealii
-  #- magma cuda_arch=70 ^cuda@10.2.89
+  #- magma cuda_arch=70
   #- umpire+rocm amdgpu_target=gfx906 # blt 0.3.6 issue with rocm
   #- raja+rocm~openmp amdgpu_target=gfx906 # blt 0.3.6 issue with rocm
-  #- slate ^openblas@0.3.5 ^cuda@10.2.89
+  #- slate ^openblas@0.3.5
+  #- variorum # root fails
+  #- geopm # some dependencies fail to build: ruby-hpricot, ruby-rdiscount, py-tables, doxygen
   compilers:
   - compiler:
       spec: gcc@9.3.0

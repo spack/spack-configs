@@ -4,7 +4,7 @@ spack:
   packages:
     all:
       compiler:
-        - gcc@8.1.0
+        - gcc@9.3.0
       providers:
         blas:
           - openblas
@@ -163,6 +163,7 @@ spack:
   - adios
   - adios2
   - aml
+  - amrex
   - arborx
   - argobots
   - ascent
@@ -179,7 +180,6 @@ spack:
   - flit
   - fortrilinos ^trilinos+nox+superlu-dist+stratimikos
   - gasnet
-  - geopm
   - ginkgo
   - globalarrays
   - gmp
@@ -188,7 +188,7 @@ spack:
   - hpctoolkit
   - hpx
   - hypre
-  - kokkos+cuda+wrapper cuda_arch=70 ^cuda@10.2.89
+  - kokkos+cuda+wrapper cuda_arch=70
   - kokkos+openmp
   - kokkos+rocm amdgpu_target=gfx906
   - kokkos-kernels+openmp
@@ -197,7 +197,8 @@ spack:
   - libquo
   - libunwind
   - llvm-doe@doe +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
-  - magma cuda_arch=70 ^cuda@10.2.89
+  - loki
+  - magma cuda_arch=70
   - mercury
   - metall
   - mfem
@@ -218,19 +219,19 @@ spack:
   - py-jupyterhub
   - py-libensemble
   - py-petsc4py
-  - py-warpx ^warpx dims=3
   - py-warpx ^warpx dims=2
+  - py-warpx ^warpx dims=3
   - py-warpx ^warpx dims=rz
   - qthreads scheduler=distrib
   - raja
   - rempi
   - scr
-  - slate+cuda ^cuda@10.2.89 ^blaspp+cuda
+  - slate+cuda ^blaspp+cuda
   - slate~cuda
   - slepc
   - stc
-  - strumpack~slate ^openblas threads=openmp
-  - strumpack~slate+rocm amdgpu_target=gfx906 ^openblas threads=openmp
+  - strumpack~slate
+  - strumpack~slate+rocm amdgpu_target=gfx906
   - sundials
   - superlu
   - superlu-dist
@@ -243,13 +244,13 @@ spack:
   - turbine
   - umap
   - umpire
-  - unifyfs
+  - unifyfs@0.9.1
   - upcxx
-  - variorum
-  - veloc
   - zfp
-  #- amrex # conflicts with gcc 8.1.0
+  #- veloc
   #- chai~benchmarks+rocm amdgpu_target=gfx906
   #- dealii
   #- raja+rocm~openmp amdgpu_target=gfx906
   #- umpire+rocm amdgpu_target=gfx906
+  #- variorum
+  #- geopm

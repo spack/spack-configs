@@ -4,7 +4,7 @@ spack:
   packages:
     all:
       compiler:
-        - gcc@8.1.0
+        - gcc@9.3.0
       providers:
         blas:
           - openblas
@@ -163,6 +163,7 @@ spack:
   - adios
   - adios2
   - aml
+  - amrex
   - arborx
   - argobots
   - ascent
@@ -179,7 +180,6 @@ spack:
   - flit
   - fortrilinos ^trilinos+nox+superlu-dist+stratimikos
   - gasnet
-  - geopm
   - ginkgo
   - globalarrays
   - gmp
@@ -195,6 +195,7 @@ spack:
   - libquo
   - libunwind
   - llvm-doe@doe +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
+  - loki
   - magma cuda_arch=70 ^cuda@10.2.89
   - mercury
   - metall
@@ -215,8 +216,8 @@ spack:
   - py-jupyterhub
   - py-libensemble
   - py-petsc4py
-  - py-warpx ^warpx dims=3
   - py-warpx ^warpx dims=2
+  - py-warpx ^warpx dims=3
   - py-warpx ^warpx dims=rz
   - qthreads
   - raja
@@ -224,7 +225,7 @@ spack:
   - scr
   - slepc
   - stc
-  - strumpack~slate ^openblas threads=openmp
+  - strumpack~slate
   - sundials
   - superlu
   - superlu-dist
@@ -237,12 +238,12 @@ spack:
   - turbine
   - umap
   - umpire
-  - unifyfs
+  - unifyfs@0.9.1
   - upcxx
-  - variorum
-  - veloc
   - zfp
-  #- amrex # conflict with gcc 8.1.0
+  #- veloc
   #- chai
   #- dealii
   #- phist
+  #- variorum
+  #- geopm

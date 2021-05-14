@@ -180,7 +180,6 @@ spack:
   - flit
   - fortrilinos ^trilinos+nox+superlu-dist+stratimikos
   - gasnet
-  - geopm
   - ginkgo
   - globalarrays
   - gmp
@@ -196,7 +195,8 @@ spack:
   - libquo
   - libunwind
   - llvm-doe@doe +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
-  - magma cuda_arch=70 ^cuda@10.2.89
+  - loki
+  - magma cuda_arch=70
   - mercury
   - metall
   - mfem
@@ -216,8 +216,8 @@ spack:
   - py-jupyterhub
   - py-libensemble
   - py-petsc4py
-  - py-warpx ^warpx dims=3
   - py-warpx ^warpx dims=2
+  - py-warpx ^warpx dims=3
   - py-warpx ^warpx dims=rz
   - qthreads scheduler=distrib
   - raja
@@ -225,7 +225,7 @@ spack:
   - scr
   - slepc
   - stc
-  - strumpack~slate ^openblas threads=openmp
+  - strumpack~slate
   - sundials
   - superlu
   - superlu-dist
@@ -238,11 +238,12 @@ spack:
   - turbine
   - umap
   - umpire
-  - unifyfs
+  - unifyfs@0.9.1
   - upcxx
-  - variorum
-  - veloc
   - zfp
+  #- veloc
   #- chai
   #- dealii
   #- phist
+  #- variorum
+  #- geopm

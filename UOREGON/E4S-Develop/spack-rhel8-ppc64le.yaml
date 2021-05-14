@@ -180,7 +180,6 @@ spack:
   - flit
   - fortrilinos ^trilinos+nox+superlu-dist+stratimikos
   - gasnet
-  - geopm
   - ginkgo
   - globalarrays
   - gmp
@@ -217,8 +216,8 @@ spack:
   - py-jupyterhub
   - py-libensemble
   - py-petsc4py
-  - py-warpx ^warpx dims=3
   - py-warpx ^warpx dims=2
+  - py-warpx ^warpx dims=3
   - py-warpx ^warpx dims=rz
   - qt
   - qthreads scheduler=distrib
@@ -228,7 +227,7 @@ spack:
   - scr
   - slepc
   - stc
-  - strumpack~slate ^openblas threads=openmp
+  - strumpack~slate
   - sundials
   - superlu
   - superlu-dist
@@ -241,12 +240,13 @@ spack:
   - turbine
   - umap
   - umpire
-  - unifyfs
+  - unifyfs@0.9.1
   - upcxx
-  - variorum
-  - veloc
   - zfp
+  #- veloc
   #- chai
   #- dealii
-  #- magma cuda_arch=70 ^cuda@10.2.89
+  #- magma cuda_arch=70
   #- phist
+  #- variorum
+  #- geopm
