@@ -204,6 +204,7 @@ spack:
   - mfem
   - mpifileutils ~xattr
   - ninja
+  - nrm
   - omega-h
   - openmpi
   - openpmd-api

@@ -210,6 +210,7 @@ spack:
   - mpark-variant
   - mpifileutils ~xattr
   - ninja
+  - nrm
   - omega-h
   - openmpi
   - openpmd-api
