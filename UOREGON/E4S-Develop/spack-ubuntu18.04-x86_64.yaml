@@ -227,7 +227,7 @@ spack:
   - raja
   - rempi
   - scr
-  - slate+cuda ^blaspp+cuda
+  - slate+cuda
   - slate~cuda
   - slepc
   - stc

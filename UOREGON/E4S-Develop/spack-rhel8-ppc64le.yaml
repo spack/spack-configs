@@ -196,6 +196,7 @@ spack:
   - libunwind
   - llvm-doe@doe +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
   - loki
+  - magma cuda_arch=70
   - mercury
   - metall
   - mfem
@@ -228,6 +229,8 @@ spack:
   - scr
   - slepc
   - stc
+  - slate~cuda
+  - slate+cuda cuda_arch=70
   - strumpack~slate
   - sundials
   - superlu
@@ -247,7 +250,6 @@ spack:
   #- veloc
   #- chai
   #- dealii
-  #- magma cuda_arch=70
   #- phist
   #- variorum
   #- geopm

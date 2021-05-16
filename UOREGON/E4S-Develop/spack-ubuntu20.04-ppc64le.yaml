@@ -201,6 +201,7 @@ spack:
   - libunwind
   - llvm-doe@doe +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
   - loki
+  - magma cuda_arch=70
   - mercury
   - metall
   - mfem
@@ -231,6 +232,8 @@ spack:
   - raja
   - rempi
   - scr
+  - slate~cuda
+  - slate+cuda cuda_arch=70
   - slepc
   - stc
   - strumpack~slate
@@ -252,7 +255,6 @@ spack:
   #- veloc
   #- chai
   #- dealii
-  #- magma cuda_arch=70
   #- phist
   #- variorum
   #- geopm

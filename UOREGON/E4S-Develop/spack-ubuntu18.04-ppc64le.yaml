@@ -224,6 +224,8 @@ spack:
   - raja
   - rempi
   - scr
+  - slate~cuda
+  - slate+cuda cuda_arch=70
   - slepc
   - stc
   - strumpack~slate
