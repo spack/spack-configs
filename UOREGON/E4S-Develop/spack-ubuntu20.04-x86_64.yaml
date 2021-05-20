@@ -23,7 +23,7 @@ spack:
       version:
       - 18.1.40
     binutils:
-      variants: +ld+gold+headers+libiberty~nls+plugins
+      variants: +ld +gold +headers +libiberty ~nls +plugins
       version:
       - 2.33.1
     boost:
@@ -47,7 +47,7 @@ spack:
     elfutils:
       version:
       - 0.182
-      variants: +bzip2~nls+xz
+      variants: +bzip2 ~nls +xz
     expat:
       version:
       - 2.2.10
@@ -67,7 +67,7 @@ spack:
       version:
       - 2.66.8
     hdf5:
-      variants: +fortran+hl+shared
+      variants: +fortran +hl +shared
       version:
       - 1.10.7
     help2man:
@@ -101,7 +101,7 @@ spack:
     libunwind:
       version:
       - 1.5.0
-      variants: +pic+xz
+      variants: +pic +xz
     libxml2:
       version:
       - 2.9.10
@@ -182,9 +182,9 @@ spack:
   - darshan-util
   - dyninst
   - faodel
-  - flecsi+cinch
+  - flecsi +cinch
   - flit
-  - fortrilinos ^trilinos+nox+superlu-dist+stratimikos
+  - fortrilinos ^trilinos +nox +superlu-dist +stratimikos
   - gasnet
   - ginkgo
   - globalarrays
@@ -194,10 +194,10 @@ spack:
   - hpctoolkit
   - hpx
   - hypre
-  - kokkos+cuda+wrapper cuda_arch=70
-  - kokkos+openmp
-  - kokkos+rocm amdgpu_target=gfx906
-  - kokkos-kernels+openmp
+  - kokkos +cuda +wrapper cuda_arch=70
+  - kokkos +openmp
+  - kokkos +rocm amdgpu_target=gfx906
+  - kokkos-kernels +openmp
   - legion
   - libnrm
   - libquo
@@ -236,12 +236,12 @@ spack:
   - raja
   - rempi
   - scr
-  - slate~cuda
-  - slate+cuda cuda_arch=70
+  - slate +cuda cuda_arch=70
+  - slate ~cuda
   - slepc
   - stc
-  - strumpack~slate
-  - strumpack~slate+rocm amdgpu_target=gfx906
+  - strumpack ~slate
+  - strumpack ~slate +rocm amdgpu_target=gfx906
   - sundials
   - superlu
   - superlu-dist
@@ -251,20 +251,24 @@ spack:
   - tasmanian
   - tau
   - trilinos
-  - trilinos+nox+superlu-dist
+  - trilinos +nox +superlu-dist
   - turbine
   - umap
   - umpire
   - unifyfs@0.9.1
   - upcxx
   - zfp
+  #- sundials +rocm amdgpu_target=gfx906
+  #- tasmanian +rocm amdgpu_target=gfx906
+  #- slate +rocm amdgpu_target=gfx906
+  #- amrex +rocm amdgpu_target=gfx906
   #- veloc # issue filed
   #- chai~benchmarks+rocm amdgpu_target=gfx906
   #- dealii
   #- umpire+rocm amdgpu_target=gfx906 # blt 0.3.6 issue with rocm
   #- raja+rocm~openmp amdgpu_target=gfx906 # blt 0.3.6 issue with rocm
   #- variorum # root fails
-  #- geopm # some dependencies fail to build: ruby-hpricot, ruby-rdiscount, py-tables, doxygen
+  #- geopm
   compilers:
   - compiler:
       spec: gcc@9.3.0

@@ -23,7 +23,7 @@ spack:
       version:
         - 18.1.40
     binutils:
-      variants: +ld+gold+headers+libiberty~nls
+      variants: +ld +gold +headers +libiberty ~nls
       version:
         - 2.33.1
     boost:
@@ -47,7 +47,7 @@ spack:
     elfutils:
       version:
         - 0.182
-      variants: +bzip2~nls+xz
+      variants: +bzip2 ~nls +xz
     expat:
       version:
         - 2.2.10
@@ -64,7 +64,7 @@ spack:
       version:
         - 2.31.0
     hdf5:
-      variants: +fortran+hl+shared
+      variants: +fortran +hl +shared
       version:
         - 1.10.7
     help2man:
@@ -98,7 +98,7 @@ spack:
     libunwind:
       version:
         - 1.5.0
-      variants: +pic+xz
+      variants: +pic +xz
     libxml2:
       version:
         - 2.9.10
@@ -175,10 +175,10 @@ spack:
   - darshan-runtime
   - darshan-util
   - dyninst
-  - faodel~tcmalloc
-  - flecsi+cinch
+  - faodel ~tcmalloc
+  - flecsi +cinch
   - flit
-  - fortrilinos ^trilinos+nox+superlu-dist+stratimikos
+  - fortrilinos ^trilinos +nox +superlu-dist +stratimikos
   - gasnet
   - ginkgo
   - globalarrays
@@ -188,8 +188,8 @@ spack:
   - hpctoolkit
   - hpx
   - hypre
-  - kokkos+openmp
-  - kokkos-kernels+openmp
+  - kokkos +openmp
+  - kokkos-kernels +openmp
   - legion
   - libnrm
   - libquo
@@ -224,11 +224,11 @@ spack:
   - raja
   - rempi
   - scr
-  - slate~cuda
-  - slate+cuda cuda_arch=70
+  - slate +cuda cuda_arch=70
+  - slate ~cuda
   - slepc
   - stc
-  - strumpack~slate
+  - strumpack ~slate
   - sundials
   - superlu
   - superlu-dist
