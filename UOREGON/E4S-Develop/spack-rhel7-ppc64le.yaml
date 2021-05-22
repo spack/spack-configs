@@ -159,94 +159,106 @@ spack:
       version:
         - 1.4.9
 
+  definitions:
+
+  - cuda_specs:
+    - kokkos +cuda +wrapper cuda_arch=70
+    - magma cuda_arch=70
+    - slate +cuda cuda_arch=70
+
+  - default_specs:
+    - adios
+    - adios2
+    - aml
+    - amrex
+    - arborx
+    - argobots
+    - ascent
+    - axom
+    - bolt
+    - cabana
+    - caliper
+    - conduit
+    - darshan-runtime
+    - darshan-util
+    - dyninst
+    - faodel ~tcmalloc
+    - flecsi +cinch
+    - flit
+    - fortrilinos ^trilinos +nox +superlu-dist +stratimikos
+    - gasnet
+    - ginkgo
+    - globalarrays
+    - gmp
+    - gotcha
+    - hdf5
+    - hpctoolkit
+    - hpx
+    - hypre
+    - kokkos +openmp
+    - kokkos-kernels +openmp
+    - legion
+    - libnrm
+    - libquo
+    - libunwind
+    - llvm-doe@doe +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
+    - loki
+    - mercury
+    - metall
+    - mfem
+    - mpark-variant
+    - mpifileutils ~xattr
+    - ninja
+    - nrm
+    - omega-h
+    - openmpi
+    - openpmd-api
+    - papi
+    - papyrus@1.0.1
+    - parallel-netcdf
+    - pdt
+    - petsc
+    - plasma
+    - precice
+    - pumi
+    - py-jupyterhub
+    - py-libensemble
+    - py-petsc4py
+    - py-warpx ^warpx dims=2
+    - py-warpx ^warpx dims=3
+    - py-warpx ^warpx dims=rz
+    - qt
+    - qthreads scheduler=distrib
+    - qwt
+    - raja
+    - rempi
+    - scr
+    - slate ~cuda
+    - slepc
+    - stc
+    - strumpack ~slate
+    - sundials
+    - superlu
+    - superlu-dist
+    - swig
+    - swig@4.0.2-fortran
+    - sz
+    - tasmanian
+    - tau
+    - trilinos
+    - turbine
+    - umap
+    - umpire
+    - unifyfs@0.9.1
+    - upcxx
+    - zfp
+    #- chai
+    #- dealii
+    #- geopm
+    #- phist
+    #- variorum
+    #- veloc
+
   specs:
-  - adios
-  - adios2
-  - aml
-  - amrex
-  - arborx
-  - argobots
-  - ascent
-  - axom
-  - bolt
-  - cabana
-  - caliper
-  - conduit
-  - darshan-runtime
-  - darshan-util
-  - dyninst
-  - faodel ~tcmalloc
-  - flecsi +cinch
-  - flit
-  - fortrilinos ^trilinos +nox +superlu-dist +stratimikos
-  - gasnet
-  - ginkgo
-  - globalarrays
-  - gmp
-  - gotcha
-  - hdf5
-  - hpctoolkit
-  - hpx
-  - hypre
-  - kokkos +openmp
-  - kokkos-kernels +openmp
-  - legion
-  - libnrm
-  - libquo
-  - libunwind
-  - llvm-doe@doe +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
-  - loki
-  - magma cuda_arch=70
-  - mercury
-  - metall
-  - mfem
-  - mpifileutils ~xattr
-  - ninja
-  - nrm
-  - omega-h
-  - openmpi
-  - openpmd-api
-  - papi
-  - papyrus@1.0.1
-  - parallel-netcdf
-  - pdt
-  - petsc
-  - plasma
-  - precice
-  - pumi
-  - py-jupyterhub
-  - py-libensemble
-  - py-petsc4py
-  - py-warpx ^warpx dims=2
-  - py-warpx ^warpx dims=3
-  - py-warpx ^warpx dims=rz
-  - qthreads
-  - raja
-  - rempi
-  - scr
-  - slate +cuda cuda_arch=70
-  - slate ~cuda
-  - slepc
-  - stc
-  - strumpack ~slate
-  - sundials
-  - superlu
-  - superlu-dist
-  - swig
-  - swig@4.0.2-fortran
-  - sz
-  - tasmanian
-  - tau
-  - trilinos +nox +superlu-dist
-  - turbine
-  - umap
-  - umpire
-  - unifyfs@0.9.1
-  - upcxx
-  - zfp
-  #- chai
-  #- dealii
-  #- geopm
-  #- phist
-  #- variorum
-  #- veloc
+  - $cuda_specs
+  - $default_specs
