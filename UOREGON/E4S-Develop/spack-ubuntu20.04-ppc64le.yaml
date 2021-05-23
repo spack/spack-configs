@@ -170,9 +170,26 @@ spack:
   definitions:
 
   - cuda_specs:
+    - amrex +cuda cuda_arch=70
+    - caliper +cuda cuda_arch=70
+    - chai +cuda ~benchmarks ~tests cuda_arch=70 ^umpire~shared
+    - ginkgo +cuda cuda_arch=70
+    - hpx +cuda cuda_arch=70
     - kokkos +cuda +wrapper cuda_arch=70
+    - kokkos-kernels +cuda cuda_arch=70 ^kokkos +cuda +wrapper cuda_arch=70
     - magma cuda_arch=70
+    - raja +cuda cuda_arch=70
     - slate +cuda cuda_arch=70
+    - strumpack +cuda ~slate cuda_arch=70
+    - sundials +cuda cuda_arch=70
+    - superlu-dist +cuda cuda_arch=70
+    - tasmanian +cuda cuda_arch=70
+    - umpire +cuda ~shared cuda_arch=70
+    - zfp +cuda cuda_arch=70
+    #- ascent +cuda ~shared cuda_arch=70
+    #- axom +cuda cuda_arch=70 ^umpire~shared
+    #- hypre +cuda cuda_arch=70
+    #- mfem +cuda cuda_arch=70
 
   - default_specs:
     - adios
@@ -186,6 +203,7 @@ spack:
     - bolt
     - cabana
     - caliper
+    - chai ~benchmarks ~tests
     - conduit
     - darshan-runtime
     - darshan-util
@@ -260,7 +278,6 @@ spack:
     - unifyfs@0.9.1
     - upcxx
     - zfp
-    #- chai
     #- dealii
     #- geopm
     #- phist

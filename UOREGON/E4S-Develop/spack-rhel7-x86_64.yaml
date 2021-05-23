@@ -162,15 +162,33 @@ spack:
   definitions:
 
   - cuda_specs:
+    - amrex +cuda cuda_arch=70
+    - axom +cuda cuda_arch=70 ^umpire~shared
+    - caliper +cuda cuda_arch=70
+    - chai +cuda ~benchmarks ~tests cuda_arch=70 ^umpire~shared
+    - ginkgo +cuda cuda_arch=70
+    - hpx +cuda cuda_arch=70
     - kokkos +cuda +wrapper cuda_arch=70
+    - kokkos-kernels +cuda cuda_arch=70 ^kokkos +cuda +wrapper cuda_arch=70
     - magma cuda_arch=70
+    - raja +cuda cuda_arch=70
     - slate +cuda cuda_arch=70
+    - strumpack +cuda ~slate cuda_arch=70
+    - sundials +cuda cuda_arch=70
+    - superlu-dist +cuda cuda_arch=70
+    - tasmanian +cuda cuda_arch=70
+    - umpire +cuda ~shared cuda_arch=70
+    - zfp +cuda cuda_arch=70
+    #- ascent +cuda ~shared cuda_arch=70
+    #- hypre +cuda cuda_arch=70
+    #- mfem +cuda cuda_arch=70
 
   - rocm_specs:
     - kokkos +rocm amdgpu_target=gfx906
     - strumpack +rocm ~slate amdgpu_target=gfx906
     #- amrex +rocm amdgpu_target=gfx906
     #- chai +rocm ~benchmarks amdgpu_target=gfx906
+    #- ginkgo +rocm amdgpu_target=gfx906 # needs hip<4.1
     #- raja +rocm ~openmp amdgpu_target=gfx906 # blt 0.3.6 issue with rocm
     #- slate +rocm amdgpu_target=gfx906
     #- sundials +rocm amdgpu_target=gfx906
@@ -189,6 +207,7 @@ spack:
     - bolt
     - cabana
     - caliper
+    - chai ~benchmarks ~tests
     - conduit
     - darshan-runtime
     - darshan-util
