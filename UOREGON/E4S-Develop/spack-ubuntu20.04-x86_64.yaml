@@ -209,6 +209,7 @@ spack:
     - aml
     - amrex
     - arborx
+    - archer
     - argobots
     - ascent
     - axom
@@ -230,6 +231,7 @@ spack:
     - gmp
     - gotcha
     - hdf5
+    - heffte +fftw
     - hpctoolkit
     - hpx
     - hypre
