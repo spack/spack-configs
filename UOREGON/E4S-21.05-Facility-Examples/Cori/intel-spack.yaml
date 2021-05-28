@@ -1,0 +1,311 @@
+spack:
+
+  view: false
+  concretization: separately
+
+  packages:
+    all:
+      compiler:
+      - intel@19.1.3.304
+      providers:
+        blas:
+        - openblas
+        mpi:
+        - mpich
+      target:
+      - haswell
+      variants: +mpi
+    slurm:
+      buildable: false
+      version: [20-02-4-1]
+      externals:
+      - spec: slurm@20-02-4-1
+        prefix: /usr
+    mpich:
+      buildable: false
+      externals:
+      - spec: mpich@3.1
+        modules:
+        - cray-mpich/7.7.10
+    autoconf:
+      version:
+      - '2.69'
+    automake:
+      version:
+      - 1.16.3
+    berkeley-db:
+      version:
+      - 18.1.40
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls +plugins
+      version:
+      - 2.33.1
+    boost:
+      version:
+      - 1.75.0
+    bzip2:
+      version:
+      - 1.0.8
+    c-blosc:
+      version:
+      - 1.21.0
+    cmake:
+      version:
+      - 3.20.2
+    curl:
+      version:
+      - 7.76.0
+    diffutils:
+      version:
+      - 3.7
+    elfutils:
+      version:
+      - 0.182
+      variants: +bzip2 ~nls +xz
+    expat:
+      version:
+      - 2.2.10
+    findutils:
+      version:
+      - 4.8.0
+    gdbm:
+      version:
+      - 1.18.1
+    gettext:
+      version:
+      - 0.21
+    git:
+      version:
+      - 2.31.0
+    glib:
+      version:
+      - 2.66.8
+    hdf5:
+      variants: +fortran +hl +shared
+      version:
+      - 1.10.7
+    help2man:
+      version:
+      - 1.47.16
+    hwloc:
+      version:
+      - 2.4.1
+    json-c:
+      version:
+      - 0.13.1
+    libbsd:
+      version:
+      - 0.10.0
+    libfabric:
+      version:
+      - 1.12.1
+      variants: fabrics=sockets,tcp,udp,rxm
+    libiconv:
+      version:
+      - 1.16
+    libsigsegv:
+      version:
+      - 2.12
+    libpciaccess:
+      version:
+      - 0.16
+    libtool:
+      version:
+      - 2.4.6
+    libunwind:
+      version:
+      - 1.5.0
+      variants: +pic +xz
+    libxml2:
+      version:
+      - 2.9.10
+    lz4:
+      version:
+      - 1.9.3
+    m4:
+      version:
+      - 1.4.18
+    mesa:
+      variants: ~llvm
+    mesa18:
+      variants: ~llvm
+    ncurses:
+      version:
+      - 6.2
+      variants: +termlib
+    numactl:
+      version:
+      - 2.0.14
+    openblas:
+      version:
+      - 0.3.10
+      variants: threads=openmp
+    perl:
+      version:
+      - 5.32.0
+    pkgconf:
+      version:
+      - 1.7.3
+    python:
+      version:
+      - 3.8.10
+    readline:
+      version:
+      - 8
+    sqlite:
+      version:
+      - 3.34.0
+    tar:
+      version:
+      - 1.32
+    texinfo:
+      version:
+      - 6.5
+    xz:
+      version:
+      - 5.2.5
+      variants: +pic
+    zlib:
+      version:
+      - 1.2.11
+    zstd:
+      version:
+      - 1.4.9
+
+  definitions:
+  - cuda_specs:
+    - amrex@21.05 +cuda cuda_arch=70
+    - axom@0.5.0 +cuda cuda_arch=70 ^umpire~shared
+    - caliper@2.5.0 +cuda cuda_arch=70
+    - chai@2.3.0 +cuda ~benchmarks ~tests cuda_arch=70 ^umpire~shared
+    - ginkgo@1.3.0 +cuda cuda_arch=70
+    - hpx@1.6.0 +cuda cuda_arch=70
+    - kokkos@3.4.00 +cuda +wrapper cuda_arch=70
+    - kokkos-kernels@3.2.00 +cuda cuda_arch=70 ^kokkos +cuda +wrapper cuda_arch=70
+    - magma@2.5.4 cuda_arch=70
+    - raja@0.13.0 +cuda cuda_arch=70
+    - slate@2021.05.02 +cuda cuda_arch=70
+    - strumpack@5.1.1 +cuda ~slate cuda_arch=70
+    - sundials@5.7.0 +cuda cuda_arch=70
+    - superlu-dist@6.4.0 +cuda cuda_arch=70
+    - tasmanian@7.5 +cuda cuda_arch=70
+    - umpire@4.1.2 +cuda ~shared cuda_arch=70
+    - zfp +cuda cuda_arch=70
+    #- ascent@0.7.1 +cuda ~shared cuda_arch=70
+    #- hypre@2.20.0 +cuda cuda_arch=70
+    #- mfem@4.2.0 +cuda cuda_arch=70
+
+  - default_specs:
+    - adios2@2.7.1
+    - adios@1.13.1
+    - aml@0.1.0
+    - amrex@21.05
+    - arborx@1.0
+    - argobots@1.1
+    - ascent@0.7.1 ~fortran
+    - bolt@2.0
+    - cabana@0.3.0
+    - caliper@2.5.0
+    - chai@2.3.0 ~benchmarks ~tests
+    - conduit@0.7.2
+    - darshan-runtime@3.3.0
+    - darshan-util@3.3.0
+    - faodel@1.1906.1
+    - flecsi@1.4 +cinch
+    - flit@2.1.0
+    - gasnet@2021.3.0
+    - ginkgo@1.3.0
+    - globalarrays@5.8
+    - gmp@6.2.1
+    - gotcha@1.0.3
+    - hdf5@1.10.7
+    - hypre@2.20.0
+    - kokkos-kernels@3.2.00 +openmp
+    - kokkos@3.4.00 +openmp
+    - legion@21.03.0
+    - libnrm@0.1.0
+    - libquo@1.3.1
+    - libunwind@1.5.0
+    - loki@0.1.7
+    - mercury@2.0.1
+    - metall@0.13
+    - mfem@4.2.0
+    - mpark-variant@1.4.0
+    - ninja@1.10.2
+    - openpmd-api@0.13.4
+    - papi@6.0.0.1
+    - papyrus@1.0.1
+    - parallel-netcdf@1.12.2
+    - pdt@3.25.1
+    - petsc@3.15.0
+    - precice@2.2.1
+    - pumi@2.2.5
+    - py-libensemble@0.7.2
+    - py-petsc4py@3.15.0
+    - py-warpx@21.05 ^warpx dims=2
+    - py-warpx@21.05 ^warpx dims=3
+    - py-warpx@21.05 ^warpx dims=rz
+    - qthreads@1.16 scheduler=distrib
+    - raja@0.13.0
+    - scr@3.0rc1
+    - slepc@3.15.0
+    - stc@0.9.0
+    - strumpack@5.1.1 ~slate
+    - sundials@5.7.0
+    - superlu-dist@6.4.0
+    - superlu@5.2.1
+    - swig@4.0.2
+    - swig@4.0.2-fortran
+    - sz@2.1.11.1
+    - tasmanian@7.5
+    - tau@2.30.1
+    - turbine@1.3.0
+    - umap@2.1.0
+    - umpire@4.1.2
+    - upcxx@2021.3.0
+    - zfp@0.5.5
+
+    # Explicit conflicts with Cray -or- Intel compiler (prohibited via package.py)
+   #- dyninst@11.0.0
+   #- hpctoolkit@2021.03.01
+   #- plasma@20.9.20
+   #- qt@5.15.2
+   #- qwt@6.1.6
+   #- slate@2021.05.02 ~cuda
+
+    # Cannot build suite-sparse due to OOM killer
+   #- fortrilinos@2.0.0 ^trilinos +nox +superlu-dist +stratimikos
+   #- omega-h@9.32.5
+   #- trilinos@13.0.1
+   #- trilinos@13.0.1 +nox +superlu-dist
+
+    # Failed builds
+   #- archer@2.0.0 # llvm@8 fails
+   #- axom@0.5.0 # thirdparty/sol/sol.hpp(11408): rvalue ref cannot be bound to an lvalue
+   #- heffte@2.0.0 # test/test_units_nompi.cpp(499): error: more than one instance of constructor "heffte::box3d::box3d"
+   #- hpx@1.6.0 # include/boost/asio/impl/read.hpp(377): no instance of overloaded function "hpx::util::detail::bound
+   #- mpifileutils@0.11 ~xattr # libcap: _caps_output.gperf:96:53: unknown type name 'size_t', libcircle: configure: check if MPI setup correctly
+   #- nrm@0.1.0 # py-gevent: configure: compiler doesn't halt on function prototype mismatch
+   #- py-jupyterhub@1.0.0
+   #- rempi@1.1.0 # configure: couldn't find MPI
+   #- unifyfs@0.9.1 # configure: couldn't find MPI
+
+  specs:
+  - $default_specs
+
+  compilers:
+  - compiler:
+      spec: intel@19.1.3.304
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: cnl7
+      target: any
+      modules:
+      - PrgEnv-intel
+      - intel/19.1.3.304
+      environment: {}
+      extra_rpaths: []
