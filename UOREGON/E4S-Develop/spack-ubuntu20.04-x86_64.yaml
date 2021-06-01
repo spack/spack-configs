@@ -171,9 +171,9 @@ spack:
 
   - cuda_specs:
     - amrex +cuda cuda_arch=70
-    - axom +cuda cuda_arch=70 ^umpire~shared
+    - axom +cuda cuda_arch=70 ^umpire@4.1.2 ~shared
     - caliper +cuda cuda_arch=70
-    - chai +cuda ~benchmarks ~tests cuda_arch=70 ^umpire~shared
+    - chai +cuda ~benchmarks ~tests cuda_arch=70 ^umpire@4.1.2 ~shared
     - ginkgo +cuda cuda_arch=70
     - hpx +cuda cuda_arch=70
     - kokkos +cuda +wrapper cuda_arch=70
@@ -185,7 +185,7 @@ spack:
     - sundials +cuda cuda_arch=70
     - superlu-dist +cuda cuda_arch=70
     - tasmanian +cuda cuda_arch=70
-    - umpire +cuda ~shared cuda_arch=70
+    - umpire@4.1.2 +cuda ~shared cuda_arch=70
     - zfp +cuda cuda_arch=70
     #- ascent +cuda ~shared cuda_arch=70
     #- hypre +cuda cuda_arch=70
@@ -212,11 +212,11 @@ spack:
     - archer
     - argobots
     - ascent
-    - axom
+    - axom ^umpire@4.1.2
     - bolt
     - cabana
     - caliper
-    - chai ~benchmarks ~tests
+    - chai ~benchmarks ~tests ^umpire@4.1.2
     - conduit
     - darshan-runtime
     - darshan-util
@@ -268,9 +268,7 @@ spack:
     - py-warpx ^warpx dims=2
     - py-warpx ^warpx dims=3
     - py-warpx ^warpx dims=rz
-    - qt
     - qthreads scheduler=distrib
-    - qwt
     - raja
     - rempi
     - scr
@@ -290,12 +288,14 @@ spack:
     - trilinos +nox +superlu-dist
     - turbine
     - umap
-    - umpire
+    - umpire@4.1.2
     - unifyfs@0.9.1
     - upcxx
     - zfp
     #- dealii
     #- geopm
+    #- qt
+    #- qwt
     #- variorum # root fails
     #- veloc # issue filed
 
