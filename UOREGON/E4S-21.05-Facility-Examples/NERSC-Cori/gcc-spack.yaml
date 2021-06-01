@@ -201,7 +201,7 @@ spack:
     - aml@0.1.0
     - amrex@21.05
     - arborx@1.0
-    - archer@2.0.0
+    - archer@2.0.0 # llvm dep fail using Cray compiler wrapper, succeed w/ GCC directly (no wrapper) 
     - argobots@1.1
     - bolt@2.0
     - cabana@0.3.0
@@ -254,7 +254,6 @@ spack:
     - py-warpx@21.05 ^warpx dims=2
     - py-warpx@21.05 ^warpx dims=3
     - py-warpx@21.05 ^warpx dims=rz
-    - qt@5.15.2
     - qthreads@1.16 scheduler=distrib
     - raja@0.13.0
     - scr@3.0rc1
@@ -269,7 +268,7 @@ spack:
     - swig@4.0.2-fortran
     - sz@2.1.11.1
     - tasmanian@7.5
-    - tau@2.30.1 # build fails using Cray compiler wrappers, OK w/ GCC directly (change compilers: section for tau)
+    - tau@2.30.1 # tau fails using Cray compiler wrappers, succeeds w/ GCC directly (no wrapper)
     - trilinos@13.0.1
     - trilinos@13.0.1 +nox +superlu-dist
     - turbine@1.3.0
@@ -284,25 +283,10 @@ spack:
    #- conduit@0.7.2
    #- mpifileutils@0.11 ~xattr
    #- qwt@6.1.6
+   #- qt@5.15.2
    #- rempi@1.1.0
    #- unifyfs@0.9.1
 
   specs:
   - $default_specs
 
-  compilers:
-  - compiler:
-      spec: gcc@9.3.0
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: cnl7
-      target: any
-      modules:
-      - PrgEnv-gnu
-      - gcc/9.3.0
-      environment: {}
-      extra_rpaths: []
