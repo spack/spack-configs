@@ -1,0 +1,46 @@
+packages:
+  all:
+    compiler: [intel@19.1.2.254, gcc@10.1.0]
+    providers:
+      mpi: [mpich]
+      mkl: [cray-libsci, intel-mkl]
+      blas: [cray-libsci, intel-mkl]
+      scalapack: [cray-libsci, intel-mkl]
+      pkgconfig: [pkg-config]
+
+  cray-libsci:
+    buildable: false
+    externals:
+    - spec: cray-libsci@19.06.1%intel
+      modules:
+      - cray-libsci/19.06.1
+  
+  fftw:
+    buildable: false
+    externals:
+    - spec: fftw@3.3.8.4%intel
+      modules:
+      - cray-fftw/3.3.8.4      
+
+  intel-mkl:
+    buildable: false
+    externals:
+    - spec: intel-mkl@19.1.2.254
+      modules:
+      - intel/19.1.2.254
+  mpich:
+    buildable: false
+    externals:
+    - spec: mpich@3.1
+      modules:
+      - cray-mpich/7.7.10
+
+  openssl:
+    buildable: false
+    externals:
+    - spec: openssl@1.1.1g
+      prefix: /usr
+
+  # issue installing version 5.32.1 and confirmed 5.32.0 works
+  perl:
+    version: [5.32.0]
