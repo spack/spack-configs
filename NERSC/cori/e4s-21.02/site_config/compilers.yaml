@@ -1,0 +1,27 @@
+compilers:
+ - compiler:
+     spec: intel@19.1.2.254
+     paths:
+       cc: cc
+       cxx: CC
+       f77: ftn
+       fc: ftn
+     flags: {}
+     operating_system: cnl7
+     target: any
+     modules:
+     - PrgEnv-intel
+     - intel/19.1.2.254
+     environment: {unset: []}
+     extra_rpaths: []
+ - compiler:
+     spec: gcc@10.1.0
+     paths:
+       cc: cc
+       cxx: CC
+       f77: ftn
+       fc: ftn
+     operating_system: cnl7
+     modules:
+     - PrgEnv-gnu
+     - gcc/10.1.0
