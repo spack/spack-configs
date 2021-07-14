@@ -1,0 +1,124 @@
+compilers:
+- compiler:
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /usr/bin/gfortran
+      fc: /usr/bin/gfortran
+    operating_system: centos7
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    spec: gcc@4.8.5
+- compiler:
+    paths:
+      cc: /spack/apps/gcc/9.4.0/bin/gcc
+      cxx: /spack/apps/gcc/9.4.0/bin/g++
+      f77: /spack/apps/gcc/9.4.0/bin/gfortran
+      fc: /spack/apps/gcc/9.4.0/bin/gfortran
+    operating_system: centos7
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    spec: gcc@9.4.0
+- compiler:
+    paths:
+      cc: /spack/apps/gcc/9.2.0/bin/gcc
+      cxx: /spack/apps/gcc/9.2.0/bin/g++
+      f77: /spack/apps/gcc/9.2.0/bin/gfortran
+      fc: /spack/apps/gcc/9.2.0/bin/gfortran
+    operating_system: centos7
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    spec: gcc@9.2.0
+- compiler:
+    paths:
+      cc: /spack/apps/gcc/8.3.0/bin/gcc
+      cxx: /spack/apps/gcc/8.3.0/bin/g++
+      f77: /spack/apps/gcc/8.3.0/bin/gfortran
+      fc: /spack/apps/gcc/8.3.0/bin/gfortran
+    operating_system: centos7
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths:
+      - /spack/apps/gcc/8.3.0/lib64
+    flags: {}
+    spec: gcc@8.3.0
+- compiler:
+    paths:
+      cc: /spack/apps/gcc/4.9.4/bin/gcc
+      cxx: /spack/apps/gcc/4.9.4/bin/g++
+      f77: /spack/apps/gcc/4.9.4/bin/gfortran
+      fc: /spack/apps/gcc/4.9.4/bin/gfortran
+    operating_system: centos7
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
+    flags: {}
+    spec: gcc@4.9.4
+- compiler:
+    environment:
+      set:
+        INTEL_LICENSE_FILE: 28518@hpc-licenses.hpcc.usc.edu
+    extra_rpaths:
+     - /spack/apps/gcc/8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0
+     - /spack/apps/linux-centos7-x86_64/gcc-8.3.0/intel-19.0.4-frbyni7nfxdptgal5vphokv6irfgzpvt/compilers_and_libraries_2019.4.243/linux/compiler/lib/intel64
+#   flags:
+#     cflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+#     cxxflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+#     fflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+    modules: []
+    operating_system: centos7
+    paths:
+      cc: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/intel-19.0.4-frbyni7nfxdptgal5vphokv6irfgzpvt/bin/icc
+      cxx: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/intel-19.0.4-frbyni7nfxdptgal5vphokv6irfgzpvt/bin/icpc
+      f77: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/intel-19.0.4-frbyni7nfxdptgal5vphokv6irfgzpvt/bin/ifort
+      fc: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/intel-19.0.4-frbyni7nfxdptgal5vphokv6irfgzpvt/bin/ifort
+    spec: intel@19.0.4
+    target: x86_64
+- compiler:
+    environment:
+      set:
+        INTEL_LICENSE_FILE: 28518@hpc-licenses.hpcc.usc.edu
+    extra_rpaths:
+     - /spack/apps/gcc/8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0
+     - /spack/apps/linux-centos7-x86_64/gcc-8.3.0/intel-18.0.4-zuj3tqndcsnx744e26rbde2hbsgb3r6z/compilers_and_libraries_2018.5.274/linux/compiler/lib/intel64
+#   flags:
+#     cflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+#     cxxflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+#     fflags: -axCOMMON-AVX512,MIC-AVX512,CORE-AVX512,CORE-AVX2,AVX
+    modules: []
+    operating_system: centos7
+    paths:
+      cc: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/intel-18.0.4-zuj3tqndcsnx744e26rbde2hbsgb3r6z/bin/icc
+      cxx: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/intel-18.0.4-zuj3tqndcsnx744e26rbde2hbsgb3r6z/bin/icpc
+      f77: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/intel-18.0.4-zuj3tqndcsnx744e26rbde2hbsgb3r6z/bin/ifort
+      fc: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/intel-18.0.4-zuj3tqndcsnx744e26rbde2hbsgb3r6z/bin/ifort
+    spec: intel@18.0.4
+    target: x86_64
+- compiler:
+    paths:
+      cc: /spack/apps/pgi/2020_207/Linux_x86_64/20.7/compilers/bin/pgcc
+      cxx: /spack/apps/pgi/2020_207/Linux_x86_64/20.7/compilers/bin/pgc++
+      f77: /spack/apps/pgi/2020_207/Linux_x86_64/20.7/compilers/bin/pgfortran
+      fc: /spack/apps/pgi/2020_207/Linux_x86_64/20.7/compilers/bin/pgfortran
+    operating_system: centos7
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
+    flags:
+    flags:
+      cflags: -O2
+      cxxflags: -O2
+      fflags: -O2
+    spec: pgi@20.7

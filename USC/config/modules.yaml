@@ -1,0 +1,51 @@
+modules:
+  enable:
+    - lmod
+  lmod:
+    core_compilers:
+      - 'gcc@4.8.5'
+    core_specs:
+      - 'cctools'
+    hierarchy:
+      - mpi
+    hash_length: 0
+    whitelist:
+      - gcc
+      - intel
+      - pgi
+    blacklist:
+      - 'gcc@4.8.5'
+      - '%gcc@4.8.5'
+    all:
+      conflict:
+        - '{name}'
+      suffixes:
+        '^mpich': mpich
+        '^mvapich2': mvapich2
+        '^openblas': openblas
+        '^netlib-lapack': netlib
+        '^openmpi': openmpi
+        '^cuda': cuda
+      environment:
+        set:
+          '{name}_ROOT': '{prefix}'
+    binutils:
+      suffixes:
+        '+nls': nls
+    cudnn:
+      autoload: 'direct'
+    quantum-espresso:
+      suffixes:
+        '^hdf5': hdf5
+    plink2:
+      autoload: 'direct'
+    gmt:
+      template: 'gmt_template.lua'
+    cellranger:
+      autoload: 'direct'
+    tmux:
+      template: 'tmux_template.lua'
+    screen:
+      template: 'screen_template.lua'
+    stata:
+      template: 'stata_template.lua'
