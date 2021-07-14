@@ -6,14 +6,14 @@ spack:
   packages:
     all:
       compiler:
-        - gcc@9.3.0
+        - gcc@10.3.0
       providers:
         blas:
           - openblas
         mpi:
           - mpich
       target:
-        - ppc64le
+        - x86_64
       variants: +mpi
     autoconf:
       version:
@@ -193,9 +193,22 @@ spack:
     - umpire@4.1.2 +cuda ~shared cuda_arch=70
     - zfp +cuda cuda_arch=70
     #- ascent +cuda ~shared cuda_arch=70
-    #- axom +cuda cuda_arch=70 ^umpire~shared
+    #- axom +cuda cuda_arch=70 ^umpire@4.1.2 ~shared
     #- hypre +cuda cuda_arch=70
     #- mfem +cuda cuda_arch=70
+    #- parsec +cuda cuda_arch=70
+
+  - rocm_specs:
+    - kokkos +rocm amdgpu_target=gfx906
+    - strumpack +rocm ~slate amdgpu_target=gfx906
+    #- amrex +rocm amdgpu_target=gfx906
+    #- chai +rocm ~benchmarks amdgpu_target=gfx906
+    #- ginkgo +rocm amdgpu_target=gfx906 # needs hip<4.1
+    #- raja +rocm ~openmp amdgpu_target=gfx906 # blt 0.3.6 issue with rocm
+    #- slate +rocm amdgpu_target=gfx906
+    #- sundials +rocm amdgpu_target=gfx906
+    #- tasmanian +rocm amdgpu_target=gfx906
+    #- umpire+rocm amdgpu_target=gfx906 # blt 0.3.6 issue with rocm
 
   - default_specs:
     - adios
@@ -203,7 +216,6 @@ spack:
     - aml
     - amrex
     - arborx
-    - archer
     - argobots
     - ascent
     - axom ^umpire@4.1.2
@@ -217,8 +229,7 @@ spack:
     - darshan-util
     - datatransferkit
     - dyninst
-    - faodel ~tcmalloc
-    - flecsi
+    - faodel
     - flit
     - fortrilinos ^trilinos +nox +superlu-dist +stratimikos
     - gasnet
@@ -253,6 +264,7 @@ spack:
     - parallel-netcdf
     - pdt
     - petsc
+    - phist
     - plasma
     - precice
     - pumi
@@ -286,11 +298,12 @@ spack:
     - upcxx
     - veloc
     - zfp
+    - geopm
+    #- archer
     #- dealii
-    #- geopm
+    #- flecsi
     #- llvm-doe@doe +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
     #- parsec
-    #- phist
     #- qt
     #- qwt
     #- stat
@@ -299,4 +312,5 @@ spack:
   specs:
   - $compilers
   - $cuda_specs
+  - $rocm_specs
   - $default_specs

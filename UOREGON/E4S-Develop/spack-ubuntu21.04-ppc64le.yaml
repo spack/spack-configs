@@ -6,7 +6,7 @@ spack:
   packages:
     all:
       compiler:
-        - gcc@9.3.0
+        - gcc@10.3.0
       providers:
         blas:
           - openblas
@@ -140,7 +140,7 @@ spack:
         - 1.1.1k
     perl:
       version:
-      - 5.34.0
+      - 5.34.0 # 5.34.0
     pkgconf:
       version:
       - 1.7.4
@@ -190,7 +190,7 @@ spack:
     - sundials +cuda cuda_arch=70
     - superlu-dist +cuda cuda_arch=70
     - tasmanian +cuda cuda_arch=70
-    - umpire@4.1.2 +cuda ~shared cuda_arch=70
+    - umpire +cuda ~shared cuda_arch=70
     - zfp +cuda cuda_arch=70
     #- ascent +cuda ~shared cuda_arch=70
     #- axom +cuda cuda_arch=70 ^umpire~shared
@@ -218,7 +218,6 @@ spack:
     - datatransferkit
     - dyninst
     - faodel ~tcmalloc
-    - flecsi
     - flit
     - fortrilinos ^trilinos +nox +superlu-dist +stratimikos
     - gasnet
@@ -281,12 +280,12 @@ spack:
     - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +teuchos +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long
     - turbine
     - umap
-    - umpire@4.1.2
     - unifyfs@0.9.1
     - upcxx
     - veloc
     - zfp
     #- dealii
+    #- flecsi
     #- geopm
     #- llvm-doe@doe +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
     #- parsec
@@ -294,6 +293,7 @@ spack:
     #- qt
     #- qwt
     #- stat
+    #- umpire
     #- variorum
 
   specs:
