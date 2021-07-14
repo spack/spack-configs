@@ -1,0 +1,7 @@
+config:
+  install_tree: /spack/apps
+  module_roots:
+    lmod: /spack/apps/lmod
+  build_stage: /build
+  build_jobs: 8
+  checksum: true

@@ -1,0 +1,762 @@
+packages:
+  gcc:
+    buildable: false
+    externals:
+    - spec: gcc@4.9.4
+      prefix: /spack/apps/gcc/4.9.4/
+    - spec: gcc@8.3.0
+      prefix: /spack/apps/gcc/8.3.0/
+    - spec: gcc@9.2.0
+      prefix: /spack/apps/gcc/9.2.0/
+  flex:
+    version: [2.6.4]
+    #externals:
+    #- spec: flex@2.6.4%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/flex-2.6.4-fscrodidalkwll7fjhl5uti3lkqnuim3/
+  libffi:
+    version: [3.2.1]
+  bison:
+    externals:
+    - spec: bison@3.4.2%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/bison-3.4.2-axgm7v3ql6yzsenbob3bcyz6pykjl56i/
+    - spec: bison@3.4.2%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/bison-3.4.2-xwnwxvweifn3ixy3h3l6ht642a4sez3t/
+  libpciaccess:
+    externals:
+    #- spec: libpciaccess@0.13.5%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libpciaccess-0.13.5-6hismynlnrb66vk7m7nz67yedtedx6hh/
+    - spec: libpciaccess@0.13.5%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/libpciaccess-0.13.5-5qmzmipetad3xafhaxuazaw7pq75jjud/
+    - spec: libpciaccess@0.16%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/libpciaccess-0.16-tbbnp47jjfkecmhpq7enueyykcwcitc5/
+  pandoc:
+    externals:
+    - spec: pandoc@2.10.1%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/pandoc/
+  r:
+    variants: +X +external-lapack +memory_profiling +rmath ^openblas
+    externals:
+    - spec: r@4.1.0%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/r-4.1.0-tigfs34i2axk27fwf46u3c4wy5z3uzsx/
+  libx11:
+    version: [1.6.7]
+    externals:
+    #- spec: libx11@1.6.7%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libx11-1.6.7-hg57h3uawa776mbgc3tadzcjwgcaktnm/
+    - spec: libx11@1.6.7%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/libx11-1.6.7-m3wjo2mkr4drjzzocloaute3yrfneuen/
+  libxft:
+    version: [2.3.2]
+    #externals:
+    #- spec: libxft@2.3.2%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libxft-2.3.2-bwp6uqoxdlzo6bjypr5sbaj3szc4mlwu/
+  libxrender:
+    version: [0.9.10]
+    #externals:
+    #- spec: libxrender@0.9.10%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libxrender-0.9.10-sjlcnw46rdpzqgqwhocfy3i5n6vdd2ut/
+  libxscrnsaver:
+    version: [1.2.2]
+    #externals:
+    #- spec: libxscrnsaver@1.2.2%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libxscrnsaver-1.2.2-ctxcp77vy2gd7cymwtghlb2izzffqbdh/
+  libxext:
+    version: [1.3.3]
+    #externals:
+    #- spec: libxext@1.3.3%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libxext-1.3.3-xtplrelobgiwyxgnbkhtjkxbdajk62vr/
+  libxt:
+    version: [1.1.5]
+    #externals:
+    #- spec: libxt@1.1.5%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libxt-1.1.5-nohehmhun4bvwrmf5g53o42hfh5gyg2v/
+  libxmu:
+    version: [1.1.2]
+    #externals:
+    #- spec: libxmu@1.1.2%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libxmu-1.1.2-4zgt5cqn2hu4xtltpkfbnmwfh3mytrxj/
+  libxcb:
+    version: [1.13]
+    #externals:
+    #- spec: libxcb@1.13%gcc@9.2.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/libxcb-1.13-dpw654lu5zlbhzplbpzx7hwknz7hgm5s/
+  xcb-proto:
+    version: [1.13]
+  graphite2:
+    externals:
+    - spec: graphite2@1.3.13%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/graphite2-1.3.13-h5j5dcm23sntdalhnvx5fb77slgd5khn/
+  tk:
+    #version: [8.6.8]
+    variants: +xft +xss
+    externals:
+    - spec: tk@8.6.8%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/tk-8.6.8-u3o5teooqbcyumx4rujlmnqkamygpxs7/
+  tcl:
+    #version: [8.6.8]
+    externals:
+    - spec: tcl@8.6.8%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/tcl-8.6.8-oe5u6ftwzoy3y55ddbu57q2argcozhlm/
+  libpng:
+    version: [1.6.37]
+    #externals:
+    #- spec: libpng@1.6.37%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libpng-1.6.37-xagwrmfxi5g25gukpaci4rr3omqjj2ov/
+  libjpeg:
+    version: [9c]
+  libjpeg-turbo:
+    version: [2.0.3]
+    externals:
+    #- spec:  libjpeg-turbo@2.0.3%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libjpeg-turbo-2.0.3-6qygjg7mayccctjcz4kcgzqblnfoh5c3/
+    - spec: libjpeg-turbo@2.0.3%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/libjpeg-turbo-2.0.3-xwide3vwlqzkotu3jbgykyuicaqb5msi/
+  libtiff:
+    externals:
+    - spec: libtiff@4.0.10%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libtiff-4.0.10-ird6lyk2kk7c5aumxivzass4hfiv3bwb/
+  swig:
+    externals:
+    - spec: swig@4.0.0%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/swig-4.0.0-bo5jnsgcuregznpcs6lmpltjca6hxx4h/
+  pcre:
+    #version: [8.43]
+    #variants: +jit +multibyte +utf
+    externals:
+    - spec: pcre@8.43%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/pcre-8.43-7zvzwwwvwfhun3au4qpaieyr2qsyv5aw/
+    - spec: pcre@8.42%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/pcre-8.42-tcaagpxhjac6pkcmkhkvufjypfsfotqv/
+  pcre2:
+    externals:
+    - spec: pcre2@10.31%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/pcre2-10.31-kliwf7tluw7v3a75iat2h23c2bjwjvck/
+  fontconfig:
+    version: [2.13.1]
+    #externals:
+    #- spec: fontconfig@2.13.1%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/fontconfig-2.13.1-u2scfrppvqwuqpccdbwrjknl35wcaj2j/
+  freetype:
+    #version: [2.10.1]
+    externals:
+    #- spec: freetype@2.10.1%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/freetype-2.10.1-anwdcemjvjwv53u4d267errjyt6eluqd/
+    - spec: freetype@2.10.1%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/freetype-2.10.1-6aelcikoil6mhfqhgg6g5v36cnuqxyhi/
+  pango:
+    variants: +X
+    externals:
+    - spec: pango@1.41.0%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/pango-1.41.0-ts335os6w4tutjlshm4lm4glzk6spbpo/
+  harfbuzz:
+    variants: +graphite2
+    externals:
+    - spec: harfbuzz@2.3.1%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/harfbuzz-2.3.1-jjcwnfanqkd6t4aobxvr7d7ffbcfdv24/
+  cairo:
+    variants: +X +ft +fc +gobject +pdf +png
+    externals:
+    - spec: cairo@1.16.0%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/cairo-1.16.0-vjvx7zpubixy22z6g2wvpwpmogqltcth/
+  gnuplot:
+    variants: +X +pbm
+  nasm:
+    version: [2.14.02]
+  libidn2:
+    externals:
+    - spec: libidn2@2.1.1a%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libidn2-2.1.1a-qq2t64vljy6vg73ttii7ppbb3sh6zkfa/
+    - spec: libidn2@2.3.0%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/libidn2-2.3.0-o6zrpqflmykrl2w6hex43azcrcb3woks/
+  gcta:
+    externals:
+    - spec: gcta@1.93%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/gcta-1.93/
+  libdwarf:
+    externals:
+    - spec: libdwarf@20180129%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libdwarf-20180129-oitvi7vutd3wm3ivl33zebxwaex3yp4w/
+  xerces-c:
+    externals:
+    - spec: xerces-c-iconv@3.2.2%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/xerces-c-3.2.2-mursknskvjp2dmn5kswbp2vbc5mysoft/
+  libmonitor:
+    externals:
+    - spec: libmonitor@2018.07.18%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libmonitor-2018.07.18-jicv2ri77und5zkerw2a6dts3hjpkfak
+  icu4c:
+    externals:
+    - spec: icu4c@65.1%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/icu4c-65.1-b3idus3lswf2gdnvxwwvrgzgmc2ngaec/
+  elfutils:
+    externals:
+    - spec: elfutils@0.178%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/elfutils-0.178-biu6zfog666ys5wae5xlurh4vzbjja4h/
+  libunwind:
+    externals:
+    - spec: libunwind@1.4%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libunwind-1.4-rc1-4aqshrtjzxpknwlmygcr2qzubsmi5glo/
+  libiconv:
+    externals:
+    - spec: libiconv@1.16%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/libiconv-1.16-lgagwi6e52rlrjftg6bkfywcghlgdw3b/
+  dyninst:
+    externals:
+    - spec: dyninst@10.1.0%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/dyninst-10.1.0-bhlfhz5cxrf3f4dyrna7gxgwbcliw3qc/
+  googletest:
+    version: [1.10.0]
+    variants: +gmock+pthreads+shared
+  mpfr:
+    version: [4.0.1]
+  libnl:
+    externals:
+    - spec: libnl@3.3.0%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/libnl-3.3.0-nnpdocrbzervpefd7ogjcm64dluqkfl3/
+  charmpp:
+    externals:
+    - spec: charmpp@6.10.2%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/charmpp-6.10.2/
+  papi:
+    externals:
+    - spec: papi@5.7.0%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/papi-5.7.0-stqq5unfy4tgxu5cyq4qpzqsglzih2wc/
+  libtool:
+    externals:
+    - spec: libtool@2.4.6%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/libtool-2.4.6-wzr7weu3opudp4nanuqjy6wyge34rkss/
+  expat:
+    externals:
+    - spec: expat@2.2.9%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/expat-2.2.9-6tz33utlyhkr7vltxi5qdqvgr7vbvf2u/
+  numactl:
+    externals:
+    - spec: numactl@2.0.12%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/numactl-2.0.12-srskvkwjbqaetsle6z2qc3x4qpx5nafy/
+    - spec: numactl@2.0.12%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/numactl-2.0.12-aj6bh6tdfstoffevqs5mybivejffnkq6/
+  libsigsegv:
+    externals:
+    #- spec: libsigsegv@2.12%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libsigsegv-2.12-cyvhhecb37tlvcs5o4v5w5shlxoz5shu/
+    - spec: libsigsegv@2.12%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/libsigsegv-2.12-ynkqvtheave3m7j6bxc2oohmjf5f7xxr/
+    - spec: libsigsegv@2.12%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/libsigsegv-2.12-nsbpv73jzdyxtw7qbv6g2sm7tccmwlap/
+  libevent:
+    externals:
+    #- spec: libevent@2.1.8%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libevent-2.1.8-d7ub3adxe4c4bbkhwcxyzu5wxw5ipdzo/
+    - spec: libevent@2.1.8%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/libevent-2.1.8-xc3nq5vbkrg3qfewt7zpo5qrtld5p3z6/
+  libedit:
+    externals:
+    - spec: libedit@3.1-20191231%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/libedit-3.1-20191231-jzxyebig4dppaeawfhlwdj46uiaagghs/
+  help2man:
+    externals:
+    - spec: help2man@1.47.11%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/help2man-1.47.11-oakotp5fe4rtuofgjhqoe4xfqa4c3fyi/
+  texinfo:
+    externals:
+    - spec: texinfo@6.5%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/texinfo-6.5-u53daj55lhtcfveikvvnbex2wkr64gz7/
+  readline:
+    externals:
+    - spec: readline@8.0%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/readline-8.0-odh3n6nbrw6ffkpsjcnwpv7tlyxpregx/
+    - spec: readline@8.0%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/readline-8.0-b6475hljd2oi6q4hg53idqa7m63wc6ko/
+    - spec: readline@8.0%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/readline-8.0-wmq3joh3rpkh6zpy6725lywzhko23vdb
+  ncurses:
+    variants: +symlinks +termlib
+    externals:
+    - spec: ncurses@6.1%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/ncurses-6.1-akiyo4qrgzlzxw3hggkc42nvv7hz2evj/
+    - spec: ncurses@6.1%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/ncurses-6.1-ktkurgldbb6ly3x5ktiu7q7cbrrupk6c/
+    - spec: ncurses@6.1%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/ncurses-6.1-ysktviuwzmfcuhbzi3p6f5wb4boyadud/
+    - spec: ncurses@6.1%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/ncurses-6.1-e75kzf6mqx7sgseey3zlmnns2bl6a5kh/
+  libunistring:
+    externals:
+    - spec: libunistring@0.9.10%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/libunistring-0.9.10-7whunfekskpi5hjcyotoi6y5kcjaufjk/
+  gettext:
+    variants: +bzip2 +curses +git +libunistring +libxml2 +tar +xz
+    externals:
+    - spec: gettext@0.20.1%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/gettext-0.20.1-xk2yprlbovytt6sd54xjhbzsz2erz7gg/
+    - spec: gettext@0.20.1%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/gettext-0.20.1-2pbjhl3dvjbyf2l3spvxw5z2id7mn24b/
+    - spec: gettext@0.20.1%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/gettext-0.20.1-oddcroef5ahrffds5fbycjsuh5wmub4m/
+    - spec: gettext@0.20.1%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/gettext-0.20.1-dxgy7d7lociy73qfgfxz2d4a2zfu4qbo/
+  openssl:
+    externals:
+    - spec: openssl@1.1.1d%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/openssl-1.1.1d-d7a46dreyvyazopzpgcwerqvjfmy2grd/
+    - spec: openssl@1.1.1d%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/openssl-1.1.1d-c3qm3sp4ncd5j4sbvglqzifq3irfmtxe/
+  libbsd:
+    externals:
+    - spec: libbsd@0.9.1%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/libbsd-0.9.1-m2njiwj5ab65wg6axyx4srul2fxfl4gu/
+  hmmer:
+    externals:
+    - spec: hmmer@3.3%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/hmmer-3.3-4w2573tcguaess7apxio5omwyde6dxzb/
+    - spec: hmmer@3.2.1%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/hmmer-3.2.1-lvroyvqqiqb5lqv6eyhiqzqjc2tbm45i/
+  metis:
+    externals:
+    - spec: metis@5.1.0%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/metis-5.1.0-l23v6ckigzr4r53zexicv23bfz5bcf2l/
+    - spec: metis@5.1.0%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/metis-5.1.0-wr6ih5k3zpmck2ywkbs3xgtdovrz3ps7/
+  parmetis:
+    externals:
+    #- spec: parmetis@4.0.3%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/parmetis-4.0.3-tropzw2dstnmahgdqgsimcrezjldmkkc/
+    - spec: parmetis@4.0.3%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/parmetis-4.0.3-ekmy3344few6jjjxa4sqhg6wxf3mfv3k/
+    - spec: parmetis@4.0.3-openmpi%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/parmetis-4.0.3-jthlmcvppyl7ibr7zl4habymx4bbkwmk/
+  qhull:
+    externals:
+    - spec: qhull@2020.1%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/qhull-2020.1-f2lrtfzjnekjc4edi6asnuqvjjqakpra/
+  openjdk:
+    externals:
+    - spec: openjdk@1.8.0_202-b08%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/openjdk-1.8.0_202-b08-f5dnyw6npj5kv2zueuhemvhlademxe3x
+    - spec: openjdk@11.0.2%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/openjdk-11.0.2-iuj2qln3bwr45bx6lffuykct6ees55ta
+  py-cycler:
+    externals:
+    - spec: py-cycler@0.10.0%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/py-cycler-0.10.0-rgnmxycxbmhregtf54zryt5r5la6zqus/
+  py-python-dateutil:
+    externals:
+    - spec: py-python-dateutil@2.8.0%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/py-python-dateutil-2.8.0-tbm2vnt2byr65gfop2sjtjbq4zlgqkzh/
+  py-kiwisolver:
+    externals:
+    - spec: py-kiwisolver@1.1.0%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/py-kiwisolver-1.1.0-a6zk67fsh3c4rimsuxb5ygiz6rkx7xnh/
+  py-pyparsing:
+    externals:
+    - spec: py-pyparsing@2.4.2%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/py-pyparsing-2.4.2-3cbe43d2bgjuojyg4ecg55prci6e46mx/
+  py-certifi:
+    externals:
+    - spec: py-certifi@2020.6.20%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/py-certifi-2020.6.20-qnurv3fmcgx2tjq56rfr6qe6kekh6ovc/
+  py-numpy:
+    externals:
+    - spec: py-numpy@1.16.5%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/py-numpy-1.16.5-s3vw4r56otk6y4gyqqx4gur534w3hxml/
+    - spec: py-numpy@1.17.3%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/py-numpy-1.17.3-weiwmkrp3qndpe3jvjyllnj7gjwb62yz/
+  py-pillow:
+    externals:
+    - spec: py-pillow@7.2.0%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/py-pillow-7.2.0-r2zpho3bo4tuix6un7zm5w5mce6mhask/
+  py-matplotlib:
+    externals:
+    - spec: py-matplotlib@3.3.3%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/py-matplotlib-3.3.3-pk6wp54iraqmco5i23nrexej2bysv4px/
+  py-setuptools:
+    externals:
+    #- spec: py-setuptools@41.4.0%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/py-setuptools-41.4.0-oi5u7hik2bizakj4fxe645juyn3shp4b/
+    - spec: py-setuptools@41.4.0%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/py-setuptools-41.4.0-hfsrzcz3hdnksrozfzwjm4f6i6cwdauu/
+    - spec: py-setuptools@41.4.0%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/py-setuptools-41.4.0-zm57ek4fb4jul3mhrbv5iyo246klgtbz/
+    - spec: py-setuptools@41.4.0%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/py-setuptools-41.4.0-gcm6wsybdssxcyrlzpqtpajrlkttftcw/
+  py-setuptools-scm:
+    externals:
+    - spec: py-setuptools-scm@4.1.2%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/py-setuptools-scm-4.1.2-gvvvphcydl6znpmb7hbfao2oqjseprp5/
+  py-six:
+    externals:
+    - spec: py-six@1.14.0%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/py-six-1.14.0-qvgzhq7qmsi5vu2rgqn5tvkxcmuha5l5/
+  py-cython:
+    externals:
+    - spec: py-cython@0.29.13%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/py-cython-0.29.13-csbvo6dkzu4hgtkhazoyvu5hjswuwgz2/
+  python:
+    variants: +bz2+ctypes+dbm~debug+libxml2+lzma+nis+optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4+uuid+zlib
+    externals:
+    - spec: python@3.7.6%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/python-3.7.6-dd2am3dyvlpovhd4rizwfzc45wnsajxf/
+    - spec: python@3.7.6%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/python-3.7.6-hjn7knrm2bjyxtvsddl44j6uzossppyf/
+  #hypre:
+  #  externals:
+  #  - spec: hypre@2.18.2%gcc@8.3.0
+  #    prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/hypre-2.18.2-drda2ua2lnppb4fttkiysy2kon3dbbyt/
+  m4:
+    version: [1.4.18]
+    #externals:
+    #- spec: m4@1.4.18%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/m4-1.4.18-zhwtegh7glhtuj32arwtxah4rggegrua/
+  glm:
+    externals:
+    - spec: glm@0.9.7.1%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/glm-0.9.7.1-34rvn7gpj5m5vcinplneocb2m6z4xsyj/
+  matio:
+    externals:
+    - spec: matio@1.5.13%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/matio-1.5.13-p3ebagmflqkldjvmcjxyo2o5tlvgv6yd/
+  mumps:
+    externals:
+    - spec: mumps@5.2.0%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/mumps-5.2.0-judjyv7vfyqcky57fv7bg7cd2qc7n42i/
+  eigen:
+    externals:
+    - spec: eigen@3.3.7%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/eigen-3.3.7-uagtrsv2zwag6m5vrjvv2pvmfqpqcoof/
+  scotch:
+    externals:
+    - spec: scotch@6.0.8%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/scotch-6.0.8-gpuauz34be7yroinin5yi6gsaqj4p53f/
+    - spec: scotch@6.0.6-mpi%gcc@9.2.0
+      prefix:  /spack/apps/linux-centos7-x86_64/gcc-9.2.0/scotch-6.0.6-4mnec5ylek2gvdhsly5mibjh23kg4q2p/
+    - spec: scotch@6.0.6%gcc@9.2.0
+      prefix:  /spack/apps/linux-centos7-x86_64/gcc-9.2.0/scotch-6.0.6-c6vgmfamaruyctuanvkstuodt6qbbgqd/
+  htslib:
+    externals:
+    - spec: htslib@1.9%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/htslib-1.9-4zsx4qptohikx7oxoyefigbjkcnfn7vx/
+    - spec: htslib@1.10.2%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/htslib-1.10.2-mrcrkcwm7kymbafhcwcoiafc5emkjyu4/
+  libxml2:
+    externals:
+    - spec: libxml2@2.9.10%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/libxml2-2.9.10-xfgg2mqchox2l2kxzbtws5ak5emkzhlz/
+    - spec: libxml2@2.9.9%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libxml2-2.9.9-uddnuh5mjqp2542gojscfrecbi7p4vku/
+    - spec: libxml2@2.9.9%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/libxml2-2.9.9-cmfw4iwbnzldnmedp2br3hiytcja5z7k/
+    - spec: libxml2@2.9.9%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/libxml2-2.9.9-rj2f3o6xepnlsygxxa5t6uznrqxzuhll/
+    - spec: libxml2@2.9.9%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/libxml2-2.9.9-guomt4ldnvd7pu2jpcjxqptudgvqiogs/
+    - spec: libxml2@2.7.8%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/libxml2-2.7.8-gjeuddvafnn2a5qtyatlyuy5tdukpht7/
+    - spec: libxml2@2.7.8%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/libxml2-2.7.8-rjukoxp5jvie67dlirx4yhhiprn5aaxi/
+  curl:
+    externals:
+    - spec: curl@7.68.0%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/curl-7.68.0-txmpdwwz3thgzsgxo6oule63b5lnybga/
+    - spec: curl@7.68.0%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/curl-7.68.0-prh3cum5lg5k4cs7hawml23hmkoxd6p5/
+  findutils:
+    externals:
+    - spec: findutils@4.6.0%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/findutils-4.6.0-k35nazxievusqitrxhoay7g3254lbo3u/
+  glib:
+    externals:
+    - spec: glib@2.56.3%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/glib-2.56.3-qjvhj3gwrbixzckvzxjsafhaksp7d24o/
+  binutils:
+    #version: [2.33.1]
+    variants: +gold +headers +libiberty +nls ~plugins
+    externals:
+    - spec: binutils@2.32%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/binutils-2.32-zuk6ds25bx64jalqgniiflnpibw55eap/
+    - spec: binutils@2.32%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/binutils-2.32-t2cgqnucrb7sgno3rbtoowtpfkr5k6s2/
+  boost:
+    #buildable: false
+    externals:
+    - spec: boost@1.72.0-openmpi%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/boost-1.72.0-ttywdjzouzzt3h4etx5lcdih7cg7yxtn/
+    - spec: boost@1.73.0-openmpi%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/boost-1.73.0-xl42a46dl3chr6r6rs5hb5mpbfta4e2n/
+    - spec: boost@1.70.0%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/boost-1.70.0-p76g23etpc3e56qm3yw3c2qf4cahu5ek/
+    - spec: boost@1.70.0%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/boost-1.70.0-4kovjkilul6mrytjgjsmxkl5pfg4ccn4/
+    - spec: boost@1.54.0%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/boost-1.54.0-rzb3qhdlsk6bnl32gpot4ubpwjna3ofu/
+  netlib-scalapack:
+    #version: [2.1.0]
+    variants: +pic +shared
+    externals:
+    - spec: netlib-scalapack@2.1.0%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/netlib-scalapack-2.1.0-v5kbiwkpagwszi3zl7egvc4t42caoecp/
+  suite-sparse:
+    externals:
+    - spec: suite-sparse@5.3.0%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/suite-sparse-5.3.0-pfnjga7eeqcof2wh675lkdvvpa5q52ga/
+    - spec: suite-sparse@5.3.0%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/suite-sparse-5.3.0-uzlmzp2wmjlams6dhpdicmxi2n3vlfea/
+  netcdf-c:
+    externals:
+    - spec: netcdf-c@4.7.3%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/netcdf-c-4.7.3-myqwplkhvoookcxdeumzi3axsl2lradb/
+  hdf5:
+    #buildable: false
+    variants: +cxx~debug+fortran+hl+mpi+pic+shared+szip+threadsafe
+    externals:
+    #- spec: hdf5@1.10.6%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/hdf5-1.10.6-p2hbucxu36bdvjeuo4nghox6ifvwz43m/
+    - spec: hdf5@1.10.5%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/hdf5-1.10.5-nnaux6tkuslhpfvu5vx4de54qpohogsq/
+    - spec: hdf5@1.10.6%gcc@9.2.0+fortran+hl+cxx+mpi+szip+threadsafe
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/hdf5-1.10.6-k5cgep7hcle533e5cs36cmfnd3vlkvht/
+  sqlite:
+    #version: [3.30.1]
+    variants: +column_metadata +fts +functions +rtree
+    externals:
+    - spec: sqlite@3.30.1%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/sqlite-3.30.1-law2rzqeabsqggz3c74aydhnkjsozab2/
+    - spec: sqlite@3.30.1%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/sqlite-3.30.1-uym5du2waswjfk6ejlmfexjqgog7npwo/
+  perl:
+    variants: +cpanm +shared +threads
+    externals:
+    - spec: perl@5.30.1%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/perl-5.30.1-hrnelgolwrunau5sesq3phgccj5uqy3h/
+    - spec: perl@5.30.0%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/perl-5.30.0-h7kut76uqexh6gjzsaciqqyr4rtimzeg/
+    - spec: perl@5.30.0%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/perl-5.30.0-54xleufbu6ogn4p6o2bdtzn6ki7gm3lo/
+    - spec: perl@5.30.0%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/perl-5.30.0-nfz6ch3hhztyiibeypgpgyutt5mgyqoy/
+  bzip2:
+    version: [1.0.8]
+    externals:
+    #- spec: bzip2@1.0.8%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/bzip2-1.0.8-b65almiioh2l4xgr3ulcr7bftjvo5m2u/
+    - spec: bzip2@1.0.8%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/bzip2-1.0.8-p6q2canmrlyruo6afabgs7w76b6q4kdo/
+  xz:
+    #version: [5.2.4]
+    externals:
+    - spec: xz@5.2.4%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/xz-5.2.4-k3s7isvxg4uuldajdbyu6lbmkhm2ntxm/
+    - spec: xz@5.2.4%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/xz-5.2.4-22uh6euciklzkbldeb6x2ngrt2zzumwk/
+  zlib:
+    #version: [1.2.11]
+    variants: +optimize +pic +shared
+    externals:
+    - spec: zlib@1.2.11%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/zlib-1.2.11-kadtr5dbdiqycyb56ezuv43fdsluyjry/
+    - spec: zlib@1.2.11%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/zlib-1.2.11-j3zdmzqsbyenjda44kvkceohj352n5ga/
+  gsl:
+    externals:
+    - spec: gsl@2.5%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/gsl-2.5-kgozsqy4vqz5x55fu6pha2gq7fqmjayr/
+  gmt:
+    externals:
+    - spec: gmt@4.5.18%gcc@8.3.0+blas+fftw+gdal+lapack~pcre arch=linux-centos7-x86_64
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/gmt-4.5.18
+  fftw:
+    externals:
+    - spec: fftw@3.3.8%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/fftw-3.3.8/build/
+    - spec: fftw@3.3.8-mpich%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/fftw-3.3.8-23fnhg7dls33263bdavemm6brqcaz2mp/
+    - spec: fftw@3.2.2-libfabric%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/fftw-3.2.2-noauoq5ibpkfaioopnpoefgromqll4ld/
+    - spec: fftw@3.2.2-verbs%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/fftw-3.2.2-mh2kby6p3akqn2h22v65nc7d77qir2ae/
+  #pmix:
+  #  externals:
+  #  - spec: pmix@3.1.3%gcc@4.9.4
+  #    prefix: /spack/apps/linux-centos7-x86_64/gcc-4.9.4/pmix-3.1.3-4jqvlorlmp77pqyegfyh4e37wzcb7vfy/
+  #  - spec: pmix@3.1.3%gcc@9.2.0
+  #    prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/pmix-3.1.3-ru5szwdi4srpujv5zipockvzlno4dldf/
+  #  - spec: pmix@3.1.3%intel@19.0.4
+  #    prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/pmix-3.1.3-kiung7r5cqf4ixytpb665fxqypsmmbyr/
+  libfabric:
+    externals:
+    - spec: libfabric@1.6.2%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/libfabric-1.6.2-hjs27ktp3mcwrmzswpfyebs7xeiiqokk/
+    - spec: libfabric@1.6.2%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/libfabric-1.6.2-wbaokhzuf4bx3li3rrjd3u66gu4w5ruc/
+    - spec: libfabric@1.6.2%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/libfabric-1.6.2-bnq7o336qpcbfkjgvxh22hrsv7wmivw6/
+  ucx:
+    variants: +thread_multiple
+    externals:
+    #- spec: ucx@1.8.0%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/ucx-1.8.0-o6fhjkqszinevp3soi5szm76tkw3tjl2/
+    - spec: ucx@1.6.1%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/ucx-1.6.1-qbygcxo7gev43rjkqxsnkveufjrkmiag/
+  hwloc:
+    externals:
+    - spec: hwloc@1.11.11%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/hwloc-1.11.11-enjcz6lbwjrfbpzeskhst3ie3bn5gpv5/
+    - spec: hwloc@1.11.11%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/hwloc-1.11.11-ip43skzgvi2mrk2tb4dmqqk2mgdwgyry/
+    - spec: hwloc@1.11.11%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/hwloc-1.11.11-vryyuzbbdkwbsrttszx6umm2sqnqpxkv/
+    - spec: hwloc@1.11.11%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/hwloc-1.11.11-rieoq7seyya5ynmtcvujldd6xanlysid/
+    - spec: hwloc@2.4.1%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/hwloc-2.4.1-3s7jglnayqadlgrzbnomhbbqkc6hyxy5/
+  intel-parallel-studio:
+    externals:
+    - spec: intel-parallel-studio@cluster.2019.5%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/intel-parallel-studio-cluster.2019.5-ifegaz7supcjp2ghbnzxlpxdv3mlgqa5/
+  intel-tbb:
+    externals:
+    - spec: intel-tbb@2019.4%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/intel-tbb-2019.4-xbxzdgaxqqvn7v7vkpsruccfda2ca6zg/
+    - spec: intel-tbb@2019.4%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/intel-tbb-2019.4-nmha3ebjlvyqcnm437jpa5qwhlp7a6rp/
+    - spec: intel-tbb@2020.1%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/intel-tbb-2020.1-eeg6sgrq4dwoyxlfwmpbeqlylw22ku27/
+  intel-mpi:
+    externals:
+    - spec: intel-mpi@2019.4.243%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/intel-mpi-2019.4.243-n2oh3ij5az3lzc3oekqjgdcdcmgaaltb/
+    - spec: intel-mpi@2019.4.243%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/intel-mpi-2019.4.243-vkfr22eguxfs32iad2m2sibjboshuidv/
+    - spec: intel-mpi@2019.4.243%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/intel-mpi-2019.4.243-ew65ucv2zip25eirvhkxwn7es2bzozto/
+  mvapich2:
+    externals:
+    - spec: mvapich2@2.3.2%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/mvapich2-2.3.2-h3yasy5omk62iyoueey6tjms6dnwcsr2/
+    - spec: mvapich2@2.3.2%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/mvapich2-2.3.2-hkfh5khyttxg532trrntemczsxc2yrc5/
+  mpich:
+    #variants: device=ch4 +hydra netmod=ucx +pci pmi=pmi2 +romio~slurm+verbs+wrapperrpath
+    externals:
+    - spec: mpich@3.3.2%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/mpich-3.3.2-qyeg4vf3bbbd7ud6zy2elwukaneiazqw/
+    - spec: mpich@3.3.1%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/mpich-3.3.1-3j5hvshrgpkaog7bzqo67ykhvwcwlo4e/
+    - spec: mpich@3.3.1%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/mpich-3.3.1-bpreuj77rixxqi4wgq6pn23p6tby7cjt/
+    - spec: mpich@3.3.2%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/mpich-3.3.2-kl3y7jot6ansiyp4hjccwxhxwkhljhsw/
+  openmpi:
+    #buildable: false
+    version: [4.0.2]
+    variants: +cxx_exceptions fabrics=ucx +legacylaunchers +pmi schedulers=slurm ~sqlite3 +thread_multiple +vt ^slurm@19.05.5 +hwloc +ucx
+    #externals:
+    #- spec: openmpi@4.0.2%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/openmpi-4.0.2-ipm3dnvlbtxawpi4ifz7jma6jgr7mexq/
+  openblas:
+    #buildable: false
+    #variants: ~consistentFPCSR~ilp64+pic+shared threads=openmp
+    externals:
+    - spec: openblas@0.3.8%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/openblas-0.3.8-2no6mfziiclwxb7lstxoos335gnhjpes/
+    - spec: openblas@0.3.7%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/openblas-0.3.7-w3qehlxxxtsab652l7kaa6wkse4r5add/
+    - spec: openblas@0.3.7%gcc@9.2.0+pic+shared threads=openmp
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/openblas-0.3.7-w3qehlxxxtsab652l7kaa6wkse4r5add/
+    - spec: openblas@0.3.7%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/openblas-0.3.7-s73jg5z3zs52uxytgygojvtlpbsfet2v/
+    - spec: openblas@0.3.7%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/openblas-0.3.7-wwt5zf5dees72cftwutgfdkedb4y666t/
+  cuda:
+    externals:
+    - spec: cuda@10.2.89%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/cuda-10.2.89-knz2qolpsp7nkkvcwkdfv6bkmu3adpe4/
+    - spec: cuda@11.0.2%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/cuda-11.0.2-2ezy5sph3mqshfbwtpxxdqhs44wj7664/
+    - spec: cuda@11.2.0%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/cuda-11.2.0-7uwimxj27s4cptafhkw6a6fpyqf5nw4c/
+  rdma-core:
+    externals:
+    - spec: rdma-core@20%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/rdma-core-20-u3xrik4xivt5t5q74vv3f5lbvzuc526d/
+  libuuid:
+    version: [1.0.3]
+    externals:
+    #- spec: libuuid@1.0.3%gcc@8.3.0
+    #  prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/libuuid-1.0.3-heivksfaa2zlycd2sxxezhyeo3tojhyt/
+    - spec: libuuid@1.0.3%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/libuuid-1.0.3-6qzc7rcpwmmxjlnoeguf5vy2ogvx7soc/
+  gmake:
+    variants: +guile+nls
+  cmake:
+    externals:
+    - spec: cmake@3.15.4%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/cmake-3.15.4-yrwqwvr2qkrg535kzxmpxleiq4xpbmv3/
+    - spec: cmake@3.9.6%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/cmake-3.9.6-ilhxxvja35wgj26abirmbzlhoakxroep/
+    - spec: cmake@3.15.4%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/cmake-3.15.4-yufqekvvry3t6uwyl73hu6ucjrfgjqz2/
+    - spec: cmake@3.15.4%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/cmake-3.15.4-hpcopx3pekkaxar5tyfqe5n56hzsfgxz/
+    - spec: cmake@3.16.2%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/cmake-3.16.2-ejzgeuxnaazwznsodm7t422o5mgubobq/
+    - spec: cmake@3.15.4%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/cmake-3.15.4-clvys67wphl7l4svwa52edvlkucaz2uv/
+  pkgconf:
+    version: [1.6.3]
+    externals:
+    - spec: pkgconf@1.6.3%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/pkgconf-1.6.3-q7kjzxyhc7z47aehgjxt5mrtgfyxfzpu/
+    - spec: pkgconf@1.6.3%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/pkgconf-1.6.3-r6r2m5f3ram56yqtx5p6pqiymnzoar66/
+    - spec: pkgconf@1.6.3%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/pkgconf-1.6.3-ex6q6uxjhohy3dv2a25z3n6pv4adsncq/
+  automake:
+    externals:
+    - spec: automake@1.16.1%gcc@8.3.0
+      prefix:  /spack/apps/linux-centos7-x86_64/gcc-8.3.0/automake-1.16.1-47p6oqslqn57zdahkzza2znc6ycmph4z/
+    - spec: automake@1.16.1%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/automake-1.16.1-4h2g7c4ahn6snxkndrruy6jfpfkjuriy/
+    - spec: automake@1.16.1%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/automake-1.16.1-7g7dg752e37jrbjpvtpzrls2ecqfyt4p/
+  autoconf:
+    externals:
+    - spec: autoconf@2.69%gcc@8.3.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-8.3.0/autoconf-2.69-zosjqtwj2wqqpai2baytuaclspaq6r7f/
+    - spec: autoconf@2.69%intel@19.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-19.0.4/autoconf-2.69-oiaydkoo5gzntx6awnofbcijappu3ccp/
+    - spec: autoconf@2.69%intel@18.0.4
+      prefix: /spack/apps/linux-centos7-x86_64/intel-18.0.4/autoconf-2.69-mgwuzgzp7wadevk3dgufmm5bru6z4dvw/
+    - spec: autoconf@2.69%gcc@9.2.0
+      prefix: /spack/apps/linux-centos7-x86_64/gcc-9.2.0/autoconf-2.69-ytaohc42bwrra5iaycvumb5l3efli6lw/
+  pgi:
+    buildable: false
+    externals:
+    - spec: pgi@20.7
+      prefix: /spack/apps/pgi/2020_207/Linux_x86_64/20.7/compilers/
+  slurm:
+    buildable: false
+    externals:
+    - spec: slurm@19.05.5
+      prefix: /usr
+  all:
+    target: [x86_64]
+    compiler: [intel, gcc, pgi]
+    providers:
+      awk: [gawk]
+      blas: [openblas]
+      daal: [intel-parallel-studio+daal]
+      elf: [elfutils]
+      golang: [gcc]
+      ipp: [intel-parallel-studio+ipp]
+      lapack: [openblas]
+      mkl: [intel-parallel-studio+mkl]
+      mpe: [mpe2]
+      mpi: [openmpi, mvapich2, intel-mpi, mpich]
+      opencl: [pocl]
+      openfoam: [foam-extend]
+      pil: [py-pillow]
+      scalapack: [netlib-scalapack]
+    permissions:
+      read: world
+      write: group
+      group: hpcroot
