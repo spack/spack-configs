@@ -156,6 +156,10 @@ spack:
     tar:
       version:
       - 1.34
+    trilinos:
+      version:
+      - 13.0.1
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
     texinfo:
       version:
       - 6.5
@@ -232,7 +236,7 @@ spack:
     - faodel
     - flecsi
     - flit
-    - fortrilinos ^trilinos +nox +superlu-dist +stratimikos
+    - fortrilinos
     - gasnet
     - ginkgo
     - globalarrays
@@ -291,7 +295,7 @@ spack:
     - sz
     - tasmanian
     - tau
-    - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long
+    - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
     - turbine
     - umap
     - unifyfs@0.9.1
