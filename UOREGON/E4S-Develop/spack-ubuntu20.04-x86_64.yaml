@@ -304,7 +304,7 @@ spack:
     - veloc
     - zfp
     - geopm
-    #- archer
+    #- archer # https://github.com/spack/spack/issues/25050
     #- dealii
     #- llvm-doe@doe +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
     #- parsec
