@@ -1,0 +1,157 @@
+adiak,0.2.1,intel@19.1.3.304,~ipo+mpi+shared build_type=RelWithDebInfo,cray-cnl7-haswell
+adios,1.13.1,intel@19.1.3.304,+blosc~bzip2~fortran~hdf5~infiniband+lz4+mpi~netcdf+shared+sz~szip+zfp+zlib patches=01113e9efb929d71c28bf33cc8b7f215d85195ec700e99cb41164e2f8f830640,8ae17f655248e87cbab1d1ed794e15364a38d2f5f8d971b1086702f72d79bd42,d24b79b795f66e40ddcd331ea4be896ac9c393d6f68f4318616d23928b0694e9 staging=none,cray-cnl7-haswell
+adios2,2.7.1,intel@19.1.3.304,+blosc+bzip2~dataman~dataspaces~endian_reverse+fortran~hdf5~ipo+mpi+pic+png~python+shared+ssc+sst+sz+zfp build_type=Release,cray-cnl7-haswell
+adlbx,1.0.0,intel@19.1.3.304,,cray-cnl7-haswell
+aml,0.1.0,intel@19.1.3.304,,cray-cnl7-haswell
+amrex,21.05,intel@19.1.3.304,~amrdata~cuda~eb~fortran~hdf5~hypre~ipo+linear_solvers+mpi~openmp~particles~petsc~pic~rocm~shared~sundials amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none dimensions=3 precision=double,cray-cnl7-haswell
+arborx,1.0,intel@19.1.3.304,~cuda~ipo+mpi~openmp~rocm+serial~trilinos build_type=RelWithDebInfo,cray-cnl7-haswell
+argobots,1.1,intel@19.1.3.304,~affinity~debug+perf~stackunwind~tool~valgrind stackguard=none,cray-cnl7-haswell
+arpack-ng,3.8.0,intel@19.1.3.304,+mpi+shared,cray-cnl7-haswell
+ascent,0.7.1,intel@19.1.3.304,~adios~babelflow~cuda~doc~dray~fortran~mfem+mpi+openmp~python+serial+shared+test+vtkh cuda_arch=none,cray-cnl7-haswell
+axl,0.4.0,intel@19.1.3.304,~bbapi_fallback~ipo async_api=daemon build_type=RelWithDebInfo,cray-cnl7-haswell
+binutils,2.33.1,intel@19.1.3.304,~gas+gold+headers~interwork+ld+libiberty~lto~nls+plugins libs=shared,static,cray-cnl7-haswell
+blaspp,2021.04.01,intel@19.1.3.304,~cuda~ipo+openmp~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,cray-cnl7-haswell
+bolt,2.0,intel@19.1.3.304,~ipo build_type=RelWithDebInfo,cray-cnl7-haswell
+boost,1.75.0,intel@19.1.3.304,+atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math+mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=17 patches=57a8401dee8f52b0342e0c8147a5b2db834e8d8f3fbcbbc5950016bd3e9e1ef0,f2409bfa0e69e44817a5f8799e25c2e9e5ee50876a5aaacefd32fa647b80472f visibility=hidden,cray-cnl7-haswell
+boost,1.75.0,intel@19.1.3.304,+atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math+mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=98 patches=57a8401dee8f52b0342e0c8147a5b2db834e8d8f3fbcbbc5950016bd3e9e1ef0,f2409bfa0e69e44817a5f8799e25c2e9e5ee50876a5aaacefd32fa647b80472f visibility=hidden,cray-cnl7-haswell
+butterflypack,1.2.1,intel@19.1.3.304,~ipo+shared build_type=RelWithDebInfo,cray-cnl7-haswell
+bzip2,1.0.8,intel@19.1.3.304,~debug~pic+shared,cray-cnl7-haswell
+c-blosc,1.21.0,intel@19.1.3.304,+avx2~ipo build_type=RelWithDebInfo,cray-cnl7-haswell
+cabana,0.3.0,intel@19.1.3.304,~cuda~ipo+mpi~openmp+serial+shared build_type=RelWithDebInfo,cray-cnl7-haswell
+caliper,2.5.0,intel@19.1.3.304,+adiak~cuda~fortran+gotcha~ipo+libdw~libpfm+libunwind+mpi+papi+sampler+shared~sosflow build_type=RelWithDebInfo cuda_arch=none,cray-cnl7-haswell
+camp,0.1.0,intel@19.1.3.304,~cuda~ipo~rocm~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,cray-cnl7-haswell
+chai,2.3.0,intel@19.1.3.304,~benchmarks~cuda~enable_pick+examples~ipo~raja~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,cray-cnl7-haswell
+cmake,3.20.2,intel@19.1.3.304,~doc+ncurses+openssl+ownlibs~qt build_type=Release,cray-cnl7-haswell
+conduit,0.7.2,intel@19.1.3.304,~adios~doc~doxygen+fortran+hdf5+hdf5_compat~ipo+mpi~python+shared~silo+test~zfp build_type=RelWithDebInfo,cray-cnl7-haswell
+darshan-runtime,3.3.0,intel@19.1.3.304,~apmpi~apmpi_sync~apxc~cobalt~hdf5+mpi~pbs~slurm,cray-cnl7-haswell
+darshan-util,3.3.0,intel@19.1.3.304,~apmpi~apxc~bzip2+shared,cray-cnl7-haswell
+dtcmp,1.1.1,intel@19.1.3.304,,cray-cnl7-haswell
+eigen,3.3.9,intel@19.1.3.304,~ipo build_type=RelWithDebInfo,cray-cnl7-haswell
+elfutils,0.182,intel@19.1.3.304,+bzip2~debuginfod~nls+xz,cray-cnl7-haswell
+er,0.0.4,intel@19.1.3.304,~ipo build_type=RelWithDebInfo,cray-cnl7-haswell
+exmcutils,0.6.0,intel@19.1.3.304,,cray-cnl7-haswell
+expat,2.2.10,intel@19.1.3.304,+libbsd,cray-cnl7-haswell
+faodel,1.1906.1,intel@19.1.3.304,~cereal~hdf5~ipo+mpi+shared+tcmalloc build_type=RelWithDebInfo logging=stdout network=nnti patches=0d8604c48c421da1a28e5c23493a55c367fc39ebdf054f2978b4b6f2108bef91,823eff7668eb4ac2bac4b2b337d9edbeb486d60fc5a98177e9c9b1883159ef68,cray-cnl7-haswell
+fftw,3.3.9,intel@19.1.3.304,+mpi~openmp~pfft_patches precision=double,float,cray-cnl7-haswell
+flecsi,1.4,intel@19.1.3.304,~caliper+cinch~coverage~debug_backend~doc~doxygen~flecstan~flog~graphviz+hdf5~ipo~minimal+shared~tutorial backend=mpi build_type=Release,cray-cnl7-haswell
+flit,2.1.0,intel@19.1.3.304,,cray-cnl7-haswell
+gasnet,2021.3.0,intel@19.1.3.304,~debug conduits=smp,cray-cnl7-haswell
+gdbm,1.18.1,intel@19.1.3.304,,cray-cnl7-haswell
+gettext,0.21,intel@19.1.3.304,+bzip2+curses+git~libunistring+libxml2+tar+xz,cray-cnl7-haswell
+ginkgo,1.3.0,intel@19.1.3.304,~cuda~develtools~full_optimizations~hwloc~ipo+openmp~rocm+shared amdgpu_target=none build_type=Release cuda_arch=none,cray-cnl7-haswell
+globalarrays,5.8,intel@19.1.3.304,~scalapack armci=mpi-ts,cray-cnl7-haswell
+gmake,4.3,intel@19.1.3.304,~guile+nls,cray-cnl7-haswell
+gmp,6.2.1,intel@19.1.3.304,,cray-cnl7-haswell
+googletest,1.8.1,intel@19.1.3.304,+gmock~ipo+pthreads+shared build_type=RelWithDebInfo,cray-cnl7-haswell
+gotcha,1.0.3,intel@19.1.3.304,~ipo~test build_type=RelWithDebInfo,cray-cnl7-haswell
+hdf5,1.8.22,intel@19.1.3.304,~cxx~debug+fortran+hl~java+mpi+pic+shared~szip~threadsafe api=none,cray-cnl7-haswell
+hdf5,1.10.7,intel@19.1.3.304,~cxx~debug+fortran+hl~java+mpi+pic+shared~szip~threadsafe api=none,cray-cnl7-haswell
+hwloc,2.4.1,intel@19.1.3.304,~cairo~cuda~gl~libudev+libxml2~netloc~nvml+pci+shared,cray-cnl7-haswell
+hypre,2.20.0,intel@19.1.3.304,~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059,cray-cnl7-haswell
+kokkos,3.4.00,intel@19.1.3.304,~aggressive_vectorization~compiler_warnings~cuda~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl~openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning~wrapper amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none std=14,cray-cnl7-haswell
+kokkos,3.4.00,intel@19.1.3.304,~aggressive_vectorization~compiler_warnings~cuda~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning~wrapper amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none std=14,cray-cnl7-haswell
+kokkos-kernels,3.2.00,intel@19.1.3.304,~blas~cblas~cublas~cuda~cusparse~ipo~lapack~lapacke~mkl+openmp~pthread~serial~superlu build_type=RelWithDebInfo cuda_arch=none execspace_cuda=auto execspace_openmp=auto execspace_serial=auto execspace_threads=auto layouts=left memspace_cudaspace=auto memspace_cudauvmspace=auto offsets=int,size_t ordinals=int scalars=double,cray-cnl7-haswell
+kvtree,1.1.1,intel@19.1.3.304,~ipo+mpi build_type=RelWithDebInfo file_lock=FLOCK,cray-cnl7-haswell
+lapackpp,2021.04.00,intel@19.1.3.304,~ipo+shared build_type=RelWithDebInfo,cray-cnl7-haswell
+legion,21.03.0,intel@19.1.3.304,~bindings~bounds_checks~cuda~cuda_hijack~cuda_unsupported_compiler~enable_tls~fortran~gasnet_debug~hdf5~hwloc~ipo~kokkos+libdl~native~openmp~papi~privilege_checks~python~redop_complex~shared~spy+zlib build_type=RelWithDebInfo conduit=none cuda_arch=70 gasnet_root=none max_dims=3 max_fields=512 network=none output_level=warning,cray-cnl7-haswell
+libbsd,0.10.0,intel@19.1.3.304, patches=71b49f52a01420ab632f23373135853a2565f88725fb77e625a7fbf7ea812eef,cray-cnl7-haswell
+libdwarf,20180129,intel@19.1.3.304,,cray-cnl7-haswell
+libfabric,1.12.1,intel@19.1.3.304,~kdreg fabrics=rxm,sockets,tcp,udp,cray-cnl7-haswell
+libffi,3.3,intel@19.1.3.304, patches=26f26c6f29a7ce9bf370ad3ab2610f99365b4bdd7b82e7c31df41a3370d685c0,cray-cnl7-haswell
+libiconv,1.16,intel@19.1.3.304,,cray-cnl7-haswell
+libnrm,0.1.0,intel@19.1.3.304,,cray-cnl7-haswell
+libpciaccess,0.16,intel@19.1.3.304,,cray-cnl7-haswell
+libpng,1.6.37,intel@19.1.3.304,,cray-cnl7-haswell
+libquo,1.3.1,intel@19.1.3.304,,cray-cnl7-haswell
+libsigsegv,2.12,intel@19.1.3.304,,cray-cnl7-haswell
+libsodium,1.0.18,intel@19.1.3.304,,cray-cnl7-haswell
+libunwind,1.5.0,intel@19.1.3.304,+pic+xz~zlib,cray-cnl7-haswell
+libxml2,2.9.10,intel@19.1.3.304,~python,cray-cnl7-haswell
+libyogrt,1.24,intel@19.1.3.304,~static scheduler=slurm,cray-cnl7-haswell
+libzmq,4.3.3,intel@19.1.3.304,~drafts+libsodium,cray-cnl7-haswell
+loki,0.1.7,intel@19.1.3.304,+shared,cray-cnl7-haswell
+lwgrp,1.0.3,intel@19.1.3.304,,cray-cnl7-haswell
+lz4,1.9.3,intel@19.1.3.304, libs=shared,static,cray-cnl7-haswell
+m4,1.4.18,intel@19.1.3.304,+sigsegv patches=3877ab548f88597ab2327a2230ee048d2d07ace1062efe81fc92e91b7f39cd00,fc9b61654a3ba1a8d6cd78ce087e7c96366c290bc8d2c299f09828d793b853c8,cray-cnl7-haswell
+mercury,2.0.1,intel@19.1.3.304,~bmi+boostsys~cci+checksum~debug~ipo+mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo,cray-cnl7-haswell
+metall,0.13,intel@19.1.3.304,~ipo build_type=RelWithDebInfo,cray-cnl7-haswell
+metis,5.1.0,intel@19.1.3.304,~gdb~int64~real64+shared build_type=Release patches=4991da938c1d3a1d3dea78e49bbebecba00273f98df2a656e38b83d55b281da1,cray-cnl7-haswell
+mfem,4.2.0,intel@19.1.3.304,~amgx~conduit~cuda~debug~examples~gnutls~gslib~lapack~libceed~libunwind+metis~miniapps~mpfr+mpi~netcdf~occa~openmp~petsc~pumi~raja~shared+static~strumpack~suite-sparse~sundials~superlu-dist~threadsafe~umpire+zlib cuda_arch=sm_60 timer=auto,cray-cnl7-haswell
+mpark-variant,1.4.0,intel@19.1.3.304,~ipo build_type=RelWithDebInfo patches=21a4f8de3525204ee6db2e53758a3e3fd9c13817df29d2926d24376858a369e7,4e173fe8c853eb92956a40371688b4a19498189fe65b7ceac30f6b9d6663a985,b3501f726fd40129b4aaa11453a5891c8953a34af8ac84f5ab10a22afa5e7b9b,cray-cnl7-haswell
+mpich,3.1,intel@19.1.3.304,~argobots+fortran+hwloc+hydra+libxml2+pci+romio~slurm~verbs+wrapperrpath device=ch4 netmod=ofi pmi=pmi,cray-cnl7-haswell
+ncurses,6.2,intel@19.1.3.304,~symlinks+termlib abi=none,cray-cnl7-haswell
+netlib-scalapack,2.1.0,intel@19.1.3.304,~ipo~pic+shared build_type=Release patches=1c9ce5fee1451a08c2de3cc87f446aeda0b818ebbce4ad0d980ddf2f2a0b2dc4,f2baedde688ffe4c20943c334f580eb298e04d6f35c86b90a1f4e8cb7ae344a2,cray-cnl7-haswell
+ninja,1.10.2,intel@19.1.3.304,,cray-cnl7-haswell
+nlohmann-json,3.9.1,intel@19.1.3.304,~ipo+single_header build_type=RelWithDebInfo,cray-cnl7-haswell
+numactl,2.0.14,intel@19.1.3.304, patches=4e1d78cbbb85de625bad28705e748856033eaafab92a66dffd383a3d7e00cc94,62fc8a8bf7665a60e8f4c93ebbd535647cebf74198f7afafec4c085a8825c006,cray-cnl7-haswell
+openblas,0.3.10,intel@19.1.3.304,~bignuma~consistent_fpcsr~ilp64+locking+pic+shared patches=00230a6b2bc50d7722d4aad49c0c06091176910b942cd51980b345e2935300b0,2bc1db38b52435f4bbb211b9532549a8ffd0accaf3bd8f3f0d3dd39cf606151c,865703b4f405543bbd583413fdeff2226dfda908be33639276c06e5aa7ae2cae threads=openmp,cray-cnl7-haswell
+openjdk,11.0.8_10,intel@19.1.3.304,,cray-cnl7-haswell
+openpmd-api,0.13.4,intel@19.1.3.304,~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo,cray-cnl7-haswell
+openssl,1.1.1k,intel@19.1.3.304,~docs+systemcerts,cray-cnl7-haswell
+otf2,2.3,intel@19.1.3.304,,cray-cnl7-haswell
+papi,6.0.0.1,intel@19.1.3.304,~cuda+example~infiniband~lmsensors~nvml~powercap~rapl~sde+shared~static_tools,cray-cnl7-haswell
+papyrus,1.0.1,intel@19.1.3.304,~ipo build_type=RelWithDebInfo,cray-cnl7-haswell
+parallel-netcdf,1.12.2,intel@19.1.3.304,~burstbuffer+cxx+fortran+pic+shared,cray-cnl7-haswell
+parmetis,4.0.3,intel@19.1.3.304,~gdb~int64~ipo+shared build_type=RelWithDebInfo patches=4f892531eb0a807eb1b82e683a416d3e35154a455274cf9b162fb02054d11a5b,50ed2081bc939269689789942067c58b3e522c269269a430d5d34c00edbc5870,704b84f7c7444d4372cb59cca6e1209df4ef3b033bc4ee3cf50f369bce972a9d,cray-cnl7-haswell
+pcre,8.44,intel@19.1.3.304,~jit+multibyte+utf,cray-cnl7-haswell
+pdsh,2.31,intel@19.1.3.304,+ssh+static_modules,cray-cnl7-haswell
+pdt,3.25.1,intel@19.1.3.304,~pic,cray-cnl7-haswell
+petsc,3.15.0,intel@19.1.3.304,~X~batch~cgns~complex~cuda~debug+double~exodusii~fftw~giflib+hdf5+hypre~int64~jpeg~knl~libpng~libyaml~memkind+metis~mkl-pardiso~moab~mpfr+mpi~mumps~p4est~ptscotch~random123~saws+shared~suite-sparse+superlu-dist~trilinos~valgrind clanguage=C,cray-cnl7-haswell
+pfunit,3.3.3,intel@19.1.3.304,~docs~ipo+mpi~openmp+shared~use_comm_world build_type=RelWithDebInfo max_array_rank=5,cray-cnl7-haswell
+precice,2.2.1,intel@19.1.3.304,~ipo+mpi+petsc~python+shared build_type=RelWithDebInfo,cray-cnl7-haswell
+pumi,2.2.5,intel@19.1.3.304,~fortran~int64~ipo~shared+simmodsuite_version_check~zoltan build_type=RelWithDebInfo simmodsuite=none,cray-cnl7-haswell
+py-libensemble,0.7.2,intel@19.1.3.304,~deap+mpi~mpmath~nlopt~petsc4py~scipy,cray-cnl7-haswell
+py-mpi4py,3.0.3,intel@19.1.3.304,,cray-cnl7-haswell
+py-numpy,1.20.3,intel@19.1.3.304,+blas+lapack patches=873745d7b547857fcfec9cae90b09c133b42a4f0c23b6c2d84cf37e2dd816604,cray-cnl7-haswell
+py-periodictable,1.5.0,intel@19.1.3.304,,cray-cnl7-haswell
+py-petsc4py,3.15.0,intel@19.1.3.304,+mpi patches=d344e0e8b4c5ebb96961e1905bdd749162c52b151538238609f4dec77e2a6360,cray-cnl7-haswell
+py-picmistandard,develop,intel@19.1.3.304,,cray-cnl7-haswell
+py-psutil,5.7.2,intel@19.1.3.304,,cray-cnl7-haswell
+py-pyelftools,0.26,intel@19.1.3.304,,cray-cnl7-haswell
+py-pyparsing,2.4.7,intel@19.1.3.304,,cray-cnl7-haswell
+py-setuptools,50.3.2,intel@19.1.3.304,,cray-cnl7-haswell
+py-toml,0.10.2,intel@19.1.3.304,,cray-cnl7-haswell
+py-warpx,21.05,intel@19.1.3.304,+mpi,cray-cnl7-haswell
+py-warpx,21.05,intel@19.1.3.304,+mpi,cray-cnl7-haswell
+py-warpx,21.05,intel@19.1.3.304,+mpi,cray-cnl7-haswell
+python,3.8.10,intel@19.1.3.304,+bz2+ctypes+dbm~debug+libxml2+lzma~nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87,ebdca648c9c1d25f586d7e2a495b62e6d91973b55264a13d89eda1beff72ef56,cray-cnl7-haswell
+qthreads,1.16,intel@19.1.3.304,+hwloc~spawn_cache+static scheduler=distrib stack_size=4096,cray-cnl7-haswell
+raja,0.13.0,intel@19.1.3.304,~cuda+examples+exercises~ipo+openmp~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,cray-cnl7-haswell
+rankstr,0.0.3,intel@19.1.3.304,~ipo build_type=RelWithDebInfo,cray-cnl7-haswell
+readline,8.1,intel@19.1.3.304,,cray-cnl7-haswell
+redset,0.0.5,intel@19.1.3.304,~ipo build_type=RelWithDebInfo,cray-cnl7-haswell
+scr,3.0rc1,intel@19.1.3.304,~bbapi_fallback+dtcmp+fortran~ipo+libyogrt async_api=NONE build_type=RelWithDebInfo cache_base=/dev/shm cntl_base=/dev/shm copy_config=none file_lock=FLOCK resource_manager=SLURM scr_config=scr.conf,cray-cnl7-haswell
+shuffile,0.0.4,intel@19.1.3.304,~ipo build_type=RelWithDebInfo,cray-cnl7-haswell
+slepc,3.15.0,intel@19.1.3.304,+arpack~blopex,cray-cnl7-haswell
+slurm,20-02-4-1,intel@19.1.3.304,~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc,cray-cnl7-haswell
+snappy,1.1.8,intel@19.1.3.304,~ipo+pic+shared build_type=RelWithDebInfo patches=c9cfecb1f7a623418590cf4e00ae7d308d1c3faeb15046c2e5090e38221da7cd,cray-cnl7-haswell
+spath,0.0.2,intel@19.1.3.304,~ipo+mpi build_type=RelWithDebInfo,cray-cnl7-haswell
+sqlite,3.34.0,intel@19.1.3.304,+column_metadata+fts~functions~rtree,cray-cnl7-haswell
+stc,0.9.0,intel@19.1.3.304,,cray-cnl7-haswell
+strumpack,5.1.1,intel@19.1.3.304,~build_dev_tests~build_tests+butterflypack+c_interface~count_flops~cuda~ipo+mpi+openmp+parmetis~rocm~scotch~shared~slate~task_timers+zfp amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,cray-cnl7-haswell
+sundials,5.7.0,intel@19.1.3.304,+ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL~cuda+examples+examples-install~f2003~fcmix+generic-math~hypre~int64~ipo~klu~lapack~monitoring+mpi~openmp~petsc~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~trilinos amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none patches=8b29a47fac55346cdadfa133c51aa9314ae8c53ffdff5a8ecdc3dcea3ac26403 precision=double,cray-cnl7-haswell
+superlu,5.2.1,intel@19.1.3.304,+pic,cray-cnl7-haswell
+superlu-dist,6.4.0,intel@19.1.3.304,~cuda~int64~ipo~openmp+shared build_type=RelWithDebInfo cuda_arch=none,cray-cnl7-haswell
+swig,4.0.2,intel@19.1.3.304,,cray-cnl7-haswell
+swig,4.0.2-fortran,intel@19.1.3.304,,cray-cnl7-haswell
+sz,1.4.12.3,intel@19.1.3.304,~fortran~hdf5~ipo~netcdf~pastri~python~random_access+shared~stats~time_compression build_type=RelWithDebInfo,cray-cnl7-haswell
+sz,2.1.11.1,intel@19.1.3.304,~fortran~hdf5~ipo~netcdf~pastri~python~random_access+shared~stats~time_compression build_type=RelWithDebInfo,cray-cnl7-haswell
+tar,1.32,intel@19.1.3.304,,cray-cnl7-haswell
+tasmanian,7.5,intel@19.1.3.304,~blas~cuda~fortran~ipo~magma+mpi+openmp~python~rocm~xsdkflags amdgpu_target=none build_type=Release cuda_arch=none,cray-cnl7-haswell
+tau,2.30.1,intel@19.1.3.304,~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64,cray-cnl7-haswell
+tcl,8.6.11,intel@19.1.3.304,,cray-cnl7-haswell
+turbine,1.3.0,intel@19.1.3.304,~hdf5~python~r,cray-cnl7-haswell
+umap,2.1.0,intel@19.1.3.304,~ipo~logging~tests build_type=RelWithDebInfo,cray-cnl7-haswell
+umpire,4.1.2,intel@19.1.3.304,+c~cuda~deviceconst+examples~fortran~ipo~numa~openmp~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none patches=7d912d31cd293df005ba74cb96c6f3e32dc3d84afff49b14509714283693db08 tests=none,cray-cnl7-haswell
+upcxx,2021.3.0,intel@19.1.3.304,~cuda~gasnet+mpi cross=cray-aries-slurm,cray-cnl7-haswell
+util-linux-uuid,2.36.2,intel@19.1.3.304,,cray-cnl7-haswell
+vtk-h,0.7.1,intel@19.1.3.304,~contourtree~cuda~logging+mpi+openmp+serial+shared cuda_arch=none,cray-cnl7-haswell
+vtk-m,1.5.5,intel@19.1.3.304,~64bitids+ascent_types~cuda+doubleprecision~hip~ipo~logging+mpi+openmp+rendering~shared~tbb~virtuals amdgpu_target=none build_type=Release cuda_arch=none,cray-cnl7-haswell
+warpx,21.05,intel@19.1.3.304,+app~ascent~eb~ipo+lib+mpi+mpithreadmultiple+openpmd+psatd+qed~qedtablegen+shared+tprof build_type=RelWithDebInfo compute=omp dims=2 precision=double,cray-cnl7-haswell
+warpx,21.05,intel@19.1.3.304,+app~ascent~eb~ipo+lib+mpi+mpithreadmultiple+openpmd+psatd+qed~qedtablegen+shared+tprof build_type=RelWithDebInfo compute=omp dims=3 precision=double,cray-cnl7-haswell
+warpx,21.05,intel@19.1.3.304,+app~ascent~eb~ipo+lib+mpi+mpithreadmultiple+openpmd+psatd+qed~qedtablegen+shared+tprof build_type=RelWithDebInfo compute=omp dims=rz precision=double,cray-cnl7-haswell
+xz,5.2.5,intel@19.1.3.304,+pic libs=shared,static,cray-cnl7-haswell
+zfp,0.5.5,intel@19.1.3.304,~aligned~c~cuda~fasthash~fortran~ipo~openmp~profile~python+shared~strided~twoway bsws=64 build_type=RelWithDebInfo cuda_arch=none,cray-cnl7-haswell
+zlib,1.2.11,intel@19.1.3.304,+optimize+pic+shared,cray-cnl7-haswell
+zsh,5.8,intel@19.1.3.304,+skip-tcsetpgrp-test,cray-cnl7-haswell
+zstd,1.4.9,intel@19.1.3.304,~ipo~legacy~lz4~lzma+multithread+programs+shared+static~zlib build_type=RelWithDebInfo,cray-cnl7-haswell
