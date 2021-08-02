@@ -31,6 +31,7 @@ spack:
     boost:
       version:
       - 1.76.0
+      variants: visibility=global
     bzip2:
       version:
       - 1.0.8
@@ -56,6 +57,8 @@ spack:
     expat:
       version:
       - 2.4.1
+    fftw:
+      variants: +openmp
     findutils:
       version:
       - 4.8.0
