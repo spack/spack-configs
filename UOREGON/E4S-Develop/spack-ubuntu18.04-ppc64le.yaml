@@ -252,6 +252,7 @@ spack:
     - mpifileutils ~xattr
     - ninja
     - nrm
+    - nvhpc
     - omega-h
     - openmpi
     - openpmd-api ^hdf5@1.12.0 +fortran +shared +hl api=default
