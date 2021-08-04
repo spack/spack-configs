@@ -28,3 +28,7 @@ modules:
       warpx dims=2: '{name}/{version}-dims2'
       warpx dims=3: '{name}/{version}-dims3'
       warpx dims=rz: '{name}/{version}-dimsRZ'
+      boost cxxstd=98: '{name}/{version}-cxxstd=98'
+      boost cxxstd=17: '{name}/{version}-cxxstd=17'
+      kokkos +openmp: '{name}/{version}-openmp'
+      kokkos ~openmp: '{name}/{version}'
