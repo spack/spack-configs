@@ -15,9 +15,6 @@ spack:
       hash_length: 0
       naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
       all:
-        load:
-        - PrgEnv-intel
-        - intel/19.1.3.304
         conflict:
         - '{name}'
         environment:
@@ -37,6 +34,10 @@ spack:
         warpx dims=2: '{name}/{version}-dims2'
         warpx dims=3: '{name}/{version}-dims3'
         warpx dims=rz: '{name}/{version}-dimsRZ'
+        boost cxxstd=98: '{name}/{version}-cxxstd=98'
+        boost cxxstd=17: '{name}/{version}-cxxstd=17'
+        kokkos +openmp: '{name}/{version}-openmp'
+        kokkos ~openmp: '{name}/{version}'
   mirrors:
     cori-e4s-21.05: https://cache.e4s.io/21.05
   compilers:
