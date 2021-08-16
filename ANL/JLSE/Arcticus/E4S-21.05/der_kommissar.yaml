@@ -14,7 +14,7 @@ compilers:
     environment: {}
     extra_rpaths: []
 mirrors:
-  spack-mirror: file:///soft/spack-mirror
+  spack-mirror: file:///soft/ecp/mirrors/arcticus-e4s-21.0
   E4S: https://cache.e4s.io
 modules:
   enable:
