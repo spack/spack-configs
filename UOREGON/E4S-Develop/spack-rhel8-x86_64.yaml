@@ -188,9 +188,12 @@ spack:
     - chai +cuda ~benchmarks ~tests cuda_arch=70 ^umpire@4.1.2 ~shared
     - ginkgo +cuda cuda_arch=70
     - hpx +cuda cuda_arch=70
+    - hypre +cuda cuda_arch=70
     - kokkos +cuda +wrapper cuda_arch=70
     - kokkos-kernels +cuda cuda_arch=70 ^kokkos +cuda +wrapper cuda_arch=70
     - magma cuda_arch=70
+    - mfem +cuda cuda_arch=70
+    - parsec +cuda cuda_arch=70
     - raja +cuda cuda_arch=70
     - slate +cuda cuda_arch=70
     - strumpack +cuda ~slate cuda_arch=70
@@ -201,12 +204,11 @@ spack:
     - zfp +cuda cuda_arch=70
     #- ascent +cuda ~shared cuda_arch=70
     #- axom +cuda cuda_arch=70 ^umpire@4.1.2 ~shared
-    #- hypre +cuda cuda_arch=70
-    #- mfem +cuda cuda_arch=70
+    #- paraview +cuda ~shared cuda_arch=70
 
   - rocm_specs:
     - kokkos +rocm amdgpu_target=gfx906
-    - strumpack +rocm ~slate ~shared amdgpu_target=gfx906
+    #- strumpack +rocm ~slate amdgpu_target=gfx906 ^rocsolver build_type=Release
     #- amrex +rocm amdgpu_target=gfx906
     #- chai +rocm ~benchmarks amdgpu_target=gfx906
     #- ginkgo +rocm amdgpu_target=gfx906 # needs hip<4.1
@@ -239,6 +241,7 @@ spack:
     - faodel
     - flecsi
     - flit
+    - flux-core
     - fortrilinos
     - gasnet
     - ginkgo
@@ -262,6 +265,7 @@ spack:
     - mfem
     - mpark-variant
     - mpifileutils ~xattr
+    - netlib-scalapack
     - ninja
     - nrm
     - nvhpc
@@ -271,6 +275,8 @@ spack:
     - papi
     - papyrus@1.0.1
     - parallel-netcdf
+    - paraview
+    - parsec ~cuda
     - pdt
     - petsc
     - phist
@@ -305,11 +311,11 @@ spack:
     - unifyfs@0.9.1
     - upcxx
     - veloc
+    - vtk-m
     - zfp
     #- dealii
     #- geopm # ruby-hpricot, ruby-rdiscount
     #- llvm-doe@doe +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
-    #- parsec
     #- qt
     #- qwt
     #- stat
