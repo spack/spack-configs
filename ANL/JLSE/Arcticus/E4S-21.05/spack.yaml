@@ -1,0 +1,375 @@
+spack:
+  include:
+  - der_kommissar.yaml
+  view: false
+  concretization: separately
+  packages:
+    all:
+      compiler:
+      - gcc@9.3.0
+      providers:
+        blas:
+        - openblas
+        mpi:
+        - mpich
+      target:
+      - x86_64
+      variants: +mpi
+    autoconf:
+      version:
+      - '2.69'
+    automake:
+      version:
+      - 1.16.3
+    berkeley-db:
+      version:
+      - 18.1.40
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls +plugins
+      version:
+      - 2.33.1
+    boost:
+      version:
+      - 1.75.0
+    bzip2:
+      version:
+      - 1.0.8
+    c-blosc:
+      version:
+      - 1.21.0
+    cmake:
+      version:
+      - 3.20.2
+    curl:
+      version:
+      - 7.76.0
+    diffutils:
+      version:
+      - 3.7
+    elfutils:
+      version:
+      - 0.182
+      variants: +bzip2 ~nls +xz
+    expat:
+      version:
+      - 2.2.10
+    findutils:
+      version:
+      - 4.8.0
+    gdbm:
+      version:
+      - 1.18.1
+    gettext:
+      version:
+      - 0.21
+    git:
+      version:
+      - 2.31.0
+    glib:
+      version:
+      - 2.66.8
+    hdf5:
+      variants: +fortran +hl +shared
+      version:
+      - 1.10.7
+    help2man:
+      version:
+      - 1.47.16
+    hwloc:
+      version:
+      - 2.4.1
+    json-c:
+      version:
+      - 0.13.1
+    libbsd:
+      version:
+      - 0.10.0
+    libfabric:
+      version:
+      - 1.12.1
+      variants: fabrics=sockets,tcp,udp,rxm
+    libiconv:
+      version:
+      - 1.16
+    libsigsegv:
+      version:
+      - 2.12
+    libpciaccess:
+      version:
+      - 0.16
+    libtool:
+      version:
+      - 2.4.6
+    libunwind:
+      version:
+      - 1.5.0
+      variants: +pic +xz
+    libxml2:
+      version:
+      - 2.9.10
+    lz4:
+      version:
+      - 1.9.3
+    m4:
+      version:
+      - 1.4.18
+    mesa:
+      variants: ~llvm
+    mesa18:
+      variants: ~llvm
+    mpich:
+      variants: ~wrapperrpath
+      version:
+      - 3.4.1
+    ncurses:
+      version:
+      - 6.2
+      variants: +termlib
+    numactl:
+      version:
+      - 2.0.14
+    openblas:
+      version:
+      - 0.3.10
+      variants: threads=openmp
+    openssl:
+      version:
+      - 1.1.1k
+    perl:
+      version:
+      - 5.32.1
+    pkgconf:
+      version:
+      - 1.7.3
+    python:
+      version:
+      - 3.8.10
+    readline:
+      version:
+      - 8
+    sqlite:
+      version:
+      - 3.34.0
+    tar:
+      version:
+      - 1.32
+    texinfo:
+      version:
+      - 6.5
+    xz:
+      version:
+      - 5.2.5
+      variants: +pic
+    zlib:
+      version:
+      - 1.2.11
+    zstd:
+      version:
+      - 1.4.9
+
+  definitions:
+
+  - cuda_specs:
+    - amrex@21.05 +cuda cuda_arch=70
+    - axom@0.5.0 +cuda cuda_arch=70 ^umpire~shared
+    - caliper@2.5.0 +cuda cuda_arch=70
+    - chai@2.3.0 +cuda ~benchmarks ~tests cuda_arch=70 ^umpire~shared
+    - ginkgo@1.3.0 +cuda cuda_arch=70
+    - hpx@1.6.0 +cuda cuda_arch=70
+    - kokkos@3.4.00 +cuda +wrapper cuda_arch=70
+    - kokkos-kernels@3.2.00 +cuda cuda_arch=70 ^kokkos +cuda +wrapper cuda_arch=70
+#    - magma@2.5.4 cuda_arch=70
+# ==> Warning: Skipping build of magma-2.5.4-a3tczp3qm2sx47l2wvcdobdcbtskg6ji since openblas-0.3.10-eahj4j73tw2dub2tkyab774oc7xbbmor failed
+    - raja@0.13.0 +cuda cuda_arch=70
+#    - slate@2021.05.02 +cuda cuda_arch=70
+#    - strumpack@5.1.1 +cuda ~slate cuda_arch=70
+    - sundials@5.7.0 +cuda cuda_arch=70
+#    - superlu-dist@6.4.0 +cuda cuda_arch=70
+    - tasmanian@7.5 +cuda cuda_arch=70
+    - umpire@4.1.2 +cuda ~shared cuda_arch=70
+    - zfp +cuda cuda_arch=70
+    #- ascent@0.7.1 +cuda ~shared cuda_arch=70
+    #- hypre@2.20.0 +cuda cuda_arch=70
+    #- mfem@4.2.0 +cuda cuda_arch=70
+
+  - rocm_specs:
+    - kokkos@3.4.00 +rocm amdgpu_target=gfx906
+#    - strumpack@5.1.1 +rocm ~slate amdgpu_target=gfx906
+    #- amrex@0.5.0 +rocm amdgpu_target=gfx906
+    #- chai@2.3.0 +rocm ~benchmarks amdgpu_target=gfx906
+    #- ginkgo@1.3.0 +rocm amdgpu_target=gfx906 # needs hip<4.1
+    #- raja@0.13.0 +rocm ~openmp amdgpu_target=gfx906 # blt 0.3.6 issue with rocm
+    #- slate@2021.05.02 +rocm amdgpu_target=gfx906
+    #- sundials@5.7.0 +rocm amdgpu_target=gfx906
+    #- tasmanian@7.5 +rocm amdgpu_target=gfx906
+    #- umpire@4.1.2 +rocm amdgpu_target=gfx906 # blt 0.3.6 issue with rocm
+
+  - default_specs:
+    - adios@1.13.1
+    - adios2@2.7.1
+    - aml@0.1.0
+    - amrex@21.05
+    - arborx@1.0
+#    - archer@2.0.0
+#==> Warning: Skipping build of llvm-openmp-ompt-tr6_forwards-ae4d6empxppybnnyrlazaxfv5ggdblz6 since llvm-8.0.0-rje5ptplmbley7w33uu72lrwikcgjyaa failed
+#==> Warning: Skipping build of archer-2.0.0-ynhwcacro7r75d2c5jmhgeqwecs27yuh since llvm-openmp-ompt-tr6_forwards-ae4d6empxppybnnyrlazaxfv5ggdblz6 fail
+    - argobots@1.1
+    - ascent@0.7.1
+    - axom@0.5.0
+    - bolt@2.0
+    - cabana@0.3.0
+    - caliper@2.5.0
+    - chai@2.3.0 ~benchmarks ~tests
+    - conduit@0.7.2
+    - darshan-runtime@3.3.0
+    - darshan-util@3.3.0
+    - dyninst@11.0.0
+    - faodel@1.1906.1
+    - flecsi@1.4 +cinch
+    - flit@2.1.0
+#    - fortrilinos@2.0.0
+    - gasnet@2021.3.0
+    - ginkgo@1.3.0
+#    - globalarrays@5.8
+    - gmp@6.2.1
+    - gotcha@1.0.3
+    - hdf5@1.10.7
+    - heffte@2.0.0 +fftw
+    - hpctoolkit@2021.03.01
+    - hpx@1.6.0
+#    - hypre@2.20.0
+    - kokkos@3.4.00 +openmp
+    - kokkos-kernels@3.2.00 +openmp
+    - legion@21.03.0
+    - libnrm@0.1.0
+    - libquo@1.3.1
+    - libunwind@1.5.0
+    - loki@0.1.7
+    - mercury@2.0.1
+    - metall@0.13
+#    - mfem@4.2.0
+    - mpark-variant@1.4.0
+    - mpifileutils@0.11 ~xattr
+    - ninja@1.10.2
+#    - nrm@0.1.0
+#    - omega-h@9.32.5
+    - openmpi@4.0.5
+    - openpmd-api@0.13.4
+    - papi@6.0.0.1
+    - papyrus@1.0.1
+    - parallel-netcdf@1.12.2
+    - pdt@3.25.1
+#    - petsc@3.15.0
+# ==> Warning: Skipping build of petsc-3.15.0-velgxy2bilcsyf37kbnnzl2dkccrkfph since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed
+#    - plasma@20.9.20
+#    - precice@2.2.1
+    - pumi@2.2.5
+    - py-jupyterhub@1.0.0
+#    - py-libensemble@0.7.2
+#    - py-petsc4py@3.15.0
+#    - py-warpx@21.05 ^warpx dims=2
+#    - py-warpx@21.05 ^warpx dims=3
+#    - py-warpx@21.05 ^warpx dims=rz
+    - qt@5.15.2
+    - qthreads@1.16 scheduler=distrib
+#    - qwt@6.1.6
+# ==> qwt: Executing phase: 'qmake'
+# ==> qwt: Executing phase: 'build'
+# ==> Error: ProcessError: Command exited with status 2:
+#     'make' '-j16'
+# 58 errors found in build log:
+#      31     g++ -c -pipe -Wall -W -O2 -fPIC  -DQT_NO_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_SHARED -DQT_THREAD_SUPPORT -I/soft/spack/opt/spack/lin 
+#             ux-opensuse_leap15-x86_64/gcc-9.3.0/qt-3.3.8b-axxsp3n42yevy64fhr7ze5i42py64v6r/mkspecs/default -I. -I/soft/spack/opt/spack/linux-opens 
+#             use_leap15-x86_64/gcc-9.3.0/qt-3.3.8b-axxsp3n42yevy64fhr7ze5i42py64v6r/include -Imoc/ -o obj/qwt_painter.o qwt_painter.cpp             
+#      32     In file included from qwt_scale_div.h:14,                                                                                              
+#      33                      from qwt_abstract_scale_draw.h:14,                                                                                    
+#      34                      from qwt_scale_draw.h:14,                                                                                             
+#      35                      from qwt_date_scale_draw.h:14,                                                                                        
+#      36                      from qwt_date_scale_draw.cpp:10:                                                                                      
+#   >> 37     qwt_interval.h:14:10: fatal error: qmetatype.h: No such file or directory                                                              
+#      38        14 | #include <qmetatype.h>                                                                                                         
+#      39           |          ^~~~~~~~~~~~~                                                                                                         
+    - raja@0.13.0
+    - rempi@1.1.0
+    - scr@3.0rc1
+#    - slate@2021.05.02 ~cuda
+#    - slepc@3.15.0
+    - stc@0.9.0
+#    - strumpack@5.1.1 ~slate
+#   >> 55    make: *** [Makefile.prebuild:70: getarch_2nd] Error 1
+#     56    Makefile:154: *** OpenBLAS: Detecting CPU failed. Please set TARGET explicitly, e
+#           .g. make TARGET=your_cpu_target. Please read README for the detail..  Stop.
+
+#==> Warning: Skipping build of strumpack-5.1.1-bwxfaxuwcwph3zazs6n3arljadx3hwkv since openbla
+#s-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed
+    - sundials@5.7.0
+#    - superlu@5.2.1
+#    - superlu-dist@6.4.0
+    - swig@4.0.2
+    - swig@4.0.2-fortran
+    - sz@2.1.11.1
+    - tasmanian@7.5
+    - tau@2.30.1
+#    - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +teuchos +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long
+    - turbine@1.3.0
+    - umap@2.1.0
+    - umpire@4.1.2
+    - unifyfs@0.9.1
+    - upcxx@2021.3.0
+    - zfp@0.5.5
+
+    # Packages that track branches
+    #- llvm-doe@doe +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
+
+    # Packages w/ build or concretization issues
+    #- dealii 
+    #- geopm
+    #- variorum
+    #- veloc
+
+#############  The cascade of specs below will not build, ultimately because of openblas not building on icelake (Arcticus host) with gcc 9.3.0
+# 
+# ==> Warning: Skipping build of lapackpp-2021.04.00-jtuqt6n6gp455gbsw64reatezyddbgem since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed
+# ==> Warning: Skipping build of warpx-21.05-6rq2h7hozwotb7lm2g4ieptnjtq76o3a since lapackpp-2021.04.00-jtuqt6n6gp455gbsw64reatezyddbgem failed   
+# ==> Warning: Skipping build of slate-2021.05.02-n37tfvmrhn77ory3hgkyas6xnugb5ru7 since lapackpp-2021.04.00-jtuqt6n6gp455gbsw64reatezyddbgem failed
+# ==> Warning: Skipping build of py-warpx-21.05-ddwel3pvqqubwky42z6wv2lk6c63tqs7 since warpx-21.05-6rq2h7hozwotb7lm2g4ieptnjtq76o3a failed    
+# ==> Warning: Skipping build of suite-sparse-5.9.0-acii6xqayge7nbhucma2mvyxtfrppyzc since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed
+# ==> Warning: Skipping build of trilinos-13.0.1-biw2tung6gv6xdaeya4fniy6imab4qdn since suite-sparse-5.9.0-acii6xqayge7nbhucma2mvyxtfrppyzc failed
+# ==> Warning: Skipping build of trilinos-13.0.1-jnm5ex5m45h5v3hwmkfs4mr5csuqon2h since suite-sparse-5.9.0-acii6xqayge7nbhucma2mvyxtfrppyzc failed
+# ==> Warning: Skipping build of trilinos-13.0.1-3nszbup5lpi6qqwkrtbm4a6rub7jvcjc since suite-sparse-5.9.0-acii6xqayge7nbhucma2mvyxtfrppyzc failed
+# ==> Warning: Skipping build of fortrilinos-2.0.0-bgly6ndhul47zta2ho7zqksowcub6nuh since trilinos-13.0.1-jnm5ex5m45h5v3hwmkfs4mr5csuqon2h failed
+# ==> Warning: Skipping build of omega-h-9.32.5-2ryz2egoo764yibnvwan7owmgh4cojyg since trilinos-13.0.1-3nszbup5lpi6qqwkrtbm4a6rub7jvcjc failed
+# ==> Warning: Skipping build of superlu-5.2.1-5gwprnj3gq6qmxmqpxwtbqqcyknw7deb since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed    
+# ==> Warning: Skipping build of hypre-2.20.0-pizz66y6oocnz5ccngep54p3tkgsxutn since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed       
+# ==> Warning: Skipping build of petsc-3.15.0-velgxy2bilcsyf37kbnnzl2dkccrkfph since hypre-2.20.0-pizz66y6oocnz5ccngep54p3tkgsxutn failed          
+# ==> Warning: Skipping build of precice-2.2.1-twyium3wisztnfdcsgi2v7iysdv7hvn4 since petsc-3.15.0-velgxy2bilcsyf37kbnnzl2dkccrkfph failed         
+# ==> Warning: Skipping build of slepc-3.15.0-jauxzgojppkirrmd5h3fgwvre642youh since petsc-3.15.0-velgxy2bilcsyf37kbnnzl2dkccrkfph failed          
+# ==> Warning: Skipping build of py-petsc4py-3.15.0-domjchthyleuxqj3jstaarg4m4raekwi since petsc-3.15.0-velgxy2bilcsyf37kbnnzl2dkccrkfph failed     
+# ==> Warning: Skipping build of mfem-4.2.0-64qqv4unabz3zkakkidrlc4ip7l5wvab since hypre-2.20.0-pizz66y6oocnz5ccngep54p3tkgsxutn failed        
+# ==> Warning: Skipping build of blaspp-2021.04.01-d7xd5tuxafcvanrucqmw5ijsgikr5o6c since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed
+# ==> Warning: Skipping build of butterflypack-1.2.1-a2brixgwqujosklmssyte5c26t55c47g since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed
+# ==> Warning: Skipping build of strumpack-5.1.1-bwxfaxuwcwph3zazs6n3arljadx3hwkv since butterflypack-1.2.1-a2brixgwqujosklmssyte5c26t55c47g failed
+# ==> Warning: Skipping build of strumpack-5.1.1-oj7d2c3jekewuk3wi2hxcgoshrbnoedq since butterflypack-1.2.1-a2brixgwqujosklmssyte5c26t55c47g failed
+# ==> Warning: Skipping build of lapackpp-2021.04.00-7ji42bbp5sknmhdxmmusrj26a4akzipv since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed  
+# ==> Warning: Skipping build of slate-2021.05.02-erk5ngutl3cdgbay77ziqgwr5q6ojsix since lapackpp-2021.04.00-7ji42bbp5sknmhdxmmusrj26a4akzipv failed    
+# ==> Warning: Skipping build of arpack-ng-3.8.0-cg5io5te7caixkmikzpldcc3s5456b4k since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed
+# ==> Warning: Skipping build of globalarrays-5.8-kzr36a66pzdm4gvw42ynd7sdb6czix3o since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed     
+# ==> Warning: Skipping build of mumps-5.4.0-yec72fpdwi5h7d4ztqho2n22rlunqhsy since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed             
+# ==> Warning: Skipping build of superlu-dist-6.4.0-ompme2rijto2w6sr534xjwrxgrqo6sgo since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed   
+# ==> Warning: Skipping build of superlu-dist-6.4.0-lxilbwp4o4frebu7ldwh5gzsjpfy7npv since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed   
+# ==> Warning: Skipping build of netlib-scalapack-2.1.0-znxguue2k7scwzrylib4jevbf5hoprjm since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed
+# ==> Warning: Skipping build of py-numpy-1.20.3-nmjs7zjswc4htda4qdoicsdsxeqlsaqe since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed
+# ==> Warning: Skipping build of py-periodictable-1.5.0-s2nmlg55bsb4t4emtzbq2vxrg3rg6t3o since py-numpy-1.20.3-nmjs7zjswc4htda4qdoicsdsxeqlsaqe failed
+# ==> Warning: Skipping build of py-warpx-21.05-mzc3ihr5vuqhhpimwl3kyslhthvvw3u2 since py-periodictable-1.5.0-s2nmlg55bsb4t4emtzbq2vxrg3rg6t3o failed
+# ==> Warning: Skipping build of py-warpx-21.05-xuswooyx6b3dwdw6d6b2jkgptbzkcjyx since py-periodictable-1.5.0-s2nmlg55bsb4t4emtzbq2vxrg3rg6t3o failed   
+# ==> Warning: Skipping build of nrm-0.1.0-crtrt3mrxbbryzdg6gb6tb636cgvf4ak since py-numpy-1.20.3-nmjs7zjswc4htda4qdoicsdsxeqlsaqe failed        
+# ==> Warning: Skipping build of py-scipy-1.6.3-nytuefygw4gicruksciyuxov2txaihlt since py-numpy-1.20.3-nmjs7zjswc4htda4qdoicsdsxeqlsaqe failed
+# ==> Warning: Skipping build of py-libensemble-0.7.2-pcsxymzame5bbbzstetksnw7bstnes26 since py-numpy-1.20.3-nmjs7zjswc4htda4qdoicsdsxeqlsaqe failed
+# ==> Warning: Skipping build of py-picmistandard-develop-jytsgvziuk74ujdcrnpzin36233behhh since py-numpy-1.20.3-nmjs7zjswc4htda4qdoicsdsxeqlsaqe failed
+# ==> Warning: Skipping build of blaspp-2021.04.01-4selybco7okhu4filinzdjjszhhint5f since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed
+# ==> Warning: Skipping build of plasma-20.9.20-6ydl7mirtjqszw3wsnyjsv2w4nvx36dn since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed
+
+  specs:
+  - $cuda_specs
+  - $rocm_specs
+  - $default_specs
