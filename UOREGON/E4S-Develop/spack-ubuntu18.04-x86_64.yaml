@@ -290,7 +290,9 @@ spack:
     - py-warpx ^warpx dims=2 ^hdf5@1.12.0 +fortran +shared +hl api=default
     - py-warpx ^warpx dims=3 ^hdf5@1.12.0 +fortran +shared +hl api=default
     - py-warpx ^warpx dims=rz ^hdf5@1.12.0 +fortran +shared +hl api=default
+    - qt
     - qthreads scheduler=distrib
+    - qwt
     - raja
     - rempi
     - scr
@@ -315,10 +317,8 @@ spack:
     - veloc
     - vtk-m
     - zfp
-    #- dealii
     #- llvm-doe@doe +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
-    #- qt
-    #- qwt
+    #- dealii
     #- stat
     #- variorum # root fails
 
