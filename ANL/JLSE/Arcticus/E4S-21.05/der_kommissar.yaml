@@ -37,3 +37,6 @@ modules:
       - 'darshan'
     projections:
       all: '{name}/{version}-{compiler.name}-{compiler.version}'
+config:
+  install_tree:
+    padded_length: 127
