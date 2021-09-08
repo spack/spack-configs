@@ -1,0 +1,262 @@
+spack:
+  view: false
+  concretization: separately
+  config:
+    install_tree:
+      root: /global/common/software/spackecp/e4s-21.02/software
+    module_roots:
+      tcl: /global/common/software/spackecp/e4s-21.02/modules/
+    build_stage: $tempdir/user/spack-stage
+  modules:
+    enable:
+    - tcl
+    tcl:
+      blacklist_implicits: true
+      hash_length: 0
+      naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
+      all:
+        conflict:
+        - '{name}'
+        environment:
+          set:
+            '{name}_ROOT': '{prefix}'
+      darshan-runtime:
+        conflict:
+        - 'darshan'
+      darshan-util:
+        conflict:
+        - 'darshan'
+      projections:
+        all: '{name}/{version}-{compiler.name}-{compiler.version}'
+  mirrors:
+    cori-e4s-21.02: /global/common/software/spackecp/mirrors/cori-e4s-21.02
+  compilers:
+  - compiler:
+      spec: intel@19.1.2.254
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: cnl7
+      target: any
+      modules:
+      - PrgEnv-intel
+      - intel/19.1.2.254
+      environment: {unset: []}
+      extra_rpaths: []
+  - compiler:
+      spec: gcc@10.1.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      operating_system: cnl7
+      modules:
+      - PrgEnv-gnu
+      - gcc/10.1.0
+  
+  definitions:
+  - intel_compiler: ['%intel@19.1.2.254']
+  - gcc_compiler: ['%gcc@10.1.0']
+  - e4s_intel:    
+    - adios2@2.7.1 +hdf5 
+    - aml@0.1.0
+    - arborx@0.9-beta +openmp     
+    - bolt@2.0
+    - caliper@2.5.0 +fortran
+    - faodel@1.1906.1
+    - flecsi@1.4 +cinch +caliper +graphviz +tutorial
+    - flit@2.1.0  
+    - gasnet@2020.3.0 +udp
+    - ginkgo@1.3.0
+    - gotcha@1.0.3 +test
+    - hdf5@1.10.7    
+    - hypre@2.20.0 +mixedint +superlu-dist +openmp
+    - libnrm@0.1.0
+    - libquo@1.3.1
+    - mercury@2.0.0 +udreg
+    - mfem@4.2.0 +examples +gnutls +gslib +lapack +libunwind +openmp +threadsafe +pumi +umpire    
+    - ninja@1.10.2
+    - omega-h@9.32.5 ~trilinos
+    - openpmd-api@0.13.2 
+    - papi@6.0.0.1 +example +static_tools +powercap +infiniband
+    - papyrus@1.0.1 
+    - pdt@3.25.1 +pic 
+    - precice@2.2.0 +python
+    - pumi@2.2.5 +fortran
+    - qthreads@1.16 ~hwloc
+    - raja@0.13.0 +tests    
+    - slepc@3.14.2
+    - strumpack@5.1.1 +shared
+    - sundials@5.7.0 +examples-cxx +hypre +klu +lapack 
+    - superlu@5.2.1
+    - superlu-dist@6.4.0 +openmp
+    - swig@4.0.2-fortran
+    - tasmanian@7.3 +blas +fortran +mpi +python +xsdkflags
+    - tau@2.30.1 +mpi ~pdt
+    - turbine@1.2.3 +hdf5 +python
+    - umap@2.1.0 +tests
+    - umpire@4.1.2 +fortran +numa +openmp
+    - upcxx@2020.10.0
+    - zfp@0.5.5 +aligned +c +fortran +openmp +profile
+        
+  - e4s_gcc:
+    - darshan-runtime@3.2.1 +slurm 
+    - darshan-util@3.2.1 +bzip2    
+    - dyninst@10.2.1 
+    - legion@20.03.0 
+    - plasma@20.9.20 
+    - slate@2020.10.00 ~cuda  
+    
+
+    # skipping package
+    #  - adios@1.13.1 +bzip2 +fortran +hdf5 +netcdf
+    # - kokkos-kernels@3.2.00 +mkl +openmp
+    # - kokkos@3.2.00  +compiler_warnings +deprecated_code +examples +hwloc +memkind +numactl +openmp +pic +tests    
+    # - openmpi@4.0.5 +cxx +thread_multiple schedulers=slurm
+    # - parallel-netcdf@1.12.1 +burstbuffer
+    # - petsc@3.14.4 +X +fftw +jpeg +libpng +libyaml +memkind 
+    # - py-jupyterhub@1.0.0
+    # - py-libensemble@0.7.1 +mpi +nlopt +petsc4py  +scipy
+    # - py-petsc4py@3.14.1
+    # - trilinos@13.0.1 
+
+    # _______________________________ ISSUES TO SOLVE _______________________________
+    # issue installing vtkh using intel compiler
+    # using gcc compiler ascent has dependency for conduit@develop which not pinned to version. There was a build error related to missing HDF5 library
+    # - ascent@0.6.0
+    
+    # Issue detecting fortran compiler https://cdash.spack.io/viewConfigure.php?buildid=105216. Also issue installing conduit since its tied to 'develop'. Tried using conduit@0.7.1 and still failed see https://cdash.spack.io/viewBuildError.php?buildid=105206. Talk to @cyrush at spack slack.   
+    # - axom@0.4.0 +mfem +python
+
+    # /usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: /usr/lib/libm.so: error adding symbols: file in wrong format see https://cdash.spack.io/buildSummary.php?buildid=104952
+    # - adios2@2.7.1 +hdf5 +dataman +dataspaces   
+
+    # skipping this version for now 5.7 is the latest version 5.8 doesn't exist in spack repo
+    # - globalarrays@5.8 +blas +lapack +scalapack
+    
+    #  Warning: Linking the shared library libhpcrun.la against the static library see  https://cdash.spack.io/viewBuildError.php?buildid=104938
+    # - hpctoolkit@2020.08.03 %gcc
+
+    # error: identifier "HPX_SMT_PAUSE" is undefined see https://cdash.spack.io/viewBuildError.php?buildid=105747
+    # - hpx@1.6.0 +async_mpi +examples
+
+    # Error building legion with intel compiler https://cdash.spack.io/viewBuildError.php?buildid=105190
+    # - legion@20.03.0
+
+    # skip magma because it's a GPU package
+    #- magma@2.5.4 cuda_arch=70 ^cuda@10.2.89
+   
+    # error with intel compiler:  building dtcmp 
+    # error with gnu compiler: Could NOT find LibCircle (missing: LibCircle_LIBRARIES
+    # - mpifileutils@0.10.1
+
+    # /global/cfs/cdirs/m3503/spack-NSewtxLx/spack-stage/siddiq90/spack-stage-phist-1.9.3-rznbmfuo2mt2erku4rit4peyqxu7iji4/spack-src/fortran_bindings/test/kernels.F90(63): catastrophic error: **Internal compiler error: internal abort** Please report this error along with the circumstances in which it occurred in a Software Problem Report.  Note: File and line given may not be explicit cause of this error. see https://cdash.spack.io/buildSummary.php?buildid=104915
+    # - phist@1.9.3
+
+    
+    # configure: error: Failed to find C MPI Wrapper. see https://cdash.spack.io/buildSummary.php?buildid=104940
+    # - rempi@1.1.0  
+
+    # "%intel@19:" conflicts with "slate" [Does not currently build with icpc >= 2019]
+    # - slate@2020.10.00 ^cuda@10.2.89
+
+    # build Error with Intel: error building dtcmp: configure: error: C compiler cannot create executables
+    # build Error with GCC: make[2]: *** No rule to make target '/global/cfs/cdirs/m3503/spack-qhLmtUlQ/spack_path_placeholder/spack_path_placeholder/spack_path_placeholder/spack_path_placehol/cray-cnl7-haswell/gcc-10.1.0/libyogrt-1.24-6wngjuplxnjjsivzvilwjsp4gwu4ziuj/lib/libyogrt.a', needed by 'examples/test_ckpt_F'.  Stop. see https://cdash.spack.io/buildSummary.php?buildid=104889
+    # - scr@2.0.0
+    # error installing ant Error: JAVA_HOME is not defined correctly. https://software.nersc.gov/NERSC/e4s-2102/-/jobs/87103
+    # - stc@0.8.3 
+    
+    # Issue building sundials with raja support see https://cdash.spack.io/viewBuildError.php?buildid=105455. Not sure if raja support with sundials is neccessary.
+    # sundials@5.7.0 +examples-cxx +examples-f2003 +f2003 +hypre +klu +lapack +openmp +raja +superlu-dist
+
+    # https://cdash.spack.io/viewBuildError.php?buildid=105513
+    # - sz@2.1.11.1 +fortran +python +time_compression +random_access +pastri
+
+    # issue building tau with intel see https://cdash.spack.io/viewBuildError.php?buildid=105235 one of the error points to missing `-lpdb` library. Tau has `+pdt` enabled by default
+    # - tau@2.30.1 +adios2 +gasnet +likwid  +ompt +openmp +mpi  +python +scorep +shmem +sqlite
+
+    #  Could NOT find AXL (missing: AXL_LIBRARIES AXL_INCLUDE_DIRS) see https://cdash.spack.io/buildSummary.php?buildid=105476
+    # - veloc@1.4
+
+    # issue configure: error: "Couldn't find MPI" see https://cdash.spack.io/viewConfigure.php?buildid=105491
+    # issue installing mercury (dependency) for unifyfs with gcc https://cdash.spack.io/buildSummary.php?buildid=105497
+    #- unifyfs@0.9.1
+
+  specs:
+  - matrix:
+    - [$e4s_intel]
+    - [$intel_compiler]
+  - matrix:    
+    - [$e4s_gcc]
+    - [$gcc_compiler]
+
+  packages:
+    all:
+      compiler: [intel@19.1.2.254, gcc@10.1.0]
+      target: [haswell]
+      providers:
+        mpi: [mpich]
+        mkl: [cray-libsci, intel-mkl]
+        blas: [cray-libsci, intel-mkl]
+        scalapack: [cray-libsci, intel-mkl]
+        pkgconfig: [pkg-config]
+    
+    cray-libsci:
+      buildable: false
+      externals:
+      - spec: cray-libsci@19.06.1%intel
+        modules:
+        - cray-libsci/19.06.1
+
+    fftw:
+      buildable: false
+      externals:
+      - spec: fftw@3.3.8.4%intel
+        modules:
+        - cray-fftw/3.3.8.4
+
+    hdf5:
+      variants: +cxx +debug +fortran +szip +threadsafe +hl
+      
+    hwloc:
+      buildable: false
+      externals:
+      - spec: hwloc
+        prefix: /usr
+    intel-mkl:
+      buildable: false
+      externals:
+      - spec: intel-mkl@19.1.2.254
+        modules:
+        - intel/19.1.2.254
+
+    mpich:
+      buildable: false
+      externals:
+      - spec: mpich@3.1
+        modules:
+        - cray-mpich/7.7.10
+    
+    netcdf-c:
+      buildable: false
+      externals:
+        - spec: netcdf-c@4.7.4
+          modules:
+          - cray-netcdf/4.7.4.0
+
+    openssl:
+      buildable: false
+      externals:
+      - spec: openssl@1.1.1g
+        prefix: /usr
+    # issue installing version 5.32.1 and confirmed 5.32.0 works
+    perl:
+      version: [5.32.0]
+
+    # disable slate since we can't build with icc >= 19
+    strumpack:
+      variants: ~slate
