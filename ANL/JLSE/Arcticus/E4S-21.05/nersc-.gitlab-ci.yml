@@ -1,0 +1,99 @@
+variables:
+  SCHEDULER_PARAMETERS: "-M escori -q compile -N1 -t 6:00:00"
+  SPACK_REPOSITORY: https://github.com/spack/spack.git
+
+stages:
+  - generate
+  - build
+  - deploy
+
+remove_buildcache:
+  stage: generate
+  tags: [cori]
+  only:
+    variables:
+      - $REMOVE_BUILDCACHE == "True"
+  script:
+    rm -rf /global/common/software/spackecp/mirrors/cori-e4s-21.02/
+
+
+generate-spack-pipeline:
+  stage: generate
+  tags: [cori]
+  only:
+    variables:
+      - $BUILD_E4S == "True"
+    changes:
+      - spack.yaml
+
+  before_script:
+  - pwd
+  - git clone ${SPACK_REPOSITORY} -b e4s-21.02
+  - cd spack  
+  - git log  --oneline -1
+  - . share/spack/setup-env.sh
+  - echo $SPACK_ROOT
+  - cd $CI_PROJECT_DIR
+  script:
+  - hostname  
+  - echo $SPACK_ROOT 
+  - cd $CI_PROJECT_DIR  
+  - rm -rf $HOME/.spack
+  - spack env activate .
+  - spack env st
+  - export SPACK_GNUPGHOME=$HOME/.gnupg
+  - spack gpg list
+  - spack config blame config
+  - spack config blame packages
+  - spack concretize -f 2>&1 
+  - spack ci generate --dependencies --optimize  --output-file ${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml  
+  after_script:
+  - rm -rf $SPACK_ROOT
+  artifacts:
+    paths:
+    - jobs_scratch_dir/pipeline.yml    
+
+
+build-e4s:
+  stage: build
+  only:
+    variables:
+      - $BUILD_E4S == "True"
+    changes:
+      - spack.yaml
+  trigger:
+    include:
+    - artifact: "jobs_scratch_dir/pipeline.yml"
+      job: generate-spack-pipeline
+    strategy: depend
+
+deploy:
+  stage: deploy
+  tags: [cori]
+  only:
+    variables:
+      - $DEPLOY_E4S == "True"
+  script:
+    - mkdir -p /global/common/software/spackecp/e4s-21.02
+    - cd /global/common/software/spackecp/e4s-21.02
+    - rm -rf spack
+    - git clone $SPACK_REPOSITORY -b e4s-21.02
+    - cd spack
+    # Need this PR: https://github.com/spack/spack/pull/22500
+    - git cherry-pick f67d477
+    - source share/spack/setup-env.sh
+    # copy all site configuration for spack instance 
+    - cp $CI_PROJECT_DIR/site_config/* $SPACK_ROOT/etc/spack
+    # the other permission is set to 0 before copying. Adding 4 will ensure user can read the file
+    - chmod 664 $SPACK_ROOT/etc/spack/*.yaml
+    - export SPACK_GNUPGHOME=$HOME/.gnupg
+    - spack buildcache update-index -d /global/common/software/spackecp/mirrors/cori-e4s-21.02
+    - find /global/common/software/spackecp/mirrors/cori-e4s-21.02 -name *.spack -exec chmod o+r {} \;
+    - chmod o+r /global/common/software/spackecp/mirrors/cori-e4s-21.02/build_cache/index.json
+    - spack buildcache list -L
+    - spack env create e4s $CI_PROJECT_DIR/prod/spack.yaml
+    - spack env activate e4s
+    - spack install --cache-only
+    - spack module tcl refresh --delete-tree -y
+    - spack find
+
