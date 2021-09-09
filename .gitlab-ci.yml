@@ -37,7 +37,7 @@ run_spack_ci:
   stage: test
   trigger:
     include:
-    - ./ANL/JLSE/Arcticus/E4S-21.05/.spack-ci.yml 
+    - artifact: ANL/JLSE/Arcticus/E4S-21.05/.spack-ci.yml 
       job: generate_spack_ci
     strategy: depend
 
