@@ -2,7 +2,6 @@ variables:
   JLSE_SCHEDULER_PARAMETERS: "-A Operations -n 1  -t 10 -q arcticus_debug"
   SPACK_REPO: /soft/spack-dev
   SPACK_REF: e4s-21.05 
-#  WORKING_DIR: arcticus/e4s-21.05
   WORKING_DIR: ./ANL/JLSE/Arcticus/E4S-21.05
 
 before_script:
@@ -13,7 +12,6 @@ generate_spack_ci:
   stage: build
   artifacts:
     paths:
-#    - arcticus/e4s-21.05/.spack-ci.yml
     - ./ANL/JLSE/Arcticus/E4S-21.05/.spack-ci.yml 
   tags:
   - shell
@@ -39,8 +37,6 @@ run_spack_ci:
   stage: test
   trigger:
     include:
-#    - artifact: ${WORKING_DIR}/.spack-ci.yml
-#    - artifact: arcticus/e4s-21.05/.spack-ci.yml
     - ./ANL/JLSE/Arcticus/E4S-21.05/.spack-ci.yml 
       job: generate_spack_ci
     strategy: depend
