@@ -1,0 +1,632 @@
+adios@1.13.1%gcc@8.3.1 +blosc+bzip2+fortran+hdf5+infiniband+lz4+mpi+netcdf+shared+sz~szip+zfp+zlib patches=01113e9efb929d71c28bf33cc8b7f215d85195ec700e99cb41164e2f8f830640,8ae17f655248e87cbab1d1ed794e15364a38d2f5f8d971b1086702f72d79bd42,d24b79b795f66e40ddcd331ea4be896ac9c393d6f68f4318616d23928b0694e9 staging=none
+adios2@2.7.1%gcc@7.5.0 +blosc+bzip2~dataman~dataspaces~endian_reverse+fortran~hdf5~ipo+mpi+pic+png~python+shared+ssc+sst+sz+zfp build_type=Release
+adios2@2.7.1%gcc@8.3.1 +blosc+bzip2~dataman~dataspaces~endian_reverse+fortran~hdf5~ipo+mpi+pic+png~python+shared+ssc+sst+sz+zfp build_type=Release
+adios2@2.7.1%gcc@9.1.0 +blosc+bzip2~dataman~dataspaces~endian_reverse+fortran~hdf5~ipo+mpi+pic+png~python+shared+ssc+sst+sz+zfp build_type=Release
+adios2@2.7.1%gcc@9.3.0 +blosc+bzip2~dataman~dataspaces~endian_reverse+fortran~hdf5~ipo+mpi+pic+png~python+shared+ssc+sst+sz+zfp build_type=Release
+adios2@2.7.1%gcc@10.2.0 +blosc+bzip2~dataman~dataspaces~endian_reverse+fortran~hdf5~ipo+mpi+pic+png~python+shared+ssc+sst+sz+zfp build_type=Release
+adios2@2.7.1%gcc@11.1.0 +blosc+bzip2~dataman~dataspaces~endian_reverse+fortran~hdf5~ipo+mpi+pic+png~python+shared+ssc+sst+sz+zfp build_type=Release
+adios2@2.7.1%gcc@8.3.1 +blosc+bzip2~dataman~dataspaces~endian_reverse+fortran~hdf5~ipo+mpi+pic+png+python+shared+ssc+sst+sz+zfp build_type=Release
+amgx@2.1.0-1%gcc@8.3.1 +cuda~ipo~magma~mkl+mpi+openmp build_type=RelWithDebInfo cuda_arch=70
+aml@0.1.0%gcc@8.3.1
+aml@0.1.0%gcc@9.1.0
+aml@0.1.0%gcc@9.3.0
+aml@0.1.0%gcc@10.2.0
+aml@0.1.0%gcc@11.1.0
+amrex@21.02%gcc@8.3.1 ~amrdata~cuda~eb~fortran~hdf5~hypre~ipo+linear_solvers+mpi~openmp~particles~petsc~pic~rocm~shared~sundials amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none dimensions=3 precision=double
+amrex@21.02%gcc@9.1.0 ~amrdata~cuda~eb~fortran~hdf5~hypre~ipo+linear_solvers+mpi~openmp~particles~petsc~pic~rocm~shared~sundials amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none dimensions=3 precision=double
+amrex@21.02%gcc@9.3.0 ~amrdata~cuda~eb~fortran~hdf5~hypre~ipo+linear_solvers+mpi~openmp~particles~petsc~pic~rocm~shared~sundials amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none dimensions=3 precision=double
+amrex@21.02%gcc@10.2.0 ~amrdata~cuda~eb~fortran~hdf5~hypre~ipo+linear_solvers+mpi~openmp~particles~petsc~pic~rocm~shared~sundials amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none dimensions=3 precision=double
+amrex@21.05%gcc@8.3.1 ~amrdata~cuda~eb~fortran~hdf5~hypre~ipo+linear_solvers+mpi~openmp~particles~petsc~pic~rocm~shared~sundials amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none dimensions=3 precision=double
+amrex@21.05%gcc@9.1.0 ~amrdata~cuda~eb~fortran~hdf5~hypre~ipo+linear_solvers+mpi~openmp~particles~petsc~pic~rocm~shared~sundials amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none dimensions=3 precision=double
+amrex@21.05%gcc@9.3.0 ~amrdata~cuda~eb~fortran~hdf5~hypre~ipo+linear_solvers+mpi~openmp~particles~petsc~pic~rocm~shared~sundials amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none dimensions=3 precision=double
+amrex@21.05%gcc@10.2.0 ~amrdata~cuda~eb~fortran~hdf5~hypre~ipo+linear_solvers+mpi~openmp~particles~petsc~pic~rocm~shared~sundials amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none dimensions=3 precision=double
+arborx@1.0%gcc@8.3.1 +cuda~ipo+mpi~openmp~rocm+serial~trilinos build_type=RelWithDebInfo
+arborx@1.0%gcc@9.1.0 +cuda~ipo+mpi~openmp~rocm+serial~trilinos build_type=RelWithDebInfo
+arborx@1.0%gcc@9.3.0 +cuda~ipo+mpi~openmp~rocm+serial~trilinos build_type=RelWithDebInfo
+arborx@1.0%gcc@10.2.0 +cuda~ipo+mpi~openmp~rocm+serial~trilinos build_type=RelWithDebInfo
+argobots@1.1%gcc@11.1.0 ~affinity~debug+perf~stackunwind~tool~valgrind stackguard=none
+ascent@0.7.1%gcc@8.3.1 ~adios~babelflow~cuda~doc~dray+fortran~mfem+mpi+openmp~python+serial+shared+test+vtkh cuda_arch=none
+ascent@0.7.1%gcc@9.1.0 ~adios~babelflow~cuda~doc~dray+fortran~mfem+mpi+openmp~python+serial+shared+test+vtkh cuda_arch=none
+ascent@0.7.1%gcc@9.3.0 ~adios~babelflow~cuda~doc~dray+fortran~mfem+mpi+openmp~python+serial+shared+test+vtkh cuda_arch=none
+axom@0.5.0%gcc@8.3.1 +cpp14~cuda~debug~devtools+fortran+hdf5~ipo+lua~mfem+mpi+openmp~python+raja~scr+shared+umpire build_type=RelWithDebInfo cuda_arch=none
+axom@0.5.0%gcc@9.1.0 +cpp14~cuda~debug~devtools+fortran+hdf5~ipo+lua~mfem+mpi+openmp~python+raja~scr+shared+umpire build_type=RelWithDebInfo cuda_arch=none
+axom@0.5.0%gcc@9.3.0 +cpp14~cuda~debug~devtools+fortran+hdf5~ipo+lua~mfem+mpi+openmp~python+raja~scr+shared+umpire build_type=RelWithDebInfo cuda_arch=none
+axom@0.5.0%gcc@10.2.0 +cpp14~cuda~debug~devtools+fortran+hdf5~ipo+lua~mfem+mpi+openmp~python+raja~scr+shared+umpire build_type=RelWithDebInfo cuda_arch=none
+bolt@1.0%gcc@8.3.1 ~ipo build_type=RelWithDebInfo
+bolt@1.0%gcc@9.1.0 ~ipo build_type=RelWithDebInfo
+bolt@1.0%gcc@9.3.0 ~ipo build_type=RelWithDebInfo
+bolt@1.0%gcc@10.2.0 ~ipo build_type=RelWithDebInfo
+bolt@2.0%gcc@8.3.1 ~ipo build_type=RelWithDebInfo
+bolt@2.0%gcc@9.1.0 ~ipo build_type=RelWithDebInfo
+bolt@2.0%gcc@9.3.0 ~ipo build_type=RelWithDebInfo
+bolt@2.0%gcc@10.2.0 ~ipo build_type=RelWithDebInfo
+bolt@2.0%gcc@11.1.0 ~ipo build_type=RelWithDebInfo
+boost@1.62.0%xl@16.1.1-beta103 +atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math~mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=98 patches=d1cd178ea5348fafbba797113fc5a92cc822f3606dc2fe65c14cc2275334001b,fb7d84358c36309062fa4aaaa187343eb16871bd95893f0270e0941955c488ab,fd64b4f1e9c136549c7b704bd0014283e1515de8b68e54f0dd0cde758866eb69 visibility=hidden
+boost@1.62.0%xl@16.1.1-10 +atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math~mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=98 patches=d1cd178ea5348fafbba797113fc5a92cc822f3606dc2fe65c14cc2275334001b,fb7d84358c36309062fa4aaaa187343eb16871bd95893f0270e0941955c488ab,fd64b4f1e9c136549c7b704bd0014283e1515de8b68e54f0dd0cde758866eb69 visibility=hidden
+boost@1.62.0%xl@16.1.1-beta103 +atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math+mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=98 patches=d1cd178ea5348fafbba797113fc5a92cc822f3606dc2fe65c14cc2275334001b,fb7d84358c36309062fa4aaaa187343eb16871bd95893f0270e0941955c488ab,fd64b4f1e9c136549c7b704bd0014283e1515de8b68e54f0dd0cde758866eb69 visibility=hidden
+boost@1.62.0%xl@16.1.1-10 +atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math+mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=98 patches=d1cd178ea5348fafbba797113fc5a92cc822f3606dc2fe65c14cc2275334001b,fb7d84358c36309062fa4aaaa187343eb16871bd95893f0270e0941955c488ab,fd64b4f1e9c136549c7b704bd0014283e1515de8b68e54f0dd0cde758866eb69 visibility=hidden
+boost@1.76.0%gcc@7.5.0 +atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math~mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=98 visibility=hidden
+boost@1.76.0%gcc@11.1.0 +atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math~mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=98 visibility=hidden
+boost@1.76.0%gcc@7.5.0 +atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math+mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=98 visibility=hidden
+boost@1.76.0%gcc@8.3.1 +atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math+mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=98 visibility=hidden
+boost@1.76.0%gcc@9.1.0 +atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math+mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=98 visibility=hidden
+boost@1.76.0%gcc@9.3.0 +atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math+mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=98 visibility=hidden
+boost@1.76.0%gcc@10.2.0 +atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math+mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=98 visibility=hidden
+boost@1.76.0%gcc@11.1.0 +atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math+mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=98 visibility=hidden
+cabana@0.3.0%gcc@8.3.1 +cuda~ipo+mpi~openmp+serial+shared build_type=RelWithDebInfo
+cabana@0.3.0%gcc@9.1.0 +cuda~ipo+mpi~openmp+serial+shared build_type=RelWithDebInfo
+cabana@0.3.0%gcc@9.3.0 +cuda~ipo+mpi~openmp+serial+shared build_type=RelWithDebInfo
+cabana@0.3.0%gcc@10.2.0 +cuda~ipo+mpi~openmp+serial+shared build_type=RelWithDebInfo
+caliper@2.4.0%gcc@8.3.1 +adiak~cuda~fortran+gotcha~ipo~libdw~libpfm+libunwind+mpi+papi+sampler+shared~sosflow build_type=RelWithDebInfo cuda_arch=none
+caliper@2.4.0%gcc@9.1.0 +adiak~cuda~fortran+gotcha~ipo~libdw~libpfm+libunwind+mpi+papi+sampler+shared~sosflow build_type=RelWithDebInfo cuda_arch=none
+caliper@2.4.0%gcc@9.3.0 +adiak~cuda~fortran+gotcha~ipo~libdw~libpfm+libunwind+mpi+papi+sampler+shared~sosflow build_type=RelWithDebInfo cuda_arch=none
+caliper@2.4.0%gcc@10.2.0 +adiak~cuda~fortran+gotcha~ipo~libdw~libpfm+libunwind+mpi+papi+sampler+shared~sosflow build_type=RelWithDebInfo cuda_arch=none
+caliper@2.5.0%gcc@8.3.1 +adiak~cuda~fortran+gotcha~ipo+libdw~libpfm+libunwind+mpi+papi+sampler+shared~sosflow build_type=RelWithDebInfo cuda_arch=none
+caliper@2.5.0%gcc@9.1.0 +adiak~cuda~fortran+gotcha~ipo+libdw~libpfm+libunwind+mpi+papi+sampler+shared~sosflow build_type=RelWithDebInfo cuda_arch=none
+caliper@2.5.0%gcc@9.3.0 +adiak~cuda~fortran+gotcha~ipo+libdw~libpfm+libunwind+mpi+papi+sampler+shared~sosflow build_type=RelWithDebInfo cuda_arch=none
+caliper@2.5.0%gcc@10.2.0 +adiak~cuda~fortran+gotcha~ipo+libdw~libpfm+libunwind+mpi+papi+sampler+shared~sosflow build_type=RelWithDebInfo cuda_arch=none
+ccache@4.3%gcc@8.3.1 ~ipo build_type=RelWithDebInfo
+chai@2.3.0%gcc@8.3.1 ~benchmarks+cuda~enable_pick+examples~ipo~raja~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+chai@2.3.0%gcc@9.1.0 ~benchmarks+cuda~enable_pick+examples~ipo~raja~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+chai@2.3.0%gcc@9.3.0 ~benchmarks+cuda~enable_pick+examples~ipo~raja~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+chai@2.3.0%gcc@10.2.0 ~benchmarks+cuda~enable_pick+examples~ipo~raja~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+conduit@0.7.2%gcc@9.1.0 ~adios~doc~doxygen+fortran+hdf5+hdf5_compat~ipo+mpi~python+shared~silo+test~zfp build_type=RelWithDebInfo
+conduit@0.7.2%gcc@9.3.0 ~adios~doc~doxygen+fortran+hdf5+hdf5_compat~ipo+mpi~python+shared~silo+test~zfp build_type=RelWithDebInfo
+conduit@0.7.2%gcc@10.2.0 ~adios~doc~doxygen+fortran+hdf5+hdf5_compat~ipo+mpi~python+shared~silo+test~zfp build_type=RelWithDebInfo
+cube@4.6%gcc@8.3.1 +gui
+darshan-runtime@3.2.1%gcc@8.3.1 ~apmpi~apmpi_sync~apxc~cobalt+grouplogs~hdf5+lsf+mpi~pbs~slurm logpath=/gpfs/alpine/darshan/summit patches=efe278f618b00735c814660b980dbedcb397965909e649b81a904b12c48288d8
+darshan-runtime@3.2.1%gcc@8.3.1 ~apmpi~apmpi_sync~apxc~cobalt+grouplogs+hdf5+lsf+mpi~pbs~slurm logpath=/gpfs/alpine/darshan/summit patches=efe278f618b00735c814660b980dbedcb397965909e649b81a904b12c48288d8
+darshan-runtime@3.3.0%gcc@8.3.1 ~apmpi~apmpi_sync~apxc~cobalt+grouplogs~hdf5+lsf+mpi~pbs~slurm logpath=/gpfs/alpine/darshan/summit patches=efe278f618b00735c814660b980dbedcb397965909e649b81a904b12c48288d8
+darshan-runtime@3.3.0%gcc@8.3.1 ~apmpi~apmpi_sync~apxc~cobalt+grouplogs+hdf5+lsf+mpi~pbs~slurm logpath=/gpfs/alpine/darshan/summit patches=efe278f618b00735c814660b980dbedcb397965909e649b81a904b12c48288d8
+darshan-util@3.3.0%gcc@8.3.1 ~apmpi~apxc~bzip2+shared
+dyninst@10.2.1%gcc@8.3.1 ~ipo+openmp~stat_dysect~static build_type=RelWithDebInfo
+dyninst@10.2.1%gcc@9.1.0 ~ipo+openmp~stat_dysect~static build_type=RelWithDebInfo
+dyninst@10.2.1%gcc@9.3.0 ~ipo+openmp~stat_dysect~static build_type=RelWithDebInfo
+dyninst@10.2.1%gcc@10.2.0 ~ipo+openmp~stat_dysect~static build_type=RelWithDebInfo
+dyninst@11.0.0%gcc@8.3.1 ~ipo+openmp~stat_dysect~static build_type=RelWithDebInfo
+dyninst@11.0.0%gcc@9.1.0 ~ipo+openmp~stat_dysect~static build_type=RelWithDebInfo
+dyninst@11.0.0%gcc@9.3.0 ~ipo+openmp~stat_dysect~static build_type=RelWithDebInfo
+dyninst@11.0.0%gcc@10.2.0 ~ipo+openmp~stat_dysect~static build_type=RelWithDebInfo
+dyninst@11.0.0%gcc@11.1.0 ~ipo+openmp~stat_dysect~static build_type=RelWithDebInfo
+emacs@27.2%gcc@8.3.1 ~X~native~tls toolkit=gtk
+faodel@1.1906.1%gcc@8.3.1 ~cereal~hdf5~ipo+mpi+shared~tcmalloc build_type=RelWithDebInfo logging=stdout network=nnti patches=0d8604c48c421da1a28e5c23493a55c367fc39ebdf054f2978b4b6f2108bef91,823eff7668eb4ac2bac4b2b337d9edbeb486d60fc5a98177e9c9b1883159ef68
+faodel@1.1906.1%gcc@9.1.0 ~cereal~hdf5~ipo+mpi+shared~tcmalloc build_type=RelWithDebInfo logging=stdout network=nnti patches=0d8604c48c421da1a28e5c23493a55c367fc39ebdf054f2978b4b6f2108bef91,823eff7668eb4ac2bac4b2b337d9edbeb486d60fc5a98177e9c9b1883159ef68
+faodel@1.1906.1%gcc@9.3.0 ~cereal~hdf5~ipo+mpi+shared~tcmalloc build_type=RelWithDebInfo logging=stdout network=nnti patches=0d8604c48c421da1a28e5c23493a55c367fc39ebdf054f2978b4b6f2108bef91,823eff7668eb4ac2bac4b2b337d9edbeb486d60fc5a98177e9c9b1883159ef68
+faodel@1.1906.1%gcc@10.2.0 ~cereal~hdf5~ipo+mpi+shared~tcmalloc build_type=RelWithDebInfo logging=stdout network=nnti patches=0d8604c48c421da1a28e5c23493a55c367fc39ebdf054f2978b4b6f2108bef91,823eff7668eb4ac2bac4b2b337d9edbeb486d60fc5a98177e9c9b1883159ef68
+fftw@3.3.9%gcc@7.5.0 +mpi+openmp~pfft_patches precision=double,float,long_double
+fftw@3.3.9%gcc@9.1.0 +mpi+openmp~pfft_patches precision=double,float,long_double
+fftw@3.3.9%gcc@9.3.0 +mpi+openmp~pfft_patches precision=double,float,long_double
+fftw@3.3.9%gcc@10.2.0 +mpi+openmp~pfft_patches precision=double,float,long_double
+fftw@3.3.9%gcc@11.1.0 +mpi+openmp~pfft_patches precision=double,float,long_double
+fftw@3.3.9%nvhpc@20.9 +mpi+openmp~pfft_patches precision=double,float,long_double
+fftw@3.3.9%nvhpc@21.2 +mpi+openmp~pfft_patches precision=double,float,long_double
+fftw@3.3.9%nvhpc@21.3 +mpi+openmp~pfft_patches precision=double,float,long_double
+fftw@3.3.9%nvhpc@21.5 +mpi+openmp~pfft_patches precision=double,float,long_double
+fftw@3.3.9%nvhpc@21.7 +mpi+openmp~pfft_patches precision=double,float,long_double
+fftw@3.3.9%xl@16.1.1-beta103 +mpi+openmp~pfft_patches precision=double,float,long_double
+fftw@3.3.9%xl@16.1.1-10 +mpi+openmp~pfft_patches precision=double,float,long_double
+flecsi@1.4%gcc@8.3.1 ~caliper+cinch~coverage~debug_backend~doc~doxygen~flecstan~flog~graphviz+hdf5~ipo~minimal+shared~tutorial backend=mpi build_type=Release
+flecsi@1.4%gcc@9.1.0 ~caliper+cinch~coverage~debug_backend~doc~doxygen~flecstan~flog~graphviz+hdf5~ipo~minimal+shared~tutorial backend=mpi build_type=Release
+flecsi@1.4%gcc@9.3.0 ~caliper+cinch~coverage~debug_backend~doc~doxygen~flecstan~flog~graphviz+hdf5~ipo~minimal+shared~tutorial backend=mpi build_type=Release
+flecsi@1.4%gcc@10.2.0 ~caliper+cinch~coverage~debug_backend~doc~doxygen~flecstan~flog~graphviz+hdf5~ipo~minimal+shared~tutorial backend=mpi build_type=Release
+flecsi@1.4%gcc@11.1.0 ~caliper+cinch~coverage~debug_backend~doc~doxygen~flecstan~flog~graphviz+hdf5~ipo~minimal+shared~tutorial backend=mpi build_type=Release
+flit@2.1.0%gcc@8.3.1
+flit@2.1.0%gcc@9.1.0
+flit@2.1.0%gcc@9.3.0
+flit@2.1.0%gcc@10.2.0
+flit@2.1.0%gcc@11.1.0
+gasnet@2020.3.0%gcc@8.3.1 ~aligned-segments~ibv+mpi+pshm~udp segment-mmap-max=16GB
+gasnet@2020.3.0%gcc@9.1.0 ~aligned-segments~ibv+mpi+pshm~udp segment-mmap-max=16GB
+gasnet@2020.3.0%gcc@9.3.0 ~aligned-segments~ibv+mpi+pshm~udp segment-mmap-max=16GB
+gasnet@2020.3.0%gcc@10.2.0 ~aligned-segments~ibv+mpi+pshm~udp segment-mmap-max=16GB
+gasnet@2020.3.0%gcc@11.1.0 ~aligned-segments~ibv+mpi+pshm~udp segment-mmap-max=16GB
+gdb@10.2%gcc@8.3.1 ~gold~ld~lto+python~quad~source-highlight~tui+xz patches=0b73f4c573768130ab59fa218cfc352d1db9678423ce787012e46e589154745c
+gdrcopy@2.2%gcc@8.3.1
+ginkgo@1.3.0%gcc@8.3.1 ~cuda~develtools~full_optimizations~hwloc~ipo+openmp~rocm+shared amdgpu_target=none build_type=Release cuda_arch=none
+ginkgo@1.3.0%gcc@9.1.0 ~cuda~develtools~full_optimizations~hwloc~ipo+openmp~rocm+shared amdgpu_target=none build_type=Release cuda_arch=none
+ginkgo@1.3.0%gcc@9.3.0 ~cuda~develtools~full_optimizations~hwloc~ipo+openmp~rocm+shared amdgpu_target=none build_type=Release cuda_arch=none
+ginkgo@1.3.0%gcc@10.2.0 ~cuda~develtools~full_optimizations~hwloc~ipo+openmp~rocm+shared amdgpu_target=none build_type=Release cuda_arch=none
+git-lfs@2.11.0%gcc@8.3.1
+globalarrays@5.7%gcc@8.3.1 ~scalapack armci=mpi-ts
+globalarrays@5.7%gcc@9.1.0 ~scalapack armci=mpi-ts
+globalarrays@5.7%gcc@9.3.0 ~scalapack armci=mpi-ts
+globalarrays@5.8%gcc@8.3.1 ~scalapack armci=mpi-ts
+globalarrays@5.8%gcc@9.1.0 ~scalapack armci=mpi-ts
+globalarrays@5.8%gcc@9.3.0 ~scalapack armci=mpi-ts
+globalarrays@5.8%nvhpc@20.9 ~scalapack armci=mpi-ts
+globalarrays@5.8%nvhpc@21.2 ~scalapack armci=mpi-ts
+globalarrays@5.8%nvhpc@21.3 ~scalapack armci=mpi-ts
+globalarrays@5.8%nvhpc@21.5 ~scalapack armci=mpi-ts
+globalarrays@5.8%nvhpc@21.7 ~scalapack armci=mpi-ts
+globalarrays@5.8%pgi@20.1 ~scalapack armci=mpi-ts
+globalarrays@5.8%pgi@20.4 ~scalapack armci=mpi-ts
+gmp@6.2.1%gcc@11.1.0
+gnupg@2.2.19%gcc@8.3.1
+gnuplot@5.0.1%gcc@8.3.1 ~X+cairo+gd+libcerf~pbm~qt~wx patches=ad89f23815fd925889ae78009ba22e6f9e4b12fea389280040cef519deafb052
+gnuplot@5.2.8%gcc@8.3.1 ~X+cairo+gd+libcerf~pbm~qt~wx patches=ad89f23815fd925889ae78009ba22e6f9e4b12fea389280040cef519deafb052
+go@1.16.4%gcc@8.3.1
+googletest@1.11.0%gcc@8.3.1 ~gmock~ipo+pthreads+shared build_type=RelWithDebInfo
+gotcha@1.0.3%gcc@8.3.1 ~ipo~test build_type=RelWithDebInfo
+gotcha@1.0.3%gcc@9.1.0 ~ipo~test build_type=RelWithDebInfo
+gotcha@1.0.3%gcc@9.3.0 ~ipo~test build_type=RelWithDebInfo
+gotcha@1.0.3%gcc@10.2.0 ~ipo~test build_type=RelWithDebInfo
+gotcha@1.0.3%gcc@11.1.0 ~ipo~test build_type=RelWithDebInfo
+gromacs@2020.2%gcc@8.3.1 ~blas+cuda~cycle_subcounters~double+hwloc~ipo~lapack~mdrun_only~mpi~nosuffix~opencl+openmp~plumed~relaxed_double_precision+shared~sycl build_type=RelWithDebInfo
+gromacs@2020.2%gcc@8.3.1 ~blas+cuda~cycle_subcounters~double+hwloc~ipo~lapack~mdrun_only+mpi~nosuffix~opencl+openmp~plumed~relaxed_double_precision+shared~sycl build_type=RelWithDebInfo
+gromacs@2020.4%gcc@8.3.1 ~blas+cuda~cycle_subcounters~double+hwloc~ipo~lapack~mdrun_only~mpi~nosuffix~opencl+openmp~plumed~relaxed_double_precision+shared~sycl build_type=RelWithDebInfo
+gromacs@2020.4%gcc@8.3.1 ~blas+cuda~cycle_subcounters~double+hwloc~ipo~lapack~mdrun_only+mpi~nosuffix~opencl+openmp~plumed~relaxed_double_precision+shared~sycl build_type=RelWithDebInfo
+gromacs@2021.2%gcc@8.3.1 ~blas+cuda~cycle_subcounters~double+hwloc~ipo~lapack~mdrun_only~mpi~nosuffix~opencl+openmp~plumed~relaxed_double_precision+shared~sycl build_type=RelWithDebInfo
+gromacs@2021.2%gcc@8.3.1 ~blas+cuda~cycle_subcounters~double+hwloc~ipo~lapack~mdrun_only+mpi~nosuffix~opencl+openmp~plumed~relaxed_double_precision+shared~sycl build_type=RelWithDebInfo
+gsl@2.6%gcc@8.3.1 ~external-cblas
+hdf5@1.10.6%gcc@8.3.1 +cxx~debug+fortran+hl~java+mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.6%gcc@9.1.0 +cxx~debug+fortran+hl~java+mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.6%gcc@9.3.0 +cxx~debug+fortran+hl~java+mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.6%gcc@10.2.0 +cxx~debug+fortran+hl~java+mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%gcc@7.5.0 +cxx~debug+fortran+hl~java~mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%gcc@9.1.0 +cxx~debug+fortran+hl~java~mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%gcc@9.3.0 +cxx~debug+fortran+hl~java~mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%gcc@10.2.0 +cxx~debug+fortran+hl~java~mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%gcc@11.1.0 +cxx~debug+fortran+hl~java~mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%nvhpc@20.9 +cxx~debug+fortran+hl~java~mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%nvhpc@21.2 +cxx~debug+fortran+hl~java~mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%nvhpc@21.3 +cxx~debug+fortran+hl~java~mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%nvhpc@21.5 +cxx~debug+fortran+hl~java~mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%nvhpc@21.7 +cxx~debug+fortran+hl~java~mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%pgi@20.1 +cxx~debug+fortran+hl~java~mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%pgi@20.4 +cxx~debug+fortran+hl~java~mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%xl@16.1.1-beta103 +cxx~debug+fortran+hl~java~mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%xl@16.1.1-10 +cxx~debug+fortran+hl~java~mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%gcc@7.5.0 +cxx~debug+fortran+hl~java+mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%gcc@11.1.0 +cxx~debug+fortran+hl~java+mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%nvhpc@20.9 +cxx~debug+fortran+hl~java+mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%nvhpc@21.2 +cxx~debug+fortran+hl~java+mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%nvhpc@21.3 +cxx~debug+fortran+hl~java+mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%nvhpc@21.5 +cxx~debug+fortran+hl~java+mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%nvhpc@21.7 +cxx~debug+fortran+hl~java+mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%pgi@20.1 +cxx~debug+fortran+hl~java+mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%pgi@20.4 +cxx~debug+fortran+hl~java+mpi+pic+shared~szip~threadsafe api=none
+hdf5@1.10.7%xl@16.1.1-10 +cxx~debug+fortran+hl~java+mpi+pic+shared~szip~threadsafe api=none
+heffte@2.0.0%gcc@8.3.1 ~cuda+fftw~fortran~ipo~magma~mkl~python+shared build_type=RelWithDebInfo patches=c520da92eb86d41ba6da8a3ec86995ef07489170e93f59c3a7e8908d6336561c
+heffte@2.0.0%gcc@9.1.0 ~cuda+fftw~fortran~ipo~magma~mkl~python+shared build_type=RelWithDebInfo patches=c520da92eb86d41ba6da8a3ec86995ef07489170e93f59c3a7e8908d6336561c
+heffte@2.0.0%gcc@9.3.0 ~cuda+fftw~fortran~ipo~magma~mkl~python+shared build_type=RelWithDebInfo patches=c520da92eb86d41ba6da8a3ec86995ef07489170e93f59c3a7e8908d6336561c
+heffte@2.0.0%gcc@10.2.0 ~cuda+fftw~fortran~ipo~magma~mkl~python+shared build_type=RelWithDebInfo patches=c520da92eb86d41ba6da8a3ec86995ef07489170e93f59c3a7e8908d6336561c
+hpctoolkit@2020.08.03%gcc@10.2.0 ~all-static~cray+cuda+mpi~papi~rocm patches=0ef29bcf8372658b07bb01742b35eaa40a5db2127b716cffc311e2d00a9db5d9
+hpctoolkit@2020.08.03%gcc@8.3.1 ~all-static~cray+cuda+mpi~papi~rocm
+hpctoolkit@2020.08.03%gcc@9.1.0 ~all-static~cray+cuda+mpi~papi~rocm
+hpctoolkit@2020.08.03%gcc@9.3.0 ~all-static~cray+cuda+mpi~papi~rocm
+hpctoolkit@2021.03.01%gcc@8.3.1 ~all-static~cray+cuda+mpi~papi~rocm
+hpctoolkit@2021.03.01%gcc@9.1.0 ~all-static~cray+cuda+mpi~papi~rocm
+hpctoolkit@2021.03.01%gcc@9.3.0 ~all-static~cray+cuda+mpi~papi~rocm
+hpctoolkit@2021.03.01%gcc@10.2.0 ~all-static~cray+cuda+mpi~papi~rocm
+hpcviewer@2021.03%gcc@8.3.1
+hpx@1.5.1%gcc@8.3.1 ~async_cuda~async_mpi~cuda~examples~generic_coroutines~ipo~tools build_type=RelWithDebInfo cuda_arch=none cxxstd=17 instrumentation=none malloc=tcmalloc max_cpu_count=64 networking=tcp
+hpx@1.5.1%gcc@9.1.0 ~async_cuda~async_mpi~cuda~examples~generic_coroutines~ipo~tools build_type=RelWithDebInfo cuda_arch=none cxxstd=17 instrumentation=none malloc=tcmalloc max_cpu_count=64 networking=tcp
+hpx@1.5.1%gcc@9.3.0 ~async_cuda~async_mpi~cuda~examples~generic_coroutines~ipo~tools build_type=RelWithDebInfo cuda_arch=none cxxstd=17 instrumentation=none malloc=tcmalloc max_cpu_count=64 networking=tcp
+hpx@1.5.1%gcc@10.2.0 ~async_cuda~async_mpi~cuda~examples~generic_coroutines~ipo~tools build_type=RelWithDebInfo cuda_arch=none cxxstd=17 instrumentation=none malloc=tcmalloc max_cpu_count=64 networking=tcp
+hpx@1.6.0%gcc@8.3.1 ~async_cuda~async_mpi~cuda~examples~generic_coroutines~ipo~tools build_type=RelWithDebInfo cuda_arch=none cxxstd=14 instrumentation=none malloc=tcmalloc max_cpu_count=64 networking=tcp
+hpx@1.6.0%gcc@8.3.1 ~async_cuda~async_mpi~cuda~examples~generic_coroutines~ipo~tools build_type=RelWithDebInfo cuda_arch=none cxxstd=17 instrumentation=none malloc=tcmalloc max_cpu_count=64 networking=tcp
+hpx@1.6.0%gcc@8.3.1 ~async_cuda~async_mpi~cuda~examples~generic_coroutines~ipo~tools build_type=RelWithDebInfo cuda_arch=none cxxstd=17 instrumentation=none malloc=tcmalloc max_cpu_count=64 networking=tcp
+hpx@1.6.0%gcc@9.1.0 ~async_cuda~async_mpi~cuda~examples~generic_coroutines~ipo~tools build_type=RelWithDebInfo cuda_arch=none cxxstd=17 instrumentation=none malloc=tcmalloc max_cpu_count=64 networking=tcp
+hpx@1.6.0%gcc@9.3.0 ~async_cuda~async_mpi~cuda~examples~generic_coroutines~ipo~tools build_type=RelWithDebInfo cuda_arch=none cxxstd=17 instrumentation=none malloc=tcmalloc max_cpu_count=64 networking=tcp
+hpx@1.6.0%gcc@10.2.0 ~async_cuda~async_mpi~cuda~examples~generic_coroutines~ipo~tools build_type=RelWithDebInfo cuda_arch=none cxxstd=17 instrumentation=none malloc=tcmalloc max_cpu_count=64 networking=tcp
+htop@3.0.2%gcc@8.3.1 +unicode
+hypre@2.20.0%gcc@7.5.0 ~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059
+hypre@2.20.0%gcc@8.3.1 ~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059
+hypre@2.20.0%gcc@9.1.0 ~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059
+hypre@2.20.0%gcc@9.3.0 ~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059
+hypre@2.20.0%gcc@10.2.0 ~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059
+hypre@2.20.0%gcc@11.1.0 ~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059
+hypre@2.20.0%nvhpc@20.9 ~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059
+hypre@2.20.0%nvhpc@21.2 ~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059
+hypre@2.20.0%nvhpc@21.3 ~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059
+hypre@2.20.0%nvhpc@21.5 ~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059
+hypre@2.20.0%nvhpc@21.7 ~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059
+hypre@2.20.0%pgi@20.1 ~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059
+hypre@2.20.0%pgi@20.4 ~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059
+hypre@2.20.0%xl@16.1.1-beta103 ~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059
+hypre@2.20.0%xl@16.1.1-10 ~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none patches=6e3336b1d62155f6350dfe42b0f9ea25d4fa0af60c7e540959139deb93a26059
+imagemagick@7.0.8-7%gcc@8.3.1
+julia@1.6.1%gcc@8.3.1 +cxx~mkl
+kokkos@3.2.00%gcc@8.3.1 ~aggressive_vectorization~compiler_warnings+cuda~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning+wrapper amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 std=14
+kokkos@3.2.00%gcc@9.1.0 ~aggressive_vectorization~compiler_warnings+cuda~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning+wrapper amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 std=14
+kokkos@3.2.00%gcc@9.3.0 ~aggressive_vectorization~compiler_warnings+cuda~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning+wrapper amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 std=14
+kokkos@3.2.00%gcc@10.2.0 ~aggressive_vectorization~compiler_warnings+cuda~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning+wrapper amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 std=14
+kokkos@3.4.00%gcc@8.3.1 ~aggressive_vectorization~compiler_warnings+cuda~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning+wrapper amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 std=14
+kokkos@3.4.00%gcc@9.1.0 ~aggressive_vectorization~compiler_warnings+cuda~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning+wrapper amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 std=14
+kokkos@3.4.00%gcc@9.3.0 ~aggressive_vectorization~compiler_warnings+cuda~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning+wrapper amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 std=14
+kokkos@3.4.00%gcc@10.2.0 ~aggressive_vectorization~compiler_warnings+cuda~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning+wrapper amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 std=14
+kokkos-kernels@3.2.00%gcc@8.3.1 ~blas~cblas~cublas+cuda~cusparse~ipo~lapack~lapacke~mkl~openmp~pthread~serial~superlu build_type=RelWithDebInfo cuda_arch=70 execspace_cuda=auto execspace_openmp=auto execspace_serial=auto execspace_threads=auto layouts=left memspace_cudaspace=auto memspace_cudauvmspace=auto offsets=int,size_t ordinals=int scalars=double
+kokkos-kernels@3.2.00%gcc@9.1.0 ~blas~cblas~cublas+cuda~cusparse~ipo~lapack~lapacke~mkl~openmp~pthread~serial~superlu build_type=RelWithDebInfo cuda_arch=70 execspace_cuda=auto execspace_openmp=auto execspace_serial=auto execspace_threads=auto layouts=left memspace_cudaspace=auto memspace_cudauvmspace=auto offsets=int,size_t ordinals=int scalars=double
+kokkos-kernels@3.2.00%gcc@9.3.0 ~blas~cblas~cublas+cuda~cusparse~ipo~lapack~lapacke~mkl~openmp~pthread~serial~superlu build_type=RelWithDebInfo cuda_arch=70 execspace_cuda=auto execspace_openmp=auto execspace_serial=auto execspace_threads=auto layouts=left memspace_cudaspace=auto memspace_cudauvmspace=auto offsets=int,size_t ordinals=int scalars=double
+kokkos-kernels@3.2.00%gcc@10.2.0 ~blas~cblas~cublas+cuda~cusparse~ipo~lapack~lapacke~mkl~openmp~pthread~serial~superlu build_type=RelWithDebInfo cuda_arch=70 execspace_cuda=auto execspace_openmp=auto execspace_serial=auto execspace_threads=auto layouts=left memspace_cudaspace=auto memspace_cudauvmspace=auto offsets=int,size_t ordinals=int scalars=double
+legion@20.03.0%gcc@8.3.1 ~bindings~bounds_checks+cuda~cuda_hijack~cuda_unsupported_compiler~enable_tls~fortran~gasnet_debug+hdf5~hwloc~ipo~kokkos+libdl~native~openmp~papi~privilege_checks~python~redop_complex~shared~spy+zlib build_type=RelWithDebInfo conduit=none cuda_arch=70 gasnet_root=none max_dims=3 max_fields=512 network=none output_level=warning
+legion@20.03.0%gcc@9.1.0 ~bindings~bounds_checks+cuda~cuda_hijack~cuda_unsupported_compiler~enable_tls~fortran~gasnet_debug+hdf5~hwloc~ipo~kokkos+libdl~native~openmp~papi~privilege_checks~python~redop_complex~shared~spy+zlib build_type=RelWithDebInfo conduit=none cuda_arch=70 gasnet_root=none max_dims=3 max_fields=512 network=none output_level=warning
+legion@20.03.0%gcc@9.3.0 ~bindings~bounds_checks+cuda~cuda_hijack~cuda_unsupported_compiler~enable_tls~fortran~gasnet_debug+hdf5~hwloc~ipo~kokkos+libdl~native~openmp~papi~privilege_checks~python~redop_complex~shared~spy+zlib build_type=RelWithDebInfo conduit=none cuda_arch=70 gasnet_root=none max_dims=3 max_fields=512 network=none output_level=warning
+legion@20.03.0%gcc@10.2.0 ~bindings~bounds_checks+cuda~cuda_hijack~cuda_unsupported_compiler~enable_tls~fortran~gasnet_debug+hdf5~hwloc~ipo~kokkos+libdl~native~openmp~papi~privilege_checks~python~redop_complex~shared~spy+zlib build_type=RelWithDebInfo conduit=none cuda_arch=70 gasnet_root=none max_dims=3 max_fields=512 network=none output_level=warning
+legion@21.03.0%gcc@8.3.1 ~bindings~bounds_checks+cuda~cuda_hijack~cuda_unsupported_compiler~enable_tls~fortran~gasnet_debug+hdf5~hwloc~ipo~kokkos+libdl~native~openmp~papi~privilege_checks~python~redop_complex~shared~spy+zlib build_type=RelWithDebInfo conduit=none cuda_arch=70 gasnet_root=none max_dims=3 max_fields=512 network=none output_level=warning
+legion@21.03.0%gcc@9.1.0 ~bindings~bounds_checks+cuda~cuda_hijack~cuda_unsupported_compiler~enable_tls~fortran~gasnet_debug+hdf5~hwloc~ipo~kokkos+libdl~native~openmp~papi~privilege_checks~python~redop_complex~shared~spy+zlib build_type=RelWithDebInfo conduit=none cuda_arch=70 gasnet_root=none max_dims=3 max_fields=512 network=none output_level=warning
+legion@21.03.0%gcc@9.3.0 ~bindings~bounds_checks+cuda~cuda_hijack~cuda_unsupported_compiler~enable_tls~fortran~gasnet_debug+hdf5~hwloc~ipo~kokkos+libdl~native~openmp~papi~privilege_checks~python~redop_complex~shared~spy+zlib build_type=RelWithDebInfo conduit=none cuda_arch=70 gasnet_root=none max_dims=3 max_fields=512 network=none output_level=warning
+legion@21.03.0%gcc@10.2.0 ~bindings~bounds_checks+cuda~cuda_hijack~cuda_unsupported_compiler~enable_tls~fortran~gasnet_debug+hdf5~hwloc~ipo~kokkos+libdl~native~openmp~papi~privilege_checks~python~redop_complex~shared~spy+zlib build_type=RelWithDebInfo conduit=none cuda_arch=70 gasnet_root=none max_dims=3 max_fields=512 network=none output_level=warning
+libevent@2.1.8%gcc@8.3.1 +openssl
+libfabric@1.12.1%gcc@8.3.1 ~kdreg fabrics=rxm,sockets,tcp,udp,verbs
+libquo@1.3.1%gcc@8.3.1
+libquo@1.3.1%gcc@9.1.0
+libquo@1.3.1%gcc@9.3.0
+libquo@1.3.1%gcc@10.2.0
+libquo@1.3.1%gcc@11.1.0
+libzmq@4.3.3%gcc@8.3.1 ~drafts+libsodium
+magma@2.5.3%gcc@8.3.1 +cuda+fortran~ipo~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+magma@2.5.4%gcc@8.3.1 +cuda+fortran~ipo~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+magma@2.5.4%gcc@9.1.0 +cuda+fortran~ipo~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+magma@2.5.4%gcc@9.3.0 +cuda+fortran~ipo~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+magma@2.5.4%gcc@10.2.0 +cuda+fortran~ipo~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+magma@2.6.1%nvhpc@21.7 +cuda+fortran~ipo~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 patches=9fbcf5ad5b7f9713c6ecfe3887d043d393c368e1fa29e2a2ece77e71f64b641d
+magma@2.6.1%gcc@8.3.1 +cuda+fortran~ipo~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+magma@2.6.1%gcc@9.1.0 +cuda+fortran~ipo~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+magma@2.6.1%gcc@9.3.0 +cuda+fortran~ipo~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+magma@2.6.1%gcc@10.2.0 +cuda+fortran~ipo~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+makedepend@1.0.5%gcc@8.3.1
+mercurial@5.8%gcc@8.3.1
+mercury@1.0.1%gcc@8.3.1 ~bmi+boostsys~cci+checksum~debug~ipo~mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo patches=34fc95b3599c74a8cece6e873cfdc8bc0afe2dc0deabb6e2d11ea2a93f0cebf5
+mercury@1.0.1%gcc@9.1.0 ~bmi+boostsys~cci+checksum~debug~ipo~mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo patches=34fc95b3599c74a8cece6e873cfdc8bc0afe2dc0deabb6e2d11ea2a93f0cebf5
+mercury@1.0.1%gcc@9.3.0 ~bmi+boostsys~cci+checksum~debug~ipo~mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo patches=34fc95b3599c74a8cece6e873cfdc8bc0afe2dc0deabb6e2d11ea2a93f0cebf5
+mercury@2.0.0%gcc@8.3.1 ~bmi+boostsys~cci+checksum~debug~ipo~mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo
+mercury@2.0.0%gcc@9.1.0 ~bmi+boostsys~cci+checksum~debug~ipo~mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo
+mercury@2.0.0%gcc@9.3.0 ~bmi+boostsys~cci+checksum~debug~ipo~mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo
+mercury@2.0.0%gcc@10.2.0 ~bmi+boostsys~cci+checksum~debug~ipo~mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo
+mercury@2.0.1%gcc@8.3.1 ~bmi+boostsys~cci+checksum~debug~ipo~mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo
+mercury@2.0.1%gcc@9.1.0 ~bmi+boostsys~cci+checksum~debug~ipo~mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo
+mercury@2.0.1%gcc@9.3.0 ~bmi+boostsys~cci+checksum~debug~ipo~mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo
+mercury@2.0.1%gcc@10.2.0 ~bmi+boostsys~cci+checksum~debug~ipo~mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo
+mercury@2.0.1%gcc@11.1.0 ~bmi+boostsys~cci+checksum~debug~ipo~mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo
+mpifileutils@0.10.1%gcc@8.3.1 ~experimental~gpfs~lustre+xattr
+mpifileutils@0.10.1%gcc@9.1.0 ~experimental~gpfs~lustre+xattr
+mpifileutils@0.10.1%gcc@9.3.0 ~experimental~gpfs~lustre+xattr
+mpifileutils@0.10.1%gcc@10.2.0 ~experimental~gpfs~lustre+xattr
+mpifileutils@0.11%gcc@8.3.1 ~experimental~gpfs~lustre+xattr
+mpifileutils@0.11%gcc@9.1.0 ~experimental~gpfs~lustre+xattr
+mpifileutils@0.11%gcc@9.3.0 ~experimental~gpfs~lustre+xattr
+mpifileutils@0.11%gcc@10.2.0 ~experimental~gpfs~lustre+xattr
+mpifileutils@0.11%gcc@11.1.0 ~experimental~gpfs~lustre+xattr
+mpip@3.5%gcc@7.5.0 ~add_shared_target+bfd+demangling+libunwind+mpi_io+mpi_nbc+mpi_rma~setjmp internal_stackdepth=3 maxargs=32 stackdepth=8
+mpip@3.5%gcc@8.3.1 ~add_shared_target+bfd+demangling+libunwind+mpi_io+mpi_nbc+mpi_rma~setjmp internal_stackdepth=3 maxargs=32 stackdepth=8
+mpip@3.5%gcc@9.1.0 ~add_shared_target+bfd+demangling+libunwind+mpi_io+mpi_nbc+mpi_rma~setjmp internal_stackdepth=3 maxargs=32 stackdepth=8
+mpip@3.5%gcc@9.3.0 ~add_shared_target+bfd+demangling+libunwind+mpi_io+mpi_nbc+mpi_rma~setjmp internal_stackdepth=3 maxargs=32 stackdepth=8
+mpip@3.5%gcc@10.2.0 ~add_shared_target+bfd+demangling+libunwind+mpi_io+mpi_nbc+mpi_rma~setjmp internal_stackdepth=3 maxargs=32 stackdepth=8
+mpip@3.5%gcc@11.1.0 ~add_shared_target+bfd+demangling+libunwind+mpi_io+mpi_nbc+mpi_rma~setjmp internal_stackdepth=3 maxargs=32 stackdepth=8
+nano@4.9%gcc@8.3.1
+nco@4.9.3%gcc@8.3.1 ~doc~mpi~mpi-deps
+nco@4.9.3%gcc@8.3.1 ~doc~mpi+mpi-deps
+nco@4.9.3%gcc@9.1.0 ~doc~mpi+mpi-deps
+nco@4.9.3%gcc@9.3.0 ~doc~mpi+mpi-deps
+netcdf-c@4.8.0%gcc@7.5.0 ~dap~fsync~hdf4~jna+mpi+parallel-netcdf+pic+shared
+netcdf-c@4.8.0%gcc@11.1.0 ~dap~fsync~hdf4~jna+mpi+parallel-netcdf+pic+shared
+netcdf-c@4.8.0%nvhpc@20.9 ~dap~fsync~hdf4~jna+mpi+parallel-netcdf+pic+shared
+netcdf-c@4.8.0%nvhpc@21.2 ~dap~fsync~hdf4~jna+mpi+parallel-netcdf+pic+shared
+netcdf-c@4.8.0%nvhpc@21.3 ~dap~fsync~hdf4~jna+mpi+parallel-netcdf+pic+shared
+netcdf-c@4.8.0%nvhpc@21.5 ~dap~fsync~hdf4~jna+mpi+parallel-netcdf+pic+shared
+netcdf-c@4.8.0%nvhpc@21.7 ~dap~fsync~hdf4~jna+mpi+parallel-netcdf+pic+shared
+netcdf-c@4.8.0%pgi@20.1 ~dap~fsync~hdf4~jna+mpi+parallel-netcdf+pic+shared
+netcdf-c@4.8.0%pgi@20.4 ~dap~fsync~hdf4~jna+mpi+parallel-netcdf+pic+shared
+netcdf-c@4.8.0%xl@16.1.1-10 ~dap~fsync~hdf4~jna+mpi+parallel-netcdf+pic+shared
+netcdf-cxx4@4.3.1%gcc@7.5.0 ~doxygen+pic+shared+static
+netcdf-cxx4@4.3.1%gcc@8.3.1 ~doxygen+pic+shared+static
+netcdf-cxx4@4.3.1%gcc@9.1.0 ~doxygen+pic+shared+static
+netcdf-cxx4@4.3.1%gcc@9.3.0 ~doxygen+pic+shared+static
+netcdf-cxx4@4.3.1%gcc@10.2.0 ~doxygen+pic+shared+static
+netcdf-cxx4@4.3.1%gcc@11.1.0 ~doxygen+pic+shared+static
+netcdf-cxx4@4.3.1%nvhpc@20.9 ~doxygen+pic+shared+static
+netcdf-cxx4@4.3.1%nvhpc@21.2 ~doxygen+pic+shared+static
+netcdf-cxx4@4.3.1%nvhpc@21.3 ~doxygen+pic+shared+static
+netcdf-cxx4@4.3.1%nvhpc@21.5 ~doxygen+pic+shared+static
+netcdf-cxx4@4.3.1%nvhpc@21.7 ~doxygen+pic+shared+static
+netcdf-cxx4@4.3.1%pgi@20.1 ~doxygen+pic+shared+static
+netcdf-cxx4@4.3.1%pgi@20.4 ~doxygen+pic+shared+static
+netcdf-cxx4@4.3.1%xl@16.1.1-10 ~doxygen+pic+shared+static
+netcdf-fortran@4.4.5%gcc@7.5.0 ~doc+pic+shared patches=55fef65a4652fc5b8114db25bc558c762d9d4d287377a7db0ea2a2937d625e44,ef26f0860c0d258af7ba28780a981545a8a1c053dbdabe2d656d6e40ce1c7c06
+netcdf-fortran@4.4.5%gcc@8.3.1 ~doc+pic+shared patches=55fef65a4652fc5b8114db25bc558c762d9d4d287377a7db0ea2a2937d625e44,ef26f0860c0d258af7ba28780a981545a8a1c053dbdabe2d656d6e40ce1c7c06
+netcdf-fortran@4.4.5%gcc@9.1.0 ~doc+pic+shared patches=55fef65a4652fc5b8114db25bc558c762d9d4d287377a7db0ea2a2937d625e44,ef26f0860c0d258af7ba28780a981545a8a1c053dbdabe2d656d6e40ce1c7c06
+netcdf-fortran@4.4.5%gcc@9.3.0 ~doc+pic+shared patches=55fef65a4652fc5b8114db25bc558c762d9d4d287377a7db0ea2a2937d625e44,ef26f0860c0d258af7ba28780a981545a8a1c053dbdabe2d656d6e40ce1c7c06
+netcdf-fortran@4.4.5%gcc@10.2.0 ~doc+pic+shared patches=55fef65a4652fc5b8114db25bc558c762d9d4d287377a7db0ea2a2937d625e44,ef26f0860c0d258af7ba28780a981545a8a1c053dbdabe2d656d6e40ce1c7c06
+netcdf-fortran@4.4.5%gcc@11.1.0 ~doc+pic+shared patches=55fef65a4652fc5b8114db25bc558c762d9d4d287377a7db0ea2a2937d625e44,ef26f0860c0d258af7ba28780a981545a8a1c053dbdabe2d656d6e40ce1c7c06
+netcdf-fortran@4.4.5%nvhpc@20.9 ~doc+pic+shared patches=55fef65a4652fc5b8114db25bc558c762d9d4d287377a7db0ea2a2937d625e44,ef26f0860c0d258af7ba28780a981545a8a1c053dbdabe2d656d6e40ce1c7c06
+netcdf-fortran@4.4.5%nvhpc@21.2 ~doc+pic+shared patches=55fef65a4652fc5b8114db25bc558c762d9d4d287377a7db0ea2a2937d625e44,ef26f0860c0d258af7ba28780a981545a8a1c053dbdabe2d656d6e40ce1c7c06
+netcdf-fortran@4.4.5%nvhpc@21.3 ~doc+pic+shared patches=55fef65a4652fc5b8114db25bc558c762d9d4d287377a7db0ea2a2937d625e44,ef26f0860c0d258af7ba28780a981545a8a1c053dbdabe2d656d6e40ce1c7c06
+netcdf-fortran@4.4.5%nvhpc@21.5 ~doc+pic+shared patches=55fef65a4652fc5b8114db25bc558c762d9d4d287377a7db0ea2a2937d625e44,ef26f0860c0d258af7ba28780a981545a8a1c053dbdabe2d656d6e40ce1c7c06
+netcdf-fortran@4.4.5%nvhpc@21.7 ~doc+pic+shared patches=55fef65a4652fc5b8114db25bc558c762d9d4d287377a7db0ea2a2937d625e44,ef26f0860c0d258af7ba28780a981545a8a1c053dbdabe2d656d6e40ce1c7c06
+netcdf-fortran@4.4.5%pgi@20.1 ~doc+pic+shared patches=55fef65a4652fc5b8114db25bc558c762d9d4d287377a7db0ea2a2937d625e44,ef26f0860c0d258af7ba28780a981545a8a1c053dbdabe2d656d6e40ce1c7c06
+netcdf-fortran@4.4.5%pgi@20.4 ~doc+pic+shared patches=55fef65a4652fc5b8114db25bc558c762d9d4d287377a7db0ea2a2937d625e44,ef26f0860c0d258af7ba28780a981545a8a1c053dbdabe2d656d6e40ce1c7c06
+netcdf-fortran@4.4.5%xl@16.1.1-10 ~doc+pic+shared patches=55fef65a4652fc5b8114db25bc558c762d9d4d287377a7db0ea2a2937d625e44,ef26f0860c0d258af7ba28780a981545a8a1c053dbdabe2d656d6e40ce1c7c06
+netlib-lapack@3.8.0%xl@16.1.1-beta103 ~external-blas~ipo+lapacke+shared~xblas build_type=RelWithDebInfo patches=0046d24487c0b7cbc84527fc36300d4e970cb4191b44e8b1619523fae15137f1,5c79286f3d08a0b0f1f3acba2a92ee698647716ba8c6c0ae20c9cc2713e6f139,ad3d41fe9ff94b7661e09fceaf2b2e4b8c83510c1465c016e161541b4429b5ee
+netlib-lapack@3.8.0%xl@16.1.1-10 ~external-blas~ipo+lapacke+shared~xblas build_type=RelWithDebInfo patches=0046d24487c0b7cbc84527fc36300d4e970cb4191b44e8b1619523fae15137f1,5c79286f3d08a0b0f1f3acba2a92ee698647716ba8c6c0ae20c9cc2713e6f139,ad3d41fe9ff94b7661e09fceaf2b2e4b8c83510c1465c016e161541b4429b5ee
+netlib-lapack@3.9.1%gcc@7.5.0 ~external-blas~ipo+lapacke+shared~xblas build_type=RelWithDebInfo
+netlib-lapack@3.9.1%gcc@11.1.0 ~external-blas~ipo+lapacke+shared~xblas build_type=RelWithDebInfo
+netlib-lapack@3.9.1%nvhpc@20.9 ~external-blas~ipo+lapacke+shared~xblas build_type=RelWithDebInfo
+netlib-lapack@3.9.1%nvhpc@21.2 ~external-blas~ipo+lapacke+shared~xblas build_type=RelWithDebInfo
+netlib-lapack@3.9.1%nvhpc@21.3 ~external-blas~ipo+lapacke+shared~xblas build_type=RelWithDebInfo
+netlib-lapack@3.9.1%nvhpc@21.5 ~external-blas~ipo+lapacke+shared~xblas build_type=RelWithDebInfo
+netlib-lapack@3.9.1%nvhpc@21.7 ~external-blas~ipo+lapacke+shared~xblas build_type=RelWithDebInfo
+netlib-lapack@3.9.1%pgi@20.1 ~external-blas~ipo+lapacke+shared~xblas build_type=RelWithDebInfo
+netlib-lapack@3.9.1%pgi@20.4 ~external-blas~ipo+lapacke+shared~xblas build_type=RelWithDebInfo
+netlib-scalapack@2.1.0%gcc@7.5.0 ~ipo~pic+shared build_type=Release patches=1c9ce5fee1451a08c2de3cc87f446aeda0b818ebbce4ad0d980ddf2f2a0b2dc4,f2baedde688ffe4c20943c334f580eb298e04d6f35c86b90a1f4e8cb7ae344a2
+netlib-scalapack@2.1.0%gcc@9.3.0 ~ipo~pic+shared build_type=Release patches=1c9ce5fee1451a08c2de3cc87f446aeda0b818ebbce4ad0d980ddf2f2a0b2dc4,f2baedde688ffe4c20943c334f580eb298e04d6f35c86b90a1f4e8cb7ae344a2
+netlib-scalapack@2.1.0%gcc@11.1.0 ~ipo~pic+shared build_type=Release patches=1c9ce5fee1451a08c2de3cc87f446aeda0b818ebbce4ad0d980ddf2f2a0b2dc4,f2baedde688ffe4c20943c334f580eb298e04d6f35c86b90a1f4e8cb7ae344a2
+netlib-scalapack@2.1.0%pgi@20.4 ~ipo~pic+shared build_type=Release patches=1c9ce5fee1451a08c2de3cc87f446aeda0b818ebbce4ad0d980ddf2f2a0b2dc4,f2baedde688ffe4c20943c334f580eb298e04d6f35c86b90a1f4e8cb7ae344a2
+netlib-scalapack@2.1.0%xl@16.1.1-beta103 ~ipo~pic+shared build_type=Release patches=1c9ce5fee1451a08c2de3cc87f446aeda0b818ebbce4ad0d980ddf2f2a0b2dc4,f2baedde688ffe4c20943c334f580eb298e04d6f35c86b90a1f4e8cb7ae344a2
+netlib-scalapack@2.1.0%xl@16.1.1-10 ~ipo~pic+shared build_type=Release patches=1c9ce5fee1451a08c2de3cc87f446aeda0b818ebbce4ad0d980ddf2f2a0b2dc4,f2baedde688ffe4c20943c334f580eb298e04d6f35c86b90a1f4e8cb7ae344a2
+ninja@1.10.1%gcc@9.1.0
+ninja@1.10.1%gcc@9.3.0
+ninja@1.10.1%gcc@10.2.0
+ninja@1.10.2%gcc@11.1.0
+omega-h@9.32.5%gcc@8.3.1 ~examples~ipo+mpi+optimize+shared+symbols~throw+trilinos~warnings+zlib build_type=RelWithDebInfo
+omega-h@9.32.5%gcc@9.1.0 ~examples~ipo+mpi+optimize+shared+symbols~throw+trilinos~warnings+zlib build_type=RelWithDebInfo
+omega-h@9.32.5%gcc@9.3.0 ~examples~ipo+mpi+optimize+shared+symbols~throw+trilinos~warnings+zlib build_type=RelWithDebInfo
+omega-h@9.32.5%gcc@10.2.0 ~examples~ipo+mpi+optimize+shared+symbols~throw+trilinos~warnings+zlib build_type=RelWithDebInfo
+openblas@0.3.15%gcc@9.3.0 ~bignuma~consistent_fpcsr~ilp64+locking+pic+shared threads=none
+openblas@0.3.15%gcc@9.3.0 ~bignuma~consistent_fpcsr~ilp64+locking+pic+shared threads=openmp
+openpmd-api@0.12.0%gcc@8.3.1 ~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo
+openpmd-api@0.12.0%gcc@9.1.0 ~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo
+openpmd-api@0.12.0%gcc@9.3.0 ~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo
+openpmd-api@0.12.0%gcc@10.2.0 ~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo
+openpmd-api@0.13.2%gcc@8.3.1 ~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo
+openpmd-api@0.13.2%gcc@9.1.0 ~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo
+openpmd-api@0.13.2%gcc@9.3.0 ~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo
+openpmd-api@0.13.2%gcc@10.2.0 ~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo
+openpmd-api@0.13.4%gcc@8.3.1 ~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo
+openpmd-api@0.13.4%gcc@9.1.0 ~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo
+openpmd-api@0.13.4%gcc@9.3.0 ~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo
+openpmd-api@0.13.4%gcc@10.2.0 ~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo
+openpmd-api@0.13.4%gcc@11.1.0 ~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo
+papi@6.0.0.1%gcc@8.3.1 ~cuda+example~infiniband~lmsensors~nvml~powercap~rapl~sde+shared~static_tools
+papi@6.0.0.1%gcc@8.3.1 +cuda+example~infiniband~lmsensors~nvml~powercap~rapl~sde+shared~static_tools
+papyrus@1.0.0%gcc@8.3.1 ~ipo build_type=RelWithDebInfo
+papyrus@1.0.0%gcc@9.1.0 ~ipo build_type=RelWithDebInfo
+papyrus@1.0.0%gcc@9.3.0 ~ipo build_type=RelWithDebInfo
+papyrus@1.0.0%gcc@10.2.0 ~ipo build_type=RelWithDebInfo
+papyrus@1.0.1%gcc@8.3.1 ~ipo build_type=RelWithDebInfo
+papyrus@1.0.1%gcc@9.1.0 ~ipo build_type=RelWithDebInfo
+papyrus@1.0.1%gcc@9.3.0 ~ipo build_type=RelWithDebInfo
+papyrus@1.0.1%gcc@10.2.0 ~ipo build_type=RelWithDebInfo
+papyrus@1.0.1%gcc@11.1.0 ~ipo build_type=RelWithDebInfo
+parallel-io@2.3.0%xl@16.1.1-10 ~examples~ipo build_type=RelWithDebInfo
+parallel-io@2.4.4%gcc@7.5.0 ~examples~ipo build_type=RelWithDebInfo
+parallel-io@2.4.4%gcc@8.3.1 ~examples~ipo build_type=RelWithDebInfo
+parallel-io@2.4.4%gcc@9.1.0 ~examples~ipo build_type=RelWithDebInfo
+parallel-io@2.4.4%gcc@9.3.0 ~examples~ipo build_type=RelWithDebInfo
+parallel-io@2.4.4%gcc@10.2.0 ~examples~ipo build_type=RelWithDebInfo
+parallel-io@2.4.4%gcc@11.1.0 ~examples~ipo build_type=RelWithDebInfo
+parallel-io@2.4.4%nvhpc@20.9 ~examples~ipo build_type=RelWithDebInfo
+parallel-io@2.4.4%nvhpc@21.2 ~examples~ipo build_type=RelWithDebInfo
+parallel-io@2.4.4%nvhpc@21.3 ~examples~ipo build_type=RelWithDebInfo
+parallel-io@2.4.4%nvhpc@21.5 ~examples~ipo build_type=RelWithDebInfo
+parallel-io@2.4.4%nvhpc@21.7 ~examples~ipo build_type=RelWithDebInfo
+parallel-io@2.4.4%pgi@20.1 ~examples~ipo build_type=RelWithDebInfo
+parallel-io@2.4.4%pgi@20.4 ~examples~ipo build_type=RelWithDebInfo
+patchelf@0.12%gcc@8.3.1  patches=a155f233b228f02d7886e304cb13898d93801b52f351e098c2cc0719697ec9d0
+pdt@3.25.1%gcc@8.3.1 ~pic
+pdt@3.25.1%gcc@9.1.0 ~pic
+pdt@3.25.1%gcc@9.3.0 ~pic
+pdt@3.25.1%gcc@10.2.0 ~pic
+pdt@3.25.1%gcc@11.1.0 ~pic
+petsc@3.14.0%gcc@8.3.1 ~X~batch~cgns~complex+cuda~debug+double~exodusii~fftw~giflib+hdf5+hypre~int64~jpeg~knl~libpng~libyaml~memkind+metis~mkl-pardiso~moab~mpfr+mpi~mumps~p4est~ptscotch~random123~saws+shared~suite-sparse+superlu-dist~trilinos~valgrind clanguage=C
+petsc@3.14.0%gcc@9.1.0 ~X~batch~cgns~complex+cuda~debug+double~exodusii~fftw~giflib+hdf5+hypre~int64~jpeg~knl~libpng~libyaml~memkind+metis~mkl-pardiso~moab~mpfr+mpi~mumps~p4est~ptscotch~random123~saws+shared~suite-sparse+superlu-dist~trilinos~valgrind clanguage=C
+petsc@3.14.0%gcc@9.3.0 ~X~batch~cgns~complex+cuda~debug+double~exodusii~fftw~giflib+hdf5+hypre~int64~jpeg~knl~libpng~libyaml~memkind+metis~mkl-pardiso~moab~mpfr+mpi~mumps~p4est~ptscotch~random123~saws+shared~suite-sparse+superlu-dist~trilinos~valgrind clanguage=C
+petsc@3.14.0%gcc@10.2.0 ~X~batch~cgns~complex+cuda~debug+double~exodusii~fftw~giflib+hdf5+hypre~int64~jpeg~knl~libpng~libyaml~memkind+metis~mkl-pardiso~moab~mpfr+mpi~mumps~p4est~ptscotch~random123~saws+shared~suite-sparse+superlu-dist~trilinos~valgrind clanguage=C
+petsc@3.14.4%gcc@8.3.1 ~X~batch~cgns~complex+cuda~debug+double~exodusii~fftw~giflib+hdf5+hypre~int64~jpeg~knl~libpng~libyaml~memkind+metis~mkl-pardiso~moab~mpfr+mpi~mumps~p4est~ptscotch~random123~saws+shared~suite-sparse+superlu-dist~trilinos~valgrind clanguage=C
+petsc@3.14.4%gcc@9.1.0 ~X~batch~cgns~complex+cuda~debug+double~exodusii~fftw~giflib+hdf5+hypre~int64~jpeg~knl~libpng~libyaml~memkind+metis~mkl-pardiso~moab~mpfr+mpi~mumps~p4est~ptscotch~random123~saws+shared~suite-sparse+superlu-dist~trilinos~valgrind clanguage=C
+petsc@3.14.4%gcc@9.3.0 ~X~batch~cgns~complex+cuda~debug+double~exodusii~fftw~giflib+hdf5+hypre~int64~jpeg~knl~libpng~libyaml~memkind+metis~mkl-pardiso~moab~mpfr+mpi~mumps~p4est~ptscotch~random123~saws+shared~suite-sparse+superlu-dist~trilinos~valgrind clanguage=C
+petsc@3.14.4%gcc@10.2.0 ~X~batch~cgns~complex+cuda~debug+double~exodusii~fftw~giflib+hdf5+hypre~int64~jpeg~knl~libpng~libyaml~memkind+metis~mkl-pardiso~moab~mpfr+mpi~mumps~p4est~ptscotch~random123~saws+shared~suite-sparse+superlu-dist~trilinos~valgrind clanguage=C
+petsc@3.15.0%gcc@8.3.1 ~X~batch~cgns~complex+cuda~debug+double~exodusii~fftw~giflib+hdf5+hypre~int64~jpeg~knl~libpng~libyaml~memkind+metis~mkl-pardiso~moab~mpfr+mpi~mumps~p4est~ptscotch~random123~saws+shared~suite-sparse+superlu-dist~trilinos~valgrind clanguage=C
+petsc@3.15.0%gcc@9.1.0 ~X~batch~cgns~complex+cuda~debug+double~exodusii~fftw~giflib+hdf5+hypre~int64~jpeg~knl~libpng~libyaml~memkind+metis~mkl-pardiso~moab~mpfr+mpi~mumps~p4est~ptscotch~random123~saws+shared~suite-sparse+superlu-dist~trilinos~valgrind clanguage=C
+petsc@3.15.0%gcc@9.3.0 ~X~batch~cgns~complex+cuda~debug+double~exodusii~fftw~giflib+hdf5+hypre~int64~jpeg~knl~libpng~libyaml~memkind+metis~mkl-pardiso~moab~mpfr+mpi~mumps~p4est~ptscotch~random123~saws+shared~suite-sparse+superlu-dist~trilinos~valgrind clanguage=C
+petsc@3.15.0%gcc@10.2.0 ~X~batch~cgns~complex+cuda~debug+double~exodusii~fftw~giflib+hdf5+hypre~int64~jpeg~knl~libpng~libyaml~memkind+metis~mkl-pardiso~moab~mpfr+mpi~mumps~p4est~ptscotch~random123~saws+shared~suite-sparse+superlu-dist~trilinos~valgrind clanguage=C
+pgi@20.1%gcc@8-os ~amd~java+managed+mpi+mpigpu~network+nvidia+single
+pgi@20.4%gcc@8-os ~amd~java+managed+mpi+mpigpu~network+nvidia+single
+plasma@20.9.20%gcc@8.3.1 ~ipo~lua+shared build_type=RelWithDebInfo
+plasma@20.9.20%gcc@9.1.0 ~ipo~lua+shared build_type=RelWithDebInfo
+plasma@20.9.20%gcc@9.3.0 ~ipo~lua+shared build_type=RelWithDebInfo
+plasma@20.9.20%gcc@10.2.0 ~ipo~lua+shared build_type=RelWithDebInfo
+plasma@20.9.20%gcc@11.1.0 ~ipo~lua+shared build_type=RelWithDebInfo
+precice@2.2.0%gcc@8.3.1 ~ipo+mpi+petsc~python+shared build_type=RelWithDebInfo
+precice@2.2.0%gcc@9.1.0 ~ipo+mpi+petsc~python+shared build_type=RelWithDebInfo
+precice@2.2.0%gcc@9.3.0 ~ipo+mpi+petsc~python+shared build_type=RelWithDebInfo
+precice@2.2.0%gcc@10.2.0 ~ipo+mpi+petsc~python+shared build_type=RelWithDebInfo
+precice@2.2.1%gcc@8.3.1 ~ipo+mpi+petsc~python+shared build_type=RelWithDebInfo
+precice@2.2.1%gcc@9.1.0 ~ipo+mpi+petsc~python+shared build_type=RelWithDebInfo
+precice@2.2.1%gcc@9.3.0 ~ipo+mpi+petsc~python+shared build_type=RelWithDebInfo
+precice@2.2.1%gcc@10.2.0 ~ipo+mpi+petsc~python+shared build_type=RelWithDebInfo
+pumi@2.2.2%gcc@8.3.1 ~fortran~int64~ipo~shared+simmodsuite_version_check~zoltan build_type=RelWithDebInfo simmodsuite=none
+pumi@2.2.2%gcc@9.1.0 ~fortran~int64~ipo~shared+simmodsuite_version_check~zoltan build_type=RelWithDebInfo simmodsuite=none
+pumi@2.2.2%gcc@9.3.0 ~fortran~int64~ipo~shared+simmodsuite_version_check~zoltan build_type=RelWithDebInfo simmodsuite=none
+pumi@2.2.2%gcc@10.2.0 ~fortran~int64~ipo~shared+simmodsuite_version_check~zoltan build_type=RelWithDebInfo simmodsuite=none
+pumi@2.2.5%gcc@8.3.1 ~fortran~int64~ipo~shared+simmodsuite_version_check~zoltan build_type=RelWithDebInfo simmodsuite=none
+pumi@2.2.5%gcc@9.1.0 ~fortran~int64~ipo~shared+simmodsuite_version_check~zoltan build_type=RelWithDebInfo simmodsuite=none
+pumi@2.2.5%gcc@9.3.0 ~fortran~int64~ipo~shared+simmodsuite_version_check~zoltan build_type=RelWithDebInfo simmodsuite=none
+pumi@2.2.5%gcc@10.2.0 ~fortran~int64~ipo~shared+simmodsuite_version_check~zoltan build_type=RelWithDebInfo simmodsuite=none
+pumi@2.2.5%gcc@11.1.0 ~fortran~int64~ipo~shared+simmodsuite_version_check~zoltan build_type=RelWithDebInfo simmodsuite=none
+python@2.7.15%gcc@8.3.1 +bz2+ctypes+dbm~debug+libxml2+lzma~nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4+uuid+zlib patches=a8c52415a8b03c0e5f28b5d52ae498f7a7e602007db2b9554df28cd5685839b8
+python@3.7.7%gcc@8.3.1 +bz2+ctypes+dbm~debug+libxml2+lzma~nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87
+qthreads@1.14%gcc@8.3.1 +hwloc~spawn_cache+static scheduler=distrib stack_size=4096
+qthreads@1.14%gcc@9.1.0 +hwloc~spawn_cache+static scheduler=distrib stack_size=4096
+qthreads@1.14%gcc@9.3.0 +hwloc~spawn_cache+static scheduler=distrib stack_size=4096
+qthreads@1.14%gcc@10.2.0 +hwloc~spawn_cache+static scheduler=distrib stack_size=4096
+qthreads@1.14%gcc@8.3.1 +hwloc~spawn_cache+static scheduler=nemesis stack_size=4096
+qthreads@1.14%gcc@9.1.0 +hwloc~spawn_cache+static scheduler=nemesis stack_size=4096
+qthreads@1.14%gcc@9.3.0 +hwloc~spawn_cache+static scheduler=nemesis stack_size=4096
+qthreads@1.14%gcc@10.2.0 +hwloc~spawn_cache+static scheduler=nemesis stack_size=4096
+qthreads@1.16%gcc@8.3.1 +hwloc~spawn_cache+static scheduler=distrib stack_size=4096
+qthreads@1.16%gcc@9.1.0 +hwloc~spawn_cache+static scheduler=distrib stack_size=4096
+qthreads@1.16%gcc@9.3.0 +hwloc~spawn_cache+static scheduler=distrib stack_size=4096
+qthreads@1.16%gcc@10.2.0 +hwloc~spawn_cache+static scheduler=distrib stack_size=4096
+qthreads@1.16%gcc@11.1.0 +hwloc~spawn_cache+static scheduler=distrib stack_size=4096
+r@4.0.5%gcc@8.3.1 ~X~external-lapack~memory_profiling~rmath
+raja@0.12.1%gcc@8.3.1 +cuda+examples+exercises~ipo+openmp~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+raja@0.12.1%gcc@9.1.0 +cuda+examples+exercises~ipo+openmp~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+raja@0.12.1%gcc@9.3.0 +cuda+examples+exercises~ipo+openmp~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+raja@0.12.1%gcc@10.2.0 +cuda+examples+exercises~ipo+openmp~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+raja@0.13.0%gcc@8.3.1 +cuda+examples+exercises~ipo+openmp~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+raja@0.13.0%gcc@9.1.0 +cuda+examples+exercises~ipo+openmp~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+raja@0.13.0%gcc@9.3.0 +cuda+examples+exercises~ipo+openmp~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+raja@0.13.0%gcc@10.2.0 +cuda+examples+exercises~ipo+openmp~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+rempi@1.1.0%gcc@8.3.1
+rempi@1.1.0%gcc@9.1.0
+rempi@1.1.0%gcc@9.3.0
+scorep@7.0%gcc@8.3.1 +mpi+papi~pdt~shmem~unwind
+screen@4.8.0%gcc@8.3.1  patches=755de623439b654453801dbbb09cce0f3f889a12ad1a060bf57147d5b2b5c295
+slate@2020.10.00%gcc@8.3.1 +cuda~ipo+mpi+openmp~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+slate@2020.10.00%gcc@9.1.0 +cuda~ipo+mpi+openmp~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+slate@2020.10.00%gcc@9.3.0 +cuda~ipo+mpi+openmp~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+slate@2021.05.02%gcc@8.3.1 +cuda~ipo+mpi+openmp~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+slate@2021.05.02%gcc@9.1.0 +cuda~ipo+mpi+openmp~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+slate@2021.05.02%gcc@9.3.0 +cuda~ipo+mpi+openmp~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+slate@2021.05.02%gcc@10.2.0 +cuda~ipo+mpi+openmp~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+slepc@3.14.0%gcc@8.3.1 +arpack~blopex
+slepc@3.14.0%gcc@9.1.0 +arpack~blopex
+slepc@3.14.0%gcc@9.3.0 +arpack~blopex
+slepc@3.14.0%gcc@10.2.0 +arpack~blopex
+slepc@3.15.0%gcc@8.3.1 +arpack~blopex
+slepc@3.15.0%gcc@9.1.0 +arpack~blopex
+slepc@3.15.0%gcc@9.3.0 +arpack~blopex
+slepc@3.15.0%gcc@10.2.0 +arpack~blopex
+spectral@20210514%gcc@8.3.1 ~debug~examples~ipo~titan build_type=RelWithDebInfo prologue_dir=/sw/summit/spectral/usr/local
+spectrum-mpi@10.4.0.3-20210112%clang@10.0.1-0
+spectrum-mpi@10.4.0.3-20210112%clang@12.0.0-0
+spectrum-mpi@10.4.0.3-20210112%gcc@7.5.0
+spectrum-mpi@10.4.0.3-20210112%gcc@8.3.1
+spectrum-mpi@10.4.0.3-20210112%gcc@9.1.0
+spectrum-mpi@10.4.0.3-20210112%gcc@9.3.0
+spectrum-mpi@10.4.0.3-20210112%gcc@10.2.0
+spectrum-mpi@10.4.0.3-20210112%gcc@11.1.0
+spectrum-mpi@10.4.0.3-20210112%nvhpc@20.9
+spectrum-mpi@10.4.0.3-20210112%nvhpc@21.2
+spectrum-mpi@10.4.0.3-20210112%nvhpc@21.3
+spectrum-mpi@10.4.0.3-20210112%nvhpc@21.5
+spectrum-mpi@10.4.0.3-20210112%nvhpc@21.7
+spectrum-mpi@10.4.0.3-20210112%pgi@20.1
+spectrum-mpi@10.4.0.3-20210112%pgi@20.4
+spectrum-mpi@10.4.0.3-20210112%xl@16.1.1-10
+stc@0.8.3%gcc@8.3.1
+stc@0.8.3%gcc@9.1.0
+stc@0.8.3%gcc@9.3.0
+stc@0.8.3%gcc@10.2.0
+stc@0.9.0%gcc@8.3.1
+stc@0.9.0%gcc@9.1.0
+stc@0.9.0%gcc@9.3.0
+stc@0.9.0%gcc@10.2.0
+stc@0.9.0%gcc@11.1.0
+strumpack@5.0.0%gcc@8.3.1 ~build_dev_tests~build_tests~butterflypack+c_interface~count_flops+cuda~ipo+mpi+openmp+parmetis~rocm~scotch~shared~slate~task_timers+zfp amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+strumpack@5.0.0%gcc@9.1.0 ~build_dev_tests~build_tests~butterflypack+c_interface~count_flops+cuda~ipo+mpi+openmp+parmetis~rocm~scotch~shared~slate~task_timers+zfp amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+strumpack@5.0.0%gcc@9.3.0 ~build_dev_tests~build_tests~butterflypack+c_interface~count_flops+cuda~ipo+mpi+openmp+parmetis~rocm~scotch~shared~slate~task_timers+zfp amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+strumpack@5.0.0%gcc@10.2.0 ~build_dev_tests~build_tests~butterflypack+c_interface~count_flops+cuda~ipo+mpi+openmp+parmetis~rocm~scotch~shared~slate~task_timers+zfp amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+strumpack@5.1.1%gcc@8.3.1 ~build_dev_tests~build_tests~butterflypack+c_interface~count_flops+cuda~ipo+mpi+openmp+parmetis~rocm~scotch~shared~slate~task_timers+zfp amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+strumpack@5.1.1%gcc@9.1.0 ~build_dev_tests~build_tests~butterflypack+c_interface~count_flops+cuda~ipo+mpi+openmp+parmetis~rocm~scotch~shared~slate~task_timers+zfp amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+strumpack@5.1.1%gcc@9.3.0 ~build_dev_tests~build_tests~butterflypack+c_interface~count_flops+cuda~ipo+mpi+openmp+parmetis~rocm~scotch~shared~slate~task_timers+zfp amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+strumpack@5.1.1%gcc@10.2.0 ~build_dev_tests~build_tests~butterflypack+c_interface~count_flops+cuda~ipo+mpi+openmp+parmetis~rocm~scotch~shared~slate~task_timers+zfp amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70
+subversion@1.14.0%gcc@8.3.1 ~perl+serf
+sundials@5.4.0%gcc@8.3.1 +ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL+cuda+examples+examples-install~f2003~fcmix+generic-math~hypre~int64~ipo~klu~lapack~monitoring+mpi~openmp~petsc~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~trilinos amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 precision=double
+sundials@5.4.0%gcc@9.1.0 +ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL+cuda+examples+examples-install~f2003~fcmix+generic-math~hypre~int64~ipo~klu~lapack~monitoring+mpi~openmp~petsc~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~trilinos amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 precision=double
+sundials@5.4.0%gcc@9.3.0 +ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL+cuda+examples+examples-install~f2003~fcmix+generic-math~hypre~int64~ipo~klu~lapack~monitoring+mpi~openmp~petsc~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~trilinos amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 precision=double
+sundials@5.4.0%gcc@10.2.0 +ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL+cuda+examples+examples-install~f2003~fcmix+generic-math~hypre~int64~ipo~klu~lapack~monitoring+mpi~openmp~petsc~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~trilinos amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 precision=double
+sundials@5.7.0%gcc@8.3.1 +ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL+cuda+examples+examples-install~f2003~fcmix+generic-math~hypre~int64~ipo~klu~lapack~monitoring+mpi~openmp~petsc~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~trilinos amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 patches=8b29a47fac55346cdadfa133c51aa9314ae8c53ffdff5a8ecdc3dcea3ac26403 precision=double
+sundials@5.7.0%gcc@9.1.0 +ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL+cuda+examples+examples-install~f2003~fcmix+generic-math~hypre~int64~ipo~klu~lapack~monitoring+mpi~openmp~petsc~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~trilinos amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 patches=8b29a47fac55346cdadfa133c51aa9314ae8c53ffdff5a8ecdc3dcea3ac26403 precision=double
+sundials@5.7.0%gcc@9.3.0 +ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL+cuda+examples+examples-install~f2003~fcmix+generic-math~hypre~int64~ipo~klu~lapack~monitoring+mpi~openmp~petsc~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~trilinos amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 patches=8b29a47fac55346cdadfa133c51aa9314ae8c53ffdff5a8ecdc3dcea3ac26403 precision=double
+sundials@5.7.0%gcc@10.2.0 +ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL+cuda+examples+examples-install~f2003~fcmix+generic-math~hypre~int64~ipo~klu~lapack~monitoring+mpi~openmp~petsc~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~trilinos amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 patches=8b29a47fac55346cdadfa133c51aa9314ae8c53ffdff5a8ecdc3dcea3ac26403 precision=double
+superlu@5.2.1%gcc@8.3.1 +pic
+superlu@5.2.1%gcc@9.1.0 +pic
+superlu@5.2.1%gcc@9.3.0 +pic
+superlu@5.2.1%gcc@10.2.0 +pic
+superlu@5.2.1%gcc@11.1.0 +pic
+superlu-dist@6.3.1%gcc@8.3.1 ~cuda~int64~ipo~openmp+shared build_type=RelWithDebInfo cuda_arch=none
+superlu-dist@6.3.1%gcc@9.1.0 ~cuda~int64~ipo~openmp+shared build_type=RelWithDebInfo cuda_arch=none
+superlu-dist@6.3.1%gcc@9.3.0 ~cuda~int64~ipo~openmp+shared build_type=RelWithDebInfo cuda_arch=none
+superlu-dist@6.3.1%gcc@10.2.0 ~cuda~int64~ipo~openmp+shared build_type=RelWithDebInfo cuda_arch=none
+swig@4.0.2%gcc@8.3.1
+swig@4.0.2%gcc@9.1.0
+swig@4.0.2%gcc@9.3.0
+swig@4.0.2%gcc@10.2.0
+swig@4.0.2-fortran%gcc@8.3.1
+swig@4.0.2-fortran%gcc@9.1.0
+swig@4.0.2-fortran%gcc@9.3.0
+swig@4.0.2-fortran%gcc@10.2.0
+swig@4.0.2-fortran%gcc@11.1.0
+sz@2.1.10%gcc@8.3.1 ~fortran~hdf5~ipo~netcdf~pastri~python~random_access+shared~stats~time_compression build_type=RelWithDebInfo
+sz@2.1.10%gcc@9.1.0 ~fortran~hdf5~ipo~netcdf~pastri~python~random_access+shared~stats~time_compression build_type=RelWithDebInfo
+sz@2.1.10%gcc@9.3.0 ~fortran~hdf5~ipo~netcdf~pastri~python~random_access+shared~stats~time_compression build_type=RelWithDebInfo
+sz@2.1.10%gcc@10.2.0 ~fortran~hdf5~ipo~netcdf~pastri~python~random_access+shared~stats~time_compression build_type=RelWithDebInfo
+tasmanian@7.3%gcc@8.3.1 ~blas+cuda~fortran~ipo~magma~mpi+openmp~python~rocm~xsdkflags amdgpu_target=none build_type=Release cuda_arch=none
+tasmanian@7.3%gcc@9.1.0 ~blas+cuda~fortran~ipo~magma~mpi+openmp~python~rocm~xsdkflags amdgpu_target=none build_type=Release cuda_arch=none
+tasmanian@7.3%gcc@9.3.0 ~blas+cuda~fortran~ipo~magma~mpi+openmp~python~rocm~xsdkflags amdgpu_target=none build_type=Release cuda_arch=none
+tasmanian@7.3%gcc@10.2.0 ~blas+cuda~fortran~ipo~magma~mpi+openmp~python~rocm~xsdkflags amdgpu_target=none build_type=Release cuda_arch=none
+tasmanian@7.5%gcc@8.3.1 ~blas+cuda~fortran~ipo~magma~mpi+openmp~python~rocm~xsdkflags amdgpu_target=none build_type=Release cuda_arch=none
+tasmanian@7.5%gcc@9.1.0 ~blas+cuda~fortran~ipo~magma~mpi+openmp~python~rocm~xsdkflags amdgpu_target=none build_type=Release cuda_arch=none
+tasmanian@7.5%gcc@9.3.0 ~blas+cuda~fortran~ipo~magma~mpi+openmp~python~rocm~xsdkflags amdgpu_target=none build_type=Release cuda_arch=none
+tasmanian@7.5%gcc@10.2.0 ~blas+cuda~fortran~ipo~magma~mpi+openmp~python~rocm~xsdkflags amdgpu_target=none build_type=Release cuda_arch=none
+tau@2.29.1%gcc@8.3.1 ~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.29.1%gcc@9.1.0 ~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.29.1%gcc@9.3.0 ~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.29.1%gcc@10.2.0 ~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.29.1%gcc@8.3.1 ~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi+ompt~opari~opencl+openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.29.1%gcc@9.1.0 ~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi+ompt~opari~opencl+openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.29.1%gcc@9.3.0 ~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi+ompt~opari~opencl+openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.29.1%gcc@10.2.0 ~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi+ompt~opari~opencl+openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.29.1%gcc@8.3.1 ~adios2+binutils~comm~craycnl+cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.29.1%gcc@9.1.0 ~adios2+binutils~comm~craycnl+cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.29.1%gcc@9.3.0 ~adios2+binutils~comm~craycnl+cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.29.1%gcc@10.2.0 ~adios2+binutils~comm~craycnl+cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.29.1%gcc@8.3.1 ~adios2+binutils~comm~craycnl+cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi+ompt~opari~opencl+openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.29.1%gcc@9.1.0 ~adios2+binutils~comm~craycnl+cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi+ompt~opari~opencl+openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.29.1%gcc@9.3.0 ~adios2+binutils~comm~craycnl+cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi+ompt~opari~opencl+openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.29.1%gcc@10.2.0 ~adios2+binutils~comm~craycnl+cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi+ompt~opari~opencl+openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.30.1%gcc@8.3.1 ~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.30.1%gcc@9.1.0 ~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.30.1%gcc@9.3.0 ~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.30.1%gcc@10.2.0 ~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.30.1%gcc@8.3.1 ~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi+ompt~opari~opencl+openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.30.1%gcc@9.1.0 ~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi+ompt~opari~opencl+openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.30.1%gcc@9.3.0 ~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi+ompt~opari~opencl+openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.30.1%gcc@10.2.0 ~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi+ompt~opari~opencl+openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.30.1%gcc@8.3.1 ~adios2+binutils~comm~craycnl+cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.30.1%gcc@9.1.0 ~adios2+binutils~comm~craycnl+cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.30.1%gcc@9.3.0 ~adios2+binutils~comm~craycnl+cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.30.1%gcc@10.2.0 ~adios2+binutils~comm~craycnl+cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.30.1%gcc@8.3.1 ~adios2+binutils~comm~craycnl+cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi+ompt~opari~opencl+openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.30.1%gcc@9.1.0 ~adios2+binutils~comm~craycnl+cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi+ompt~opari~opencl+openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.30.1%gcc@9.3.0 ~adios2+binutils~comm~craycnl+cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi+ompt~opari~opencl+openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tau@2.30.1%gcc@10.2.0 ~adios2+binutils~comm~craycnl+cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi+ompt~opari~opencl+openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64
+tmux@3.1b%gcc@8.3.1
+trilinos@13.0.0%gcc@8.3.1 ~adios2~alloptpkgs+amesos+amesos2~amesos2basker+anasazi+aztec+belos+boost~cgns~chaco~complex~cuda~cuda_rdc~debug~dtk+epetra+epetraext~epetraextbtf~epetraextexperimental~epetraextgraphreorderings+exodus+explicit_template_instantiation~float+fortran+glm+gtest+hdf5~hwloc+hypre+ifpack+ifpack2~intrepid~intrepid2~ipo~isorropia+kokkos+matio~mesquite+metis~minitensor+ml+mpi+muelu+mumps+netcdf~nox~openmp~phalanx~piro~pnetcdf~python~rol~rythmos+sacado~scorec~shards+shared~shylu~stk~stokhos~stratimikos~strumpack+suite-sparse~superlu~superlu-dist~teko~tempus+teuchos+tpetra~trilinoscouplings~wrapper~x11~xsdkflags~zlib+zoltan+zoltan2 build_type=RelWithDebInfo cuda_arch=none cxxstd=11 gotype=long
+trilinos@13.0.0%gcc@9.1.0 ~adios2~alloptpkgs+amesos+amesos2~amesos2basker+anasazi+aztec+belos+boost~cgns~chaco~complex~cuda~cuda_rdc~debug~dtk+epetra+epetraext~epetraextbtf~epetraextexperimental~epetraextgraphreorderings+exodus+explicit_template_instantiation~float+fortran+glm+gtest+hdf5~hwloc+hypre+ifpack+ifpack2~intrepid~intrepid2~ipo~isorropia+kokkos+matio~mesquite+metis~minitensor+ml+mpi+muelu+mumps+netcdf~nox~openmp~phalanx~piro~pnetcdf~python~rol~rythmos+sacado~scorec~shards+shared~shylu~stk~stokhos~stratimikos~strumpack+suite-sparse~superlu~superlu-dist~teko~tempus+teuchos+tpetra~trilinoscouplings~wrapper~x11~xsdkflags~zlib+zoltan+zoltan2 build_type=RelWithDebInfo cuda_arch=none cxxstd=11 gotype=long
+trilinos@13.0.0%gcc@9.3.0 ~adios2~alloptpkgs+amesos+amesos2~amesos2basker+anasazi+aztec+belos+boost~cgns~chaco~complex~cuda~cuda_rdc~debug~dtk+epetra+epetraext~epetraextbtf~epetraextexperimental~epetraextgraphreorderings+exodus+explicit_template_instantiation~float+fortran+glm+gtest+hdf5~hwloc+hypre+ifpack+ifpack2~intrepid~intrepid2~ipo~isorropia+kokkos+matio~mesquite+metis~minitensor+ml+mpi+muelu+mumps+netcdf~nox~openmp~phalanx~piro~pnetcdf~python~rol~rythmos+sacado~scorec~shards+shared~shylu~stk~stokhos~stratimikos~strumpack+suite-sparse~superlu~superlu-dist~teko~tempus+teuchos+tpetra~trilinoscouplings~wrapper~x11~xsdkflags~zlib+zoltan+zoltan2 build_type=RelWithDebInfo cuda_arch=none cxxstd=11 gotype=long
+trilinos@13.0.0%gcc@10.2.0 ~adios2~alloptpkgs+amesos+amesos2~amesos2basker+anasazi+aztec+belos+boost~cgns~chaco~complex~cuda~cuda_rdc~debug~dtk+epetra+epetraext~epetraextbtf~epetraextexperimental~epetraextgraphreorderings+exodus+explicit_template_instantiation~float+fortran+glm+gtest+hdf5~hwloc+hypre+ifpack+ifpack2~intrepid~intrepid2~ipo~isorropia+kokkos+matio~mesquite+metis~minitensor+ml+mpi+muelu+mumps+netcdf~nox~openmp~phalanx~piro~pnetcdf~python~rol~rythmos+sacado~scorec~shards+shared~shylu~stk~stokhos~stratimikos~strumpack+suite-sparse~superlu~superlu-dist~teko~tempus+teuchos+tpetra~trilinoscouplings~wrapper~x11~xsdkflags~zlib+zoltan+zoltan2 build_type=RelWithDebInfo cuda_arch=none cxxstd=11 gotype=long
+umap@2.1.0%gcc@8.3.1 ~ipo~logging~tests build_type=RelWithDebInfo
+umap@2.1.0%gcc@9.1.0 ~ipo~logging~tests build_type=RelWithDebInfo
+umap@2.1.0%gcc@9.3.0 ~ipo~logging~tests build_type=RelWithDebInfo
+umap@2.1.0%gcc@10.2.0 ~ipo~logging~tests build_type=RelWithDebInfo
+umap@2.1.0%gcc@11.1.0 ~ipo~logging~tests build_type=RelWithDebInfo
+umpire@4.0.1%gcc@8.3.1 +c+cuda~deviceconst~examples~fortran~ipo~numa~openmp~rocm~shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 tests=none
+umpire@4.0.1%gcc@9.1.0 +c+cuda~deviceconst~examples~fortran~ipo~numa~openmp~rocm~shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 tests=none
+umpire@4.0.1%gcc@9.3.0 +c+cuda~deviceconst~examples~fortran~ipo~numa~openmp~rocm~shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 tests=none
+umpire@4.0.1%gcc@10.2.0 +c+cuda~deviceconst~examples~fortran~ipo~numa~openmp~rocm~shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 tests=none
+umpire@4.1.2%gcc@8.3.1 +c+cuda~deviceconst~examples~fortran~ipo~numa~openmp~rocm~shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 patches=7d912d31cd293df005ba74cb96c6f3e32dc3d84afff49b14509714283693db08 tests=none
+umpire@4.1.2%gcc@9.1.0 +c+cuda~deviceconst~examples~fortran~ipo~numa~openmp~rocm~shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 patches=7d912d31cd293df005ba74cb96c6f3e32dc3d84afff49b14509714283693db08 tests=none
+umpire@4.1.2%gcc@9.3.0 +c+cuda~deviceconst~examples~fortran~ipo~numa~openmp~rocm~shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 patches=7d912d31cd293df005ba74cb96c6f3e32dc3d84afff49b14509714283693db08 tests=none
+umpire@4.1.2%gcc@10.2.0 +c+cuda~deviceconst~examples~fortran~ipo~numa~openmp~rocm~shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=70 patches=7d912d31cd293df005ba74cb96c6f3e32dc3d84afff49b14509714283693db08 tests=none
+unifyfs@0.9.2%gcc@8.3.1 +auto-mount~fortran~hdf5~pmi~pmix+spath patches=8a9c20c857c728637d994c097505cdce780f4b8e61535d221117864f75795313
+unifyfs@0.9.2%gcc@9.1.0 +auto-mount~fortran~hdf5~pmi~pmix+spath patches=8a9c20c857c728637d994c097505cdce780f4b8e61535d221117864f75795313
+unifyfs@0.9.2%gcc@9.3.0 +auto-mount~fortran~hdf5~pmi~pmix+spath patches=8a9c20c857c728637d994c097505cdce780f4b8e61535d221117864f75795313
+unifyfs@0.9.2%gcc@10.2.0 +auto-mount~fortran~hdf5~pmi~pmix+spath patches=8a9c20c857c728637d994c097505cdce780f4b8e61535d221117864f75795313
+upcxx@2020.3.0%gcc@8.3.1 +cuda~mpi cross=none
+upcxx@2020.3.0%gcc@9.1.0 +cuda~mpi cross=none
+upcxx@2020.3.0%gcc@9.3.0 +cuda~mpi cross=none
+upcxx@2020.3.0%gcc@10.2.0 +cuda~mpi cross=none
+upcxx@2020.10.0%gcc@8.3.1 +cuda~mpi cross=none
+upcxx@2020.10.0%gcc@9.1.0 +cuda~mpi cross=none
+upcxx@2020.10.0%gcc@9.3.0 +cuda~mpi cross=none
+upcxx@2020.10.0%gcc@10.2.0 +cuda~mpi cross=none
+upcxx@2021.3.0%gcc@8.3.1 +cuda~mpi cross=none
+upcxx@2021.3.0%gcc@9.1.0 +cuda~mpi cross=none
+upcxx@2021.3.0%gcc@9.3.0 +cuda~mpi cross=none
+upcxx@2021.3.0%gcc@10.2.0 +cuda~mpi cross=none
+valgrind@3.17.0%gcc@8.3.1 ~boost~mpi+only64bit~ubsan
+valgrind@3.17.0%gcc@8.3.1 +boost+mpi+only64bit~ubsan
+vim@8.2.2541%gcc@8.3.1 ~big~cscope~gui~huge~lua~normal~perl~python~ruby~small~tiny~x
