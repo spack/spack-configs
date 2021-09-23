@@ -3,7 +3,7 @@ variables:
   JLSE_SCHEDULER_PARAMETERS: "-A Operations -n 1 -t 10 -q arcticus_debug"
   SPACK_REPOSITORY: https://github.com/spack/spack.git
   SPACK_REF: e4s-21.05 
-  WORKING_DIR: ANL/JLSE/arcticus/e4s-21.05
+  WORKING_DIR: ANL/JLSE/Arcticus/E4S-21.05
 #  SPACK_MIRROR: /soft/ecp/mirrors/arcticus-e4s-21.05
   SPACK_MIRROR: /soft/ecp/mirrors/test-arcticus-e4s-21.05
   SPACK_DEPLOY_DIR: /soft/ecp/deploy/e4s-21.05

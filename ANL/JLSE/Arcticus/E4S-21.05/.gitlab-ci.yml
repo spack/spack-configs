@@ -1,13 +1,13 @@
 # Variables can be overridden from gitlab when runninging manually
 variables:
-  JLSE_SCHEDULER_PARAMETERS: "-A Operations -n 1  -t 10 -q arcticus_debug"
+  JLSE_SCHEDULER_PARAMETERS: "-A Operations -n 1 -t 10 -q arcticus_debug"
   SPACK_REPOSITORY: https://github.com/spack/spack.git
-#  SPACK_REPO: /soft/spack-dev
   SPACK_REF: e4s-21.05 
-  WORKING_DIR: arcticus/e4s-21.05
+  WORKING_DIR: ANL/JLSE/Arcticus/E4S-21.05
 #  SPACK_MIRROR: /soft/ecp/mirrors/arcticus-e4s-21.05
   SPACK_MIRROR: /soft/ecp/mirrors/test-arcticus-e4s-21.05
   SPACK_DEPLOY_DIR: /soft/ecp/deploy/e4s-21.05
+  # These vals are defaults and may be set on a per-run basis
   REMOVE_BUILDCACHE: "False"
   BUILD_E4S: "True"
   DEPLOY_E4S: "True"
@@ -29,7 +29,6 @@ remove_buildcache:
 #    rm -rf /global/common/software/spackecp/mirrors/cori-e4s-21.02/
   - echo "Removing buildcache... (no-op)"
 
-
 generate-spack-pipeline:
   stage: generate
   tags:
@@ -50,12 +49,14 @@ generate-spack-pipeline:
   - which spack
   - spack -V
   - echo $SPACK_ROOT
-  - cd $CI_PROJECT_DIR
+#  - cd $CI_PROJECT_DIR
+  - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
 
   script:
   - hostname  
   - echo $SPACK_ROOT 
-  - cd $CI_PROJECT_DIR  
+#  - cd $CI_PROJECT_DIR  
+  - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
   - rm -rf $HOME/.spack
   - spack env activate .
   - spack env st
@@ -72,11 +73,6 @@ generate-spack-pipeline:
   artifacts:
     paths:
     - jobs_scratch_dir/pipeline.yml    
-# FTW: this was
-#  artifacts:
-#    paths:
-#    - arcticus/e4s-21.05/.spack-ci.yml
-
 
 build-e4s:
   stage: build
@@ -101,30 +97,35 @@ deploy:
   script:
 #    - mkdir -p /global/common/software/spackecp/e4s-21.02
 #    - cd /global/common/software/spackecp/e4s-21.02
+    - echo "FTW: cloning spack into ${SPACK_DEPLOY_DIR}"
     - mkdir -p ${SPACK_DEPLOY_DIR}
     - cd ${SPACK_DEPLOY_DIR}
-    # clone spack directly into the mirror location. It shouldn't collide with anything.
     - rm -rf spack
 #    - git clone $SPACK_REPOSITORY -b e4s-21.02
     - git clone ${SPACK_REPOSITORY} -b ${SPACK_REF}
     - cd spack
     # Need this PR: https://github.com/spack/spack/pull/22500
-    - git cherry-pick f67d477
+# this cherry-pick is empty now
+#    - git cherry-pick f67d477
     - source share/spack/setup-env.sh
     # copy all site configuration for spack instance 
-    - cp $CI_PROJECT_DIR/site_config/* $SPACK_ROOT/etc/spack
+#    - cp $CI_PROJECT_DIR/site_config/* $SPACK_ROOT/etc/spack
+    - cp ${CI_PROJECT_DIR}/${WORKING_DIR}/site_config/* $SPACK_ROOT/etc/spack
     # the other permission is set to 0 before copying. Adding 4 will ensure user can read the file
     - chmod 664 $SPACK_ROOT/etc/spack/*.yaml
     - export SPACK_GNUPGHOME=$HOME/.gnupg
 #    - spack buildcache update-index -d /global/common/software/spackecp/mirrors/cori-e4s-21.02
+    - echo "FTW - updating buildcache index for ${SPACK_MIRROR}"
     - spack buildcache update-index -d ${SPACK_MIRROR}
 #    - find /global/common/software/spackecp/mirrors/cori-e4s-21.02 -name *.spack -exec chmod o+r {} \;
-##FTW: skip this, could end up re-permissioning whole FS if not set
+# FTW: skip this for now, could end up re-permissioning whole FS if not set, so just list it
 #    - find ${SPACK_MIRROR} -name *.spack -exec chmod o+r {} \;
 #    - chmod o+r /global/common/software/spackecp/mirrors/cori-e4s-21.02/build_cache/index.json
-    - chmod o+r ${SPACK_MIRROR}/build_cache/index.json
+    - find ${SPACK_MIRROR} -name *.spack 
+#    - chmod o+r ${SPACK_MIRROR}/build_cache/index.json
     - spack buildcache list -L
-    - spack env create e4s $CI_PROJECT_DIR/prod/spack.yaml
+#    - spack env create e4s $CI_PROJECT_DIR/prod/spack.yaml
+    - spack env create e4s ${CI_PROJECT_DIR}/${WORKING_DIR}/prod/spack.yaml
     - spack env activate e4s
     - spack install --cache-only
     - spack module tcl refresh --delete-tree -y
