@@ -1,6 +1,6 @@
 spack:
-#  include:
-#  - der_kommissar.yaml
+  include:
+  - der_kommissar.yaml
   view: false
   concretization: separately
   packages:
@@ -373,3 +373,29 @@ spack:
   - $cuda_specs
   - $rocm_specs
   - $default_specs
+
+  mirrors:
+    arcticus-e4s-21.05: file:///soft/ecp/mirrors/arcticus-e4s-21.05
+
+  modules:
+    enable:
+    - tcl
+    tcl:
+      blacklist_implicits: true
+      hash_length: 0
+      naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
+      all:
+        conflict:
+        - '{name}'
+        environment:
+          set:
+            '{name}_ROOT': '{prefix}'
+      darshan-runtime:
+        conflict:
+        - 'darshan'
+      darshan-util:
+        conflict:
+        - 'darshan'
+      projections:
+        all: '{name}/{version}-{compiler.name}-{compiler.version}'
+
