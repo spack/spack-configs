@@ -3,7 +3,6 @@ variables:
   JLSE_SCHEDULER_PARAMETERS: "-A Operations -n 1 -t 10 -q arcticus_debug"
   SPACK_REPOSITORY: https://github.com/spack/spack.git
   SPACK_REF: e4s-21.05 
-  # SPACK_INSTALLATION to be used for pipeline jobs
   SPACK_INSTALLATION: /soft/ecp/spack/e4s-21.05
   WORKING_DIR: ANL/JLSE/Arcticus/E4S-21.05
 #  SPACK_MIRROR: /soft/ecp/mirrors/arcticus-e4s-21.05
@@ -38,8 +37,8 @@ generate-spack-pipeline:
   only:
     variables:
       - $BUILD_E4S == "True"
-    changes:
-      - spack.yaml
+#    changes:
+#      - ${WORKING_DIR}/spack.yaml
 
   before_script:
   - pwd
@@ -81,8 +80,8 @@ build-e4s:
   only:
     variables:
       - $BUILD_E4S == "True"
-    changes:
-      - spack.yaml
+#    changes:
+#      - ${WORKING_DIR}/spack.yaml
   trigger:
     include:
     - artifact: "jobs_scratch_dir/pipeline.yml"
@@ -99,7 +98,7 @@ deploy:
   script:
 #    - mkdir -p /global/common/software/spackecp/e4s-21.02
 #    - cd /global/common/software/spackecp/e4s-21.02
-    - echo "FTW: cloning spack into ${SPACK_DEPLOY_DIR}"
+    - echo "FTW - cloning spack into ${SPACK_DEPLOY_DIR}"
     - mkdir -p ${SPACK_DEPLOY_DIR}
     - cd ${SPACK_DEPLOY_DIR}
     - rm -rf spack
