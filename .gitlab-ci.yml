@@ -37,7 +37,7 @@ generate-spack-pipeline:
     variables:
       - $BUILD_E4S == "True"
     changes:
-      - spack.yaml
+      - ${WORKING_DIR}/spack.yaml
 
   before_script:
   - pwd
@@ -80,7 +80,7 @@ build-e4s:
     variables:
       - $BUILD_E4S == "True"
     changes:
-      - spack.yaml
+      - ${WORKING_DIR}/spack.yaml
   trigger:
     include:
     - artifact: "jobs_scratch_dir/pipeline.yml"
