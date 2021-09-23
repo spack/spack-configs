@@ -3,6 +3,8 @@ variables:
   JLSE_SCHEDULER_PARAMETERS: "-A Operations -n 1 -t 10 -q arcticus_debug"
   SPACK_REPOSITORY: https://github.com/spack/spack.git
   SPACK_REF: e4s-21.05 
+  # SPACK_INSTALLATION to be used for pipeline jobs
+  SPACK_INSTALLATION: /soft/ecp/spack/e4s-21.05
   WORKING_DIR: ANL/JLSE/Arcticus/E4S-21.05
 #  SPACK_MIRROR: /soft/ecp/mirrors/arcticus-e4s-21.05
   SPACK_MIRROR: /soft/ecp/mirrors/test-arcticus-e4s-21.05
@@ -42,7 +44,7 @@ generate-spack-pipeline:
   before_script:
   - pwd
 #  - git clone ${SPACK_REPOSITORY} -b e4s-21.02
-  - git clone ${SPACK_REPOSITORY} -b $(SPACK_REF}
+  - git clone ${SPACK_REPOSITORY} -b ${SPACK_REF}
   - cd spack  
   - git log  --oneline -1
   - . share/spack/setup-env.sh

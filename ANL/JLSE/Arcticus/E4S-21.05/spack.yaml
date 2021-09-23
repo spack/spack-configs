@@ -383,7 +383,7 @@ spack:
 #          - batch
           - shell
         variables:
-          SPACK_REPOSITORY: $env:SPACK_REPOSITORY
+          SPACK_INSTALLATION: $env:SPACK_INSTALLATION
           SPACK_REF: $env:SPACK_REF
           WORKING_DIR: $env:WORKING_DIR
 #          SPACK_GNUPGHOME: /soft/spack-mirror/.gnupg
