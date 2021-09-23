@@ -7,6 +7,7 @@ variables:
 #  SPACK_MIRROR: /soft/ecp/mirrors/arcticus-e4s-21.05
   SPACK_MIRROR: /soft/ecp/mirrors/test-arcticus-e4s-21.05
   SPACK_DEPLOY_DIR: /soft/ecp/deploy/e4s-21.05
+  REMOVE_BUILDCACHE: True
 
 stages:
   - generate
