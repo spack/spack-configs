@@ -42,7 +42,7 @@ generate-spack-pipeline:
   before_script:
   - pwd
 #  - git clone ${SPACK_REPOSITORY} -b e4s-21.02
-  - git clone ${SPACK_REPOSITORY} -b $(SPACK_REF}
+  - git clone ${SPACK_REPOSITORY} -b ${SPACK_REF}
   - cd spack  
   - git log  --oneline -1
   - . share/spack/setup-env.sh
