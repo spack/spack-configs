@@ -1,6 +1,6 @@
 spack:
   include:
-  - site_config/der_kommissar.yaml
+  - der_kommissar.yaml
   view: false
   concretization: separately
   packages:
