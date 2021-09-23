@@ -399,3 +399,12 @@ spack:
       projections:
         all: '{name}/{version}-{compiler.name}-{compiler.version}'
 
+  config:
+    install_tree:
+#      root: /global/common/software/spackecp/e4s-21.02/software
+      root: /soft/ecp/deploy/e4s-21.05/opt
+    module_roots:
+#      tcl: /global/common/software/spackecp/e4s-21.02/modules/
+      tcl: /soft/ecp/deploy/e4s-21.05/modules
+    build_stage: $tempdir/user/spack-stage
+
