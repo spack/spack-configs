@@ -115,7 +115,7 @@ deploy:
     - chmod 664 $SPACK_ROOT/etc/spack/*.yaml
     - export SPACK_GNUPGHOME=$HOME/.gnupg
 #    - spack buildcache update-index -d /global/common/software/spackecp/mirrors/cori-e4s-21.02
-    - echo "FTW: updating buildcache index for ${SPACK_MIRROR}"
+    - echo "FTW - updating buildcache index for ${SPACK_MIRROR}"
     - spack buildcache update-index -d ${SPACK_MIRROR}
 #    - find /global/common/software/spackecp/mirrors/cori-e4s-21.02 -name *.spack -exec chmod o+r {} \;
 # FTW: skip this for now, could end up re-permissioning whole FS if not set, so just list it
