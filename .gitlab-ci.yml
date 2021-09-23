@@ -97,7 +97,7 @@ deploy:
   script:
 #    - mkdir -p /global/common/software/spackecp/e4s-21.02
 #    - cd /global/common/software/spackecp/e4s-21.02
-    - echo "FTW: cloning spack into ${SPACK_DEPLOY_DIR}"
+    - echo "FTW - cloning spack into ${SPACK_DEPLOY_DIR}"
     - mkdir -p ${SPACK_DEPLOY_DIR}
     - cd ${SPACK_DEPLOY_DIR}
     - rm -rf spack
