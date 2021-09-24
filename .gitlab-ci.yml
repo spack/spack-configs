@@ -6,7 +6,7 @@ variables:
   SPACK_INSTALLATION: /soft/ecp/spack/e4s-21.05
   WORKING_DIR: ANL/JLSE/Arcticus/E4S-21.05
 #  SPACK_MIRROR: /soft/ecp/mirrors/arcticus-e4s-21.05
-  SPACK_MIRROR: /soft/ecp/mirrors/test-arcticus-e4s-21.05
+  SPACK_MIRROR: /soft/ecp/mirrors/arcticus-e4s-21.05
   SPACK_DEPLOY_DIR: /soft/ecp/deploy/e4s-21.05
   # These vals are defaults and may be set on a per-run basis
   REMOVE_BUILDCACHE: "False"
@@ -67,6 +67,9 @@ generate-spack-pipeline:
   - spack config blame packages
   - spack config blame mirrors
   - spack concretize -f 2>&1 
+# remove a spec to force this pipeline stage to run  
+  - rm -f /soft/ecp/mirrors/arcticus-e4s-21.05/build_cache/linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spec.yaml
+  - spack buildcache update-index -d /soft/ecp/mirrors/arcticus-e4s-21.05
   - spack ci generate --dependencies --optimize  --output-file ${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml  
   - cat ${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml  
   after_script:
