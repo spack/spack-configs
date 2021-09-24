@@ -68,7 +68,7 @@ generate-spack-pipeline:
   - rm -f ${SPACK_ROOT}/etc/spack/defaults/mirrors.yaml
   - spack config blame mirrors
   - spack mirror list
-  - spack clean -a
+  - spack clean -m
   - spack buildcache list -L --allarch
   - spack concretize -f 2>&1 
 # remove a spec to force this pipeline stage to run  
