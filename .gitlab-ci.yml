@@ -66,9 +66,10 @@ generate-spack-pipeline:
  # - spack config blame config
  # - spack config blame packages
   - rm -f ${SPACK_ROOT}/etc/spack/defaults/mirrors.yaml
-  - spack config blame mirrors
+  - spack config blame mirrorsj
   - spack mirror list
-  - spack buildcache list --allarch
+  - spack clean -a
+  - spack buildcache list -L --allarch
   - spack concretize -f 2>&1 
 # remove a spec to force this pipeline stage to run  
 #  - ls -l ${SPACK_MIRROR}/build_cache | grep linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spec.yaml
