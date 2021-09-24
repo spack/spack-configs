@@ -66,7 +66,7 @@ generate-spack-pipeline:
  # - spack config blame config
  # - spack config blame packages
   - rm -f ${SPACK_ROOT}/etc/spack/defaults/mirrors.yaml
-  - spack config blame mirrorsj
+  - spack config blame mirrors
   - spack mirror list
   - spack clean -a
   - spack buildcache list -L --allarch
