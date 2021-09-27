@@ -1,6 +1,8 @@
 spack:
   view: false
   concretization: separately
+  mirrors:
+    E4S: https://cache.e4s.io/21.08
   modules:
     enable:
     - tcl
