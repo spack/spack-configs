@@ -127,6 +127,8 @@ deploy:
 #    - spack env create e4s $CI_PROJECT_DIR/prod/spack.yaml
     - spack env create e4s ${CI_PROJECT_DIR}/${WORKING_DIR}/prod/spack.yaml
     - spack env activate e4s
+    # FTW: Adding this so it will be able to use what's in this mirror
+    - spack gpg trust ${SPACK_MIRROR}/build_cache/_pgp/*.pub 
     - spack install --cache-only
     - spack module tcl refresh --delete-tree -y
     - spack find
