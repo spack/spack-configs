@@ -1,3 +1,4 @@
+$ spack find --format "{name},{version},{compiler},{variants},{arch}"
 adiak,0.2.1,gcc@8.3.1,~ipo+mpi+shared build_type=RelWithDebInfo,linux-rhel8-ppc64le
 adiak,0.2.1,gcc@9.1.0,~ipo+mpi+shared build_type=RelWithDebInfo,linux-rhel8-ppc64le
 adiak,0.2.1,gcc@9.3.0,~ipo+mpi+shared build_type=RelWithDebInfo,linux-rhel8-ppc64le

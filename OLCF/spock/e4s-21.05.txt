@@ -1,3 +1,4 @@
+# spack find --format "{name},{version},{compiler},{variants},{arch}"
 adiak,0.2.1,gcc@10.2.0,~ipo+mpi+shared build_type=RelWithDebInfo,cray-sles15-zen2
 adiak,0.2.1,gcc@10.3.0,~ipo+mpi+shared build_type=RelWithDebInfo,cray-sles15-zen2
 adios2,2.7.1,cce@12.0.0,+blosc+bzip2~dataman~dataspaces~endian_reverse+fortran~hdf5~ipo+mpi+pic+png~python+shared+ssc+sst+sz+zfp build_type=Release,cray-sles15-zen2
