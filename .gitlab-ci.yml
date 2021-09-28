@@ -139,7 +139,8 @@ deploy:
 # FTW: need to actually cd to the dir to activate environment, otherwise spack won't find the included file
     - cd ${CI_PROJECT_DIR}/${WORKING_DIR}/prod
     - spack env activate .
-    - spack install --cache-only
+    - spack gpg trust ${SPACK_MIRROR}/build_cache/_pgp/*.pub
+    - spack -d install --cache-only
     - spack module tcl refresh --delete-tree -y
     - spack find
 
