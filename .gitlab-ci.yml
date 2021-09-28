@@ -133,8 +133,11 @@ deploy:
 #    - chmod o+r ${SPACK_MIRROR}/build_cache/index.json
     - spack buildcache list -L
 #    - spack env create e4s $CI_PROJECT_DIR/prod/spack.yaml
-    - spack env create e4s ${CI_PROJECT_DIR}/${WORKING_DIR}/prod/spack.yaml
-    - spack env activate e4s
+#    - spack env create e4s ${CI_PROJECT_DIR}/${WORKING_DIR}/prod/spack.yaml
+#    - spack env activate e4s
+# FTW: need to actually cd to the dir to activate environment, otherwise spack won't find the included file
+    - cd ${CI_PROJECT_DIR}/${WORKING_DIR}/prod
+    - spack env activate .
     - spack install --cache-only
     - spack module tcl refresh --delete-tree -y
     - spack find
