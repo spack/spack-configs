@@ -9,7 +9,8 @@ variables:
   SPACK_DEPLOY_DIR: /soft/ecp/deploy/e4s-21.05
   # These vals are defaults and may be set on a per-run basis
   REMOVE_BUILDCACHE: "False"
-  BUILD_E4S: "True"
+#  BUILD_E4S: "True"
+  BUILD_E4S: "False"
   DEPLOY_E4S: "True"
 
 stages:
