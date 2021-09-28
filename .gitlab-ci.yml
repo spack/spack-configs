@@ -119,7 +119,7 @@ deploy:
     - source share/spack/setup-env.sh
     # copy all site configuration for spack instance 
 #    - cp $CI_PROJECT_DIR/site_config/* $SPACK_ROOT/etc/spack
-    - cp ${CI_PROJECT_DIR}/${WORKING_DIR}/site_config/* $SPACK_ROOT/etc/spack
+#FTW    - cp ${CI_PROJECT_DIR}/${WORKING_DIR}/site_config/* $SPACK_ROOT/etc/spack
     # the other permission is set to 0 before copying. Adding 4 will ensure user can read the file
     - chmod 664 $SPACK_ROOT/etc/spack/*.yaml
     - export SPACK_GNUPGHOME=$HOME/.gnupg
@@ -127,13 +127,11 @@ deploy:
     - echo "FTW - updating buildcache index for ${SPACK_MIRROR}"
     - spack buildcache update-index -d ${SPACK_MIRROR}
 #    - find /global/common/software/spackecp/mirrors/cori-e4s-21.02 -name *.spack -exec chmod o+r {} \;
-# FTW: skip this for now, could end up re-permissioning whole FS if not set, so just list it
-#    - find ${SPACK_MIRROR} -name *.spack -exec chmod o+r {} \;
+    - find ${SPACK_MIRROR} -name *.spack -exec chmod o+r {} \;
 #    - chmod o+r /global/common/software/spackecp/mirrors/cori-e4s-21.02/build_cache/index.json
     - find ${SPACK_MIRROR} -name *.spack 
-#    - chmod o+r ${SPACK_MIRROR}/build_cache/index.json
-    - spack buildcache list -L
-#    - spack env create e4s $CI_PROJECT_DIR/prod/spack.yaml
+    - chmod o+r ${SPACK_MIRROR}/build_cache/index.json
+    - spack buildcache list -L --allarch
 #    - spack env create e4s ${CI_PROJECT_DIR}/${WORKING_DIR}/prod/spack.yaml
 #    - spack env activate e4s
 # FTW: need to actually cd to the dir to activate environment, otherwise spack won't find the included file
