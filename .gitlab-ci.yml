@@ -9,7 +9,7 @@ variables:
   SPACK_DEPLOY_DIR: /soft/ecp/deploy/e4s-21.05
   # These vals are defaults and may be set on a per-run basis
   REMOVE_BUILDCACHE: "False"
-  BUILD_E4S: "True"
+  BUILD_E4S: "False"
   DEPLOY_E4S: "True"
 
 stages:
@@ -115,6 +115,10 @@ deploy:
     - git clone ${SPACK_REPOSITORY} -b ${SPACK_REF}
     - cd spack
     - source share/spack/setup-env.sh
+    - hostname 
+# this damn file is making spack stop looking for the right location
+#    - ls /tmp/user/spack-stage/willmore/build_cache/linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spack
+    - spack clean -m
     # copy all site configuration for spack instance 
 #    - cp $CI_PROJECT_DIR/site_config/* $SPACK_ROOT/etc/spack
     - cp ${CI_PROJECT_DIR}/${WORKING_DIR}/site_config/* $SPACK_ROOT/etc/spack
