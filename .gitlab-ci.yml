@@ -8,8 +8,8 @@ variables:
   SPACK_MIRROR: /soft/ecp/mirrors/arcticus-e4s-21.05
   SPACK_DEPLOY_DIR: /soft/ecp/deploy/e4s-21.05
   # These vals are defaults and may be set on a per-run basis
-  REMOVE_BUILDCACHE: "False"
-  BUILD_E4S: "False"
+  REMOVE_BUILDCACHE: "True"
+  BUILD_E4S: "True"
   DEPLOY_E4S: "True"
 
 stages:
@@ -33,9 +33,9 @@ generate-spack-pipeline:
   stage: generate
   tags:
   - shell
-##  only:
-##    variables:
-##      - $BUILD_E4S == "True"
+  only:
+    variables:
+      - $BUILD_E4S == "True"
 #    changes:
 #      - ${WORKING_DIR}/spack.yaml
 
