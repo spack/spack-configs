@@ -388,7 +388,9 @@ spack:
           SPACK_REF: $env:SPACK_REF
           WORKING_DIR: $env:WORKING_DIR
 #          SPACK_GNUPGHOME: /soft/spack-mirror/.gnupg
-          SPACK_GNUPGHOME: /soft/ecp/mirrors/e4s-21.05/.gnupg
+#          SPACK_GNUPGHOME: /soft/ecp/mirrors/e4s-21.05/.gnupg
+          SPACK_GNUPGHOME: /home/willmore/spack-gnupg
+#/soft/ecp/mirrors/gpg
         before_script:
         - pwd
         - ls
