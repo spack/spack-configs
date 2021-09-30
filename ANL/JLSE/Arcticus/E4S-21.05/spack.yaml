@@ -385,27 +385,23 @@ spack:
           - shell
         variables:
           SPACK_INSTALLATION: $env:SPACK_INSTALLATION
-          SPACK_REF: $env:SPACK_REF
+##          SPACK_REF: $env:SPACK_REF
           WORKING_DIR: $env:WORKING_DIR
 #          SPACK_GNUPGHOME: /soft/spack-mirror/.gnupg
 #          SPACK_GNUPGHOME: /soft/ecp/mirrors/e4s-21.05/.gnupg
           SPACK_GNUPGHOME: /home/willmore/spack-gnupg
 #/soft/ecp/mirrors/gpg
-        before_script:
-        - pwd
-        - ls
-        - hostname
-        - . ${SPACK_INSTALLATION}/share/spack/setup-env.sh
-        - which spack
         script:
+#        - export SPACK_GNUPGHOME=/home/willmore/spack-gnupg
+        - git clone ${SPACK_INSTALLATION} spack-clone
+        - . spack-clone/share/spack/setup-env.sh
+        - which spack
+        - spack -V
         - cd ${WORKING_DIR}
         - pwd
         - spack env activate .
         - spack gpg list
-#          - echo $SPACK_SIGNING_KEY
         - spack -d ci rebuild
-#        - cd /soft/spack-mirror && spack buildcache update-index
-#        - cd /soft/ecp/mirrors/e4s-21.05 && spack buildcache update-index
 #    final-stage-rebuild-index:
 #      tags: 
 #      - shell
