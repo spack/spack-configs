@@ -8,8 +8,8 @@ variables:
   SPACK_MIRROR: /soft/ecp/mirrors/arcticus-e4s-21.05
   SPACK_DEPLOY_DIR: /soft/ecp/deploy/e4s-21.05
   # These vals are defaults and may be set on a per-run basis
-  REMOVE_BUILDCACHE: "False"
-  BUILD_E4S: "False"
+  REMOVE_BUILDCACHE: "True"
+  BUILD_E4S: "True"
   DEPLOY_E4S: "True"
 
 stages:
@@ -60,7 +60,8 @@ generate-spack-pipeline:
   - rm -rf $HOME/.spack
   - spack env activate .
   - spack env st
-  - export SPACK_GNUPGHOME=$HOME/.gnupg
+#  - export SPACK_GNUPGHOME=$HOME/.gnupg
+  - export SPACK_GNUPGHOME=$HOME/spack-gnupg
   - spack gpg list
  # - spack config blame config
  # - spack config blame packages
@@ -117,7 +118,9 @@ deploy:
     - cp ${CI_PROJECT_DIR}/${WORKING_DIR}/site_config/* $SPACK_ROOT/etc/spack
     # the other permission is set to 0 before copying. Adding 4 will ensure user can read the file
     - chmod 664 $SPACK_ROOT/etc/spack/*.yaml
-    - export SPACK_GNUPGHOME=$HOME/.gnupg
+    - export SPACK_GNUPGHOME=$HOME/spack-gnupg
+    - spack gpg list
+#    - export SPACK_GNUPGHOME=$HOME/.gnupg
     - echo "FTW - updating buildcache index for ${SPACK_MIRROR}"
     - spack buildcache update-index -d ${SPACK_MIRROR}
     - find ${SPACK_MIRROR} -name *.spack -exec chmod o+r {} \;
