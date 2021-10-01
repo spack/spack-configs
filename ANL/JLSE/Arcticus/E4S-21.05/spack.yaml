@@ -372,8 +372,7 @@ spack:
   specs:
 #  - $cuda_specs
 #  - $rocm_specs
-#  - $default_specs
-  - zlib@1.2.10
+  - $default_specs
 
   gitlab-ci:
     rebuild-index: False
