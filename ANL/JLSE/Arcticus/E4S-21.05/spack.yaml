@@ -391,6 +391,8 @@ spack:
           SPACK_GNUPGHOME: /home/willmore/spack-gnupg
 #/soft/ecp/mirrors/gpg
         script:
+        - hostname
+        - id
 #        - export SPACK_GNUPGHOME=/home/willmore/spack-gnupg
         - git clone ${SPACK_INSTALLATION} spack-clone
         - . spack-clone/share/spack/setup-env.sh
