@@ -8,7 +8,7 @@ variables:
   SPACK_MIRROR: /soft/ecp/mirrors/arcticus-e4s-21.05
   SPACK_DEPLOY_DIR: /soft/ecp/deploy/e4s-21.05
   # These vals are defaults and may be set on a per-run basis
-  REMOVE_BUILDCACHE: "False"
+  REMOVE_BUILDCACHE: "True"
   BUILD_E4S: "True"
   DEPLOY_E4S: "True"
 
@@ -44,7 +44,8 @@ generate-spack-pipeline:
 #  - git clone ${SPACK_REPOSITORY} -b e4s-21.02
 #  - git clone ${SPACK_REPOSITORY} -b ${SPACK_REF}
 # using a local copy here because it's faster...
-  - git clone ${SPACK_INSTALLATION} spack-clone
+#  - git clone ${SPACK_INSTALLATION} spack-clone
+  - git clone --branch e4s-21.05 --single-branch --depth=1 ${SPACK_INSTALLATION} spack-clone
   - cd spack-clone  
   - git log  --oneline -1
   - . share/spack/setup-env.sh
