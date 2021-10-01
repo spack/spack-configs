@@ -380,8 +380,7 @@ spack:
     - match: [os=opensuse_leap15]
       runner-attributes:
         tags:
-#          - batch
-          - shell
+        - shell
         variables:
           SPACK_INSTALLATION: $env:SPACK_INSTALLATION
 ##          SPACK_REF: $env:SPACK_REF
@@ -395,7 +394,7 @@ spack:
         - id
 #        - export SPACK_GNUPGHOME=/home/willmore/spack-gnupg
 #        - git clone ${SPACK_INSTALLATION} spack-clone
-         - git clone --branch e4s-21.05 --single-branch --depth=1 ${SPACK_INSTALLATION} spack-clone
+        - git clone --branch e4s-21.05 --single-branch --depth=1 ${SPACK_INSTALLATION} spack-clone
         - . spack-clone/share/spack/setup-env.sh
         - which spack
         - spack -V
