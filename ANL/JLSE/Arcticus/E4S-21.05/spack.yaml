@@ -400,8 +400,8 @@ spack:
 #        - git clone ${SPACK_INSTALLATION} spack-clone
         # Do we really need this? Each CI job goes in its own directory
         - . setclonepath.sh
-        - git clone --branch e4s-21.05 --single-branch --depth=1 ${SPACK_INSTALLATION} ${SPACK_CLONE_PATH}
-        - . $SPACK_CLONE_PATH}/share/spack/setup-env.sh
+        - git clone --branch e4s-21.05 --single-branch --depth=1 ${SPACK_INSTALLATION} ./${SPACK_CLONE_PATH}
+        - . ${SPACK_CLONE_PATH}/share/spack/setup-env.sh
         - which spack
         - spack -V
         - spack env activate .
