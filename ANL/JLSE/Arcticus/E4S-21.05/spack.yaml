@@ -380,8 +380,8 @@ spack:
     - match: [os=opensuse_leap15]
       runner-attributes:
         tags:
-        - batch
-#        - shell
+#        - batch
+        - shell
         variables:
           SPACK_INSTALLATION: $env:SPACK_INSTALLATION
 ##          SPACK_REF: $env:SPACK_REF
