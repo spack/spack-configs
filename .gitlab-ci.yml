@@ -40,6 +40,7 @@ generate-spack-pipeline:
 #      - ${WORKING_DIR}/spack.yaml
 
   before_script:
+  - hostname  
   - pwd
 #  - git clone ${SPACK_REPOSITORY} -b e4s-21.02
 #  - git clone ${SPACK_REPOSITORY} -b ${SPACK_REF}
@@ -56,10 +57,10 @@ generate-spack-pipeline:
   - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
 
   script:
-  - hostname  
   - echo $SPACK_ROOT 
 #  - cd $CI_PROJECT_DIR  
   - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
+  - pwd
   - rm -rf $HOME/.spack
   - spack env activate .
   - spack env st
