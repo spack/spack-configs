@@ -40,3 +40,6 @@ modules:
 config:
   install_tree:
     padded_length: 191
+  build_stage: $spack/spack-stage
+  misc_cache: $spack/misc_cache
+

@@ -393,6 +393,7 @@ spack:
         script:
         - hostname
         - id
+        - rm -rf ~/.spack/
         - cd ${WORKING_DIR}
         - pwd
 #        - export SPACK_GNUPGHOME=/home/willmore/spack-gnupg
@@ -406,6 +407,7 @@ spack:
         - spack env activate .
         - spack gpg list
         - spack -d ci rebuild
+        - rm -rf ${SPACK_CLONE_PATH}
 #    final-stage-rebuild-index:
 #      tags: 
 #      - shell
