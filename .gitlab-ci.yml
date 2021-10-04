@@ -26,7 +26,6 @@ remove_buildcache:
     variables:
       - $REMOVE_BUILDCACHE == "True"
   script:
-#FTW: change path or just ignore for now
   - echo "Removing buildcache at ${SPACK_MIRROR} ..."
   - rm -rf ${SPACK_MIRROR}
 
@@ -37,39 +36,28 @@ generate-spack-pipeline:
   only:
     variables:
       - $BUILD_E4S == "True"
-#    changes:
-#      - ${WORKING_DIR}/spack.yaml
+    changes:
+      - ${WORKING_DIR}/spack.yaml
 
   before_script:
   - hostname  
   - pwd
-#  - git clone ${SPACK_REPOSITORY} -b e4s-21.02
-#  - git clone ${SPACK_REPOSITORY} -b ${SPACK_REF}
-# using a local copy here because it's faster...
-#  - git clone ${SPACK_INSTALLATION} spack-clone
   - git clone --branch e4s-21.05 --single-branch --depth=1 ${SPACK_INSTALLATION} spack-clone
   - cd spack-clone  
   - git log  --oneline -1
   - . share/spack/setup-env.sh
   - which spack
   - spack -V
-  - echo $SPACK_ROOT
-#  - cd $CI_PROJECT_DIR
   - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
 
   script:
-  - echo $SPACK_ROOT 
-#  - cd $CI_PROJECT_DIR  
   - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
   - pwd
   - rm -rf $HOME/.spack
   - spack env activate .
   - spack env st
-#  - export SPACK_GNUPGHOME=$HOME/.gnupg
   - export SPACK_GNUPGHOME=$HOME/spack-gnupg
   - spack gpg list
- # - spack config blame config
- # - spack config blame packages
   - rm -f ${SPACK_ROOT}/etc/spack/defaults/mirrors.yaml
   - spack config blame mirrors
   - spack mirror list
@@ -77,13 +65,11 @@ generate-spack-pipeline:
   - spack buildcache list -L --allarch
   - spack concretize -f 2>&1 
 # remove a spec to force this pipeline stage to run  
-#  - ls -l ${SPACK_MIRROR}/build_cache | grep linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spec.yaml
-  - rm -f ${SPACK_MIRROR}/build_cache/linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spec.yaml
+#  - rm -f ${SPACK_MIRROR}/build_cache/linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spec.yaml
   - spack buildcache update-index -d ${SPACK_MIRROR}
   - spack ci generate --dependencies --optimize  --output-file ${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml  
-##FTW  - cat ${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml  
   after_script:
-  - rm -rf $SPACK_ROOT
+  - rm -rf ${SPACK_ROOT}
   artifacts:
     paths:
     - jobs_scratch_dir/pipeline.yml    
@@ -93,8 +79,8 @@ build-e4s:
   only:
     variables:
       - $BUILD_E4S == "True"
-#    changes:
-#      - ${WORKING_DIR}/spack.yaml
+    changes:
+      - ${WORKING_DIR}/spack.yaml
   trigger:
     include:
     - artifact: "jobs_scratch_dir/pipeline.yml"
@@ -109,8 +95,6 @@ deploy:
     variables:
       - $DEPLOY_E4S == "True"
   script:
-#    - mkdir -p /global/common/software/spackecp/e4s-21.02
-#    - cd /global/common/software/spackecp/e4s-21.02
     - echo "FTW - cloning spack into ${SPACK_DEPLOY_DIR}"
     - mkdir -p ${SPACK_DEPLOY_DIR}
     - cd ${SPACK_DEPLOY_DIR}
@@ -119,12 +103,12 @@ deploy:
     - cd spack
     - source share/spack/setup-env.sh
     - hostname 
-# this damn file is making spack stop looking for the right location
+# this dang file is making spack stop looking for the right location
 #    - ls /tmp/user/spack-stage/willmore/build_cache/linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spack
+    # clean up misc cache from ~/.spack
     - spack clean -m
     # copy all site configuration for spack instance 
-#    - cp $CI_PROJECT_DIR/site_config/* $SPACK_ROOT/etc/spack
-    - cp ${CI_PROJECT_DIR}/${WORKING_DIR}/site_config/* $SPACK_ROOT/etc/spack
+    - cp ${CI_PROJECT_DIR}/${WORKING_DIR}/site_config/* ${SPACK_ROOT}/etc/spack
     # the other permission is set to 0 before copying. Adding 4 will ensure user can read the file
     - chmod 664 $SPACK_ROOT/etc/spack/*.yaml
     - export SPACK_GNUPGHOME=$HOME/spack-gnupg
@@ -133,7 +117,7 @@ deploy:
     - echo "FTW - updating buildcache index for ${SPACK_MIRROR}"
     - spack buildcache update-index -d ${SPACK_MIRROR}
     - find ${SPACK_MIRROR} -name *.spack -exec chmod o+r {} \;
-    - find ${SPACK_MIRROR} -name *.spack 
+#    - find ${SPACK_MIRROR} -name *.spack 
     - chmod o+r ${SPACK_MIRROR}/build_cache/index.json
     - spack buildcache list -L --allarch
 #    - spack env create e4s ${CI_PROJECT_DIR}/${WORKING_DIR}/prod/spack.yaml

@@ -384,10 +384,7 @@ spack:
         - shell
         variables:
           SPACK_INSTALLATION: $env:SPACK_INSTALLATION
-##          SPACK_REF: $env:SPACK_REF
           WORKING_DIR: $env:WORKING_DIR
-#          SPACK_GNUPGHOME: /soft/spack-mirror/.gnupg
-#          SPACK_GNUPGHOME: /soft/ecp/mirrors/e4s-21.05/.gnupg
           SPACK_GNUPGHOME: /home/willmore/spack-gnupg
 #/soft/ecp/mirrors/gpg
         script:
@@ -396,8 +393,6 @@ spack:
         - rm -rf ~/.spack/
         - cd ${WORKING_DIR}
         - pwd
-#        - export SPACK_GNUPGHOME=/home/willmore/spack-gnupg
-#        - git clone ${SPACK_INSTALLATION} spack-clone
         # Do we really need this? Each CI job goes in its own directory
         - . setclonepath.sh
         - git clone --branch e4s-21.05 --single-branch --depth=1 ${SPACK_INSTALLATION} ${SPACK_CLONE_PATH}
