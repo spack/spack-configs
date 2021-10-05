@@ -39,4 +39,4 @@ modules:
       all: '{name}/{version}-{compiler.name}-{compiler.version}'
 config:
   install_tree:
-    padded_length: 191
+    padded_length: 127
