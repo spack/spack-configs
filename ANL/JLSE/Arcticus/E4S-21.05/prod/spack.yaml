@@ -373,7 +373,10 @@ spack:
 #  - $cuda_specs
 #  - $rocm_specs
 #  - $default_specs
-  - libtool@2.4.6
+#
+#  - libtool@2.4.6
+   - hdf5@1.10.7
+
 
   mirrors:
     arcticus-e4s-21.05: file:///soft/ecp/mirrors/arcticus-e4s-21.05
