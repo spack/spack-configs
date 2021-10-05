@@ -100,7 +100,7 @@ deploy:
     - echo "FTW - cloning spack into ${SPACK_DEPLOY_DIR}"
     - mkdir -p ${SPACK_DEPLOY_DIR}
     - cd ${SPACK_DEPLOY_DIR}
-    - rm -rf spack
+    - rm -rf spack-deploy
 #    - git clone ${SPACK_REPOSITORY} -b ${SPACK_REF}
     - git clone -b ${SPACK_REF} --single-branch --depth=1 ${SPACK_INSTALLATION} spack-deploy
     - cd spack-deploy
