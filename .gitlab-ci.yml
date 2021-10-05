@@ -36,9 +36,9 @@ generate-spack-pipeline:
   only:
     variables:
       - $BUILD_E4S == "True"
-    changes:
-      - ${WORKING_DIR}/spack.yaml
-      - ${WORKING_DIR}/der_kommissar.yaml
+#    changes:
+#      - ${WORKING_DIR}/spack.yaml
+#      - ${WORKING_DIR}/der_kommissar.yaml
 
   before_script:
   - hostname  
