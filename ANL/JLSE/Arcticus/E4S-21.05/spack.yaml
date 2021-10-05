@@ -372,8 +372,7 @@ spack:
   specs:
 #  - $cuda_specs
 #  - $rocm_specs
-#  - $default_specs
-  - hdf5
+  - $default_specs
 
   gitlab-ci:
     rebuild-index: False
