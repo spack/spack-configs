@@ -371,8 +371,8 @@ spack:
 # ==> Warning: Skipping build of plasma-20.9.20-6ydl7mirtjqszw3wsnyjsv2w4nvx36dn since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed
 
   specs:
-  - $cuda_specs
-  - $rocm_specs
+#  - $cuda_specs
+#  - $rocm_specs
   - $default_specs
 
   mirrors:
