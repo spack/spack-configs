@@ -67,7 +67,7 @@ generate-spack-pipeline:
   - spack clean -m
   - spack buildcache list -L --allarch
   - spack concretize -f 2>&1 
-  - [ "${CREATE_SOURCE_MIRROR}" == "True" ] && spack mirror create -d ${SPACK_MIRROR} --all
+  - \[ "${CREATE_SOURCE_MIRROR}" == "True" \] && spack mirror create -d ${SPACK_MIRROR} --all
 # remove a spec to force this pipeline stage to run  
 #  - rm -f ${SPACK_MIRROR}/build_cache/linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spec.yaml
   - spack buildcache update-index -d ${SPACK_MIRROR}
