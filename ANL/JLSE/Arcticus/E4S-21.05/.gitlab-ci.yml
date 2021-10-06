@@ -7,11 +7,13 @@ variables:
   SPACK_INSTALLATION: https://github.com/spack/spack.git 
   WORKING_DIR: ANL/JLSE/Arcticus/E4S-21.05
   SPACK_MIRROR: /soft/ecp/mirrors/arcticus-e4s-21.05
-  SPACK_DEPLOY_DIR: /soft/ecp/deploy/e4s-21.05
+#  SPACK_DEPLOY_DIR: /soft/ecp/deploy/e4s-21.05
+  SPACK_DEPLOY_DIR: /tmp/deploy/e4s-21.05
   # These vals are defaults and may be set on a per-run basis
   REMOVE_BUILDCACHE: "False"
   BUILD_E4S: "True"
   DEPLOY_E4S: "True"
+  CREATE_SOURCE_MIRROR: "True"
 
 stages:
   - generate
@@ -38,12 +40,13 @@ generate-spack-pipeline:
       - $BUILD_E4S == "True"
 #    changes:
 #      - ${WORKING_DIR}/spack.yaml
+#      - ${WORKING_DIR}/der_kommissar.yaml
 
   before_script:
   - hostname  
   - pwd
-  - git clone --branch e4s-21.05 --single-branch --depth=1 ${SPACK_INSTALLATION} spack-clone
-  - cd spack-clone  
+  - git clone --branch e4s-21.05 --single-branch --depth=1 ${SPACK_INSTALLATION} spack-generate
+  - cd spack-generate  
   - git log  --oneline -1
   - . share/spack/setup-env.sh
   - which spack
@@ -64,6 +67,7 @@ generate-spack-pipeline:
   - spack clean -m
   - spack buildcache list -L --allarch
   - spack concretize -f 2>&1 
+  - [ "${CREATE_SOURCE_MIRROR}" == "True" ] && spack mirror create -d ${SPACK_MIRROR} --all
 # remove a spec to force this pipeline stage to run  
 #  - rm -f ${SPACK_MIRROR}/build_cache/linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spec.yaml
   - spack buildcache update-index -d ${SPACK_MIRROR}
@@ -79,8 +83,8 @@ build-e4s:
   only:
     variables:
       - $BUILD_E4S == "True"
-    changes:
-      - ${WORKING_DIR}/spack.yaml
+#    changes:
+#      - ${WORKING_DIR}/spack.yaml
   trigger:
     include:
     - artifact: "jobs_scratch_dir/pipeline.yml"
@@ -95,37 +99,35 @@ deploy:
     variables:
       - $DEPLOY_E4S == "True"
   script:
+    - hostname 
     - echo "FTW - cloning spack into ${SPACK_DEPLOY_DIR}"
     - mkdir -p ${SPACK_DEPLOY_DIR}
     - cd ${SPACK_DEPLOY_DIR}
-    - rm -rf spack
-    - git clone ${SPACK_REPOSITORY} -b ${SPACK_REF}
-    - cd spack
+    - rm -rf spack-deploy
+#    - git clone ${SPACK_REPOSITORY} -b ${SPACK_REF}
+    - git clone -b ${SPACK_REF} --single-branch --depth=1 ${SPACK_INSTALLATION} spack-deploy
+    - cd spack-deploy
     - source share/spack/setup-env.sh
-    - hostname 
 # this dang file is making spack stop looking for the right location
 #    - ls /tmp/user/spack-stage/willmore/build_cache/linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spack
     # clean up misc cache from ~/.spack
     - spack clean -m
     # copy all site configuration for spack instance 
     - cp ${CI_PROJECT_DIR}/${WORKING_DIR}/site_config/* ${SPACK_ROOT}/etc/spack
-    # the other permission is set to 0 before copying. Adding 4 will ensure user can read the file
-    - chmod 664 $SPACK_ROOT/etc/spack/*.yaml
-    - export SPACK_GNUPGHOME=$HOME/spack-gnupg
+    # the other permission is set to 0 before copying. 
+    # Adding 4 will ensure user can read the file
+    - chmod 664 ${SPACK_ROOT}/etc/spack/*.yaml
+    - export SPACK_GNUPGHOME=${HOME}/spack-gnupg
     - spack gpg list
-#    - export SPACK_GNUPGHOME=$HOME/.gnupg
-    - echo "FTW - updating buildcache index for ${SPACK_MIRROR}"
+    - echo "Updating buildcache index for ${SPACK_MIRROR}"
     - spack buildcache update-index -d ${SPACK_MIRROR}
     - find ${SPACK_MIRROR} -name *.spack -exec chmod o+r {} \;
 #    - find ${SPACK_MIRROR} -name *.spack 
     - chmod o+r ${SPACK_MIRROR}/build_cache/index.json
     - spack buildcache list -L --allarch
-#    - spack env create e4s ${CI_PROJECT_DIR}/${WORKING_DIR}/prod/spack.yaml
-#    - spack env activate e4s
-# FTW: need to actually cd to the dir to activate environment, otherwise spack won't find the included file
+    # need to actually cd to the dir to activate environment, otherwise spack won't find the included file
     - cd ${CI_PROJECT_DIR}/${WORKING_DIR}/prod
     - spack env activate .
-#    - spack gpg trust ${SPACK_MIRROR}/build_cache/_pgp/*.pub
     - spack -d install --cache-only
     - spack module tcl refresh --delete-tree -y
     - spack find

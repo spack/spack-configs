@@ -170,7 +170,8 @@ spack:
   definitions:
 
   - cuda_specs:
-    - amrex@21.05 +cuda cuda_arch=70
+#    - amrex@21.05 +cuda cuda_arch=70
+# skipping because the rebuild phase consistently exhausts filesystem capacity
     - axom@0.5.0 +cuda cuda_arch=70 ^umpire~shared
     - caliper@2.5.0 +cuda cuda_arch=70
     - chai@2.3.0 +cuda ~benchmarks ~tests cuda_arch=70 ^umpire~shared

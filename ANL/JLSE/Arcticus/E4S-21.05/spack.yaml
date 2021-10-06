@@ -170,7 +170,9 @@ spack:
   definitions:
 
   - cuda_specs:
-    - amrex@21.05 +cuda cuda_arch=70
+#    - amrex@21.05 +cuda cuda_arch=70
+# building this spec consistently hits 'no spack on device' when run from /tmp, and causes timeouts when building on NFS.
+# It can be built by hand in isolation but consistently causes filesystem issues when building in CI.
     - axom@0.5.0 +cuda cuda_arch=70 ^umpire~shared
     - caliper@2.5.0 +cuda cuda_arch=70
     - chai@2.3.0 +cuda ~benchmarks ~tests cuda_arch=70 ^umpire~shared
