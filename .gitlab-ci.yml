@@ -13,7 +13,7 @@ variables:
   REMOVE_BUILDCACHE: "False"
   BUILD_E4S: "True"
   DEPLOY_E4S: "True"
-  CREATE_SOURCE_MIRROR: "True"
+  CREATE_SOURCE_MIRROR: "False"
 
 stages:
   - generate
