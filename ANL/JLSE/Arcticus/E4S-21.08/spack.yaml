@@ -1,16 +1,13 @@
 spack:
-
   view: false
   concretization: separately
-
   packages:
     all:
-#      compiler: [gcc@9.3.0]
       providers:
         blas: [openblas]
         mpi: [mpich]
       target:
-        - x86_64
+      - x86_64
       variants: +mpi
     autoconf:
       version: [2.69]
@@ -115,7 +112,10 @@ spack:
       version: [1.34]
     trilinos:
       version: [13.0.1]
-      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
     texinfo:
       version: [6.5]
     xz:
@@ -125,15 +125,14 @@ spack:
       version: [1.2.11]
     zstd:
       version: [1.5.0]
-
   compilers:
   - compiler:
       spec: gcc@9.3.0
       paths:
-      cc: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/gcc
-      cxx: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/g++
-      f77: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/gfortran
-      fc: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/gfortran
+        cc: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/gcc
+        cxx: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/g++
+        f77: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/gfortran
+        fc: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/gfortran
       flags: {}
       operating_system: opensuse_leap15
       target: x86_64
@@ -143,24 +142,17 @@ spack:
   - compiler:
       spec: oneapi@2021.4.0
       paths:
-#      cc: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-7.5.0/patch
-      cc: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-7.5.0/intel-oneapi-compilers-2021.4.0-zjplphgr4rhii4ihcadnkwvnx7ycewyb/compiler/latest/linux/bin/icx
-      cxx:  /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-7.5.0/intel-oneapi-compilers-2021.4.0-zjplphgr4rhii4ihcadnkwvnx7ycewyb/compiler/latest/linux/bin/icpx
-      f77: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-7.5.0/intel-oneapi-compilers-2021.4.0-zjplphgr4rhii4ihcadnkwvnx7ycewyb/compiler/latest/linux/bin/ifx
-      fc: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-7.5.0/intel-oneapi-compilers-2021.4.0-zjplphgr4rhii4ihcadnkwvnx7ycewyb/compiler/latest/linux/bin/ifx
+        cc: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-7.5.0/intel-oneapi-compilers-2021.4.0-zjplphgr4rhii4ihcadnkwvnx7ycewyb/compiler/latest/linux/bin/icx
+        cxx: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-7.5.0/intel-oneapi-compilers-2021.4.0-zjplphgr4rhii4ihcadnkwvnx7ycewyb/compiler/latest/linux/bin/icpx
+        f77: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-7.5.0/intel-oneapi-compilers-2021.4.0-zjplphgr4rhii4ihcadnkwvnx7ycewyb/compiler/latest/linux/bin/ifx
+        fc: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-7.5.0/intel-oneapi-compilers-2021.4.0-zjplphgr4rhii4ihcadnkwvnx7ycewyb/compiler/latest/linux/bin/ifx
       flags: {}
       operating_system: opensuse_leap15
       target: x86_64
       modules: []
       environment: {}
       extra_rpaths: []
-
-
-/soft/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-7.5.0/patch
-
-
   definitions:
-
   - cuda_specs:
     - amrex +cuda cuda_arch=70
     - caliper +cuda cuda_arch=70
@@ -295,7 +287,10 @@ spack:
     - sz@2.1.12
     - tasmanian@7.5
     - tau@2.30.1
-    - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+      +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+      +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+      +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
     - umap@2.1.0
     - umpire@4.1.2
     - unifyfs@0.9.1
@@ -308,17 +303,16 @@ spack:
     #- variorum
 
   specs:
-#  - $cuda_specs
-#  - $rocm_specs
+  
+#  - matrix:
+#    - [$cuda_specs]
+#    - ['%gcc@9.3.0']
   - matrix:
-    - $cuda_specs
+    - [$core_specs]
     - ['%gcc@9.3.0']
   - matrix:
-    - $core_specs
+    - [$aux_specs]
     - ['%gcc@9.3.0']
   - matrix:
-    - $aux_specs
-    - ['%gcc@9.3.0']
-  - matrix:
-    - $oneapi_specs
+    - [$oneapi_specs]
     - ['%oneapi']
