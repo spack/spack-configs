@@ -1,0 +1,332 @@
+spack:
+  view: false
+  concretization: separately
+  mirrors:
+    E4S: https://cache.e4s.io/21.08
+  modules:
+    enable:
+    - tcl
+    tcl:
+      blacklist_implicits: true
+      hash_length: 0
+      naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
+      all:
+        conflict:
+        - '{name}'
+        environment:
+          set:
+            '{name}_ROOT': '{prefix}'
+      darshan-runtime:
+        conflict:
+        - darshan
+      darshan-util:
+        conflict:
+        - darshan
+      projections:
+        all: '{name}/{version}-{compiler.name}-{compiler.version}'
+        py-warpx ^warpx dims=2: '{name}/{version}-dims2'
+        py-warpx ^warpx dims=3: '{name}/{version}-dims3'
+        py-warpx ^warpx dims=rz: '{name}/{version}-dimsRZ'
+        warpx dims=2: '{name}/{version}-dims2'
+        warpx dims=3: '{name}/{version}-dims3'
+        warpx dims=rz: '{name}/{version}-dimsRZ'
+        boost cxxstd=98: '{name}/{version}-cxxstd=98'
+        boost cxxstd=17: '{name}/{version}-cxxstd=17'
+        kokkos +openmp: '{name}/{version}-openmp'
+        kokkos ~openmp: '{name}/{version}'
+  compilers:
+  - compiler:
+      spec: intel@19.1.3.304
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: cnl7
+      target: any
+      modules:
+      - PrgEnv-intel
+      - intel/19.1.3.304
+      environment: {}
+      extra_rpaths: []
+  packages:
+    all:
+      compiler:
+      - intel@19.1.3.304
+      providers:
+        blas:
+        - openblas
+        mpi:
+        - mpich
+      target:
+      - haswell
+      variants: +mpi
+    slurm:
+      buildable: false
+      version: [20-02-4-1]
+      externals:
+      - spec: slurm@20-02-4-1
+        prefix: /usr
+    mpich:
+      variants: ~wrapperrpath
+      version:
+      - 3.4.2
+    autoconf:
+      version:
+      - '2.69'
+    automake:
+      version:
+      - 1.16.3
+    berkeley-db:
+      version:
+      - 18.1.40
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls +plugins
+      version:
+      - 2.36.1
+    boost:
+      version:
+      - 1.75.0
+      variants: visibility=global
+    bzip2:
+      version:
+      - 1.0.8
+    c-blosc:
+      version:
+      - 1.21.0
+    cmake:
+      version:
+      - 3.20.5
+    curl:
+      version:
+      - 7.76.1
+    diffutils:
+      version:
+      - 3.7
+    doxygen:
+      version:
+      - 1.8.20
+    elfutils:
+      version:
+      - 0.185
+      variants: +bzip2 ~nls +xz
+    expat:
+      version:
+      - 2.4.1
+    fftw:
+      variants: +openmp
+    findutils:
+      version:
+      - 4.8.0
+    gdbm:
+      version:
+      - 1.19
+    gettext:
+      version:
+      - 0.21
+    git:
+      version:
+      - 2.31.1
+    glib:
+      version:
+      - 2.68.2
+    hdf5:
+      variants: +fortran +hl +shared api=v18
+      version:
+      - 1.12.0
+    help2man:
+      version:
+      - 1.47.16
+    hwloc:
+      version:
+      - 2.4.1
+    json-c:
+      version:
+      - 0.15
+    libbsd:
+      version:
+      - 0.10.0
+    libfabric:
+      version:
+      - 1.12.1
+      variants: fabrics=sockets,tcp,udp,rxm
+    libiconv:
+      version:
+      - 1.16
+    libsigsegv:
+      version:
+      - 2.13
+    libpciaccess:
+      version:
+      - 0.16
+    libtool:
+      version:
+      - 2.4.6
+    libunwind:
+      version:
+      - 1.5.0
+      variants: +pic +xz
+    libxml2:
+      version:
+      - 2.9.10
+    lz4:
+      version:
+      - 1.9.3
+    m4:
+      version:
+      - 1.4.19
+    mesa:
+      variants: ~llvm
+    mesa18:
+      variants: ~llvm
+    ncurses:
+      version:
+      - 6.2
+      variants: +termlib
+    numactl:
+      version:
+      - 2.0.14
+    openblas:
+      version:
+      - 0.3.17
+      variants: threads=openmp
+    openssl:
+      version:
+      - 1.1.1k
+    perl:
+      version:
+      - 5.32.0
+    pkgconf:
+      version:
+      - 1.7.4
+    python:
+      version:
+      - 3.8.10
+    readline:
+      version:
+      - 8.1
+    sqlite:
+      version:
+      - 3.35.5
+    tar:
+      version:
+      - 1.34
+    trilinos:
+      version:
+      - 13.0.1
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    texinfo:
+      version:
+      - 6.5
+    xz:
+      version:
+      - 5.2.5
+      variants: +pic
+    zlib:
+      version:
+      - 1.2.11
+    zstd:
+      version:
+      - 1.5.0
+
+  definitions:
+  - e4s-specs:
+    - adios2@2.7.1
+    - adios@1.13.1
+    - aml@0.1.0
+    - amrex@21.08
+    - arborx@1.0
+    - argobots@1.1
+    - bolt@2.0
+    - cabana@0.3.0
+    - caliper@2.6.0
+    - chai@2.3.0 ~benchmarks ~tests ^umpire@4.1.2
+    - charliecloud@0.24
+    - conduit@0.7.2
+    - darshan-runtime@3.3.1
+    - darshan-util@3.3.1
+    - faodel@1.1906.1
+    - flecsi@1.4.2
+    - flit@2.1.0
+    - gasnet@2021.3.0
+    - ginkgo@1.3.0
+    - globalarrays@5.8
+    - gotcha@1.0.3
+    - hdf5@1.12.0
+    - heffte@2.1.0 +fftw
+    - hypre@2.22.0
+    - kokkos-kernels@3.2.00 +openmp
+    - kokkos@3.4.00 +openmp
+    - legion@21.03.0
+    - libnrm@0.1.0
+    - libquo@1.3.1
+    - libunwind@1.5.0
+    - loki@0.1.7
+    - mercury@2.0.1
+    - metall@0.15
+    - mfem@4.3.0
+    - mpark-variant@1.4.0
+    - netlib-scalapack@2.1.0
+    - ninja@1.10.2
+    - nvhpc@21.7
+    - openmpi@4.1.1
+    - openpmd-api@0.13.4 ^hdf5@1.12.0 +fortran +shared +hl api=default
+    - papi@6.0.0.1
+    - papyrus@1.0.1
+    - parallel-netcdf@1.12.2
+    - parsec@3.0.2012 ~cuda
+    - pdt@3.25.1
+    - pumi@2.2.6
+    - py-libensemble@0.7.2
+    - qthreads@1.16 scheduler=distrib
+    - raja@0.13.0
+    - rempi@1.1.0
+    - scr@3.0rc1
+    - stc@0.9.0
+    - strumpack@5.1.1 ~slate
+    - sundials@5.7.0
+    - superlu-dist@6.4.0
+    - superlu@5.2.2
+    - swig@4.0.2
+    - swig@4.0.2-fortran
+    - sz@2.1.12
+    - tasmanian@7.5
+    - tau@2.30.1
+    - tau@2.30.2
+    - turbine@1.3.0
+    - umap@2.1.0
+    - umpire@4.1.2
+    - veloc@1.4
+    - vtk-m@1.6.0
+    - zfp@0.5.5
+    #- archer # https://github.com/spack/spack/issues/25050
+    #- ascent@0.7.1
+    #- axom@0.5.0 ^umpire@4.1.2
+    #- datatransferkit@3.1-rc2
+    #- flux-core@0.28.0
+    #- fortrilinos@2.0.0
+    #- hpx@1.7.1
+    #- mpifileutils@0.11 ~xattr
+    #- nrm@0.1.0
+    #- omega-h@9.32.5
+    #- petsc@3.15.3
+    #- phist@1.9.4
+    #- precice@2.2.1
+    #- py-jupyterhub@1.0.0
+    #- py-petsc4py@3.15.3
+    #- py-warpx@21.08 ^warpx dims=2 ^hdf5@1.12.0 +fortran +shared +hl api=default
+    #- py-warpx@21.08 ^warpx dims=3 ^hdf5@1.12.0 +fortran +shared +hl api=default
+    #- py-warpx@21.08 ^warpx dims=rz ^hdf5@1.12.0 +fortran +shared +hl api=default
+    #- slepc@3.15.1
+    #- stat
+    #- trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    #- unifyfs@0.9.1
+    #- upcxx@2021.3.0
+    #- variorum
+
+  specs:
+  - $e4s-specs
