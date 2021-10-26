@@ -1,7 +1,6 @@
 # Variables can be overridden from gitlab when runninging manually
 variables:
   JLSE_SCHEDULER_PARAMETERS: "-A Operations -n 1 -t 10 -q arcticus"
-  SPACK_REPOSITORY: https://github.com/spack/spack.git
   SPACK_REF: e4s-21.05 
 #  SPACK_INSTALLATION: /soft/ecp/spack/e4s-21.05
   SPACK_INSTALLATION: https://github.com/spack/spack.git 
@@ -104,7 +103,6 @@ deploy:
     - mkdir -p ${SPACK_DEPLOY_DIR}
     - cd ${SPACK_DEPLOY_DIR}
     - rm -rf spack-deploy
-#    - git clone ${SPACK_REPOSITORY} -b ${SPACK_REF}
     - git clone -b ${SPACK_REF} --single-branch --depth=1 ${SPACK_INSTALLATION} spack-deploy
     - cd spack-deploy
     - source share/spack/setup-env.sh
