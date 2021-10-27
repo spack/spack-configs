@@ -1,4 +1,10 @@
 spack:
+  include:
+  - site-config/compilers.yaml
+  - site-config/config.yaml
+  - site-config/mirrors.yaml
+  - site-config/modules.yaml
+  - site-config/packages.yaml
   view: false
   concretization: separately
   packages:
@@ -125,33 +131,7 @@ spack:
       version: [1.2.11]
     zstd:
       version: [1.5.0]
-  compilers:
-  - compiler:
-      spec: gcc@9.3.0
-      paths:
-        cc: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/gcc
-        cxx: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/g++
-        f77: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/gfortran
-        fc: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/gfortran
-      flags: {}
-      operating_system: opensuse_leap15
-      target: x86_64
-      modules: []
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: oneapi@2021.4.0
-      paths:
-        cc: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-7.5.0/intel-oneapi-compilers-2021.4.0-zjplphgr4rhii4ihcadnkwvnx7ycewyb/compiler/latest/linux/bin/icx
-        cxx: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-7.5.0/intel-oneapi-compilers-2021.4.0-zjplphgr4rhii4ihcadnkwvnx7ycewyb/compiler/latest/linux/bin/icpx
-        f77: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-7.5.0/intel-oneapi-compilers-2021.4.0-zjplphgr4rhii4ihcadnkwvnx7ycewyb/compiler/latest/linux/bin/ifx
-        fc: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/gcc-7.5.0/intel-oneapi-compilers-2021.4.0-zjplphgr4rhii4ihcadnkwvnx7ycewyb/compiler/latest/linux/bin/ifx
-      flags: {}
-      operating_system: opensuse_leap15
-      target: x86_64
-      modules: []
-      environment: {}
-      extra_rpaths: []
+
   definitions:
   - cuda_specs:
     - amrex +cuda cuda_arch=70
@@ -191,7 +171,10 @@ spack:
 
   - oneapi_specs:
     - papi@6.0.0.1
-    - parallel-netcdf@1.12.2
+    # configure fails:
+    #   checking if Fortran "integer*1" is ... configure: error: Could not link conftestf.o and conftest.o
+    # - parallel-netcdf@1.12.2
+    - parallel-netcdf@1.12.2^intel-oneapi-mpi
     - parsec@3.0.2012 ~cuda
 
   - aux_specs:
