@@ -308,3 +308,37 @@ spack:
   - matrix:
     - [$oneapi_specs]
     - ['%oneapi']
+  gitlab-ci:
+    rebuild-index: False
+    mappings:
+    - match: [os=opensuse_leap15]
+      runner-attributes:
+        tags:
+#        - batch
+        - shell
+        variables:
+          SPACK_INSTALLATION: $env:SPACK_INSTALLATION
+          WORKING_DIR: $env:WORKING_DIR
+          SPACK_GNUPGHOME: /home/willmore/spack-gnupg
+#/soft/ecp/mirrors/gpg
+        script:
+        - hostname
+        - id
+        - rm -rf ~/.spack/
+        - cd ${WORKING_DIR}
+        - pwd
+        # Do we really need this? Each CI job goes in its own directory
+        - . setclonepath.sh
+        - git clone --branch e4s-21.08 --single-branch --depth=1 ${SPACK_INSTALLATION} ${SPACK_CLONE_PATH}
+        - . ${SPACK_CLONE_PATH}/share/spack/setup-env.sh
+        - which spack
+        - spack -V
+        - spack env activate .
+        - spack gpg list
+        - spack -d ci rebuild
+        - rm -rf ${SPACK_CLONE_PATH}
+#    final-stage-rebuild-index:
+#      tags: 
+#      - shell
+  mirrors:
+    arcticus-e4s-21.08: file:///soft/ecp/mirrors/arcticus-e4s-21.08
