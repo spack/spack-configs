@@ -171,8 +171,7 @@ spack:
 
   - cuda_specs:
 #    - amrex@21.05 +cuda cuda_arch=70
-# building this spec consistently hits 'no spack on device' when run from /tmp, and causes timeouts when building on NFS.
-# It can be built by hand in isolation but consistently causes filesystem issues when building in CI.
+# skipping because the rebuild phase consistently exhausts filesystem capacity
     - axom@0.5.0 +cuda cuda_arch=70 ^umpire~shared
     - caliper@2.5.0 +cuda cuda_arch=70
     - chai@2.3.0 +cuda ~benchmarks ~tests cuda_arch=70 ^umpire~shared
@@ -372,42 +371,41 @@ spack:
 # ==> Warning: Skipping build of plasma-20.9.20-6ydl7mirtjqszw3wsnyjsv2w4nvx36dn since openblas-0.3.10-hhkut7o6zuilwqxcz7uwc6pecm25cjim failed
 
   specs:
-  - $cuda_specs
-  - $rocm_specs
+#  - $cuda_specs
+#  - $rocm_specs
   - $default_specs
 
-  gitlab-ci:
-    rebuild-index: False
-    mappings:
-    - match: [os=opensuse_leap15]
-      runner-attributes:
-        tags:
-#        - batch
-        - shell
-        variables:
-          SPACK_INSTALLATION: $env:SPACK_INSTALLATION
-          WORKING_DIR: $env:WORKING_DIR
-          SPACK_GNUPGHOME: /home/willmore/spack-gnupg
-#/soft/ecp/mirrors/gpg
-        script:
-        - hostname
-        - id
-        - rm -rf ~/.spack/
-        - cd ${WORKING_DIR}
-        - pwd
-        # Do we really need this? Each CI job goes in its own directory
-        - . setclonepath.sh
-        - git clone --branch e4s-21.05 --single-branch --depth=1 ${SPACK_INSTALLATION} ${SPACK_CLONE_PATH}
-        - . ${SPACK_CLONE_PATH}/share/spack/setup-env.sh
-        - which spack
-        - spack -V
-        - spack env activate .
-        - spack gpg list
-        - spack -d ci rebuild
-        - rm -rf ${SPACK_CLONE_PATH}
-#    final-stage-rebuild-index:
-#      tags: 
-#      - shell
   mirrors:
     arcticus-e4s-21.05: file:///soft/ecp/mirrors/arcticus-e4s-21.05
+
+  modules:
+    enable:
+    - tcl
+    tcl:
+      blacklist_implicits: true
+      hash_length: 0
+      naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
+      all:
+        conflict:
+        - '{name}'
+        environment:
+          set:
+            '{name}_ROOT': '{prefix}'
+      darshan-runtime:
+        conflict:
+        - 'darshan'
+      darshan-util:
+        conflict:
+        - 'darshan'
+      projections:
+        all: '{name}/{version}-{compiler.name}-{compiler.version}'
+
+  config:
+    install_tree:
+#      root: /global/common/software/spackecp/e4s-21.02/software
+      root: /soft/ecp/deploy/e4s-21.05/opt
+    module_roots:
+#      tcl: /global/common/software/spackecp/e4s-21.02/modules/
+      tcl: /soft/ecp/deploy/e4s-21.05/modules
+    build_stage: $tempdir/user/spack-stage
 
