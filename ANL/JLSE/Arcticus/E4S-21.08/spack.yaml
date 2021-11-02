@@ -328,9 +328,10 @@ spack:
         - cd ${WORKING_DIR}
         - pwd
         # Do we really need this? Each CI job goes in its own directory
-        - . setclonepath.sh
-        - git clone --branch e4s-21.08 --single-branch --depth=1 ${SPACK_INSTALLATION} ${SPACK_CLONE_PATH}
-        - . ${SPACK_CLONE_PATH}/share/spack/setup-env.sh
+        # - . setclonepath.sh
+        # - git clone --branch e4s-21.08 --single-branch --depth=1 ${SPACK_INSTALLATION} ${SPACK_CLONE_PATH}
+        # - . ${SPACK_CLONE_PATH}/share/spack/setup-env.sh
+        - . /soft/ecp/spack/e4s-21.08/share/spack/setup-env.sh
         - which spack
         - spack -V
         - spack env activate .
