@@ -2,7 +2,7 @@ spack:
   include:
   - site-config/compilers.yaml
   - site-config/config.yaml
-  - site-config/mirrors.yaml
+#  - site-config/mirrors.yaml
   - site-config/modules.yaml
   - site-config/packages.yaml
   view: false
@@ -342,5 +342,5 @@ spack:
 #    final-stage-rebuild-index:
 #      tags: 
 #      - shell
-#  mirrors::
-#    arcticus-e4s-21.08: file:///soft/ecp/mirrors/arcticus-e4s-21.08
+  mirrors::
+    arcticus-e4s-21.08: file:///soft/ecp/mirrors/arcticus-e4s-21.08
