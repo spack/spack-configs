@@ -63,7 +63,7 @@ generate-spack-pipeline:
   - spack config blame mirrors
   - spack mirror list
   - spack clean -m
-  - spack buildcache list -L --allarch
+#FTW  - spack buildcache list -L --allarch
   - spack concretize -f 2>&1 
   - \[ "${CREATE_SOURCE_MIRROR}" == "True" \] && spack mirror create -d ${SPACK_MIRROR} --all
 # remove a spec to force this pipeline stage to run  
