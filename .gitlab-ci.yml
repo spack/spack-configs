@@ -59,7 +59,7 @@ generate-spack-pipeline:
   - spack env st
   - export SPACK_GNUPGHOME=$HOME/spack-gnupg
   - spack gpg list
-  - rm -f ${SPACK_ROOT}/etc/spack/defaults/mirrors.yaml
+#FTW  - rm -f ${SPACK_ROOT}/etc/spack/defaults/mirrors.yaml
   - spack config blame mirrors
   - spack mirror list
   - spack clean -m
