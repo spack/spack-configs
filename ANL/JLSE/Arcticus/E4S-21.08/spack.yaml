@@ -332,8 +332,8 @@ spack:
 #        - . setclonepath.sh
 #        - echo "got SPACK_CLONE_PATH=${SPACK_CLONE_PATH}"
         - SPACK_CLONE_PATH=`mktemp`
-        - git clone --branch e4s-21.08 --single-branch --depth=1 ${SPACK_INSTALLATION} ${SPACK_CLONE_PATH}
-        - . ${SPACK_CLONE_PATH}/share/spack/setup-env.sh
+        - git clone --branch e4s-21.08 --single-branch --depth=1 ${SPACK_INSTALLATION} ${SPACK_CLONE_PATH}/spack
+        - . ${SPACK_CLONE_PATH}/spack/share/spack/setup-env.sh
         - which spack
         - spack -V
         - spack env activate .
