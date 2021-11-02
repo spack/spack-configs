@@ -71,7 +71,7 @@ generate-spack-pipeline:
   - spack buildcache update-index -d ${SPACK_MIRROR}
   - spack ci generate --dependencies --optimize  --output-file ${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml  
   - echo ">>>>>> dumping pipeline:"
-  - cat jobs_scratch_dir/pipeline.yml
+  - cat ${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml
   after_script:
   # Remove the spack clone 
   - rm -rf ${SPACK_ROOT}
