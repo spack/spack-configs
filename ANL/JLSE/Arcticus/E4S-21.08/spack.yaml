@@ -324,6 +324,7 @@ spack:
         - rm -rf ~/.spack/
         - cd ${WORKING_DIR}
         - pwd
+        - echo "SPACK_CONCRETE_ENV_DIR=$SPACK_CONCRETE_ENV_DIR"
         # Do we really need this? Each CI job goes in its own directory
 #        - . setclonepath.sh
 #        - echo "got SPACK_CLONE_PATH=${SPACK_CLONE_PATH}"
