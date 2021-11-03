@@ -323,9 +323,8 @@ spack:
         - pwd
         - ls
         - rm -rf ~/.spack/
-        - cd ${WORKING_DIR}
+#        - cd ${WORKING_DIR}
         - echo ${SPACK_CONCRETE_ENV_DIR}
-        - ls
         # Do we really need this? Each CI job goes in its own directory
 #        - . setclonepath.sh
 #        - echo "got SPACK_CLONE_PATH=${SPACK_CLONE_PATH}"
@@ -338,8 +337,9 @@ spack:
 #        - cp ${SITE_CONFIG}/*.yaml ${SPACK_CLONE_PATH}/etc/spack
         - which spack
         - spack -V
-        - cd ${SPACK_CONCRETE_ENV_DIR}
-        - spack env activate .
+        - spack env activate ${SPACK_CONCRETE_ENV_DIR}
+#        - cd ${SPACK_CONCRETE_ENV_DIR}
+#        - spack env activate .
         - spack gpg list
         - spack -d ci rebuild
 #        - rm -rf ${SPACK_CLONE_PATH}
