@@ -1,10 +1,13 @@
 spack:
-#  include:
-  - site-config/compilers.yaml
-#  - site-config/config.yaml
-##  - site-config/mirrors.yaml
-  - site-config/modules.yaml
-  - site-config/packages.yaml
+  include:
+  - site_config/compilers.yaml
+
+
+  
+#  - site_config/config.yaml
+##  - site_config/mirrors.yaml
+  - site_config/modules.yaml
+  - site_config/packages.yaml
   view: false
   concretization: separately
   packages:
@@ -131,7 +134,6 @@ spack:
       version: [1.2.11]
     zstd:
       version: [1.5.0]
-
   definitions:
   - cuda_specs:
     - amrex +cuda cuda_arch=70
@@ -171,6 +173,9 @@ spack:
 
   - oneapi_specs:
     - papi@6.0.0.1
+
+
+    
     # For parallel-netcdf, there appears to be an issue with how the package is engaging MPI. This package appears to follow protocol #2 here: https://spack.readthedocs.io/en/latest/packaging_guide.html?highlight=cray#mpi-support-in-spack
     # There is an erroneous '-rpath' being passed through to the compiler, causing configure to fail:
     # ... 
@@ -309,11 +314,12 @@ spack:
 #    - [$oneapi_specs]
 #    - ['%oneapi']
   gitlab-ci:
-    rebuild-index: False
+    rebuild-index: false
     mappings:
     - match: [os=opensuse_leap15]
       runner-attributes:
         tags:
+        
 #        - batch
         - shell
         variables:
@@ -321,13 +327,15 @@ spack:
           WORKING_DIR: $env:WORKING_DIR
           SPACK_GNUPGHOME: /home/willmore/spack-gnupg
           SITE_CONFIG: $env:SITE_CONFIG
-#/soft/ecp/mirrors/gpg
         script:
         - hostname
         - id
         - rm -rf ~/.spack/
         - cd ${WORKING_DIR}
         - pwd
+
+
+        
         # Do we really need this? Each CI job goes in its own directory
 #        - . setclonepath.sh
 #        - echo "got SPACK_CLONE_PATH=${SPACK_CLONE_PATH}"
@@ -335,6 +343,9 @@ spack:
 #        - SPACK_CLONE_PATH=`mktemp -d`
 #        - git clone --branch e4s-21.08 --single-branch --depth=1 ${SPACK_INSTALLATION} ${SPACK_CLONE_PATH}
         - . ${SPACK_INSTALLATION}/share/spack/setup-env.sh
+
+
+        
 #        - echo "copying site config:"
 #        - ls ${SITE_CONFIG}
 #        - cp ${SITE_CONFIG}/*.yaml ${SPACK_CLONE_PATH}/etc/spack
