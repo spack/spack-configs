@@ -55,7 +55,7 @@ generate-spack-pipeline:
   - echo ${CI_PROJECT_DIR}
   - pwd
   - ls
-  - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
+#  - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
 
   script:
 # This is done in before script... verify then delete this
@@ -68,7 +68,8 @@ generate-spack-pipeline:
   - which spack
   # Purge local settings
   - rm -rf $HOME/.spack
-  - spack env activate .
+#  - spack env activate .
+  - spack env activate ${WORKING_DIR}
   - spack env st
   - export SPACK_GNUPGHOME=$HOME/spack-gnupg
   - spack gpg list
