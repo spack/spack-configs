@@ -84,18 +84,17 @@ generate-spack-pipeline:
   # First time we run the pipeline, we might want to override this 
   # to create a source mirror.
   - \[ "${CREATE_SOURCE_MIRROR}" == "True" \] && spack mirror create -d ${SPACK_MIRROR} --all
-# remove a spec to force this pipeline stage to run  
-#  - rm -f ${SPACK_MIRROR}/build_cache/linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spec.yaml
+  # remove a spec to force this pipeline stage to run  
   - rm -f ${SPACK_MIRROR}/build_cache/linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spec.yaml
   - spack buildcache update-index -d ${SPACK_MIRROR}
   - spack ci generate --dependencies --optimize  --output-file ${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml --artifacts-root ${CI_PROJECT_DIR}/artifacts_root
   - echo "Dumping generateed CI:"
-  - cat ${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml
+  - cat jobs_scratch_dir/pipeline.yml
 #  after_script:
 #  - rm -rf ${SPACK_ROOT}
   artifacts:
     paths:
-    - ${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml    
+    - jobs_scratch_dir/pipeline.yml    
 
 build-e4s:
   stage: build
@@ -106,7 +105,7 @@ build-e4s:
 #      - ${WORKING_DIR}/spack.yaml
   trigger:
     include:
-    - artifact: "${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml"
+    - artifact: "jobs_scratch_dir/pipeline.yml"
       job: generate-spack-pipeline
     strategy: depend
 
