@@ -321,6 +321,8 @@ spack:
         script:
         - hostname
         - id
+        - pwd
+        - ls
         - rm -rf ~/.spack/
         - cd ${WORKING_DIR}
         - echo ${SPACK_CONCRETE_ENV_DIR}
