@@ -1,0 +1,15 @@
+# der_komissar.yaml
+compilers:
+- compiler:
+    spec: gcc@9.3.0
+    paths:
+      cc: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/gcc
+      cxx: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/g++
+      f77: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/gfortran
+      fc: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/gfortran
+    flags: {}
+    operating_system: opensuse_leap15
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []

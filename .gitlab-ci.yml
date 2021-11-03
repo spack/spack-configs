@@ -1,13 +1,13 @@
 # Variables can be overridden from gitlab when runninging manually
 variables:
   JLSE_SCHEDULER_PARAMETERS: "-A Operations -n 1 -t 10 -q arcticus"
-  SPACK_REF: e4s-21.08 
+  SPACK_REF: e4s-21.05 
+#  SPACK_INSTALLATION: /soft/ecp/spack/e4s-21.05
   SPACK_INSTALLATION: https://github.com/spack/spack.git 
-  WORKING_DIR: ANL/JLSE/Arcticus/E4S-21.08
-  SPACK_MIRROR: /soft/ecp/mirrors/arcticus-e4s-21.08
-#  SPACK_DEPLOY_DIR: /soft/ecp/deploy/e4s-21.08
-  SPACK_DEPLOY_DIR: /tmp/deploy/e4s-21.08
-  SITE_CONFIG: /soft/ecp/spack-configs/ANL/JLSE/Arcticus/E4S-21.08/site-config
+  WORKING_DIR: ANL/JLSE/Arcticus/E4S-21.05
+  SPACK_MIRROR: /soft/ecp/mirrors/arcticus-e4s-21.05
+#  SPACK_DEPLOY_DIR: /soft/ecp/deploy/e4s-21.05
+  SPACK_DEPLOY_DIR: /tmp/deploy/e4s-21.05
   # These vals are defaults and may be set on a per-run basis
   REMOVE_BUILDCACHE: "False"
   BUILD_E4S: "True"
@@ -44,16 +44,13 @@ generate-spack-pipeline:
   before_script:
   - hostname  
   - pwd
-  - git clone --branch e4s-21.08 --single-branch --depth=1 ${SPACK_INSTALLATION} spack-generate
+  - git clone --branch e4s-21.05 --single-branch --depth=1 ${SPACK_INSTALLATION} spack-generate
   - cd spack-generate  
   - git log  --oneline -1
   - . share/spack/setup-env.sh
   - which spack
   - spack -V
   - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
-  - echo "copying site-config"
-  - ls ${SITE_CONFIG}/*.yaml 
-  - cp ${SITE_CONFIG}/*.yaml ${CI_PROJECT_DIR}/spack-generate/etc/spack
 
   script:
   - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
@@ -63,21 +60,18 @@ generate-spack-pipeline:
   - spack env st
   - export SPACK_GNUPGHOME=$HOME/spack-gnupg
   - spack gpg list
-#FTW  - rm -f ${SPACK_ROOT}/etc/spack/defaults/mirrors.yaml
+  - rm -f ${SPACK_ROOT}/etc/spack/defaults/mirrors.yaml
   - spack config blame mirrors
   - spack mirror list
   - spack clean -m
-#FTW  - spack buildcache list -L --allarch
+  - spack buildcache list -L --allarch
   - spack concretize -f 2>&1 
   - \[ "${CREATE_SOURCE_MIRROR}" == "True" \] && spack mirror create -d ${SPACK_MIRROR} --all
 # remove a spec to force this pipeline stage to run  
 #  - rm -f ${SPACK_MIRROR}/build_cache/linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spec.yaml
   - spack buildcache update-index -d ${SPACK_MIRROR}
   - spack ci generate --dependencies --optimize  --output-file ${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml  
-  - echo ">>>>>> dumping pipeline:"
-  - cat ${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml
   after_script:
-  # Remove the spack clone 
   - rm -rf ${SPACK_ROOT}
   artifacts:
     paths:

@@ -1,0 +1,45 @@
+# der_komissar.yaml
+compilers:
+- compiler:
+    spec: gcc@9.3.0
+    paths:
+      cc: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/gcc
+      cxx: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/g++
+      f77: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/gfortran
+      fc: /soft/packaging/spack-builds/linux-rhel7-x86_64/gcc-9.3.0/gcc-9.3.0-qfmcwfbuvnpn47zxjzfjvodzjl6reerh/bin/gfortran
+    flags: {}
+    operating_system: opensuse_leap15
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
+mirrors:
+  arcticus-e4s-21.05: file:///soft/ecp/mirrors/arcticus-e4s-21.05
+#  E4S: https://cache.e4s.io
+modules:
+  enable:
+  - tcl
+  tcl:
+    blacklist_implicits: true
+    hash_length: 0
+    naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
+    all:
+      conflict:
+      - '{name}'
+      environment:
+        set:
+          '{name}_ROOT': '{prefix}'
+    darshan-runtime:
+      conflict:
+      - 'darshan'
+    darshan-util:
+      conflict:
+      - 'darshan'
+    projections:
+      all: '{name}/{version}-{compiler.name}-{compiler.version}'
+config:
+  install_tree:
+    padded_length: 127
+  build_stage: $spack/spack-stage
+  misc_cache: $spack/misc_cache
+
