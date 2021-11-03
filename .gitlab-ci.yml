@@ -95,7 +95,7 @@ generate-spack-pipeline:
 #  - rm -rf ${SPACK_ROOT}
   artifacts:
     paths:
-    - jobs_scratch_dir/pipeline.yml    
+    - ${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml    
 
 build-e4s:
   stage: build
