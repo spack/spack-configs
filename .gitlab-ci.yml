@@ -52,11 +52,17 @@ generate-spack-pipeline:
   # Verify location and version
   - which spack
   - spack -V
+  - echo ${CI_PROJECT_DIR}
+  - pwd
+  - ls
   - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
 
   script:
 # This is done in before script... verify then delete this
 #  - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
+  - echo ${CI_PROJECT_DIR}
+  - pwd
+  - ls
   - pwd
 # verify we're stull using the right spack
   - which spack
