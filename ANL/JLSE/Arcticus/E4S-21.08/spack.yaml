@@ -1,10 +1,10 @@
 spack:
-  include:
-  - site-config/compilers.yaml
-  - site-config/config.yaml
-#  - site-config/mirrors.yaml
-  - site-config/modules.yaml
-  - site-config/packages.yaml
+#  include:
+#  - site-config/compilers.yaml
+#  - site-config/config.yaml
+##  - site-config/mirrors.yaml
+#  - site-config/modules.yaml
+#  - site-config/packages.yaml
   view: false
   concretization: separately
   packages:
@@ -321,6 +321,7 @@ spack:
           SPACK_INSTALLATION: $env:SPACK_INSTALLATION
           WORKING_DIR: $env:WORKING_DIR
           SPACK_GNUPGHOME: /home/willmore/spack-gnupg
+          SITE_CONFIG: $env:SITE_CONFIG
 #/soft/ecp/mirrors/gpg
         script:
         - hostname
@@ -334,6 +335,9 @@ spack:
         - SPACK_CLONE_PATH=`mktemp -d`
         - git clone --branch e4s-21.08 --single-branch --depth=1 ${SPACK_INSTALLATION} ${SPACK_CLONE_PATH}
         - . ${SPACK_CLONE_PATH}/share/spack/setup-env.sh
+        - echo "copying site config:"
+        - ls ${SITE_CONFIG}
+        - cp ${SITE_CONFIG}/*.yaml ${SPACK_CLONE_PATH}/etc/spack
         - which spack
         - spack -V
         - spack env activate .

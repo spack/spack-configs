@@ -7,6 +7,7 @@ variables:
   SPACK_MIRROR: /soft/ecp/mirrors/arcticus-e4s-21.08
 #  SPACK_DEPLOY_DIR: /soft/ecp/deploy/e4s-21.08
   SPACK_DEPLOY_DIR: /tmp/deploy/e4s-21.08
+  SITE_CONFIG: /soft/ecp/spack-configs/ANL/JLSE/Arcticus/E4S-21.08/site-config
   # These vals are defaults and may be set on a per-run basis
   REMOVE_BUILDCACHE: "False"
   BUILD_E4S: "True"
@@ -50,6 +51,9 @@ generate-spack-pipeline:
   - which spack
   - spack -V
   - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
+  - echo "copying site-config"
+  - ls ${SITE-CONFIG}/*.yaml 
+  - cp ${SITE-CONFIG}/*.yaml ${CI_PROJECT_DIR}/spack-generate/etc/spack
 
   script:
   - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
