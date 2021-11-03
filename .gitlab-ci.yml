@@ -52,8 +52,8 @@ generate-spack-pipeline:
   - spack -V
   - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
   - echo "copying site-config"
-  - ls ${SITE-CONFIG}/*.yaml 
-  - cp ${SITE-CONFIG}/*.yaml ${CI_PROJECT_DIR}/spack-generate/etc/spack
+  - ls ${SITE_CONFIG}/*.yaml 
+  - cp ${SITE_CONFIG}/*.yaml ${CI_PROJECT_DIR}/spack-generate/etc/spack
 
   script:
   - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
