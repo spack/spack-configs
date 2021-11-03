@@ -106,7 +106,7 @@ build-e4s:
 #      - ${WORKING_DIR}/spack.yaml
   trigger:
     include:
-    - artifact: "jobs_scratch_dir/pipeline.yml"
+    - artifact: "${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml"
       job: generate-spack-pipeline
     strategy: depend
 
