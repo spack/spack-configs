@@ -6,217 +6,107 @@ spack:
   packages:
     all:
       compiler:
-        - gcc@9.3.0
+      - gcc@9.3.0
       providers:
         blas:
-          - openblas
+        - openblas
         mpi:
-          - mpich
+        - mpich
       target:
-        - x86_64
+      - x86_64
       variants: +mpi
-    autoconf:
-      version:
-      - '2.69'
-    automake:
-      version:
-      - 1.16.3
-    berkeley-db:
-      version:
-      - 18.1.40
     binutils:
       variants: +ld +gold +headers +libiberty ~nls +plugins
       version:
       - 2.36.1
     boost:
-      version:
-      - 1.76.0
       variants: visibility=global
-    bzip2:
-      version:
-      - 1.0.8
-    c-blosc:
-      version:
-      - 1.21.0
-    cmake:
-      version:
-      - 3.20.5
-    curl:
-      version:
-      - 7.76.1
-    diffutils:
-      version:
-      - 3.7
     doxygen:
       version:
       - 1.8.20
     elfutils:
-      version:
-      - 0.185
       variants: +bzip2 ~nls +xz
-    expat:
-      version:
-      - 2.4.1
     fftw:
       variants: +openmp
-    findutils:
-      version:
-      - 4.8.0
-    gdbm:
-      version:
-      - 1.19
-    gettext:
-      version:
-      - 0.21
-    git:
-      version:
-      - 2.31.1
-    glib:
-      version:
-      - 2.68.2
     hdf5:
       variants: +fortran +hl +shared api=v18
       version:
-      - 1.12.0
-    help2man:
-      version:
-      - 1.47.16
-    hwloc:
-      version:
-      - 2.4.1
-    json-c:
-      version:
-      - 0.15
-    libbsd:
-      version:
-      - 0.11.3
-    libfabric:
-      version:
       - 1.12.1
+    libfabric:
       variants: fabrics=sockets,tcp,udp,rxm
-    libiconv:
-      version:
-      - 1.16
-    libsigsegv:
-      version:
-      - 2.13
-    libpciaccess:
-      version:
-      - 0.16
-    libtool:
-      version:
-      - 2.4.6
     libunwind:
-      version:
-      - 1.5.0
       variants: +pic +xz
-    libxml2:
-      version:
-      - 2.9.10
-    lz4:
-      version:
-      - 1.9.3
-    m4:
-      version:
-      - 1.4.19
     mesa:
       variants: ~llvm
     mesa18:
       variants: ~llvm
     mpich:
       variants: ~wrapperrpath
-      version:
-      - 3.4.2
     ncurses:
-      version:
-      - 6.2
       variants: +termlib
-    numactl:
-      version:
-      - 2.0.14
     openblas:
-      version:
-      - 0.3.17
       variants: threads=openmp
-    openssl:
-      version:
-        - 1.1.1k
-    perl:
-      version:
-      - 5.34.0
-    pkgconf:
-      version:
-      - 1.7.4
-    python:
-      version:
-      - 3.8.10
-    readline:
-      version:
-      - 8.1
-    sqlite:
-      version:
-      - 3.35.5
-    tar:
-      version:
-      - 1.34
     trilinos:
-      version:
-      - 13.0.1
-      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
-    texinfo:
-      version:
-      - 6.5
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
     xz:
-      version:
-      - 5.2.5
       variants: +pic
-    zlib:
-      version:
-      - 1.2.11
-    zstd:
-      version:
-      - 1.5.0
 
   definitions:
-
   - compilers:
-    - gcc@10.2.0
+    - gcc@11.2.0
 
   - cuda_specs:
-    - amrex +cuda cuda_arch=70
-    - caliper +cuda cuda_arch=70
-    - chai +cuda ~benchmarks ~tests cuda_arch=70 ^umpire@4.1.2 ~shared
-    - ginkgo +cuda cuda_arch=70
-    - hpx +cuda cuda_arch=70
-    - hypre +cuda cuda_arch=70
-    - kokkos +cuda +wrapper cuda_arch=70
-    - kokkos-kernels +cuda cuda_arch=70 ^kokkos +cuda +wrapper cuda_arch=70
-    - magma +cuda cuda_arch=70
-    - mfem +cuda cuda_arch=70
-    - parsec +cuda cuda_arch=70
-    - raja +cuda cuda_arch=70
-    - slate +cuda cuda_arch=70
-    - strumpack +cuda ~slate cuda_arch=70
-    - sundials +cuda cuda_arch=70
-    - superlu-dist +cuda cuda_arch=70
-    - tasmanian +cuda cuda_arch=70
-    - umpire@4.1.2 +cuda ~shared cuda_arch=70
-    - zfp +cuda cuda_arch=70
-    #- ascent +cuda ~shared cuda_arch=70
-    #- axom +cuda cuda_arch=70 ^umpire@4.1.2 ~shared
-    #- paraview +cuda ~shared cuda_arch=70
+    - amrex +cuda cuda_arch=80
+    - caliper +cuda cuda_arch=80
+    - chai ~benchmarks ~tests +cuda cuda_arch=80 ^umpire ~shared
+    - flecsi +cuda cuda_arch=80
+    - ginkgo +cuda cuda_arch=80
+    - heffte +cuda cuda_arch=80
+    - hpx +cuda cuda_arch=80
+    - hypre +cuda cuda_arch=80
+    - kokkos +wrapper +cuda cuda_arch=80
+    - kokkos-kernels +cuda cuda_arch=80 ^kokkos +wrapper +cuda cuda_arch=80
+    - magma +cuda cuda_arch=80
+    - mfem +cuda cuda_arch=80
+    - parsec +cuda cuda_arch=80
+    - petsc +cuda cuda_arch=80
+    - raja +cuda cuda_arch=80
+    - slate +cuda cuda_arch=80
+    - slepc +cuda cuda_arch=80
+    - strumpack ~slate +cuda cuda_arch=80
+    - sundials +cuda cuda_arch=80
+    - superlu-dist +cuda cuda_arch=80
+    - tasmanian +cuda cuda_arch=80
+    - trilinos@13.2.0 +cuda cuda_arch=80
+    - umpire ~shared +cuda cuda_arch=80
+    - vtk-m +cuda cuda_arch=80
+    - zfp +cuda cuda_arch=80
+   #- ascent ~shared +cuda cuda_arch=80
+   #- axom +cuda cuda_arch=80 ^umpire ~shared
+   #- dealii +cuda cuda_arch=80 # gmsh
+   #- paraview +cuda cuda_arch=80
 
   - rocm_specs:
-    - kokkos +rocm amdgpu_target=gfx906
-    #- strumpack +rocm ~slate amdgpu_target=gfx906 ^rocsolver build_type=Release
-    #- amrex +rocm amdgpu_target=gfx906
-    #- chai +rocm ~benchmarks amdgpu_target=gfx906
-    #- ginkgo +rocm amdgpu_target=gfx906 # needs hip<4.1
-    #- raja +rocm ~openmp amdgpu_target=gfx906 # blt 0.3.6 issue with rocm
-    #- slate +rocm amdgpu_target=gfx906
-    #- sundials +rocm amdgpu_target=gfx906
-    #- tasmanian +rocm amdgpu_target=gfx906
-    #- umpire+rocm amdgpu_target=gfx906 # blt 0.3.6 issue with rocm
+    - amrex +rocm amdgpu_target=gfx908
+    - ginkgo +rocm amdgpu_target=gfx908
+    - heffte +rocm amdgpu_target=gfx908
+    - kokkos +rocm amdgpu_target=gfx908
+    - magma +rocm amdgpu_target=gfx908
+    - mfem +rocm amdgpu_target=gfx908
+    - slate +rocm amdgpu_target=gfx908
+    - strumpack ~slate +rocm amdgpu_target=gfx908
+   #- chai ~benchmarks +rocm amdgpu_target=gfx908
+   #- hpx +rocm amdgpu_target=gfx908
+   #- papi +rocm amdgpu_target=gfx908
+   #- petsc +rocm amdgpu_target=gfx908
+   #- raja ~openmp +rocm amdgpu_target=gfx908
+   #- slepc +rocm amdgpu_target=gfx908
+   #- sundials +rocm amdgpu_target=gfx908
+   #- tasmanian +rocm amdgpu_target=gfx908
+   #- umpire +rocm amdgpu_target=gfx908
 
   - default_specs:
     - adios
@@ -226,11 +116,11 @@ spack:
     - arborx
     - argobots
     - ascent
-    - axom ^umpire@4.1.2
+    - axom
     - bolt
     - cabana
     - caliper
-    - chai ~benchmarks ~tests ^umpire@4.1.2
+    - chai ~benchmarks ~tests
     - charliecloud
     - conduit
     - darshan-runtime
@@ -240,10 +130,8 @@ spack:
     - faodel
     - flecsi
     - flit
-    - flux-core
     - fortrilinos
     - gasnet
-    - geopm
     - ginkgo
     - globalarrays
     - gmp
@@ -259,6 +147,7 @@ spack:
     - libnrm
     - libquo
     - libunwind
+    - llvm +all_targets +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang ~cuda
     - loki
     - mercury
     - metall
@@ -267,7 +156,6 @@ spack:
     - mpifileutils ~xattr
     - netlib-scalapack
     - ninja
-    - nrm
     - nvhpc
     - omega-h
     - openmpi
@@ -283,15 +171,12 @@ spack:
     - plasma
     - precice
     - pumi
-    - py-jupyterhub
     - py-libensemble
     - py-petsc4py
     - py-warpx ^warpx dims=2 ^hdf5@1.12.0 +fortran +shared +hl api=default
     - py-warpx ^warpx dims=3 ^hdf5@1.12.0 +fortran +shared +hl api=default
     - py-warpx ^warpx dims=rz ^hdf5@1.12.0 +fortran +shared +hl api=default
-    - qt
     - qthreads scheduler=distrib
-    - qwt
     - raja
     - rempi
     - scr
@@ -307,23 +192,31 @@ spack:
     - sz
     - tasmanian
     - tau
-    - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    - trilinos +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+      +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+      +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+      +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
     - turbine
     - umap
-    - umpire@4.1.2
+    - umpire
     - unifyfs@0.9.1
     - upcxx
     - veloc
     - vtk-m
     - zfp
-    #- llvm-doe@doe +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang
+    - flux-core
+    - nrm
+    - py-jupyterhub
+    - exaworks
     #- archer # https://github.com/spack/spack/issues/25050
     #- dealii
+    #- geopm
+    #- qt
+    #- qwt
     #- stat
     #- variorum
 
   specs:
-  - $compilers
   - $cuda_specs
   - $rocm_specs
   - $default_specs
