@@ -322,6 +322,8 @@ spack:
         - hostname
         - pwd
         - ls
+        - echo ${CI_PROJECT_DIR}
+        - ls ${CI_PROJECT_DIR}
         - rm -rf ~/.spack/
 #        - cd ${WORKING_DIR}
         - echo ${SPACK_CONCRETE_ENV_DIR}
