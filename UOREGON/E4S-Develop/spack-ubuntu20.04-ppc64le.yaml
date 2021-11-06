@@ -110,9 +110,11 @@ spack:
     - darshan-util
     - datatransferkit
     - dyninst
+    - exaworks
     - faodel ~tcmalloc
     - flecsi
     - flit
+    - flux-core
     - fortrilinos
     - gasnet
     - ginkgo
@@ -139,6 +141,7 @@ spack:
     - mpifileutils ~xattr
     - netlib-scalapack
     - ninja
+    - nrm
     - nvhpc
     - omega-h
     - openmpi
@@ -153,6 +156,7 @@ spack:
     - plasma
     - precice
     - pumi
+    - py-jupyterhub
     - py-libensemble
     - py-petsc4py
     - py-warpx ^warpx dims=2 ^hdf5@1.12.0 +fortran +shared +hl api=default
@@ -182,10 +186,6 @@ spack:
     - veloc
     - vtk-m
     - zfp
-    - flux-core
-    - nrm
-    - py-jupyterhub
-    - exaworks
     #- dealii
     #- geopm
     #- phist

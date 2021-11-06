@@ -129,6 +129,7 @@ spack:
     - darshan-util
     - datatransferkit
     - dyninst
+    - exaworks
     - faodel
     - flecsi@1.4.2
     - flit
@@ -206,7 +207,6 @@ spack:
     - veloc
     - vtk-m
     - zfp
-    - exaworks
     #- dealii
     #- qt
     #- qwt

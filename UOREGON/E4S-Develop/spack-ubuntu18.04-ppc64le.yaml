@@ -110,6 +110,7 @@ spack:
     - darshan-util
     - datatransferkit
     - dyninst
+    - exaworks
     - faodel ~tcmalloc
     - flecsi@1.4.2
     - flit
@@ -185,7 +186,6 @@ spack:
     - veloc
     - vtk-m
     - zfp
-    - exaworks
     #- dealii
     #- geopm
     #- phist

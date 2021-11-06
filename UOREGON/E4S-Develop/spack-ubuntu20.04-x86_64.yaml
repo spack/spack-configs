@@ -127,9 +127,11 @@ spack:
     - darshan-util
     - datatransferkit
     - dyninst
+    - exaworks
     - faodel
     - flecsi
     - flit
+    - flux-core
     - fortrilinos
     - gasnet
     - ginkgo
@@ -156,6 +158,7 @@ spack:
     - mpifileutils ~xattr
     - netlib-scalapack
     - ninja
+    - nrm
     - nvhpc
     - omega-h
     - openmpi
@@ -171,6 +174,7 @@ spack:
     - plasma
     - precice
     - pumi
+    - py-jupyterhub
     - py-libensemble
     - py-petsc4py
     - py-warpx ^warpx dims=2 ^hdf5@1.12.0 +fortran +shared +hl api=default
@@ -192,10 +196,7 @@ spack:
     - sz
     - tasmanian
     - tau
-    - trilinos +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
-      +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
-      +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
-      +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    - trilinos +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
     - turbine
     - umap
     - umpire
@@ -204,10 +205,6 @@ spack:
     - veloc
     - vtk-m
     - zfp
-    - flux-core
-    - nrm
-    - py-jupyterhub
-    - exaworks
     #- archer # https://github.com/spack/spack/issues/25050
     #- dealii
     #- geopm
