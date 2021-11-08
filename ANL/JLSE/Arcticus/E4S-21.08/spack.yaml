@@ -339,6 +339,9 @@ spack:
 #        - cp ${SITE_CONFIG}/*.yaml ${SPACK_CLONE_PATH}/etc/spack
         - which spack
         - spack -V
+        - pwd
+        - ls
+        - echo ${SPACK_CONCRETE_ENV_DIR}
         - spack env activate ${SPACK_CONCRETE_ENV_DIR}
 #        - cd ${SPACK_CONCRETE_ENV_DIR}
 #        - spack env activate .
