@@ -69,8 +69,8 @@ generate-spack-pipeline:
   - which spack
   # Purge local settings
   - rm -rf $HOME/.spack
-#  - spack env activate .
-  - spack env activate ${WORKING_DIR}
+  - spack env activate .
+#  - spack env activate ${WORKING_DIR}
   - spack env st
   - export SPACK_GNUPGHOME=$HOME/spack-gnupg
   - spack gpg list
