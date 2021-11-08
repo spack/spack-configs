@@ -56,6 +56,7 @@ generate-spack-pipeline:
   - pwd
   - ls
 #  - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
+  - cd ${WORKING_DIR}
 
   script:
 # This is done in before script... verify then delete this
