@@ -36,77 +36,52 @@ generate-spack-pipeline:
   only:
     variables:
       - $BUILD_E4S == "True"
-#    changes:
-#      - ${WORKING_DIR}/spack.yaml
-#      - ${WORKING_DIR}/der_kommissar.yaml
-
+    changes:
+      - ${WORKING_DIR}/spack.yaml
   before_script:
   - hostname  
   - pwd
-#  - git clone --branch e4s-21.05 --single-branch --depth=1 ${SPACK_INSTALLATION} spack-generate
-#  - cd spack-generate  
-#  - git log  --oneline -1
-#  - . share/spack/setup-env.sh
-# Above cloning is deprecated in favor of using the single instance 
   - . ${SPACK_INSTALLATION}/share/spack/setup-env.sh
   # Verify location and version
   - which spack
   - spack -V
-  - echo ${CI_PROJECT_DIR}
+  - echo "Working in CI_PROJECT_DIR=${CI_PROJECT_DIR}"
+  # WORKING_DIR is where the site/machine specific settings reside
+  - cd ${WORKING_DIR}
   - pwd
   - ls
-#  - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
-  - cd ${WORKING_DIR}
 
   script:
-# This is done in before script... verify then delete this
-#  - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
-  - echo ${CI_PROJECT_DIR}
-  - pwd
-  - ls
-  - pwd
-# verify we're stull using the right spack
-  - which spack
   # Purge local settings
   - rm -rf $HOME/.spack
-  - spack env activate .
-#  - spack env activate ${WORKING_DIR}
+  # Activate the environment and check status
+  - spack env activate 
   - spack env st
   - export SPACK_GNUPGHOME=$HOME/spack-gnupg
   - spack gpg list
-# Delete the aws mirror, nothing there for us, just search time
-#  - rm -f ${SPACK_ROOT}/etc/spack/defaults/mirrors.yaml
-  - spack config blame mirrors
+  # Delete the aws mirror, nothing there for us, just search time
+  #  - rm -f ${SPACK_ROOT}/etc/spack/defaults/mirrors.yaml
   - spack mirror list
-# The purge above does this
-#  - spack clean -m
+  # The purge above does this
+  #  - spack clean -m
 # hide this for now, it generates a ton of output we don't need to see
 #  - spack buildcache list -L --allarch
   - spack concretize -f 2>&1 
-  # First time we run the pipeline, we might want to override this 
-  # to create a source mirror.
+  # Set this variable to create a source mirror, e.g first time 
+  # the pipeline is run. 
   - \[ "${CREATE_SOURCE_MIRROR}" == "True" \] && spack mirror create -d ${SPACK_MIRROR} --all
-  # remove a spec to force this pipeline stage to run  
+  # remove a spec to force generate stage to run  
   - rm -f ${SPACK_MIRROR}/build_cache/linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spec.yaml
   - spack buildcache update-index -d ${SPACK_MIRROR}
-#  - spack ci generate --dependencies --optimize  --output-file jobs_scratch_dir/pipeline.yml --artifacts-root ${CI_PROJECT_DIR}/artifacts_root
-#  - spack ci generate --dependencies --optimize  --output-file ${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml 
-
-#FTW this one
+  # Go back to repo base to generate the artifacts
   - cd -
   - spack ci generate --output-file jobs_scratch_dir/pipeline.yml --artifacts-root jobs_scratch_dir
   - echo "Dumping generateed CI:"
-#  - cat ${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml
   - cat jobs_scratch_dir/pipeline.yml
-  - date
-  - echo ${CI_PROJECT_DIR}
-  - ls -lR ${CI_PROJECT_DIR}
-  - date
 #  after_script:
 #  - rm -rf ${SPACK_ROOT}
   artifacts:
     paths:
-#    - jobs_scratch_dir/pipeline.yml    
     - jobs_scratch_dir
 
 build-e4s:
@@ -114,8 +89,8 @@ build-e4s:
   only:
     variables:
       - $BUILD_E4S == "True"
-#    changes:
-#      - ${WORKING_DIR}/spack.yaml
+    changes:
+      - ${WORKING_DIR}/spack.yaml
   trigger:
     include:
     - artifact: jobs_scratch_dir/pipeline.yml

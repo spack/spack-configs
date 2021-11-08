@@ -1,14 +1,13 @@
 # Variables can be overridden from gitlab when runninging manually
 variables:
   JLSE_SCHEDULER_PARAMETERS: "-A Operations -n 1 -t 10 -q arcticus"
-  SPACK_REF: e4s-21.05 
-#  SPACK_INSTALLATION: /soft/ecp/spack/e4s-21.05
-  SPACK_INSTALLATION: https://github.com/spack/spack.git 
-  WORKING_DIR: ANL/JLSE/Arcticus/E4S-21.05
-  SPACK_MIRROR: /soft/ecp/mirrors/arcticus-e4s-21.05
-#  SPACK_DEPLOY_DIR: /soft/ecp/deploy/e4s-21.05
-  SPACK_DEPLOY_DIR: /tmp/deploy/e4s-21.05
-  # These vals are defaults and may be set on a per-run basis
+  E4S_VERSION: e4s-21.08
+  SPACK_INSTALLATION: /soft/ecp/spack/${E4S_VERSION}
+  WORKING_DIR: ANL/JLSE/Arcticus/E4S-21.08
+  SPACK_MIRROR: /soft/ecp/mirrors/arcticus-${E4S_VERSION}
+  SPACK_DEPLOY_DIR: /tmp/deploy/${E4S_VERSION}
+  #SPACK_DEPLOY_DIR: /soft/ecp/deploy/${E4S_VERSION}
+  # The below vals are defaults and may be overriden on a per-run basis
   REMOVE_BUILDCACHE: "False"
   BUILD_E4S: "True"
   DEPLOY_E4S: "True"
@@ -37,45 +36,52 @@ generate-spack-pipeline:
   only:
     variables:
       - $BUILD_E4S == "True"
-#    changes:
-#      - ${WORKING_DIR}/spack.yaml
-#      - ${WORKING_DIR}/der_kommissar.yaml
-
+    changes:
+      - ${WORKING_DIR}/spack.yaml
   before_script:
   - hostname  
   - pwd
-  - git clone --branch e4s-21.05 --single-branch --depth=1 ${SPACK_INSTALLATION} spack-generate
-  - cd spack-generate  
-  - git log  --oneline -1
-  - . share/spack/setup-env.sh
+  - . ${SPACK_INSTALLATION}/share/spack/setup-env.sh
+  # Verify location and version
   - which spack
   - spack -V
-  - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
+  - echo "Working in CI_PROJECT_DIR=${CI_PROJECT_DIR}"
+  # WORKING_DIR is where the site/machine specific settings reside
+  - cd ${WORKING_DIR}
+  - pwd
+  - ls
 
   script:
-  - cd ${CI_PROJECT_DIR}/${WORKING_DIR}
-  - pwd
+  # Purge local settings
   - rm -rf $HOME/.spack
-  - spack env activate .
+  # Activate the environment and check status
+  - spack env activate 
   - spack env st
   - export SPACK_GNUPGHOME=$HOME/spack-gnupg
   - spack gpg list
-  - rm -f ${SPACK_ROOT}/etc/spack/defaults/mirrors.yaml
-  - spack config blame mirrors
+  # Delete the aws mirror, nothing there for us, just search time
+  #  - rm -f ${SPACK_ROOT}/etc/spack/defaults/mirrors.yaml
   - spack mirror list
-  - spack clean -m
-  - spack buildcache list -L --allarch
+  # The purge above does this
+  #  - spack clean -m
+# hide this for now, it generates a ton of output we don't need to see
+#  - spack buildcache list -L --allarch
   - spack concretize -f 2>&1 
+  # Set this variable to create a source mirror, e.g first time 
+  # the pipeline is run. 
   - \[ "${CREATE_SOURCE_MIRROR}" == "True" \] && spack mirror create -d ${SPACK_MIRROR} --all
-# remove a spec to force this pipeline stage to run  
-#  - rm -f ${SPACK_MIRROR}/build_cache/linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spec.yaml
+  # remove a spec to force generate stage to run  
+  - rm -f ${SPACK_MIRROR}/build_cache/linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spec.yaml
   - spack buildcache update-index -d ${SPACK_MIRROR}
-  - spack ci generate --dependencies --optimize  --output-file ${CI_PROJECT_DIR}/jobs_scratch_dir/pipeline.yml  
-  after_script:
-  - rm -rf ${SPACK_ROOT}
+  # Go back to repo base to generate the artifacts
+  - cd -
+  - spack ci generate --output-file jobs_scratch_dir/pipeline.yml --artifacts-root jobs_scratch_dir
+  - echo "Dumping generateed CI:"
+  - cat jobs_scratch_dir/pipeline.yml
+#  after_script:
+#  - rm -rf ${SPACK_ROOT}
   artifacts:
     paths:
-#    - jobs_scratch_dir/pipeline.yml    
     - jobs_scratch_dir
 
 build-e4s:
@@ -83,11 +89,11 @@ build-e4s:
   only:
     variables:
       - $BUILD_E4S == "True"
-#    changes:
-#      - ${WORKING_DIR}/spack.yaml
+    changes:
+      - ${WORKING_DIR}/spack.yaml
   trigger:
     include:
-    - artifact: "jobs_scratch_dir/pipeline.yml"
+    - artifact: jobs_scratch_dir/pipeline.yml
       job: generate-spack-pipeline
     strategy: depend
 
@@ -104,7 +110,7 @@ deploy:
     - mkdir -p ${SPACK_DEPLOY_DIR}
     - cd ${SPACK_DEPLOY_DIR}
     - rm -rf spack-deploy
-    - git clone -b ${SPACK_REF} --single-branch --depth=1 ${SPACK_INSTALLATION} spack-deploy
+    - git clone -b ${E4S_VERSION} --single-branch --depth=1 ${SPACK_INSTALLATION} spack-deploy
     - cd spack-deploy
     - source share/spack/setup-env.sh
 # this dang file is making spack stop looking for the right location
