@@ -345,10 +345,10 @@ spack:
         - spack gpg list
         - spack -d ci rebuild
 #        - rm -rf ${SPACK_CLONE_PATH}
-        needs:
-        - pipeline: $PARENT_PIPELINE_ID
-          # job: create-artifact
-          job: generate-spack-pipeline
+#        needs:
+#        - pipeline: $PARENT_PIPELINE_ID
+#          # job: create-artifact
+#          job: generate-spack-pipeline
 
 #    final-stage-rebuild-index:
 #      tags: 
