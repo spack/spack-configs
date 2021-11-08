@@ -100,7 +100,7 @@ generate-spack-pipeline:
   - cat jobs_scratch_dir/pipeline.yml
   - date
   - echo ${CI_PROJECT_DIR}
-  - ls -l ${CI_PROJECT_DIR}
+  - ls -lR ${CI_PROJECT_DIR}
   - date
 #  after_script:
 #  - rm -rf ${SPACK_ROOT}

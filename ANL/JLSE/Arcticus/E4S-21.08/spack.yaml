@@ -340,7 +340,7 @@ spack:
         - which spack
         - spack -V
         - pwd
-        - ls
+        - ls -R
         - echo ${SPACK_CONCRETE_ENV_DIR}
         - spack env activate ${SPACK_CONCRETE_ENV_DIR}
 #        - cd ${SPACK_CONCRETE_ENV_DIR}
