@@ -1,7 +1,8 @@
 spack:
   include:
-#  - ANL/JLSE/Arcticus/E4S-21.08/site-config/packages.yaml
-  - $env:WORKING_DIR/site_config/packages.yaml
+  - site_config/packages.yaml
+#  - ANL/JLSE/Arcticus/E4S-21.08/site_config/packages.yaml
+#  - $env:WORKING_DIR/site_config/packages.yaml
 #  - der_kommissar.yaml
   view: false
   concretization: separately
