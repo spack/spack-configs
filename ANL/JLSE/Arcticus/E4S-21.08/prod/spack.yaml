@@ -357,8 +357,8 @@ spack:
 #    final-stage-rebuild-index:
 #      tags: 
 #      - shell
-#  mirrors:
-#    arcticus-e4s-21.08: file:///soft/ecp/mirrors/arcticus-e4s-21.08
+  mirrors:
+    arcticus-e4s-21.08: file:///soft/ecp/mirrors/arcticus-e4s-21.08
 
   modules:
     enable:
