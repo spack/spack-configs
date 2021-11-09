@@ -89,8 +89,8 @@ build-e4s:
   only:
     variables:
       - $BUILD_E4S == "True"
-    changes:
-      - ${WORKING_DIR}/spack.yaml
+#    changes:
+#      - ${WORKING_DIR}/spack.yaml
   trigger:
     include:
     - artifact: jobs_scratch_dir/pipeline.yml
