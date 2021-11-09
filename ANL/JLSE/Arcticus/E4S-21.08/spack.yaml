@@ -324,8 +324,8 @@ spack:
         - ls
         - echo ${CI_PROJECT_DIR}
         - ls ${CI_PROJECT_DIR}
-# This seems to be causing NFS stale handles
-#        - rm -rf ~/.spack/
+# This is causing stale NFS handles
+#         - rm -rf ~/.spack/
 #        - cd ${WORKING_DIR}
         - echo ${SPACK_CONCRETE_ENV_DIR}
         # Do we really need this? Each CI job goes in its own directory
