@@ -33,9 +33,9 @@ generate-spack-pipeline:
   stage: generate
   tags:
   - shell
-  only:
-    variables:
-      - $BUILD_E4S == "True"
+#  only:
+#    variables:
+#      - $BUILD_E4S == "True"
 #    changes:
 #      - ${WORKING_DIR}/spack.yaml
   before_script:
