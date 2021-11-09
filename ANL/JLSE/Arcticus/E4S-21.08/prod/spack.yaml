@@ -1,6 +1,4 @@
 spack:
-#  include:
-#  - der_kommissar.yaml
   view: false
   concretization: separately
   packages:
@@ -90,6 +88,9 @@ spack:
     mpich:
       version: [3.4.2]
       variants: ~wrapperrpath
+      externals:
+      - spec: mpich%oneapi
+        prefix: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/oneapi-2021.4.0/mpich-3.4.2-herozflqn2cyycuhji5ookcpuwt2ecvx
     ncurses:
       version: [6.2]
       variants: +termlib
@@ -295,12 +296,12 @@ spack:
 #    - [$cuda_specs]
 #    - ['%gcc@9.3.0']
 
-  - matrix:
-    - [$core_specs]
-    - ['%gcc@9.3.0']
-  - matrix:
-    - [$aux_specs]
-    - ['%gcc@9.3.0']
+#  - matrix:
+#    - [$core_specs]
+#    - ['%gcc@9.3.0']
+#  - matrix:
+#    - [$aux_specs]
+#    - ['%gcc@9.3.0']
   - matrix:
     - [$oneapi_specs]
     - ['%oneapi']
@@ -356,8 +357,8 @@ spack:
 #    final-stage-rebuild-index:
 #      tags: 
 #      - shell
-  mirrors:
-    arcticus-e4s-21.08: file:///soft/ecp/mirrors/arcticus-e4s-21.08
+#  mirrors:
+#    arcticus-e4s-21.08: file:///soft/ecp/mirrors/arcticus-e4s-21.08
 
   modules:
     enable:
