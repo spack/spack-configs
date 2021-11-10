@@ -341,6 +341,7 @@ spack:
 #        - cp ${SITE_CONFIG}/*.yaml ${SPACK_CLONE_PATH}/etc/spack
         - which spack
         - spack -V
+        - spack clean -m
         - pwd
         - ls -R
         - echo ${SPACK_CONCRETE_ENV_DIR}
