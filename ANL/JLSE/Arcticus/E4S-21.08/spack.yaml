@@ -301,21 +301,19 @@ spack:
     #- variorum
 
   specs:
-    - flux-core@0.28.0
-
 #  - matrix:
 #    - [$cuda_specs]
 #    - ['%gcc@9.3.0']
 
-#  - matrix:
-#    - [$core_specs]
-#    - ['%gcc@9.3.0']
-#  - matrix:
-#    - [$aux_specs]
-#    - ['%gcc@9.3.0']
-#  - matrix:
-#    - [$oneapi_specs]
-#    - ['%oneapi']
+  - matrix:
+    - [$core_specs]
+    - ['%gcc@9.3.0']
+  - matrix:
+    - [$aux_specs]
+    - ['%gcc@9.3.0']
+  - matrix:
+    - [$oneapi_specs]
+    - ['%oneapi']
   gitlab-ci:
     rebuild-index: False
     mappings:
