@@ -5,8 +5,7 @@ variables:
   SPACK_INSTALLATION: /soft/ecp/spack/${E4S_VERSION}
   WORKING_DIR: ANL/JLSE/Arcticus/E4S-21.08
   SPACK_MIRROR: /soft/ecp/mirrors/arcticus-${E4S_VERSION}
-  SPACK_DEPLOY_DIR: /tmp/deploy/${E4S_VERSION}
-  #SPACK_DEPLOY_DIR: /soft/ecp/deploy/${E4S_VERSION}
+  SPACK_DEPLOY_DIR: /soft/ecp/deploy/${E4S_VERSION}
   # The below vals are defaults and may be overriden on a per-run basis
   REMOVE_BUILDCACHE: "False"
   BUILD_E4S: "True"
@@ -36,11 +35,12 @@ generate-spack-pipeline:
   only:
     variables:
       - $BUILD_E4S == "True"
-    changes:
-      - ${WORKING_DIR}/spack.yaml
+#    changes:
+#      - ${WORKING_DIR}/spack.yaml
   before_script:
   - hostname  
   - pwd
+  # Initialize spack
   - . ${SPACK_INSTALLATION}/share/spack/setup-env.sh
   # Verify location and version
   - which spack
@@ -48,29 +48,27 @@ generate-spack-pipeline:
   - echo "Working in CI_PROJECT_DIR=${CI_PROJECT_DIR}"
   # WORKING_DIR is where the site/machine specific settings reside
   - cd ${WORKING_DIR}
-  - pwd
-  - ls
+  # Copy the site config settings and verify they are in place
+  - cp site_config/*.yaml ${SPACK_ROOT}/etc/spack
+  - ls -l ${SPACK_ROOT}/etc/spack/*.yaml
 
   script:
   # Purge local settings
   - rm -rf $HOME/.spack
   # Activate the environment and check status
-  - spack env activate 
+  - spack env activate .
   - spack env st
   - export SPACK_GNUPGHOME=$HOME/spack-gnupg
   - spack gpg list
-  # Delete the aws mirror, nothing there for us, just search time
-  #  - rm -f ${SPACK_ROOT}/etc/spack/defaults/mirrors.yaml
   - spack mirror list
-  # The purge above does this
-  #  - spack clean -m
-# hide this for now, it generates a ton of output we don't need to see
-#  - spack buildcache list -L --allarch
+  - spack clean -m
+  # Hide this for now, it generates a ton of output we don't need to see
+  # - spack buildcache list -L --allarch
   - spack concretize -f 2>&1 
   # Set this variable to create a source mirror, e.g first time 
   # the pipeline is run. 
   - \[ "${CREATE_SOURCE_MIRROR}" == "True" \] && spack mirror create -d ${SPACK_MIRROR} --all
-  # remove a spec to force generate stage to run  
+  # removing a built spec will force the CI build stage to start  
   - rm -f ${SPACK_MIRROR}/build_cache/linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spec.yaml
   - spack buildcache update-index -d ${SPACK_MIRROR}
   # Go back to repo base to generate the artifacts
@@ -78,8 +76,8 @@ generate-spack-pipeline:
   - spack ci generate --output-file jobs_scratch_dir/pipeline.yml --artifacts-root jobs_scratch_dir
   - echo "Dumping generateed CI:"
   - cat jobs_scratch_dir/pipeline.yml
-#  after_script:
-#  - rm -rf ${SPACK_ROOT}
+  after_script:
+  - echo "Generate ${E4S_VERSION} complete."
   artifacts:
     paths:
     - jobs_scratch_dir
@@ -89,8 +87,8 @@ build-e4s:
   only:
     variables:
       - $BUILD_E4S == "True"
-    changes:
-      - ${WORKING_DIR}/spack.yaml
+#    changes:
+#      - ${WORKING_DIR}/spack.yaml
   trigger:
     include:
     - artifact: jobs_scratch_dir/pipeline.yml
@@ -106,20 +104,15 @@ deploy:
       - $DEPLOY_E4S == "True"
   script:
     - hostname 
-    - echo "FTW - cloning spack into ${SPACK_DEPLOY_DIR}"
     - mkdir -p ${SPACK_DEPLOY_DIR}
     - cd ${SPACK_DEPLOY_DIR}
     - rm -rf spack-deploy
     - git clone -b ${E4S_VERSION} --single-branch --depth=1 ${SPACK_INSTALLATION} spack-deploy
-    - cd spack-deploy
-    - source share/spack/setup-env.sh
-# this dang file is making spack stop looking for the right location
-#    - ls /tmp/user/spack-stage/willmore/build_cache/linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spack
-    # clean up misc cache from ~/.spack
+    - . spack-deploy/share/spack/setup-env.sh
     - spack clean -m
     # copy all site configuration for spack instance 
     - cp ${CI_PROJECT_DIR}/${WORKING_DIR}/site_config/* ${SPACK_ROOT}/etc/spack
-    # the other permission is set to 0 before copying. 
+    # 'other' permission is set to 0 before copying. 
     # Adding 4 will ensure user can read the file
     - chmod 664 ${SPACK_ROOT}/etc/spack/*.yaml
     - export SPACK_GNUPGHOME=${HOME}/spack-gnupg
@@ -127,12 +120,9 @@ deploy:
     - echo "Updating buildcache index for ${SPACK_MIRROR}"
     - spack buildcache update-index -d ${SPACK_MIRROR}
     - find ${SPACK_MIRROR} -name *.spack -exec chmod o+r {} \;
-#    - find ${SPACK_MIRROR} -name *.spack 
     - chmod o+r ${SPACK_MIRROR}/build_cache/index.json
     - spack buildcache list -L --allarch
-    # need to actually cd to the dir to activate environment, otherwise spack won't find the included file
-    - cd ${CI_PROJECT_DIR}/${WORKING_DIR}/prod
-    - spack env activate .
+    - spack env activate ${CI_PROJECT_DIR}/${WORKING_DIR}/prod
     - spack -d install --cache-only
     - spack module tcl refresh --delete-tree -y
     - spack find

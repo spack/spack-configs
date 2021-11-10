@@ -237,7 +237,8 @@ spack:
     - dyninst@11.0.1
     - flecsi@1.4.2
     - flit@2.1.0
-    - flux-core@0.28.0
+    # won't compile, see notes
+    # - flux-core@0.28.0
     - fortrilinos@2.0.0
     - gasnet@2021.3.0
     - geopm@1.1.0
@@ -291,72 +292,19 @@ spack:
     #- variorum
 
   specs:
-#  - zlib
 #  - matrix:
 #    - [$cuda_specs]
 #    - ['%gcc@9.3.0']
 
-#  - matrix:
-#    - [$core_specs]
-#    - ['%gcc@9.3.0']
-#  - matrix:
-#    - [$aux_specs]
-#    - ['%gcc@9.3.0']
+  - matrix:
+    - [$core_specs]
+    - ['%gcc@9.3.0']
+  - matrix:
+    - [$aux_specs]
+    - ['%gcc@9.3.0']
   - matrix:
     - [$oneapi_specs]
     - ['%oneapi']
-  gitlab-ci:
-    rebuild-index: False
-    mappings:
-    - match: [os=opensuse_leap15]
-      runner-attributes:
-        tags:
-#        - batch
-        - shell
-        variables:
-          SPACK_INSTALLATION: $env:SPACK_INSTALLATION
-          WORKING_DIR: $env:WORKING_DIR
-          SPACK_GNUPGHOME: /home/willmore/spack-gnupg
-          SITE_CONFIG: $env:SITE_CONFIG
-#/soft/ecp/mirrors/gpg
-        script:
-        - hostname
-        - pwd
-        - ls
-        - echo ${CI_PROJECT_DIR}
-        - ls ${CI_PROJECT_DIR}
-        - rm -rf ~/.spack/
-#        - cd ${WORKING_DIR}
-        - echo ${SPACK_CONCRETE_ENV_DIR}
-        # Do we really need this? Each CI job goes in its own directory
-#        - . setclonepath.sh
-#        - echo "got SPACK_CLONE_PATH=${SPACK_CLONE_PATH}"
-# FTW: getting rid of the clone protocol intireley, just using versioned install
-#        - SPACK_CLONE_PATH=`mktemp -d`
-#        - git clone --branch e4s-21.08 --single-branch --depth=1 ${SPACK_INSTALLATION} ${SPACK_CLONE_PATH}
-        - . ${SPACK_INSTALLATION}/share/spack/setup-env.sh
-#        - echo "copying site config:"
-#        - ls ${SITE_CONFIG}
-#        - cp ${SITE_CONFIG}/*.yaml ${SPACK_CLONE_PATH}/etc/spack
-        - which spack
-        - spack -V
-        - pwd
-        - ls -R
-        - echo ${SPACK_CONCRETE_ENV_DIR}
-        - spack env activate ${SPACK_CONCRETE_ENV_DIR}
-#        - cd ${SPACK_CONCRETE_ENV_DIR}
-#        - spack env activate .
-        - spack gpg list
-        - spack -d ci rebuild
-#        - rm -rf ${SPACK_CLONE_PATH}
-#        needs:
-#        - pipeline: $PARENT_PIPELINE_ID
-#          # job: create-artifact
-#          job: generate-spack-pipeline
-
-#    final-stage-rebuild-index:
-#      tags: 
-#      - shell
   mirrors:
     arcticus-e4s-21.08: file:///soft/ecp/mirrors/arcticus-e4s-21.08
 
