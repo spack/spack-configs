@@ -291,11 +291,9 @@ spack:
     #- variorum
 
   specs:
-#  - zlib
 #  - matrix:
 #    - [$cuda_specs]
 #    - ['%gcc@9.3.0']
-
   - matrix:
     - [$core_specs]
     - ['%gcc@9.3.0']
@@ -318,46 +316,31 @@ spack:
           WORKING_DIR: $env:WORKING_DIR
           SPACK_GNUPGHOME: /home/willmore/spack-gnupg
           SITE_CONFIG: $env:SITE_CONFIG
-#/soft/ecp/mirrors/gpg
         script:
         - hostname
         - pwd
         - ls
         - echo ${CI_PROJECT_DIR}
         - ls ${CI_PROJECT_DIR}
-# This is causing stale NFS handles
-#         - rm -rf ~/.spack/
-#        - cd ${WORKING_DIR}
         - echo ${SPACK_CONCRETE_ENV_DIR}
-        # Do we really need this? Each CI job goes in its own directory
-#        - . setclonepath.sh
-#        - echo "got SPACK_CLONE_PATH=${SPACK_CLONE_PATH}"
-# FTW: getting rid of the clone protocol intireley, just using versioned install
-#        - SPACK_CLONE_PATH=`mktemp -d`
-#        - git clone --branch e4s-21.08 --single-branch --depth=1 ${SPACK_INSTALLATION} ${SPACK_CLONE_PATH}
-        - . ${SPACK_INSTALLATION}/share/spack/setup-env.sh
-#        - echo "copying site config:"
-#        - ls ${SITE_CONFIG}
+        # FTW: deprecating the clone protocol in favor of versioned install
+        # - SPACK_CLONE_PATH=`mktemp -d`
+        # - git clone --branch e4s-21.08 --single-branch --depth=1 ${SPACK_INSTALLATION} ${SPACK_CLONE_PATH}
 #        - cp ${SITE_CONFIG}/*.yaml ${SPACK_CLONE_PATH}/etc/spack
+        - . ${SPACK_INSTALLATION}/share/spack/setup-env.sh
         - which spack
         - spack -V
-#        - spack clean --stage
-        - pwd
-        - ls -R
-        - echo ${SPACK_CONCRETE_ENV_DIR}
         - spack env activate ${SPACK_CONCRETE_ENV_DIR}
-#        - cd ${SPACK_CONCRETE_ENV_DIR}
-#        - spack env activate .
         - spack gpg list
         - spack -d ci rebuild
-#        - rm -rf ${SPACK_CLONE_PATH}
-#        needs:
-#        - pipeline: $PARENT_PIPELINE_ID
-#          # job: create-artifact
-#          job: generate-spack-pipeline
+        # - rm -rf ${SPACK_CLONE_PATH}
+        # needs section (below) is now added by spack ci at generation
+        # needs:
+        # - pipeline: $PARENT_PIPELINE_ID
+        #   job: generate-spack-pipeline
 
-#    final-stage-rebuild-index:
-#      tags: 
-#      - shell
+    final-stage-rebuild-index:
+      tags: 
+      - shell
   mirrors:
     arcticus-e4s-21.08: file:///soft/ecp/mirrors/arcticus-e4s-21.08
