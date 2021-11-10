@@ -237,7 +237,17 @@ spack:
     - dyninst@11.0.1
     - flecsi@1.4.2
     - flit@2.1.0
-    - flux-core@0.28.0
+    # In file included from /tmp/willmore/spack-stage/spack-stage-flux-core-0.28.0-c5bzbwj36y7bq7qhxbrqo6lklgbaa2kb/spack
+    # -src/src/common/libczmqcontainers/czmq_containers.h:34,
+    # from /tmp/willmore/spack-stage/spack-stage-flux-core-0.28.0-c5bzbwj36y7bq7qhxbrqo6lklgbaa2kb/spack
+    # -src/src/common/libpmi/simple_server.c:76:
+    # /tmp/willmore/spack-stage/spack-stage-flux-core-0.28.0-c5bzbwj36y7bq7qhxbrqo6lklgbaa2kb/spack-src/src/common/libczm
+    # qcontainers/zhashx.h:277:24: error: unknown type name 'zframe_t'
+    # |     zhashx_unpack_own (zframe_t *frame, zhashx_deserializer_fn deserializer);
+    # |                        ^~~~~~~~
+    # /tmp/willmore/spack-stage/spack-stage-flux-core-0.28.0-c5bzbwj36y7bq7qhxbrqo6lklgbaa2kb/spack-src/src/common/libczm
+    # qcontainers/zhashx.h:283:13: error: unknown type name 'zframe_t'
+    # - flux-core@0.28.0
     - fortrilinos@2.0.0
     - gasnet@2021.3.0
     - geopm@1.1.0
@@ -291,18 +301,21 @@ spack:
     #- variorum
 
   specs:
+    - flux-core@0.28.0
+
 #  - matrix:
 #    - [$cuda_specs]
 #    - ['%gcc@9.3.0']
-  - matrix:
-    - [$core_specs]
-    - ['%gcc@9.3.0']
-  - matrix:
-    - [$aux_specs]
-    - ['%gcc@9.3.0']
-  - matrix:
-    - [$oneapi_specs]
-    - ['%oneapi']
+
+#  - matrix:
+#    - [$core_specs]
+#    - ['%gcc@9.3.0']
+#  - matrix:
+#    - [$aux_specs]
+#    - ['%gcc@9.3.0']
+#  - matrix:
+#    - [$oneapi_specs]
+#    - ['%oneapi']
   gitlab-ci:
     rebuild-index: False
     mappings:
