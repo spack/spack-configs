@@ -338,9 +338,9 @@ spack:
         # needs:
         # - pipeline: $PARENT_PIPELINE_ID
         #   job: generate-spack-pipeline
-
-    final-stage-rebuild-index:
-      tags: 
-      - shell
+# No longer a thing? 
+#    final-stage-rebuild-index:
+#      tags: 
+#      - shell
   mirrors:
     arcticus-e4s-21.08: file:///soft/ecp/mirrors/arcticus-e4s-21.08

@@ -3,6 +3,6 @@ config:
 #   - $spack/var/spack/stage
    - $tempdir/$user/spack-stage
 #   - ~/.spack/stage
-  db_lock_timeout: 30
+  db_lock_timeout: 60
 
 
