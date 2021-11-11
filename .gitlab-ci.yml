@@ -136,7 +136,7 @@ run_e4s_testsuite:
   - batch
   only:
     variables:
-      - ${RUN_E4S_TESTSUITE} == "True"
+      - $RUN_E4S_TESTSUITE == "True"
   before_script:
   - git clone https://github.com/E4S-Project/testsuite
   - . ${SPACK_DEPLOY_DIR}/spack-deploy/share/spack/setup-env.sh
