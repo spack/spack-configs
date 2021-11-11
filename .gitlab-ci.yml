@@ -7,15 +7,17 @@ variables:
   SPACK_MIRROR: /soft/ecp/mirrors/arcticus-${E4S_VERSION}
   SPACK_DEPLOY_DIR: /soft/ecp/deploy/${E4S_VERSION}
   # The below vals are defaults and may be overriden on a per-run basis
+  CREATE_SOURCE_MIRROR: "False"
   REMOVE_BUILDCACHE: "False"
   BUILD_E4S: "True"
   DEPLOY_E4S: "True"
-  CREATE_SOURCE_MIRROR: "False"
+  RUN_E4S_TESTSUITE: "True"
 
 stages:
   - generate
   - build
   - deploy
+  - test
 
 remove_buildcache:
   stage: generate
@@ -126,4 +128,21 @@ deploy:
     - spack -d install --cache-only
     - spack module tcl refresh --delete-tree -y
     - spack find
+
+run_e4s_testsuite:
+  stage: test
+  tags:
+  # - shell
+  - batch
+  only:
+    variables:
+      - ${RUN_E4S_TESTSUITE} == "True"
+  before_script:
+  - git clone https://github.com/E4S-Project/testsuite
+  - . ${SPACK_DEPLOY_DIR}/spack-deploy/share/spack/setup-env.sh
+  script:
+  - which spack
+  - spack -V 
+  - cd testsuite
+  - ./test-all.sh
 
