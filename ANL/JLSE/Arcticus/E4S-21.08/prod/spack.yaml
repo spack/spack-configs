@@ -128,7 +128,6 @@ spack:
       version: [1.2.11]
     zstd:
       version: [1.5.0]
-
   definitions:
   - cuda_specs:
     - amrex +cuda cuda_arch=70
@@ -168,6 +167,8 @@ spack:
 
   - oneapi_specs:
     - papi@6.0.0.1
+
+    
     # For parallel-netcdf, there appears to be an issue with how the package is engaging MPI. This package appears to follow protocol #2 here: https://spack.readthedocs.io/en/latest/packaging_guide.html?highlight=cray#mpi-support-in-spack
     # There is an erroneous '-rpath' being passed through to the compiler, causing configure to fail:
     # ... 
@@ -237,6 +238,8 @@ spack:
     - dyninst@11.0.1
     - flecsi@1.4.2
     - flit@2.1.0
+
+    
     # won't compile, see notes
     # - flux-core@0.28.0
     - fortrilinos@2.0.0
@@ -292,6 +295,7 @@ spack:
     #- variorum
 
   specs:
+  
 #  - matrix:
 #    - [$cuda_specs]
 #    - ['%gcc@9.3.0']
@@ -307,13 +311,11 @@ spack:
     - ['%oneapi']
   mirrors:
     arcticus-e4s-21.08: file:///soft/ecp/mirrors/arcticus-e4s-21.08
-
   modules:
     enable:
     - tcl
     tcl:
       blacklist_implicits: true
-#      hash_length: 0
       hash_length: 4
       naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
       all:
@@ -324,18 +326,15 @@ spack:
             '{name}_ROOT': '{prefix}'
       darshan-runtime:
         conflict:
-        - 'darshan'
+        - darshan
       darshan-util:
         conflict:
-        - 'darshan'
+        - darshan
       projections:
         all: '{name}/{version}-{compiler.name}-{compiler.version}'
-
   config:
     install_tree:
-#      root: /global/common/software/spackecp/e4s-21.02/software
       root: /soft/ecp/deploy/e4s-21.08/opt
     module_roots:
-#      tcl: /global/common/software/spackecp/e4s-21.02/modules/
       tcl: /soft/ecp/deploy/e4s-21.08/modules
     build_stage: $tempdir/user/spack-stage

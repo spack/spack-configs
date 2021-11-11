@@ -7,15 +7,18 @@ variables:
   SPACK_MIRROR: /soft/ecp/mirrors/arcticus-${E4S_VERSION}
   SPACK_DEPLOY_DIR: /soft/ecp/deploy/${E4S_VERSION}
   # The below vals are defaults and may be overriden on a per-run basis
+  CREATE_SOURCE_MIRROR: "False"
   REMOVE_BUILDCACHE: "False"
+  REFRESH_DEPLOYMENT: "False"
   BUILD_E4S: "True"
   DEPLOY_E4S: "True"
-  CREATE_SOURCE_MIRROR: "False"
+  RUN_E4S_TESTSUITE: "True"
 
 stages:
   - generate
   - build
   - deploy
+  - test
 
 remove_buildcache:
   stage: generate
@@ -95,6 +98,19 @@ build-e4s:
       job: generate-spack-pipeline
     strategy: depend
 
+refresh_deployment:
+  stage: deploy
+  tags: 
+  - shell
+  only:
+    variables:
+      - $REFRESH_DEPLOYMENT == "True"
+  script:
+    - mkdir -p ${SPACK_DEPLOY_DIR}
+    - cd ${SPACK_DEPLOY_DIR}
+    - rm -rf spack-deploy
+    - git clone -b ${E4S_VERSION} --single-branch --depth=1 ${SPACK_INSTALLATION} spack-deploy
+
 deploy:
   stage: deploy
   tags: 
@@ -104,10 +120,6 @@ deploy:
       - $DEPLOY_E4S == "True"
   script:
     - hostname 
-    - mkdir -p ${SPACK_DEPLOY_DIR}
-    - cd ${SPACK_DEPLOY_DIR}
-    - rm -rf spack-deploy
-    - git clone -b ${E4S_VERSION} --single-branch --depth=1 ${SPACK_INSTALLATION} spack-deploy
     - . spack-deploy/share/spack/setup-env.sh
     - spack clean -m
     # copy all site configuration for spack instance 
@@ -126,4 +138,22 @@ deploy:
     - spack -d install --cache-only
     - spack module tcl refresh --delete-tree -y
     - spack find
+
+run_e4s_testsuite:
+  stage: test
+  tags:
+  # - shell
+  - batch
+  only:
+    variables:
+      - $RUN_E4S_TESTSUITE == "True"
+  before_script:
+  - git clone https://github.com/E4S-Project/testsuite
+  - . ${SPACK_DEPLOY_DIR}/spack-deploy/share/spack/setup-env.sh
+  script:
+  - which spack
+  - spack -V 
+  - spack env activate ${CI_PROJECT_DIR}/${WORKING_DIR}/prod
+  - cd testsuite
+  - ./test-all.sh
 
