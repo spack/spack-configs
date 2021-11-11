@@ -144,8 +144,8 @@ deploy:
 run_e4s_testsuite:
   stage: test
   tags:
-  # - shell
-  - batch
+  - shell
+  # - batch
   only:
     variables:
       - $RUN_E4S_TESTSUITE == "True"

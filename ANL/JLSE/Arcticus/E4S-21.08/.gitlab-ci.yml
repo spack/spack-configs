@@ -10,8 +10,10 @@ variables:
   CREATE_SOURCE_MIRROR: "False"
   REMOVE_BUILDCACHE: "False"
   REFRESH_DEPLOYMENT: "False"
-  BUILD_E4S: "True"
-  DEPLOY_E4S: "True"
+  BUILD_E4S: "False"
+#  BUILD_E4S: "True"
+  DEPLOY_E4S: "False"
+#  DEPLOY_E4S: "True"
   RUN_E4S_TESTSUITE: "True"
 
 stages:
@@ -142,8 +144,8 @@ deploy:
 run_e4s_testsuite:
   stage: test
   tags:
-  # - shell
-  - batch
+  - shell
+  # - batch
   only:
     variables:
       - $RUN_E4S_TESTSUITE == "True"
@@ -151,9 +153,13 @@ run_e4s_testsuite:
   - git clone https://github.com/E4S-Project/testsuite
   - . ${SPACK_DEPLOY_DIR}/spack-deploy/share/spack/setup-env.sh
   script:
+  - hostname
+  - pwd
   - which spack
   - spack -V 
   - spack env activate ${CI_PROJECT_DIR}/${WORKING_DIR}/prod
+  - spack install
+  - spack find 
   - cd testsuite
   - ./test-all.sh
 
