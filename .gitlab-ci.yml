@@ -158,6 +158,7 @@ run_e4s_testsuite:
   - which spack
   - spack -V 
   - spack env activate ${CI_PROJECT_DIR}/${WORKING_DIR}/prod
+  - spack install
   - spack find 
   - cd testsuite
   - ./test-all.sh
