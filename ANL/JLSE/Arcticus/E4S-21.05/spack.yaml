@@ -394,7 +394,6 @@ spack:
         - id
         - rm -rf ~/.spack/
         - cd ${WORKING_DIR}
-        - ls
         - pwd
         # Do we really need this? Each CI job goes in its own directory
         - . setclonepath.sh
