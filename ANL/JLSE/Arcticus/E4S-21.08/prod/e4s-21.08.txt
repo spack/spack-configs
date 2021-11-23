@@ -1,0 +1,392 @@
+adiak,0.2.1,gcc@9.3.0,~ipo+mpi+shared build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+adios,1.13.1,gcc@9.3.0,+blosc~bzip2~fortran~hdf5~infiniband+lz4+mpi~netcdf+shared+sz~szip+zfp+zlib patches=01113e9efb929d71c28bf33cc8b7f215d85195ec700e99cb41164e2f8f830640,8ae17f655248e87cbab1d1ed794e15364a38d2f5f8d971b1086702f72d79bd42,d24b79b795f66e40ddcd331ea4be896ac9c393d6f68f4318616d23928b0694e9 staging=none,linux-opensuse_leap15-x86_64
+adios2,2.7.1,gcc@9.3.0,+blosc+bzip2~dataman~dataspaces~endian_reverse+fortran~hdf5~ipo+mpi+pic+png~python+shared+ssc+sst+sz+zfp build_type=Release,linux-opensuse_leap15-x86_64
+adlbx,1.0.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+aml,0.1.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+amrex,21.08,gcc@9.3.0,~amrdata~cuda~eb~fortran~hdf5~hypre~ipo+linear_solvers+mpi~openmp~particles~petsc~pic~plotfile_tools~rocm~shared~sundials amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none dimensions=3 precision=double,linux-opensuse_leap15-x86_64
+arborx,1.0,gcc@9.3.0,~cuda~ipo+mpi~openmp~rocm+serial~trilinos build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+argobots,1.1,gcc@9.3.0,~affinity~debug+perf~stackunwind~tool~valgrind stackguard=none,linux-opensuse_leap15-x86_64
+arpack-ng,3.8.0,gcc@9.3.0,+mpi+shared,linux-opensuse_leap15-x86_64
+ascent,0.7.1,gcc@9.3.0,~adios~babelflow~cuda~doc~dray+fortran~mfem+mpi+openmp~python+serial+shared+test+vtkh cuda_arch=none,linux-opensuse_leap15-x86_64
+asio,1.18.2,gcc@9.3.0,~boost_coroutine~boost_regex~separate_compilation cxxstd=17,linux-opensuse_leap15-x86_64
+axl,0.3.0,gcc@9.3.0,~bbapi_fallback~ipo async_api=daemon build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+axl,0.4.0,gcc@9.3.0,~bbapi_fallback~ipo async_api=daemon build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+axom,0.5.0,gcc@9.3.0,+cpp14~cuda~debug~devtools+examples+fortran+hdf5~ipo+lua~mfem+mpi+openmp~python+raja~scr+shared+tools+umpire build_type=RelWithDebInfo cuda_arch=none,linux-opensuse_leap15-x86_64
+berkeley-db,18.1.40,gcc@9.3.0,+cxx~docs+stl patches=b231fcc4d5cff05e5c3a4814f6a5af0e9a966428dc2176540d2c05aff41de522,linux-opensuse_leap15-x86_64
+binutils,2.33.1,gcc@9.3.0,~gas+gold+headers~interwork+ld+libiberty~lto~nls+plugins libs=shared,static,linux-opensuse_leap15-x86_64
+binutils,2.36.1,gcc@9.3.0,~gas+gold+headers~interwork+ld+libiberty~lto~nls+plugins libs=shared,static,linux-opensuse_leap15-x86_64
+blaspp,2021.04.01,gcc@9.3.0,~cuda~ipo+openmp~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,linux-opensuse_leap15-x86_64
+bmi,main,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+bolt,2.0,gcc@9.3.0,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+boost,1.76.0,gcc@9.3.0,+atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math~mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=17 visibility=global,linux-opensuse_leap15-x86_64
+boost,1.76.0,gcc@9.3.0,+atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math~mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=98 visibility=global,linux-opensuse_leap15-x86_64
+butterflypack,1.2.1,gcc@9.3.0,~ipo+shared build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+bzip2,1.0.8,gcc@9.3.0,~debug~pic+shared,linux-opensuse_leap15-x86_64
+c-blosc,1.21.0,gcc@9.3.0,+avx2~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+cabana,0.3.0,gcc@9.3.0,~cuda~ipo+mpi~openmp+serial+shared build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+cairo,1.16.0,gcc@9.3.0,~X~fc+ft~gobject+pdf~png~svg patches=7c4da77767fe9feb03f8051def0832f0c67f99162913275cfa127a88df19cf51,linux-opensuse_leap15-x86_64
+caliper,2.6.0,gcc@9.3.0,+adiak~cuda~fortran+gotcha~ipo+libdw~libpfm+libunwind+mpi+papi+sampler+shared~sosflow build_type=RelWithDebInfo cuda_arch=none,linux-opensuse_leap15-x86_64
+camp,0.1.0,gcc@9.3.0,~cuda~ipo~rocm~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,linux-opensuse_leap15-x86_64
+chai,2.3.0,gcc@9.3.0,~benchmarks~cuda~enable_pick+examples~ipo~raja~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,linux-opensuse_leap15-x86_64
+charliecloud,0.24,gcc@9.3.0,~docs,linux-opensuse_leap15-x86_64
+cmake,3.20.5,gcc@9.3.0,~doc+ncurses+openssl+ownlibs~qt build_type=Release,linux-opensuse_leap15-x86_64
+conduit,0.7.2,gcc@9.3.0,~adios~doc~doxygen+fortran+hdf5+hdf5_compat~ipo+mpi~parmetis~python+shared~silo+test~zfp build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+conduit,0.7.2,gcc@9.3.0,~adios~doc~doxygen+fortran+hdf5+hdf5_compat~ipo+mpi~parmetis~python+shared~silo+test~zfp build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+curl,7.76.1,gcc@9.3.0,~darwinssl~gssapi~ldap~libidn2~librtmp~libssh~libssh2~nghttp2,linux-opensuse_leap15-x86_64
+darshan-runtime,3.3.1,gcc@9.3.0,~apmpi~apmpi_sync~apxc~hdf5+mpi scheduler=NONE,linux-opensuse_leap15-x86_64
+darshan-util,3.3.1,gcc@9.3.0,~apmpi~apxc~bzip2,linux-opensuse_leap15-x86_64
+datatransferkit,3.1-rc2,gcc@9.3.0,~external-arborx~ipo~openmp+serial+shared build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+double-conversion,3.1.5,gcc@9.3.0,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+dtcmp,1.1.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+dyninst,11.0.1,gcc@9.3.0,~ipo+openmp~stat_dysect~static build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+eigen,3.3.9,gcc@9.3.0,~ipo build_type=RelWithDebInfo patches=55daee880b7669807efc0dcbeda2ae3b659e6dd4df3932f3573c8778bf5f8a42,linux-opensuse_leap15-x86_64
+elfutils,0.185,gcc@9.3.0,+bzip2~debuginfod~nls+xz,linux-opensuse_leap15-x86_64
+er,0.0.4,gcc@9.3.0,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+exmcutils,0.6.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+expat,2.4.1,gcc@9.3.0,+libbsd,linux-opensuse_leap15-x86_64
+faodel,1.1906.1,gcc@9.3.0,~cereal~hdf5~ipo+mpi+shared+tcmalloc build_type=RelWithDebInfo logging=stdout network=nnti patches=0d8604c48c421da1a28e5c23493a55c367fc39ebdf054f2978b4b6f2108bef91,823eff7668eb4ac2bac4b2b337d9edbeb486d60fc5a98177e9c9b1883159ef68,linux-opensuse_leap15-x86_64
+fftw,3.3.9,gcc@9.3.0,+mpi+openmp~pfft_patches precision=double,float,linux-opensuse_leap15-x86_64
+flecsi,1.4.2,gcc@9.3.0,~coverage~cuda~debug_backend~disable_metis~doc~doxygen+external_cinch~flecstan~flog~graphviz+hdf5~ipo~kokkos~openmp+shared~tutorial~unit_tests backend=mpi build_type=RelWithDebInfo caliper_detail=none cuda_arch=none,linux-opensuse_leap15-x86_64
+flit,2.1.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+font-util,1.3.2,gcc@9.3.0, fonts=encodings,font-adobe-100dpi,font-adobe-75dpi,font-adobe-utopia-100dpi,font-adobe-utopia-75dpi,font-adobe-utopia-type1,font-alias,font-arabic-misc,font-bh-100dpi,font-bh-75dpi,font-bh-lucidatypewriter-100dpi,font-bh-lucidatypewriter-75dpi,font-bh-type1,font-bitstream-100dpi,font-bitstream-75dpi,font-bitstream-speedo,font-bitstream-type1,font-cronyx-cyrillic,font-cursor-misc,font-daewoo-misc,font-dec-misc,font-ibm-type1,font-isas-misc,font-jis-misc,font-micro-misc,font-misc-cyrillic,font-misc-ethiopic,font-misc-meltho,font-misc-misc,font-mutt-misc,font-schumacher-misc,font-screen-cyrillic,font-sun-misc,font-winitzki-cyrillic,font-xfree86-type1,linux-opensuse_leap15-x86_64
+fontconfig,2.13.93,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+fortrilinos,2.0.0,gcc@9.3.0,+hl~ipo+shared build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+freetype,2.11.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+gasnet,2021.3.0,gcc@9.3.0,~debug conduits=smp,linux-opensuse_leap15-x86_64
+gdbm,1.19,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+geopm,1.1.0,gcc@9.3.0,~coverage~debug+doc+fortran~gnu-ld+mpi~ompt+openmp~overhead+procfs,linux-opensuse_leap15-x86_64
+gettext,0.21,gcc@9.3.0,+bzip2+curses+git~libunistring+libxml2+tar+xz,linux-opensuse_leap15-x86_64
+ginkgo,1.3.0,gcc@9.3.0,~cuda~develtools~full_optimizations~hwloc~ipo+openmp~rocm+shared amdgpu_target=none build_type=Release cuda_arch=none,linux-opensuse_leap15-x86_64
+glib,2.68.2,gcc@9.3.0,~libmount patches=b3fd45063a19c871048aa1f28692293ab8971a871bdcbe65f06f17fdd79db9e2 tracing=none,linux-opensuse_leap15-x86_64
+globalarrays,5.8,gcc@9.3.0,~scalapack armci=mpi-ts,linux-opensuse_leap15-x86_64
+glproto,1.4.17,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+gmake,4.3,gcc@9.3.0,~guile+nls,linux-opensuse_leap15-x86_64
+gmp,6.2.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+googletest,1.8.1,gcc@9.3.0,+gmock~ipo+pthreads+shared build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+gotcha,1.0.3,gcc@9.3.0,~ipo~test build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+gperftools,2.9.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+harfbuzz,2.6.8,gcc@9.3.0,~graphite2,linux-opensuse_leap15-x86_64
+hdf5,1.8.22,gcc@9.3.0,~cxx~fortran+hl~ipo~java+mpi+shared~szip~threadsafe+tools api=v18 build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+hdf5,1.8.22,gcc@9.3.0,~cxx+fortran+hl~ipo~java+mpi+shared~szip~threadsafe+tools api=v18 build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+hdf5,1.12.0,gcc@9.3.0,~cxx+fortran+hl~ipo~java+mpi+shared~szip~threadsafe+tools api=default build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+hdf5,1.12.0,gcc@9.3.0,~cxx+fortran+hl~ipo~java+mpi+shared~szip~threadsafe+tools api=v18 build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+hdf5,1.12.0,oneapi@2021.4.0,~cxx+fortran+hl~ipo~java+mpi+shared~szip~threadsafe+tools api=v18 build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+heffte,2.1.0,gcc@9.3.0,~cuda+fftw~fortran~ipo~magma~mkl~python~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,linux-opensuse_leap15-x86_64
+hpctoolkit,2021.05.15,gcc@9.3.0,~all-static~cray~cuda~debug+mpi+papi~rocm+viewer,linux-opensuse_leap15-x86_64
+hpcviewer,2021.05,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+hpx,1.7.1,gcc@9.3.0,~async_cuda~async_mpi~cuda~examples~generic_coroutines~ipo~tools build_type=RelWithDebInfo cuda_arch=none cxxstd=17 instrumentation=none malloc=tcmalloc max_cpu_count=64 networking=tcp,linux-opensuse_leap15-x86_64
+hwloc,2.4.1,gcc@9.3.0,~cairo~cuda~gl~libudev+libxml2~netloc~nvml~opencl+pci~rocm+shared,linux-opensuse_leap15-x86_64
+hwloc,2.4.1,oneapi@2021.4.0,~cairo~cuda~gl~libudev+libxml2~netloc~nvml~opencl+pci~rocm+shared,linux-opensuse_leap15-x86_64
+hypre,2.22.0,gcc@9.3.0,~complex~cuda~debug~int64~internal-superlu~mixedint+mpi~openmp+shared~superlu-dist~unified-memory cuda_arch=none,linux-opensuse_leap15-x86_64
+icu4c,67.1,gcc@9.3.0, cxxstd=11,linux-opensuse_leap15-x86_64
+inputproto,2.3.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+intel-tbb,2020.3,gcc@9.3.0,+shared+tm cxxstd=default patches=62ba015ebd1819c45bef47411540b789b493e31ca668c4ff4cb2afcbc306b476,ce1fb16fb932ce86a82ca87cf0431d1a8c83652af9f552b264213b2ff2945d73,d62cb666de4010998c339cde6f41c7623a07e9fc69e498f2e149821c0c2c6dd0,linux-opensuse_leap15-x86_64
+intel-xed,12.0.1,gcc@9.3.0,~debug~pic patches=acffa07ee4b8e898df18f1439547e45ec9c609328dfb6e1ad2dce416587334d4,linux-opensuse_leap15-x86_64
+json-c,0.15,gcc@9.3.0,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+jsoncpp,1.9.4,gcc@9.3.0,~ipo build_type=RelWithDebInfo cxxstd=default,linux-opensuse_leap15-x86_64
+kbproto,1.0.7,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+kokkos,3.4.00,gcc@9.3.0,~aggressive_vectorization~compiler_warnings~cuda~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl~openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning~wrapper amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none std=14,linux-opensuse_leap15-x86_64
+kokkos,3.4.00,gcc@9.3.0,~aggressive_vectorization~compiler_warnings~cuda~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning~wrapper amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none std=14,linux-opensuse_leap15-x86_64
+kokkos-kernels,3.2.00,gcc@9.3.0,~blas~cblas~cublas~cuda~cusparse~ipo~lapack~lapacke~mkl+openmp~pthread~serial~superlu build_type=RelWithDebInfo cuda_arch=none execspace_cuda=auto execspace_openmp=auto execspace_serial=auto execspace_threads=auto layouts=left memspace_cudaspace=auto memspace_cudauvmspace=auto offsets=int,size_t ordinals=int scalars=double,linux-opensuse_leap15-x86_64
+kvtree,1.1.1,gcc@9.3.0,~ipo+mpi build_type=RelWithDebInfo file_lock=FLOCK,linux-opensuse_leap15-x86_64
+lapackpp,2021.04.00,gcc@9.3.0,~ipo+shared build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+lcms,2.9,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+legion,21.03.0,gcc@9.3.0,~bindings~bounds_checks~cuda~cuda_hijack~cuda_unsupported_compiler~enable_tls~fortran~gasnet_debug~hdf5~hwloc~ipo~kokkos+libdl~native~openmp~papi~privilege_checks~python~redop_complex~shared~spy+zlib build_type=RelWithDebInfo conduit=none cuda_arch=70 gasnet_root=none max_dims=3 max_fields=512 network=none output_level=warning,linux-opensuse_leap15-x86_64
+libarchive,3.5.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libbsd,0.11.3,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libcap,2.25,gcc@9.3.0, patches=3db844dd771b320b8117b72f4e00b560051311fbbd4cba1ebcbd7c19116c1d66,linux-opensuse_leap15-x86_64
+libcircle,0.3.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libdwarf,20180129,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libedit,3.1-20210216,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libevent,2.1.12,gcc@9.3.0,+openssl,linux-opensuse_leap15-x86_64
+libfabric,1.12.1,gcc@9.3.0,~debug~kdreg fabrics=rxm,sockets,tcp,udp,linux-opensuse_leap15-x86_64
+libffi,3.3,gcc@9.3.0, patches=26f26c6f29a7ce9bf370ad3ab2610f99365b4bdd7b82e7c31df41a3370d685c0,linux-opensuse_leap15-x86_64
+libgcrypt,1.9.3,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libgit2,1.1.0,gcc@9.3.0,~curl~ipo+ssh build_type=RelWithDebInfo https=system,linux-opensuse_leap15-x86_64
+libgpg-error,1.42,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libiberty,2.33.1,gcc@9.3.0,+pic,linux-opensuse_leap15-x86_64
+libice,1.0.9,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libiconv,1.16,gcc@9.3.0, libs=shared,static,linux-opensuse_leap15-x86_64
+libiconv,1.16,oneapi@2021.4.0, libs=shared,static,linux-opensuse_leap15-x86_64
+libjpeg-turbo,2.1.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libmd,1.0.3,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libmng,2.0.3,gcc@9.3.0,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+libmonitor,2021.04.27,gcc@9.3.0,~commrank~dlopen+hpctoolkit,linux-opensuse_leap15-x86_64
+libnrm,0.1.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libogg,1.3.4,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libpciaccess,0.16,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libpciaccess,0.16,oneapi@2021.4.0,,linux-opensuse_leap15-x86_64
+libpng,1.6.37,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libpthread-stubs,0.4,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libquo,1.3.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libsigsegv,2.13,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libsm,1.2.3,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libsodium,1.0.18,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libssh2,1.8.0,gcc@9.3.0,~ipo+shared build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+libtheora,1.1.1,gcc@9.3.0, patches=057836ee5a5e28cae435c20d31173e20a3f96cfe680505836f19a77e985f7100,2e4f891f6880386d9391f3e4eaf4a23493de4eea532f9b5cb8a04b5f7cd09301,ff8478dbe3f19dd24f01d220e3262c1819d101b013d8ab3d7a972528252f1a7e,linux-opensuse_leap15-x86_64
+libtiff,4.1.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libunwind,1.5.0,gcc@9.3.0,+pic+xz~zlib,linux-opensuse_leap15-x86_64
+libx11,1.7.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libxau,1.0.8,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libxcb,1.14,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libxdmcp,1.1.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libxext,1.3.3,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libxkbcommon,0.8.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libxml2,2.9.10,gcc@9.3.0,~python,linux-opensuse_leap15-x86_64
+libxml2,2.9.10,oneapi@2021.4.0,~python,linux-opensuse_leap15-x86_64
+libxrandr,1.5.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libxrender,0.9.10,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libxt,1.1.5,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libyaml,0.2.5,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+libyogrt,1.24,gcc@9.3.0,~static scheduler=slurm,linux-opensuse_leap15-x86_64
+libzmq,4.3.3,gcc@9.3.0,~drafts+libsodium,linux-opensuse_leap15-x86_64
+loki,0.1.7,gcc@9.3.0,+shared,linux-opensuse_leap15-x86_64
+lua,5.3.5,gcc@9.3.0,~pcfile+shared,linux-opensuse_leap15-x86_64
+lwgrp,1.0.3,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+lz4,1.9.3,gcc@9.3.0, libs=shared,static,linux-opensuse_leap15-x86_64
+lzo,2.10,gcc@9.3.0, libs=shared,static,linux-opensuse_leap15-x86_64
+m4,1.4.19,gcc@9.3.0,+sigsegv,linux-opensuse_leap15-x86_64
+mbedtls,2.16.9,gcc@9.3.0,~ipo+pic~shared build_type=Release,linux-opensuse_leap15-x86_64
+memkind,1.10.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+mercury,1.0.1,gcc@9.3.0,+bmi+boostsys~cci+checksum~debug~ipo+mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo patches=34fc95b3599c74a8cece6e873cfdc8bc0afe2dc0deabb6e2d11ea2a93f0cebf5,linux-opensuse_leap15-x86_64
+mercury,2.0.1,gcc@9.3.0,~bmi+boostsys~cci+checksum~debug~ipo+mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+mesa,21.0.3,gcc@9.3.0,+glx~llvm+opengl~opengles+osmesa~strip buildtype=debugoptimized default_library=shared patches=36096a178070e40217945e12d542dfe80016cb897284a01114d616656c577d73 swr=auto,linux-opensuse_leap15-x86_64
+metall,0.15,gcc@9.3.0,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+metis,5.1.0,gcc@9.3.0,~gdb~int64~real64+shared build_type=Release patches=4991da938c1d3a1d3dea78e49bbebecba00273f98df2a656e38b83d55b281da1,b1225da886605ea558db7ac08dd8054742ea5afe5ed61ad4d0fe7a495b1270d2,linux-opensuse_leap15-x86_64
+mfem,4.3.0,gcc@9.3.0,~amgx~conduit~cuda~debug~examples~gnutls~gslib~lapack~libceed~libunwind+metis~miniapps~mpfr+mpi~netcdf~occa~openmp~petsc~pumi~raja~rocm~shared~slepc+static~strumpack~suite-sparse~sundials~superlu-dist~threadsafe~umpire+zlib amdgpu_target=none cuda_arch=none timer=auto,linux-opensuse_leap15-x86_64
+mochi-margo,0.4.3,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+mpark-variant,1.4.0,gcc@9.3.0,~ipo build_type=RelWithDebInfo patches=21a4f8de3525204ee6db2e53758a3e3fd9c13817df29d2926d24376858a369e7,4e173fe8c853eb92956a40371688b4a19498189fe65b7ceac30f6b9d6663a985,b3501f726fd40129b4aaa11453a5891c8953a34af8ac84f5ab10a22afa5e7b9b,linux-opensuse_leap15-x86_64
+mpich,3.4.2,gcc@9.3.0,~argobots+fortran+hwloc+hydra+libxml2+pci+romio~slurm~verbs~wrapperrpath device=ch4 netmod=ofi pmi=pmi,linux-opensuse_leap15-x86_64
+mpich,3.4.2,oneapi@2021.4.0,~argobots+fortran+hwloc+hydra+libxml2+pci+romio~slurm~verbs~wrapperrpath device=ch4 netmod=ofi pmi=pmi,linux-opensuse_leap15-x86_64
+mpifileutils,0.11,gcc@9.3.0,~experimental~gpfs~lustre~xattr,linux-opensuse_leap15-x86_64
+munge,0.5.14,gcc@9.3.0, localstatedir=PREFIX/var,linux-opensuse_leap15-x86_64
+ncurses,6.2,gcc@9.3.0,~symlinks+termlib abi=none,linux-opensuse_leap15-x86_64
+ncurses,6.2,oneapi@2021.4.0,~symlinks+termlib abi=none,linux-opensuse_leap15-x86_64
+netcdf-c,4.8.0,gcc@9.3.0,~dap~fsync~hdf4~jna+mpi~parallel-netcdf+pic+shared,linux-opensuse_leap15-x86_64
+netlib-scalapack,2.1.0,gcc@9.3.0,~ipo~pic+shared build_type=Release patches=1c9ce5fee1451a08c2de3cc87f446aeda0b818ebbce4ad0d980ddf2f2a0b2dc4,f2baedde688ffe4c20943c334f580eb298e04d6f35c86b90a1f4e8cb7ae344a2,linux-opensuse_leap15-x86_64
+nettle,3.4.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+ninja,1.10.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+nlohmann-json,3.9.1,gcc@9.3.0,~ipo+single_header build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+nrm,0.1.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+numactl,2.0.14,gcc@9.3.0, patches=4e1d78cbbb85de625bad28705e748856033eaafab92a66dffd383a3d7e00cc94,62fc8a8bf7665a60e8f4c93ebbd535647cebf74198f7afafec4c085a8825c006,linux-opensuse_leap15-x86_64
+numactl,2.0.14,oneapi@2021.4.0, patches=4e1d78cbbb85de625bad28705e748856033eaafab92a66dffd383a3d7e00cc94,62fc8a8bf7665a60e8f4c93ebbd535647cebf74198f7afafec4c085a8825c006,linux-opensuse_leap15-x86_64
+nvhpc,21.7,gcc@9.3.0,+blas+lapack+mpi install_type=single,linux-opensuse_leap15-x86_64
+omega-h,9.32.5,gcc@9.3.0,~examples~ipo+mpi+optimize+shared+symbols~throw+trilinos~warnings+zlib build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+openblas,0.3.17,gcc@9.3.0,~bignuma~consistent_fpcsr~ilp64+locking+pic+shared threads=openmp,linux-opensuse_leap15-x86_64
+openjdk,11.0.8_10,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+openmpi,4.1.1,gcc@9.3.0,~atomics~cuda~cxx~cxx_exceptions+gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~pmi~singularity~sqlite3+static~thread_multiple+vt+wrapper-rpath fabrics=none schedulers=none,linux-opensuse_leap15-x86_64
+openpmd-api,0.13.4,gcc@9.3.0,~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo patches=fb1bd285379582ea54c7c6770a1529b5a67212025b04caffea867825d0664b29,linux-opensuse_leap15-x86_64
+openssh,8.5p1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+openssl,1.1.1k,gcc@9.3.0,~docs+systemcerts,linux-opensuse_leap15-x86_64
+otf2,2.3,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+papi,6.0.0.1,gcc@9.3.0,~cuda+example~infiniband~lmsensors~nvml~powercap~rapl~sde+shared~static_tools,linux-opensuse_leap15-x86_64
+papi,6.0.0.1,oneapi@2021.4.0,~cuda+example~infiniband~lmsensors~nvml~powercap~rapl~sde+shared~static_tools,linux-opensuse_leap15-x86_64
+papyrus,1.0.1,gcc@9.3.0,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+parallel-netcdf,1.12.2,gcc@9.3.0,~burstbuffer+cxx+fortran+pic+shared,linux-opensuse_leap15-x86_64
+parallel-netcdf,1.12.2,oneapi@2021.4.0,~burstbuffer+cxx+fortran+pic+shared,linux-opensuse_leap15-x86_64
+paraview,5.9.1,gcc@9.3.0,~advanced_debug~cuda~examples~hdf5~ipo+kits+mpi+opengl2~osmesa+plugins~python~python3~qt+shared build_type=RelWithDebInfo cuda_arch=none,linux-opensuse_leap15-x86_64
+parmetis,4.0.3,gcc@9.3.0,~gdb~int64~ipo+shared build_type=RelWithDebInfo patches=4f892531eb0a807eb1b82e683a416d3e35154a455274cf9b162fb02054d11a5b,50ed2081bc939269689789942067c58b3e522c269269a430d5d34c00edbc5870,704b84f7c7444d4372cb59cca6e1209df4ef3b033bc4ee3cf50f369bce972a9d,linux-opensuse_leap15-x86_64
+parsec,3.0.2012,gcc@9.3.0,~cuda~debug_verbose~ipo~profile+shared build_type=RelWithDebInfo cuda_arch=none,linux-opensuse_leap15-x86_64
+parsec,3.0.2012,oneapi@2021.4.0,~cuda~debug_verbose~ipo~profile+shared build_type=RelWithDebInfo cuda_arch=none,linux-opensuse_leap15-x86_64
+pcre,8.44,gcc@9.3.0,~jit+multibyte+utf,linux-opensuse_leap15-x86_64
+pcre2,10.36,gcc@9.3.0,~jit+multibyte,linux-opensuse_leap15-x86_64
+pdsh,2.31,gcc@9.3.0,+ssh+static_modules,linux-opensuse_leap15-x86_64
+pdt,3.25.1,gcc@9.3.0,~pic,linux-opensuse_leap15-x86_64
+pegtl,3.2.0,gcc@9.3.0,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+perl,5.34.0,gcc@9.3.0,+cpanm+shared+threads,linux-opensuse_leap15-x86_64
+petsc,3.15.3,gcc@9.3.0,~X~batch~cgns~complex~cuda~debug+double~exodusii~fftw~giflib+hdf5~hwloc+hypre~int64~jpeg~knl~libpng~libyaml~memkind+metis~mkl-pardiso~moab~mpfr+mpi~mumps~openmp~p4est~ptscotch~random123~rocm~saws~scalapack+shared~strumpack~suite-sparse+superlu-dist~trilinos~valgrind amdgpu_target=none clanguage=C cuda_arch=none,linux-opensuse_leap15-x86_64
+pfunit,3.3.3,gcc@9.3.0,~docs~ipo+mpi~openmp+shared~use_comm_world build_type=RelWithDebInfo max_array_rank=5,linux-opensuse_leap15-x86_64
+phist,1.9.4,gcc@9.3.0,+fortran+host+int64~ipo+mpi+openmp~parmetis+scamac+shared~trilinos build_type=RelWithDebInfo kernel_lib=builtin outlev=2 patches=1fc9ac6c1cce2804d171dd12470e709cd1e3839be6d51f7e5c33427ba4b379ca,linux-opensuse_leap15-x86_64
+pixman,0.40.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+pkgconf,1.7.4,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+pkgconf,1.7.4,oneapi@2021.4.0,,linux-opensuse_leap15-x86_64
+plasma,20.9.20,gcc@9.3.0,~ipo~lua+shared build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+precice,2.2.1,gcc@9.3.0,~ipo+mpi+petsc~python+shared build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+protobuf,3.17.3,gcc@9.3.0,+shared build_type=Release,linux-opensuse_leap15-x86_64
+pugixml,1.11.4,gcc@9.3.0,~ipo+pic+shared build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+pumi,2.2.6,gcc@9.3.0,~fortran~int64~ipo~shared+simmodsuite_version_check~testing~zoltan build_type=RelWithDebInfo simmodsuite=none,linux-opensuse_leap15-x86_64
+py-alembic,1.5.5,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-argon2-cffi,20.1.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-astroid,2.5.6,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-async-generator,1.10,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-attrs,20.3.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-backcall,0.1.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-beniget,0.4.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-bleach,3.1.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-blinker,1.4,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-bottleneck,1.3.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-certifi,2020.6.20,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-certipy,0.1.3,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-cffi,1.14.3,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-chardet,3.0.4,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-cryptography,3.4.7,gcc@9.3.0,~idna,linux-opensuse_leap15-x86_64
+py-cycler,0.10.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-decorator,4.4.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-defusedxml,0.6.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-entrypoints,0.3,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-future,0.18.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-gast,0.5.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-gevent,1.3a2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-greenlet,1.1.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-idna,2.8,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-ipykernel,5.3.4,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-ipython,7.21.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-ipython-genutils,0.2.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-isort,5.9.1,gcc@9.3.0,~colors,linux-opensuse_leap15-x86_64
+py-jedi,0.18.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-jinja2,3.0.1,gcc@9.3.0,~i18n,linux-opensuse_leap15-x86_64
+py-jsonpatch,1.23,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-jsonpointer,1.9,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-jsonschema,2.6.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-jsonschema,3.2.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-jupyter-client,6.1.7,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-jupyter-core,4.7.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-jupyterhub,1.0.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-jupyterlab-pygments,0.1.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-kiwisolver,1.1.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-lark-parser,0.11.3,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-lazy-object-proxy,1.4.3,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-libensemble,0.7.2,gcc@9.3.0,~deap+mpi~mpmath~nlopt~petsc4py~scipy,linux-opensuse_leap15-x86_64
+py-mako,1.1.4,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-markupsafe,2.0.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-matplotlib,3.4.3,gcc@9.3.0,~animation~fonts+image~latex~movies backend=agg,linux-opensuse_leap15-x86_64
+py-mccabe,0.6.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-mistune,0.8.4,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-mock,3.0.5,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-mpi4py,3.0.3,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-natsort,7.1.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-nbclient,0.5.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-nbconvert,6.0.1,gcc@9.3.0,+serve,linux-opensuse_leap15-x86_64
+py-nbformat,5.0.7,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-nest-asyncio,1.4.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-notebook,6.1.4,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-numexpr,2.7.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-numpy,1.21.1,gcc@9.3.0,+blas+lapack patches=873745d7b547857fcfec9cae90b09c133b42a4f0c23b6c2d84cf37e2dd816604,linux-opensuse_leap15-x86_64
+py-oauthlib,3.1.0,gcc@9.3.0,+extras,linux-opensuse_leap15-x86_64
+py-pamela,1.0.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-pandas,1.3.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-pandocfilters,1.4.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-parso,0.8.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-periodictable,1.5.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-petsc4py,3.15.3,gcc@9.3.0,+mpi patches=d344e0e8b4c5ebb96961e1905bdd749162c52b151538238609f4dec77e2a6360,linux-opensuse_leap15-x86_64
+py-pexpect,4.7.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-pickleshare,0.7.5,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-picmistandard,0.0.14,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-pillow,7.2.0,gcc@9.3.0,~freetype~imagequant+jpeg~jpeg2000~lcms~tiff~webp~webpmux~xcb+zlib,linux-opensuse_leap15-x86_64
+py-ply,3.11,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-prometheus-client,0.7.1,gcc@9.3.0,~twisted,linux-opensuse_leap15-x86_64
+py-prompt-toolkit,3.0.17,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-psutil,5.8.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-ptyprocess,0.6.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-py,1.9.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-pybind11,2.5.0,gcc@9.3.0,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+py-pycparser,2.20,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-pyelftools,0.26,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-pygments,2.10.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-pyjwt,2.1.0,gcc@9.3.0,~crypto,linux-opensuse_leap15-x86_64
+py-pylint,2.8.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-pyopenssl,19.0.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-pyparsing,2.4.7,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-pyrsistent,0.15.7,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-python-dateutil,2.8.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-python-editor,1.0.4,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-python-oauth2,1.1.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-pythran,0.9.12,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-pytz,2020.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-pyyaml,5.3.1,gcc@9.3.0,+libyaml,linux-opensuse_leap15-x86_64
+py-pyzmq,17.1.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-pyzmq,18.1.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-requests,2.25.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-scipy,1.7.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-semantic-version,2.8.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-send2trash,1.5.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-setuptools,57.4.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-setuptools-rust,0.12.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-six,1.15.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-sqlalchemy,1.4.20,gcc@9.3.0, backend=none,linux-opensuse_leap15-x86_64
+py-tables,3.6.1,gcc@9.3.0,~bzip2~lzo+zlib,linux-opensuse_leap15-x86_64
+py-terminado,0.8.3,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-testpath,0.4.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-toml,0.10.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-tornado,5.1.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-tornado,6.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-traitlets,5.0.4,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-urllib3,1.26.6,gcc@9.3.0,~brotli~secure~socks,linux-opensuse_leap15-x86_64
+py-warlock,1.3.3,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-warpx,21.08,gcc@9.3.0,+mpi,linux-opensuse_leap15-x86_64
+py-warpx,21.08,gcc@9.3.0,+mpi,linux-opensuse_leap15-x86_64
+py-warpx,21.08,gcc@9.3.0,+mpi,linux-opensuse_leap15-x86_64
+py-wcwidth,0.1.7,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-webencodings,0.5.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+py-wrapt,1.12.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+python,3.8.10,gcc@9.3.0,+bz2+ctypes+dbm~debug+libxml2+lzma~nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87,linux-opensuse_leap15-x86_64
+qhull,2020.1,gcc@9.3.0,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+qt,5.14.2,gcc@9.3.0,~dbus~debug~doc~examples~framework~gtk+gui+opengl~phonon+shared+sql+ssl+tools~webkit patches=75bcb4201fa3becdd205d393aee87afd9c792d0e1d736a49b2e000933664e051,7f34d48d2faaa108dc3fcc47187af1ccd1d37ee0f931b42597b820f03a99864c,8449b9fba2e0a771a9f6b43f9aedcfb8c256e9945b86b54c2ac0484c352230bc,ea411b945c145e403cbb93119490a9a67aaa02ba8e81f873045311f04b3cab77,linux-opensuse_leap15-x86_64
+qt,5.15.2,gcc@9.3.0,~dbus~debug~doc~examples~framework~gtk+gui~opengl~phonon+shared+sql+ssl+tools~webkit patches=75bcb4201fa3becdd205d393aee87afd9c792d0e1d736a49b2e000933664e051,7f34d48d2faaa108dc3fcc47187af1ccd1d37ee0f931b42597b820f03a99864c,linux-opensuse_leap15-x86_64
+qthreads,1.16,gcc@9.3.0,+hwloc~spawn_cache+static scheduler=distrib stack_size=4096,linux-opensuse_leap15-x86_64
+qwt,6.1.6,gcc@9.3.0,~designer patches=73df7272a11effc11546ab63aec4fc5ee25983d631c3fe5df024db3be8e83a1e,linux-opensuse_leap15-x86_64
+raja,0.13.0,gcc@9.3.0,~cuda+examples+exercises~ipo+openmp~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,linux-opensuse_leap15-x86_64
+randrproto,1.5.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+rankstr,0.0.3,gcc@9.3.0,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+readline,8.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+redset,0.0.5,gcc@9.3.0,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+rempi,1.1.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+renderproto,0.11.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+rust,1.51.0,gcc@9.3.0,+analysis+clippy~rls+rustfmt+src extra_targets=none,linux-opensuse_leap15-x86_64
+scr,3.0rc1,gcc@9.3.0,~bbapi_fallback+dtcmp+fortran~ipo+libyogrt async_api=NONE build_type=RelWithDebInfo cache_base=/dev/shm cntl_base=/dev/shm copy_config=none file_lock=FLOCK resource_manager=SLURM scr_config=scr.conf,linux-opensuse_leap15-x86_64
+shuffile,0.0.4,gcc@9.3.0,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+slate,2021.05.02,gcc@9.3.0,~cuda~ipo+mpi+openmp~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,linux-opensuse_leap15-x86_64
+slepc,3.15.1,gcc@9.3.0,+arpack~blopex,linux-opensuse_leap15-x86_64
+slurm,20-11-5-1,gcc@9.3.0,~gtk~hdf5~hwloc~mariadb~pmix+readline~restd sysconfdir=PREFIX/etc,linux-opensuse_leap15-x86_64
+snappy,1.1.8,gcc@9.3.0,~ipo+pic+shared build_type=RelWithDebInfo patches=c9cfecb1f7a623418590cf4e00ae7d308d1c3faeb15046c2e5090e38221da7cd,linux-opensuse_leap15-x86_64
+spath,0.0.2,gcc@9.3.0,~ipo~mpi build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+spath,0.0.2,gcc@9.3.0,~ipo+mpi build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+sqlite,3.35.5,gcc@9.3.0,+column_metadata+fts~functions~rtree,linux-opensuse_leap15-x86_64
+stc,0.9.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+strumpack,5.1.1,gcc@9.3.0,~build_dev_tests~build_tests+butterflypack+c_interface~count_flops~cuda~ipo+mpi+openmp+parmetis~rocm~scotch+shared~slate~task_timers+zfp amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none patches=9b504fc58c17fe32fcb605564c21547f8bdbd6b495f77f7af5c91fb38d617806,linux-opensuse_leap15-x86_64
+sundials,5.7.0,gcc@9.3.0,+ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL~cuda+examples+examples-install~f2003~fcmix+generic-math~hypre~int64~ipo~klu~lapack~monitoring+mpi~openmp~petsc~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~trilinos amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none patches=60c4711d1e4670d0780fe9b8d6976412923a5511d3bb5a3691476d829540d706,8b29a47fac55346cdadfa133c51aa9314ae8c53ffdff5a8ecdc3dcea3ac26403 precision=double,linux-opensuse_leap15-x86_64
+superlu,5.2.2,gcc@9.3.0,~ipo+pic build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+superlu-dist,6.4.0,gcc@9.3.0,~cuda~int64~ipo~openmp+shared build_type=RelWithDebInfo cuda_arch=none,linux-opensuse_leap15-x86_64
+swig,4.0.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+swig,4.0.2-fortran,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+sz,1.4.12.3,gcc@9.3.0,~fortran~hdf5~ipo~netcdf~pastri~python~random_access+shared~stats~time_compression build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+sz,2.1.12,gcc@9.3.0,~fortran~hdf5~ipo~netcdf~pastri~python~random_access+shared~stats~time_compression build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+tar,1.34,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+tasmanian,7.5,gcc@9.3.0,~blas~cuda~fortran~ipo~magma+mpi+openmp~python~rocm~xsdkflags amdgpu_target=none build_type=Release cuda_arch=none,linux-opensuse_leap15-x86_64
+tau,2.30.1,gcc@9.3.0,~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~scorep~shmem~sqlite~x86_64,linux-opensuse_leap15-x86_64
+tcl,8.6.11,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+trilinos,13.0.1,gcc@9.3.0,~adios2+amesos+amesos2+anasazi+aztec~basker+belos+boost~chaco~complex~cuda~cuda_rdc~debug~dtk+epetra+epetraext~epetraextbtf~epetraextexperimental~epetraextgraphreorderings~exodus+explicit_template_instantiation~float+fortran~hdf5~hypre+ifpack+ifpack2+intrepid+intrepid2~ipo+isorropia+kokkos~mesquite+minitensor+ml+mpi+muelu~mumps+nox~openmp+phalanx+piro~python+rol+rythmos+sacado~scorec+shards+shared+shylu+stk+stokhos+stratimikos~strumpack~suite-sparse~superlu+superlu-dist+teko+tempus+tpetra+trilinoscouplings~wrapper~zlib+zoltan+zoltan2 build_type=RelWithDebInfo cuda_arch=none cxxstd=11 gotype=long_long,linux-opensuse_leap15-x86_64
+turbine,1.3.0,gcc@9.3.0,~hdf5~python~r,linux-opensuse_leap15-x86_64
+umap,2.1.0,gcc@9.3.0,~ipo~logging~tests build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+umpire,4.1.2,gcc@9.3.0,+c~cuda~deviceconst+examples~fortran~ipo~numa~openmp~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none patches=135bbc7d2f371531f432672b115ac0a407968aabfffc5b8a941db9b493dbf81f,7d912d31cd293df005ba74cb96c6f3e32dc3d84afff49b14509714283693db08 tests=none,linux-opensuse_leap15-x86_64
+umpire,4.1.2,gcc@9.3.0,+c~cuda~deviceconst+examples~fortran~ipo~numa+openmp~rocm+shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none patches=135bbc7d2f371531f432672b115ac0a407968aabfffc5b8a941db9b493dbf81f,7d912d31cd293df005ba74cb96c6f3e32dc3d84afff49b14509714283693db08 tests=none,linux-opensuse_leap15-x86_64
+unifyfs,0.9.1,gcc@9.3.0,+auto-mount~fortran~hdf5~pmi~pmix+spath patches=8a9c20c857c728637d994c097505cdce780f4b8e61535d221117864f75795313,f6d61ac7cee0d690f50a9a99ff9d2242f494c3baf7374baaf6779340728566b1,linux-opensuse_leap15-x86_64
+unzip,6.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+upcxx,2021.3.0,gcc@9.3.0,~cuda~gasnet+mpi cross=none,linux-opensuse_leap15-x86_64
+util-linux-uuid,2.36.2,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+util-macros,1.19.3,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+veloc,1.4,gcc@9.3.0,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
+vtk-h,0.7.1,gcc@9.3.0,~contourtree~cuda~logging+mpi+openmp+serial+shared cuda_arch=none,linux-opensuse_leap15-x86_64
+vtk-m,1.6.0,gcc@9.3.0,~64bitids+ascent_types~cuda+doubleprecision~hip~ipo~logging+mpi+openmp+rendering~shared~tbb~virtuals amdgpu_target=none build_type=Release cuda_arch=none,linux-opensuse_leap15-x86_64
+warpx,21.08,gcc@9.3.0,+app~ascent~eb~ipo+lib+mpi+mpithreadmultiple+openpmd+psatd+qed~qedtablegen+shared+tprof build_type=RelWithDebInfo compute=omp dims=2 precision=double,linux-opensuse_leap15-x86_64
+warpx,21.08,gcc@9.3.0,+app~ascent~eb~ipo+lib+mpi+mpithreadmultiple+openpmd+psatd+qed~qedtablegen+shared+tprof build_type=RelWithDebInfo compute=omp dims=3 precision=double,linux-opensuse_leap15-x86_64
+warpx,21.08,gcc@9.3.0,+app~ascent~eb~ipo+lib+mpi+mpithreadmultiple+openpmd+psatd+qed~qedtablegen+shared+tprof build_type=RelWithDebInfo compute=omp dims=rz precision=double,linux-opensuse_leap15-x86_64
+xcb-proto,1.14.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+xcb-util,0.4.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+xcb-util-image,0.4.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+xcb-util-keysyms,0.4.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+xcb-util-renderutil,0.3.9,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+xcb-util-wm,0.4.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+xerces-c,3.2.3,gcc@9.3.0, cxxstd=default netaccessor=curl transcoder=iconv,linux-opensuse_leap15-x86_64
+xextproto,7.3.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+xkbdata,1.0.1,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+xproto,7.0.31,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+xrandr,1.5.0,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+xtrans,1.3.5,gcc@9.3.0,,linux-opensuse_leap15-x86_64
+xz,5.2.5,gcc@9.3.0,+pic libs=shared,static,linux-opensuse_leap15-x86_64
+xz,5.2.5,oneapi@2021.4.0,+pic libs=shared,static,linux-opensuse_leap15-x86_64
+zfp,0.5.5,gcc@9.3.0,~aligned~c~cuda~fasthash~fortran~ipo~openmp~profile~python+shared~strided~twoway bsws=64 build_type=RelWithDebInfo cuda_arch=none,linux-opensuse_leap15-x86_64
+zlib,1.2.11,gcc@9.3.0,+optimize+pic+shared,linux-opensuse_leap15-x86_64
+zlib,1.2.11,oneapi@2021.4.0,+optimize+pic+shared,linux-opensuse_leap15-x86_64
+zsh,5.8,gcc@9.3.0,+skip-tcsetpgrp-test,linux-opensuse_leap15-x86_64
+zstd,1.5.0,gcc@9.3.0,~ipo~legacy~lz4~lzma+multithread+programs+shared+static~zlib build_type=RelWithDebInfo,linux-opensuse_leap15-x86_64
