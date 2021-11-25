@@ -1,0 +1,8 @@
+config:
+  build_stage::
+#   - $spack/var/spack/stage
+   - $tempdir/$user/spack-stage
+#   - ~/.spack/stage
+  db_lock_timeout: 60
+
+
