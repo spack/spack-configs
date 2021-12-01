@@ -5,4 +5,11 @@ config:
 #   - ~/.spack/stage
   db_lock_timeout: 60
 
+  install_tree:
+    padded_length: 127
+    root: $HOME/spack-workspace/software
+  source_cache: $HOME/.spack/cache
+  module_roots:
+    tcl: $HOME/spack-workspace/modules
+    lmod: $HOME/spack-workspace/modules
 

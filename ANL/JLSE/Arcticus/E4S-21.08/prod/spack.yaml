@@ -313,8 +313,9 @@ spack:
     - tcl
     tcl:
       blacklist_implicits: true
-#      hash_length: 0
-      hash_length: 4
+      hash_length: 0
+      blacklist:
+      - py-warpx
       naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
       all:
         conflict:
