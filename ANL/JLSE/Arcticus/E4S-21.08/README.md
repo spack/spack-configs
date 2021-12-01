@@ -4,10 +4,10 @@ The e4s 21.08 stack is based on [E4S-Project/e4s](https://github.com/E4S-Project
 
 Note that this repo is set up to be CI-ready, just by copying the .gitlab-ci.yml from this directory to the base directory of the repository. The environment variable WORKING_DIR maps back to this directory.
 
-- [${WORKING_DIR}/spack.yaml]: The spack.yaml in WORKING_DIR is used for building E4S to populate the buildcache in the named mirror.
-- [${WORKING_DIR}/prod/spack.yaml]: This is the spack.yaml used for deployment of E4S from the generated buildcache to the desired location.
-- [${WORKING_DIR}/.gitlab-ci.yml]: Gitlab CI file to automate deployment using Gitlab. (Copy it to base directory to enable CI)
-- [site_config]: spack configuration at *site* scope that overrides default. This helps ensure user can get necessary defaults when they use this spack instance. These yaml files are copied to the spack installation during the build and deploy stages. 
+- [${WORKING_DIR}/spack.yaml](https://github.com/spack/spack-configs/blob/main/ANL/JLSE/Arcticus/E4S-21.08/spack.yaml): The spack.yaml in WORKING_DIR is used for building E4S to populate the buildcache in the named mirror.
+- [${WORKING_DIR}/prod/spack.yaml](https://github.com/spack/spack-configs/blob/main/ANL/JLSE/Arcticus/E4S-21.08/prod/spack.yaml): This is the spack.yaml used for deployment of E4S from the generated buildcache to the desired location.
+- [${WORKING_DIR}/.gitlab-ci.yml](https://github.com/spack/spack-configs/blob/main/ANL/JLSE/Arcticus/E4S-21.08/.gitlab-ci.yaml): Gitlab CI file to automate deployment using Gitlab. (Copy it to base directory to enable CI)
+- [site_config](https://github.com/spack/spack-configs/blob/main/ANL/JLSE/Arcticus/E4S-21.08/site_config): spack configuration at *site* scope that overrides default. This helps ensure user can get necessary defaults when they use this spack instance. These yaml files are copied to the spack installation during the build and deploy stages. 
 
 ## Project Variables
 
