@@ -11,6 +11,46 @@ spack:
     misc_cache: $tempdir/misc_cache
   mirrors:
     perlmutter-e4s-21.11: /global/common/software/spackecp/mirrors/perlmutter-e4s-21.11
+  compilers:
+  - compiler:
+      spec: gcc@9.3.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/9.3.0
+      - craype-x86-rome
+      - cuda/11.3.0
+      - libfabric
+  - compiler:
+      spec: gcc@7.5.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+  - compiler:
+      spec: nvhpc@21.7
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      operating_system: sles15
+      modules:
+      - PrgEnv-nvidia
+      - nvidia/21.7
+      - cuda/11.3.0
+      - libfabric/1.11.0.4.79
   modules:
     default:
       enable:
@@ -137,46 +177,6 @@ spack:
       - gcc
       - nvhpc
       - cray-mpich
-  compilers:
-  - compiler:
-      spec: gcc@9.3.0
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-gnu
-      - gcc/9.3.0
-      - craype-x86-rome
-      - cuda/11.3.0
-      - libfabric
-  - compiler:
-      spec: gcc@10.3.0
-      paths:
-        cc: /opt/cray/pe/gcc/10.3.0/bin/gcc
-        cxx: /opt/cray/pe/gcc/10.3.0/bin/g++
-        f77: /opt/cray/pe/gcc/10.3.0/bin/gfortran
-        fc: /opt/cray/pe/gcc/10.3.0/bin/gfortran
-      flags: {}
-      operating_system: sles15
-      target: any
-  - compiler:
-      spec: nvhpc@21.7
-      paths:
-        cc: cc
-        cxx: CC
-        f77: ftn
-        fc: ftn
-      operating_system: sles15
-      modules:
-      - PrgEnv-nvidia
-      - nvidia/21.7
-      - cuda/11.3.0
-      - libfabric/1.11.0.4.79
   definitions:
   - compilers: [gcc@9.3.0, nvhpc@21.7]
   - mpis: [cray-mpich@8.1.10 %gcc@9.3.0, cray-mpich@8.1.10 %nvhpc@21.7]
@@ -354,18 +354,14 @@ spack:
   - $mpis
   - $nvhpc_specs
   - $cpu_specs
+  - $cuda_specs
   - matrix:
     - [$compilers]
     - ['%gcc@7.5.0']
-  - matrix:
-    - [$cuda_specs]
-    - ['%gcc@9.3.0']
   packages:
     all:
-      target: [cray-sles15-zen2]
       compiler: [gcc@9.3.0, nvhpc@21.7]
       providers:
-        compiler: [gcc@9.3.0, nvhpc@21.7]
         blas: [openblas]
         mpi: [cray-mpich]
     bzip2:
