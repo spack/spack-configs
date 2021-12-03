@@ -221,7 +221,6 @@ spack:
     - hypre@2.23.0 +cuda cuda_arch=80
     - kokkos-kernels@3.4.01 +cuda cuda_arch=80 ^kokkos +wrapper +cuda cuda_arch=80
     - kokkos@3.4.01 +wrapper +cuda cuda_arch=80
-    - magma@2.6.1 +cuda cuda_arch=80
     - mfem@4.3.0 +cuda cuda_arch=80
     - parsec@3.0.2012 +cuda cuda_arch=80
     - petsc@3.16.1 +cuda cuda_arch=80
@@ -358,6 +357,7 @@ spack:
   - matrix:
     - [$compilers]
     - ['%gcc@7.5.0']
+  - magma@2.6.1%gcc@9.3.0 +cuda cuda_arch=80
   packages:
     all:
       compiler: [gcc@9.3.0, nvhpc@21.7]
