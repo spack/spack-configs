@@ -1,0 +1,40 @@
+compilers:
+- compiler:
+    spec: gcc@9.3.0
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    flags: {}
+    operating_system: sles15
+    target: any
+    modules:
+    - PrgEnv-gnu
+    - gcc/9.3.0
+    - craype-x86-rome
+    - cuda/11.3.0
+    - libfabric
+- compiler:
+    spec: gcc@7.5.0
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /usr/bin/gfortran
+      fc: /usr/bin/gfortran
+    flags: {}
+    operating_system: sles15
+    target: any
+- compiler:
+    spec: nvhpc@21.7
+    paths:
+      cc: cc
+      cxx: CC
+      f77: ftn
+      fc: ftn
+    operating_system: sles15
+    modules:
+    - PrgEnv-nvidia
+    - nvidia/21.7
+    - cuda/11.3.0
+    - libfabric/1.11.0.4.79

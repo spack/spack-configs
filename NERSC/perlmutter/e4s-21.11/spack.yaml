@@ -1,0 +1,379 @@
+spack:
+  view: false
+  config:
+    install_tree:
+      concretizer: clingo
+      root: /tmp/spack
+      padded_length: 127
+    build_stage: $tempdir/spack-stage
+    misc_cache: $tempdir/misc_cache
+  mirrors:
+    perlmutter-e4s-21.11: /global/common/software/spackecp/mirrors/perlmutter-e4s-21.11
+  compilers:
+  - compiler:
+      spec: gcc@9.3.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/9.3.0
+      - craype-x86-rome
+      - cuda/11.3.0
+      - libfabric
+  - compiler:
+      spec: gcc@7.5.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+  - compiler:
+      spec: nvhpc@21.7
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      operating_system: sles15
+      modules:
+      - PrgEnv-nvidia
+      - nvidia/21.7
+      - cuda/11.3.0
+      - libfabric/1.11.0.4.79
+  definitions:
+  - compilers: [gcc@9.3.0, nvhpc@21.7]
+  - mpis: [cray-mpich@8.1.10 %gcc@9.3.0, cray-mpich@8.1.10 %nvhpc@21.7]
+  - nvhpc_specs:
+    - amrex@21.11 +cuda cuda_arch=80 %nvhpc
+    - heffte@2.2.0 +cuda cuda_arch=80 %nvhpc
+    - hypre@2.23.0 +cuda cuda_arch=80 %nvhpc ^openblas%gcc
+    - magma@2.6.1 +cuda cuda_arch=80 %nvhpc ^openblas%gcc
+    - mfem@4.3.0 +cuda cuda_arch=80 %nvhpc ^openblas%gcc
+    - parsec@3.0.2012 +cuda cuda_arch=80 %nvhpc
+    - sundials@5.8.0 +cuda cuda_arch=80 %nvhpc
+    - superlu-dist@7.1.1 +cuda cuda_arch=80 %nvhpc
+    - tasmanian@7.7 +cuda cuda_arch=80 %nvhpc
+    - umpire@6.0.0 ~shared +cuda cuda_arch=80 %nvhpc
+    - upcxx@2021.9.0 +cuda %nvhpc
+    - zfp@0.5.5 +cuda cuda_arch=80 %nvhpc
+   #- ascent ~shared +cuda cuda_arch=80
+   #- axom +cuda cuda_arch=80 ^umpire ~shared
+   #- caliper@2.7.0 +cuda cuda_arch=80
+   #- chai@2.4.0 ~benchmarks ~tests +cuda cuda_arch=80 ^umpire ~shared
+   #- dealii +cuda cuda_arch=80 # gmsh
+   #- flecsi@2.1.0 +cuda cuda_arch=80 %nvhpc
+   #- ginkgo@1.4.0 +cuda cuda_arch=80
+   #- hpx@1.7.1 +cuda cuda_arch=80
+   #- kokkos-kernels@3.4.01 +cuda cuda_arch=80 ^kokkos +wrapper +cuda cuda_arch=80
+   #- kokkos@3.4.01 +wrapper +cuda cuda_arch=80
+   #- paraview +cuda cuda_arch=80
+   #- petsc@3.16.1 +cuda cuda_arch=80 %nvhpc
+   #- raja@0.14.0 +cuda cuda_arch=80
+   #- slate@2021.05.02 +cuda cuda_arch=80
+   #- slepc@3.16.0 +cuda cuda_arch=80 %nvhpc
+   #- strumpack@6.1.0 ~slate +cuda cuda_arch=80
+   #- trilinos@13.2.0 +cuda cuda_arch=80 %nvhpc
+   #- vtk-m@1.6.0 +cuda cuda_arch=80 %nvhpc
+  - cuda_specs:
+    - amrex@21.11 +cuda cuda_arch=80
+    - caliper@2.7.0 +cuda cuda_arch=80
+    - flecsi@2.1.0 +cuda cuda_arch=80
+    - ginkgo@1.4.0 +cuda cuda_arch=80
+    - heffte@2.2.0 +cuda cuda_arch=80
+    - hpx@1.7.1 +cuda cuda_arch=80
+    - hypre@2.23.0 +cuda cuda_arch=80
+    - kokkos-kernels@3.4.01 +cuda cuda_arch=80 ^kokkos +wrapper +cuda cuda_arch=80
+    - kokkos@3.4.01 +wrapper +cuda cuda_arch=80
+    - mfem@4.3.0 +cuda cuda_arch=80
+    - parsec@3.0.2012 +cuda cuda_arch=80
+    - petsc@3.16.1 +cuda cuda_arch=80
+    - slate@2021.05.02 +cuda cuda_arch=80
+    - slepc@3.16.0 +cuda cuda_arch=80
+    - strumpack@6.1.0 ~slate +cuda cuda_arch=80
+    - sundials@5.8.0 +cuda cuda_arch=80
+    - superlu-dist@7.1.1 +cuda cuda_arch=80
+    - tasmanian@7.7 +cuda cuda_arch=80
+    - umpire@6.0.0 ~shared +cuda cuda_arch=80
+    - upcxx@2021.9.0 +cuda
+    - vtk-m@1.6.0 +cuda cuda_arch=80
+    - zfp@0.5.5 +cuda cuda_arch=80
+   #- ascent ~shared +cuda cuda_arch=80
+   #- axom +cuda cuda_arch=80 ^umpire ~shared
+   #- chai@2.4.0 ~benchmarks ~tests +cuda cuda_arch=80 ^umpire ~shared
+   #- dealii +cuda cuda_arch=80 # gmsh
+   #- paraview +cuda cuda_arch=80
+   #- raja@0.14.0 +cuda cuda_arch=80
+   #- trilinos@13.2.0 +cuda cuda_arch=80
+   #
+  - cpu_specs:
+    - adios@1.13.1
+    - adios2@2.7.1
+    - aml@0.1.0
+    - amrex@21.11
+    - arborx@1.1
+    - argobots@1.1
+    - bolt@2.0
+    - caliper@2.7.0
+    - chai@2.4.0 ~benchmarks ~tests
+    - conduit@0.7.2
+    - darshan-runtime@3.3.1
+    - darshan-util@3.3.1
+    - datatransferkit@3.1-rc3
+    - dyninst@11.0.1
+    - exaworks@0.1.0
+    - faodel@1.2108.1
+    - flecsi@1.4.2
+    - flit@2.1.0
+    - fortrilinos@2.0.0
+    - gasnet@2021.9.0
+    - ginkgo@1.4.0
+    - globalarrays@5.8
+    - gmp@6.2.1
+    - gotcha@1.0.3
+    - hdf5@1.12.1
+    - heffte@2.2.0 +fftw
+    - hpctoolkit@2021.10.15
+    - hpx@1.7.1
+    - hypre@2.23.0
+    - kokkos@3.4.01 +openmp
+    - kokkos-kernels@3.4.01 +openmp
+    - legion@21.03.0
+    - libquo@1.3.1
+    - libunwind@1.5.0
+    - loki@0.1.7
+    - mercury@2.0.1
+    - metall@0.17
+    - mfem@4.3.0
+    - mpark-variant@1.4.0
+    - mpifileutils@0.11 ~xattr
+    - netlib-scalapack@2.1.0
+    - ninja@1.10.2
+    - omega-h@9.34.1
+    - openmpi@4.1.1
+    - openpmd-api@0.14.3 ^hdf5@1.12.0 +fortran +shared +hl api=default
+    - papi@6.0.0.1
+    - papyrus@1.0.1
+    - parallel-netcdf@1.12.2
+    - paraview@5.9.1
+    - parsec@3.0.2012 ~cuda
+    - pdt@3.25.1
+    - petsc@3.16.1
+    - phist@1.9.5
+    - precice@2.3.0
+    - pumi@2.2.6
+    - py-jupyterhub@1.4.1
+    - py-petsc4py@3.16.1
+    - py-warpx@21.11 ^warpx dims=2 ^hdf5@1.12.0 +fortran +shared +hl api=default
+    - py-warpx@21.11 ^warpx dims=3 ^hdf5@1.12.0 +fortran +shared +hl api=default
+    - py-warpx@21.11 ^warpx dims=rz ^hdf5@1.12.0 +fortran +shared +hl api=default
+    - qthreads@1.16 scheduler=distrib
+    - raja@0.14.0
+    - rempi@1.1.0
+    - scr@3.0rc2
+    - slate@2021.05.02 ~cuda
+    - slepc@3.16.0
+    - stc@0.9.0
+    - strumpack@6.1.0 ~slate
+    - sundials@5.8.0
+    - superlu@5.3.0 %gcc@9.3.0 # for some reason this spec was concretized with gcc@7.5.0 if '%gcc@9.3.0' is not specified
+    - superlu-dist@7.1.1
+    - swig@4.0.2
+    - swig@4.0.2-fortran
+    - sz@2.1.12
+    - tasmanian@7.7
+    - tau@2.31 +mpi +python
+    - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+      +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+      +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+      +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    - turbine@1.3.0
+    - umap@2.1.0
+    - umpire
+    - unifyfs@0.9.1
+    - veloc@1.5
+    - vtk-m@1.6.0
+    - zfp@0.5.5
+    #- archer # https://github.com/spack/spack/issues/25050
+    #- ascent@0.7.1
+    #- axom@0.5.0
+    #- cabana@0.4.0
+    #- charliecloud@0.25
+    #- dealii
+    #- flux-core@0.30.0
+    #- geopm
+    #- libnrm@0.1.0
+    #- llvm@13.0.0 +all_targets +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang ~cuda
+    #- nvhpc@21.9
+    #- nrm@0.1.0
+    #- plasma@21.8.29
+    #- py-libensemble@0.8.0
+    #- qt
+    #- qwt
+    #- stat
+    #- upcxx@2021.9.0
+    #- variorum
+  specs:
+  - $mpis
+  - $nvhpc_specs
+  - $cpu_specs
+  - $cuda_specs
+  - matrix:
+    - [$compilers]
+    - ['%gcc@7.5.0']
+  - magma@2.6.1 +cuda cuda_arch=80 %gcc@9.3.0 # for some weird reason this spec was concretized with 'gcc@7.5.0' 
+  packages:
+    all:
+      compiler: [gcc@9.3.0, nvhpc@21.7]
+      providers:
+        blas: [openblas]
+        mpi: [cray-mpich]
+    bzip2:
+      version: [1.0.6]
+      buildable: false
+      externals:
+      - spec: bzip2@1.0.6
+        prefix: /usr
+    cray-mpich:
+      buildable: false
+      externals:
+      - spec: cray-mpich@8.1.10 %nvhpc@21.7
+        prefix: /opt/cray/pe/mpich/8.1.10/ofi/gnu/9.1
+        modules:
+        - cray-mpich/8.1.10
+        - cuda/11.3.0
+      - spec: cray-mpich@8.1.10 %gcc@9.3.0
+        prefix: /opt/cray/pe/mpich/8.1.10/ofi/gnu/9.1
+        modules:
+        - cray-mpich/8.1.10
+        - cuda/11.3.0
+    cuda:
+      buildable: false
+      version: [11.3.0]
+      externals:
+      - spec: cuda@11.3.0
+        prefix: /global/common/software/nersc/cos1.3/cuda/11.3.0
+        modules:
+        - cuda/11.3.0
+    diffutils:
+      version: [3.6]
+      buildable: false
+      externals:
+      - spec: diffutils@3.6
+        prefix: /usr
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    fftw:
+      variants: +openmp
+    hdf5:
+      variants: +fortran +hl +shared api=v18
+      version: [1.12.1]
+    git:
+      version: [2.26.2]
+      buildable: false
+      externals:
+      - spec: git@2.26.2
+        prefix: /usr
+    gcc:
+      buildable: false
+      externals:
+      - spec: gcc@9.3.0 %gcc@7.5.0
+        modules:
+        - PrgEnv-gnu
+        - gcc/9.3.0
+        - craype-x86-rome
+        - cuda/11.3.0
+        - libfabric
+    libfabric:
+      buildable: false
+      variants: fabrics=sockets,tcp,udp,rxm
+      externals:
+      - spec: libfabric@1.11.0.4.79
+        prefix: /opt/cray/libfabric/1.11.0.4.79
+    libunwind:
+      variants: +pic +xz
+    mercury:
+      variants: ~bmi
+    mesa:
+      variants: ~llvm
+    mesa18:
+      variants: ~llvm
+    m4:
+      buildable: false
+      externals:
+      - spec: m4@1.4.18
+        prefix: /usr
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    nvhpc:
+      buildable: false
+      externals:
+      - spec: nvhpc@21.7 %gcc@7.5.0
+        modules:
+        - PrgEnv-nvidia
+        - nvidia/21.7
+        - cuda/11.3.0
+        - libfabric/1.11.0.4.79
+    openssl:
+      version: [1.1.0i]
+      buildable: false
+      externals:
+      - spec: openssl@1.1.0i
+        prefix: /usr
+    openssh:
+      version: [7.9p1]
+      buildable: false
+      externals:
+      - spec: openssh@7.9p1
+        prefix: /usr
+    openblas:
+      variants: threads=openmp
+    openmpi:
+      version: [4.1.1]
+      variants: +cxx schedulers=slurm +pmix
+    pdsh:
+      buildable: false
+      externals:
+      - spec: pdsh@2.31
+        prefix: /usr
+    slurm:
+      buildable: false
+      version: [20-11-8-1]
+      externals:
+      - spec: slurm@20-11-8-1
+        prefix: /usr
+    tar:
+      version: [1.3]
+      buildable: false
+      externals:
+      - spec: tar@1.30
+        prefix: /usr
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    unzip:
+      version: [6.0]
+      buildable: false
+      externals:
+      - spec: unzip@6.0
+        prefix: /usr
+    xz:
+      variants: +pic
+    zsh:
+      version: [5.6]
+      buildable: false
+      externals:
+      - spec: zsh@5.6
+        prefix: /usr
