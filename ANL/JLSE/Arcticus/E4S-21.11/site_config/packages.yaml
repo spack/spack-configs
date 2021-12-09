@@ -1,0 +1,12 @@
+# packages.yaml
+#  intel-oneapi-mpi:
+#    externals:
+#    - spec: intel-oneapi-mpi@2021.4.0
+#      prefix: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/oneapi-2021.4.0/intel-oneapi-mpi-2021.4.0-zd4d4gna6ghmaich7wyn2arunnnn5kxq
+#
+# The intel build of mpich somehow ends up with no value of 'wl' being set in the mpif90 wrapper. I patched the wrapper here by hand to make it work.
+packages:
+  mpich:
+    externals:
+    - spec: mpich%oneapi
+      prefix: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/oneapi-2021.4.0/mpich-3.4.2-herozflqn2cyycuhji5ookcpuwt2ecvx
