@@ -121,7 +121,18 @@ spack:
     - arborx@1.1
     - darshan-runtime@3.3.1
     - darshan-util@3.3.1
-    - llvm@13.0.0 +all_targets +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang ~cuda
+    # llvm marked ready, but missing symbols when attempting to build, possibly available in an un-released/non-public version of oneapi compilers?
+    # - llvm@13.0.0 +all_targets +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang ~cuda
+    #  >> 18031    /tmp/willmore/spack-stage/spack-stage-llvm-13.0.0-avf36vb5ihzu3aiehuz2sdgg2seiep7e/spack-src/compiler-rt/lib/scudo/s
+    #              cudo_allocator.cpp:369: undefined reference to `_intel_fast_memset'
+    #     18032    /usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: CMakeFiles/clang_rt.scudo_minimal-dynamic-x
+    #              86_64.dir/scudo_allocator.cpp.o: in function `__scudo::scudoRealloc(void*, unsigned long)':
+    #  >> 18033    /tmp/willmore/spack-stage/spack-stage-llvm-13.0.0-avf36vb5ihzu3aiehuz2sdgg2seiep7e/spack-src/compiler-rt/lib/scudo/s
+    #              cudo_allocator.cpp:538: undefined reference to `_intel_fast_memcpy'
+    #     18034    /usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: CMakeFiles/clang_rt.scudo_minimal-dynamic-x
+    #              86_64.dir/scudo_allocator.cpp.o: in function `reallocate':
+    #  >> 18035    /tmp/willmore/spack-stage/spack-stage-llvm-13.0.0-avf36vb5ihzu3aiehuz2sdgg2seiep7e/spack-src/compiler-rt/lib/scudo/s
+    #              cudo_allocator.cpp:502: undefined reference to `_intel_fast_memcpy'
     - sundials@5.8.0
 
   - default_specs:
@@ -168,7 +179,11 @@ spack:
     - libnrm@0.1.0
     - libquo@1.3.1
     - libunwind@1.5.0
-    - llvm@13.0.0 +all_targets +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang ~cuda
+    # Will not concretize
+    # - llvm@13.0.0 +all_targets +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang ~cuda
+    # ==> Error: llvm@13.0.0%gcc@9.3.0+all_targets+clang+compiler-rt~cuda+flang+libcxx+lld+lldb+llvm_dylib is unsatisfiable, conflicts are:
+    # A conflict was triggered
+    # no version satisfies the given constraints
     - loki@0.1.7
     - mercury@2.0.1
     - metall@0.17

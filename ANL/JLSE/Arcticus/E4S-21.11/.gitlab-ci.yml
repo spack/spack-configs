@@ -1,9 +1,9 @@
 # Variables can be overridden from gitlab when runninging manually
 variables:
   JLSE_SCHEDULER_PARAMETERS: "-A Operations -n 1 -t 10 -q arcticus"
-  E4S_VERSION: e4s-21.08
+  E4S_VERSION: e4s-21.11
   SPACK_INSTALLATION: /soft/ecp/spack/${E4S_VERSION}
-  WORKING_DIR: ANL/JLSE/Arcticus/E4S-21.08
+  WORKING_DIR: ANL/JLSE/Arcticus/E4S-21.11
   SPACK_MIRROR: /soft/ecp/mirrors/arcticus-${E4S_VERSION}
   SPACK_DEPLOY_DIR: /soft/ecp/deploy/${E4S_VERSION}
   # The below vals are defaults and may be overriden on a per-run basis
@@ -74,6 +74,7 @@ generate-spack-pipeline:
   # the pipeline is run. 
   - \[ "${CREATE_SOURCE_MIRROR}" == "True" \] && spack mirror create -d ${SPACK_MIRROR} --all
   # removing a built spec will force the CI build stage to start  
+#FTW: this needs to be updated for the current hash
   - rm -f ${SPACK_MIRROR}/build_cache/linux-opensuse_leap15-x86_64-gcc-9.3.0-zlib-1.2.11-x7fpcwas5so6hiemegyf4er3sbbmbpz3.spec.yaml
   - spack buildcache update-index -d ${SPACK_MIRROR}
   # Go back to repo base to generate the artifacts

@@ -8,5 +8,12 @@
 packages:
   mpich:
     externals:
-    - spec: mpich%oneapi
+    - spec: mpich@3.4.2%oneapi
       prefix: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/oneapi-2021.4.0/mpich-3.4.2-herozflqn2cyycuhji5ookcpuwt2ecvx
+  binutils:
+    variants: +ld +gold +headers +libiberty ~nls +plugins
+    version:
+    - 2.36.1
+    externals: 
+    - spec: binutils@2.36.1
+      prefix: /soft/ecp/spack/e4s-21.11/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_pa/linux-opensuse_leap15-x86_64/gcc-9.3.0/binutils-2.36.1-bpfpxrozx5svby42ckaphrwc5ohhf4sp
