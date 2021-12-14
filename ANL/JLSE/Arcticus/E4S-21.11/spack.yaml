@@ -116,7 +116,7 @@ spack:
     - parallel-netcdf@1.12.2
     - parsec@3.0.2012 ~cuda
     - hdf5@1.12.1
-    # - kokkos@3.4.01 +openmp
+    - kokkos@3.4.01 +openmp
     # newly marked as ready with 21.11
     - arborx@1.1
     - darshan-runtime@3.3.1
