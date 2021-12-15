@@ -10,11 +10,12 @@ variables:
   CREATE_SOURCE_MIRROR: "False"
   REMOVE_BUILDCACHE: "False"
   REFRESH_DEPLOYMENT: "False"
-  BUILD_E4S: "False"
-#  BUILD_E4S: "True"
-  DEPLOY_E4S: "False"
-#  DEPLOY_E4S: "True"
-  RUN_E4S_TESTSUITE: "True"
+#  BUILD_E4S: "False"
+  BUILD_E4S: "True"
+#  DEPLOY_E4S: "False"
+  DEPLOY_E4S: "True"
+#  RUN_E4S_TESTSUITE: "True"
+  RUN_E4S_TESTSUITE: "False"
 
 stages:
   - generate
