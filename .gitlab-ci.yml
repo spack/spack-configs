@@ -125,7 +125,8 @@ deploy:
       - $DEPLOY_E4S == "True"
   script:
     - hostname 
-    - . spack-deploy/share/spack/setup-env.sh
+    # Source the setup for the deployment spack instance
+    - . ${SPACK_DEPLOY_DIR}/spack-deploy/share/spack/setup-env.sh
     - spack clean -m
     # copy all site configuration for spack instance 
     - cp ${CI_PROJECT_DIR}/${WORKING_DIR}/site_config/* ${SPACK_ROOT}/etc/spack
