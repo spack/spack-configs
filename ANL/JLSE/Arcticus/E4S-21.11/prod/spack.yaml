@@ -289,20 +289,6 @@ spack:
   mirrors:
     arcticus-e4s-21.11: file:///soft/ecp/mirrors/arcticus-e4s-21.11
 
-  specs:
-#  - matrix:
-#    - [$cuda_specs]
-#    - ['%gcc@9.3.0']
-  - matrix:
-    - [$core_specs]
-    - ['%gcc@9.3.0']
-  - matrix:
-    - [$aux_specs]
-    - ['%gcc@9.3.0']
-  - matrix:
-    - [$oneapi_specs]
-    - ['%oneapi']
-
   modules:
     enable:
     - tcl
