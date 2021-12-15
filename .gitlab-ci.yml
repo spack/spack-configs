@@ -9,7 +9,8 @@ variables:
   # The below vals are defaults and may be overriden on a per-run basis
   CREATE_SOURCE_MIRROR: "False"
   REMOVE_BUILDCACHE: "False"
-  REFRESH_DEPLOYMENT: "False"
+#  REFRESH_DEPLOYMENT: "False"
+  REFRESH_DEPLOYMENT: "True"
 #  BUILD_E4S: "False"
   BUILD_E4S: "True"
 #  DEPLOY_E4S: "False"
