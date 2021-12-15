@@ -9,10 +9,10 @@ variables:
   # The below vals are defaults and may be overriden on a per-run basis
   CREATE_SOURCE_MIRROR: "False"
   REMOVE_BUILDCACHE: "False"
-#  REFRESH_DEPLOYMENT: "False"
-  REFRESH_DEPLOYMENT: "True"
-#  BUILD_E4S: "False"
-  BUILD_E4S: "True"
+  REFRESH_DEPLOYMENT: "False"
+ # REFRESH_DEPLOYMENT: "True"
+  BUILD_E4S: "False"
+#  BUILD_E4S: "True"
 #  DEPLOY_E4S: "False"
   DEPLOY_E4S: "True"
 #  RUN_E4S_TESTSUITE: "True"
@@ -126,7 +126,9 @@ deploy:
   script:
     - hostname 
     # Source the setup for the deployment spack instance
+    - echo ${SPACK_DEPLOY_DIR}/spack-deploy/share/spack/setup-env.sh
     - . ${SPACK_DEPLOY_DIR}/spack-deploy/share/spack/setup-env.sh
+    - echo $SPACK_ROOT
     - spack clean -m
     # copy all site configuration for spack instance 
     - cp ${CI_PROJECT_DIR}/${WORKING_DIR}/site_config/* ${SPACK_ROOT}/etc/spack
