@@ -143,7 +143,7 @@ deploy:
     - chmod o+r ${SPACK_MIRROR}/build_cache/index.json
     - spack buildcache list -L --allarch
     - spack env activate ${CI_PROJECT_DIR}/${WORKING_DIR}/prod
-    - spack -d install --cache-only
+    - spack -d install --cache-only --fail-fast
     - spack module tcl refresh --delete-tree -y
     - spack find
 
