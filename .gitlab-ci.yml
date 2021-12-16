@@ -8,15 +8,16 @@ variables:
   SPACK_DEPLOY_DIR: /soft/ecp/deploy/${E4S_VERSION}
   # The below vals are defaults and may be overriden on a per-run basis
   CREATE_SOURCE_MIRROR: "False"
-  REMOVE_BUILDCACHE: "False"
-  REFRESH_DEPLOYMENT: "False"
- # REFRESH_DEPLOYMENT: "True"
-  BUILD_E4S: "False"
-#  BUILD_E4S: "True"
+#  REMOVE_BUILDCACHE: "False"
+  REMOVE_BUILDCACHE: "True"
+#  REFRESH_DEPLOYMENT: "False"
+  REFRESH_DEPLOYMENT: "True"
+#  BUILD_E4S: "False"
+  BUILD_E4S: "True"
 #  DEPLOY_E4S: "False"
   DEPLOY_E4S: "True"
-#  RUN_E4S_TESTSUITE: "True"
-  RUN_E4S_TESTSUITE: "False"
+ # RUN_E4S_TESTSUITE: "False"
+  RUN_E4S_TESTSUITE: "True"
 
 stages:
   - generate
