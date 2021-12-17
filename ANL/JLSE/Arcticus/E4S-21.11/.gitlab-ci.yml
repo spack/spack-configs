@@ -8,12 +8,15 @@ variables:
   SPACK_DEPLOY_DIR: /soft/ecp/deploy/${E4S_VERSION}
   # The below vals are defaults and may be overriden on a per-run basis
   CREATE_SOURCE_MIRROR: "False"
-  REMOVE_BUILDCACHE: "False"
-  REFRESH_DEPLOYMENT: "False"
-  BUILD_E4S: "False"
-#  BUILD_E4S: "True"
-  DEPLOY_E4S: "False"
-#  DEPLOY_E4S: "True"
+#  REMOVE_BUILDCACHE: "False"
+  REMOVE_BUILDCACHE: "True"
+#  REFRESH_DEPLOYMENT: "False"
+  REFRESH_DEPLOYMENT: "True"
+#  BUILD_E4S: "False"
+  BUILD_E4S: "True"
+#  DEPLOY_E4S: "False"
+  DEPLOY_E4S: "True"
+ # RUN_E4S_TESTSUITE: "False"
   RUN_E4S_TESTSUITE: "True"
 
 stages:
@@ -123,7 +126,10 @@ deploy:
       - $DEPLOY_E4S == "True"
   script:
     - hostname 
-    - . spack-deploy/share/spack/setup-env.sh
+    # Source the setup for the deployment spack instance
+    - echo ${SPACK_DEPLOY_DIR}/spack-deploy/share/spack/setup-env.sh
+    - . ${SPACK_DEPLOY_DIR}/spack-deploy/share/spack/setup-env.sh
+    - echo $SPACK_ROOT
     - spack clean -m
     # copy all site configuration for spack instance 
     - cp ${CI_PROJECT_DIR}/${WORKING_DIR}/site_config/* ${SPACK_ROOT}/etc/spack
@@ -138,7 +144,7 @@ deploy:
     - chmod o+r ${SPACK_MIRROR}/build_cache/index.json
     - spack buildcache list -L --allarch
     - spack env activate ${CI_PROJECT_DIR}/${WORKING_DIR}/prod
-    - spack -d install --cache-only
+    - spack -d install --cache-only --fail-fast
     - spack module tcl refresh --delete-tree -y
     - spack find
 
