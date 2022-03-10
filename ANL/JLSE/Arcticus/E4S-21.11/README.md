@@ -13,9 +13,9 @@ Note that this repo is set up to be CI-ready, just by copying the .gitlab-ci.yml
 
 The following variables are defined for consumption by the Gitlab project which is used to install and populate the buildcache, and can be used to alter the behavior of the CI job. 
 
-- `WORKING_DIR`: points to this directory. (`ANL/JLSE/Arcticus/E4S-21.11`)
+- `WORKING_DIR`: Points to this directory. (`ANL/JLSE/Arcticus/E4S-21.11`)
 - `BUILD_E4S`: Used for building E4S stack and pushing to buildcache. (`Default: True`)
-- `DEPLOY_E4S`: Used for running the deployment job (`Default: False`)
+- `DEPLOY_E4S`: Used for running the deployment job. (`Default: False`)
 - `REFRESH_DEPLOYMENT`: Will purge all deployed builds. (`Default: False`)
-- `RUN_E4S_TESTSUITE`: Used for running the deployment job (`Default: True`)
+- `RUN_E4S_TESTSUITE`: Used for running the E4S testsuite. (`Default: True`)
 - `REMOVE_BUILDCACHE`: Used for removing the buildcache directory in order to force the rebuild E4S from source. (`Default: False`)

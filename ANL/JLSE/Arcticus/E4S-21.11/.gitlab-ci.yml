@@ -164,7 +164,7 @@ run_e4s_testsuite:
   - pwd
   - which spack
   - spack -V 
-  - spack env activate ${CI_PROJECT_DIR}/${WORKING_DIR}/prod
+  - spack env activate -d ${CI_PROJECT_DIR}/${WORKING_DIR}/prod
   - spack install
   - spack find 
   - cd testsuite
