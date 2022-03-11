@@ -1,0 +1,37 @@
+# packages.yaml
+#  intel-oneapi-mpi:
+#    externals:
+#    - spec: intel-oneapi-mpi@2021.4.0
+#      prefix: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/oneapi-2021.4.0/intel-oneapi-mpi-2021.4.0-zd4d4gna6ghmaich7wyn2arunnnn5kxq
+#
+# The intel build of mpich somehow ends up with no value of 'wl' being set in the mpif90 wrapper. I patched the wrapper here by hand to make it work.
+packages:
+  mpich:
+    externals:
+    - spec: mpich@3.4.2%oneapi
+      prefix: /soft/spack/opt/spack/linux-opensuse_leap15-x86_64/oneapi-2021.4.0/mpich-3.4.2-herozflqn2cyycuhji5ookcpuwt2ecvx
+  binutils:
+    variants: +ld +gold +headers +libiberty ~nls +plugins
+    version:
+    - 2.36.1
+    externals: 
+    - spec: binutils@2.36.1
+      prefix: /soft/ecp/spack/e4s-21.11/opt/spack/__spack_path_placeholder__/__spack_path_placeholder__/__spack_path_placeholder__/__spack_pa/linux-opensuse_leap15-x86_64/gcc-9.3.0/binutils-2.36.1-bpfpxrozx5svby42ckaphrwc5ohhf4sp
+  openssl:
+    version:
+    - 1.1.1l
+    externals: 
+    - spec: openssl@1.1.1l%gcc@9.3.0~docs certs=system arch=linux-opensuse_leap15-x86_64
+      prefix: /usr
+  openssh:
+    version:
+    - 1.1.1l
+    externals: 
+    - spec: openssl@1.1.1l%gcc@9.3.0~docs certs=system arch=linux-opensuse_leap15-x86_64
+      prefix: /usr
+  openssh:
+    version:
+    - 8.7p1 
+    externals: 
+    - spec: openssh@8.7p1%gcc@9.3.0 arch=linux-opensuse_leap15-x86_64
+      prefix: /usr

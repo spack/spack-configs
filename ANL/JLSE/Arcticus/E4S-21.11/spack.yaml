@@ -1,0 +1,291 @@
+spack:
+
+  view: false
+  concretization: separately
+
+  packages:
+    all:
+      compiler:
+      - gcc@9.3.0
+      providers:
+        blas:
+        - openblas
+        mpi:
+        - mpich
+      target:
+      - x86_64
+      variants: +mpi
+    cuda:
+      version:
+      - 11.4.2
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls +plugins
+      version:
+      - 2.36.1
+    boost:
+      variants: visibility=global
+    doxygen:
+      version:
+      - 1.8.20
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    fftw:
+      variants: +openmp
+    hdf5:
+      variants: +fortran +hl +shared api=v18
+      version:
+      - 1.12.1
+    libfabric:
+      variants: fabrics=sockets,tcp,udp,rxm
+    libunwind:
+      variants: +pic +xz
+    mesa:
+      variants: ~llvm
+    mesa18:
+      variants: ~llvm
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+
+  definitions:
+  - cuda_specs:
+    - amrex@21.11 +cuda cuda_arch=80
+    - caliper@2.7.0 +cuda cuda_arch=80
+    - chai@2.4.0 ~benchmarks ~tests +cuda cuda_arch=80 ^umpire ~shared
+    - flecsi@2.1.0 +cuda cuda_arch=80
+    - ginkgo@1.4.0 +cuda cuda_arch=80
+    - heffte@2.2.0 +cuda cuda_arch=80
+    - hpx@1.7.1 +cuda cuda_arch=80
+    - hypre@2.23.0 +cuda cuda_arch=80
+    - kokkos@3.4.01 +wrapper +cuda cuda_arch=80
+    - kokkos-kernels@3.4.01 +cuda cuda_arch=80 ^kokkos +wrapper +cuda cuda_arch=80
+    - magma@2.6.1 +cuda cuda_arch=80
+    - mfem@4.3.0 +cuda cuda_arch=80
+    - parsec@3.0.2012 +cuda cuda_arch=80
+    - petsc@3.16.1 +cuda cuda_arch=80
+    - raja@0.14.0 +cuda cuda_arch=80
+    - slate@2021.05.02 +cuda cuda_arch=80
+    - slepc@3.16.0 +cuda cuda_arch=80
+    - strumpack@6.1.0 ~slate +cuda cuda_arch=80
+    - sundials@5.8.0 +cuda cuda_arch=80
+    - superlu-dist@7.1.1 +cuda cuda_arch=80
+    - tasmanian@7.7 +cuda cuda_arch=80
+    - trilinos@13.2.0 +cuda cuda_arch=80
+    - umpire@6.0.0 ~shared +cuda cuda_arch=80
+    - upcxx@2021.9.0 +cuda
+    - vtk-m@1.6.0 +cuda cuda_arch=80
+    - zfp@0.5.5 +cuda cuda_arch=80
+   #- ascent ~shared +cuda cuda_arch=80
+   #- axom +cuda cuda_arch=80 ^umpire ~shared
+   #- dealii +cuda cuda_arch=80 # gmsh
+   #- paraview +cuda cuda_arch=80
+
+  - rocm_specs:
+    - amrex@21.11 +rocm amdgpu_target=gfx908
+    - ginkgo@1.4.0 +rocm amdgpu_target=gfx908
+    - heffte@2.2.0 +rocm amdgpu_target=gfx908
+    - kokkos@3.4.01 +rocm amdgpu_target=gfx908
+    - magma@2.6.1 +rocm amdgpu_target=gfx908
+    - mfem@4.3.0 +rocm amdgpu_target=gfx908
+    - slate@2021.05.02 +rocm amdgpu_target=gfx908
+    - strumpack@6.1.0 ~slate +rocm amdgpu_target=gfx908
+   #- chai ~benchmarks +rocm amdgpu_target=gfx908
+   #- hpx +rocm amdgpu_target=gfx908
+   #- papi +rocm amdgpu_target=gfx908
+   #- petsc +rocm amdgpu_target=gfx908
+   #- raja ~openmp +rocm amdgpu_target=gfx908
+   #- slepc +rocm amdgpu_target=gfx908
+   #- sundials +rocm amdgpu_target=gfx908
+   #- tasmanian +rocm amdgpu_target=gfx908
+   #- umpire +rocm amdgpu_target=gfx908
+
+  - oneapi_specs:
+    # The public release of oneapi is required because of NDA
+    - intel-oneapi-compilers
+    - papi@6.0.0.1
+    - parallel-netcdf@1.12.2
+    - parsec@3.0.2012 ~cuda
+    - hdf5@1.12.1
+    - kokkos@3.4.01 +openmp
+    # newly marked as ready with 21.11
+    - arborx@1.1
+    - darshan-runtime@3.3.1
+    - darshan-util@3.3.1
+    # llvm marked ready, but missing symbols when attempting to build, possibly available in an un-released/non-public version of oneapi compilers?
+    # - llvm@13.0.0 +all_targets +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang ~cuda
+    #  >> 18031    /tmp/willmore/spack-stage/spack-stage-llvm-13.0.0-avf36vb5ihzu3aiehuz2sdgg2seiep7e/spack-src/compiler-rt/lib/scudo/s
+    #              cudo_allocator.cpp:369: undefined reference to `_intel_fast_memset'
+    #     18032    /usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: CMakeFiles/clang_rt.scudo_minimal-dynamic-x
+    #              86_64.dir/scudo_allocator.cpp.o: in function `__scudo::scudoRealloc(void*, unsigned long)':
+    #  >> 18033    /tmp/willmore/spack-stage/spack-stage-llvm-13.0.0-avf36vb5ihzu3aiehuz2sdgg2seiep7e/spack-src/compiler-rt/lib/scudo/s
+    #              cudo_allocator.cpp:538: undefined reference to `_intel_fast_memcpy'
+    #     18034    /usr/lib64/gcc/x86_64-suse-linux/7/../../../../x86_64-suse-linux/bin/ld: CMakeFiles/clang_rt.scudo_minimal-dynamic-x
+    #              86_64.dir/scudo_allocator.cpp.o: in function `reallocate':
+    #  >> 18035    /tmp/willmore/spack-stage/spack-stage-llvm-13.0.0-avf36vb5ihzu3aiehuz2sdgg2seiep7e/spack-src/compiler-rt/lib/scudo/s
+    #              cudo_allocator.cpp:502: undefined reference to `_intel_fast_memcpy'
+    - sundials@5.8.0
+
+  - default_specs:
+    - adios2@2.7.1
+    - adios@1.13.1
+    - alquimia@1.0.9
+    - aml@0.1.0
+    - amrex@21.11
+    - arborx@1.1
+    - argobots@1.1
+    - ascent@0.7.1
+    - axom@0.5.0
+    - bolt@2.0
+    - butterflypack@2.0.0
+    - cabana@0.4.0
+    - caliper@2.7.0
+    - catalyst@5.6.0
+    - chai@2.4.0 ~benchmarks ~tests
+    - charliecloud@0.25
+    - conduit@0.7.2
+    - darshan-runtime@3.3.1
+    - darshan-util@3.3.1
+    - datatransferkit@3.1-rc3
+    - dyninst@11.0.1
+    - exaworks@0.1.0
+    - faodel@1.2108.1
+    - flecsi@1.4.2
+    - flit@2.1.0
+    - flux-core@0.30.0
+    - fortrilinos@2.0.0
+    - gasnet@2021.9.0
+    - ginkgo@1.4.0
+    - globalarrays@5.8
+    - gmp@6.2.1
+    - gotcha@1.0.3
+    - hdf5@1.12.1
+    - heffte@2.2.0 +fftw
+    - hpctoolkit@2021.10.15
+    - hpx@1.7.1
+    - hypre@2.23.0
+    - kokkos-kernels@3.4.01 +openmp
+    - kokkos@3.4.01 +openmp
+    - legion@21.03.0
+    - libnrm@0.1.0
+    - libquo@1.3.1
+    - libunwind@1.5.0
+    # Will not concretize
+    # - llvm@13.0.0 +all_targets +clang +compiler-rt +libcxx +lld +lldb +llvm_dylib +flang ~cuda
+    # ==> Error: llvm@13.0.0%gcc@9.3.0+all_targets+clang+compiler-rt~cuda+flang+libcxx+lld+lldb+llvm_dylib is unsatisfiable, conflicts are:
+    # A conflict was triggered
+    # no version satisfies the given constraints
+    - loki@0.1.7
+    - mercury@2.0.1
+    - metall@0.17
+    - mfem@4.3.0
+    - mpark-variant@1.4.0
+    - mpifileutils@0.11 ~xattr
+    - netlib-scalapack@2.1.0
+    - ninja@1.10.2
+    - nrm@0.1.0
+    - nvhpc@21.9
+    - omega-h@9.34.1
+    - openmpi@4.1.1
+    - openpmd-api@0.14.3 ^hdf5@1.12.0 +fortran +shared +hl api=default
+    - papi@6.0.0.1
+    - papyrus@1.0.1
+    - parallel-netcdf@1.12.2
+    - paraview@5.9.1
+    - parsec@3.0.2012 ~cuda
+    - pdt@3.25.1
+    - petsc@3.16.1
+    - phist@1.9.5
+    - plasma@21.8.29
+    - precice@2.3.0
+    - pumi@2.2.6
+    - py-cinemasci@1.3
+    - py-jupyterhub@1.4.1
+    - py-libensemble@0.8.0
+    - py-petsc4py@3.16.1
+    - py-warpx@21.11 ^warpx dims=2 ^hdf5@1.12.0 +fortran +shared +hl api=default
+    - py-warpx@21.11 ^warpx dims=3 ^hdf5@1.12.0 +fortran +shared +hl api=default
+    - py-warpx@21.11 ^warpx dims=rz ^hdf5@1.12.0 +fortran +shared +hl api=default
+    - qthreads@1.16 scheduler=distrib
+    - raja@0.14.0
+    - rempi@1.1.0
+    - scr@3.0rc2
+    - slate@2021.05.02 ~cuda
+    - slepc@3.16.0
+    - stc@0.9.0
+    - strumpack@6.1.0 ~slate
+    - sundials@5.8.0
+    - superlu-dist@7.1.1
+    - superlu@5.3.0
+    - swig@4.0.2
+    - swig@4.0.2-fortran
+    - sz@2.1.12
+    - tasmanian@7.7
+    - tau@2.31 +mpi +python
+    - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    - turbine@1.3.0
+    - umap@2.1.0
+    - umpire
+    - unifyfs@0.9.1
+    - upcxx@2021.9.0
+    - veloc@1.5
+    - vtk-m@1.6.0
+    - zfp@0.5.5
+    #- archer # https://github.com/spack/spack/issues/25050
+    #- dealii
+    #- geopm
+    #- qt
+    #- qwt
+    #- stat
+    #- variorum
+
+  specs:
+  # - $cuda_specs
+  # - $rocm_specs
+  #- $default_specs
+  #- $oneapi_specs
+  - matrix:
+    - [$default_specs]
+    - ['%gcc@9.3.0']
+  - matrix:
+    - [$oneapi_specs]
+    - ['%oneapi']
+
+  gitlab-ci:
+    rebuild-index: False
+    mappings:
+    - match: [os=opensuse_leap15]
+      runner-attributes:
+        tags:
+#        - batch
+        - shell
+        variables:
+          SPACK_INSTALLATION: $env:SPACK_INSTALLATION
+          WORKING_DIR: $env:WORKING_DIR
+          SPACK_GNUPGHOME: /home/willmore/spack-gnupg
+          SITE_CONFIG: $env:SITE_CONFIG
+        script:
+        - hostname
+        - pwd
+        - ls
+        - echo ${CI_PROJECT_DIR}
+        - ls ${CI_PROJECT_DIR}
+        - echo ${SPACK_CONCRETE_ENV_DIR}
+        - . ${SPACK_INSTALLATION}/share/spack/setup-env.sh
+        - which spack
+        - spack -V
+        - spack env activate ${SPACK_CONCRETE_ENV_DIR}
+        - spack gpg list
+        - spack -d ci rebuild
+  mirrors:
+    arcticus-e4s-21.11: file:///soft/ecp/mirrors/arcticus-e4s-21.11
+
