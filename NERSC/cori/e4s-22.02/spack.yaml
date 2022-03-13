@@ -1,0 +1,499 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  view: false
+  config:
+    build_stage: $spack/var/spack/stage
+    misc_cache: $spack/var/spack/misc_cache
+    install_tree:
+      concretizer: clingo
+      root: /global/common/software/spackecp/cori/e4s-22.02/software
+    module_roots:
+      tcl: /global/common/software/spackecp/cori/e4s-22.02/modules
+  mirrors:
+    source_mirror: /global/common/software/spackecp/mirrors/source_mirror
+  'modules:':
+    enable:
+    - tcl
+    tcl:
+      blacklist_implicits: true
+      hash_length: 0
+      naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
+      all:
+        conflict:
+        - '{name}'
+        environment:
+          set:
+            '{name}_ROOT': '{prefix}'
+      darshan-runtime:
+        conflict:
+        - darshan
+      darshan-util:
+        conflict:
+        - darshan
+      projections:
+        all: '{name}/{version}-{compiler.name}-{compiler.version}'
+        warpx dims=1: '{name}/{version}-{compiler.name}-{compiler.version}-dims1'
+        warpx dims=2: '{name}/{version}-{compiler.name}-{compiler.version}-dims2'
+        warpx dims=3: '{name}/{version}-{compiler.name}-{compiler.version}-dims3'
+  compilers:
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: /opt/cray/pe/craype/default/bin/cc
+        cxx: /opt/cray/pe/craype/default/bin/CC
+        f77: /opt/cray/pe/craype/default/bin/ftn
+        fc: /opt/cray/pe/craype/default/bin/ftn
+      flags: {}
+      operating_system: cnl7
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+      - craype-haswell
+  - compiler:
+      spec: intel@19.1.2.254
+      paths:
+        cc: /opt/cray/pe/craype/default/bin/cc
+        cxx: /opt/cray/pe/craype/default/bin/CC
+        f77: /opt/cray/pe/craype/default/bin/ftn
+        fc: /opt/cray/pe/craype/default/bin/ftn
+      flags: {}
+      operating_system: cnl7
+      target: any
+      modules:
+      - PrgEnv-intel
+      - intel/19.1.2.254
+      - craype-haswell
+  definitions:
+  - gcc_compilers: ['%gcc@11.2.0']
+  - intel_compilers: ['%intel@19.1.2.254']
+  - gcc_specs:
+    - adios2@2.7.1
+    - amrex@22.02
+    - aml@0.1.0
+    - arborx@1.1
+    - argobots@1.1
+    - axom@0.6.1
+    - bolt@2.0
+    - caliper@2.7.0
+    - chai@2.4.0 ~benchmarks ~tests
+    - conduit@0.8.2
+    - darshan-runtime@3.3.1
+    - darshan-util@3.3.1
+    - dyninst@12.0.1
+    - faodel@1.2108.1
+    - flecsi@1.4.2
+    - flit@2.1.0
+    - gasnet@2021.9.0
+    - ginkgo@1.4.0
+    - globalarrays@5.8
+    - gotcha@1.0.3
+    - hdf5@1.10.7 +fortran +hl +shared
+    - hdf5@1.12.1 +fortran +hl +shared
+    - hdf5@1.13.0 +fortran +hl +shared
+    - heffte@2.2.0 +fftw
+    - hpx@1.7.1 networking=mpi
+    - hypre@2.24.0
+    - kokkos@3.5.00 +openmp +wrapper
+    - kokkos-kernels@3.5.00 +openmp ^kokkos@3.5.00 +openmp +wrapper
+    - legion@21.03.0
+    - libquo@1.3.1
+    - libunwind@1.5.0
+    - mercury@2.1.0
+    - metall@0.17
+    - mfem@4.3.0
+    - mpark-variant@1.4.0
+    - nccmp@1.9.0.1 ^netcdf-c@4.8.1
+    - nco@5.0.1
+    - netlib-scalapack@2.1.0
+    - ninja@1.10.2
+    - nvhpc@22.1
+    - openpmd-api@0.14.4
+    - papi@6.0.0.1
+    - papyrus@1.0.1
+    - parallel-netcdf@1.12.2
+    - parsec@3.0.2012 ~cuda
+    - pdt@3.25.1
+    - petsc@3.16.4 +openmp
+    - pumi@2.2.6
+    - qthreads@1.16 scheduler=distrib
+    - raja@0.14.0
+    - stc@0.9.0
+    - strumpack@6.3.0~butterflypack~slate
+    - sundials@6.1.1
+    - superlu@5.3.0
+    - superlu-dist@7.2.0
+    - swig@4.0.2
+    - sz@2.1.12
+    - tasmanian@7.7
+    - tau@2.31 +mpi +python
+    - turbine@1.3.0
+    - umap@2.1.0
+    - umpire@6.0.0
+    - upcxx@2021.9.0
+    - veloc@1.5
+    - vtk-m@1.7.1
+    - zfp@0.5.5
+   #- hpctoolkit@2022.01.15
+   #- phist@1.9.5 #Unable to locate cray-libsci headers in /opt/cray/pe/libsci/20.09.1/gnu/8.1/include
+   #- mpifileutils@0.11.1 ~xattr # failed to install libcircle Unable to find suitable MPI Compiler. Try setting MPICC.
+   #- plumed@2.6.3  # Build Failed
+   #-precice@2.3.0 # Build failed due to petsc
+   #- py-warpx@22.02 ^warpx dims=rz
+   #- rempi@1.1.0 failed to find MPICC
+   #- slate@2021.05.02 ~cuda # Build failure on blaspp. BLAS++ requires a BLAS library and none was found.
+   #- scr@3.0rc2  Build failure
+   #- trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    #- unifyfs@0.9.1 # Build failure on dependency mercury
+    #- wannier90@3.1.0 #  Error: A PrgEnv-* modulefile must be loaded.
+  - intel_specs:
+    - adios2@2.7.1
+    - arborx@1.1
+    - argobots@1.1
+    - caliper@2.7.0
+    - conduit@0.8.2
+    - chai@2.4.0 ~benchmarks ~tests
+    - darshan-runtime@3.3.1
+    - darshan-util@3.3.1
+    - faodel@1.2108.1
+    - flecsi@1.4.2
+    - flit@2.1.0
+    - gasnet@2021.9.0
+    - ginkgo@1.4.0
+    - globalarrays@5.8
+    - gotcha@1.0.3
+    - hdf5@1.10.7 +fortran +hl +shared
+    - hdf5@1.12.1 +fortran +hl +shared
+    - hdf5@1.13.0 +fortran +hl +shared
+    - heffte@2.2.0 +fftw
+    - hypre@2.24.0
+    - kokkos@3.5.00 +openmp +wrapper
+    - legion@21.03.0
+    - libquo@1.3.1
+    - libunwind@1.5.0
+    - loki@0.1.7
+    - mercury@2.1.0
+    - metall@0.17
+    - mfem@4.3.0
+    - mpark-variant@1.4.0
+    - nccmp@1.9.0.1 ^netcdf-c@4.8.1
+    - netlib-scalapack@2.1.0
+    - ninja@1.10.2
+    - openpmd-api@0.14.4
+    - papi@6.0.0.1
+    - parallel-netcdf@1.12.2
+    - parsec@3.0.2012 ~cuda
+    - papyrus@1.0.1
+    - petsc@3.16.4 +openmp
+    - pdt@3.25.1
+    - precice@2.3.0
+    - pumi@2.2.6
+    - qthreads@1.16 scheduler=distrib
+    - raja@0.14.0
+    - slepc@3.16.2
+    - strumpack@6.3.0~butterflypack ~slate
+    - sundials@6.1.1
+    - superlu@5.3.0
+    - superlu-dist@7.2.0
+    - swig@4.0.2
+    - sz@2.1.12
+    - tasmanian@7.7
+    - turbine@1.3.0
+    - umap@2.1.0
+    - umpire@6.0.0
+    - upcxx@2021.9.0
+    - variorum@0.4.1
+    - veloc@1.5
+    - vtk-m@1.7.1
+    - wannier90@3.1.0
+    - warpx dims=1
+    - warpx dims=2
+    - warpx dims=3
+    - zfp@0.5.5
+    #- axom@0.6.1 # Build failure in cmake for axom
+    #- butterflypack@2.1.0 # Build failure  sed: can't read *.inc: No such file or directory
+    #- dyninst@12.0.1 # %intel conflict
+    # - hpx@1.7.1 networking=mpi # Failed on asio
+    #- lammps@20220107 # Build Failure during cmake
+    #- kokkos-kernels@3.5.00 +openmp ^kokkos@3.5.00 +openmp +wrapper  # Build failure
+    #- plasma@21.8.29 # %intel conflict
+    #- phist@1.9.5  # Error: NoHeadersError: Unable to locate cray-libsci headers in /opt/cray/pe/libsci/20.09.1/intel/16.0/include
+    #- plumed@2.6.3
+    #- rempi@1.1.0  # FAILED to find MPICC
+    #- slate@2021.05.02 ~cuda # %intel conflict
+    #- scr@3.0rc2   Build failure
+    #- trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    #- warpx dims=rz failed on blaspp
+
+  - nersc_specs:
+    - cdo@2.0.3 +curl
+    - chapel@1.24.1
+    - ffmpeg@4.4.1
+    - elpa@2021.11.001
+    - grads@2.2.1
+    - gsl@2.7
+    - gromacs@2021.5
+    - libxc@5.1.7
+    - libxsmm@1.17 +shared
+    - libint@2.6.0
+    - nano@4.9
+    - maven@3.8.4
+    - metis@5.1.0
+    - octave@6.4.0
+    - openjdk@11.0.12_7
+    - parallel@20210922
+    - parmetis@4.0.3
+    - texlive
+    - xerces-c@3.2.3
+
+    #- abinit+openmp failed to install netcdf-fortran
+    #- gnuplot build failure on gnuplot
+    #- valgrind@3.18.1 Build failure
+  specs:
+  - matrix:
+    - [$gcc_specs]
+    - [$gcc_compilers]
+  - matrix:
+    - [$intel_specs]
+    - [$intel_compilers]
+  - matrix:
+    - [$nersc_specs]
+    - [$gcc_compilers]
+  packages:
+    all:
+      compiler: [gcc@11.2.0, intel@19.1.2.254]
+      providers:
+        blas: [cray-libsci, intel-mkl]
+        fftw-api: [cray-fftw]
+        mpi: [cray-mpich]
+        scalapack: [cray-libsci, intel-mkl]
+    amrex:
+      variants: +fortran +hypre +openmp +shared
+    bash:
+      buildable: false
+      externals:
+      - spec: bash@4.4.23
+        prefix: /
+    bzip2:
+      version: [1.0.6]
+      externals:
+      - spec: bzip2@1.0.6
+        prefix: /usr
+    coreutils:
+      buildable: false
+      version: [8.29]
+      externals:
+      - spec: coreutils@8.29
+        prefix: /usr
+    cpio:
+      buildable: false
+      externals:
+      - spec: cpio@2.12
+        prefix: /
+    cray-libsci:
+      buildable: false
+      version: [20.09.1]
+      externals:
+      - spec: cray-libsci@20.09.1 %gcc
+        prefix: /opt/cray/pe/libsci/20.09.1/gnu/8.1
+        modules:
+        - cray-libsci/20.09.1
+      - spec: cray-libsci@20.09.1 %intel
+        prefix: /opt/cray/pe/libsci/20.09.1/intel/16.0
+        modules:
+        - cray-libsci/20.09.1
+    cray-fftw:
+      buildable: false
+      externals:
+      - spec: cray-fftw@3.3.8.10
+        modules:
+        - cray-fftw/3.3.8.10
+    cray-mpich:
+      buildable: false
+      externals:
+      - spec: cray-mpich@7.7.19 %intel
+        prefix: /opt/cray/pe/mpt/7.7.19/gni/mpich-intel/16.0
+        modules:
+        - cray-mpich/7.7.19
+      - spec: cray-mpich@7.7.19 %gcc
+        prefix: /opt/cray/pe/mpt/7.7.19/gni/mpich-gnu/8.2
+        modules:
+        - cray-mpich/7.7.19
+    curl:
+      externals:
+      - spec: curl@7.66.0+gssapi+ldap+nghttp2
+        prefix: /usr
+    diffutils:
+      version: [3.6]
+      externals:
+      - spec: diffutils@3.6
+        prefix: /usr
+    elfutils:
+      version: [0.168]
+      externals:
+      - spec: elfutils@0.168
+        prefix: /usr
+    findutils:
+      version: [4.6.0]
+      externals:
+      - spec: findutils@4.6.0
+        prefix: /usr
+    hdf5:
+      variants: +fortran +hl +shared api=v18
+      version: [1.12.1]
+      externals:
+      - spec: hdf5@1.12.1.1%intel+shared+fortran+hl~mpi
+        modules:
+        - cray-hdf5/1.12.1.1
+      - spec: hdf5@1.12.1.1%intel+shared+fortran+hl+mpi
+        modules:
+        - cray-hdf5-parallel/1.12.1.1
+      - spec: hdf5@1.12.1.1%gcc+shared+fortran+hl~mpi
+        modules:
+        - cray-hdf5/1.12.1.1
+      - spec: hdf5@1.12.1.1%gcc+shared+fortran+hl+mpi
+        modules:
+        - cray-hdf5-parallel/1.12.1.1
+    hypre:
+      variants: +openmp +superlu-dist
+    gawk:
+      buildable: false
+      externals:
+      - spec: gawk@4.2.1
+        prefix: /usr
+    git:
+      version: [2.26.2]
+      buildable: false
+      externals:
+      - spec: git@2.26.2
+        prefix: /usr
+    gmake:
+      buildable: false
+      externals:
+      - spec: gmake@4.2.1
+        prefix: /usr
+    intel-mkl:
+      buildable: false
+      externals:
+      - spec: intel-mkl@19.1.2.254
+        modules:
+        - intel/19.1.2.254
+    krb5:
+      buildable: false
+      externals:
+      - spec: krb5@1.16.3
+        prefix: /usr/lib/mit
+    libunwind:
+      variants: +pic +xz
+    mercury:
+      variants: ~bmi
+    mesa:
+      variants: ~llvm
+    mesa18:
+      variants: ~llvm
+    m4:
+      buildable: false
+      externals:
+      - spec: m4@1.4.18
+        prefix: /usr
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+      externals:
+      - spec: ncurses@6.1
+        prefix: /usr
+    netcdf-c:
+      version: [4.8.1.1]
+      externals:
+      - spec: netcdf-c@4.8.1.1~mpi
+        modules:
+        - cray-netcdf/4.8.1.1
+      - spec: netcdf-c@4.8.1.1+mpi
+        modules:
+        - cray-netcdf-hdf5parallel/4.8.1.1
+    openssl:
+      buildable: false
+      version: [1.1.1d]
+      externals:
+      - spec: openssl@1.1.1d
+        prefix: /usr
+    openssh:
+      buildable: false
+      externals:
+      - spec: openssh@8.1p1
+        prefix: /usr
+    pdsh:
+      buildable: false
+      externals:
+      - spec: pdsh@2.33
+        prefix: /usr
+    petsc:
+      variants: +openmp
+    perl:
+      version: [5.32.0]
+    pkg-config:
+      buildable: false
+      version: [0.29.2]
+      externals:
+      - spec: pkg-config@0.29.2
+        prefix: /usr
+    readline:
+      version: [7.0]
+      buildable: false
+      externals:
+      - spec: readline@7.0
+        prefix: /usr
+    sed:
+      buildable: false
+      externals:
+      - spec: sed@4.4
+        prefix: /usr
+    slurm:
+      buildable: false
+      version: [20-11-8-1]
+      externals:
+      - spec: slurm@20-11-8-1
+        prefix: /usr
+    superlu-dist:
+      variants: +openmp
+    strumpack:
+      variants: ~slate
+    tar:
+      version: [1.3]
+      buildable: false
+      externals:
+      - spec: tar@1.30
+        prefix: /usr
+    tcsh:
+      version: [6.20.0]
+      buildable: false
+      externals:
+      - spec: tcsh@6.20.0
+        prefix: /usr
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    unzip:
+      version: [6.0]
+      buildable: false
+      externals:
+      - spec: unzip@6.0
+        prefix: /usr
+    util-linux-uuid:
+      version: [2.31.1]
+      buildable: false
+      externals:
+      - spec: util-linux-uuid@2.31.1
+        prefix: /usr
+    zsh:
+      version: [5.6]
+      buildable: false
+      externals:
+      - spec: zsh@5.6
+        prefix: /usr
