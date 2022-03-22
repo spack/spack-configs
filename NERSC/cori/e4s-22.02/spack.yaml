@@ -14,7 +14,24 @@ spack:
       tcl: /global/common/software/spackecp/cori/e4s-22.02/modules
   mirrors:
     source_mirror: /global/common/software/spackecp/mirrors/source_mirror
-  'modules:':
+  modules::
+    prefix_inspections:
+      bin:
+        - PATH
+      man:
+        - MANPATH
+      share/man:
+        - MANPATH
+      share/aclocal:
+        - ACLOCAL_PATH
+      lib/pkgconfig:
+        - PKG_CONFIG_PATH
+      lib64/pkgconfig:
+        - PKG_CONFIG_PATH
+      share/pkgconfig:
+        - PKG_CONFIG_PATH
+      '':
+        - CMAKE_PREFIX_PATH
     enable:
     - tcl
     tcl:
@@ -22,6 +39,7 @@ spack:
       hash_length: 0
       naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
       all:
+        autoload: direct
         conflict:
         - '{name}'
         environment:
