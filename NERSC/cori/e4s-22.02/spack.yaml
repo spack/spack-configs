@@ -18,6 +18,8 @@ spack:
     prefix_inspections:
       bin:
         - PATH
+      lib:
+        - LD_LIBRARY_PATH
       man:
         - MANPATH
       share/man:
