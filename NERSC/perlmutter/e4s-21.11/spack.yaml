@@ -14,6 +14,10 @@ spack:
       tcl: /global/common/software/spackecp/perlmutter/e4s-21.11/modules/tcl
       lmod: /global/common/software/spackecp/perlmutter/e4s-21.11/modules/lmod
   modules:
+    prefix_inspections:
+      include: [C_INCLUDE_PATH, CPLUS_INCLUDE_PATH, CPATH]
+      lib: [LIBRARY_PATH, LD_LIBRARY_PATH]
+      lib64: [LIBRARY_PATH, LD_LIBRARY_PATH]
     default:
       enable:
       - lmod
@@ -24,6 +28,11 @@ spack:
         - gcc@7.5.0
         hierarchy:
         - mpi
+        defaults:
+        - gcc
+        - nvhpc
+        - cray-mpich@8.1.13 %gcc
+        - cray-mpich@8.1.13 %nvhpc
         all:
           autoload: direct
           environment:
@@ -31,9 +40,12 @@ spack:
               '{name}_ROOT': '{prefix}'
           suffixes:
             ^cuda: cuda
+        warpx:
+          suffixes:
+            warpx dims=2: dims2
+            warpx dims=3: dims3
         projections:
           all: '{name}/{version}'
-
     tcl:
       hash_length: 0
       naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
@@ -48,6 +60,10 @@ spack:
         suffixes:
           ^cray-mpich: mpi
           ^cuda: cuda
+      warpx:
+        suffixes:
+          warpx dims=2: dims2
+          warpx dims=3: dims3
       blacklist:
       - gcc
       - nvhpc
@@ -65,27 +81,7 @@ spack:
       target: any
       modules: []
   - compiler:
-      spec: gcc@9.3.0
-      paths:
-        cc: /opt/cray/pe/craype/default/bin/cc
-        cxx: /opt/cray/pe/craype/default/bin/CC
-        f77: /opt/cray/pe/craype/default/bin/ftn
-        fc: /opt/cray/pe/craype/default/bin/ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-gnu
-      - gcc/9.3.0
-      - craype-x86-milan
-      - libfabric
-      #environment:
-      #  append_path:
-      #    LIBRARY_PATH: /opt/nvidia/hpc_sdk/Linux_x86_64/21.9/math_libs/lib64
-      #    LD_LIBRARY_PATH: /opt/nvidia/hpc_sdk/Linux_x86_64/21.9/math_libs/lib64
-      #    CPATH: /opt/nvidia/hpc_sdk/Linux_x86_64/21.9/math_libs/include
-  - compiler:
-      spec: nvhpc@21.9
+      spec: nvhpc@21.11
       paths:
         cc: /opt/cray/pe/craype/default/bin/cc
         cxx: /opt/cray/pe/craype/default/bin/CC
@@ -96,69 +92,109 @@ spack:
       target: any
       modules:
       - PrgEnv-nvidia
-      - nvidia/21.9
+      - nvidia/21.11
       - craype-x86-milan
       - libfabric
+  - compiler:
+      spec: gcc@11.2.0
+      paths:
+        cc: cc
+        cxx: CC
+        f77: ftn
+        fc: ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-gnu
+      - gcc/11.2.0
+      - craype-x86-milan
+      - libfabric
+      extra_rpaths: []
   definitions:
-  - gcc_compilers: ['%gcc@9.3.0']
-  - nvhpc_compilers: ['%nvhpc@21.9']
-  - compilers: [gcc@9.3.0 %gcc@7.5.0, nvhpc@21.9 %gcc@7.5.0]
-  - mpis: [cray-mpich@8.1.12 %gcc@9.3.0, cray-mpich@8.1.12 %nvhpc@21.9]
+  - gcc_compilers: ['%gcc@11.2.0']
+  - nvhpc_compilers: ['%nvhpc@21.11']
+  - compilers: [gcc@11.2.0 %gcc@7.5.0, nvhpc@21.11 %gcc@7.5.0]
+  - mpis: [cray-mpich@8.1.13 %gcc@11.2.0, cray-mpich@8.1.13 %nvhpc@21.11]
   - gcc_specs:
     - adios2@2.7.1
     - amrex@21.11 +fortran +hypre +openmp +petsc +shared
+    - conduit@0.7.2
+    - dyninst@11.0.1
     - gasnet@2021.9.0
+    - globalarrays@5.8
     - hdf5@1.12.1
     - hypre@2.23.0 +openmp +superlu-dist
-    - kokkos@3.4.01 +openmp
     - kokkos-kernels@3.4.01 +openmp
+    - kokkos@3.4.01 +openmp
+    - mercury@2.0.1
+    - mfem@4.3.0
+    - mpark-variant@1.4.0
+    - openpmd-api@0.14.3
     - papi@6.0.0.1
+    - papyrus@1.0.2
+    - parsec@3.0.2012 ~cuda
+    - pdt@3.25.1
     - petsc@3.16.1 +openmp +strumpack
+    - qthreads@1.16 scheduler=distrib
     - raja@0.14.0
     - slepc@3.16.0
     - strumpack@6.1.0 ~slate
     - sundials@5.8.0 +openmp +hypre
-    - superlu@5.3.0
     - superlu-dist@7.1.1 +openmp
-    - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
-      +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
-      +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
-      +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    - superlu@5.3.0
+    - swig@4.0.2
+    - sz@2.1.12
+    - tau +mpi +python
+    - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    - umap@2.1.0
     - upcxx@2021.9.0 +gasnet +mpi
-    #- dyninst@11.0.1 failed to install elfutils
+    #- warpx dims=2
+    #- warpx dims=3
   - cuda_specs:
     - hypre@2.23.0+cuda cuda_arch=80
-    - petsc@3.16.1 +cuda cuda_arch=80
-    - kokkos-kernels@3.4.01 +openmp +cuda cuda_arch=80 ^kokkos +openmp +wrapper +cuda
-      cuda_arch=80
+    - kokkos-kernels@3.4.01 +openmp +cuda cuda_arch=80 ^kokkos +openmp +wrapper +cuda cuda_arch=80
     - kokkos@3.4.01 +openmp +wrapper +cuda cuda_arch=80
-    - raja@0.14.0+cuda cuda_arch=80
+    - mfem@4.3.0+cuda cuda_arch=80
+    - petsc@3.16.1 +cuda cuda_arch=80
     - slepc@3.16.0 +cuda cuda_arch=80 ^petsc@3.16.1 +cuda cuda_arch=80
     - umpire@6.0.0 ~shared +cuda cuda_arch=80
     - upcxx@2021.9.0 +cuda
     - zfp@0.5.5 +cuda cuda_arch=80
-    # following specs failed to find cublas 
+    - raja@0.14.0+cuda cuda_arch=80 # CUB in your include path is not compatible with this release of Thrust
+    #- parsec@3.0.2012+cuda cuda_arch=80 # parsec/mca/device/cuda/transfer.c:168: multiple definition of `parsec_CUDA_d2h_max_flows'
     #- amrex@21.11 +cuda cuda_arch=80
     #- magma@2.6.1+cuda cuda_arch=80
-    #- mfem@4.3.0+cuda cuda_arch=80
     #- strumpack@6.1.0 ~slate +cuda cuda_arch=80
-    #- slate@2021.05.02 +cuda cuda_arch=80 
+    #- slate@2021.05.02 +cuda cuda_arch=80
     #- superlu-dist@7.1.1 +openmp +cuda cuda_arch=80
     #- sundials@5.8.0 +openmp +cuda cuda_arch=80
   - nvhpc_specs:
-    - hypre@2.23.0 +cuda cuda_arch=80
+    - metis@5.1.0
     - umpire@6.0.0 ~shared +cuda cuda_arch=80
     - upcxx@2021.9.0 +cuda
     - zfp@0.5.5 +cuda cuda_arch=80
-    # unable to install for nvhpc compiler  
+    #- hypre@2.23.0 +cuda cuda_arch=80
+    # unable to install for nvhpc compiler
     #- amrex@21.11 +cuda cuda_arch=80
     #- petsc@3.16.1 +cuda cuda_arch=80
     #- kokkos-kernels@3.4.01 +openmp +wrapper +cuda cuda_arch=80 ^kokkos +openmp +wrapper +cuda cuda_arch=80
     #- kokkos@3.4.01 +openmp +wrapper +cuda cuda_arch=80
     #- raja@0.14.0+cuda cuda_arch=80
   - nersc_specs:
-    - plumed@2.6.3
-    - wannier90@3.1.0
+    - chapel@1.24.1
+    - gsl@2.7
+    - fftw@3.3.10
+    - nccmp@1.9.0.1
+    - netcdf-c@4.8.1
+    - netcdf-fortran@4.5.3
+    - nco@5.0.1
+    - metis@5.1.0
+    - parallel-netcdf@1.12.2
+    - parmetis@4.0.3
+    - gromacs@2021.3
+    #- plumed@2.6.3
+    #- wannier90@3.1.0
   specs:
   - matrix:
     - [$gcc_specs]
@@ -174,7 +210,7 @@ spack:
   - $nersc_specs
   packages:
     all:
-      compiler: [gcc@9.3.0, nvhpc@21.9]
+      compiler: [gcc@11.2.0, nvhpc@21.11]
       providers:
         blas: [cray-libsci]
         mpi: [cray-mpich]
@@ -194,25 +230,36 @@ spack:
     cray-mpich:
       buildable: false
       externals:
-      - spec: cray-mpich@8.1.12 %gcc@9.3.0
-        prefix: /opt/cray/pe/mpich/8.1.12/ofi/gnu/9.1
+      - spec: cray-mpich@8.1.13 %gcc@11.2.0
+        prefix: /opt/cray/pe/mpich/8.1.13/ofi/gnu/9.1
         modules:
-        - cray-mpich/8.1.12
-        - cudatoolkit/21.9_11.4
-      - spec: cray-mpich@8.1.12 %nvhpc@21.9
-        prefix: /opt/cray/pe/mpich/8.1.12/ofi/nvidia/20.7
+        - cray-mpich/8.1.13
+        - cudatoolkit/11.5
+      - spec: cray-mpich@8.1.13 %nvhpc@21.11
+        prefix: /opt/cray/pe/mpich/8.1.13/ofi/nvidia/20.7
         modules:
-        - cray-mpich/8.1.12
-        - cudatoolkit/21.9_11.4
+        - cray-mpich/8.1.13
+        - cudatoolkit/11.5
     cuda:
       buildable: false
-      version: [11.4.0]
+      version: [11.5.0]
       externals:
-      - spec: cuda@11.4.0
-        prefix: /opt/nvidia/hpc_sdk/Linux_x86_64/21.9/cuda/11.4
+      - spec: cuda@11.5.0
+        prefix: /opt/nvidia/hpc_sdk/Linux_x86_64/21.11/cuda/11.5
         modules:
-        - cudatoolkit/21.9_11.4
-
+        - cudatoolkit/11.5
+    cub:
+      buildable: false
+      externals:
+      - spec: cub@1.13.1
+        prefix: /opt/nvidia/hpc_sdk/Linux_x86_64/21.11/math_libs/11.5
+        modules:
+        - cudatoolkit/11.5
+    curl:
+      buildable: false
+      externals:
+      - spec: curl@7.66.0
+        prefix: /usr
     diffutils:
       version: [3.6]
       externals:
@@ -231,10 +278,10 @@ spack:
     gcc:
       buildable: false
       externals:
-      - spec: gcc@9.3.0 %gcc@7.5.0
+      - spec: gcc@11.2.0 %gcc@7.5.0
         modules:
         - PrgEnv-gnu
-        - gcc/9.3.0
+        - gcc/11.2.0
         - craype-x86-milan
         - libfabric
     git:
@@ -242,12 +289,6 @@ spack:
       buildable: false
       externals:
       - spec: git@2.26.2
-        prefix: /usr
-    gettext:
-      version: [0.19.8.1]
-      buildable: false
-      externals:
-      - spec: gettext@0.19.8.1
         prefix: /usr
     libfabric:
       buildable: false
@@ -280,10 +321,10 @@ spack:
     nvhpc:
       buildable: false
       externals:
-      - spec: nvhpc@21.9 %gcc@7.5.0
+      - spec: nvhpc@21.11 %gcc@7.5.0
         modules:
         - PrgEnv-nvidia
-        - nvidia/21.9
+        - nvidia/21.11
         - craype-x86-milan
         - libfabric
     openssl:
