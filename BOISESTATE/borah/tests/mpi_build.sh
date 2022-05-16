@@ -41,6 +41,7 @@ module load mpich/3.4.3/oneapi/2022.1.0
 mpicc mpi_hello.c -o /tmp/mpi_hello
 mpirun -n 2 /tmp/mpi_hello
 rm /tmp/mpi_hello
+module unload mpich/3.4.3/oneapi/2022.1.0
 
 echo
 
