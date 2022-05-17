@@ -1,0 +1,219 @@
+==> Starting concretization pool with 16 processes
+==> Environment concretized in 22.41 seconds.
+==> Concretized cuda@11.6.2%gcc@12.1.0+allow-unsupported-compilers~dev arch=linux-None-x86_64
+[+]  gite4dw  cuda@11.6.2%gcc@12.1.0+allow-unsupported-compilers~dev arch=linux-centos7-x86_64
+[+]  7l7gui4      ^libxml2@2.9.13%gcc@12.1.0~python arch=linux-centos7-x86_64
+[+]  rkifdpr          ^libiconv@1.16%gcc@12.1.0 libs=shared,static arch=linux-centos7-x86_64
+[+]  xr3bwf7          ^xz@5.2.5%gcc@12.1.0~pic libs=shared,static arch=linux-centos7-x86_64
+[+]  vuuezl7          ^zlib@1.2.12%gcc@12.1.0+optimize+pic+shared arch=linux-centos7-x86_64
+
+==> Concretized cuda@11.6.2%oneapi@2022.1.0+allow-unsupported-compilers~dev arch=linux-None-x86_64
+[+]  bfmil5s  cuda@11.6.2%oneapi@2022.1.0+allow-unsupported-compilers~dev arch=linux-centos7-x86_64
+[+]  3gjobpn      ^libxml2@2.9.13%oneapi@2022.1.0~python arch=linux-centos7-x86_64
+[+]  des6ha7          ^libiconv@1.16%oneapi@2022.1.0 libs=shared,static arch=linux-centos7-x86_64
+[+]  kbo6gh4          ^xz@5.2.5%oneapi@2022.1.0~pic libs=shared,static arch=linux-centos7-x86_64
+[+]  cpaa3dw          ^zlib@1.2.12%oneapi@2022.1.0+optimize+pic+shared arch=linux-centos7-x86_64
+
+==> Concretized intel-oneapi-compilers@2022.1.0%gcc@12.1.0 arch=linux-centos7-x86_64
+[+]  36rrpyy  intel-oneapi-compilers@2022.1.0%gcc@12.1.0 arch=linux-centos7-x86_64
+
+==> Concretized gcc@12.1.0%gcc@4.8.5 arch=linux-None-x86_64
+[+]  yztxqq4  gcc@12.1.0%gcc@4.8.5~binutils+bootstrap~graphite~nvptx~piclibs~strip languages=c,c++,fortran arch=linux-centos7-x86_64
+[+]  qwhk5qh      ^gmp@6.2.1%gcc@4.8.5 libs=shared,static arch=linux-centos7-x86_64
+[+]  hf5root      ^mpc@1.2.1%gcc@4.8.5 libs=shared,static arch=linux-centos7-x86_64
+[+]  2tz3a6h          ^mpfr@4.1.0%gcc@4.8.5 libs=shared,static arch=linux-centos7-x86_64
+[+]  faxjopd      ^zlib@1.2.12%gcc@4.8.5+optimize+pic+shared arch=linux-centos7-x86_64
+[+]  zks4dip      ^zstd@1.5.2%gcc@4.8.5~programs libs=shared,static arch=linux-centos7-x86_64
+
+==> Concretized mpich@3.4.3%gcc@12.1.0+cuda arch=linux-None-x86_64 ^cuda+allow-unsupported-compilers
+[+]  tu636mn  mpich@3.4.3%gcc@12.1.0~argobots+cuda+fortran+hwloc+hydra+libxml2+pci~rocm+romio~slurm~two_level_namespace~verbs+wrapperrpath cuda_arch=none datatype-engine=auto device=ch4 netmod=ofi pmi=pmi arch=linux-centos7-x86_64
+[+]  gite4dw      ^cuda@11.6.2%gcc@12.1.0+allow-unsupported-compilers~dev arch=linux-centos7-x86_64
+[+]  7l7gui4          ^libxml2@2.9.13%gcc@12.1.0~python arch=linux-centos7-x86_64
+[+]  rkifdpr              ^libiconv@1.16%gcc@12.1.0 libs=shared,static arch=linux-centos7-x86_64
+[+]  xr3bwf7              ^xz@5.2.5%gcc@12.1.0~pic libs=shared,static arch=linux-centos7-x86_64
+[+]  vuuezl7              ^zlib@1.2.12%gcc@12.1.0+optimize+pic+shared arch=linux-centos7-x86_64
+[+]  ktrbpdd      ^hwloc@2.7.1%gcc@12.1.0~cairo~cuda~gl~libudev+libxml2~netloc~nvml~opencl+pci~rocm+shared arch=linux-centos7-x86_64
+[+]  dtjor3d          ^libpciaccess@0.16%gcc@12.1.0 arch=linux-centos7-x86_64
+[+]  7ipsjlh          ^ncurses@6.2%gcc@12.1.0~symlinks+termlib abi=none arch=linux-centos7-x86_64
+[+]  t6f4wqx      ^libfabric@1.14.1%gcc@12.1.0~debug~kdreg fabrics=sockets,tcp,udp arch=linux-centos7-x86_64
+
+==> Concretized mpich@3.4.3%gcc@12.1.0+cuda arch=linux-None-haswell ^cuda+allow-unsupported-compilers
+[+]  4tzgjd4  mpich@3.4.3%gcc@12.1.0~argobots+cuda+fortran+hwloc+hydra+libxml2+pci~rocm+romio~slurm~two_level_namespace~verbs+wrapperrpath cuda_arch=none datatype-engine=auto device=ch4 netmod=ofi pmi=pmi arch=linux-centos7-haswell
+[+]  lo4dp4i      ^cuda@11.6.2%gcc@12.1.0+allow-unsupported-compilers~dev arch=linux-centos7-haswell
+[+]  wm76u3w          ^libxml2@2.9.13%gcc@12.1.0~python arch=linux-centos7-haswell
+[+]  gz2kwiu              ^libiconv@1.16%gcc@12.1.0 libs=shared,static arch=linux-centos7-haswell
+[+]  bjo357s              ^xz@5.2.5%gcc@12.1.0~pic libs=shared,static arch=linux-centos7-haswell
+[+]  tjkbsgr              ^zlib@1.2.12%gcc@12.1.0+optimize+pic+shared arch=linux-centos7-haswell
+[+]  yhwmkuk      ^hwloc@2.7.1%gcc@12.1.0~cairo~cuda~gl~libudev+libxml2~netloc~nvml~opencl+pci~rocm+shared arch=linux-centos7-haswell
+[+]  xud63ws          ^libpciaccess@0.16%gcc@12.1.0 arch=linux-centos7-haswell
+[+]  kohkbtt          ^ncurses@6.2%gcc@12.1.0~symlinks+termlib abi=none arch=linux-centos7-haswell
+[+]  tv5chew      ^libfabric@1.14.1%gcc@12.1.0~debug~kdreg fabrics=sockets,tcp,udp arch=linux-centos7-haswell
+
+==> Concretized mpich@3.4.3%gcc@12.1.0+cuda arch=linux-None-cascadelake ^cuda+allow-unsupported-compilers
+[+]  ojljd2n  mpich@3.4.3%gcc@12.1.0~argobots+cuda+fortran+hwloc+hydra+libxml2+pci~rocm+romio~slurm~two_level_namespace~verbs+wrapperrpath cuda_arch=none datatype-engine=auto device=ch4 netmod=ofi pmi=pmi arch=linux-centos7-cascadelake
+[+]  oae62u7      ^cuda@11.6.2%gcc@12.1.0+allow-unsupported-compilers~dev arch=linux-centos7-cascadelake
+[+]  ee7uauv          ^libxml2@2.9.13%gcc@12.1.0~python arch=linux-centos7-cascadelake
+[+]  nrxr4oc              ^libiconv@1.16%gcc@12.1.0 libs=shared,static arch=linux-centos7-cascadelake
+[+]  uexok3s              ^xz@5.2.5%gcc@12.1.0~pic libs=shared,static arch=linux-centos7-cascadelake
+[+]  dpcbelr              ^zlib@1.2.12%gcc@12.1.0+optimize+pic+shared arch=linux-centos7-cascadelake
+[+]  tcz2ans      ^hwloc@2.7.1%gcc@12.1.0~cairo~cuda~gl~libudev+libxml2~netloc~nvml~opencl+pci~rocm+shared arch=linux-centos7-cascadelake
+[+]  t3tnn7g          ^libpciaccess@0.16%gcc@12.1.0 arch=linux-centos7-cascadelake
+[+]  ttum3z7          ^ncurses@6.2%gcc@12.1.0~symlinks+termlib abi=none arch=linux-centos7-cascadelake
+[+]  vzbttbl      ^libfabric@1.14.1%gcc@12.1.0~debug~kdreg fabrics=sockets,tcp,udp arch=linux-centos7-cascadelake
+
+==> Concretized mpich@3.4.3%oneapi@2022.1.0+cuda arch=linux-None-x86_64 ^cuda+allow-unsupported-compilers
+[+]  ygwx4ro  mpich@3.4.3%oneapi@2022.1.0~argobots+cuda+fortran+hwloc+hydra+libxml2+pci~rocm+romio~slurm~two_level_namespace~verbs+wrapperrpath cuda_arch=none datatype-engine=auto device=ch4 netmod=ofi pmi=pmi arch=linux-centos7-x86_64
+[+]  bfmil5s      ^cuda@11.6.2%oneapi@2022.1.0+allow-unsupported-compilers~dev arch=linux-centos7-x86_64
+[+]  3gjobpn          ^libxml2@2.9.13%oneapi@2022.1.0~python arch=linux-centos7-x86_64
+[+]  des6ha7              ^libiconv@1.16%oneapi@2022.1.0 libs=shared,static arch=linux-centos7-x86_64
+[+]  kbo6gh4              ^xz@5.2.5%oneapi@2022.1.0~pic libs=shared,static arch=linux-centos7-x86_64
+[+]  cpaa3dw              ^zlib@1.2.12%oneapi@2022.1.0+optimize+pic+shared arch=linux-centos7-x86_64
+[+]  pjjubsy      ^hwloc@2.7.1%oneapi@2022.1.0~cairo~cuda~gl~libudev+libxml2~netloc~nvml~opencl+pci~rocm+shared arch=linux-centos7-x86_64
+[+]  vdaqmdi          ^libpciaccess@0.16%oneapi@2022.1.0 arch=linux-centos7-x86_64
+[+]  vpxz576          ^ncurses@6.2%oneapi@2022.1.0~symlinks+termlib abi=none arch=linux-centos7-x86_64
+[+]  evrd55s      ^libfabric@1.14.1%oneapi@2022.1.0~debug~kdreg fabrics=sockets,tcp,udp arch=linux-centos7-x86_64
+
+==> Concretized mpich@3.4.3%oneapi@2022.1.0+cuda arch=linux-None-haswell ^cuda+allow-unsupported-compilers
+[+]  ubumopx  mpich@3.4.3%oneapi@2022.1.0~argobots+cuda+fortran+hwloc+hydra+libxml2+pci~rocm+romio~slurm~two_level_namespace~verbs+wrapperrpath cuda_arch=none datatype-engine=auto device=ch4 netmod=ofi pmi=pmi arch=linux-centos7-haswell
+[+]  2ce2poy      ^cuda@11.6.2%oneapi@2022.1.0+allow-unsupported-compilers~dev arch=linux-centos7-haswell
+[+]  kqy4u2p          ^libxml2@2.9.13%oneapi@2022.1.0~python arch=linux-centos7-haswell
+[+]  7xrjwjv              ^libiconv@1.16%oneapi@2022.1.0 libs=shared,static arch=linux-centos7-haswell
+[+]  lfvt2a2              ^xz@5.2.5%oneapi@2022.1.0~pic libs=shared,static arch=linux-centos7-haswell
+[+]  niesqsq              ^zlib@1.2.12%oneapi@2022.1.0+optimize+pic+shared arch=linux-centos7-haswell
+[+]  mzk4wea      ^hwloc@2.7.1%oneapi@2022.1.0~cairo~cuda~gl~libudev+libxml2~netloc~nvml~opencl+pci~rocm+shared arch=linux-centos7-haswell
+[+]  acwwsjv          ^libpciaccess@0.16%oneapi@2022.1.0 arch=linux-centos7-haswell
+[+]  l7jja4v          ^ncurses@6.2%oneapi@2022.1.0~symlinks+termlib abi=none arch=linux-centos7-haswell
+[+]  athaqx4      ^libfabric@1.14.1%oneapi@2022.1.0~debug~kdreg fabrics=sockets,tcp,udp arch=linux-centos7-haswell
+
+==> Concretized mpich@3.4.3%oneapi@2022.1.0+cuda arch=linux-None-cascadelake ^cuda+allow-unsupported-compilers
+[+]  awzibzx  mpich@3.4.3%oneapi@2022.1.0~argobots+cuda+fortran+hwloc+hydra+libxml2+pci~rocm+romio~slurm~two_level_namespace~verbs+wrapperrpath cuda_arch=none datatype-engine=auto device=ch4 netmod=ofi pmi=pmi arch=linux-centos7-cascadelake
+[+]  bfffzca      ^cuda@11.6.2%oneapi@2022.1.0+allow-unsupported-compilers~dev arch=linux-centos7-cascadelake
+[+]  xnnskhx          ^libxml2@2.9.13%oneapi@2022.1.0~python arch=linux-centos7-cascadelake
+[+]  3x6k3e2              ^libiconv@1.16%oneapi@2022.1.0 libs=shared,static arch=linux-centos7-cascadelake
+[+]  i5vatxy              ^xz@5.2.5%oneapi@2022.1.0~pic libs=shared,static arch=linux-centos7-cascadelake
+[+]  qazy2b6              ^zlib@1.2.12%oneapi@2022.1.0+optimize+pic+shared arch=linux-centos7-cascadelake
+[+]  zhsms27      ^hwloc@2.7.1%oneapi@2022.1.0~cairo~cuda~gl~libudev+libxml2~netloc~nvml~opencl+pci~rocm+shared arch=linux-centos7-cascadelake
+[+]  3tavlni          ^libpciaccess@0.16%oneapi@2022.1.0 arch=linux-centos7-cascadelake
+[+]  a7dzkuv          ^ncurses@6.2%oneapi@2022.1.0~symlinks+termlib abi=none arch=linux-centos7-cascadelake
+[+]  kvuwewl      ^libfabric@1.14.1%oneapi@2022.1.0~debug~kdreg fabrics=sockets,tcp,udp arch=linux-centos7-cascadelake
+
+==> Concretized intel-oneapi-mpi@2021.6.0%gcc@12.1.0 arch=linux-None-x86_64
+[+]  q3x3lly  intel-oneapi-mpi@2021.6.0%gcc@12.1.0~external-libfabric~ilp64 arch=linux-centos7-x86_64
+
+==> Concretized intel-oneapi-mpi@2021.6.0%gcc@12.1.0 arch=linux-None-haswell
+[+]  qms42bm  intel-oneapi-mpi@2021.6.0%gcc@12.1.0~external-libfabric~ilp64 arch=linux-centos7-haswell
+
+==> Concretized intel-oneapi-mpi@2021.6.0%gcc@12.1.0 arch=linux-None-cascadelake
+[+]  xkrznqh  intel-oneapi-mpi@2021.6.0%gcc@12.1.0~external-libfabric~ilp64 arch=linux-centos7-cascadelake
+
+==> Concretized intel-oneapi-mpi@2021.6.0%oneapi@2022.1.0 arch=linux-None-x86_64
+[+]  qbicvxg  intel-oneapi-mpi@2021.6.0%oneapi@2022.1.0~external-libfabric~ilp64 arch=linux-centos7-x86_64
+
+==> Concretized intel-oneapi-mpi@2021.6.0%oneapi@2022.1.0 arch=linux-None-haswell
+[+]  bpkvb2s  intel-oneapi-mpi@2021.6.0%oneapi@2022.1.0~external-libfabric~ilp64 arch=linux-centos7-haswell
+
+==> Concretized intel-oneapi-mpi@2021.6.0%oneapi@2022.1.0 arch=linux-None-cascadelake
+[+]  lzzivth  intel-oneapi-mpi@2021.6.0%oneapi@2022.1.0~external-libfabric~ilp64 arch=linux-centos7-cascadelake
+
+==> Concretized openmpi@3.1.6%gcc@12.1.0+cuda arch=linux-None-x86_64 ^cuda+allow-unsupported-compilers
+[+]  kkfate2  openmpi@3.1.6%gcc@12.1.0~atomics+cuda~cxx~cxx_exceptions~gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~pmi+pmix+romio+rsh~singularity+static+vt+wrapper-rpath cuda_arch=none fabrics=none schedulers=none arch=linux-centos7-x86_64
+[+]  gite4dw      ^cuda@11.6.2%gcc@12.1.0+allow-unsupported-compilers~dev arch=linux-centos7-x86_64
+[+]  7l7gui4          ^libxml2@2.9.13%gcc@12.1.0~python arch=linux-centos7-x86_64
+[+]  rkifdpr              ^libiconv@1.16%gcc@12.1.0 libs=shared,static arch=linux-centos7-x86_64
+[+]  xr3bwf7              ^xz@5.2.5%gcc@12.1.0~pic libs=shared,static arch=linux-centos7-x86_64
+[+]  vuuezl7              ^zlib@1.2.12%gcc@12.1.0+optimize+pic+shared arch=linux-centos7-x86_64
+[+]  qr2yrrk      ^hwloc@1.11.13%gcc@12.1.0~cairo+cuda~gl~libudev+libxml2~netloc~nvml~opencl+pci~rocm+shared patches=d1d94a4 arch=linux-centos7-x86_64
+[+]  dtjor3d          ^libpciaccess@0.16%gcc@12.1.0 arch=linux-centos7-x86_64
+[+]  7ipsjlh          ^ncurses@6.2%gcc@12.1.0~symlinks+termlib abi=none arch=linux-centos7-x86_64
+[+]  k57goyp      ^libevent@2.1.12%gcc@12.1.0+openssl arch=linux-centos7-x86_64
+[+]  ocuajnf          ^openssl@1.1.1o%gcc@12.1.0~docs~shared certs=system arch=linux-centos7-x86_64
+[+]  ulcpmkm      ^numactl@2.0.14%gcc@12.1.0 patches=4e1d78c,62fc8a8,ff37630 arch=linux-centos7-x86_64
+[+]  s3mowr2      ^openssh@9.0p1%gcc@12.1.0 arch=linux-centos7-x86_64
+[+]  batcct5          ^libedit@3.1-20210216%gcc@12.1.0 arch=linux-centos7-x86_64
+[+]  f3n7wq4      ^pmix@4.1.2%gcc@12.1.0~docs+pmi_backwards_compatibility~restful arch=linux-centos7-x86_64
+
+==> Concretized openmpi@3.1.6%gcc@12.1.0+cuda arch=linux-None-haswell ^cuda+allow-unsupported-compilers
+[+]  dsqzlpg  openmpi@3.1.6%gcc@12.1.0~atomics+cuda~cxx~cxx_exceptions~gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~pmi+pmix+romio+rsh~singularity+static+vt+wrapper-rpath cuda_arch=none fabrics=none schedulers=none arch=linux-centos7-haswell
+[+]  lo4dp4i      ^cuda@11.6.2%gcc@12.1.0+allow-unsupported-compilers~dev arch=linux-centos7-haswell
+[+]  wm76u3w          ^libxml2@2.9.13%gcc@12.1.0~python arch=linux-centos7-haswell
+[+]  gz2kwiu              ^libiconv@1.16%gcc@12.1.0 libs=shared,static arch=linux-centos7-haswell
+[+]  bjo357s              ^xz@5.2.5%gcc@12.1.0~pic libs=shared,static arch=linux-centos7-haswell
+[+]  tjkbsgr              ^zlib@1.2.12%gcc@12.1.0+optimize+pic+shared arch=linux-centos7-haswell
+[+]  qjgkfrc      ^hwloc@1.11.13%gcc@12.1.0~cairo+cuda~gl~libudev+libxml2~netloc~nvml~opencl+pci~rocm+shared patches=d1d94a4 arch=linux-centos7-haswell
+[+]  xud63ws          ^libpciaccess@0.16%gcc@12.1.0 arch=linux-centos7-haswell
+[+]  kohkbtt          ^ncurses@6.2%gcc@12.1.0~symlinks+termlib abi=none arch=linux-centos7-haswell
+[+]  geoeq6s      ^libevent@2.1.12%gcc@12.1.0+openssl arch=linux-centos7-haswell
+[+]  vjanioh          ^openssl@1.1.1o%gcc@12.1.0~docs~shared certs=system arch=linux-centos7-haswell
+[+]  pfuoi6o      ^numactl@2.0.14%gcc@12.1.0 patches=4e1d78c,62fc8a8,ff37630 arch=linux-centos7-haswell
+[+]  emkdlao      ^openssh@9.0p1%gcc@12.1.0 arch=linux-centos7-haswell
+[+]  l6at7ui          ^libedit@3.1-20210216%gcc@12.1.0 arch=linux-centos7-haswell
+[+]  j4cbv6t      ^pmix@4.1.2%gcc@12.1.0~docs+pmi_backwards_compatibility~restful arch=linux-centos7-haswell
+
+==> Concretized openmpi@3.1.6%gcc@12.1.0+cuda arch=linux-None-cascadelake ^cuda+allow-unsupported-compilers
+[+]  h6yr2n7  openmpi@3.1.6%gcc@12.1.0~atomics+cuda~cxx~cxx_exceptions~gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~pmi+pmix+romio+rsh~singularity+static+vt+wrapper-rpath cuda_arch=none fabrics=none schedulers=none arch=linux-centos7-cascadelake
+[+]  oae62u7      ^cuda@11.6.2%gcc@12.1.0+allow-unsupported-compilers~dev arch=linux-centos7-cascadelake
+[+]  ee7uauv          ^libxml2@2.9.13%gcc@12.1.0~python arch=linux-centos7-cascadelake
+[+]  nrxr4oc              ^libiconv@1.16%gcc@12.1.0 libs=shared,static arch=linux-centos7-cascadelake
+[+]  uexok3s              ^xz@5.2.5%gcc@12.1.0~pic libs=shared,static arch=linux-centos7-cascadelake
+[+]  dpcbelr              ^zlib@1.2.12%gcc@12.1.0+optimize+pic+shared arch=linux-centos7-cascadelake
+[+]  y42bjjz      ^hwloc@1.11.13%gcc@12.1.0~cairo+cuda~gl~libudev+libxml2~netloc~nvml~opencl+pci~rocm+shared patches=d1d94a4 arch=linux-centos7-cascadelake
+[+]  t3tnn7g          ^libpciaccess@0.16%gcc@12.1.0 arch=linux-centos7-cascadelake
+[+]  ttum3z7          ^ncurses@6.2%gcc@12.1.0~symlinks+termlib abi=none arch=linux-centos7-cascadelake
+[+]  rw6u2r5      ^libevent@2.1.12%gcc@12.1.0+openssl arch=linux-centos7-cascadelake
+[+]  l2uyuoh          ^openssl@1.1.1o%gcc@12.1.0~docs~shared certs=system arch=linux-centos7-cascadelake
+[+]  u65hsmq      ^numactl@2.0.14%gcc@12.1.0 patches=4e1d78c,62fc8a8,ff37630 arch=linux-centos7-cascadelake
+[+]  i3lekmf      ^openssh@9.0p1%gcc@12.1.0 arch=linux-centos7-cascadelake
+[+]  zilhc52          ^libedit@3.1-20210216%gcc@12.1.0 arch=linux-centos7-cascadelake
+[+]  bqsw5hr      ^pmix@4.1.2%gcc@12.1.0~docs+pmi_backwards_compatibility~restful arch=linux-centos7-cascadelake
+
+==> Concretized openmpi@3.1.6%oneapi@2022.1.0+cuda arch=linux-None-x86_64 ^cuda+allow-unsupported-compilers
+[+]  d3t2yi2  openmpi@3.1.6%oneapi@2022.1.0~atomics+cuda~cxx~cxx_exceptions~gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~pmi+pmix+romio+rsh~singularity+static+vt+wrapper-rpath cuda_arch=none fabrics=none schedulers=none arch=linux-centos7-x86_64
+[+]  bfmil5s      ^cuda@11.6.2%oneapi@2022.1.0+allow-unsupported-compilers~dev arch=linux-centos7-x86_64
+[+]  3gjobpn          ^libxml2@2.9.13%oneapi@2022.1.0~python arch=linux-centos7-x86_64
+[+]  des6ha7              ^libiconv@1.16%oneapi@2022.1.0 libs=shared,static arch=linux-centos7-x86_64
+[+]  kbo6gh4              ^xz@5.2.5%oneapi@2022.1.0~pic libs=shared,static arch=linux-centos7-x86_64
+[+]  cpaa3dw              ^zlib@1.2.12%oneapi@2022.1.0+optimize+pic+shared arch=linux-centos7-x86_64
+[+]  ugmv3y2      ^hwloc@1.11.13%oneapi@2022.1.0~cairo+cuda~gl~libudev+libxml2~netloc~nvml~opencl+pci~rocm+shared patches=d1d94a4 arch=linux-centos7-x86_64
+[+]  vdaqmdi          ^libpciaccess@0.16%oneapi@2022.1.0 arch=linux-centos7-x86_64
+[+]  vpxz576          ^ncurses@6.2%oneapi@2022.1.0~symlinks+termlib abi=none arch=linux-centos7-x86_64
+[+]  hynvhix      ^libevent@2.1.12%oneapi@2022.1.0+openssl arch=linux-centos7-x86_64
+[+]  qd4wer6          ^openssl@1.1.1o%oneapi@2022.1.0~docs~shared certs=system arch=linux-centos7-x86_64
+[+]  225jy3j      ^numactl@2.0.14%oneapi@2022.1.0 patches=4e1d78c,62fc8a8,ff37630 arch=linux-centos7-x86_64
+[+]  glfcifi      ^openssh@9.0p1%oneapi@2022.1.0 arch=linux-centos7-x86_64
+[+]  mw4pjv7          ^libedit@3.1-20210216%oneapi@2022.1.0 arch=linux-centos7-x86_64
+[+]  pxallu3      ^pmix@4.1.2%oneapi@2022.1.0~docs+pmi_backwards_compatibility~restful arch=linux-centos7-x86_64
+
+==> Concretized openmpi@3.1.6%oneapi@2022.1.0+cuda arch=linux-None-haswell ^cuda+allow-unsupported-compilers
+[+]  ui2wynm  openmpi@3.1.6%oneapi@2022.1.0~atomics+cuda~cxx~cxx_exceptions~gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~pmi+pmix+romio+rsh~singularity+static+vt+wrapper-rpath cuda_arch=none fabrics=none schedulers=none arch=linux-centos7-haswell
+[+]  2ce2poy      ^cuda@11.6.2%oneapi@2022.1.0+allow-unsupported-compilers~dev arch=linux-centos7-haswell
+[+]  kqy4u2p          ^libxml2@2.9.13%oneapi@2022.1.0~python arch=linux-centos7-haswell
+[+]  7xrjwjv              ^libiconv@1.16%oneapi@2022.1.0 libs=shared,static arch=linux-centos7-haswell
+[+]  lfvt2a2              ^xz@5.2.5%oneapi@2022.1.0~pic libs=shared,static arch=linux-centos7-haswell
+[+]  niesqsq              ^zlib@1.2.12%oneapi@2022.1.0+optimize+pic+shared arch=linux-centos7-haswell
+[+]  q4pqf6f      ^hwloc@1.11.13%oneapi@2022.1.0~cairo+cuda~gl~libudev+libxml2~netloc~nvml~opencl+pci~rocm+shared patches=d1d94a4 arch=linux-centos7-haswell
+[+]  acwwsjv          ^libpciaccess@0.16%oneapi@2022.1.0 arch=linux-centos7-haswell
+[+]  l7jja4v          ^ncurses@6.2%oneapi@2022.1.0~symlinks+termlib abi=none arch=linux-centos7-haswell
+[+]  k7syn22      ^libevent@2.1.12%oneapi@2022.1.0+openssl arch=linux-centos7-haswell
+[+]  qqzp6nm          ^openssl@1.1.1o%oneapi@2022.1.0~docs~shared certs=system arch=linux-centos7-haswell
+[+]  7njwlzw      ^numactl@2.0.14%oneapi@2022.1.0 patches=4e1d78c,62fc8a8,ff37630 arch=linux-centos7-haswell
+[+]  g5fdvr7      ^openssh@9.0p1%oneapi@2022.1.0 arch=linux-centos7-haswell
+[+]  vzl5iad          ^libedit@3.1-20210216%oneapi@2022.1.0 arch=linux-centos7-haswell
+[+]  bli4s2y      ^pmix@4.1.2%oneapi@2022.1.0~docs+pmi_backwards_compatibility~restful arch=linux-centos7-haswell
+
+==> Concretized openmpi@3.1.6%oneapi@2022.1.0+cuda arch=linux-None-cascadelake ^cuda+allow-unsupported-compilers
+[+]  e5nq3v4  openmpi@3.1.6%oneapi@2022.1.0~atomics+cuda~cxx~cxx_exceptions~gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~pmi+pmix+romio+rsh~singularity+static+vt+wrapper-rpath cuda_arch=none fabrics=none schedulers=none arch=linux-centos7-cascadelake
+[+]  bfffzca      ^cuda@11.6.2%oneapi@2022.1.0+allow-unsupported-compilers~dev arch=linux-centos7-cascadelake
+[+]  xnnskhx          ^libxml2@2.9.13%oneapi@2022.1.0~python arch=linux-centos7-cascadelake
+[+]  3x6k3e2              ^libiconv@1.16%oneapi@2022.1.0 libs=shared,static arch=linux-centos7-cascadelake
+[+]  i5vatxy              ^xz@5.2.5%oneapi@2022.1.0~pic libs=shared,static arch=linux-centos7-cascadelake
+[+]  qazy2b6              ^zlib@1.2.12%oneapi@2022.1.0+optimize+pic+shared arch=linux-centos7-cascadelake
+[+]  s252ish      ^hwloc@1.11.13%oneapi@2022.1.0~cairo+cuda~gl~libudev+libxml2~netloc~nvml~opencl+pci~rocm+shared patches=d1d94a4 arch=linux-centos7-cascadelake
+[+]  3tavlni          ^libpciaccess@0.16%oneapi@2022.1.0 arch=linux-centos7-cascadelake
+[+]  a7dzkuv          ^ncurses@6.2%oneapi@2022.1.0~symlinks+termlib abi=none arch=linux-centos7-cascadelake
+[+]  o3dyfim      ^libevent@2.1.12%oneapi@2022.1.0+openssl arch=linux-centos7-cascadelake
+[+]  rd5fxp3          ^openssl@1.1.1o%oneapi@2022.1.0~docs~shared certs=system arch=linux-centos7-cascadelake
+[+]  dlq2i5j      ^numactl@2.0.14%oneapi@2022.1.0 patches=4e1d78c,62fc8a8,ff37630 arch=linux-centos7-cascadelake
+[+]  gmhlqvw      ^openssh@9.0p1%oneapi@2022.1.0 arch=linux-centos7-cascadelake
+[+]  czl3bf5          ^libedit@3.1-20210216%oneapi@2022.1.0 arch=linux-centos7-cascadelake
+[+]  uvhj6dr      ^pmix@4.1.2%oneapi@2022.1.0~docs+pmi_backwards_compatibility~restful arch=linux-centos7-cascadelake
+
