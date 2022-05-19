@@ -1,0 +1,36 @@
+#%Module1.0
+## Module file created by spack (https://github.com/spack/spack) on 2022-05-13 14:11:20.089024
+##
+## intel-oneapi-mpi@2021.6.0%gcc@12.1.0~external-libfabric~ilp64 arch=linux-centos7-x86_64/q3x3lly
+##
+
+
+module-whatis "Intel oneAPI MPI. LICENSE INFORMATION: By downloading and using this software, you agree to the terms and conditions of the software license agreements at https://intel.ly/393CijO."
+
+proc ModulesHelp { } {
+puts stderr "Intel oneAPI MPI. LICENSE INFORMATION: By downloading and using this"
+puts stderr "software, you agree to the terms and conditions of the software license"
+puts stderr "agreements at https://intel.ly/393CijO."
+}
+
+conflict intel-oneapi-mpi
+
+prepend-path CLASSPATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol/mpi/2021.6.0//lib/mpi.jar"
+prepend-path FI_PROVIDER_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol/mpi/2021.6.0//libfabric/lib/prov:/usr/lib64/libfabric"
+setenv I_MPI_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol/mpi/2021.6.0"
+prepend-path PKG_CONFIG_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol/mpi/2021.6.0/lib/pkgconfig"
+prepend-path CPATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol/mpi/2021.6.0//include"
+prepend-path LD_LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol/mpi/2021.6.0//lib"
+prepend-path LD_LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol/mpi/2021.6.0//lib/release"
+prepend-path LD_LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol/mpi/2021.6.0//libfabric/lib"
+prepend-path LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol/mpi/2021.6.0//lib"
+prepend-path LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol/mpi/2021.6.0//lib/release"
+prepend-path LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol/mpi/2021.6.0//libfabric/lib"
+prepend-path MANPATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol/mpi/2021.6.0/man"
+prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol/mpi/2021.6.0//bin"
+prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol/mpi/2021.6.0//libfabric/bin"
+setenv INTEL_ONEAPI_MPI_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol"
+
+module load gcc/12.1.0
+module load cuda-11.6.2-gcc-12.1.0
+
