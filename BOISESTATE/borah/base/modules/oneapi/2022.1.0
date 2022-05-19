@@ -40,4 +40,12 @@ prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel
 prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/lib/oclfpga/bin"
 setenv INTEL_ONEAPI_COMPILERS_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl"
 
-# module load cuda-11.6.2-oneapi-2022.1.0 
+setenv I_MPI_CC "icx"
+setenv I_MPI_FC "ifx"
+setenv I_MPI_F77 "ifx"
+setenv I_MPI_F90 "ifx"
+setenv I_MPI_CXX "icpx"
+
+
+
+module load gcc/12.1.0
