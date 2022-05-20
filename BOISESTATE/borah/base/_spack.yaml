@@ -101,8 +101,13 @@ spack:
     openmpi:
       variants: +cuda
       version:
-      - 3.1.6
+#      - 3.1.6
+      - 4.1.3
 
+#    pmix:
+#      version:
+#      - 2.2.4
+      
     intel-oneapi-mpi:
 #      variants: 
       version:
@@ -143,10 +148,11 @@ spack:
   - intel-oneapi-compilers@2022.1.0%gcc@12.1.0 arch=linux-centos7-x86_64 
   - gcc@12.1.0%gcc@4.8.5 target=x86_64
   - matrix:
-    - [ 'mpich@3.4.3+cuda^cuda+allow-unsupported-compilers', 'intel-oneapi-mpi@2021.6.0', 'openmpi@3.1.6+cuda^cuda+allow-unsupported-compilers' ]
+#    - [ 'mpich@3.4.3+cuda^cuda+allow-unsupported-compilers', 'intel-oneapi-mpi@2021.6.0', 'openmpi@3.1.6+cuda^cuda+allow-unsupported-compilers' ]
+    - [ 'mpich@3.4.3+cuda^cuda+allow-unsupported-compilers', 'intel-oneapi-mpi@2021.6.0', 'openmpi@4.1.3+cuda fabrics=ucx schedulers=slurm ^cuda+allow-unsupported-compilers' ]
     - [ '%gcc@12.1.0', '%oneapi@2022.1.0' ]
-#    - [ 'target=x86_64' ]
-    - [ 'target=x86_64', 'target=haswell', 'target=cascadelake' ]
+    - [ 'target=x86_64' ]
+#    - [ 'target=x86_64', 'target=haswell', 'target=cascadelake' ]
 #    exclude:
 #    - mpich%oneapi
 
