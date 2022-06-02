@@ -16,13 +16,25 @@ puts stderr "Message Passing Interface (MPI) standard."
 
 conflict mpich
 
-prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air/bin"
-setenv MPICC "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air/bin/mpicc"
-setenv MPICXX "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air/bin/mpic++"
-setenv MPIF77 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air/bin/mpif77"
-setenv MPIF90 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air/bin/mpif90"
-setenv MPICH_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air"
+
+#prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air/bin"
+#setenv MPICC "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air/bin/mpicc"
+#setenv MPICXX "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air/bin/mpic++"
+#setenv MPIF77 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air/bin/mpif77"
+#setenv MPIF90 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air/bin/mpif90"
+#setenv MPICH_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air"
+
+set mpich_root /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-fnccvh6ovq6w24z5y35s4ie6zdwd3z47
+
+prepend-path PATH "${mpich_root}/bin"
+setenv MPICC "${mpich_root}/bin/mpicc"
+setenv MPICXX "${mpich_root}/bin/mpic++"
+setenv MPIF77 "${mpich_root}/bin/mpif77"
+setenv MPIF90 "${mpich_root}/bin/mpif90"
+setenv MPICH_ROOT "${mpich_root}"
 
 module load gcc/12.1.0
-module load cuda-11.6.2-gcc-12.1.0
+
+# This is the non-cuda build
+# module load cuda-11.6.2-gcc-12.1.0
 

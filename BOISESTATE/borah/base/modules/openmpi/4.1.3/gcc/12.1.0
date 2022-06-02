@@ -22,13 +22,34 @@ puts stderr "developers and computer science researchers."
 
 conflict openmpi
 
-prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-d6bmkt3bk752aukkbfnipkh52ce6xpiu/bin"
-setenv MPICC "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-d6bmkt3bk752aukkbfnipkh52ce6xpiu/bin/mpicc"
-setenv MPICXX "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-d6bmkt3bk752aukkbfnipkh52ce6xpiu/bin/mpic++"
-setenv MPIF77 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-d6bmkt3bk752aukkbfnipkh52ce6xpiu/bin/mpif77"
-setenv MPIF90 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-d6bmkt3bk752aukkbfnipkh52ce6xpiu/bin/mpif90"
-setenv OPENMPI_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-d6bmkt3bk752aukkbfnipkh52ce6xpiu"
+# The old one...
+#prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-d6bmkt3bk752aukkbfnipkh52ce6xpiu/bin"
+#setenv MPICC "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-d6bmkt3bk752aukkbfnipkh52ce6xpiu/bin/mpicc"
+#setenv MPICXX "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-d6bmkt3bk752aukkbfnipkh52ce6xpiu/bin/mpic++"
+#setenv MPIF77 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-d6bmkt3bk752aukkbfnipkh52ce6xpiu/bin/mpif77"
+#setenv MPIF90 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-d6bmkt3bk752aukkbfnipkh52ce6xpiu/bin/mpif90"
+#setenv OPENMPI_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-d6bmkt3bk752aukkbfnipkh52ce6xpiu"
+
+#prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-cpdl7jc6h2tn2yiloiufrkyndp7d25ac/bin"
+#setenv MPICC "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-cpdl7jc6h2tn2yiloiufrkyndp7d25ac/bin/mpicc"
+#setenv MPICXX "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-cpdl7jc6h2tn2yiloiufrkyndp7d25ac/bin/mpicxx"
+#setenv MPIF77 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-cpdl7jc6h2tn2yiloiufrkyndp7d25ac/bin/mpif77"
+#setenv MPIF90 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-cpdl7jc6h2tn2yiloiufrkyndp7d25ac/bin/mpif90"
+#setenv OPENMPI_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-cpdl7jc6h2tn2yiloiufrkyndp7d25ac"
+
+#set OPENMPI_INSTALL_DIR /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-einjtf2tlnpimiel6erl5fxf2snultx4
+#set OPENMPI_INSTALL_DIR /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-tseqzknjr7oj7kncp32rximzmsxpcsqi
+set OPENMPI_INSTALL_DIR /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-skwkvm3xy7gc4xi5rsq5rjdcdohmn5ot
+
+prepend-path PATH "${OPENMPI_INSTALL_DIR}/bin"
+setenv MPICC "${OPENMPI_INSTALL_DIR}/bin/mpicc"
+setenv MPICXX "${OPENMPI_INSTALL_DIR}/bin/mpicxx"
+setenv MPIF77 "${OPENMPI_INSTALL_DIR}/bin/mpif77"
+setenv MPIF90 "${OPENMPI_INSTALL_DIR}/bin/mpif90"
+setenv OPENMPI_ROOT "${OPENMPI_INSTALL_DIR}"
 
 module load gcc/12.1.0
-module load cuda-11.6.2-gcc-12.1.0
+
+# This module loads the non-cuda build
+# module load cuda-11.6.2-gcc-12.1.0
 

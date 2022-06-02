@@ -22,3 +22,10 @@ prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/cuda-
 setenv CUDA_HOME "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/cuda-11.6.2-gite4dwg77hbrhnd7sc6itt4hk3p42bb"
 setenv CUDA_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/cuda-11.6.2-gite4dwg77hbrhnd7sc6itt4hk3p42bb"
 
+# FTW added by hand
+prepend-path LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/cuda-11.6.2-gite4dwg77hbrhnd7sc6itt4hk3p42bb/lib64"
+prepend-path LD_LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/cuda-11.6.2-gite4dwg77hbrhnd7sc6itt4hk3p42bb/lib64"
+
+# FTW libcuda.so stubs here: needed to compile
+prepend-path LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/cuda-11.6.2-gite4dwg77hbrhnd7sc6itt4hk3p42bb/targets/x86_64-linux/lib/stubs/"
+#prepend-path LD_LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/cuda-11.6.2-gite4dwg77hbrhnd7sc6itt4hk3p42bb/targets/x86_64-linux/lib/stubs/"
