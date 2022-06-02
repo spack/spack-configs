@@ -1,0 +1,25 @@
+#%Module1.0
+## Module file created by spack (https://github.com/spack/spack) on 2022-05-20 15:01:54.221374
+##
+## netcdf-fortran@4.5.3%oneapi@2022.1.0~doc+pic+shared arch=linux-centos7-x86_64/tw467v4
+##
+## Configure options: --enable-shared --enable-static CC=/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/intel-oneapi-mpi-2021.6.0-qbicvxguxm2j3xaowxu3ogddo3ghh3zk/mpi/2021.6.0/mpi/2021.6.0/bin/mpicc FC=/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/intel-oneapi-mpi-2021.6.0-qbicvxguxm2j3xaowxu3ogddo3ghh3zk/mpi/2021.6.0/mpi/2021.6.0/bin/mpifc F77=/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/intel-oneapi-mpi-2021.6.0-qbicvxguxm2j3xaowxu3ogddo3ghh3zk/mpi/2021.6.0/mpi/2021.6.0/bin/mpif77 --disable-doxygen
+##
+
+
+module-whatis "NetCDF (network Common Data Form) is a set of software libraries and machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data. This is the Fortran distribution."
+
+proc ModulesHelp { } {
+puts stderr "NetCDF (network Common Data Form) is a set of software libraries and"
+puts stderr "machine-independent data formats that support the creation, access, and"
+puts stderr "sharing of array-oriented scientific data. This is the Fortran"
+puts stderr "distribution."
+}
+
+conflict netcdf-fortran
+
+prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/netcdf-fortran-4.5.3-tw467v4qpslhfoy46cdxkkqixo32tcdd/bin"
+setenv NETCDF_FORTRAN_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/netcdf-fortran-4.5.3-tw467v4qpslhfoy46cdxkkqixo32tcdd"
+
+module load netcdf-c/4.8.1/intel-oneapi-mpi/2021.6.0/oneapi/2022.1.0
+

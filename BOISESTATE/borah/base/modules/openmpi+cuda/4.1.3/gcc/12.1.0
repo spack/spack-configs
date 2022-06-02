@@ -1,0 +1,53 @@
+#%Module1.0
+## Module file created by spack (https://github.com/spack/spack) on 2022-05-17 11:59:24.199467
+##
+## openmpi@4.1.3%gcc@12.1.0~atomics+cuda~cxx~cxx_exceptions~gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~pmi+pmix+romio+rsh~singularity+static+vt+wrapper-rpath cuda_arch=none fabrics=none schedulers=none arch=linux-centos7-x86_64/d6bmkt3
+##
+## Configure options: --enable-shared --disable-silent-rules --disable-builtin-atomics --enable-static --without-pmi --with-zlib=/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/zlib-1.2.12-vuuezl75e6urqbd2hu2kshgzioangbjg --enable-mpi1-compatibility --without-psm2 --without-mxm --without-ofi --without-psm --without-ucx --without-xpmem --without-cma --without-verbs --without-fca --without-hcoll --without-knem --without-slurm --without-sge --without-alps --without-loadleveler --without-tm --without-lsf --disable-memchecker --with-libevent=/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/libevent-2.1.12-k57goypgllrzlxosropg4r7typ7raa25 --with-hwloc=/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/hwloc-2.7.1-brpjexladzamaxmycqmqkfivqixtpkxw --disable-java --disable-mpi-java --enable-dlopen --with-cuda=/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/cuda-11.6.2-gite4dwg77hbrhnd7sc6itt4hk3p42bb --enable-wrapper-rpath --disable-wrapper-runpath --disable-mpi-cxx --disable-cxx-exceptions --with-wrapper-ldflags=-Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/lib/gcc/x86_64-pc-linux-gnu/12.1.0 -Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/lib64
+##
+
+
+module-whatis "An open source Message Passing Interface implementation."
+
+proc ModulesHelp { } {
+puts stderr "An open source Message Passing Interface implementation. The Open MPI"
+puts stderr "Project is an open source Message Passing Interface implementation that"
+puts stderr "is developed and maintained by a consortium of academic, research, and"
+puts stderr "industry partners. Open MPI is therefore able to combine the expertise,"
+puts stderr "technologies, and resources from all across the High Performance"
+puts stderr "Computing community in order to build the best MPI library available."
+puts stderr "Open MPI offers advantages for system and software vendors, application"
+puts stderr "developers and computer science researchers."
+}
+
+conflict openmpi
+
+# The old one...
+#prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-d6bmkt3bk752aukkbfnipkh52ce6xpiu/bin"
+#setenv MPICC "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-d6bmkt3bk752aukkbfnipkh52ce6xpiu/bin/mpicc"
+#setenv MPICXX "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-d6bmkt3bk752aukkbfnipkh52ce6xpiu/bin/mpic++"
+#setenv MPIF77 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-d6bmkt3bk752aukkbfnipkh52ce6xpiu/bin/mpif77"
+#setenv MPIF90 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-d6bmkt3bk752aukkbfnipkh52ce6xpiu/bin/mpif90"
+#setenv OPENMPI_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-d6bmkt3bk752aukkbfnipkh52ce6xpiu"
+
+#prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-cpdl7jc6h2tn2yiloiufrkyndp7d25ac/bin"
+#setenv MPICC "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-cpdl7jc6h2tn2yiloiufrkyndp7d25ac/bin/mpicc"
+#setenv MPICXX "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-cpdl7jc6h2tn2yiloiufrkyndp7d25ac/bin/mpicxx"
+#setenv MPIF77 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-cpdl7jc6h2tn2yiloiufrkyndp7d25ac/bin/mpif77"
+#setenv MPIF90 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-cpdl7jc6h2tn2yiloiufrkyndp7d25ac/bin/mpif90"
+#setenv OPENMPI_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-cpdl7jc6h2tn2yiloiufrkyndp7d25ac"
+
+#set OPENMPI_INSTALL_DIR /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-einjtf2tlnpimiel6erl5fxf2snultx4
+
+set OPENMPI_INSTALL_DIR /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-tseqzknjr7oj7kncp32rximzmsxpcsqi
+
+prepend-path PATH "${OPENMPI_INSTALL_DIR}/bin"
+setenv MPICC "${OPENMPI_INSTALL_DIR}/bin/mpicc"
+setenv MPICXX "${OPENMPI_INSTALL_DIR}/bin/mpicxx"
+setenv MPIF77 "${OPENMPI_INSTALL_DIR}/bin/mpif77"
+setenv MPIF90 "${OPENMPI_INSTALL_DIR}/bin/mpif90"
+setenv OPENMPI_ROOT "${OPENMPI_INSTALL_DIR}"
+
+module load gcc/12.1.0
+module load cuda-11.6.2-gcc-12.1.0
+
