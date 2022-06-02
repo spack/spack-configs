@@ -45,27 +45,6 @@ module unload mpich/3.4.3/oneapi/2022.1.0
 
 echo
 
-echo "build openmpi/gcc test:"
-
-module load openmpi/3.1.6/gcc/12.1.0
-mpicc mpi_hello.c -o /tmp/mpi_hello
-mpirun -n 2 /tmp/mpi_hello
-rm /tmp/mpi_hello
-module unload openmpi/3.1.6/gcc/12.1.0
-
-echo
-
-echo "build openmpi/oneapi test:"
-
-module load openmpi/3.1.6/oneapi/2022.1.0
-mpicc mpi_hello.c -o /tmp/mpi_hello
-mpirun -n 2 /tmp/mpi_hello
-rm /tmp/mpi_hello
-module unload openmpi/3.1.6/oneapi/2022.1.0
-
-
-echo
-
 echo "build openmpi/4.1.3/gcc test:"
 
 module load openmpi/4.1.3/gcc/12.1.0
