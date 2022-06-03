@@ -164,7 +164,7 @@ spack:
 
   # Non-CUDA MPIs
   - matrix:
-    - [ 'mpich@3.4.3', 'intel-oneapi-mpi@2021.6.0', 'openmpi@4.1.3 +pmix +legacylaunchers fabrics=ucx schedulers=slurm' ]
+    - [ 'mpich@3.4.3', 'intel-oneapi-mpi@2021.6.0', 'openmpi@4.1.3 +pmi+pmix +legacylaunchers fabrics=ucx schedulers=slurm' ]
     - [ '%gcc@12.1.0', '%oneapi@2022.1.0' ]
     - [ 'target=x86_64' ]
 

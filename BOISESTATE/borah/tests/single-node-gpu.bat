@@ -77,6 +77,8 @@ echo "mpicc: $(which mpicc )"
 mpicc mpi_hello.c -o ${MPI_EXE}
 echo "mpirun: $(which mpirun )"
 mpirun -N 2 -n 2 ${MPI_EXE}
+echo "with srun:"
+srun -N 1 -n 2 ${MPI_EXE}
 rm ${MPI_EXE}
 module unload openmpi+cuda/4.1.3/gcc/12.1.0
 
@@ -90,6 +92,8 @@ echo "mpicc: $(which mpicc )"
 mpicc mpi_hello.c -o ${MPI_EXE}
 echo "mpirun: $(which mpirun )"
 mpirun -N 2 -n 2 ${MPI_EXE}
+echo "with srun:"
+srun -N 1 -n 2 ${MPI_EXE}
 rm ${MPI_EXE}
 module unload openmpi+cuda/4.1.3/oneapi/2022.1.0
 
