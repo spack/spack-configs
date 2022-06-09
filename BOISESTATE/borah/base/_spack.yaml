@@ -23,7 +23,6 @@ spack:
       tcl:
         blacklist_implicits: true
         hash_length: 0
-#        naming_scheme: '{compiler.name}/{compiler.version}/{name}/{version}'
         all:
           autoload: none
           conflict:
@@ -31,16 +30,10 @@ spack:
           environment:
             set:
               '{name}_ROOT': '{prefix}'
-#        mpich:
-#          autoload: none
         projections:
-#          all: '{name}/{version}-{compiler.name}-{compiler.version}'
-          gcc: '{name}/{version}'
-          intel-oneapi-compilers: 'oneapi/{version}'
           mpich: '{name}/{version}/{compiler.name}/{compiler.version}'
           intel-oneapi-mpi: '{name}/{version}/{compiler.name}/{compiler.version}'
           openmpi: '{name}/{version}/{compiler.name}/{compiler.version}'
-#          cuda: '{name}/{version}/{compiler.name}/{compiler.version}'
 
   # Override all other settings so this is the only compiler visible to spack
   compilers::
@@ -142,19 +135,17 @@ spack:
         prefix: /cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna
         buildable: False
 
-  definitions:
-  - libraries:
-    - hdf5@1.10.7 +fortran +hl +shared +mpi
-#    - hdf5@1.12.2 +fortran +shared +mpi
-
   specs:
+
+  # Externally declared specs to be included
+  
   - cuda@11.6.2+allow-unsupported-compilers~dev%gcc@12.1.0 target=x86_64
   - cuda@11.6.2+allow-unsupported-compilers~dev%oneapi@2022.1.0 target=x86_64
 
-  - intel-oneapi-compilers@2022.1.0%gcc@12.1.0 arch=linux-centos7-x86_64 
-  #  Need to lie and say it's built with 12.1.0 otherwise the concretizer tanks
+  #  Need to lie and gcc 12.1.0 is built with 12.1.0 otherwise the concretizer tanks
   #  - gcc@12.1.0%gcc@4.8.5 target=x86_64
   - gcc@12.1.0%gcc@12.1.0 target=x86_64
+  - intel-oneapi-compilers@2022.1.0%gcc@12.1.0 arch=linux-centos7-x86_64 
 
   # CUDA MPIs
   - matrix:
@@ -168,24 +159,3 @@ spack:
     - [ '%gcc@12.1.0', '%oneapi@2022.1.0' ]
     - [ 'target=x86_64' ]
 
-#    exclude:
-#    - mpich%oneapi
-
-#  mirrors::
-#    BSU:
-#      fetch:
-#        url: file:///cm/shared/software/mirror
-#        access_pair:
-#        - null
-#        - null
-#        access_token: null
-#        profile: null
-#        endpoint_url: null
-#      push:
-#        url: file:///cm/shared/software/mirror
-#        access_pair:
-#        - null
-#        - null
-#        access_token: null
-#        profile: null
-#        endpoint_url: null

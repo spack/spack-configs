@@ -10,8 +10,6 @@ spack:
 
   modules::
     default:
-#      module_roots:
-#        tcl: /cm/shared/software/modules
       tcl:
         blacklist_implicits: true
         hash_length: 0
