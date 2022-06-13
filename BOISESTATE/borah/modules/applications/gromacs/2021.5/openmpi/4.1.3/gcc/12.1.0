@@ -1,0 +1,35 @@
+#%Module1.0
+## Module file created by spack (https://github.com/spack/spack) on 2022-06-07 14:42:40.448135
+##
+## gromacs@2021.5%gcc@12.1.0~blas~cuda~cycle_subcounters~double+hwloc~ipo~lapack~mdrun_only+mpi~nosuffix~opencl+openmp~plumed~relaxed_double_precision+shared~sycl build_type=RelWithDebInfo arch=linux-centos7-x86_64/lm6rp2c
+##
+## Configure options: -DGMX_MPI:BOOL=ON -DCMAKE_C_COMPILER=/cm/shared/software/spack/lib/spack/env/gcc/gcc -DCMAKE_CXX_COMPILER=/cm/shared/software/spack/lib/spack/env/gcc/g++ -DMPI_C_COMPILER=/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-emmiwwyowqedppw7ubxh5fyh6eqra2h2/bin/mpicc -DMPI_CXX_COMPILER=/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-emmiwwyowqedppw7ubxh5fyh6eqra2h2/bin/mpic++ -DGMX_INSTALL_LEGACY_API=ON -DGMX_HWLOC:BOOL=ON -DGMX_GPU:STRING=OFF -DGMX_EXTERNAL_LAPACK:BOOL=OFF -DGMX_EXTERNAL_BLAS:BOOL=OFF -DGMX_SIMD:STRING=None -DGMX_USE_RDTSCP:BOOL=ON -DGMX_OPENMP:BOOL=ON -DGMX_CYCLE_SUBCOUNTERS:BOOL=OFF -DGMX_FFT_LIBRARY=fftw3 -DGMX_VERSION_STRING_OF_FORK=spack
+##
+
+
+module-whatis "GROMACS (GROningen MAchine for Chemical Simulations) is a molecular dynamics package primarily designed for simulations of proteins, lipids and nucleic acids. It was originally developed in the Biophysical Chemistry department of University of Groningen, and is now maintained by contributors in universities and research centers across the world."
+
+proc ModulesHelp { } {
+puts stderr "GROMACS (GROningen MAchine for Chemical Simulations) is a molecular"
+puts stderr "dynamics package primarily designed for simulations of proteins, lipids"
+puts stderr "and nucleic acids. It was originally developed in the Biophysical"
+puts stderr "Chemistry department of University of Groningen, and is now maintained"
+puts stderr "by contributors in universities and research centers across the world."
+puts stderr "GROMACS is one of the fastest and most popular software packages"
+puts stderr "available and can run on CPUs as well as GPUs. It is free, open source"
+puts stderr "released under the GNU General Public License. Starting from version"
+puts stderr "4.6, GROMACS is released under the GNU Lesser General Public License."
+}
+
+conflict gromacs
+
+# FTW
+# This is implicit with loading borah-applications
+# module load borah-base
+
+# We built with this stack, we need it loaded when we run it.
+module load openmpi/4.1.3/gcc/12.1.0
+
+prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/gromacs-2021.5-lm6rp2cjb75ppx24riwh6ef3yylcptpj/bin"
+setenv GROMACS_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/gromacs-2021.5-lm6rp2cjb75ppx24riwh6ef3yylcptpj"
+
