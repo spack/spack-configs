@@ -1,0 +1,42 @@
+#%Module1.0
+## Module file created by spack (https://github.com/spack/spack) on 2022-05-13 14:11:21.005244
+##
+## mpich@3.4.3%oneapi@2022.1.0~argobots+cuda+fortran+hwloc+hydra+libxml2+pci~rocm+romio~slurm~two_level_namespace~verbs+wrapperrpath cuda_arch=none datatype-engine=auto device=ch4 netmod=ofi pmi=pmi arch=linux-centos7-x86_64/ygwx4ro
+##
+## Configure options: --disable-silent-rules --enable-shared --with-hwloc-prefix=/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/hwloc-2.7.1-pjjubsyql4qb6typis2hckeon7mgmanv --with-pm=hydra --enable-romio --without-ibverbs --enable-wrapper-rpath=yes --with-yaksa=embedded --with-slurm=no --with-pmi=simple --with-cuda=/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/cuda-11.6.2-bfmil5slvbko762yrmicx3gqrbg5ngmx --without-hip --with-device=ch4:ofi --with-libfabric=/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/libfabric-1.14.1-evrd55sod3lvfv4mmczsbuolm5s5caqu --enable-libxml2 --with-datatye-engine=auto
+##
+
+
+module-whatis "MPICH is a high performance and widely portable implementation of the Message Passing Interface (MPI) standard."
+
+proc ModulesHelp { } {
+puts stderr "MPICH is a high performance and widely portable implementation of the"
+puts stderr "Message Passing Interface (MPI) standard."
+}
+
+conflict mpich
+
+#prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/mpich-3.4.3-ygwx4roajefk6danmjdazrk22bb3lnn2/bin"
+#setenv MPICC "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/mpich-3.4.3-ygwx4roajefk6danmjdazrk22bb3lnn2/bin/mpicc"
+#setenv MPICXX "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/mpich-3.4.3-ygwx4roajefk6danmjdazrk22bb3lnn2/bin/mpic++"
+#setenv MPIF77 "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/mpich-3.4.3-ygwx4roajefk6danmjdazrk22bb3lnn2/bin/mpif77"
+#setenv MPIF90 "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/mpich-3.4.3-ygwx4roajefk6danmjdazrk22bb3lnn2/bin/mpif90"
+#setenv MPICH_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/mpich-3.4.3-ygwx4roajefk6danmjdazrk22bb3lnn2"
+
+# FTW 
+# set mpich_root /cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/mpich-3.4.3-yzk7xifgeolivit77eyoeb3bnv3ugs6c
+# With slurm support
+set mpich_root /cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/mpich-3.4.3-qg7pb4xlmxwojira3y5yr22ehymzettn
+
+prepend-path PATH ${mpich_root}/bin
+setenv MPICC ${mpich_root}/bin/mpicc
+setenv MPICXX ${mpich_root}/bin/mpic++
+setenv MPIF77 ${mpich_root}/bin/mpif77
+setenv MPIF90 ${mpich_root}/bin/mpif90
+setenv MPICH_ROOT ${mpich_root}
+
+module load oneapi/2022.1.0
+
+# this is not the cuda build
+# module load cuda-11.6.2-oneapi-2022.1.0
+

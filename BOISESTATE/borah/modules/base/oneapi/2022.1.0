@@ -1,0 +1,51 @@
+#%Module1.0
+## Module file created by spack (https://github.com/spack/spack) on 2022-05-13 14:11:19.538012
+##
+## intel-oneapi-compilers@2022.1.0%gcc@12.1.0 arch=linux-centos7-x86_64/dnwr4v7
+##
+## Configure options: unknown, software installed outside of Spack
+##
+
+
+module-whatis "Intel oneAPI Compilers. Includes: icc, icpc, ifort, icx, icpx, ifx, and dpcpp."
+
+proc ModulesHelp { } {
+puts stderr "Intel oneAPI Compilers. Includes: icc, icpc, ifort, icx, icpx, ifx, and"
+puts stderr "dpcpp. LICENSE INFORMATION: By downloading and using this software, you"
+puts stderr "agree to the terms and conditions of the software license agreements at"
+puts stderr "https://intel.ly/393CijO."
+}
+
+conflict intel-oneapi-compilers
+
+prepend-path ACL_BOARD_VENDOR_PATH "/opt/Intel/OpenCLFPGA/oneAPI/Boards"
+prepend-path CMAKE_PREFIX_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/IntelDPCPP"
+setenv CMPLR_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0"
+prepend-path DIAGUTIL_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/sys_check/sys_check.sh"
+setenv FPGA_VARS_ARGS ""
+setenv FPGA_VARS_DIR "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/lib/oclfpga"
+setenv INTELFPGAOCLSDKROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/lib/oclfpga"
+prepend-path NLSPATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/compiler/lib/intel64_lin/locale/%l_%t/%N"
+prepend-path OCL_ICD_FILENAMES "libintelocl_emu.so:libalteracl.so:/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/lib/x64/libintelocl.so"
+prepend-path PKG_CONFIG_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/lib/pkgconfig"
+prepend-path LD_LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/compiler/lib/intel64_lin"
+prepend-path LD_LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/lib/oclfpga/host/linux64/lib"
+prepend-path LD_LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/lib/x64"
+prepend-path LD_LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/lib"
+prepend-path LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/lib"
+prepend-path LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/compiler/lib/intel64_lin"
+prepend-path MANPATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/documentation/en/man/common"
+prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/bin"
+prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/bin/intel64"
+prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/lib/oclfpga/bin"
+setenv INTEL_ONEAPI_COMPILERS_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl"
+
+setenv I_MPI_CC "icx"
+setenv I_MPI_FC "ifx"
+setenv I_MPI_F77 "ifx"
+setenv I_MPI_F90 "ifx"
+setenv I_MPI_CXX "icpx"
+
+
+
+module load gcc/12.1.0

@@ -1,0 +1,161 @@
+spack:
+  view: false
+  concretization: separately
+  config::
+    concretizer: clingo
+    install_tree:
+      root: /cm/shared/software/opt
+      padded_length: False
+    build_stage: $tempdir/user/spack-stage
+
+  modules::
+    default:
+      # Where to install modules
+      roots:
+        tcl: /cm/shared/software/modules/xborah-base
+      # What type of modules to use
+      enable:
+        - tcl
+
+      prefix_inspections:
+        bin:
+          - PATH
+      tcl:
+        blacklist_implicits: true
+        hash_length: 0
+        all:
+          autoload: none
+          conflict:
+          - '{name}'
+          environment:
+            set:
+              '{name}_ROOT': '{prefix}'
+        projections:
+          mpich: '{name}/{version}/{compiler.name}/{compiler.version}'
+          intel-oneapi-mpi: '{name}/{version}/{compiler.name}/{compiler.version}'
+          openmpi: '{name}/{version}/{compiler.name}/{compiler.version}'
+
+  # Override all other settings so this is the only compiler visible to spack
+  compilers::
+  - compiler:
+      paths:
+        cc: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/bin/icx
+        cxx: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/bin/icpx
+        f77: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/bin/ifx
+        fc: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/bin/ifx
+      operating_system: centos7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      spec: oneapi@2022.1.0
+  - compiler:
+      paths:
+        cc: /cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/bin/gcc
+        cxx: /cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/bin/g++
+        f77: /cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/bin/gfortran
+        fc: /cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/bin/gfortran
+      operating_system: centos7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      spec: gcc@12.1.0
+  - compiler:
+      paths:
+        cc: /bin/gcc
+        cxx: /bin/g++ 
+        f77:  /bin/gfortran
+        fc:  /bin/gfortran
+      operating_system: centos7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      spec: gcc@4.8.5
+
+  packages:
+    cuda:
+      variants: +allow-unsupported-compilers
+      version:
+      - 11.6.2
+      externals:
+      - spec: cuda@11.6.2+allow-unsupported-compilers~dev%gcc@12.1.0 target=x86_64
+        modules: [borah-base, cuda-11.6.2-gcc-12.1.0]
+        buildable: False
+      - spec: cuda@11.6.2+allow-unsupported-compilers~dev%oneapi@2022.1.0 target=x86_64
+        modules: [borah-base, cuda-11.6.2-oneapi-2022.1.0]
+        buildable: False
+
+    slurm:
+      version:
+      - 19.05.8
+      externals:
+      - spec: slurm@19.05.8
+        prefix: /cm/shared/apps/slurm/current
+        buildable: false
+
+    ucx:
+      version:
+      - 1.10.1
+      externals:
+      - spec: ucx@1.10.1%gcc@12.1.0~assertions~cm~cma~cuda~dc~debug~dm~gdrcopy~ib-hw-tm~java~knem~logging~mlx5-dv+optimizations~parameter_checking+pic~rc~rocm+thread_multiple~ud~xpmem
+          cuda_arch=none arch=linux-centos7-x86_64
+        prefix: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/ucx-1.10.1-4jhjgpjpgs3dvwgcfiyn27sh6htiz4dd
+        buildable: False
+
+    mpich:
+      variants: +slurm
+      version:
+      - 3.4.3
+
+    openmpi:
+      version:
+      - 4.1.3
+
+    intel-oneapi-mpi:
+      version:
+      - 2021.6.0
+
+    intel-oneapi-compilers:
+      version:
+      - 2022.1.0
+      externals:
+      - spec: intel-oneapi-compilers@2022.1.0%gcc@12.1.0 arch=linux-centos7-x86_64 ^patchelf@0.14.5%gcc@12.1.0 arch=linux-centos7-x86_64
+        prefix: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl
+        buildable: False
+    gcc:
+      version:
+      - 12.1.0
+      externals:
+      - spec: gcc@12.1.0%gcc@12.1.0 target=x86_64
+        prefix: /cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna
+        buildable: False
+
+  specs:
+
+  # Externally declared specs to be included
+  
+  - cuda@11.6.2+allow-unsupported-compilers~dev%gcc@12.1.0 target=x86_64
+  - cuda@11.6.2+allow-unsupported-compilers~dev%oneapi@2022.1.0 target=x86_64
+
+  #  Need to lie and gcc 12.1.0 is built with 12.1.0 otherwise the concretizer tanks
+  #  - gcc@12.1.0%gcc@4.8.5 target=x86_64
+  - gcc@12.1.0%gcc@12.1.0 target=x86_64
+  - intel-oneapi-compilers@2022.1.0%gcc@12.1.0 arch=linux-centos7-x86_64 
+
+  # CUDA MPIs
+  - matrix:
+    - [ 'mpich@3.4.3+cuda^cuda+allow-unsupported-compilers', 'intel-oneapi-mpi@2021.6.0', 'openmpi@4.1.3+cuda fabrics=ucx schedulers=slurm ^cuda+allow-unsupported-compilers' ]
+    - [ '%gcc@12.1.0', '%oneapi@2022.1.0' ]
+    - [ 'target=x86_64' ]
+
+  # Non-CUDA MPIs
+  - matrix:
+    - [ 'mpich@3.4.3', 'intel-oneapi-mpi@2021.6.0', 'openmpi@4.1.3 +pmi+pmix +legacylaunchers fabrics=ucx schedulers=slurm' ]
+    - [ '%gcc@12.1.0', '%oneapi@2022.1.0' ]
+    - [ 'target=x86_64' ]
+

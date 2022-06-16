@@ -1,0 +1,96 @@
+loading base
+Running on: gpu101
+build oneapi-mpi/gcc test:
+Loading intel-oneapi-mpi+cuda/2021.6.0/gcc/12.1.0
+  Loading requirement: gcc/12.1.0 cuda-11.6.2-gcc-12.1.0
+Currently Loaded Modulefiles:
+ 1) slurm/slurm/19.05.8   4) cuda-11.6.2-gcc-12.1.0                     
+ 2) borah-base/22.5.13    5) intel-oneapi-mpi+cuda/2021.6.0/gcc/12.1.0  
+ 3) gcc/12.1.0           
+mpicc: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol/mpi/2021.6.0/bin/mpicc
+mpirun: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol/mpi/2021.6.0/bin/mpirun
+Hello world from processor gpu101, rank 1 out of 2 processors
+Hello world from processor gpu101, rank 0 out of 2 processors
+Unloading intel-oneapi-mpi+cuda/2021.6.0/gcc/12.1.0
+  Unloading useless requirement: gcc/12.1.0 cuda-11.6.2-gcc-12.1.0
+
+build oneapi-mpi/oneapi test:
+Loading intel-oneapi-mpi+cuda/2021.6.0/oneapi/2022.1.0
+  Loading requirement: gcc/12.1.0 oneapi/2022.1.0 cuda-11.6.2-oneapi-2022.1.0
+Currently Loaded Modulefiles:
+ 1) slurm/slurm/19.05.8   4) oneapi/2022.1.0                                 
+ 2) borah-base/22.5.13    5) cuda-11.6.2-oneapi-2022.1.0                     
+ 3) gcc/12.1.0            6) intel-oneapi-mpi+cuda/2021.6.0/oneapi/2022.1.0  
+mpicc: /cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/intel-oneapi-mpi-2021.6.0-qbicvxguxm2j3xaowxu3ogddo3ghh3zk/mpi/2021.6.0/bin/mpicc
+mpirun: /cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/intel-oneapi-mpi-2021.6.0-qbicvxguxm2j3xaowxu3ogddo3ghh3zk/mpi/2021.6.0/bin/mpirun
+Hello world from processor gpu101, rank 1 out of 2 processors
+Hello world from processor gpu101, rank 0 out of 2 processors
+Unloading intel-oneapi-mpi+cuda/2021.6.0/oneapi/2022.1.0
+  Unloading useless requirement: oneapi/2022.1.0 gcc/12.1.0
+    cuda-11.6.2-oneapi-2022.1.0
+
+build mpich/gcc test:
+Loading mpich+cuda/3.4.3/gcc/12.1.0
+  Loading requirement: gcc/12.1.0 cuda-11.6.2-gcc-12.1.0
+Currently Loaded Modulefiles:
+ 1) slurm/slurm/19.05.8   4) cuda-11.6.2-gcc-12.1.0       
+ 2) borah-base/22.5.13    5) mpich+cuda/3.4.3/gcc/12.1.0  
+ 3) gcc/12.1.0           
+mpicc: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air/bin/mpicc
+mpirun: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air/bin/mpirun
+Hello world from processor gpu101, rank 0 out of 2 processors
+Hello world from processor gpu101, rank 1 out of 2 processors
+Unloading mpich+cuda/3.4.3/gcc/12.1.0
+  Unloading useless requirement: gcc/12.1.0 cuda-11.6.2-gcc-12.1.0
+
+build mpich/oneapi test:
+Loading mpich+cuda/3.4.3/oneapi/2022.1.0
+  Loading requirement: gcc/12.1.0 oneapi/2022.1.0 cuda-11.6.2-oneapi-2022.1.0
+Currently Loaded Modulefiles:
+ 1) slurm/slurm/19.05.8   4) oneapi/2022.1.0                   
+ 2) borah-base/22.5.13    5) cuda-11.6.2-oneapi-2022.1.0       
+ 3) gcc/12.1.0            6) mpich+cuda/3.4.3/oneapi/2022.1.0  
+mpicc: /cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/mpich-3.4.3-yzk7xifgeolivit77eyoeb3bnv3ugs6c/bin/mpicc
+mpirun: /cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/mpich-3.4.3-yzk7xifgeolivit77eyoeb3bnv3ugs6c/bin/mpirun
+Hello world from processor gpu101, rank 1 out of 2 processors
+Hello world from processor gpu101, rank 0 out of 2 processors
+Unloading mpich+cuda/3.4.3/oneapi/2022.1.0
+  Unloading useless requirement: oneapi/2022.1.0 gcc/12.1.0
+    cuda-11.6.2-oneapi-2022.1.0
+
+build openmpi+cuda/4.1.3/gcc test:
+Loading openmpi+cuda/4.1.3/gcc/12.1.0
+  Loading requirement: gcc/12.1.0 cuda-11.6.2-gcc-12.1.0
+Currently Loaded Modulefiles:
+ 1) slurm/slurm/19.05.8   4) cuda-11.6.2-gcc-12.1.0         
+ 2) borah-base/22.5.13    5) openmpi+cuda/4.1.3/gcc/12.1.0  
+ 3) gcc/12.1.0           
+mpicc: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-tseqzknjr7oj7kncp32rximzmsxpcsqi/bin/mpicc
+mpirun: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-tseqzknjr7oj7kncp32rximzmsxpcsqi/bin/mpirun
+Hello world from processor gpu101, rank 0 out of 2 processors
+Hello world from processor gpu101, rank 1 out of 2 processors
+with srun:
+Hello world from processor gpu101, rank 0 out of 2 processors
+Hello world from processor gpu101, rank 1 out of 2 processors
+Unloading openmpi+cuda/4.1.3/gcc/12.1.0
+  Unloading useless requirement: gcc/12.1.0 cuda-11.6.2-gcc-12.1.0
+
+build openmpi+cuda/4.1.3/oneapi test:
+Loading openmpi+cuda/4.1.3/oneapi/2022.1.0
+  Loading requirement: gcc/12.1.0 oneapi/2022.1.0 cuda-11.6.2-oneapi-2022.1.0
+Currently Loaded Modulefiles:
+ 1) slurm/slurm/19.05.8   4) oneapi/2022.1.0                     
+ 2) borah-base/22.5.13    5) cuda-11.6.2-oneapi-2022.1.0         
+ 3) gcc/12.1.0            6) openmpi+cuda/4.1.3/oneapi/2022.1.0  
+mpicc: /cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/openmpi-4.1.3-pslhc4daaeguhnur6mnvlio7sb3gc3uv/bin/mpicc
+mpirun: /cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/openmpi-4.1.3-pslhc4daaeguhnur6mnvlio7sb3gc3uv/bin/mpirun
+Hello world from processor gpu101, rank 0 out of 2 processors
+Hello world from processor gpu101, rank 1 out of 2 processors
+with srun:
+Hello world from processor gpu101, rank 1 out of 2 processors
+Hello world from processor gpu101, rank 0 out of 2 processors
+Unloading openmpi+cuda/4.1.3/oneapi/2022.1.0
+  Unloading useless requirement: oneapi/2022.1.0 gcc/12.1.0
+    cuda-11.6.2-oneapi-2022.1.0
+
+Finished mpi_build.sh

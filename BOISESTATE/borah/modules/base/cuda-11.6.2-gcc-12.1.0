@@ -1,0 +1,31 @@
+#%Module1.0
+## Module file created by spack (https://github.com/spack/spack) on 2022-05-17 09:44:17.868526
+##
+## cuda@11.6.2%gcc@12.1.0+allow-unsupported-compilers~dev arch=linux-centos7-x86_64/gite4dw
+##
+
+
+module-whatis "CUDA is a parallel computing platform and programming model invented by NVIDIA. It enables dramatic increases in computing performance by harnessing the power of the graphics processing unit (GPU)."
+
+proc ModulesHelp { } {
+puts stderr "CUDA is a parallel computing platform and programming model invented by"
+puts stderr "NVIDIA. It enables dramatic increases in computing performance by"
+puts stderr "harnessing the power of the graphics processing unit (GPU). Note: This"
+puts stderr "package does not currently install the drivers necessary to run CUDA."
+puts stderr "These will need to be installed manually. See:"
+puts stderr "https://docs.nvidia.com/cuda/ for details."
+}
+
+conflict cuda
+
+prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/cuda-11.6.2-gite4dwg77hbrhnd7sc6itt4hk3p42bb/bin"
+setenv CUDA_HOME "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/cuda-11.6.2-gite4dwg77hbrhnd7sc6itt4hk3p42bb"
+setenv CUDA_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/cuda-11.6.2-gite4dwg77hbrhnd7sc6itt4hk3p42bb"
+
+# FTW added by hand
+prepend-path LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/cuda-11.6.2-gite4dwg77hbrhnd7sc6itt4hk3p42bb/lib64"
+prepend-path LD_LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/cuda-11.6.2-gite4dwg77hbrhnd7sc6itt4hk3p42bb/lib64"
+
+# FTW libcuda.so stubs here: needed to compile
+prepend-path LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/cuda-11.6.2-gite4dwg77hbrhnd7sc6itt4hk3p42bb/targets/x86_64-linux/lib/stubs/"
+#prepend-path LD_LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/cuda-11.6.2-gite4dwg77hbrhnd7sc6itt4hk3p42bb/targets/x86_64-linux/lib/stubs/"

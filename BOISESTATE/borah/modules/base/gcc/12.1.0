@@ -1,0 +1,26 @@
+#%Module1.0
+## Module file created by spack (https://github.com/spack/spack) on 2022-05-13 14:11:19.407633
+##
+## gcc@12.1.0%gcc@4.8.5~binutils+bootstrap~graphite~nvptx~piclibs~strip languages=c,c++,fortran arch=linux-centos7-x86_64/yztxqq4
+##
+## Configure options: --with-pkgversion=Spack GCC --with-bugurl=https://github.com/spack/spack/issues --disable-multilib --enable-languages=c,c++,fortran --disable-nls --disable-canonical-system-headers --with-system-zlib --with-zstd-include=/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/zstd-1.5.2-zks4dipnxg3ptzgxujvdo42zos4oi2d7/include --with-zstd-lib=/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/zstd-1.5.2-zks4dipnxg3ptzgxujvdo42zos4oi2d7/lib --enable-bootstrap --with-mpfr-include=/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/mpfr-4.1.0-2tz3a6hmfwseiewvcxb3rs7un37bw7th/include --with-mpfr-lib=/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/mpfr-4.1.0-2tz3a6hmfwseiewvcxb3rs7un37bw7th/lib --with-gmp-include=/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gmp-6.2.1-qwhk5qhgxxzmrcmgh2ipyj7iz4fwrc5x/include --with-gmp-lib=/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gmp-6.2.1-qwhk5qhgxxzmrcmgh2ipyj7iz4fwrc5x/lib --with-mpc-include=/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/mpc-1.2.1-hf5root2qldi7x7iavlm3oqvim24nazj/include --with-mpc-lib=/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/mpc-1.2.1-hf5root2qldi7x7iavlm3oqvim24nazj/lib --without-isl --with-stage1-ldflags=-Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/lib -Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/lib64 -Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gmp-6.2.1-qwhk5qhgxxzmrcmgh2ipyj7iz4fwrc5x/lib -Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/mpc-1.2.1-hf5root2qldi7x7iavlm3oqvim24nazj/lib -Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/mpfr-4.1.0-2tz3a6hmfwseiewvcxb3rs7un37bw7th/lib -Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/zlib-1.2.12-faxjopde44pkng2usphfkfqooae6h5hv/lib -Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/zstd-1.5.2-zks4dipnxg3ptzgxujvdo42zos4oi2d7/lib --with-boot-ldflags=-Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/lib -Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/lib64 -Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gmp-6.2.1-qwhk5qhgxxzmrcmgh2ipyj7iz4fwrc5x/lib -Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/mpc-1.2.1-hf5root2qldi7x7iavlm3oqvim24nazj/lib -Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/mpfr-4.1.0-2tz3a6hmfwseiewvcxb3rs7un37bw7th/lib -Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/zlib-1.2.12-faxjopde44pkng2usphfkfqooae6h5hv/lib -Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/zstd-1.5.2-zks4dipnxg3ptzgxujvdo42zos4oi2d7/lib -static-libstdc++ -static-libgcc
+##
+
+
+module-whatis "The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, and Go, as well as libraries for these languages."
+
+proc ModulesHelp { } {
+puts stderr "The GNU Compiler Collection includes front ends for C, C++, Objective-C,"
+puts stderr "Fortran, Ada, and Go, as well as libraries for these languages."
+}
+
+conflict gcc
+
+prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/bin"
+setenv CC "/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/bin/gcc"
+setenv CXX "/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/bin/g++"
+setenv FC "/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/bin/gfortran"
+setenv F77 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/bin/gfortran"
+setenv GCC_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna"
+
+# module load cuda-11.6.2-gcc-12.1.0

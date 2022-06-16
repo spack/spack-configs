@@ -1,0 +1,25 @@
+#%Module1.0
+## Module file created by spack (https://github.com/spack/spack) on 2022-05-20 15:27:12.842072
+##
+## netcdf-c@4.8.1%oneapi@2022.1.0~dap~fsync~hdf4~jna+mpi~parallel-netcdf+pic+shared arch=linux-centos7-x86_64/iljjuwp
+##
+## Configure options: --enable-v2 --enable-utilities --enable-static --enable-largefile --enable-netcdf-4 --disable-fsync --enable-dynamic-loading --enable-shared --disable-dap --enable-parallel4 --disable-jna --disable-pnetcdf CC=/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/mpich-3.4.3-ygwx4roajefk6danmjdazrk22bb3lnn2/bin/mpicc --disable-hdf4 CFLAGS=-fPIC CPPFLAGS=-I/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/hdf5-1.10.7-rltg6p2czfdozl6txbj42mw5pczdyyk5/include LDFLAGS=-L/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/hdf5-1.10.7-rltg6p2czfdozl6txbj42mw5pczdyyk5/lib LIBS=
+##
+
+
+module-whatis "NetCDF (network Common Data Form) is a set of software libraries and machine-independent data formats that support the creation, access, and sharing of array-oriented scientific data. This is the C distribution."
+
+proc ModulesHelp { } {
+puts stderr "NetCDF (network Common Data Form) is a set of software libraries and"
+puts stderr "machine-independent data formats that support the creation, access, and"
+puts stderr "sharing of array-oriented scientific data. This is the C distribution."
+}
+
+conflict netcdf-c
+
+prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/netcdf-c-4.8.1-iljjuwpggmnwbdpxbdrcjfq4keaangq5/bin"
+setenv NETCDF_C_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/netcdf-c-4.8.1-iljjuwpggmnwbdpxbdrcjfq4keaangq5"
+
+module load hdf5/1.10.7/mpich/3.4.3/oneapi/2022.1.0
+
+

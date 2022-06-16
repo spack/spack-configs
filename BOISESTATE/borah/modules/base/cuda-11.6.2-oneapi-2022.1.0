@@ -1,0 +1,32 @@
+#%Module1.0
+## Module file created by spack (https://github.com/spack/spack) on 2022-05-17 09:44:17.970536
+##
+## cuda@11.6.2%oneapi@2022.1.0+allow-unsupported-compilers~dev arch=linux-centos7-x86_64/bfmil5s
+##
+
+
+module-whatis "CUDA is a parallel computing platform and programming model invented by NVIDIA. It enables dramatic increases in computing performance by harnessing the power of the graphics processing unit (GPU)."
+
+proc ModulesHelp { } {
+puts stderr "CUDA is a parallel computing platform and programming model invented by"
+puts stderr "NVIDIA. It enables dramatic increases in computing performance by"
+puts stderr "harnessing the power of the graphics processing unit (GPU). Note: This"
+puts stderr "package does not currently install the drivers necessary to run CUDA."
+puts stderr "These will need to be installed manually. See:"
+puts stderr "https://docs.nvidia.com/cuda/ for details."
+}
+
+conflict cuda
+
+prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/cuda-11.6.2-bfmil5slvbko762yrmicx3gqrbg5ngmx/bin"
+setenv CUDA_HOME "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/cuda-11.6.2-bfmil5slvbko762yrmicx3gqrbg5ngmx"
+setenv CUDA_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/cuda-11.6.2-bfmil5slvbko762yrmicx3gqrbg5ngmx"
+
+# FTW added by hand
+prepend-path LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/cuda-11.6.2-bfmil5slvbko762yrmicx3gqrbg5ngmx/lib64"
+prepend-path LD_LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/cuda-11.6.2-bfmil5slvbko762yrmicx3gqrbg5ngmx/lib64"
+
+# FTW libcuda.so stubs here: may be needed at compile time
+#prepend-path LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/cuda-11.6.2-bfmil5slvbko762yrmicx3gqrbg5ngmx/targets/x86_64-linux/lib/stubs"
+#prepend-path LD_LIBRARY_PATH "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/cuda-11.6.2-bfmil5slvbko762yrmicx3gqrbg5ngmx/targets/x86_64-linux/lib/stubs"
+

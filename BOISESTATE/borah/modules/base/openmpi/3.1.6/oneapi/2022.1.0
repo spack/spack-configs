@@ -1,0 +1,32 @@
+#%Module1.0
+## Module file created by spack (https://github.com/spack/spack) on 2022-05-13 14:11:21.278791
+##
+## openmpi@3.1.6%oneapi@2022.1.0~atomics+cuda~cxx~cxx_exceptions~gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~pmi+pmix+romio+rsh~singularity+static+vt+wrapper-rpath cuda_arch=none fabrics=none schedulers=none arch=linux-centos7-x86_64/d3t2yi2
+##
+## Configure options: --enable-shared --disable-silent-rules --disable-builtin-atomics --without-pmi --enable-static --with-zlib=/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/zlib-1.2.12-cpaa3dwszaso63osps43aoczqakk6s6l --without-verbs --without-fca --without-hcoll --without-knem --without-ucx --without-ofi --without-cma --without-xpmem --without-mxm --without-psm2 --without-psm --without-cray-xpmem --without-tm --without-sge --without-lsf --without-slurm --without-loadleveler --without-alps --disable-memchecker --with-pmix=/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/pmix-4.1.2-pxallu3p7oburwlx5qfv3uywp7pmq77t --with-libevent=/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/libevent-2.1.12-hynvhixzshej5okhrxzgs7cihpaluylf --with-hwloc=/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/hwloc-1.11.13-ugmv3y26i67bf2lrylxayrmlpbmorkjj --disable-java --disable-mpi-java --with-gpfs=no --enable-dlopen --with-cuda=/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/cuda-11.6.2-bfmil5slvbko762yrmicx3gqrbg5ngmx --enable-wrapper-rpath --disable-wrapper-runpath --disable-mpi-cxx --disable-cxx-exceptions --with-wrapper-ldflags=-Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/compiler/lib/intel64_lin -Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-compilers-2022.1.0-36rrpyy3bd5lvxl7xlip6q43vmywnpwl/compiler/2022.1.0/linux/lib -Wl,-rpath,/cm/local/apps/gcc/9.2.0/lib64 -Wl,-rpath,/cm/local/apps/gcc/9.2.0/lib
+##
+
+
+module-whatis "An open source Message Passing Interface implementation."
+
+proc ModulesHelp { } {
+puts stderr "An open source Message Passing Interface implementation. The Open MPI"
+puts stderr "Project is an open source Message Passing Interface implementation that"
+puts stderr "is developed and maintained by a consortium of academic, research, and"
+puts stderr "industry partners. Open MPI is therefore able to combine the expertise,"
+puts stderr "technologies, and resources from all across the High Performance"
+puts stderr "Computing community in order to build the best MPI library available."
+puts stderr "Open MPI offers advantages for system and software vendors, application"
+puts stderr "developers and computer science researchers."
+}
+
+conflict openmpi
+
+prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/openmpi-3.1.6-d3t2yi2y7qnrmfhgibigetfpdomk5gg5/bin"
+setenv MPICC "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/openmpi-3.1.6-d3t2yi2y7qnrmfhgibigetfpdomk5gg5/bin/mpicc"
+setenv MPICXX "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/openmpi-3.1.6-d3t2yi2y7qnrmfhgibigetfpdomk5gg5/bin/mpic++"
+setenv MPIF77 "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/openmpi-3.1.6-d3t2yi2y7qnrmfhgibigetfpdomk5gg5/bin/mpif77"
+setenv MPIF90 "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/openmpi-3.1.6-d3t2yi2y7qnrmfhgibigetfpdomk5gg5/bin/mpif90"
+setenv OPENMPI_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/openmpi-3.1.6-d3t2yi2y7qnrmfhgibigetfpdomk5gg5"
+
+module load oneapi/2022.1.0

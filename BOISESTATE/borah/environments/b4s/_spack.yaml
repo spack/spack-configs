@@ -1,0 +1,434 @@
+spack:
+  view: false
+  concretization: separately
+  config::
+    concretizer: clingo
+    install_tree:
+      root: /cm/shared/software/opt
+      padded_length: False
+#    module_roots:
+#      tcl: /cm/shared/software/modules
+    build_stage: $tempdir/user/spack-stage
+
+#==> Warning: config:module_roots has been replaced by modules:[module set]:roots and is ignored
+#==> Warning: Top-level properties "enable", "tcl" in module config are ignored as of Spack v0.18. They should be set on the "default" module set. 
+  modules:
+
+  # These are configurations for the module set named "default"
+    default:
+      # Where to install modules
+      roots:
+       tcl:    $spack/share/spack/modules
+       lmod:   $spack/share/spack/lmod
+      # What type of modules to use
+      enable:
+        - tcl
+
+      tcl:
+        all:
+          autoload: none
+
+#  modules::
+#    enable:
+#    - tcl
+#    tcl:
+#    default:
+#      roots: 
+#        tcl: /tmp
+#    enable:
+#    - tcl
+#    tcl:
+#      blacklist_implicits: true
+#      hash_length: 0
+#      blacklist:
+#      - py-warpx
+#      naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
+#      all:
+#        conflict:
+#        - '{name}'
+#        environment:
+#          set:
+#            '{name}_ROOT': '{prefix}'
+#      darshan-runtime:
+#        conflict:
+#        - 'darshan'
+#      darshan-util:
+#        conflict:
+#        - 'darshan'
+#      projections:
+#        all: '{name}/{version}-{compiler.name}-{compiler.version}'
+
+
+  # Override all other settings so this is the only compiler visible to spack
+  compilers::
+  - compiler:
+      paths:
+        cc: /cm/local/apps/gcc/9.2.0/bin/gcc
+        cxx: /cm/local/apps/gcc/9.2.0/bin/g++
+        f77: /cm/local/apps/gcc/9.2.0/bin/gfortran
+        fc: /cm/local/apps/gcc/9.2.0/bin/gfortran
+      operating_system: centos7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      spec: gcc@9.2.0
+  packages::
+    all:
+      compiler:
+      - gcc@9.2.0
+      providers:
+        blas:
+        - openblas
+        mpi:
+        - mpich
+        java:
+        - openjdk
+        uuid:
+        - libuuid
+      target:
+      - x86_64
+      variants: +mpi
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+      version:
+      - 2.36.1
+    cuda:
+      version:
+      - 11.4.2
+    doxygen:
+      version:
+      - 1.8.20
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+      version:
+      - 1.10.7
+    libfabric:
+      variants: fabrics=sockets,tcp,udp,rxm
+    libunwind:
+      variants: +pic +xz
+    mesa:
+      variants: ~llvm
+    mesa18:
+      variants: ~llvm
+    mpich:
+      variants: ~wrapperrpath
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      version:
+      - 3.8.12
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+
+    automake:
+      version:
+      - 1.16.5
+      externals:
+      - spec: automake@1.16.5%gcc@9.2.0 arch=linux-centos7-x86_64
+        prefix: /usr
+
+    autoconf:
+      version:
+      - 2.69
+      externals:
+      - spec: autoconf@2.69%gcc@9.2.0 arch=linux-centos7-x86_64
+        prefix: /usr
+
+    bison:
+      version:
+      - 3.8.2
+      externals:
+      - spec: bison@3.8.2
+        prefix: /usr
+
+    libuuid:
+      version:
+      - 1.0.3
+      externals:
+      - spec: libuuid@1.0.3
+        prefix: /usr
+
+    libtool:
+      version:
+      - 2.4.6
+      externals:
+      - spec: libtool@2.4.6%gcc@9.2.0 arch=linux-centos7-x86_64
+        prefix: /usr
+
+    ruby:
+      version:
+#      - 2.0.0p648
+      - 3.1.0
+#      externals:
+#      - spec: ruby@2.0.0p648%gcc@9.2.0 arch=linux-centos7-x86_64
+#        prefix: /usr
+
+    gawk:
+      version:
+      - 4.0.2
+      externals:
+      - spec: gawk@4.0.2 
+        prefix: /usr
+
+    git:
+      version:
+      - 2.13
+      externals:
+      - spec: git@2.13
+        prefix: /usr
+
+#    :
+#      version:
+#      - 
+#      externals:
+#      - spec: 
+#        prefix: /usr
+
+#    zlib:
+#      version:
+#      - 1.2.11
+#      externals:
+#      - spec: zlib@1.2.11+optimize+pic+shared
+#        prefix: /usr
+  definitions:
+  - cpu_specs:
+    - adios@1.13.1
+    - adios2@2.7.1
+    - alquimia@1.0.9
+    - aml@0.1.0
+    - amrex@22.02
+    - arborx@1.1
+    - archer@2.0.0
+    - argobots@1.1
+    - ascent@0.7.1
+    - axom@0.6.1
+    - bolt@2.0
+    - butterflypack@2.1.0
+    - cabana@0.4.0
+    - caliper@2.7.0
+    - catalyst@5.6.0
+    - chai@2.4.0 ~benchmarks ~tests
+    - charliecloud@0.26
+    - conduit@0.8.2
+#    - darshan-runtime@3.3.1
+    - darshan-runtime@3.3.1^mpich
+    - darshan-util@3.3.1
+    - datatransferkit@3.1-rc3
+    - dyninst@12.0.1
+    - exaworks@0.1.0
+    - faodel@1.2108.1
+    - flecsi@1.4.2
+    - flit@2.1.0
+    - flux-core@0.35.0
+    - fortrilinos@2.0.0
+    - gasnet@2021.9.0
+    - geopm@1.1.0
+    - ginkgo@1.4.0
+# Wants an MPI compiler wrapper and won't build without one
+#    - globalarrays@5.8
+    - gmp@6.2.1
+    - gotcha@1.0.3
+    - gptune@2.1.0
+    - hdf5@1.10.7 +fortran +hl +shared
+    - heffte@2.2.0 +fftw
+    - hpctoolkit@2022.01.15
+    - hpx@1.7.1 networking=mpi
+#    - hypre@2.24.0
+    - hypre@2.24.0^mpich
+    - kokkos-kernels@3.5.00 +openmp
+    - kokkos@3.5.00 +openmp
+    - lammps@20220107
+    - legion@21.03.0
+    - libnrm@0.1.0
+#    - libquo@1.3.1
+    - libquo@1.3.1^mpich
+    - libunwind@1.5.0
+    - loki@0.1.7
+    - mercury@2.1.0
+    - metall@0.17
+#    - mfem@4.3.0
+    - mfem@4.3.0^mpich
+    - mpark-variant@1.4.0
+    - mpifileutils@0.11.1 ~xattr
+    - nccmp@1.9.0.1
+# fetch fail for udunits dep
+#    - nco@5.0.1
+    - netlib-scalapack@2.1.0
+    - ninja@1.10.2
+    - nrm@0.1.0
+    - nvhpc@22.1
+    - omega-h@9.34.1
+    - openmpi@4.1.2
+    - openpmd-api@0.14.4
+    - papi@6.0.0.1
+    - papyrus@1.0.1
+    - parallel-netcdf@1.12.2
+# Requires opengl provided by vendor
+#    - paraview@5.10.0
+    - parsec@3.0.2012 ~cuda
+    - pdt@3.25.1
+    - petsc@3.16.4
+    - phist@1.9.5
+    - plasma@21.8.29
+    - plumed@2.6.3
+    - precice@2.3.0
+    - pumi@2.2.6
+    - py-cinemasci@1.3
+    - py-jupyterhub@1.4.1
+    - py-libensemble@0.8.0
+    - py-petsc4py@3.16.4
+    - py-warpx@22.02 ^warpx dims=2
+    - py-warpx@22.02 ^warpx dims=3
+    - py-warpx@22.02 ^warpx dims=rz
+    - qthreads@1.16 scheduler=distrib
+    - raja@0.14.0
+# - rempi@1.1.0
+    - scr@3.0rc2
+    - slate@2021.05.02 ~cuda
+    - slepc@3.16.2
+# CC=/cm/shared/software/opt/linux-centos7-x86_64/gcc-9.2.0/spectrum-mpi-10.4-lqjyp5vfk22x2yovto3hzdgt7gaox4j3/bin/mpicc: not found in PATH!
+#    - stc@0.9.0
+    - strumpack@6.3.0 ~slate
+    - sundials@6.1.1
+    - superlu-dist@7.2.0
+    - superlu@5.3.0
+    - swig@4.0.2
+    - swig@4.0.2-fortran
+    - sz@2.1.12
+    - tasmanian@7.7
+    - tau@2.31 +mpi +python
+    - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+      +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+      +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+      +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+# CC=/cm/shared/software/opt/linux-centos7-x86_64/gcc-9.2.0/spectrum-mpi-10.4-lqjyp5vfk22x2yovto3hzdgt7gaox4j3/bin/mpicc: not found in PATH!
+# - turbine@1.3.0
+    - umap@2.1.0
+    - umpire@6.0.0
+    - unifyfs@0.9.1
+# Compiler errors
+#    - upcxx@2021.9.0
+    - variorum@0.4.1
+    - veloc@1.5
+    - vtk-m@1.7.1
+#    - wannier90@3.1.0
+    - wannier90@3.1.0^mpich
+    - zfp@0.5.5
+     #- dealii@9.3.2
+     #- stat@4.1.0
+
+  - cuda_specs:
+    - amrex@22.02 +cuda cuda_arch=80
+    - caliper@2.7.0 +cuda cuda_arch=80
+    - chai@2.4.0 ~benchmarks ~tests +cuda cuda_arch=80 ^umpire@6.0.0 ~shared
+    - flecsi@2.1.0 +cuda cuda_arch=80
+    - flux-core@0.35.0 +cuda   # not CudaPackage
+    - ginkgo@1.4.0 +cuda cuda_arch=80
+    - heffte@2.2.0 +cuda cuda_arch=80
+    - hpctoolkit@2022.01.15 +cuda   # not CudaPackage
+    - hpx@1.7.1 +cuda cuda_arch=80
+    - hypre@2.24.0 +cuda cuda_arch=80
+    - kokkos-kernels@3.5.00 +cuda cuda_arch=80 ^kokkos@3.5.00 +wrapper +cuda cuda_arch=80
+    - kokkos@3.5.00 +wrapper +cuda cuda_arch=80
+    - magma@2.6.1 +cuda cuda_arch=80
+    - mfem@4.3.0 +cuda cuda_arch=80
+    - openmpi@4.1.2 +cuda   # not CudaPackage
+    - papi@6.0.0.1 +cuda   # not CudaPackage
+    - parsec@3.0.2012 +cuda cuda_arch=80
+    - petsc@3.16.4 +cuda cuda_arch=80
+    - raja@0.14.0 +cuda cuda_arch=80
+    - slate@2021.05.02 +cuda cuda_arch=80
+    - slepc@3.16.2 +cuda cuda_arch=80
+    - strumpack@6.3.0 ~slate +cuda cuda_arch=80
+    - sundials@6.1.1 +cuda cuda_arch=80
+    - superlu-dist@7.2.0 +cuda cuda_arch=80
+    - tasmanian@7.7 +cuda cuda_arch=80
+    - trilinos@13.2.0 +cuda cuda_arch=80
+    - umpire@6.0.0 ~shared +cuda cuda_arch=80
+    - vtk-m@1.7.1 +cuda cuda_arch=80
+    - zfp@0.5.5 +cuda cuda_arch=80
+     #- arborx@1.1 +cuda # not CudaPackage
+     #- ascent@0.7.1 ~shared +cuda cuda_arch=80
+     #- axom@0.6.1 +cuda cuda_arch=80 ^umpire ~shared
+     #- cabana@0.4.0 +cuda # not CudaPackage 
+     #- dealii@9.3.2 +cuda cuda_arch=80 # gmsh
+     #- legion@21.03.0 +cuda cuda_arch=80
+     #- llvm@13.0.0 +cuda cuda_arch=80
+     #- paraview@5.10.0 +cuda cuda_arch=80
+     #- upcxx@2021.9.0 +cuda # not CudaPackage, needs driver
+
+  - rocm_specs:
+    - amrex@22.02 +rocm amdgpu_target=gfx908
+    - chai@2.4.0 ~benchmarks +rocm amdgpu_target=gfx908
+    - ginkgo@1.4.0 +rocm amdgpu_target=gfx908
+    - heffte@2.2.0 +rocm amdgpu_target=gfx908
+    - hpx@1.7.1 +rocm amdgpu_target=gfx908
+    - kokkos@3.5.00 +rocm amdgpu_target=gfx908
+    - magma@2.6.1 ~cuda +rocm amdgpu_target=gfx908
+    - mfem@4.3.0 +rocm amdgpu_target=gfx908
+    - petsc@3.16.4 +rocm amdgpu_target=gfx908
+    - raja@0.14.0 ~openmp +rocm amdgpu_target=gfx908
+    - slate@2021.05.02 +rocm amdgpu_target=gfx908
+    - slepc@3.16.2 +rocm amdgpu_target=gfx908 ^petsc +rocm amdgpu_target=gfx908
+    - strumpack@6.3.0 ~slate +rocm amdgpu_target=gfx908
+    - superlu-dist@7.2.0 +rocm amdgpu_target=gfx908
+    - umpire@6.0.0 +rocm amdgpu_target=gfx908
+     #- arborx@1.1 +rocm ^kokkos +rocm amdgpu_target=gfx908 # Not ROCmPackage # Could not find a package configuration file provided by "rocthrust"
+     #- cabana@0.4.0 +rocm # https://github.com/spack/spack/issues/27967
+     #- hpctoolkit@2022.01.15 +rocm # Not ROCmPackage
+     #- papi@6.0.0.1 +rocm amdgpu_target=gfx908 # https://github.com/spack/spack/issues/27898
+     #- sundials@6.1.1 +rocm amdgpu_target=gfx908
+     #- tasmanian@7.7 +rocm amdgpu_target=gfx908 # https://github.com/spack/spack/issues/27896
+     #- vtk-m@1.7.1 +rocm amdgpu_target=gfx908
+
+  specs:
+#  - hdf5@1.10.7 +fortran +hl +shared
+  - $cpu_specs
+#  - $cuda_specs
+#  - $rocm_specs
+  mirrors::
+    BSU:
+      fetch:
+        url: file:///cm/shared/software/mirror
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null
+      push:
+        url: file:///cm/shared/software/mirror
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null
+    E4S:
+      fetch:
+        url: https://cache.e4s.io/22.02
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null
+      push:
+        url: https://cache.e4s.io/22.02
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null

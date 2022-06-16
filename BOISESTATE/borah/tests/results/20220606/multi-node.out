@@ -1,0 +1,117 @@
+loading base
+Running on: cpu110
+build oneapi-mpi/gcc test:
+Loading intel-oneapi-mpi/2021.6.0/gcc/12.1.0
+  Loading requirement: gcc/12.1.0 cuda-11.6.2-gcc-12.1.0
+Currently Loaded Modulefiles:
+ 1) slurm/slurm/19.05.8   4) cuda-11.6.2-gcc-12.1.0                
+ 2) borah-base/22.5.13    5) intel-oneapi-mpi/2021.6.0/gcc/12.1.0  
+ 3) gcc/12.1.0           
+mpicc: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol/mpi/2021.6.0/bin/mpicc
+mpirun: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/intel-oneapi-mpi-2021.6.0-q3x3llyuqjtvneyzpp3ev6zmxblqaaol/mpi/2021.6.0/bin/mpirun
+Hello world from processor cpu110, rank 0 out of 4 processors
+Hello world from processor cpu110, rank 1 out of 4 processors
+Hello world from processor cpu111, rank 2 out of 4 processors
+Hello world from processor cpu111, rank 3 out of 4 processors
+Unloading intel-oneapi-mpi/2021.6.0/gcc/12.1.0
+  Unloading useless requirement: gcc/12.1.0 cuda-11.6.2-gcc-12.1.0
+
+build oneapi-mpi/oneapi test:
+Loading intel-oneapi-mpi/2021.6.0/oneapi/2022.1.0
+  Loading requirement: gcc/12.1.0 oneapi/2022.1.0 cuda-11.6.2-oneapi-2022.1.0
+Currently Loaded Modulefiles:
+ 1) slurm/slurm/19.05.8   4) oneapi/2022.1.0                            
+ 2) borah-base/22.5.13    5) cuda-11.6.2-oneapi-2022.1.0                
+ 3) gcc/12.1.0            6) intel-oneapi-mpi/2021.6.0/oneapi/2022.1.0  
+mpicc: /cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/intel-oneapi-mpi-2021.6.0-qbicvxguxm2j3xaowxu3ogddo3ghh3zk/mpi/2021.6.0/bin/mpicc
+mpirun: /cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/intel-oneapi-mpi-2021.6.0-qbicvxguxm2j3xaowxu3ogddo3ghh3zk/mpi/2021.6.0/bin/mpirun
+Hello world from processor cpu110, rank 1 out of 4 processors
+Hello world from processor cpu110, rank 0 out of 4 processors
+Hello world from processor cpu111, rank 3 out of 4 processors
+Hello world from processor cpu111, rank 2 out of 4 processors
+Unloading intel-oneapi-mpi/2021.6.0/oneapi/2022.1.0
+  Unloading useless requirement: oneapi/2022.1.0 gcc/12.1.0
+    cuda-11.6.2-oneapi-2022.1.0
+
+build mpich/gcc test:
+Loading mpich/3.4.3/gcc/12.1.0
+  Loading requirement: gcc/12.1.0
+Currently Loaded Modulefiles:
+ 1) slurm/slurm/19.05.8   3) gcc/12.1.0              
+ 2) borah-base/22.5.13    4) mpich/3.4.3/gcc/12.1.0  
+mpicc: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-fnccvh6ovq6w24z5y35s4ie6zdwd3z47/bin/mpicc
+mpirun: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-fnccvh6ovq6w24z5y35s4ie6zdwd3z47/bin/mpirun
+Hello world from processor cpu110, rank 0 out of 4 processors
+Hello world from processor cpu110, rank 1 out of 4 processors
+Hello world from processor cpu111, rank 2 out of 4 processors
+Hello world from processor cpu111, rank 3 out of 4 processors
+with srun:
+Hello world from processor cpu110, rank 0 out of 1 processors
+Hello world from processor cpu111, rank 0 out of 1 processors
+Hello world from processor cpu110, rank 0 out of 1 processors
+Hello world from processor cpu111, rank 0 out of 1 processors
+Unloading mpich/3.4.3/gcc/12.1.0
+  Unloading useless requirement: gcc/12.1.0
+
+build mpich/oneapi test:
+Loading mpich/3.4.3/oneapi/2022.1.0
+  Loading requirement: gcc/12.1.0 oneapi/2022.1.0
+Currently Loaded Modulefiles:
+ 1) slurm/slurm/19.05.8   3) gcc/12.1.0        5) mpich/3.4.3/oneapi/2022.1.0  
+ 2) borah-base/22.5.13    4) oneapi/2022.1.0  
+mpicc: /cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/mpich-3.4.3-qg7pb4xlmxwojira3y5yr22ehymzettn/bin/mpicc
+mpirun: /cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/mpich-3.4.3-qg7pb4xlmxwojira3y5yr22ehymzettn/bin/mpirun
+Hello world from processor cpu110, rank 0 out of 4 processors
+Hello world from processor cpu110, rank 1 out of 4 processors
+Hello world from processor cpu111, rank 2 out of 4 processors
+Hello world from processor cpu111, rank 3 out of 4 processors
+with srun:
+Hello world from processor cpu110, rank 0 out of 1 processors
+Hello world from processor cpu111, rank 0 out of 1 processors
+Hello world from processor cpu110, rank 0 out of 1 processors
+Hello world from processor cpu111, rank 0 out of 1 processors
+Unloading mpich/3.4.3/oneapi/2022.1.0
+  Unloading useless requirement: oneapi/2022.1.0 gcc/12.1.0
+
+build openmpi/4.1.3/gcc test:
+Loading openmpi/4.1.3/gcc/12.1.0
+  Loading requirement: gcc/12.1.0
+Currently Loaded Modulefiles:
+ 1) slurm/slurm/19.05.8   3) gcc/12.1.0                
+ 2) borah-base/22.5.13    4) openmpi/4.1.3/gcc/12.1.0  
+mpicc: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-emmiwwyowqedppw7ubxh5fyh6eqra2h2/bin/mpicc
+mpirun: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-emmiwwyowqedppw7ubxh5fyh6eqra2h2/bin/mpirun
+Hello world from processor cpu110, rank 0 out of 4 processors
+Hello world from processor cpu110, rank 1 out of 4 processors
+Hello world from processor cpu111, rank 2 out of 4 processors
+Hello world from processor cpu111, rank 3 out of 4 processors
+with srun:
+Hello world from processor cpu111, rank 3 out of 4 processors
+Hello world from processor cpu110, rank 0 out of 4 processors
+Hello world from processor cpu110, rank 1 out of 4 processors
+Hello world from processor cpu111, rank 2 out of 4 processors
+Unloading openmpi/4.1.3/gcc/12.1.0
+  Unloading useless requirement: gcc/12.1.0
+
+build openmpi/4.1.3/oneapi test:
+Loading openmpi/4.1.3/oneapi/2022.1.0
+  Loading requirement: gcc/12.1.0 oneapi/2022.1.0
+Currently Loaded Modulefiles:
+ 1) slurm/slurm/19.05.8   4) oneapi/2022.1.0                
+ 2) borah-base/22.5.13    5) openmpi/4.1.3/oneapi/2022.1.0  
+ 3) gcc/12.1.0           
+mpicc: /cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/openmpi-4.1.3-bal2kvchlaxpeqxctket7srj3l3zeunh/bin/mpicc
+mpirun: /cm/shared/software/opt/linux-centos7-x86_64/oneapi-2022.1.0/openmpi-4.1.3-bal2kvchlaxpeqxctket7srj3l3zeunh/bin/mpirun
+Hello world from processor cpu110, rank 0 out of 4 processors
+Hello world from processor cpu110, rank 1 out of 4 processors
+Hello world from processor cpu111, rank 3 out of 4 processors
+Hello world from processor cpu111, rank 2 out of 4 processors
+with srun:
+Hello world from processor cpu111, rank 2 out of 4 processors
+Hello world from processor cpu110, rank 0 out of 4 processors
+Hello world from processor cpu110, rank 1 out of 4 processors
+Hello world from processor cpu111, rank 3 out of 4 processors
+Unloading openmpi/4.1.3/oneapi/2022.1.0
+  Unloading useless requirement: oneapi/2022.1.0 gcc/12.1.0
+
+Finished mpi_build.sh
