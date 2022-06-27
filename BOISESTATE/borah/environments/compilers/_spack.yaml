@@ -1,0 +1,62 @@
+spack:
+  view: false
+  concretization: together
+  config::
+    concretizer: clingo
+    install_tree:
+      root: /cm/shared/software/opt
+      padded_length: False
+    build_stage: $tempdir/user/spack-stage
+
+  modules::
+    default:
+      tcl:
+        blacklist_implicits: true
+        hash_length: 0
+        all:
+          conflict:
+          - '{name}'
+          environment:
+            set:
+              '{name}_ROOT': '{prefix}'
+        projections:
+          all: '{name}/{version}-{compiler.name}-{compiler.version}'
+
+  # Override all other settings so this is the only compiler visible to spack
+  compilers::
+  - compiler:
+      paths:
+        cc: /bin/gcc
+        cxx: /bin/g++
+        f77: /bin/gfortran
+        fc: /bin/gfortran
+      operating_system: centos7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      spec: gcc@4.8.5
+
+  specs:
+  - gcc@12.1.0%gcc@4.8.5 target=x86_64
+  - intel-oneapi-compilers%gcc@4.8.5 target=x86_64
+
+  mirrors::
+    BSU:
+      fetch:
+        url: file:///cm/shared/software/mirror
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null
+      push:
+        url: file:///cm/shared/software/mirror
+        access_pair:
+        - null
+        - null
+        access_token: null
+        profile: null
+        endpoint_url: null

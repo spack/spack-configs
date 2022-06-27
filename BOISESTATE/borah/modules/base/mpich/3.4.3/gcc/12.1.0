@@ -1,0 +1,40 @@
+#%Module1.0
+## Module file created by spack (https://github.com/spack/spack) on 2022-05-13 14:11:20.901824
+##
+## mpich@3.4.3%gcc@12.1.0~argobots+cuda+fortran+hwloc+hydra+libxml2+pci~rocm+romio~slurm~two_level_namespace~verbs+wrapperrpath cuda_arch=none datatype-engine=auto device=ch4 netmod=ofi pmi=pmi arch=linux-centos7-x86_64/tu636mn
+##
+## Configure options: --disable-silent-rules --enable-shared --with-hwloc-prefix=/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/hwloc-2.7.1-ktrbpdd73duzccr6dszdbmkd4es2vjop --with-pm=hydra --enable-romio --without-ibverbs --enable-wrapper-rpath=yes --with-yaksa=embedded --with-slurm=no --with-pmi=simple --with-cuda=/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/cuda-11.6.2-gite4dwg77hbrhnd7sc6itt4hk3p42bb --without-hip --with-device=ch4:ofi --with-libfabric=/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/libfabric-1.14.1-t6f4wqxmhluofcjeamcmj6j62emzqgc7 --enable-libxml2 --with-datatye-engine=auto
+##
+
+
+module-whatis "MPICH is a high performance and widely portable implementation of the Message Passing Interface (MPI) standard."
+
+proc ModulesHelp { } {
+puts stderr "MPICH is a high performance and widely portable implementation of the"
+puts stderr "Message Passing Interface (MPI) standard."
+}
+
+conflict mpich
+
+
+#prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air/bin"
+#setenv MPICC "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air/bin/mpicc"
+#setenv MPICXX "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air/bin/mpic++"
+#setenv MPIF77 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air/bin/mpif77"
+#setenv MPIF90 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air/bin/mpif90"
+#setenv MPICH_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-tu636mnmefr7a2qbv3om3iwka4ta7air"
+
+set mpich_root /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-fnccvh6ovq6w24z5y35s4ie6zdwd3z47
+
+prepend-path PATH "${mpich_root}/bin"
+setenv MPICC "${mpich_root}/bin/mpicc"
+setenv MPICXX "${mpich_root}/bin/mpic++"
+setenv MPIF77 "${mpich_root}/bin/mpif77"
+setenv MPIF90 "${mpich_root}/bin/mpif90"
+setenv MPICH_ROOT "${mpich_root}"
+
+module load gcc/12.1.0
+
+# This is the non-cuda build
+# module load cuda-11.6.2-gcc-12.1.0
+

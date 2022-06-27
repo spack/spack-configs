@@ -1,0 +1,121 @@
+spack:
+  view: false
+  concretization: separately
+  config::
+    concretizer: original
+    install_tree:
+      root: /cm/shared/software/opt
+      padded_length: False
+    build_stage: $tempdir/user/spack-stage
+
+  modules::
+    default:
+      # Where to install modules
+      roots:
+        tcl: /cm/shared/software/modules/xborah-base
+      # What type of modules to use
+      enable:
+        - tcl
+
+      prefix_inspections:
+        bin:
+          - PATH
+      tcl:
+        blacklist_implicits: true
+        hash_length: 0
+        all:
+          autoload: none
+          conflict:
+          - '{name}'
+          environment:
+            set:
+              '{name}_ROOT': '{prefix}'
+        projections:
+          ^mpi: '{name}/{version}/{^mpi.name}/{^mpi.version}/{compiler.name}/{compiler.version}'
+
+  # Override all other settings so this is the only compiler visible to spack
+  compilers::
+
+  - compiler:
+      paths:
+        cc: /cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/bin/gcc
+        cxx: /cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/bin/g++
+        f77: /cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/bin/gfortran
+        fc: /cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/bin/gfortran
+      operating_system: centos7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      spec: gcc@12.1.0
+
+  - compiler:
+      paths:
+        cc: /bin/gcc
+        cxx: /bin/g++ 
+        f77:  /bin/gfortran
+        fc:  /bin/gfortran
+      operating_system: centos7
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+      flags: {}
+      spec: gcc@4.8.5
+
+  packages: 
+    all::
+      providers:
+        mpi:
+        - openmpi
+        - mpich
+
+    mpich:
+      version:
+      - 3.4.3
+      externals:
+      - spec: mpich@3.4.3%gcc@12.1.0
+        prefix: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/mpich-3.4.3-fnccvh6ovq6w24z5y35s4ie6zdwd3z47
+
+    openmpi:
+      version:
+      - 4.1.3
+      externals:
+      - spec: openmpi@4.1.3%gcc@12.1.0
+        prefix: /cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-4.1.3-emmiwwyowqedppw7ubxh5fyh6eqra2h2
+
+    cmake:
+      version:
+      - 3.21.4
+      externals:
+      - spec: cmake%gcc
+        prefix: /cm/shared/software/spack/opt/spack/linux-centos7-x86_64/gcc-12.1.0/cmake-3.21.4-c5bpooxh6rer7gwxyvupvuerpbdrr4yi
+      - spec: cmake%oneapi
+        prefix: /cm/shared/software/spack/opt/spack/linux-centos7-x86_64/gcc-12.1.0/cmake-3.21.4-c5bpooxh6rer7gwxyvupvuerpbdrr4yi
+
+  definitions:
+
+  - libraries:
+    - hdf5@1.10.7 +fortran +hl +shared +mpi
+    - netcdf-fortran ^hdf5@1.10.7 +fortran +hl +shared +mpi
+    - netcdf-c@4.8.1 ^hdf5@1.10.7 +fortran +hl +shared +mpi
+    - fftw@2.1.5
+
+  - compilers:
+    - '%gcc@12.1.0'
+
+  - mpis:
+    - '^mpich@3.4.3'
+    - '^openmpi@4.1.3'
+
+  - targets:
+    - target=x86_64
+
+  specs:
+
+  - matrix:
+    - [ $libraries ]
+    - [ $compilers ]
+    - [ $mpis ]
+    - [ $targets ]

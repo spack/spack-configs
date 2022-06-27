@@ -1,0 +1,32 @@
+#%Module1.0
+## Module file created by spack (https://github.com/spack/spack) on 2022-05-13 14:11:21.173293
+##
+## openmpi@3.1.6%gcc@12.1.0~atomics+cuda~cxx~cxx_exceptions~gpfs~internal-hwloc~java~legacylaunchers~lustre~memchecker~pmi+pmix+romio+rsh~singularity+static+vt+wrapper-rpath cuda_arch=none fabrics=none schedulers=none arch=linux-centos7-x86_64/kkfate2
+##
+## Configure options: --enable-shared --disable-silent-rules --disable-builtin-atomics --without-pmi --enable-static --with-zlib=/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/zlib-1.2.12-vuuezl75e6urqbd2hu2kshgzioangbjg --without-verbs --without-fca --without-hcoll --without-knem --without-ucx --without-ofi --without-cma --without-xpmem --without-mxm --without-psm2 --without-psm --without-cray-xpmem --without-tm --without-sge --without-lsf --without-slurm --without-loadleveler --without-alps --disable-memchecker --with-pmix=/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/pmix-4.1.2-f3n7wq4xc7hj6xc4smkewrnxqalbprr7 --with-libevent=/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/libevent-2.1.12-k57goypgllrzlxosropg4r7typ7raa25 --with-hwloc=/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/hwloc-1.11.13-qr2yrrksz2wj6hkwvwtildgoss3azqqd --disable-java --disable-mpi-java --with-gpfs=no --enable-dlopen --with-cuda=/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/cuda-11.6.2-gite4dwg77hbrhnd7sc6itt4hk3p42bb --enable-wrapper-rpath --disable-wrapper-runpath --disable-mpi-cxx --disable-cxx-exceptions --with-wrapper-ldflags=-Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/lib/gcc/x86_64-pc-linux-gnu/12.1.0 -Wl,-rpath,/cm/shared/software/opt/linux-centos7-x86_64/gcc-4.8.5/gcc-12.1.0-yztxqq4nafv7dyxkohfycsibetgfvrna/lib64
+##
+
+
+module-whatis "An open source Message Passing Interface implementation."
+
+proc ModulesHelp { } {
+puts stderr "An open source Message Passing Interface implementation. The Open MPI"
+puts stderr "Project is an open source Message Passing Interface implementation that"
+puts stderr "is developed and maintained by a consortium of academic, research, and"
+puts stderr "industry partners. Open MPI is therefore able to combine the expertise,"
+puts stderr "technologies, and resources from all across the High Performance"
+puts stderr "Computing community in order to build the best MPI library available."
+puts stderr "Open MPI offers advantages for system and software vendors, application"
+puts stderr "developers and computer science researchers."
+}
+
+conflict openmpi
+
+prepend-path PATH "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-3.1.6-kkfate2m3xpupmasg33zf6vwesyufsjg/bin"
+setenv MPICC "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-3.1.6-kkfate2m3xpupmasg33zf6vwesyufsjg/bin/mpicc"
+setenv MPICXX "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-3.1.6-kkfate2m3xpupmasg33zf6vwesyufsjg/bin/mpic++"
+setenv MPIF77 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-3.1.6-kkfate2m3xpupmasg33zf6vwesyufsjg/bin/mpif77"
+setenv MPIF90 "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-3.1.6-kkfate2m3xpupmasg33zf6vwesyufsjg/bin/mpif90"
+setenv OPENMPI_ROOT "/cm/shared/software/opt/linux-centos7-x86_64/gcc-12.1.0/openmpi-3.1.6-kkfate2m3xpupmasg33zf6vwesyufsjg"
+
+module load gcc/12.1.0
