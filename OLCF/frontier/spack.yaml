@@ -1,4 +1,4 @@
-# OLCF Spock Spack Environment
+# OLCF Frontier Spack Environment
 
 spack:
   #############################################################################
@@ -10,9 +10,8 @@ spack:
     - '%gcc@10.3.0'
     - '%gcc@9.3.0'
   - cray_compilers:
-    - '%cce@13.0.1'
+    - '%cce@13.0.2'
     - '%cce@13.0.0'
-    - '%cce@12.0.3'
   - amd_compilers:
     - '%clang@13.0.0-rocm4.5.0'
   - all_compilers:
@@ -146,25 +145,25 @@ spack:
     - vtk-m@1.6.0 ~cuda
     - zfp@0.5.5 ~cuda
   - e4s_21.11_gpu_specs:
-    - amrex@21.11 +rocm~cuda amdgpu_target=gfx908
-    - chai@2.4.0 ~benchmarks~examples~tests+rocm~cuda amdgpu_target=gfx908
-    - datatransferkit@3.1-rc3 ^superlu-dist+rocm amdgpu_target=gfx908
-    - ginkgo@1.4.0+rocm~cuda amdgpu_target=gfx908
+    - amrex@21.11 +rocm~cuda amdgpu_target=gfx90a
+    - chai@2.4.0 ~benchmarks~examples~tests+rocm~cuda amdgpu_target=gfx90a
+    - datatransferkit@3.1-rc3 ^superlu-dist+rocm amdgpu_target=gfx90a
+    - ginkgo@1.4.0+rocm~cuda amdgpu_target=gfx90a
     - kokkos@3.4.01 +rocm~cuda~wrapper~openmp amdgpu_target=gfx908
-    - kokkos@3.5.00 +rocm~cuda~wrapper~openmp amdgpu_target=gfx908
-    - magma@2.6.1 +rocm~cuda amdgpu_target=gfx908
-    - omega-h@9.34.1 ^superlu-dist+rocm amdgpu_target=gfx908
-    - petsc@3.16.4 ~cuda ^superlu-dist+rocm amdgpu_target=gfx908
-    - precice@2.3.0 ^superlu-dist+rocm amdgpu_target=gfx908
-    - raja@0.14.0 ~exercises~examples~tests+rocm~cuda~openmp amdgpu_target=gfx908
-    - slate@2021.05.02 +rocm~cuda amdgpu_target=gfx908
-    - strumpack@6.1.0 ~slate+rocm~cuda amdgpu_target=gfx908
-    - sundials@5.8.0 +rocm~cuda amdgpu_target=gfx908
-    - superlu-dist@7.1.1 ~cuda+rocm amdgpu_target=gfx908
-    - tasmanian@7.7 +rocm~cuda amdgpu_target=gfx908
-    - trilinos@13.0.1 ~cuda~wrapper ^superlu-dist+rocm amdgpu_target=gfx908
-    - trilinos@13.2.0 ~cuda~wrapper ^superlu-dist+rocm amdgpu_target=gfx908
-    - umpire@6.0.0 +shared+rocm~cuda amdgpu_target=gfx908
+    - kokkos@3.5.00 +rocm~cuda~wrapper~openmp amdgpu_target=gfx90a
+    - magma@2.6.1 +rocm~cuda amdgpu_target=gfx90a
+    - omega-h@9.34.1 ^superlu-dist+rocm amdgpu_target=gfx90a
+    - petsc@3.16.4 ~cuda ^superlu-dist+rocm amdgpu_target=gfx90a
+    - precice@2.3.0 ^superlu-dist+rocm amdgpu_target=gfx90a
+    - raja@0.14.0 ~exercises~examples~tests+rocm~cuda~openmp amdgpu_target=gfx90a
+    - slate@2021.05.02 +rocm~cuda amdgpu_target=gfx90a
+    - strumpack@6.1.0 ~slate+rocm~cuda amdgpu_target=gfx90a
+    - sundials@5.8.0 +rocm~cuda amdgpu_target=gfx90a
+    - superlu-dist@7.1.1 ~cuda+rocm amdgpu_target=gfx90a
+    - tasmanian@7.7 +rocm~cuda amdgpu_target=gfx90a
+    - trilinos@13.0.1 ~cuda~wrapper ^superlu-dist+rocm amdgpu_target=gfx90a
+    - trilinos@13.2.0 ~cuda~wrapper ^superlu-dist+rocm amdgpu_target=gfx90a
+    - umpire@6.0.0 +shared+rocm~cuda amdgpu_target=gfx90a
   - e4s_22.02_cpu_specs:
     # Minimal diff from v21.11
     - amrex@22.02 ~rocm~cuda
@@ -193,10 +192,10 @@ spack:
     # - wannier90@3.1.0
   - e4s_22.02_gpu_specs:
     # Minimal diff from v21.11
-    - amrex@22.02 +rocm~cuda amdgpu_target=gfx908
-    - kokkos@3.5.00 +rocm~cuda~wrapper~openmp amdgpu_target=gfx908
-    - strumpack@6.3.0 ~slate+rocm~cuda amdgpu_target=gfx908
-    - sundials@6.1.1 +rocm~cuda amdgpu_target=gfx908
+    - amrex@22.02 +rocm~cuda amdgpu_target=gfx90a
+    - kokkos@3.5.00 +rocm~cuda~wrapper~openmp amdgpu_target=gfx90a
+    - strumpack@6.3.0 ~slate+rocm~cuda amdgpu_target=gfx90a
+    - sundials@6.1.1 +rocm~cuda amdgpu_target=gfx90a
   - core_specs:
     - matrix:
       - - $core_packages
@@ -212,8 +211,8 @@ spack:
         - $e4s_22.02_gpu_specs
       - - '%gcc@11.2.0'
         - '%gcc@10.3.0'
-        - '%gcc@9.3.0'
-      - - arch=cray-sles15-zen2
+        # - '%gcc@9.3.0' # No zen3 support?
+      - - arch=cray-sles15-zen3
       exclude:
       - archer%gcc # ^llvm@8.0.0 fails, reason unknown
       - ascent@0.7.1%gcc@11.2.0 # conduit@0.7.2 dependency
@@ -234,10 +233,9 @@ spack:
         - $e4s_22.02_cpu_specs
         - $e4s_22.02_gpu_specs
         - slate@2021.05.02
-      - - '%cce@13.0.1'
+      - - '%cce@13.0.2'
         - '%cce@13.0.0'
-        - '%cce@12.0.3'
-      - - arch=cray-sles15-zen2
+      - - arch=cray-sles15-zen3
       exclude:
       - archer%cce
       - butterflypack@2.0.0:2.1.0%cce
@@ -268,7 +266,7 @@ spack:
         - $e4s_22.02_cpu_specs
         - $e4s_22.02_gpu_specs
       - - '%clang@13.0.0-rocm4.5.0'
-      - - arch=cray-sles15-zen2
+      - - arch=cray-sles15-zen3
       exclude:
       - archer%clang
       - ascent%clang
@@ -292,10 +290,10 @@ spack:
   - $core_specs
   - $cpe_gcc_specs
   - $cpe_cce_specs
-  - $cpe_amd_specs
+  # - $cpe_amd_specs
   #############################################################################
   mirrors:
-    facility_builds: /sw/spock/spack-env/mirrors/builds
+    facility_builds: /sw/frontier/spack-env/mirrors/builds
     source_mirror: /sw/sources/facility-spack/source_mirror
   repos:
   - ${FACSPACK_CONF_COMMON}/spack/repos/olcf
@@ -315,7 +313,7 @@ spack:
         lapack: [openblas, cray-libsci@21.08.1.2]
         mpi: [cray-mpich]
         scalapack: [netlib-scalapack]
-      target: [zen2]
+      target: [zen3]
       version: []
     axom:
       variants: ~examples~openmp+hdf5+umpire+raja+mpi
@@ -350,7 +348,7 @@ spack:
           spec: cray-libsci@21.08.1.2
         - modules:
             - cray-libsci/21.06.1.1
-            - cray-mpich/8.1.7
+            - cray-mpich/8.1.8
           spec: cray-libsci@21.06.1.1
       version: [21.08.1.2, 21.06.1.1]
     cray-mpich:
@@ -368,7 +366,7 @@ spack:
       compiler: []
       providers: {}
       target: []
-      variants: +grouplogs scheduler=slurm logpath=/gpfs/alpine/darshan/spock
+      variants: +grouplogs scheduler=slurm logpath=/gpfs/alpine/darshan/frontier
       version: []
     fftw:
       buildable: true
@@ -551,11 +549,11 @@ spack:
     libfabric:
       buildable: true
       externals:
-        - prefix: /opt/cray/libfabric/1.11.0.4.75
-          spec: libfabric@1.11.0.4.75
-        - prefix: /opt/cray/libfabric/1.11.0.3.71
-          spec: libfabric@1.11.0.3.71
-      version: [1.11.0.4.75, 1.11.0.3.71]
+        - prefix: /opt/cray/libfabric/1.15.0.0
+          spec: libfabric@1.15.0.0
+        - prefix: /opt/cray/libfabric/1.13.0.0
+          spec: libfabric@1.13.0.0
+      version: [1.15.0.0, 1.13.0.0]
       variants: fabrics=rxm,sockets,tcp,udp
     libtool:
       buildable: true
@@ -610,6 +608,13 @@ spack:
     ncurses:
       buildable: true
       compiler: []
+      externals:
+        - prefix: /sw/frontier/spack-envs/base/opt/linux-sles15-x86_64/gcc-7.5.0/ncurses-6.2-mg5foemn555y6knv5hvtey3sqrvhinrw
+          spec: ncurses@6.2%cce@13.0.0~symlinks+termlib
+        - prefix: /sw/frontier/spack-envs/base/opt/linux-sles15-x86_64/gcc-7.5.0/ncurses-6.2-mg5foemn555y6knv5hvtey3sqrvhinrw
+          spec: ncurses@6.2%cce@13.0.1~symlinks+termlib
+        - prefix: /sw/frontier/spack-envs/base/opt/linux-sles15-x86_64/gcc-7.5.0/ncurses-6.2-mg5foemn555y6knv5hvtey3sqrvhinrw
+          spec: ncurses@6.2%cce@13.0.2~symlinks+termlib
       providers: {}
       target: []
       variants: +termlib
@@ -646,10 +651,10 @@ spack:
       compiler: []
       externals:
         - prefix: /usr
-          spec: openssh@8.1
+          spec: openssh@8.4
       providers: {}
       target: []
-      version: [8.1]
+      version: [8.4]
     openssl:
       buildable: false
       compiler: []
@@ -740,7 +745,7 @@ spack:
           spec: rocfft@4.3.0
         - prefix: /opt/rocm-4.2.0
           spec: rocfft@4.2.0
-      variants: amdgpu_target=gfx908 amdgpu_target_sram_ecc=gfx908
+      variants: amdgpu_target=gfx90a amdgpu_target_sram_ecc=gfx90a
       version: 
       - 4.5.0
       - 4.3.0
@@ -1005,10 +1010,10 @@ spack:
       compiler: []
       externals:
         - prefix: /usr
-          spec: slurm@21.08.7
+          spec: slurm@21.08.0
       providers: {}
       target: []
-      version: [21.08.7]
+      version: [21.08.0]
     sundials:
       variants: ~examples~examples-install
     tcsh:
@@ -1390,7 +1395,7 @@ spack:
     - $spack/var/spack/stage
     source_cache: ${FACSPACK_SOURCE_CACHE}
     extensions:
-    - /sw/sources/facility-spack/spock/share/spack/extensions/spack-olcf
+    - /sw/sources/facility-spack/frontier/share/spack/extensions/spack-olcf
     misc_cache: ${FACSPACK_ENV}/.mcache
     verify_ssl: true
     install_missing_compilers: false
@@ -1454,9 +1459,11 @@ spack:
       modules:
       - PrgEnv-gnu
       - gcc/9.3.0
-      - craype-x86-rome
+      - craype-x86-trento
       - libfabric
-      environment: {}
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.0.16/lib
       extra_rpaths: []
   - compiler:
       spec: gcc@10.3.0
@@ -1471,9 +1478,11 @@ spack:
       modules:
       - PrgEnv-gnu
       - gcc/10.3.0
-      - craype-x86-rome
+      - craype-x86-trento
       - libfabric
-      environment: {}
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.0.16/lib
       extra_rpaths: []
   - compiler:
       spec: gcc@11.2.0
@@ -1488,33 +1497,12 @@ spack:
       modules:
       - PrgEnv-gnu
       - gcc/11.2.0
-      - craype-x86-rome
-      - libfabric
-      environment: {}
-      extra_rpaths: []
-  - compiler:
-      spec: cce@12.0.3
-      paths:
-        cc: /opt/cray/pe/craype/2.7.13/bin/cc
-        cxx: /opt/cray/pe/craype/2.7.13/bin/CC
-        f77: /opt/cray/pe/craype/2.7.13/bin/ftn
-        fc: /opt/cray/pe/craype/2.7.13/bin/ftn
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-cray
-      - cce/12.0.3
-      - craype-x86-rome
+      - craype-x86-trento
       - libfabric
       environment:
-        set:
-          RFE_811452_DISABLE: '1'
-        append_path:
-          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.11.0.4.75/lib64
-      extra_rpaths:
-      - /opt/cray/pe/gcc-libs
-      - /opt/cray/gcc-libs
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.0.16/lib
+      extra_rpaths: []
   - compiler:
       spec: cce@13.0.0
       paths:
@@ -1528,13 +1516,15 @@ spack:
       modules:
       - PrgEnv-cray
       - cce/13.0.0
-      - craype-x86-rome
+      - craype-x86-trento
       - libfabric
       environment:
         set:
           RFE_811452_DISABLE: '1'
         append_path:
-          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.11.0.4.75/lib64
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.0.16/lib
       extra_rpaths:
       - /opt/cray/pe/gcc-libs
       - /opt/cray/gcc-libs
@@ -1551,13 +1541,40 @@ spack:
       modules:
       - PrgEnv-cray
       - cce/13.0.1
-      - craype-x86-rome
+      - craype-x86-trento
       - libfabric
       environment:
         set:
           RFE_811452_DISABLE: '1'
         append_path:
-          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.11.0.4.75/lib64
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.0.16/lib
+      extra_rpaths:
+      - /opt/cray/pe/gcc-libs
+      - /opt/cray/gcc-libs
+  - compiler:
+      spec: cce@13.0.2
+      paths:
+        cc: /opt/cray/pe/craype/2.7.13/bin/cc
+        cxx: /opt/cray/pe/craype/2.7.13/bin/CC
+        f77: /opt/cray/pe/craype/2.7.13/bin/ftn
+        fc: /opt/cray/pe/craype/2.7.13/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray
+      - cce/13.0.2
+      - craype-x86-trento
+      - libfabric
+      environment:
+        set:
+          RFE_811452_DISABLE: '1'
+        append_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.0.16/lib
       extra_rpaths:
       - /opt/cray/pe/gcc-libs
       - /opt/cray/gcc-libs
@@ -1574,13 +1591,15 @@ spack:
       modules:
       - PrgEnv-amd
       - amd/4.5.0
-      - craype-x86-rome
+      - craype-x86-trento
       - libfabric
       environment:
         set:
           RFE_811452_DISABLE: '1'
         append_path:
-          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.11.0.4.75/lib64
+          LD_LIBRARY_PATH: /opt/cray/pe/gcc-libs:/opt/cray/libfabric/1.15.0.0/lib64
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/cray/pe/pmi/6.0.16/lib
           LIBRARY_PATH: /opt/rocm-4.5.0/lib:/opt/rocm-4.5.0/lib64
       extra_rpaths:
       - /opt/rocm-4.5.0/lib

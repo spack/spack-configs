@@ -1,4 +1,4 @@
-# OLCF Summit Spack Environment
+# OLCF Peak Spack Environment
 
 spack:
   #############################################################################
@@ -6,8 +6,8 @@ spack:
   - core_compiler:
     - '%gcc@8.3.1'
   - gcc_compilers:
-    - '%gcc@6.5.0'
-    - '%gcc@7.5.0'
+    # - '%gcc@6.5.0'
+    # - '%gcc@7.5.0'
     - '%gcc@8.3.1'
     - '%gcc@9.1.0'
     - '%gcc@9.3.0'
@@ -34,7 +34,7 @@ spack:
   - all_compilers:
     - $gcc_compilers
     - $xl_compilers
-    # - '%xl@16.1.1-beta106'
+    - '%xl@16.1.1-beta106'
     - $llvm_compilers
     - $nv_compilers
   - core_packages:
@@ -349,20 +349,20 @@ spack:
     - stat@4.1.0%gcc@8.3.1 ^dyninst@11.0.1
     - stc@0.9.0%gcc@8.3.1
     # - geopm@1.1.0%gcc@8.3.1
-    - matrix:
-      - - $general_compute_packages
-        - openblas threads=openmp
-        - openblas threads=pthreads
-        - openblas threads=none
-      - - '%gcc@6.5.0'
-      # - - ^cuda@10.1.243
-    - matrix:
-      - - $general_compute_packages
-        - openblas threads=openmp
-        - openblas threads=pthreads
-        - openblas threads=none
-      - - '%gcc@7.5.0'
-    # - - ^cuda@11.0.3
+    # - matrix:
+    #   - - $general_compute_packages
+    #     - openblas threads=openmp
+    #     - openblas threads=pthreads
+    #     - openblas threads=none
+    #   - - '%gcc@6.5.0'
+    #   # - - ^cuda@10.1.243
+    # - matrix:
+    #   - - $general_compute_packages
+    #     - openblas threads=openmp
+    #     - openblas threads=pthreads
+    #     - openblas threads=none
+    #   - - '%gcc@7.5.0'
+    #   # - - ^cuda@11.0.3
     - matrix:
       - - $general_compute_packages
         - $e4s_21.11_cpu_packages
@@ -491,7 +491,7 @@ spack:
   - boost@1.77.0%gcc@9.1.0+mpi+container
   #############################################################################
   mirrors:
-    facility_builds: /sw/summit/spack-envs/mirrors/builds
+    facility_builds: /sw/peak/spack-envs/mirrors/builds
   repos:
   - ${FACSPACK_CONF_COMMON}/spack/repos/olcf
   #############################################################################
@@ -517,19 +517,19 @@ spack:
     autoconf:
       externals:
         - spec: autoconf@2.69%xl
-          prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/autoconf-2.69-optfzhop7h64asc5mcxr3ckbnqin42e6
-        # - spec: autoconf@2.69%nvhpc
-        #   prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/autoconf-2.69-optfzhop7h64asc5mcxr3ckbnqin42e6
-        # - spec: autoconf@2.69%pgi
-        #   prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/autoconf-2.69-optfzhop7h64asc5mcxr3ckbnqin42e6
+          prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/autoconf-2.69-optfzhop7h64asc5mcxr3ckbnqin42e6
+          # - spec: autoconf@2.69%nvhpc
+          #   prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/autoconf-2.69-optfzhop7h64asc5mcxr3ckbnqin42e6
+          # - spec: autoconf@2.69%pgi
+          #   prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/autoconf-2.69-optfzhop7h64asc5mcxr3ckbnqin42e6
     automake:
       externals:
         - spec: automake@1.16.3%xl
-          prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/automake-1.16.3-54v6ar44uhjaqfvxaiul3e2u43xdx2wr
-        # - spec: automake@1.16.3%nvhpc
-        #   prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/automake-1.16.3-54v6ar44uhjaqfvxaiul3e2u43xdx2wr
-        # - spec: automake@1.16.3%pgi
-        #   prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/automake-1.16.3-54v6ar44uhjaqfvxaiul3e2u43xdx2wr
+          prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/automake-1.16.3-54v6ar44uhjaqfvxaiul3e2u43xdx2wr
+          # - spec: automake@1.16.3%nvhpc
+          #   prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/automake-1.16.3-54v6ar44uhjaqfvxaiul3e2u43xdx2wr
+          # - spec: automake@1.16.3%pgi
+          #   prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/automake-1.16.3-54v6ar44uhjaqfvxaiul3e2u43xdx2wr
     axom:
       variants: ~examples~openmp+hdf5+umpire+raja+mpi
     # camp:
@@ -547,17 +547,17 @@ spack:
     cmake:
       externals:
         - spec: cmake@3.21.3%xl
-          prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/cmake-3.21.3-jwz44tvjsvelffi5pqyhhjljiu4jnbbv
+          prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/cmake-3.21.3-jwz44tvjsvelffi5pqyhhjljiu4jnbbv
         - spec: cmake@3.22.2%xl
-          prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8.3.1/cmake-3.22.2-753egsm3pztoytlasqi2hrq4pcgchfyn
+          prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8.3.1/cmake-3.22.2-753egsm3pztoytlasqi2hrq4pcgchfyn
         - spec: cmake@3.21.3%nvhpc
-          prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/cmake-3.21.3-jwz44tvjsvelffi5pqyhhjljiu4jnbbv
+          prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/cmake-3.21.3-jwz44tvjsvelffi5pqyhhjljiu4jnbbv
         - spec: cmake@3.22.2%nvhpc
-          prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8.3.1/cmake-3.22.2-753egsm3pztoytlasqi2hrq4pcgchfyn
+          prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8.3.1/cmake-3.22.2-753egsm3pztoytlasqi2hrq4pcgchfyn
         - spec: cmake@3.21.3%pgi
-          prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/cmake-3.21.3-jwz44tvjsvelffi5pqyhhjljiu4jnbbv
+          prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/cmake-3.21.3-jwz44tvjsvelffi5pqyhhjljiu4jnbbv
         - spec: cmake@3.22.2%pgi
-          prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8.3.1/cmake-3.22.2-753egsm3pztoytlasqi2hrq4pcgchfyn
+          prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8.3.1/cmake-3.22.2-753egsm3pztoytlasqi2hrq4pcgchfyn
     cuda:
       buildable: false
       compiler: []
@@ -599,7 +599,7 @@ spack:
       compiler: []
       providers: {}
       target: []
-      variants: +grouplogs scheduler=lsf logpath=/gpfs/alpine/darshan/summit
+      variants: +grouplogs scheduler=lsf logpath=/gpfs/alpine/darshan/peak
       version: []
     doxygen:
       version:
@@ -619,7 +619,7 @@ spack:
       buildable: false
       compiler: []
       externals:
-        - prefix: /sw/summit/go/1.7.1-bootstrap
+        - prefix: /sw/peak/go/1.7.1-bootstrap
           spec: go-bootstrap@1.7.1-bootstrap
       providers: {}
       target: []
@@ -709,11 +709,11 @@ spack:
     m4:
       externals:
         - spec: m4@1.4.19%xl
-          prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/m4-1.4.19-nvrhryvgvr2m4rxh2g2body6xogfgntr
-        # - spec: m4@1.4.19%nvhpc
-        #   prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/m4-1.4.19-nvrhryvgvr2m4rxh2g2body6xogfgntr
-        # - spec: m4@1.4.19%pgi
-        #   prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/m4-1.4.19-nvrhryvgvr2m4rxh2g2body6xogfgntr
+          prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/m4-1.4.19-nvrhryvgvr2m4rxh2g2body6xogfgntr
+          # - spec: m4@1.4.19%nvhpc
+          #   prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/m4-1.4.19-nvrhryvgvr2m4rxh2g2body6xogfgntr
+          # - spec: m4@1.4.19%pgi
+          #   prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/m4-1.4.19-nvrhryvgvr2m4rxh2g2body6xogfgntr
     magma:
       buildable: true
       compiler: []
@@ -746,11 +746,11 @@ spack:
     numactl:
       externals:
         - spec: numactl@2.0.14%xl
-          prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/numactl-2.0.14-q7j2bvbvrd4dzkvwcezqdgufijeu7ltp
+          prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/numactl-2.0.14-q7j2bvbvrd4dzkvwcezqdgufijeu7ltp
         - spec: numactl@2.0.14%nvhpc
-          prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/numactl-2.0.14-q7j2bvbvrd4dzkvwcezqdgufijeu7ltp
+          prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/numactl-2.0.14-q7j2bvbvrd4dzkvwcezqdgufijeu7ltp
         - spec: numactl@2.0.14%pgi
-          prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/numactl-2.0.14-q7j2bvbvrd4dzkvwcezqdgufijeu7ltp
+          prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/numactl-2.0.14-q7j2bvbvrd4dzkvwcezqdgufijeu7ltp
     openssl:
       buildable: false
       compiler: []
@@ -781,20 +781,20 @@ spack:
       target: []
       version: [5.30.1]
       externals:
-        - spec: perl@5.3.0.1%xl
-          prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/perl-5.30.1-zifqgjkzlwlma2e7jamlznouljyiu5dy
-        # - spec: perl@5.30.1%nvhpc
-        #   prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/perl-5.30.1-ckmwwemftzpcoqnbooh3l5ivn3ss7ne4
-        # - spec: perl@5.30.1%pgi
-        #   prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/perl-5.30.1-ckmwwemftzpcoqnbooh3l5ivn3ss7ne4
+        - spec: perl@5.30.1%xl
+          prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/perl-5.30.1-ckmwwemftzpcoqnbooh3l5ivn3ss7ne4
+          # - spec: perl@5.30.1%nvhpc
+          #   prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/perl-5.30.1-ckmwwemftzpcoqnbooh3l5ivn3ss7ne4
+          # - spec: perl@5.30.1%pgi
+          #   prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/perl-5.30.1-ckmwwemftzpcoqnbooh3l5ivn3ss7ne4
     pkgconf:
       externals:
         - spec: pkgconf@1.8.0%xl
-          prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/pkgconf-1.8.0-icr4e4fhxo5smcopsy3biqf3tiwgupji
+          prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/pkgconf-1.8.0-icr4e4fhxo5smcopsy3biqf3tiwgupji
         # - spec: pkgconf@1.8.0%nvhpc
-        #   prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/pkgconf-1.8.0-icr4e4fhxo5smcopsy3biqf3tiwgupji
+        #   prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/pkgconf-1.8.0-icr4e4fhxo5smcopsy3biqf3tiwgupji
         # - spec: pkgconf@1.8.0%pgi
-        #   prefix: /sw/summit/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/pkgconf-1.8.0-icr4e4fhxo5smcopsy3biqf3tiwgupji
+        #   prefix: /sw/peak/spack-envs/base/opt/linux-rhel8-ppc64le/gcc-8-os/pkgconf-1.8.0-icr4e4fhxo5smcopsy3biqf3tiwgupji
     rdma-core:
       buildable: true
       externals:
@@ -809,7 +809,7 @@ spack:
       variants: +cuda cuda_arch=70
       version: []
     spectral:
-      variants: ~examples prologue_dir=/sw/summit/spectral/usr/local
+      variants: ~examples prologue_dir=/sw/peak/spectral/usr/local
     spectrum-mpi:
       buildable: true
       compiler: []
@@ -1305,11 +1305,12 @@ spack:
     - ${FACSPACK_CONF_COMMON}/spack/templates
     - $spack/share/spack/templates
     build_stage:
+    - /gpfs/alpine/world-shared/stf007/belhorn/spack-stage/peak
     - $tempdir/$user/spack-stage
     - $spack/var/spack/stage
     source_cache: ${FACSPACK_CONF_COMMON}/mirrors/sources
     extensions:
-    - /sw/sources/facility-spack/summit/share/spack/extensions/spack-olcf
+    - /sw/sources/facility-spack/peak/share/spack/extensions/spack-olcf
     misc_cache: ${FACSPACK_ENV}/.mcache
     verify_ssl: true
     install_missing_compilers: false
@@ -1357,34 +1358,34 @@ spack:
         append_path:
           PKG_CONFIG_PATH: /usr/lib64/pkgconfig
       flags: {}
-  - compiler:
-      spec: gcc@6.5.0
-      operating_system: rhel8
-      modules: [gcc/6.5.0]
-      paths:
-        cc: gcc
-        cxx: g++
-        f77: gfortran
-        fc: gfortran
-      extra_rpaths: []
-      environment:
-        append_path:
-          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
-      flags: {}
-  - compiler:
-      spec: gcc@7.5.0
-      operating_system: rhel8
-      modules: [gcc/7.5.0]
-      paths:
-        cc: gcc
-        cxx: g++
-        f77: gfortran
-        fc: gfortran
-      extra_rpaths: []
-      environment:
-        append_path:
-          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
-      flags: {}
+  # - compiler:
+  #     spec: gcc@6.5.0
+  #     operating_system: rhel8
+  #     modules: [gcc/6.5.0]
+  #     paths:
+  #       cc: gcc
+  #       cxx: g++
+  #       f77: gfortran
+  #       fc: gfortran
+  #     extra_rpaths: []
+  #     environment:
+  #       append_path:
+  #         PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+  #     flags: {}
+  # - compiler:
+  #     spec: gcc@7.5.0
+  #     operating_system: rhel8
+  #     modules: [gcc/7.5.0]
+  #     paths:
+  #       cc: gcc
+  #       cxx: g++
+  #       f77: gfortran
+  #       fc: gfortran
+  #     extra_rpaths: []
+  #     environment:
+  #       append_path:
+  #         PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+  #     flags: {}
   - compiler:
       spec: gcc@9.1.0
       operating_system: rhel8
@@ -1573,8 +1574,8 @@ spack:
       operating_system: rhel8
       modules: [llvm/10.0.1]
       paths:
-        cc: /sw/summit/llvm/10.0.1/10.0.1-0/bin/clang
-        cxx: /sw/summit/llvm/10.0.1/10.0.1-0/bin/clang++
+        cc: /sw/peak/llvm/10.0.1/10.0.1-0/bin/clang
+        cxx: /sw/peak/llvm/10.0.1/10.0.1-0/bin/clang++
         f77: /usr/bin/gfortran
         fc: /usr/bin/gfortran
       extra_rpaths: []
@@ -1586,10 +1587,10 @@ spack:
       operating_system: rhel8
       modules: [llvm/12.0.0]
       paths:
-        cc: /sw/summit/llvm/12.0.0/12.0.0-0/bin/clang
-        cxx: /sw/summit/llvm/12.0.0/12.0.0-0/bin/clang++
-        f77: /sw/summit/llvm/12.0.0/12.0.0-0/bin/flang
-        fc: /sw/summit/llvm/12.0.0/12.0.0-0/bin/flang
+        cc: /sw/peak/llvm/12.0.0/12.0.0-0/bin/clang
+        cxx: /sw/peak/llvm/12.0.0/12.0.0-0/bin/clang++
+        f77: /sw/peak/llvm/12.0.0/12.0.0-0/bin/flang
+        fc: /sw/peak/llvm/12.0.0/12.0.0-0/bin/flang
       extra_rpaths: []
       environment: {}
       flags: {}
@@ -1599,14 +1600,14 @@ spack:
       operating_system: rhel8
       modules: [xl/16.1.1-10]
       paths:
-        cc: /sw/summit/xl/16.1.1-10/xlC/16.1.1/bin/xlc_r
-        cxx: /sw/summit/xl/16.1.1-10/xlC/16.1.1/bin/xlc++_r
-        f77: /sw/summit/xl/16.1.1-10/xlf/16.1.1/bin/xlf_r
-        fc: /sw/summit/xl/16.1.1-10/xlf/16.1.1/bin/xlf2008_r
+        cc: /sw/peak/xl/16.1.1-10/xlC/16.1.1/bin/xlc_r
+        cxx: /sw/peak/xl/16.1.1-10/xlC/16.1.1/bin/xlc++_r
+        f77: /sw/peak/xl/16.1.1-10/xlf/16.1.1/bin/xlf_r
+        fc: /sw/peak/xl/16.1.1-10/xlf/16.1.1/bin/xlf2008_r
       extra_rpaths:
-      - /sw/summit/xl/16.1.1-10/lib
-      - /sw/summit/xl/16.1.1-10/xlf/16.1.1/lib
-      - /sw/summit/xl/16.1.1-10/xlC/16.1.1/lib
+      - /sw/peak/xl/16.1.1-10/lib
+      - /sw/peak/xl/16.1.1-10/xlf/16.1.1/lib
+      - /sw/peak/xl/16.1.1-10/xlC/16.1.1/lib
       environment:
         append_path:
           PKG_CONFIG_PATH: /usr/lib64/pkgconfig
@@ -1617,14 +1618,14 @@ spack:
       operating_system: rhel8
       modules: [xl/16.1.1-12.1]
       paths:
-        cc: /sw/summit/xl/16.1.1-12.1/xlC/16.1.1/bin/xlc_r
-        cxx: /sw/summit/xl/16.1.1-12.1/xlC/16.1.1/bin/xlc++_r
-        f77: /sw/summit/xl/16.1.1-12.1/xlf/16.1.1/bin/xlf_r
-        fc: /sw/summit/xl/16.1.1-12.1/xlf/16.1.1/bin/xlf2008_r
+        cc: /sw/peak/xl/16.1.1-12.1/xlC/16.1.1/bin/xlc_r
+        cxx: /sw/peak/xl/16.1.1-12.1/xlC/16.1.1/bin/xlc++_r
+        f77: /sw/peak/xl/16.1.1-12.1/xlf/16.1.1/bin/xlf_r
+        fc: /sw/peak/xl/16.1.1-12.1/xlf/16.1.1/bin/xlf2008_r
       extra_rpaths:
-      - /sw/summit/xl/16.1.1-12.1/lib
-      - /sw/summit/xl/16.1.1-12.1/xlf/16.1.1/lib
-      - /sw/summit/xl/16.1.1-12.1/xlC/16.1.1/lib
+      - /sw/peak/xl/16.1.1-12.1/lib
+      - /sw/peak/xl/16.1.1-12.1/xlf/16.1.1/lib
+      - /sw/peak/xl/16.1.1-12.1/xlC/16.1.1/lib
       environment:
         append_path:
           PKG_CONFIG_PATH: /usr/lib64/pkgconfig
@@ -1635,33 +1636,33 @@ spack:
       operating_system: rhel8
       modules: [xl/16.1.1-beta103]
       paths:
-        cc: /sw/summit/xl/16.1.1-beta103/xlC/16.1.1/bin/xlc_r
-        cxx: /sw/summit/xl/16.1.1-beta103/xlC/16.1.1/bin/xlc++_r
-        f77: /sw/summit/xl/16.1.1-beta103/xlf/16.1.1/bin/xlf_r
-        fc: /sw/summit/xl/16.1.1-beta103/xlf/16.1.1/bin/xlf2008_r
+        cc: /sw/peak/xl/16.1.1-beta103/xlC/16.1.1/bin/xlc_r
+        cxx: /sw/peak/xl/16.1.1-beta103/xlC/16.1.1/bin/xlc++_r
+        f77: /sw/peak/xl/16.1.1-beta103/xlf/16.1.1/bin/xlf_r
+        fc: /sw/peak/xl/16.1.1-beta103/xlf/16.1.1/bin/xlf2008_r
       extra_rpaths:
-      - /sw/summit/xl/16.1.1-beta103/lib
-      - /sw/summit/xl/16.1.1-beta103/xlf/16.1.1/lib
-      - /sw/summit/xl/16.1.1-beta103/xlC/16.1.1/lib
+      - /sw/peak/xl/16.1.1-beta103/lib
+      - /sw/peak/xl/16.1.1-beta103/xlf/16.1.1/lib
+      - /sw/peak/xl/16.1.1-beta103/xlC/16.1.1/lib
       environment:
         append_path:
           PKG_CONFIG_PATH: /usr/lib64/pkgconfig
       flags: {}
   # XL 16.1.1-beta106
-  # - compiler:
-  #     spec: xl@16.1.1-beta106
-  #     operating_system: rhel8
-  #     modules: [xl/16.1.1-beta106]
-  #     paths:
-  #       cc: /sw/summit/xl/16.1.1-beta106/xlC/16.1.0/bin/xlc_r
-  #       cxx: /sw/summit/xl/16.1.1-beta106/xlC/16.1.0/bin/xlc++_r
-  #       f77: /sw/summit/xl/16.1.1-beta106/xlf/16.1.0/bin/xlf_r
-  #       fc: /sw/summit/xl/16.1.1-beta106/xlf/16.1.0/bin/xlf2008_r
-  #     extra_rpaths:
-  #     - /sw/summit/xl/16.1.1-beta106/lib
-  #     - /sw/summit/xl/16.1.1-beta106/xlf/16.1.0/lib
-  #     - /sw/summit/xl/16.1.1-beta106/xlC/16.1.0/lib
-  #     environment:
-  #       append_path:
-  #         PKG_CONFIG_PATH: /usr/lib64/pkgconfig
-  #     flags: {}
+  - compiler:
+      spec: xl@16.1.1-beta106
+      operating_system: rhel8
+      modules: [xl/16.1.1-beta106]
+      paths:
+        cc: /sw/peak/xl/16.1.1-beta106/xlC/16.1.0/bin/xlc_r
+        cxx: /sw/peak/xl/16.1.1-beta106/xlC/16.1.0/bin/xlc++_r
+        f77: /sw/peak/xl/16.1.1-beta106/xlf/16.1.0/bin/xlf_r
+        fc: /sw/peak/xl/16.1.1-beta106/xlf/16.1.0/bin/xlf2008_r
+      extra_rpaths:
+      - /sw/peak/xl/16.1.1-beta106/lib
+      - /sw/peak/xl/16.1.1-beta106/xlf/16.1.0/lib
+      - /sw/peak/xl/16.1.1-beta106/xlC/16.1.0/lib
+      environment:
+        append_path:
+          PKG_CONFIG_PATH: /usr/lib64/pkgconfig
+      flags: {}
