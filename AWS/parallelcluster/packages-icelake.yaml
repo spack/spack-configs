@@ -1,0 +1,65 @@
+packages:
+  intel-oneapi-mpi:
+    variants: +external-libfabric generic-names=True
+  intel-mpi:
+    variants: +external-libfabric
+  gcc:
+    target: [x86_64]
+    compiler: [gcc]
+    require:
+    - one_of: ["+binutils ^binutils+gas+ld"]
+  intel-oneapi-compilers:
+     target: [x86_64]
+     compiler: [intel]
+  intel-parallel-studio:
+     target: [x86_64]
+     compiler: [intel]
+  openmpi:
+    variants: ~atomics ~cuda ~cxx ~cxx_exceptions ~internal-hwloc ~java +legacylaunchers ~lustre ~memchecker +pmi +romio ~singularity +vt +wrapper-rpath fabrics=ofi schedulers=slurm
+  libfabric:
+    externals:
+    - spec: libfabric@${LIBFABRIC_VERSION} fabrics=efa
+      modules:
+      - ${LIBFABRIC_MODULE}
+    buildable: False
+  slurm:
+    externals:
+    - spec: slurm@${SLURM_VERSION} +pmix
+      prefix: /opt/slurm/
+    buildable: False
+  gromacs:
+    require:
+    - one_of: ["gromacs@2020.1 +lapack+blas %intel ^intel-mpi ^intel-oneapi-mkl"]
+  quantum-espresso:
+    require:
+    - one_of: ["quantum-espresso@6.6 %intel ^intel-mkl ^intel-oneapi-mpi"]
+  openfoam:
+    require:
+    - one_of: ["openfoam@2006_220610 cxxflags='-march=sandybridge' %intel ^scotch@6.0.9 ^intel-mpi"]
+  wrf:
+    require:
+    - one_of: ["wrf@4 build_type=dm+sm %intel ^intel-oneapi-mpi"]
+  lammps:
+    require:
+    - one_of: ["lammps@develop lammps_sizes=bigbig +molecule +kspace +rigid +asphere +opt +openmp +openmp-package +intel %intel ^intel-oneapi-mpi ^intel-oneapi-mkl"]
+  mpas-model:
+    require:
+    - one_of: ["precision=single %intel ^parallelio+pnetcdf ^intel-oneapi-mpi"]
+  py-devito:
+    require:
+    - one_of: ["+mpi %intel ^intel-oneapi-mpi ^py-scipy%gcc"]
+  all:
+    compiler: [intel, gcc, clang]
+    providers:
+      blas: [intel-oneapi-mkl, intel-mkl]
+      daal: [intel-oneapi-dal, intel-daal]
+      fftw-api: [intel-oneapi-mkl, intel-mkl]
+      ipp: [intel-oneapi-ipp, intel-ipp]
+      lapack: [intel-oneapi-mkl, intel-mkl]
+      mkl: [intel-oneapi-mkl, intel-mkl]
+      mpi: [intel-mpi, intel-oneapi-mpi, openmpi]
+      tbb: [intel-oneapi-tbb, intel-tbb]
+      scalapack: [intel-oneapi-mkl, intel-mkl]
+    permissions:
+      read: world
+      write: user

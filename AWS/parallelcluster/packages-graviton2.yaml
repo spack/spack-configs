@@ -1,0 +1,38 @@
+
+packages:
+  libfabric:
+    externals:
+    - spec: libfabric@${LIBFABRIC_VERSION} fabrics=efa
+      modules:
+      - ${LIBFABRIC_MODULE}
+    buildable: False
+  slurm:
+    externals:
+    - spec: slurm@${SLURM_VERSION} +pmix
+      prefix: /opt/slurm/
+    buildable: False
+  gcc:
+     target: [aarch64]
+     compiler: [gcc]
+  arm:
+    target: [aarch64]
+    compiler: [gcc]
+  nvhpc:
+    target: [aarch64]
+    compiler: [gcc]
+  llvm:
+    variants: ~lldb
+  gromacs:
+    require:
+    - one_of: ["gromacs@2021.3 %gcc ^fftw^openmpi"]
+  all:
+    compiler: [nvhpc, gcc, clang]
+    providers:
+      blas: [armpl-gcc, openblas]
+      fftw-api: [armpl-gcc, fftw]
+      lapack: [armpl-gcc, openblas]
+      mpi: [openmpi]
+      scalapack: [netlib-scalapack]
+    permissions:
+      read: world
+      write: user
