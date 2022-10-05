@@ -1,0 +1,60 @@
+packages:
+  intel-oneapi-mpi:
+    variants: +external-libfabric generic-names=True
+  intel-mpi:
+    variants: +external-libfabric
+  gcc:
+     target: [x86_64]
+     compiler: [gcc]
+  intel-oneapi-compilers:
+     target: [x86_64]
+     compiler: [intel]
+  intel-parallel-studio:
+     target: [x86_64]
+     compiler: [intel]
+  openmpi:
+    variants: ~atomics ~cuda ~cxx ~cxx_exceptions ~internal-hwloc ~java +legacylaunchers ~lustre ~memchecker +pmi +romio ~singularity +vt +wrapper-rpath fabrics=ofi schedulers=slurm
+  libfabric:
+    externals:
+    - spec: libfabric@${LIBFABRIC_VERSION} fabrics=efa
+      modules:
+      - ${LIBFABRIC_MODULE}
+    buildable: False
+  slurm:
+    externals:
+    - spec: slurm@${SLURM_VERSION} +pmix
+      prefix: /opt/slurm/
+    buildable: False
+  gromacs:
+   require:
+   - one_of: ["+lapack+blas%intel ^intel-mpi ^intel-oneapi-mkl"]
+  quantum-espresso:
+    require:
+    - one_of: ["quantum-espresso@6.6 %intel ^intel-mkl ^intel-oneapi-mpi"]
+  openfoam:
+    require:
+    - one_of: ["openfoam@2112_220610 %intel ^scotch@6.0.9 ^intel-oneapi-mpi"]
+  wrf:
+    require:
+    - one_of: ["wrf@4 build_type=dm+sm  %intel ^intel-oneapi-mpi"]
+  lammps:
+    require:
+    - one_of: ["lammps@develop lammps_sizes=bigbig +molecule +kspace +rigid +asphere +opt +openmp +openmp-package +intel %intel ^intel-oneapi-mkl ^intel-oneapi-mpi"]
+  mpas-model:
+    require:
+    - one_of: ["mpas-model %intel precision=single ^parallelio+pnetcdf ^intel-oneapi-mpi"]
+  all:
+    compiler: [intel, gcc, clang]
+    providers:
+      blas: [intel-oneapi-mkl, intel-mkl]
+      daal: [intel-oneapi-dal, intel-daal]
+      fftw-api: [intel-oneapi-mkl, intel-mkl]
+      ipp: [intel-oneapi-ipp, intel-ipp]
+      lapack: [intel-oneapi-mkl, intel-mkl]
+      mkl: [intel-oneapi-mkl, intel-mkl]
+      mpi: [intel-mpi, intel-oneapi-mpi, openmpi]
+      tbb: [intel-oneapi-tbb, intel-tbb]
+      scalapack: [intel-oneapi-mkl, intel-mkl]
+    permissions:
+      read: world
+      write: user
