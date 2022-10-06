@@ -57,7 +57,7 @@ target() {
 set_pcluster_defaults() {
     # Set versions of pre-installed software in packages.yaml
     SLURM_VERSION=$(. /etc/profile && sinfo --version | cut -d' ' -f 2 | sed -e 's?\.?-?g')
-    LIBFABRIC_MODULE=$(. /etc/profile && module avail libfabric 2>&1 | grep libfabric | head -n 1 | sed -e 's?~??g' | xargs )
+    LIBFABRIC_MODULE=$(. /etc/profile && module avail libfabric 2>&1 | grep libfabric | head -n 1 | xargs )
     LIBFABRIC_MODULE_VERSION=$(. /etc/profile && module avail libfabric 2>&1 | grep libfabric | head -n 1 |  cut -d / -f 2 | sed -e 's?~??g' | xargs )
     LIBFABRIC_VERSION=${LIBFABRIC_MODULE_VERSION//amzn*}
     GCC_VERSION=$(gcc -v 2>&1 |tail -n 1| awk '{print $3}' )
