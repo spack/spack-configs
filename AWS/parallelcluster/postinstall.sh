@@ -116,7 +116,7 @@ install_packages() {
     # Install any specs provided to the script.
     for spec in "$@"
     do
-        spack install "${spec}"
+        spack install -U "${spec}"
     done
 }
 
