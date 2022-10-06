@@ -57,7 +57,7 @@ target() {
 set_pcluster_defaults() {
     # Set versions of pre-installed software in packages.yaml
     SLURM_VERSION=$(. /etc/profile && sinfo --version | cut -d' ' -f 2 | sed -e 's?\.?-?g')
-    LIBFABRIC_MODULE=$(. /etc/profile && module avail libfabric 2>&1 | grep libfabric | head -n 1 | sed -e 's?~??g' | xargs )
+    LIBFABRIC_MODULE=$(. /etc/profile && module avail libfabric 2>&1 | grep libfabric | head -n 1 | xargs )
     LIBFABRIC_MODULE_VERSION=$(. /etc/profile && module avail libfabric 2>&1 | grep libfabric | head -n 1 |  cut -d / -f 2 | sed -e 's?~??g' | xargs )
     LIBFABRIC_VERSION=${LIBFABRIC_MODULE_VERSION//amzn*}
     GCC_VERSION=$(gcc -v 2>&1 |tail -n 1| awk '{print $3}' )
@@ -68,9 +68,8 @@ set_pcluster_defaults() {
     eval "echo \"$(cat ${scriptdir}/packages.yaml)\"" > ${install_path}/etc/spack/packages.yaml
 
     for f in mirrors modules config; do
-        aws s3 cp s3://spack-configs/AWS/parallelcluster/${f}.yaml  ${install_path}/etc/spack/${f}.yaml
+        curl -Ls https://raw.githubusercontent.com/spack/spack-configs/main/AWS/parallelcluster/${f}.yaml -o ${install_path}/etc/spack/${f}.yaml
     done
-
 }
 
 setup_spack() {
@@ -117,7 +116,7 @@ install_packages() {
     # Install any specs provided to the script.
     for spec in "$@"
     do
-        spack install "${spec}"
+        spack install -U "${spec}"
     done
 }
 
