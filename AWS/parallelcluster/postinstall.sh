@@ -68,9 +68,8 @@ set_pcluster_defaults() {
     eval "echo \"$(cat ${scriptdir}/packages.yaml)\"" > ${install_path}/etc/spack/packages.yaml
 
     for f in mirrors modules config; do
-        aws s3 cp s3://spack-configs/AWS/parallelcluster/${f}.yaml  ${install_path}/etc/spack/${f}.yaml
+        curl -Ls https://raw.githubusercontent.com/spack/spack-configs/main/AWS/parallelcluster/${f}.yaml -o ${install_path}/etc/spack/${f}.yaml
     done
-
 }
 
 setup_spack() {
