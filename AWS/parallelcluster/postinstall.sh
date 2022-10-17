@@ -96,17 +96,17 @@ install_packages() {
     . /etc/profile.d/spack.sh
 
     # Compiler needed for all kinds of codes. It makes no sense not to install it.
+    # Get gcc from buildcache
+    spack install gcc
+    (
+        spack load gcc
+        spack compiler add --scope site
+    )
+
     if [ "x86_64" == "$(architecture)" ]
     then
-        packages_yaml="$(spack config --scope site edit compilers --print-file)"
-        SPACK_OS=$(spack arch -o)
         # Add oneapi@latest & intel@latest
-        STUB_ONEAPI_COMPILER=$(spack list --format version_json intel-oneapi-compilers-classic | jq -rc .[0].versions[] | sort | tail -n1 | awk '{print "intel@"$1}')
-        echo -e "- compiler:\n    target:     x86_64\n    operating_system:   ${SPACK_OS}\n    modules:    []\n    spec:       ${STUB_ONEAPI_COMPILER}\n    paths:\n      cc:       /usr/bin/true\n      cxx:      /usr/bin/true\n      f77:      /usr/bin/true\n      fc:       /usr/bin/true" \
-             >> "${packages_yaml}"
-        spack install intel-oneapi-compilers-classic %${STUB_ONEAPI_COMPILER} ^patchelf%gcc
-        # Remove stubs
-        head -n -10 "${packages_yaml}" > $$.tmp && mv $$.tmp "${packages_yaml}"
+        spack install intel-oneapi-compilers-classic
         (
             . "$(spack location -i intel-oneapi-compilers)/setvars.sh"
             spack compiler add --scope site
