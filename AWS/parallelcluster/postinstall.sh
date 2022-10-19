@@ -6,6 +6,8 @@ set -e
 # # Use as postinstall in AWS ParallelCluster (https://docs.aws.amazon.com/parallelcluster/) #
 ##############################################################################################
 
+# TODO: Once https://github.com/archspec/archspec-json/pull/57 makes it into Spack we need to rename: graviton2 -> neoverse_n1, graviton3 -> neoverse_v1
+
 # Install onto first shared storage device
 . /etc/parallelcluster/cfnconfig || {
     echo "Cannot find ParallelCluster configs"
@@ -54,6 +56,23 @@ target() {
     )
 }
 
+download_packages_yaml() {
+    # $1: spack target
+    . ${install_path}/share/spack/setup-env.sh
+    target="${1}"
+    curl -Ls https://raw.githubusercontent.com/spack/spack-configs/main/AWS/parallelcluster/packages-"${target}".yaml -o /tmp/packages.yaml
+    if [ "$(cat /tmp/packages.yaml)" = "404: Not Found" ]; then
+        # Pick up parent if current generation is not available
+        for target in $(spack-python -c 'print(" ".join(spack.platforms.host().target("'"${target}"'").microarchitecture.to_dict()["parents"]))'); do
+            if [ -z "${target}" ] ; then
+                echo "Cannot find suitable packages.yaml"
+                exit 1
+            fi
+            download_packages_yaml "${target}"
+        done
+    fi
+}
+
 set_pcluster_defaults() {
     # Set versions of pre-installed software in packages.yaml
     SLURM_VERSION=$(. /etc/profile && sinfo --version | cut -d' ' -f 2 | sed -e 's?\.?-?g')
@@ -64,8 +83,10 @@ set_pcluster_defaults() {
 
     # Write the above as actual yaml file and only parse the \$.
     mkdir -p ${install_path}/etc/spack
-        curl -Ls https://raw.githubusercontent.com/spack/spack-configs/main/AWS/parallelcluster/packages-"$(target)".yaml -o ${scriptdir}/packages.yaml
-    eval "echo \"$(cat ${scriptdir}/packages.yaml)\"" > ${install_path}/etc/spack/packages.yaml
+
+    # Find suitable packages.yaml. If not for this architecture then for its parents.
+    download_packages_yaml "$(target)"
+    eval "echo \"$(cat /tmp/packages.yaml)\"" > ${install_path}/etc/spack/packages.yaml
 
     for f in mirrors modules config; do
         curl -Ls https://raw.githubusercontent.com/spack/spack-configs/main/AWS/parallelcluster/${f}.yaml -o ${install_path}/etc/spack/${f}.yaml
@@ -96,17 +117,17 @@ install_packages() {
     . /etc/profile.d/spack.sh
 
     # Compiler needed for all kinds of codes. It makes no sense not to install it.
+    # Get gcc from buildcache
+    spack install gcc
+    (
+        spack load gcc
+        spack compiler add --scope site
+    )
+
     if [ "x86_64" == "$(architecture)" ]
     then
-        packages_yaml="$(spack config --scope site edit compilers --print-file)"
-        SPACK_OS=$(spack arch -o)
         # Add oneapi@latest & intel@latest
-        STUB_ONEAPI_COMPILER=$(spack list --format version_json intel-oneapi-compilers-classic | jq -rc .[0].versions[] | sort | tail -n1 | awk '{print "intel@"$1}')
-        echo -e "- compiler:\n    target:     x86_64\n    operating_system:   ${SPACK_OS}\n    modules:    []\n    spec:       ${STUB_ONEAPI_COMPILER}\n    paths:\n      cc:       /usr/bin/true\n      cxx:      /usr/bin/true\n      f77:      /usr/bin/true\n      fc:       /usr/bin/true" \
-             >> "${packages_yaml}"
-        spack install intel-oneapi-compilers-classic %${STUB_ONEAPI_COMPILER} ^patchelf%gcc
-        # Remove stubs
-        head -n -10 "${packages_yaml}" > $$.tmp && mv $$.tmp "${packages_yaml}"
+        spack install intel-oneapi-compilers-classic
         (
             . "$(spack location -i intel-oneapi-compilers)/setvars.sh"
             spack compiler add --scope site
