@@ -7,7 +7,7 @@ packages:
     target: [x86_64]
     compiler: [gcc]
     require:
-    - one_of: ["+binutils ^binutils+gas+ld"]
+    - one_of: ["+binutils"]
   intel-oneapi-compilers:
      target: [x86_64]
      compiler: [intel]
