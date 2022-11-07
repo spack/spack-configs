@@ -1,52 +1,106 @@
-$ spack find --format "{name},{version},{compiler.name}@{compiler.version},{variants},{arch},{hash}"
-adios2,2.7.1,gcc@11.2.0,+blosc+bzip2~dataman~dataspaces~endian_reverse+fortran~hdf5~ipo+mpi+pic+png~python+shared+ssc+sst+sz+zfp build_type=Release patches=8d301e8232baf4049b547f22bd73774309662017a62dac36360d2965907062bf,cray-sles15-zen3,zozjd7zovkdmmwe6ovachc2e5xss7hdp
-amrex,21.11,gcc@11.2.0,~amrdata~cuda~eb+fortran~hdf5+hypre~ipo+linear_solvers+mpi+openmp~particles+petsc~pic~plotfile_tools~rocm+shared~sundials amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none dimensions=3 precision=double,cray-sles15-zen3,nl4lfufrhrqlkp3ry2q27etf77afhxfk
-chapel,1.24.1,gcc@11.2.0,,cray-sles15-zen3,bxouepsxderqxvczonbzh7qwyldfi52x
-conduit,0.7.2,gcc@11.2.0,~adios~doc~doxygen+fortran+hdf5+hdf5_compat~ipo+mpi~parmetis~python+shared~silo+test~zfp build_type=RelWithDebInfo patches=89d1829ad52f503f6179e43efddf998c239a95c14ca1f248463a3f61ad7d5cf7,cray-sles15-zen3,hcxmquipprzx23424se7eyrm7x2v4xfq
-cray-mpich,8.1.13,gcc@11.2.0,,cray-sles15-zen3,qju2ytuheqgg6zjsu7qqxnnqa22fqodm
-cray-mpich,8.1.13,nvhpc@21.11,,cray-sles15-zen3,yvhn6kn43a7dcc7b7wcpti6myaw66laj
-dyninst,11.0.1,gcc@11.2.0,~ipo+openmp~stat_dysect~static build_type=RelWithDebInfo,cray-sles15-zen3,bdooqt4yzzt6fmh7yf7bftdzihsxdfzq
-fftw,3.3.10,gcc@11.2.0,+mpi~openmp~pfft_patches precision=double,float,cray-sles15-zen3,qbut5bhz7us2gqswsfa45tpkuqhhdp5e
-gasnet,2021.9.0,gcc@11.2.0,~debug conduits=smp,cray-sles15-zen3,3zaih34a6wx4ccupqxr6jq5umcopqh2s
-gcc,11.2.0,gcc@7.5.0,~binutils+bootstrap~graphite~nvptx~piclibs~strip languages=c,c++,fortran,cray-sles15-zen,oypj3sr7jk2zfizlnz7fshmd73yxp5e5
-globalarrays,5.8,gcc@11.2.0,~scalapack armci=mpi-ts,cray-sles15-zen3,ql3bghjtwe3nm6z3urxzq7ozzppvjxyt
-gromacs,2021.3,gcc@11.2.0,~blas~cuda~cycle_subcounters~double+hwloc~ipo~lapack~mdrun_only+mpi~nosuffix~opencl+openmp~plumed~relaxed_double_precision+shared~sycl build_type=RelWithDebInfo,cray-sles15-zen3,xcqmo25i2qxuvdksnpw3iktqqmfc2slx
-gsl,2.7,gcc@11.2.0,~external-cblas,cray-sles15-zen3,2p3pcjckzogek2dubph7q4yd5msjuhxt
-hypre,2.23.0,gcc@11.2.0,~complex+cuda~debug+fortran~int64~internal-superlu~mixedint+mpi+openmp+shared+superlu-dist~unified-memory cuda_arch=80,cray-sles15-zen3,s2fz73tx3kuclwonmmbed7u565tfix3x
-kokkos-kernels,3.4.01,gcc@11.2.0,~blas~cblas~cublas~cuda~cusparse~ipo~lapack~lapacke~mkl+openmp~pthread~serial+shared~superlu build_type=RelWithDebInfo cuda_arch=none execspace_cuda=auto execspace_openmp=auto execspace_serial=auto execspace_threads=auto layouts=left memspace_cudaspace=auto memspace_cudauvmspace=auto offsets=int,size_t ordinals=int scalars=double,cray-sles15-zen3,deruwpliyxpoxixfg76vbih6lzoluhqw
-kokkos-kernels,3.4.01,gcc@11.2.0,~blas~cblas~cublas+cuda~cusparse~ipo~lapack~lapacke~mkl+openmp~pthread~serial+shared~superlu build_type=RelWithDebInfo cuda_arch=80 execspace_cuda=auto execspace_openmp=auto execspace_serial=auto execspace_threads=auto layouts=left memspace_cudaspace=auto memspace_cudauvmspace=auto offsets=int,size_t ordinals=int scalars=double,cray-sles15-zen3,tq4fv4qci6jpotloranotsnpjlhnp7g4
-mercury,2.0.1,gcc@11.2.0,~bmi+boostsys~cci+checksum~debug~ipo~mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo,cray-sles15-zen3,4vkv6zhspe5sthmbgyocwtstwyfjiz5b
-metis,5.1.0,nvhpc@21.11,~gdb~int64~real64+shared build_type=Release patches=4991da938c1d3a1d3dea78e49bbebecba00273f98df2a656e38b83d55b281da1,cray-sles15-zen3,f4pvvbzxqvt5rfu4su2lthmgwy2e7z5e
-mfem,4.3.0,gcc@11.2.0,~amgx~conduit~cuda~debug~examples~gnutls~gslib~lapack~libceed~libunwind+metis~miniapps~mpfr+mpi~netcdf~occa~openmp~petsc~pumi~raja~rocm~shared~slepc+static~strumpack~suite-sparse~sundials~superlu-dist~threadsafe~umpire+zlib amdgpu_target=none cuda_arch=none patches=ccc98d6d874a760218c9f6e4bcf3a97ea79746b0f28997f4312fcf02a0beae6e timer=auto,cray-sles15-zen3,a5hzuge2fhdn6bpdhqtdfaaj2k4rphfx
-mfem,4.3.0,gcc@11.2.0,~amgx~conduit+cuda~debug~examples~gnutls~gslib~lapack~libceed~libunwind+metis~miniapps~mpfr+mpi~netcdf~occa~openmp~petsc~pumi~raja~rocm~shared~slepc+static~strumpack~suite-sparse~sundials~superlu-dist~threadsafe~umpire+zlib amdgpu_target=none cuda_arch=80 patches=ccc98d6d874a760218c9f6e4bcf3a97ea79746b0f28997f4312fcf02a0beae6e timer=auto,cray-sles15-zen3,atx2raw7lwrbeletqdnfwyiwordawztc
-mpark-variant,1.4.0,gcc@11.2.0,~ipo build_type=RelWithDebInfo patches=21a4f8de3525204ee6db2e53758a3e3fd9c13817df29d2926d24376858a369e7,4e173fe8c853eb92956a40371688b4a19498189fe65b7ceac30f6b9d6663a985,b3501f726fd40129b4aaa11453a5891c8953a34af8ac84f5ab10a22afa5e7b9b,cray-sles15-zen3,4enc7omutawx7bodb2ohkjklxwhpwdea
-nccmp,1.9.0.1,gcc@11.2.0,~ipo build_type=RelWithDebInfo,cray-sles15-zen3,qfk4blkvu6fiaqufvfkskrwxp45ynikx
-nco,5.0.1,gcc@11.2.0,~doc,cray-sles15-zen3,sk24xwyxaxm37l2bwu5vkfnfg45nwtgh
-netcdf-fortran,4.5.3,gcc@11.2.0,~doc+pic+shared,cray-sles15-zen3,oxjrely6ogjdzenssfqyzc3x3oahwquw
-nvhpc,21.11,gcc@7.5.0,+blas+lapack~mpi install_type=single,cray-sles15-zen,qibl3ofldoxg3gxxldcww7y62h57d2tn
-openpmd-api,0.14.3,gcc@11.2.0,~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo,cray-sles15-zen3,547mjr3s7hkuxc644f3ixtzklpb56son
-papi,6.0.0.1,gcc@11.2.0,~cuda+example~infiniband~lmsensors~nvml~powercap~rapl~rocm~rocm_smi~sde+shared~static_tools amdgpu_target=none,cray-sles15-zen3,nylggjgho6dzj6ghcnwvma5q6f6znnbn
-papyrus,1.0.2,gcc@11.2.0,~ipo build_type=RelWithDebInfo,cray-sles15-zen3,jngqbcvoihkihm47g7qkbmhs4ezuq6t6
-parallel-netcdf,1.12.2,gcc@11.2.0,~burstbuffer+cxx+fortran+pic+shared,cray-sles15-zen3,umcbflzb65zpljaw4lmjjlwwy2yih6ii
-parsec,3.0.2012,gcc@11.2.0,~cuda~debug_verbose~ipo~profile+shared build_type=RelWithDebInfo cuda_arch=none,cray-sles15-zen3,rtucwbjh6627tdtadzxda2zxuliljneb
-pdt,3.25.1,gcc@11.2.0,~pic,cray-sles15-zen3,btbtbjj34oigsxqvdunwam3gvprwthhw
-petsc,3.16.1,gcc@11.2.0,~X~batch~cgns~complex+cuda~debug+double~exodusii~fftw~giflib+hdf5~hpddm~hwloc+hypre~int64~jpeg~knl~libpng~libyaml~memkind+metis~mkl-pardiso~mmg~moab~mpfr+mpi~mumps+openmp~p4est~parmmg~ptscotch~random123~rocm~saws~scalapack+shared+strumpack~suite-sparse+superlu-dist~tetgen~trilinos~valgrind amdgpu_target=none clanguage=C cuda_arch=80,cray-sles15-zen3,qdpjbblyd6xmde3zycfeo654zkfvo3an
-qthreads,1.16,gcc@11.2.0,+hwloc~spawn_cache+static scheduler=distrib stack_size=4096,cray-sles15-zen3,nbfv5qk3t35fmi2lquyqqtv3m3drwytx
-raja,0.14.0,gcc@11.2.0,~cuda+examples+exercises~ipo+openmp~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,cray-sles15-zen3,z4ngxt3dtedwg2c46imkrpzkwddhsotz
-raja,0.14.0,gcc@11.2.0,+cuda+examples+exercises~ipo+openmp~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=80,cray-sles15-zen3,suhnhwbh3qudu3imjfjk3kno67ad3s4a
-slepc,3.16.0,gcc@11.2.0,+arpack~blopex~cuda~rocm amdgpu_target=none cuda_arch=none,cray-sles15-zen3,zingq3yzrx25culkc47eivvv2w7bo2q3
-slepc,3.16.0,gcc@11.2.0,+arpack~blopex+cuda~rocm amdgpu_target=none cuda_arch=80,cray-sles15-zen3,hd2frqrnc7e36rj522pcktnecictjxdz
-sundials,5.8.0,gcc@11.2.0,+ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL~cuda+examples+examples-install~f2003~fcmix+generic-math+hypre~int64~ipo~klu~lapack~monitoring+mpi+openmp~petsc~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~sycl~trilinos amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none precision=double,cray-sles15-zen3,pb7kcew7zy2li5zoc7gbyftkd4a5mpj2
-superlu,5.3.0,gcc@11.2.0,~ipo+pic build_type=RelWithDebInfo,cray-sles15-zen3,pio2jf2ule3b77kfvano5fu2crumrmp5
-swig,4.0.2,gcc@11.2.0,,cray-sles15-zen3,rxwxbrwjjslam5ubuhlrfuxkhidmqwqw
-tau,2.31,gcc@11.2.0,~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads+python~rocm~rocprofiler~roctracer~scorep~shmem~sqlite~x86_64,cray-sles15-zen3,lwk6d7cbsri235hzgu3qkz3azjxciofc
-trilinos,13.0.1,gcc@11.2.0,~adios2+amesos+amesos2+anasazi+aztec~basker+belos+boost~chaco~complex~cuda~cuda_rdc~debug~dtk+epetra+epetraext~epetraextbtf~epetraextexperimental~epetraextgraphreorderings~exodus+explicit_template_instantiation~float+fortran~gtest~hdf5~hypre+ifpack+ifpack2+intrepid+intrepid2~ipo+isorropia+kokkos~mesquite+minitensor+ml+mpi+muelu~mumps+nox~openmp+phalanx+piro~python+rol+rythmos+sacado~scorec+shards+shared+shylu+stk+stokhos+stratimikos~strumpack~suite-sparse~superlu+superlu-dist+teko+tempus+tpetra+trilinoscouplings~wrapper~x11+zoltan+zoltan2 build_type=RelWithDebInfo cuda_arch=none cxxstd=14 gotype=long_long,cray-sles15-zen3,kl6ljquvdmiphf4h7glyvtwe6zwi4s3r
-umap,2.1.0,gcc@11.2.0,~ipo~logging~tests build_type=RelWithDebInfo,cray-sles15-zen3,j6ixsr6p7yvidmre3jc2rha4enhigdk6
-umpire,6.0.0,gcc@11.2.0,+c+cuda~deviceconst+examples~fortran~ipo~numa~openmp~rocm~shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=80 tests=none,cray-sles15-zen3,v7iisvod47rezjv3sczft6wz2cjpylqw
-umpire,6.0.0,nvhpc@21.11,+c+cuda~deviceconst+examples~fortran~ipo~numa~openmp~rocm~shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=80 tests=none,cray-sles15-zen3,7lhfpug3d455u7hoc3ggfzztms6t7mrf
-upcxx,2021.9.0,gcc@11.2.0,~cuda+gasnet+mpi cross=none,cray-sles15-zen3,ftltznebd4wthrjwfgoov7mw2tuwk2cj
-upcxx,2021.9.0,gcc@11.2.0,+cuda~gasnet~mpi cross=none,cray-sles15-zen3,kh6qph6wdfhohs3ra3aprybeumhkkghb
-upcxx,2021.9.0,nvhpc@21.11,+cuda~gasnet~mpi cross=none,cray-sles15-zen3,yvxtu6m4j63k62i53l7nykosvumfw2dn
-zfp,0.5.5,gcc@11.2.0,~aligned~c+cuda~fasthash~fortran~ipo~openmp~profile~python+shared~strided~twoway bsws=64 build_type=RelWithDebInfo cuda_arch=80,cray-sles15-zen3,s54bixpx75d5mzx5xi3vy5ibjmak6oih
-zfp,0.5.5,nvhpc@21.11,~aligned~c+cuda~fasthash~fortran~ipo~openmp~profile~python+shared~strided~twoway bsws=64 build_type=RelWithDebInfo cuda_arch=80,cray-sles15-zen3,fyjshe7iw2kcxpq2quikntqqe63a675k
-
+$ spack find --format "{name},{version},{compiler},{variants},{arch}"
+adios2,2.7.1,gcc@11.2.0,+blosc+bzip2~dataman~dataspaces~endian_reverse+fortran~hdf5~ipo+mpi+pic+png~python+shared+ssc+sst+sz+zfp build_type=Release patches=8d301e8232baf4049b547f22bd73774309662017a62dac36360d2965907062bf,cray-sles15-zen3
+amrex,21.11,gcc@11.2.0,~amrdata~cuda~eb+fortran~hdf5~hypre~ipo+linear_solvers+mpi+openmp~particles~petsc~pic~plotfile_tools~rocm+shared~sundials amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none dimensions=3 precision=double,cray-sles15-zen3
+antlr,2.7.7,gcc@11.2.0,+cxx~java~python patches=33897ad12ad33878daa0aca55c9a234ec972407eb2b6c03808f6ed020c88b8db,cray-sles15-zen3
+autoconf,2.69,gcc@11.2.0, patches=35c449281546376449766f92d49fc121ca50e330e60fefcfc9be2af3253082c2,7793209b33013dc0f81208718c68440c5aae80e7a1c4b8d336e382525af791a7,a49dd5bac3b62daa0ff688ab4d508d71dbd2f4f8d7e2a02321926346161bf3ee,cray-sles15-zen3
+automake,1.16.3,gcc@11.2.0,,cray-sles15-zen3
+berkeley-db,18.1.40,gcc@11.2.0,+cxx~docs+stl patches=b231fcc4d5cff05e5c3a4814f6a5af0e9a966428dc2176540d2c05aff41de522,cray-sles15-zen3
+binutils,2.33.1,gcc@11.2.0,~gas+gold+headers~interwork+ld+libiberty~lto~nls+plugins libs=shared,static,cray-sles15-zen3
+bison,3.8.2,gcc@11.2.0,,cray-sles15-zen3
+blt,0.4.1,gcc@11.2.0,,cray-sles15-zen3
+boost,1.77.0,gcc@11.2.0,+atomic+chrono~clanglibcpp~container~context~coroutine+date_time~debug+exception~fiber+filesystem+graph~icu+iostreams+locale+log+math~mpi+multithreaded~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded+system~taggedlayout+test+thread+timer~versionedlayout+wave cxxstd=98 patches=57a8401dee8f52b0342e0c8147a5b2db834e8d8f3fbcbbc5950016bd3e9e1ef0,93f4aad8f88d1437e50d95a2d066390ef3753b99ef5de24f7a46bc083bd6df06 visibility=hidden,cray-sles15-zen3
+bzip2,1.0.6,gcc@11.2.0,~debug~pic+shared,cray-sles15-zen3
+c-blosc,1.21.0,gcc@11.2.0,+avx2~ipo build_type=RelWithDebInfo,cray-sles15-zen3
+camp,0.2.2,gcc@11.2.0,~cuda~ipo~rocm~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,cray-sles15-zen3
+camp,0.2.2,gcc@11.2.0,+cuda~ipo~rocm~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=80,cray-sles15-zen3
+chapel,1.24.1,gcc@11.2.0,,cray-sles15-zen3
+cmake,3.21.4,gcc@11.2.0,~doc+ncurses~openssl+ownlibs~qt build_type=Release,cray-sles15-zen3
+conduit,0.7.2,gcc@11.2.0,~adios~doc~doxygen+fortran+hdf5+hdf5_compat~ipo+mpi~parmetis~python+shared~silo+test~zfp build_type=RelWithDebInfo patches=89d1829ad52f503f6179e43efddf998c239a95c14ca1f248463a3f61ad7d5cf7,cray-sles15-zen3
+cray-libsci,21.08.1.2,gcc@11.2.0,~mpi~openmp+shared,cray-sles15-zen3
+cray-mpich,8.1.15,gcc@11.2.0,,cray-sles15-zen3
+cub,1.13.1,gcc@11.2.0,,cray-sles15-zen3
+cuda,11.5.0,gcc@11.2.0,~dev,cray-sles15-zen3
+dyninst,11.0.1,gcc@11.2.0,~ipo+openmp~stat_dysect~static build_type=RelWithDebInfo,cray-sles15-zen3
+elfutils,0.185,gcc@11.2.0,+bzip2~debuginfod~nls~xz patches=d786d49c28d7f0c8fc27bab39ca8714e5f4d128c7f09bb18533a8ec99b38dbf8,cray-sles15-zen3
+expat,2.4.1,gcc@11.2.0,+libbsd,cray-sles15-zen3
+fftw,3.3.10,gcc@11.2.0,+mpi~openmp~pfft_patches precision=double,float,cray-sles15-zen3
+flex,2.6.3,gcc@11.2.0,+lex~nls,cray-sles15-zen3
+gasnet,2021.9.0,gcc@11.2.0,~debug conduits=none,cray-sles15-zen3
+gasnet,2021.9.0,gcc@11.2.0,~debug conduits=smp,cray-sles15-zen3
+gdbm,1.19,gcc@11.2.0,,cray-sles15-zen3
+gdbm,1.21,gcc@11.2.0,,cray-sles15-zen3
+gettext,0.21,gcc@11.2.0,+bzip2+curses+git~libunistring+libxml2+tar+xz,cray-sles15-zen3
+globalarrays,5.8,gcc@11.2.0,~scalapack armci=mpi-ts,cray-sles15-zen3
+gromacs,2021.3,gcc@11.2.0,~blas~cuda~cycle_subcounters~double+hwloc~ipo~lapack~mdrun_only+mpi~nosuffix~opencl+openmp~plumed~relaxed_double_precision+shared~sycl build_type=RelWithDebInfo,cray-sles15-zen3
+gsl,2.7,gcc@11.2.0,~external-cblas,cray-sles15-zen3
+hdf5,1.8.22,gcc@11.2.0,~cxx+fortran+hl~ipo~java+mpi+shared~szip~threadsafe+tools api=v18 build_type=RelWithDebInfo,cray-sles15-zen3
+hdf5,1.12.1,gcc@11.2.0,~cxx+fortran+hl~ipo~java+mpi+shared~szip~threadsafe+tools api=v18 build_type=RelWithDebInfo,cray-sles15-zen3
+hwloc,2.6.0,gcc@11.2.0,~cairo~cuda~gl~libudev+libxml2~netloc~nvml~opencl+pci~rocm+shared,cray-sles15-zen3
+intel-tbb,2020.3,gcc@11.2.0,~ipo+shared+tm build_type=RelWithDebInfo cxxstd=default patches=62ba015ebd1819c45bef47411540b789b493e31ca668c4ff4cb2afcbc306b476,ce1fb16fb932ce86a82ca87cf0431d1a8c83652af9f552b264213b2ff2945d73,d62cb666de4010998c339cde6f41c7623a07e9fc69e498f2e149821c0c2c6dd0,cray-sles15-zen3
+kokkos,3.4.01,gcc@11.2.0,~aggressive_vectorization~compiler_warnings~cuda~cuda_constexpr~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning~wrapper amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none std=14,cray-sles15-zen3
+kokkos,3.4.01,gcc@11.2.0,~aggressive_vectorization~compiler_warnings+cuda~cuda_constexpr~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning+wrapper amdgpu_target=none build_type=RelWithDebInfo cuda_arch=80 std=14,cray-sles15-zen3
+kokkos-kernels,3.4.01,gcc@11.2.0,~blas~cblas~cublas~cuda~cusparse~ipo~lapack~lapacke~mkl+openmp~pthread~serial+shared~superlu build_type=RelWithDebInfo cuda_arch=none execspace_cuda=auto execspace_openmp=auto execspace_serial=auto execspace_threads=auto layouts=left memspace_cudaspace=auto memspace_cudauvmspace=auto offsets=int,size_t ordinals=int scalars=double,cray-sles15-zen3
+kokkos-kernels,3.4.01,gcc@11.2.0,~blas~cblas~cublas+cuda~cusparse~ipo~lapack~lapacke~mkl+openmp~pthread~serial+shared~superlu build_type=RelWithDebInfo cuda_arch=80 execspace_cuda=auto execspace_openmp=auto execspace_serial=auto execspace_threads=auto layouts=left memspace_cudaspace=auto memspace_cudauvmspace=auto offsets=int,size_t ordinals=int scalars=double,cray-sles15-zen3
+kokkos-nvcc-wrapper,3.2.00,gcc@11.2.0,+mpi,cray-sles15-zen3
+libbsd,0.11.3,gcc@11.2.0,,cray-sles15-zen3
+libdwarf,20180129,gcc@11.2.0,,cray-sles15-zen3
+libfabric,1.15.0.0,gcc@11.2.0,~debug~kdreg fabrics=rxm,sockets,tcp,udp,cray-sles15-zen3
+libffi,3.3,gcc@11.2.0, patches=26f26c6f29a7ce9bf370ad3ab2610f99365b4bdd7b82e7c31df41a3370d685c0,cray-sles15-zen3
+libiberty,2.33.1,gcc@11.2.0,+pic,cray-sles15-zen3
+libiconv,1.16,gcc@11.2.0, libs=shared,static,cray-sles15-zen3
+libmd,1.0.3,gcc@11.2.0,,cray-sles15-zen3
+libpciaccess,0.16,gcc@11.2.0,,cray-sles15-zen3
+libpng,1.6.37,gcc@11.2.0,,cray-sles15-zen3
+libtool,2.4.6,gcc@11.2.0,,cray-sles15-zen3
+libunwind,1.5.0,gcc@11.2.0,~block_signals~conservative_checks~cxx_exceptions~debug~debug_frame+docs+pic+tests+weak_backtrace+xz~zlib components=none libs=shared,static,cray-sles15-zen3
+libxml2,2.9.12,gcc@11.2.0,~python,cray-sles15-zen3
+lz4,1.9.3,gcc@11.2.0, libs=shared,static,cray-sles15-zen3
+m4,1.4.18,gcc@11.2.0,+sigsegv patches=3877ab548f88597ab2327a2230ee048d2d07ace1062efe81fc92e91b7f39cd00,fc9b61654a3ba1a8d6cd78ce087e7c96366c290bc8d2c299f09828d793b853c8,cray-sles15-zen3
+mercury,2.0.1,gcc@11.2.0,~bmi+boostsys~cci+checksum~debug~ipo~mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo,cray-sles15-zen3
+metis,5.1.0,gcc@11.2.0,~gdb~int64~real64+shared build_type=Release patches=4991da938c1d3a1d3dea78e49bbebecba00273f98df2a656e38b83d55b281da1,b1225da886605ea558db7ac08dd8054742ea5afe5ed61ad4d0fe7a495b1270d2,cray-sles15-zen3
+mpark-variant,1.4.0,gcc@11.2.0,~ipo build_type=RelWithDebInfo patches=21a4f8de3525204ee6db2e53758a3e3fd9c13817df29d2926d24376858a369e7,4e173fe8c853eb92956a40371688b4a19498189fe65b7ceac30f6b9d6663a985,b3501f726fd40129b4aaa11453a5891c8953a34af8ac84f5ab10a22afa5e7b9b,cray-sles15-zen3
+nccmp,1.9.0.1,gcc@11.2.0,~ipo build_type=RelWithDebInfo,cray-sles15-zen3
+nco,5.0.1,gcc@11.2.0,~doc,cray-sles15-zen3
+ncurses,6.1,gcc@11.2.0,~symlinks+termlib abi=none,cray-sles15-zen3
+netcdf-c,4.8.1,gcc@11.2.0,~dap~fsync~hdf4~jna+mpi~parallel-netcdf+pic+shared,cray-sles15-zen3
+netcdf-fortran,4.5.3,gcc@11.2.0,~doc+pic+shared,cray-sles15-zen3
+nlohmann-json,3.10.4,gcc@11.2.0,~ipo~multiple_headers build_type=RelWithDebInfo,cray-sles15-zen3
+numactl,2.0.14,gcc@11.2.0, patches=4e1d78cbbb85de625bad28705e748856033eaafab92a66dffd383a3d7e00cc94,62fc8a8bf7665a60e8f4c93ebbd535647cebf74198f7afafec4c085a8825c006,ff37630df599cfabf0740518b91ec8daaf18e8f288b19adaae5364dc1f6b2296,cray-sles15-zen3
+openpmd-api,0.14.3,gcc@11.2.0,~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo,cray-sles15-zen3
+otf2,2.3,gcc@11.2.0,,cray-sles15-zen3
+papi,6.0.0.1,gcc@11.2.0,~cuda+example~infiniband~lmsensors~nvml~powercap~rapl~rocm~rocm_smi~sde+shared~static_tools amdgpu_target=none,cray-sles15-zen3
+papyrus,1.0.2,gcc@11.2.0,~ipo build_type=RelWithDebInfo,cray-sles15-zen3
+parallel-netcdf,1.12.2,gcc@11.2.0,~burstbuffer+cxx+fortran+pic+shared,cray-sles15-zen3
+parmetis,4.0.3,gcc@11.2.0,~gdb~int64~ipo+shared build_type=RelWithDebInfo patches=4f892531eb0a807eb1b82e683a416d3e35154a455274cf9b162fb02054d11a5b,50ed2081bc939269689789942067c58b3e522c269269a430d5d34c00edbc5870,704b84f7c7444d4372cb59cca6e1209df4ef3b033bc4ee3cf50f369bce972a9d,cray-sles15-zen3
+pcre,8.44,gcc@11.2.0,~jit+multibyte+utf,cray-sles15-zen3
+pdt,3.25.1,gcc@11.2.0,~pic,cray-sles15-zen3
+perl,5.34.0,gcc@11.2.0,+cpanm+shared+threads,cray-sles15-zen3
+pkgconf,1.8.0,gcc@11.2.0,,cray-sles15-zen3
+python,3.8.12,gcc@11.2.0,+bz2+ctypes+dbm~debug+libxml2+lzma~nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3~ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87,4c2457325f2b608b1b6a2c63087df8c26e07db3e3d493caf36a56f0ecf6fb768,ebdca648c9c1d25f586d7e2a495b62e6d91973b55264a13d89eda1beff72ef56,f2fd060afc4b4618fe8104c4c5d771f36dc55b1db5a4623785a4ea707ec72fb4,cray-sles15-zen3
+qthreads,1.16,gcc@11.2.0,+hwloc~spawn_cache+static scheduler=distrib stack_size=4096,cray-sles15-zen3
+raja,0.14.0,gcc@11.2.0,~cuda+examples+exercises~ipo+openmp~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,cray-sles15-zen3
+raja,0.14.0,gcc@11.2.0,+cuda+examples+exercises~ipo+openmp~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=80,cray-sles15-zen3
+readline,7.0,gcc@11.2.0,,cray-sles15-zen3
+snappy,1.1.8,gcc@11.2.0,~ipo+pic+shared build_type=RelWithDebInfo patches=c9cfecb1f7a623418590cf4e00ae7d308d1c3faeb15046c2e5090e38221da7cd,cray-sles15-zen3
+sqlite,3.36.0,gcc@11.2.0,+column_metadata+fts~functions~rtree,cray-sles15-zen3
+strumpack,6.1.0,gcc@11.2.0,~butterflypack+c_interface~count_flops~cuda~ipo+mpi+openmp+parmetis~rocm~scotch+shared~slate~task_timers+zfp amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,cray-sles15-zen3
+sundials,5.8.0,gcc@11.2.0,+ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL~cuda+examples+examples-install~f2003~fcmix+generic-math~hypre~int64~ipo~klu~lapack~monitoring+mpi+openmp~petsc~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~sycl~trilinos amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none precision=double,cray-sles15-zen3
+superlu,5.3.0,gcc@11.2.0,~ipo+pic build_type=RelWithDebInfo,cray-sles15-zen3
+superlu-dist,7.1.1,gcc@11.2.0,~cuda~int64~ipo+openmp+shared build_type=RelWithDebInfo cuda_arch=none,cray-sles15-zen3
+swig,4.0.2,gcc@11.2.0,,cray-sles15-zen3
+sz,2.1.12,gcc@11.2.0,~fortran~hdf5~ipo~netcdf~pastri~python~random_access+shared~stats~time_compression build_type=RelWithDebInfo,cray-sles15-zen3
+tar,1.30,gcc@11.2.0,,cray-sles15-zen3
+tau,2.31,gcc@11.2.0,~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads+python~rocm~rocprofiler~roctracer~scorep~shmem~sqlite~x86_64,cray-sles15-zen3
+trilinos,13.0.1,gcc@11.2.0,~adios2+amesos+amesos2+anasazi+aztec~basker+belos+boost~chaco~complex~cuda~cuda_rdc~debug~dtk+epetra+epetraext~epetraextbtf~epetraextexperimental~epetraextgraphreorderings~exodus+explicit_template_instantiation~float+fortran~gtest~hdf5~hypre+ifpack+ifpack2+intrepid+intrepid2~ipo+isorropia+kokkos~mesquite+minitensor+ml+mpi+muelu~mumps+nox~openmp+phalanx+piro~python+rol+rythmos+sacado~scorec+shards+shared+shylu+stk+stokhos+stratimikos~strumpack~suite-sparse~superlu+superlu-dist+teko+tempus+tpetra+trilinoscouplings~wrapper~x11+zoltan+zoltan2 build_type=RelWithDebInfo cuda_arch=none cxxstd=14 gotype=long_long,cray-sles15-zen3
+udunits,2.2.28,gcc@11.2.0,,cray-sles15-zen3
+umap,2.1.0,gcc@11.2.0,~ipo~logging~tests build_type=RelWithDebInfo,cray-sles15-zen3
+umpire,6.0.0,gcc@11.2.0,+c+cuda~deviceconst+examples~fortran~ipo~numa~openmp~rocm~shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=80 tests=none,cray-sles15-zen3
+upcxx,2021.9.0,gcc@11.2.0,~cuda+gasnet+mpi cross=none,cray-sles15-zen3
+upcxx,2021.9.0,gcc@11.2.0,+cuda~gasnet~mpi cross=none,cray-sles15-zen3
+util-linux-uuid,2.33.1,gcc@11.2.0,,cray-sles15-zen3
+util-macros,1.19.3,gcc@11.2.0,,cray-sles15-zen3
+xz,5.2.5,gcc@11.2.0,~pic libs=shared,static,cray-sles15-zen3
+zfp,0.5.5,gcc@11.2.0,~aligned~c~cuda~fasthash~fortran~ipo~openmp~profile~python+shared~strided~twoway bsws=64 build_type=RelWithDebInfo cuda_arch=none,cray-sles15-zen3
+zfp,0.5.5,gcc@11.2.0,~aligned~c+cuda~fasthash~fortran~ipo~openmp~profile~python+shared~strided~twoway bsws=64 build_type=RelWithDebInfo cuda_arch=80,cray-sles15-zen3
+zlib,1.2.11,gcc@11.2.0,+optimize+pic+shared,cray-sles15-zen3
+zstd,1.5.0,gcc@11.2.0,~programs,cray-sles15-zen3
