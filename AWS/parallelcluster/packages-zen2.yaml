@@ -27,7 +27,7 @@ packages:
     buildable: False
   gromacs:
    require:
-   - one_of: ["+lapack+blas %intel ^intel-mpi ^intel-oneapi-mkl"]
+   - one_of: ["+lapack+blas %intel ^intel-oneapi-mpi ^intel-oneapi-mkl"]
   quantum-espresso:
     require:
     - one_of: ["quantum-espresso@6.6 %intel ^intel-mkl ^intel-oneapi-mpi"]
@@ -52,7 +52,7 @@ packages:
       ipp: [intel-oneapi-ipp, intel-ipp]
       lapack: [intel-oneapi-mkl, intel-mkl]
       mkl: [intel-oneapi-mkl, intel-mkl]
-      mpi: [intel-mpi, intel-oneapi-mpi, openmpi]
+      mpi: [intel-oneapi-mpi, intel-mpi, openmpi]
       tbb: [intel-oneapi-tbb, intel-tbb]
       scalapack: [intel-oneapi-mkl, intel-mkl]
     permissions:
