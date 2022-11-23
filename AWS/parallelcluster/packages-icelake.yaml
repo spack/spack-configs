@@ -4,16 +4,15 @@ packages:
   intel-mpi:
     variants: +external-libfabric
   gcc:
-    target: [x86_64]
-    compiler: [gcc]
     require:
-    - one_of: ["+binutils"]
+    - one_of: ["gcc %gcc +binutils target=x86_64_v3"]
   intel-oneapi-compilers:
-     target: [x86_64]
-     compiler: [intel]
+    require:
+    - one_of: ["intel-oneapi-compilers %gcc target=x86_64_v3"]
   intel-parallel-studio:
-     target: [x86_64]
-     compiler: [intel]
+    require:
+    - one_of: ["target=x86_64_v3"]
+    compiler: [intel]
   openmpi:
     variants: ~atomics ~cuda ~cxx ~cxx_exceptions ~internal-hwloc ~java +legacylaunchers ~lustre ~memchecker +pmi +romio ~singularity +vt +wrapper-rpath fabrics=ofi schedulers=slurm
   libfabric:
