@@ -1,0 +1,341 @@
+adios,1.13.1,oneapi@<version>,+blosc~bzip2~fortran~hdf5~infiniband+lz4+mpi~netcdf+shared+sz~szip+zfp+zlib patches=8ae17f6,aea47e5,d24b79b staging=none,linux-opensuse_leap15-icelake,l4xbjwj5mmnttkqldryz3vtl42a7xzyr
+adios2,2.8.0,oneapi@<version>,+blosc+bzip2~cuda~dataman~dataspaces+fortran~hdf5~ipo+mpi+pic+png~python+shared+ssc+sst+sz+zfp build_type=Release,linux-opensuse_leap15-icelake,t2pjhfg24u5pugucc5qbwyye3ich3e2k
+adlbx,1.0.0,oneapi@<version>,,linux-opensuse_leap15-icelake,buzspd5izpvzvbnmc6i77piot77vycwk
+alquimia,1.0.9,oneapi@<version>,~ipo+shared build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,iod5nun6nymctt4l6mpyvaj5xftr5ouh
+alsa-lib,1.2.3.2,oneapi@<version>,~python,linux-opensuse_leap15-icelake,d6opg2nn2sbmqebvwebr3oxtaaqhpyzg
+aml,0.1.0,oneapi@<version>,,linux-opensuse_leap15-icelake,eprk5yxaqlbszgzv66j7unrd7hyz6djs
+amrex,22.05,oneapi@<version>,~amrdata~cuda~eb~fortran~hdf5~hypre~ipo+linear_solvers+mpi~openmp~particles~petsc~pic~plotfile_tools~rocm~shared~sundials~tiny_profile build_type=RelWithDebInfo dimensions=3 precision=double,linux-opensuse_leap15-icelake,ukao32iu2uhprufcqmjw767oj6lasehc
+ant,1.10.7,oneapi@<version>,,linux-opensuse_leap15-icelake,f6nwmkm62pkfszhowjxhbwvgdpbi6a5n
+antlr,2.7.7,oneapi@<version>,+cxx~java~python patches=33897ad,linux-opensuse_leap15-icelake,ks5qnxl777lw7aqwnauxtxkqzyj7sogl
+arborx,1.2,oneapi@<version>,~cuda~ipo+mpi~openmp~rocm+serial~sycl~trilinos build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,q6majnjtfvgf7nygl4th5i4ve5fvuguu
+argobots,1.1,oneapi@<version>,~affinity~debug+perf~stackunwind~tool~valgrind stackguard=none,linux-opensuse_leap15-icelake,ytnzzxyw3tf6wld3ir2z5lpnclu6xm4x
+arpack-ng,3.8.0,oneapi@<version>,+mpi+shared,linux-opensuse_leap15-icelake,a4u6ydpi5wntescxk7cki3ykvujaqk3g
+autoconf,2.69,oneapi@<version>, patches=35c4492,7793209,a49dd5b,linux-opensuse_leap15-icelake,jhva3pvjqnqoyflrdn4vg23glfkowyfl
+automake,1.16.5,oneapi@<version>,,linux-opensuse_leap15-icelake,wdcqmacx2vagmead7rczho24jq5vdqgh
+axl,0.3.0,oneapi@<version>,+bbapi~bbapi_fallback~dw~ipo+shared async_api=daemon build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,fkh3u3e3lpleesovdyeqrujb47bx3u4s
+berkeley-db,18.1.40,oneapi@<version>,+cxx~docs+stl patches=b231fcc,linux-opensuse_leap15-icelake,6p7ldcfwmlmp4ao3bkwb4mebjicygb3p
+binutils,2.38,gcc@11.1.0,~gas+gold+headers~interwork+ld+libiberty~lto~nls+plugins libs=shared,static,linux-opensuse_leap15-icelake,6yie2cv42bnowrnyxbp7gfic5poscfgi
+bison,3.8.2,oneapi@<version>,,linux-opensuse_leap15-icelake,265kcwxl6vfyug2vzs3ymoxtfj2fd7zz
+blaspp,2021.04.01,oneapi@<version>,~cuda~ipo+openmp~rocm+shared build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,7u2upl7y7uyot72fhamt4dio2onh6sft
+blt,0.4.1,oneapi@<version>,,linux-opensuse_leap15-icelake,rjixeqa3yfglbxfvkesu55xpwrjxtq4d
+bolt,2.0,oneapi@<version>,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,irvrbd6fv5iemjik3i7cgnn6ojwnusx7
+boost,1.79.0,oneapi@<version>,~atomic~chrono~clanglibcpp~container~context~contract~coroutine~date_time~debug~exception~fiber+filesystem~graph~graph_parallel~icu~iostreams~json~locale+log~math+mpi+multithreaded~nowide~numpy~pic+program_options~python~random~regex~serialization+shared~signals~singlethreaded~stacktrace+system~taggedlayout+test+thread~timer~type_erasure~versionedlayout~wave cxxstd=98 patches=a440f96 visibility=hidden,linux-opensuse_leap15-icelake,kfhiqob6kh5b4xfyk7ulrlg3dej2mdqx
+boost,1.79.0,oneapi@<version>,+atomic+chrono~clanglibcpp~container~context~contract~coroutine+date_time~debug+exception~fiber+filesystem+graph~graph_parallel~icu+iostreams~json+locale+log+math+mpi+multithreaded~nowide~numpy~pic+program_options~python+random+regex+serialization+shared+signals~singlethreaded~stacktrace+system~taggedlayout+test+thread+timer~type_erasure~versionedlayout+wave cxxstd=98 patches=a440f96 visibility=hidden,linux-opensuse_leap15-icelake,dosumjejo5zmvul55mmz33a3crn56v6m
+boost,1.79.0,oneapi@<version>,+atomic+chrono~clanglibcpp+container~context~contract~coroutine+date_time~debug+exception~fiber~filesystem~graph~graph_parallel~icu~iostreams~json+locale+log~math+mpi+multithreaded~nowide~numpy~pic+program_options~python~random+regex+serialization+shared~signals~singlethreaded~stacktrace+system~taggedlayout~test+thread~timer~type_erasure~versionedlayout~wave cxxstd=98 patches=a440f96 visibility=hidden,linux-opensuse_leap15-icelake,gynuz3svfowzqgzlwnqmkdcegvm5fvce
+bzip2,1.0.8,oneapi@<version>,~debug~pic+shared,linux-opensuse_leap15-icelake,4c4ozlqhk4pyxiwo767gvu2qoplibvra
+c-blosc,1.21.1,oneapi@<version>,+avx2~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,v3crrx7aj4si7is23zhrxxr56bzwm4yv
+cabana,0.4.0,oneapi@<version>,~arborx~cuda~heffte~hypre~ipo+mpi~openmp~pthread~rocm+serial+shared~sycl build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,c2ooa3nye43brjjejv4m52jnjvh6crq6
+camp,0.2.2,oneapi@<version>,~cuda~ipo~rocm~tests build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,w324c7ukfizwn5or7nt7mid23rxfyzni
+chai,2.4.0,oneapi@<version>,~benchmarks~cuda~enable_pick+examples~ipo~openmp~raja~rocm+shared~tests build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,sh47la756emarjkjxppii7ch7xoeab5z
+charliecloud,0.26,oneapi@<version>,~docs,linux-opensuse_leap15-icelake,qkihhtpkono6hmpeeiluzommqvmzfi3l
+cmake,3.23.1,oneapi@<version>,~doc+ncurses+ownlibs~qt build_type=Release,linux-opensuse_leap15-icelake,bgqm6kfbcf44etsfx4d7awfm6xclwk7r
+conduit,0.8.3,oneapi@<version>,~adios+blt_find_mpi~doc~doxygen+fortran+hdf5+hdf5_compat~ipo+mpi+parmetis~python+shared~silo+test~zfp build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,ygko4ubfugz37dmweu7u5y34tj7xifn6
+darshan-runtime,3.3.1,oneapi@<version>,~apmpi~apmpi_sync~apxc~hdf5+mpi scheduler=NONE,linux-opensuse_leap15-icelake,ddatah6t645yoioyrcxxynz7ipqurg4e
+darshan-util,3.3.1,oneapi@<version>,~apmpi~apxc~bzip2,linux-opensuse_leap15-icelake,j3wzueo3zv5iupdsb2lj7fcv4onff62r
+datatransferkit,3.1-rc3,oneapi@<version>,~external-arborx~ipo~openmp+serial+shared build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,dxxuq6g6ttejcujprqbsqf5qimxegu34
+diffutils,3.8,oneapi@<version>,,linux-opensuse_leap15-icelake,p6gwpa7tbqvrbzh2wisntgzrrrf2pka3
+dtcmp,1.1.4,oneapi@<version>,+shared,linux-opensuse_leap15-icelake,l5k2lrtaj6dipy7h3oz7pwjh4eepdwxf
+eigen,3.4.0,oneapi@<version>,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,icx5mqqpssqfcxxydzzpucw7i5ov6oty
+elfutils,0.186,oneapi@<version>,+bzip2~debuginfod~nls+xz,linux-opensuse_leap15-icelake,eoejrt4tzi27lep2juxnlxfwu7fvowfq
+er,0.1.0,oneapi@<version>,~ipo+shared build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,nznd2nlkbvwqcqhcnh5uprb4say64a52
+exmcutils,0.6.0,oneapi@<version>,,linux-opensuse_leap15-icelake,4p2lz6gmk4c5i2z6qnheszu3ia3w5unw
+expat,2.4.8,oneapi@<version>,+libbsd,linux-opensuse_leap15-icelake,xfna36tvztuyjxmxm2pdznj26l3boxuj
+faodel,1.2108.1,oneapi@<version>,~hdf5~ipo+mpi+shared+tcmalloc build_type=RelWithDebInfo logging=stdout network=nnti serializer=xdr,linux-opensuse_leap15-icelake,evkn7xce2lpn7hexgcautrgrj3xyhpfy
+ffmpeg,4.4.1,oneapi@<version>,~X~avresample+bzlib~drawtext+gpl~libaom~libmp3lame~libopenjpeg~libopus~libsnappy~libspeex~libssh~libvorbis~libvpx~libwebp~libx264~libzmq~lzma~nonfree~openssl~sdl2+shared+version3,linux-opensuse_leap15-icelake,kvq7ocknvvlbjc4aqgnjuafr3ncjw4sw
+fftw,3.3.10,oneapi@<version>,+mpi~openmp~pfft_patches precision=double,float,linux-opensuse_leap15-icelake,vmo7i3qayebggpchvl2dnl75ti5azuxw
+findutils,4.9.0,oneapi@<version>, patches=440b954,linux-opensuse_leap15-icelake,cray3rcbetofxqw6mczcq6u444ugojcy
+flex,2.6.3,oneapi@<version>,+lex~nls,linux-opensuse_leap15-icelake,mamdca25il7kgoc2hb6t5dyemvqyn3id
+flit,2.1.0,oneapi@<version>,,linux-opensuse_leap15-icelake,so3ghcghkl7lkevl3y7gf53twgzglckl
+fortrilinos,2.0.0,oneapi@<version>,+hl~ipo+shared build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,v3n4oqgvs3gdxubinsy7v3hs63mnhesq
+freetype,2.11.1,oneapi@<version>,,linux-opensuse_leap15-icelake,lt4rt3so3hzn6xlv7gq6mukw7eta5gjo
+gasnet,2022.3.0,oneapi@<version>,~cuda~debug~rocm conduits=smp,linux-opensuse_leap15-icelake,gc2g7ybn6d3d2ikuojucbv43e5wshdwe
+gdbm,1.19,oneapi@<version>,,linux-opensuse_leap15-icelake,fpqrm3jrmdor3tqmsmywiznpf4xu2lfy
+gettext,0.21,oneapi@<version>,+bzip2+curses+git~libunistring+libxml2+tar+xz,linux-opensuse_leap15-icelake,guzfqte2ebfztke25hrzkd5dgyccsc4t
+ginkgo,1.4.0,oneapi@<version>,~cuda~develtools~full_optimizations~hwloc~ipo~oneapi+openmp~rocm+shared build_type=Release patches=43e571a,linux-opensuse_leap15-icelake,kx3ovg75pxpcaw5jdkadlniy7nuntvh7
+globalarrays,5.8,oneapi@<version>,~scalapack armci=mpi-ts,linux-opensuse_leap15-icelake,mxurejqi4zjzviym4kk6t24llt5el7o3
+gmake,4.3,oneapi@<version>,~guile+nls,linux-opensuse_leap15-icelake,d2dlew2uughveqi4vrhc3j26wqnv6stc
+gmp,6.2.1,oneapi@<version>, libs=shared,static,linux-opensuse_leap15-icelake,a45764t5qgly4yk3nyj2hni342ydfixg
+googletest,1.10.0,oneapi@<version>,~gmock~ipo+pthreads+shared build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,rqxmx6uebd3rbmnslrfjxqnxh4wz4dlw
+gotcha,1.0.3,oneapi@<version>,~ipo~test build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,bfgzlucu6e6xsganpgezmmmd3cpbyi5g
+gsl,2.7.1,oneapi@<version>,~external-cblas,linux-opensuse_leap15-icelake,db2fwtphtf7t36rlox4p337pxgi3dqsp
+hdf5,1.8.22,oneapi@<version>,~cxx+fortran+hl~ipo~java+mpi+shared~szip~threadsafe+tools api=default build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,kwt6x3dfjiglcwq4l5eqqmcnroasb5h7
+hdf5,1.10.7,oneapi@<version>,~cxx+fortran+hl~ipo~java+mpi+shared~szip~threadsafe+tools api=default build_type=RelWithDebInfo patches=2a1e311,linux-opensuse_leap15-icelake,tyf7zr3z53spwyndhrlrakkv5jm4uqnx
+hdf5,1.12.2,oneapi@<version>,~cxx+fortran+hl~ipo~java+mpi+shared~szip~threadsafe+tools api=default build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,htmzkyetmbjbnzuiddvgsa5dhtttpjf7
+heffte,2.2.0,oneapi@<version>,~cuda+fftw~fortran~ipo~magma~mkl~python~rocm+shared build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,afhel6no7uyxej6sfhpztj5ngqdpoojs
+hwloc,2.7.1,oneapi@<version>,~cairo~cuda~gl~libudev+libxml2~netloc~nvml~opencl+pci~rocm+shared,linux-opensuse_leap15-icelake,tvt3k7lhxfir344ygnxgjb4kpvqgjj75
+hypre,2.24.0,oneapi@<version>,~complex~cuda~debug+fortran~gptune~int64~internal-superlu~mixedint+mpi~openmp~rocm+shared~superlu-dist~unified-memory,linux-opensuse_leap15-icelake,shiwm5m6zzqqmxkjfsoehjbjsifwqfp5
+kim-api,2.2.1,oneapi@<version>,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,ij6gokkwifmrpggkskwogfipcbdrhgnv
+kokkos,3.6.00,oneapi@<version>,~aggressive_vectorization~compiler_warnings~cuda~cuda_constexpr~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl~openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning~wrapper build_type=RelWithDebInfo std=14,linux-opensuse_leap15-icelake,4vo2rx5sa3ofiwlzued75nl3dzak2pnn
+kokkos,3.6.00,oneapi@<version>,~aggressive_vectorization~compiler_warnings~cuda~cuda_constexpr~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning~wrapper build_type=RelWithDebInfo std=14,linux-opensuse_leap15-icelake,gtvquehqgucjdbdipharwhgnvr3r3mnv
+kokkos,3.6.00,oneapi@<version>,~aggressive_vectorization~compiler_warnings~cuda~cuda_constexpr~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code+examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared+sycl+tests~tuning~wrapper build_type=RelWithDebInfo std=17,linux-opensuse_leap15-icelake,7vc3dluw4rw6avbaulz7fh66veedjmrm
+kokkos-kernels,3.6.00,oneapi@<version>,~blas~cblas~cublas~cuda~cusparse~ipo~lapack~lapacke~mkl+openmp~pthread~serial+shared~superlu build_type=RelWithDebInfo execspace_cuda=auto execspace_openmp=auto execspace_serial=auto execspace_threads=auto layouts=left memspace_cudaspace=auto memspace_cudauvmspace=auto offsets=int,size_t ordinals=int scalars=double,linux-opensuse_leap15-icelake,n2c3lzzxkraqtvsjjiekraroy5vpbcla
+kokkos-kernels,3.6.00,oneapi@<version>,~blas~cblas~cublas~cuda~cusparse~ipo~lapack~lapacke~mkl~openmp~pthread~serial+shared~superlu build_type=Release execspace_cuda=auto execspace_openmp=auto execspace_serial=auto execspace_threads=auto layouts=left memspace_cudaspace=auto memspace_cudauvmspace=auto offsets=int,size_t ordinals=int scalars=double,linux-opensuse_leap15-icelake,d226ahjjwyw725bs6ivwo67fwe4x5uv7
+kvtree,1.2.0,oneapi@<version>,~ipo+mpi+shared build_type=RelWithDebInfo file_lock=FLOCK,linux-opensuse_leap15-icelake,4kfcjouxqeiqfwipczzpwlhze2sx6jqi
+lammps,20220107,oneapi@<version>,~asphere~body~class2~colloid~compress~coreshell~cuda~cuda_mps~dipole~exceptions+ffmpeg~granular~ipo+jpeg+kim~kokkos~kspace~latte+lib~manybody~mc~meam~misc~mliap~molecule+mpi~mpiio~opencl+openmp~opt~peri+png~poems~python~qeq~replica~rigid~shock~snap~spin~srd~user-adios~user-atc~user-awpmd~user-bocs~user-cgsdk~user-colvars~user-diffraction~user-dpd~user-drude~user-eff~user-fep~user-h5md~user-lb~user-manifold~user-meamc~user-mesodpd~user-mesont~user-mgpt~user-misc~user-mofff~user-netcdf~user-omp~user-phonon~user-plumed~user-ptm~user-qtb~user-reaction~user-reaxc~user-sdpd~user-smd~user-smtbq~user-sph~user-tally~user-uef~user-yaff~voronoi build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,6d2ovhkhxbhwliznjjzdpwbtfp3idn4t
+lapackpp,2021.04.00,oneapi@<version>,~ipo+shared build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,t6otm6nstiqpry7oajgog27czkz6fr4z
+legion,21.03.0,oneapi@<version>,~bindings~bounds_checks~cuda~cuda_hijack~cuda_unsupported_compiler~enable_tls~fortran~gasnet_debug~hdf5~hwloc~ipo~kokkos+libdl~openmp~papi~privilege_checks~python~redop_complex~shared~spy+zlib build_type=RelWithDebInfo conduit=none cuda_arch=70 cxxstd=11 gasnet_root=none max_dims=3 max_fields=512 network=none output_level=warning,linux-opensuse_leap15-icelake,2u3byyrnuts3gczvqdxyluttyvbdgkyp
+libarchive,3.5.2,oneapi@<version>,+iconv compression=bz2lib,lz4,lzma,lzo2,zlib,zstd crypto=mbedtls libs=shared,static programs=none xar=libxml2,linux-opensuse_leap15-icelake,ybzmi7fso3zkbzr7itfwiea6wsuheei3
+libbsd,0.11.5,oneapi@<version>,,linux-opensuse_leap15-icelake,wl7v3koz3sazfgr4zso7ygldpgyfhwix
+libcap,2.64,oneapi@<version>,,linux-opensuse_leap15-icelake,et4m6t6w5xw4bfmk5f7t2jqiemcpup2y
+libcircle,0.3.0,oneapi@<version>,,linux-opensuse_leap15-icelake,tnloygh53tu5p7l6ycuz27jtoesnjs7t
+libdwarf,20180129,oneapi@<version>,,linux-opensuse_leap15-icelake,2mkxzur5x3v2tydfzitiafwcyiwsc7o3
+libfabric,1.14.0,oneapi@<version>,~debug~kdreg fabrics=psm3,rxm,shm,sockets,tcp,udp,verbs,linux-opensuse_leap15-icelake,essyfursqga44tozxr3dmvpsfh24ur2d
+libffi,3.4.2,oneapi@<version>,,linux-opensuse_leap15-icelake,unajlv4aewornllwsfsqu2a4el2ufxg3
+libiconv,1.16,oneapi@<version>, libs=shared,static,linux-opensuse_leap15-icelake,xthrjr7airlmyliga23iix2sfldqt5em
+libjpeg-turbo,2.1.3,oneapi@<version>,,linux-opensuse_leap15-icelake,3kelmfiwxaq3sf47reyxrwtis6hp34n7
+libmd,1.0.4,oneapi@<version>,,linux-opensuse_leap15-icelake,64aygoyr3ws6wnd7vh4oknu5f6z6rfa5
+libnrm,0.1.0,oneapi@<version>,,linux-opensuse_leap15-icelake,vy6hfvjqcpnes7acboiz7np2mlcdx4zk
+libpciaccess,0.16,oneapi@<version>,,linux-opensuse_leap15-icelake,mk4fjlgmetjbqyyi5zml25uxgvs6td3h
+libpng,1.6.37,oneapi@<version>,,linux-opensuse_leap15-icelake,3egkeha32hbq4tr2s454gmcbxol3dgwx
+libpthread-stubs,0.4,oneapi@<version>,,linux-opensuse_leap15-icelake,okar46mkzbp7vthdtpg7verrudhkmqfr
+libquo,1.3.1,oneapi@<version>,,linux-opensuse_leap15-icelake,fybf5jkdnjbloq3sikkhz6a524oa6j3b
+libsigsegv,2.13,oneapi@<version>,,linux-opensuse_leap15-icelake,4uaidf47pzq73rubgzoomknlv4ervnsw
+libsodium,1.0.18,oneapi@<version>,,linux-opensuse_leap15-icelake,o4hwugn4b2re4aeazw5vd2qpjd3twxbs
+libtool,2.4.7,oneapi@<version>,,linux-opensuse_leap15-icelake,lgkae5wyjlzywyv22aotxdr4zknwn77j
+libunwind,1.6.2,oneapi@<version>,~block_signals~conservative_checks~cxx_exceptions~debug~debug_frame+docs+pic+tests+weak_backtrace+xz~zlib components=none libs=shared,static,linux-opensuse_leap15-icelake,5u6feshtx4jcdp4qup3lx6yalmmfsy2m
+libxml2,2.9.13,oneapi@<version>,~python,linux-opensuse_leap15-icelake,56qpkesoqldjby4fxjtdwsx4kp2ch4ed
+libyaml,0.2.5,oneapi@<version>,,linux-opensuse_leap15-icelake,4mu4ypr2i44a4epsuqtwhtkbuizcmo3a
+libzmq,4.3.4,oneapi@<version>,~docs~drafts+libbsd+libsodium,linux-opensuse_leap15-icelake,vyboviezhuz7mhlv73gvgz2kefkrxhj3
+loki,0.1.7,oneapi@<version>,+shared,linux-opensuse_leap15-icelake,wku4r64m3aqcjho6ovgjow7mbtji22r2
+lwgrp,1.0.5,oneapi@<version>,+shared,linux-opensuse_leap15-icelake,popvaqe2timuctnitl7sptuyu24ehydc
+lz4,1.9.3,oneapi@<version>, libs=shared,static,linux-opensuse_leap15-icelake,oonrm3pcvpvomzocxyuiadibbjkvevhk
+lzo,2.10,oneapi@<version>, libs=shared,static,linux-opensuse_leap15-icelake,ftf56rpf7agshhhshe7rtpxksb5kfzpd
+m4,1.4.19,oneapi@<version>,+sigsegv patches=9dc5fbd,bfdffa7,linux-opensuse_leap15-icelake,s3qek7dhnzctzzjuwnr5zgmqv7p2cxaa
+mbedtls,2.28.0,oneapi@<version>,+pic build_type=Release libs=static,linux-opensuse_leap15-icelake,pegujhey3sn6ucopr3gfurkxsau36noy
+mercury,2.1.0,oneapi@<version>,~bmi+boostsys+checksum~debug~ipo+mpi+ofi+shared+sm~ucx~udreg build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,ymns53zfazeju4t3qimmiwlrna54tf6n
+metall,0.20,oneapi@<version>,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,7qd3sszgdl6zyr42xiuvuqs4rw2k3pm7
+metis,5.1.0,oneapi@<version>,~gdb~int64~real64+shared build_type=Release patches=4991da9,linux-opensuse_leap15-icelake,u2pb3b6ag2fmxtua7mxphvi5ztiiklyg
+mfem,4.4.0,oneapi@<version>,~amgx~conduit~cuda~debug~examples~fms~gnutls~gslib~lapack~libceed~libunwind+metis~miniapps~mpfr+mpi~netcdf~occa~openmp~petsc~pumi~raja~rocm~shared~slepc+static~strumpack~suite-sparse~sundials~superlu-dist~threadsafe~umpire+zlib timer=auto,linux-opensuse_leap15-icelake,wa7f7qn6je4r5i2caleccd3oayblel2v
+mpark-variant,1.4.0,oneapi@<version>,~ipo build_type=RelWithDebInfo patches=21a4f8d,4e173fe,b3501f7,linux-opensuse_leap15-icelake,thxqvfluy2bq2asjusvna6r3clglvnha
+mpich,4.0a2,oneapi@<version>,~argobots~cuda+fortran+hwloc~hydra+libxml2+pci~rocm+romio~slurm~two_level_namespace~vci~verbs+wrapperrpath datatype-engine=auto device=ch4 netmod=ofi pmi=pmi,linux-opensuse_leap15-icelake,isgyedmyfevbiq2dmhgv2gmyex5caulr
+mpifileutils,0.11.1,oneapi@<version>,~experimental~gpfs~lustre~xattr,linux-opensuse_leap15-icelake,g7x6jf7yubmqprkmhedbjsjabisearw7
+nasm,2.15.05,oneapi@<version>,,linux-opensuse_leap15-icelake,3iugnuioy4r32xofdnwnp3dowajwszca
+nccmp,1.9.0.1,oneapi@<version>,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,awahfrigvhjas56cgnqqnhue5xrq75hl
+nco,5.0.1,oneapi@<version>,~doc,linux-opensuse_leap15-icelake,uwingmiuemlcrl6zoyrbimmwj5n2dzg5
+ncurses,6.2,oneapi@<version>,~symlinks+termlib abi=none,linux-opensuse_leap15-icelake,txrtp7fdzaqwqymgcceiofpwry4exvys
+netcdf-c,4.8.1,oneapi@<version>,~dap~fsync~hdf4~jna+mpi~parallel-netcdf+pic+shared patches=de556da,linux-opensuse_leap15-icelake,zimghgnwl3e5ch4u7gocrwkxrfgetopu
+netlib-scalapack,2.2.0,oneapi@<version>,~ipo~pic+shared build_type=Release patches=072b006,1c9ce5f,linux-opensuse_leap15-icelake,apptsswn65bxwdhtpe7m5d53lbcxdxhi
+ninja,1.10.2,oneapi@<version>,,linux-opensuse_leap15-icelake,wknnkywo7h6krsfs5dpvtgnlmyttzubc
+nrm,0.1.0,oneapi@<version>,,linux-opensuse_leap15-icelake,ynlq6dftddejkksikl64dgudv7wvawg7
+numactl,2.0.14,oneapi@<version>, patches=4e1d78c,62fc8a8,ff37630,linux-opensuse_leap15-icelake,tq3mreshnoi5pebho6zcyfrqgqogpwao
+omega-h,9.34.1,oneapi@<version>,~cuda~examples~ipo+mpi+optimize+shared+symbols~throw+trilinos~warnings+zlib build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,pp6vfwvt7cbiacaqteu3qzbkoqw67dch
+oneapi-level-zero,1.7.15,oneapi@<version>,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,nwlgbhvjsfritcumcdqpikaanijdd72n
+openblas,0.3.20,oneapi@<version>,~bignuma~consistent_fpcsr~ilp64+locking+pic+shared symbol_suffix=none threads=openmp,linux-opensuse_leap15-icelake,pts4s2nvmyloitpj3vhogkyd75u5dwvu
+openjdk,11.0.14.1_1,oneapi@<version>,,linux-opensuse_leap15-icelake,fnrltvxjm7b5r7rgwpknbu6aglaflfse
+openssl,1.1.1o,oneapi@<version>,~docs~shared certs=system,linux-opensuse_leap15-icelake,7ix7k5vb7hoqyespx5cdzkagseocxjme
+otf2,2.3,oneapi@<version>,,linux-opensuse_leap15-icelake,2mxrvvg7xlf4qrnjs4nmwndsvte4rrwz
+papi,6.0.0.1,gcc@11.1.0,~cuda+example~infiniband~lmsensors~nvml~powercap~rapl~rocm~rocm_smi~sde+shared~static_tools,linux-opensuse_leap15-icelake,vuq6tft7nnb6j2xsylepy43b5fzogtgx
+papyrus,1.0.2,oneapi@<version>,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,fsexujhpp43hnmq5ggs2xf3syk4rhnl6
+parmetis,4.0.3,oneapi@<version>,~gdb~int64~ipo+shared build_type=RelWithDebInfo patches=4f89253,50ed208,704b84f,linux-opensuse_leap15-icelake,5ngzlgelxuvmratpa3b52mt3dftmgq4g
+parsec,3.0.2012,oneapi@<version>,~cuda~debug_verbose~ipo~profile+shared build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,qgppzvri266z56oqowpoc456psepb3ay
+pcre,8.45,oneapi@<version>,~jit+multibyte+utf,linux-opensuse_leap15-icelake,p5f7z6w6lmmkanatmadvclbnpjlatdur
+perl,5.34.1,oneapi@<version>,+cpanm+shared+threads,linux-opensuse_leap15-icelake,j4aozhepuwfre4aihszgnx456e65l4ja
+petsc,3.17.1,oneapi@<version>,~X~batch~cgns~complex~cuda~debug+double~exodusii~fftw+fortran~giflib+hdf5~hpddm~hwloc+hypre~int64~jpeg~knl~kokkos~libpng~libyaml~memkind+metis~mkl-pardiso~mmg~moab~mpfr+mpi~mumps~openmp~p4est~parmmg~ptscotch~random123~rocm~saws~scalapack+shared~strumpack~suite-sparse+superlu-dist~tetgen~trilinos~valgrind clanguage=C,linux-opensuse_leap15-icelake,x2epnuzp2i54ginyjborktplvnwhk3a3
+pflotran,3.0.2,oneapi@<version>,,linux-opensuse_leap15-icelake,wm6dfsbhjaw5nejzfntwvxg4smtv25sy
+pkgconf,1.8.0,oneapi@<version>,,linux-opensuse_leap15-icelake,3sw5euq4pbqlqxbddk2btfirhfhmybcv
+plasma,21.8.29,oneapi@<version>,~ipo~lua+shared build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,gygdp5ytdteqbqf2j5z5xa2aukoippam
+plumed,2.6.3,oneapi@<version>,+gsl+mpi+shared arrayfire=none optional_modules=all,linux-opensuse_leap15-icelake,m7dzb4244uc4mlgcezaeoj4iqnxsegzp
+precice,2.4.0,oneapi@<version>,~ipo+mpi+petsc~python+shared build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,i6b3536zdpwt7d2ec7ivdqka2jh4jjik
+pumi,2.2.7,oneapi@<version>,~fortran~int64~ipo~shared+simmodsuite_version_check~testing~zoltan build_type=RelWithDebInfo simmodsuite=none,linux-opensuse_leap15-icelake,tmtq47ninbtficd7dje6pkugxlm7azfx
+py-alembic,1.5.5,oneapi@<version>,,linux-opensuse_leap15-icelake,pazmbqoxaxhgv5rpg3zz4oaedrqmbqae
+py-anyio,3.5.0,oneapi@<version>,,linux-opensuse_leap15-icelake,lwzqitd2u6udgkltl7stgswgedxkstfp
+py-argon2-cffi,21.3.0,oneapi@<version>,,linux-opensuse_leap15-icelake,tydqaf535vyg6uq765ws6mz47saiaqs5
+py-argon2-cffi-bindings,21.2.0,oneapi@<version>,,linux-opensuse_leap15-icelake,virdb6sam3wmfqhjtjqqpmsyl7i4itc7
+py-asttokens,2.0.5,oneapi@<version>,,linux-opensuse_leap15-icelake,xjwyln5wl372uu5aw5ab5qkv36is6dum
+py-async-generator,1.10,oneapi@<version>,,linux-opensuse_leap15-icelake,yfilkf6x2uwhh7qnmmvc6ksl4bpd67nv
+py-attrs,21.4.0,oneapi@<version>,,linux-opensuse_leap15-icelake,j4znsigbf3osvnkhxyp7kid5rhwqyg3i
+py-babel,2.9.1,oneapi@<version>,,linux-opensuse_leap15-icelake,5t6qgbt2hu7sdqv6v2axfmvkxycnn3tp
+py-backcall,0.2.0,oneapi@<version>,,linux-opensuse_leap15-icelake,36ki7ouxtfxzay4iwtyp4meyid7irtxi
+py-beniget,0.4.1,oneapi@<version>,,linux-opensuse_leap15-icelake,52k5vgsb7xvxqpytucfvl3olsnudvaka
+py-black,22.1.0,oneapi@<version>,~colorama~d,linux-opensuse_leap15-icelake,sc2ewigivujemhavhxfsmb62mor6aqbu
+py-bleach,4.1.0,oneapi@<version>,,linux-opensuse_leap15-icelake,csdcar3s46kpkao5ifakhbr2zwgnanal
+py-blinker,1.4,oneapi@<version>,,linux-opensuse_leap15-icelake,leomt47wxt43dz7fxrux3snfozxt6uge
+py-bottleneck,1.3.2,oneapi@<version>,,linux-opensuse_leap15-icelake,qabme3qq6pmmygggp65uuzbbe2l2mer5
+py-certifi,2021.10.8,oneapi@<version>,,linux-opensuse_leap15-icelake,4kw6dchoza24evfn2mtrkkok7mlmykvh
+py-certipy,0.1.3,oneapi@<version>,,linux-opensuse_leap15-icelake,pabeiszezql2ummwggepuuohpbpfs4wj
+py-cffi,1.15.0,oneapi@<version>,,linux-opensuse_leap15-icelake,ykbrjce62mrz5hm4jzoyjtr3mxupegsi
+py-charset-normalizer,2.0.12,oneapi@<version>,,linux-opensuse_leap15-icelake,qkih5wyg6k7ge55kas7h2p2jxotewrn5
+py-cinemasci,1.7.0,oneapi@<version>,+mpi,linux-opensuse_leap15-icelake,75vnyuznuup6fnlia3obblcuy6en4v5h
+py-click,8.0.3,oneapi@<version>,,linux-opensuse_leap15-icelake,ahxhahgmwgn3vat5tgdgqch6mth7bllp
+py-cppy,1.1.0,oneapi@<version>,,linux-opensuse_leap15-icelake,6qkg6f6q3xxnpl4zw22azueh755w5ejd
+py-cryptography,3.2.1,oneapi@<version>,,linux-opensuse_leap15-icelake,jyumwwnvs4e6nyorc2qyfonhv2m37bjq
+py-cycler,0.11.0,oneapi@<version>,,linux-opensuse_leap15-icelake,aoeb2cfdes3teub3wdxsgfga5hmn3dvf
+py-cython,0.29.24,oneapi@<version>,,linux-opensuse_leap15-icelake,s5et6vv33epbfr3nqhgsos7j4totsjlj
+py-cython,3.0.0a9,oneapi@<version>,,linux-opensuse_leap15-icelake,loxweinjaiacamz5ehqcybykrpakelx7
+py-debugpy,1.5.1,oneapi@<version>,,linux-opensuse_leap15-icelake,bidghv2dry6okef52sfaojqhjfvpikjg
+py-decorator,5.1.1,oneapi@<version>,,linux-opensuse_leap15-icelake,rj77lk2obdfanc6l7cbuejba63xlbhto
+py-defusedxml,0.7.1,oneapi@<version>,,linux-opensuse_leap15-icelake,afxio5vsos4a6owlx47lmnlykpjoedgq
+py-deprecation,2.1.0,oneapi@<version>,,linux-opensuse_leap15-icelake,jdjpybilxerewrd4ex5s2vlaamw6gncs
+py-entrypoints,0.4,oneapi@<version>,,linux-opensuse_leap15-icelake,jx2vruo62sih5kdf6kas2wlke4dtfm2a
+py-executing,0.8.2,oneapi@<version>,,linux-opensuse_leap15-icelake,yw7vbrnopi5osdotsimhkn276mkbgrjq
+py-flit-core,3.6.0,oneapi@<version>,,linux-opensuse_leap15-icelake,v6427bzfwcl6zl5fdgnm2cwikdqoewzp
+py-fonttools,4.31.2,oneapi@<version>,,linux-opensuse_leap15-icelake,cdxd3lc6csfspmxtsndlyiy4x5mj274x
+py-gast,0.5.3,oneapi@<version>,,linux-opensuse_leap15-icelake,3teyhzd45lqhy7xb6akumabrmrphhelg
+py-gevent,1.5.0,oneapi@<version>,,linux-opensuse_leap15-icelake,brzrzsggegiiu5zevfx6kj4qhps2lpqh
+py-gevent,21.12.0,oneapi@<version>,,linux-opensuse_leap15-icelake,2ztbrpwptt3adv7stmobhhyy4pvlphl2
+py-greenlet,1.1.2,oneapi@<version>,,linux-opensuse_leap15-icelake,4fyi23hleswopfy7ryq3oozk7uyinb7q
+py-h5py,3.6.0,oneapi@<version>,+mpi,linux-opensuse_leap15-icelake,pt2otjstbkjvdxfyuenegruci5ymhwin
+py-idna,3.3,oneapi@<version>,,linux-opensuse_leap15-icelake,nscu3mgbchkkwqcfpkbz2qzww23fr32u
+py-imageio,2.16.0,oneapi@<version>,,linux-opensuse_leap15-icelake,mo2czg44g2l5mlzkqcqauxst6q537ae5
+py-importlib-resources,5.3.0,oneapi@<version>,,linux-opensuse_leap15-icelake,5m6jfge7vbr2ilf2k43zigt4rmhmmdn3
+py-ipykernel,6.9.1,oneapi@<version>,,linux-opensuse_leap15-icelake,56nnud52lwxekkkw66voowwd23mkyual
+py-ipykernel,6.9.1,oneapi@<version>,,linux-opensuse_leap15-icelake,bhlgmd3zy2tzfl6ix6de4nhlwbdebvt2
+py-ipython,8.0.1,oneapi@<version>,,linux-opensuse_leap15-icelake,7tqj4oj5hgprfpueugbri3dhbx77z6o4
+py-ipython-genutils,0.2.0,oneapi@<version>,,linux-opensuse_leap15-icelake,sgm4vmdeh3hcgcwujphr25aubmjmouyn
+py-ipywidgets,7.7.0,oneapi@<version>,,linux-opensuse_leap15-icelake,is3voilxzvf2g2l5a52f5wo7uzhhfjh4
+py-jedi,0.18.1,oneapi@<version>,,linux-opensuse_leap15-icelake,xjbqyu7vjto6dauo2n6dmmmzqnlr7bsq
+py-jinja2,3.0.3,oneapi@<version>,~i18n,linux-opensuse_leap15-icelake,eemq3tpetcuhkk3sgyq4xlnnsijmfy57
+py-json5,0.9.6,oneapi@<version>,,linux-opensuse_leap15-icelake,hqobrnmh4adhbw3ex7itnbyun76czhtm
+py-jsonpatch,1.23,oneapi@<version>,,linux-opensuse_leap15-icelake,owwwlshfjqu6dzvmmaeqyjyussh2gdxz
+py-jsonpointer,1.9,oneapi@<version>,,linux-opensuse_leap15-icelake,svnfnudkqmovxcydh55ifeqimmya7aod
+py-jsonschema,2.6.0,oneapi@<version>,,linux-opensuse_leap15-icelake,x7lapyg2d4iliakd3oat72i63m4xthbq
+py-jsonschema,4.4.0,oneapi@<version>,,linux-opensuse_leap15-icelake,h5pj2qiidze4ejb2mykmbvyf7sqjglts
+py-jupyter-client,7.1.2,oneapi@<version>,,linux-opensuse_leap15-icelake,fvuukygwm5fkcr5drac5m4dp6itxcfh3
+py-jupyter-client,7.1.2,oneapi@<version>,,linux-opensuse_leap15-icelake,b445vbup5bm43p4dmrz6fe77yywcfmw2
+py-jupyter-core,4.9.2,oneapi@<version>,,linux-opensuse_leap15-icelake,wnnc6l5tcief57tecegr44rjkcxpicih
+py-jupyter-packaging11,0.11.1,oneapi@<version>,,linux-opensuse_leap15-icelake,od4ajjtnnooxfy4kqpu65uiuuxny74m2
+py-jupyter-packaging7,0.7.12,oneapi@<version>,,linux-opensuse_leap15-icelake,tz54qd3eztzpwzsoya6new424lvat3hn
+py-jupyter-server,1.13.5,oneapi@<version>,,linux-opensuse_leap15-icelake,jh73twbl7nxqrrp6gjsv2jdamoqzu555
+py-jupyter-telemetry,0.1.0,oneapi@<version>,,linux-opensuse_leap15-icelake,vjkpwounf4uobm7fy666xmtdloghjkrb
+py-jupyterhub,1.4.1,oneapi@<version>,,linux-opensuse_leap15-icelake,goyr6ycippic2exuqexbocofenoby7td
+py-jupyterlab,3.2.9,oneapi@<version>,,linux-opensuse_leap15-icelake,ebkcpzxkw3i4z2bfhzqvspjtwtsgbdxz
+py-jupyterlab-pygments,0.1.2,oneapi@<version>,,linux-opensuse_leap15-icelake,xpnz4buvbgmmd27tq4v3en2tq4wycm45
+py-jupyterlab-server,2.10.3,oneapi@<version>,,linux-opensuse_leap15-icelake,nijsy2fnylmmo6supxjslz5mvkwuq4ed
+py-jupyterlab-widgets,1.1.0,oneapi@<version>,,linux-opensuse_leap15-icelake,u3umzfbuaw3icolxeriudblriivv6bv5
+py-kiwisolver,1.3.2,oneapi@<version>,,linux-opensuse_leap15-icelake,2yhrllgiw4vdkeufaytzt3xgcbonp5la
+py-libensemble,0.9.1,oneapi@<version>,~deap+mpi~mpmath~nlopt~petsc4py~pyyaml~scipy~tasmanian,linux-opensuse_leap15-icelake,dfweeasoq2fj3dk6oxkqiyl3limene2x
+py-mako,1.1.6,oneapi@<version>,,linux-opensuse_leap15-icelake,cavficgachg6gvkv3avw46dc5yn6ivrn
+py-markupsafe,2.0.1,oneapi@<version>,,linux-opensuse_leap15-icelake,n6xa5av72np7ff7wujiq45hzebop2tcx
+py-matplotlib,3.5.2,oneapi@<version>,~animation~fonts+image~latex~movies backend=agg,linux-opensuse_leap15-icelake,dgkpe437znujxn5ngzoz2xe4xk7pue2w
+py-matplotlib-inline,0.1.3,oneapi@<version>,,linux-opensuse_leap15-icelake,3czx3fj6flfchfcsdtsoynxmeqpyqzvu
+py-mistune,0.8.4,oneapi@<version>,,linux-opensuse_leap15-icelake,jqhetkrpn66o3fi33inl62ao2f2h472c
+py-mpi4py,3.1.2,oneapi@<version>,,linux-opensuse_leap15-icelake,5wwbzmifvalb6ceoowqwookgdgclypr7
+py-mypy-extensions,0.4.3,oneapi@<version>,,linux-opensuse_leap15-icelake,xyezuyrpmx2foxcnh3vxntwbtjrqzm57
+py-nbclassic,0.3.5,oneapi@<version>,,linux-opensuse_leap15-icelake,ckki7km2zobyxy53worhuycvxzgtxkn2
+py-nbclient,0.5.5,oneapi@<version>,,linux-opensuse_leap15-icelake,ah2wpjunsqsbp5ax6lqrzvzhrh7d77cc
+py-nbclient,0.5.5,oneapi@<version>,,linux-opensuse_leap15-icelake,73xmafrh4ij34ezay5sqy5wu43hisaoe
+py-nbconvert,6.4.2,oneapi@<version>,+serve,linux-opensuse_leap15-icelake,3etuy7fspscctztg6xhtgcilms3cbgel
+py-nbconvert,6.4.2,oneapi@<version>,+serve,linux-opensuse_leap15-icelake,ldleq3rumcsq4asbbektyaiw5ortgnsp
+py-nbformat,5.1.3,oneapi@<version>,,linux-opensuse_leap15-icelake,l2y7qpoa5tdc5oj2syrhyrddyue4xlv3
+py-nest-asyncio,1.5.4,oneapi@<version>,,linux-opensuse_leap15-icelake,gjphyqqfnpoq75nfbcu5rfmmwf6h5sav
+py-networkx,2.7.1,oneapi@<version>,,linux-opensuse_leap15-icelake,ln46uqqba65syvdrxzskwsyxbkiykkii
+py-notebook,6.4.5,oneapi@<version>,,linux-opensuse_leap15-icelake,qyv74jmfuh6ewbe6np3d3tbmoqrxrspj
+py-notebook,6.4.5,oneapi@<version>,,linux-opensuse_leap15-icelake,pnfzxkire6kdvoo2qom7rmfihwrfqrfe
+py-numexpr,2.7.3,oneapi@<version>,,linux-opensuse_leap15-icelake,tcmflg3f7juqfrafbwig3ioieyq5xeio
+py-numpy,1.22.3,oneapi@<version>,+blas+lapack patches=873745d,e9508c3,linux-opensuse_leap15-icelake,2eljr2fj7a4ljqlw7zk57wn5kwckk2pr
+py-oauthlib,3.1.1,oneapi@<version>,+extras,linux-opensuse_leap15-icelake,3jkpdzoyvweuz7res7co4tsdflricwcm
+py-packaging,21.3,oneapi@<version>,,linux-opensuse_leap15-icelake,ejc76xhlsx6nfxs5o5i5chsuskdm4p7z
+py-pamela,1.0.0,oneapi@<version>,,linux-opensuse_leap15-icelake,3nmvqbnwl23tsxjhsnhire562uzh4k5f
+py-pandas,1.4.2,oneapi@<version>,,linux-opensuse_leap15-icelake,wqk64st5cepvjffwctoympszou2ixkw7
+py-pandocfilters,1.5.0,oneapi@<version>,,linux-opensuse_leap15-icelake,kroyjult4aszgreyzvqlnsznp343bxxx
+py-parso,0.8.2,oneapi@<version>,,linux-opensuse_leap15-icelake,t2xezffzxlo6bziftcenrxywo554bdbm
+py-pathspec,0.9.0,oneapi@<version>,,linux-opensuse_leap15-icelake,yi33xjplth4ynjdz3lwdbajdg5a4ytb6
+py-petsc4py,3.17.1,oneapi@<version>,+mpi patches=d344e0e,linux-opensuse_leap15-icelake,qwh67zv74iborvcbtxuztneifckh4nsg
+py-pexpect,4.8.0,oneapi@<version>,,linux-opensuse_leap15-icelake,xjmd3mvykkyrkt5frojwhovr6v27ycdl
+py-pickleshare,0.7.5,oneapi@<version>,,linux-opensuse_leap15-icelake,fbmllc4ubkzfxe2donqa5q4mkxfvlgi4
+py-pillow,9.0.0,oneapi@<version>,~freetype~imagequant+jpeg~jpeg2000~lcms~tiff~webp~webpmux~xcb+zlib,linux-opensuse_leap15-icelake,5iekvqnynrmdnge7s6bryfewqf4fln6z
+py-pip,21.3.1,oneapi@<version>,,linux-opensuse_leap15-icelake,bjzdg4je6nlzl7rtjwp74wdla3nmxxa2
+py-pkgconfig,1.5.5,oneapi@<version>,,linux-opensuse_leap15-icelake,dto5or2rowkpm746kjc4zat3jcaa5d3x
+py-platformdirs,2.4.0,oneapi@<version>,,linux-opensuse_leap15-icelake,scwzbv4k4iuzc4ffvd44zuqxtmemblrf
+py-ply,3.11,oneapi@<version>,,linux-opensuse_leap15-icelake,dvtlm7ubggpbb7vstfee2j5zeulxxugx
+py-poetry-core,1.0.8,oneapi@<version>,,linux-opensuse_leap15-icelake,o356fqqndpppmokfnkd3m6obwjryaxbm
+py-prometheus-client,0.12.0,oneapi@<version>,~twisted,linux-opensuse_leap15-icelake,aoumuph7nyq365ak2hkenevbjv2xn43y
+py-prompt-toolkit,3.0.29,oneapi@<version>,,linux-opensuse_leap15-icelake,drmayq4yzrdupf6jmofrsseotbfiwtrv
+py-psutil,5.8.0,oneapi@<version>,,linux-opensuse_leap15-icelake,y6okzcxrozlssdsllm5t2fcc6xbnperk
+py-ptyprocess,0.7.0,oneapi@<version>,,linux-opensuse_leap15-icelake,x4wwujdtb4pvpqyzo4hk4vlcdbtvdzib
+py-pure-eval,0.2.2,oneapi@<version>,,linux-opensuse_leap15-icelake,76sgjntvwf76rnnmlyz62oapvmt2ilo7
+py-py,1.11.0,oneapi@<version>,,linux-opensuse_leap15-icelake,5blfmszzqkikglmmwpliarfzxfkhjr4s
+py-pybind11,2.8.1,oneapi@<version>,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,6cwccpgnsx34gysnowdjq25xyk2ptpa5
+py-pycparser,2.20,oneapi@<version>,,linux-opensuse_leap15-icelake,abub4olmo6plcakdjia6zu3qv7jwlf4q
+py-pyelftools,0.26,oneapi@<version>,,linux-opensuse_leap15-icelake,p5onyc6np4u7af47cgmhu3yvmngx6k27
+py-pygments,2.10.0,oneapi@<version>,,linux-opensuse_leap15-icelake,a4a25tgxefzmrjcfsduhhbivi77hdjk5
+py-pyjwt,2.1.0,oneapi@<version>,~crypto,linux-opensuse_leap15-icelake,h442c7gf4pllxkovz6vjzpvclogwzauj
+py-pyopenssl,19.0.0,oneapi@<version>,,linux-opensuse_leap15-icelake,imohiddrrmrfvxmhjsjynarsiwfn4fm5
+py-pyparsing,3.0.6,oneapi@<version>,,linux-opensuse_leap15-icelake,jemtydx7xxazkfhtquz2wdl2bvegnog3
+py-pyrsistent,0.18.0,oneapi@<version>,,linux-opensuse_leap15-icelake,tidcp5xkaoi4jeci2lbf6piit3sy3xn6
+py-python-dateutil,2.8.2,oneapi@<version>,,linux-opensuse_leap15-icelake,co76aqxgav2dhbp45zodhqtrtk43dqao
+py-python-editor,1.0.4,oneapi@<version>,,linux-opensuse_leap15-icelake,4fikr4zvalhc3v5wp7cjbdxz6zmxhql4
+py-python-json-logger,0.1.11,oneapi@<version>,,linux-opensuse_leap15-icelake,4mnawn7ine7kjhfrajijlgmow6sqe3hk
+py-pythran,0.10.0,oneapi@<version>,,linux-opensuse_leap15-icelake,yeihtfkawjjv53idgvvssu25zlpm3iqq
+py-pytz,2021.3,oneapi@<version>,,linux-opensuse_leap15-icelake,5s2uq3jm24ayqah7wrv4o3jjbezvawwk
+py-pywavelets,1.1.1,oneapi@<version>,,linux-opensuse_leap15-icelake,6cax7cgeivfrnx27sux7spcm2qq3h6mg
+py-pyyaml,6.0,oneapi@<version>,+libyaml,linux-opensuse_leap15-icelake,qvrsko2eegagojc4x42rn3apsklcfb47
+py-pyzmq,17.1.2,oneapi@<version>,,linux-opensuse_leap15-icelake,dbyjpyywsifhgcedvao63yapov43yhly
+py-pyzmq,22.3.0,oneapi@<version>,,linux-opensuse_leap15-icelake,bah6mnpro6ohbb5hn2ogeqjoy46rzg7f
+py-pyzmq,22.3.0,oneapi@<version>,,linux-opensuse_leap15-icelake,tp4sjysedtjh4lg7cyhlxbvccyfwdafd
+py-requests,2.26.0,oneapi@<version>,~socks,linux-opensuse_leap15-icelake,o2opbxay7jaycqhan7bpsq5suydtd33t
+py-ruamel-yaml,0.17.16,oneapi@<version>,,linux-opensuse_leap15-icelake,e5peyk7je5xk5sggctpfzmvpimcfjl3m
+py-ruamel-yaml-clib,0.2.0,oneapi@<version>,,linux-opensuse_leap15-icelake,rr3px72zoig3hus5yimn6z7l2a2vvqkq
+py-scikit-image,0.18.3,oneapi@<version>,,linux-opensuse_leap15-icelake,dk2ju5kkhegu5jcehqcxrgwx7yvpoglr
+py-scipy,1.8.0,oneapi@<version>,,linux-opensuse_leap15-icelake,tk36hyyecabwxss75pwgp6y62ktahxxd
+py-send2trash,1.8.0,oneapi@<version>,,linux-opensuse_leap15-icelake,jqq3agm6iehz4pjq2ciucmhpfynrwl7i
+py-setuptools,59.4.0,oneapi@<version>,,linux-opensuse_leap15-icelake,q66scok6gu27u7vbx4mjnear4x4sphb6
+py-setuptools-scm,6.3.2,oneapi@<version>,+toml,linux-opensuse_leap15-icelake,h3w5uh4u7x5d6zawxf3avoom4fgbancu
+py-setuptools-scm-git-archive,1.1,oneapi@<version>,,linux-opensuse_leap15-icelake,6xvq4ftxrvkgta7mlsqjsfxmngqk5tck
+py-six,1.16.0,oneapi@<version>,,linux-opensuse_leap15-icelake,kx66xly4mzmrbv22rzkdjjcptcxyntfe
+py-sniffio,1.2.0,oneapi@<version>,,linux-opensuse_leap15-icelake,hmkitma23rr654tcamlpfkmc7cp4c5jz
+py-sqlalchemy,1.4.20,oneapi@<version>, backend=none,linux-opensuse_leap15-icelake,j3epufoet7h3hokt5cow7cod3bo27nim
+py-stack-data,0.2.0,oneapi@<version>,,linux-opensuse_leap15-icelake,madifc7bsvj66ngm2bcziwxoargsynge
+py-terminado,0.12.1,oneapi@<version>,,linux-opensuse_leap15-icelake,mthjxxgdvdaivv3ys45lvru35jqscoex
+py-testpath,0.6.0,oneapi@<version>,,linux-opensuse_leap15-icelake,mivkmilhq7vfosgj4v4gllkyiws4gkm6
+py-tifffile,2021.11.2,oneapi@<version>,,linux-opensuse_leap15-icelake,5ijlcaeyn725yfrouh4y64c6wo542ke5
+py-toml,0.10.2,oneapi@<version>,,linux-opensuse_leap15-icelake,yhwhartbjhqg5rhjjav3eovrfn2j6vkc
+py-tomli,1.2.2,oneapi@<version>,,linux-opensuse_leap15-icelake,rsbn4gxvtchdzwemtlinn3tyd3jlzthw
+py-tomlkit,0.7.2,oneapi@<version>,,linux-opensuse_leap15-icelake,ui7o3zmsjmctqndegd6wanfsou64wsfm
+py-tornado,5.1.1,oneapi@<version>,,linux-opensuse_leap15-icelake,26zpwrx3jhipnp3wp43hybcdjvfqkphr
+py-tornado,6.1,oneapi@<version>,,linux-opensuse_leap15-icelake,kyzd3e3onu523s5orlmtpkdadq34pmrn
+py-traitlets,5.1.1,oneapi@<version>,,linux-opensuse_leap15-icelake,6d245h47j35bcixhrmz32j454ncp2yjr
+py-typing-extensions,4.1.1,oneapi@<version>,,linux-opensuse_leap15-icelake,ulwp6sbf2pye344vfvrtcwpwnry2tpp7
+py-urllib3,1.26.6,oneapi@<version>,~brotli~secure~socks,linux-opensuse_leap15-icelake,yqlkcfsd3kaasd2jli6hsbw6l2eybmer
+py-vcversioner,2.16.0.0,oneapi@<version>,,linux-opensuse_leap15-icelake,jlmzrjh4glqsxsjk744io4i72oevpnyt
+py-warlock,1.3.3,oneapi@<version>,,linux-opensuse_leap15-icelake,g4bykzcfl7o2chgfzk3sw6qxtl7pzjkz
+py-wcwidth,0.2.5,oneapi@<version>,,linux-opensuse_leap15-icelake,de5g72rpesr6i5kxt4qfxncutjaqlu5c
+py-webencodings,0.5.1,oneapi@<version>,,linux-opensuse_leap15-icelake,iksfgzo3hh2wqa3cyq2revva3tycyuh2
+py-websocket-client,1.2.1,oneapi@<version>,,linux-opensuse_leap15-icelake,77zhlwajbb5hndubogavzxy3bq2wpsre
+py-wheel,0.37.0,oneapi@<version>,,linux-opensuse_leap15-icelake,sklaa2udxhemscxddzx23iki4zxffgwm
+py-widgetsnbextension,3.6.0,oneapi@<version>,,linux-opensuse_leap15-icelake,27av4ydddyuetk5woo23tktmpphvn3jj
+py-zipp,3.6.0,oneapi@<version>,,linux-opensuse_leap15-icelake,7xeeims4xajstyf4c5evvgp3gsscw3to
+py-zope-event,4.5.0,oneapi@<version>,,linux-opensuse_leap15-icelake,7cbaopczvj4waxzlt3lemcze6tbisamq
+py-zope-interface,5.4.0,oneapi@<version>,,linux-opensuse_leap15-icelake,3d7j4xwo3q4iec5i3potutfamoajezwl
+python,3.8.13,oneapi@<version>,+bz2+ctypes+dbm~debug+ensurepip+libxml2+lzma~nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3+ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93,4c24573,f2fd060,linux-opensuse_leap15-icelake,r72gl7ur6hhyqq72ecezalnyr5cd4tds
+qhull,2020.2,oneapi@<version>,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,ke66guq7k2dmackfkflgjr4c3n5zjsym
+qthreads,1.16,oneapi@<version>,+hwloc~spawn_cache+static scheduler=distrib stack_size=4096,linux-opensuse_leap15-icelake,f6mrtoxv433f2stkzevbbpqmoemaipqe
+raja,0.14.0,oneapi@<version>,~cuda+examples+exercises~ipo+openmp~rocm+shared~tests build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,gqe6hj6gorcy7352347vlu7peyoggq6e
+rankstr,0.1.0,oneapi@<version>,~ipo+shared build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,3dsivdzttesv7qvkryojr3on4nmiwwc5
+readline,8.1,oneapi@<version>,,linux-opensuse_leap15-icelake,cjkvlwsedshdiws4esuxozgwxes62zgc
+redset,0.1.0,oneapi@<version>,~ipo+shared build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,wthualw5i7o5utq75tuucri5cycglez3
+shuffile,0.1.0,oneapi@<version>,~ipo+shared build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,vwvngowiglyvh6c24ppt2kpxn2vlwvyq
+slate,2021.05.02,oneapi@<version>,~cuda~ipo+mpi+openmp~rocm+shared build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,iw723go3fdeqrmd37fm4hqnwqm4gsxjv
+slepc,3.17.1,oneapi@<version>,+arpack~blopex~cuda~rocm,linux-opensuse_leap15-icelake,tnovzaez4ethbnejc6q544auz5usvytz
+snappy,1.1.8,oneapi@<version>,~ipo+pic+shared build_type=RelWithDebInfo patches=c9cfecb,linux-opensuse_leap15-icelake,rix7n2z6uhh5fheia7wk4vqrs73ecq43
+sqlite,3.38.5,oneapi@<version>,+column_metadata+dynamic_extensions+fts~functions+rtree,linux-opensuse_leap15-icelake,yns4y4mmd4uc5ttmuisphomncu6dz27i
+stc,0.9.0,oneapi@<version>,,linux-opensuse_leap15-icelake,rmehtoop5bycxhartesbz22tjsgol7zj
+sundials,6.2.0,oneapi@<version>,+ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL~cuda+examples+examples-install~f2003~fcmix+generic-math~hypre~int64~ipo~klu~lapack~magma~monitoring+mpi~openmp~petsc~profiling~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~sycl~trilinos build_type=RelWithDebInfo cstd=99 cxxstd=14 logging-level=0 precision=double,linux-opensuse_leap15-icelake,t4k5xk47okx4g6vcqeckvznzfxttkbmr
+superlu,5.3.0,oneapi@<version>,~ipo+pic build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,iqfzxrgat3aymik4utre3ctjjkm2lnvw
+superlu-dist,7.2.0,oneapi@<version>,~cuda~int64~ipo~openmp~rocm+shared build_type=RelWithDebInfo patches=8da9e21,linux-opensuse_leap15-icelake,xcrcyitazdlnz5f2xxpszrrusrzcisdp
+swig,4.0.2,oneapi@<version>,,linux-opensuse_leap15-icelake,p43se6y4fhamxk75j3s5ez32d5cdgcri
+swig,4.0.2-fortran,oneapi@<version>,,linux-opensuse_leap15-icelake,x7wjxqcqwyld6fwbjt47c34xvmzxbbxu
+sz,1.4.12.3,oneapi@<version>,~fortran~hdf5~ipo~netcdf~pastri~python~random_access+shared~stats~time_compression build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,h3kh326o3pfmlxmmyoz5dk4xxiacg6wd
+sz,2.1.12,oneapi@<version>,~fortran~hdf5~ipo~netcdf~pastri~python~random_access+shared~stats~time_compression build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,t56yvfu45ttut7fjnolgn32z36dsvvji
+tar,1.34,oneapi@<version>,,linux-opensuse_leap15-icelake,ocmsssg4zirtanup2zefxl52hxhptunz
+tasmanian,7.7,oneapi@<version>,~blas~cuda~fortran~ipo~magma+mpi+openmp~python~rocm~xsdkflags build_type=Release,linux-opensuse_leap15-icelake,3opfikqjizjeouf77jpdz44euqwz6i3y
+tau,2.31.1,oneapi@<version>,~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi~pdt~phase~ppc64le~profileparam+pthreads+python~rocm~rocprofiler~roctracer~scorep~shmem~sqlite~x86_64,linux-opensuse_leap15-icelake,tojbrrjkapek6nbwu4s5xwxmb3dfbpni
+tau,2.31.1,oneapi@<version>,~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io+level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari+opencl~openmp+otf2+papi~pdt~phase~ppc64le~profileparam+pthreads~python~rocm~rocprofiler~roctracer~scorep~shmem~sqlite~x86_64,linux-opensuse_leap15-icelake,mwv335cqafs2ghljecxk5sl5m75fq7wq
+tcl,8.6.12,oneapi@<version>,,linux-opensuse_leap15-icelake,r66zkhbokmjo4sfamspxaqvlrgae4374
+texinfo,6.5,oneapi@<version>, patches=12f6edb,1732115,linux-opensuse_leap15-icelake,rpaja7tt73edvs3fftj3vk7bbnqlr2s2
+trilinos,13.0.1,oneapi@<version>,~adios2+amesos+amesos2+anasazi+aztec~basker+belos+boost~chaco~complex~cuda~cuda_rdc~debug~dtk+epetra+epetraext~epetraextbtf~epetraextexperimental~epetraextgraphreorderings~exodus+explicit_template_instantiation~float+fortran~gtest~hdf5~hypre+ifpack+ifpack2+intrepid+intrepid2~ipo+isorropia+kokkos~mesquite+minitensor+ml+mpi+muelu~mumps+nox~openmp~panzer+phalanx+piro~python~rocm~rocm_rdc+rol+rythmos+sacado~scorec+shards+shared+shylu+stk+stokhos+stratimikos~strumpack~suite-sparse~superlu+superlu-dist+teko+tempus+thyra+tpetra+trilinoscouplings~wrapper~x11+zoltan+zoltan2 build_type=RelWithDebInfo cxxstd=14 gotype=long_long,linux-opensuse_leap15-icelake,dfgkpqnzvec2ueypoo5kufqs5cwlvirb
+turbine,1.3.0,oneapi@<version>,~hdf5~python~r,linux-opensuse_leap15-icelake,axwcssmmvrrkifaugwh623bspvgnoavl
+udunits,2.2.28,oneapi@<version>,,linux-opensuse_leap15-icelake,rlf3lzfwtwphjtvqocmj5ldag3fg7iz7
+umap,2.1.0,oneapi@<version>,~ipo~logging~tests build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,oelbyd4e7647refxxfrlhlp5pinbswxb
+umpire,6.0.0,oneapi@<version>,+c~cuda~deviceconst+examples~fortran~ipo~numa~openmp~rocm+shared build_type=RelWithDebInfo tests=none,linux-opensuse_leap15-icelake,o4vuuxkltyf3wkssfhp7iult5hhh2cts
+upcxx,2022.3.0,oneapi@<version>,~cuda~gasnet+mpi~rocm cross=none,linux-opensuse_leap15-icelake,ew5dmd5qnzft7i7av6ylfpzw5tf577ms
+util-linux-uuid,2.37.4,oneapi@<version>,,linux-opensuse_leap15-icelake,h74pduhsteicvtgvmdpo5gwwnvafcd43
+util-macros,1.19.3,oneapi@<version>,,linux-opensuse_leap15-icelake,io4jd3qgekcyas3rosfj4a5pcjs753yb
+veloc,1.5,oneapi@<version>,~ipo build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,67b3g5i3seupynge5hxrbepdwbh72q42
+wannier90,3.1.0,oneapi@<version>,+shared,linux-opensuse_leap15-icelake,5eicp3mefaw7omebnftbk2xkdv2cfrp6
+xz,5.2.5,oneapi@<version>,+pic libs=shared,static,linux-opensuse_leap15-icelake,j3nlfemcmxvoyiasqx54zhgsl6hkr3bw
+yasm,1.3.0,oneapi@<version>,,linux-opensuse_leap15-icelake,yfxo5j3hsibvqgz7ykhp54i2g3etuz7k
+zfp,0.5.5,oneapi@<version>,~aligned~c~cuda~fasthash~fortran~ipo~openmp~profile~python+shared~strided~twoway bsws=64 build_type=RelWithDebInfo,linux-opensuse_leap15-icelake,tv3wbalhdnjpu3uvke4dynpljn4olnnp
+zlib,1.2.12,oneapi@<version>,+optimize+pic+shared patches=0d38234,linux-opensuse_leap15-icelake,lnegt5kqidg65ycqsmgzpqd6qrx3vzlv
+zsh,5.8,oneapi@<version>,+skip-tcsetpgrp-test,linux-opensuse_leap15-icelake,lvftiiztecmdiwxtjkkj5764ufs7muth
+zstd,1.5.2,oneapi@<version>,~programs libs=shared,static,linux-opensuse_leap15-icelake,rb32qllmueyxz5atwblu2l7pg7maztv4
