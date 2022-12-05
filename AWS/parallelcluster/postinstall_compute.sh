@@ -61,9 +61,4 @@ setup_spack() {
     
 }
 
-if [ "3" != "$(major_version)" ]; then
-    echo "ParallelCluster version $(major_version) not supported."
-    exit 1
-fi
-
 setup_spack |& tee -a /var/log/spack-postinstall.log
