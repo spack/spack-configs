@@ -1,0 +1,236 @@
+# spack/develop e4s-22.02
+#
+# build summary:
+#  61/104 cpu_specs build OK
+#
+# NOTE: the version specs, paths, and module names of the oneapi/dpcpp compilers
+# and mpich package have been removed to comply with a CNDA.
+# The corresponding information has been replaced with the following:
+#   *@<version>
+#   /PATH/TO/*
+#   *-MODULES
+# You can search for the above strings to find where replacement is needed.
+
+spack:
+  view: false
+  concretization: separately
+  config:
+    concretizer: clingo
+    module_roots:
+      tcl: ${SPACK_ROOT}/modules/tcl
+  modules:
+    prefix_inspections:
+      bin: [PATH]
+      man: [MANPATH]
+      share/man: [MANPATH]
+      share/aclocal: [ACLOCAL_PATH]
+      lib: [LD_LIBRARY_PATH]
+      lib64: [LD_LIBRARY_PATH]
+      lib/pkgconfig: [PKG_CONFIG_PATH]
+      lib64/pkgconfig: [PKG_CONFIG_PATH]
+      share/pkgconfig: [PKG_CONFIG_PATH]
+      ? ''
+      : - CMAKE_PREFIX_PATH
+    default:
+      'enable:': [tcl]
+      tcl:
+        blacklist_implicits: true
+        hash_length: 0
+        naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
+        blacklist: []
+        all:
+          autoload: direct
+          conflict:
+          - '{name}'
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+            unset: []
+          filter:
+            environment_blacklist: []
+          load: []
+          suffixes:
+            ^mpich: mpi
+        verbose: true
+        whitelist: []
+        projections: {}
+        boost:
+          suffixes:
+            boost cxxstd=17: cxx17
+        fftw:
+          suffixes:
+            fftw+openmp: omp
+        hdf5:
+          suffixes:
+            hdf5+fortran: fortran
+            hdf5~mpi+szip: sz
+            hdf5~mpi+threadsafe: threadsafe
+        kokkos-kernels:
+          suffixes:
+            kokkos-kernels+openmp: omp
+        openblas:
+          suffixes:
+            openblas threads=openmp: omp
+            openblas threads=pthreads: pthreads
+        umpire:
+          suffixes:
+            umpire+openmp: omp
+        py-warpx:
+          suffixes:
+            ^warpx dims=2: dims2
+            ^warpx dims=3: dims3
+            ^warpx dims=rz: dimsRZ
+        warpx:
+          suffixes:
+            dims=2: dims2
+            dims=3: dims3
+            dims=rz: dimsRZ
+        hierarchy: []
+        core_specs: []
+  compilers:
+  - compiler:
+      spec: oneapi@<version>
+      paths:
+        cc: /PATH/TO/icx
+        cxx: /PATH/TO/icpx
+        f77: /PATH/TO/ifx
+        fc: /PATH/TO/ifx
+      flags: {}
+      operating_system: opensuse_leap15
+      target: x86_64
+      modules:
+      - ONEAPI-MODULES
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: dpcpp@<version>
+      paths:
+        cc: /PATH/TO/icx
+        cxx: /PATH/TO/dpcpp
+        f77: /PATH/TO/ifx
+        fc: /PATH/TO/ifx
+      flags: {}
+      operating_system: opensuse_leap15
+      target: x86_64
+      modules:
+      - ONEAPI-MODULES
+      environment: {}
+      extra_rpaths: []
+  packages:
+    all:
+      compiler: [oneapi]
+      providers:
+        blas: [openblas]
+        mpi: [mpich]
+      target: [icelake]
+      variants: +mpi
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+      version: [2.36.1]
+    doxygen:
+      version: [1.8.20]
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+      version: [1.10.7]
+    libunwind:
+      variants: +pic +xz
+    mesa:
+      variants: ~llvm
+    mesa18:
+      variants: ~llvm
+    mpich:
+      buildable: false
+      externals:
+      - spec: mpich@4.0a2~hydra device=ch4
+        prefix: /PATH/TO/MPICH
+        modules:
+        - MPICH-MODULES
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      version: [3.8.12]
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+    libfabric:
+      buildable: false
+      externals:
+      - spec: libfabric@1.14.0
+        modules:
+        - libfabric/1.14.0-gcc-10.2.0-hp2bsva
+
+  definitions:
+  - cpu_specs:
+    - adios@1.13.1
+    - aml@0.1.0
+    - amrex@22.02
+    - arborx@1.1
+    - argobots@1.1
+    - bolt@2.0
+    - cabana@0.4.0
+    - caliper@2.7.0
+    - chai@2.4.0 ~benchmarks ~tests
+    - charliecloud@0.26
+    - conduit@0.8.2
+    - darshan-runtime@3.3.1
+    - darshan-util@3.3.1
+    - faodel@1.2108.1
+    - flit@2.1.0
+    - gasnet@2021.9.0
+    - ginkgo@1.4.0
+    - globalarrays@5.8
+    - gmp@6.2.1
+    - gotcha@1.0.3
+    - hdf5@1.10.7 +fortran +hl +shared
+    - heffte@2.2.0 +fftw
+    - hpx@1.7.1 networking=mpi
+    - hypre@2.24.0
+    - kokkos@3.5.00 +openmp
+    - lammps@20220107
+    - legion@21.03.0
+    - libnrm@0.1.0
+    - libquo@1.3.1
+    - libunwind@1.5.0
+    - loki@0.1.7
+    - metall@0.17
+    - mpark-variant@1.4.0
+    - mpifileutils@0.11.1 ~xattr
+    - nccmp@1.9.0.1
+    - nco@5.0.1
+    - netlib-scalapack@2.1.0
+    - ninja@1.10.2
+    - papi@6.0.0.1
+    - papyrus@1.0.1
+    - parallel-netcdf@1.12.2
+    - parsec@3.0.2012 ~cuda
+    - pdt@3.25.1
+    - pumi@2.2.6
+    - py-cinemasci@1.3
+    - py-libensemble@0.8.0
+    - qthreads@1.16 scheduler=distrib
+    - raja@0.14.0
+    - stc@0.9.0
+    - sundials@6.1.1
+    - superlu@5.3.0
+    - swig@4.0.2
+    - swig@4.0.2-fortran
+    - sz@2.1.12
+    - tasmanian@7.7
+    - turbine@1.3.0
+    - umap@2.1.0
+    - umpire@6.0.0
+    - upcxx@2021.9.0
+    - wannier90@3.1.0
+    - zfp@0.5.5
+
+  specs:
+  - $cpu_specs
+  - kokkos@develop +sycl std=17 %dpcpp ^ncurses%oneapi

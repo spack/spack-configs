@@ -1,0 +1,205 @@
+# NOTE: the version specs, paths, and module names of the oneapi/dpcpp compilers
+# and mpich package have been removed to comply with a CNDA.
+# The corresponding information has been replaced with the following:
+#   *@<version>
+#   /PATH/TO/*
+#   *-MODULES
+# You can search for the above strings to find where replacement is needed.
+
+spack:
+  view: false
+  concretizer:
+    unify: false
+    reuse: false
+  compilers:
+  - compiler:
+      spec: oneapi@<version>
+      paths:
+        cc: /PATH/TO/icx
+        cxx: /PATH/TO/icpx
+        f77: /PATH/TO/ifx
+        fc: /PATH/TO/ifx
+      flags: {}
+      operating_system: opensuse_leap15
+      target: x86_64
+      modules:
+        - ONEAPI-MODULES
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /PATH/TO/ONEAPI/linux/compiler/lib/intel64_lin:/soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libfabric-1.14.0-hp2bsvalxnpwh364mev25uz7ctjnyg6r/lib
+      extra_rpaths:
+      - /soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libfabric-1.14.0-hp2bsvalxnpwh364mev25uz7ctjnyg6r/lib
+  - compiler:
+      spec: gcc@11.1.0
+      paths:
+        cc: /soft/compilers/gcc/11.1.0/x86_64-suse-linux/bin/gcc
+        cxx: /soft/compilers/gcc/11.1.0/x86_64-suse-linux/bin/g++
+        f77: /soft/compilers/gcc/11.1.0/x86_64-suse-linux/bin/gfortran
+        fc: /soft/compilers/gcc/11.1.0/x86_64-suse-linux/bin/gfortran
+      flags: {}
+      operating_system: opensuse_leap15
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  modules:
+    default:
+      'enable:': [tcl]
+      tcl:
+        blacklist_implicits: true
+        hash_length: 0
+        naming_scheme: '{name}/{version}-{compiler.name}-{compiler.version}'
+        all:
+          autoload: direct
+          conflict: ['{name}']
+          environment:
+            set:
+              ${PACKAGE}_ROOT: ${PREFIX}
+            unset: []
+          load: []
+          suffixes:
+            ^mpich: mpi
+            +sycl: sycl
+            +level_zero: level-zero
+            ^kokkos+sycl: sycl
+        verbose: false
+  packages:
+    all:
+      compiler: [oneapi]
+      providers:
+        blas: [openblas]
+        mpi: [mpich]
+      target: [icelake]
+      variants: +mpi
+    binutils:
+      variants: +ld +gold +headers +libiberty ~nls
+    elfutils:
+      variants: +bzip2 ~nls +xz
+    hdf5:
+      variants: +fortran +hl +shared
+    libunwind:
+      variants: +pic +xz
+    ncurses:
+      variants: +termlib
+    openblas:
+      variants: threads=openmp
+    python:
+      version: [3.8.13]
+    trilinos:
+      variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+        +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+        +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+        +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    xz:
+      variants: +pic
+    mesa:
+      version: [21.3.8]
+    libfabric:
+      buildable: false
+      externals:
+      - spec: libfabric@1.14.0 fabrics=psm3,rxm,shm,sockets,tcp,udp,verbs ~kdreg ~debug
+        prefix: /soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libfabric-1.14.0-hp2bsvalxnpwh364mev25uz7ctjnyg6r
+        modules:
+        - spack/linux-opensuse_leap15-x86_64
+        - libfabric/1.14.0-gcc-10.2.0-hp2bsva
+    mpich:
+      buildable: false
+      externals:
+      - spec: mpich@4.0a2~hydra device=ch4
+        prefix: /PATH/TO/MPICH
+        modules:
+          - MPICH-MODULES
+
+  specs:
+  
+  # CPU
+  - adios@1.13.1
+  - alquimia@1.0.9
+  - aml@0.2.0
+  - amrex@22.08
+  - arborx@1.2
+  - archer@2.0.0 %oneapi ^llvm%gcc
+  - argobots@1.1
+  - bolt@2.0
+  - butterflypack@2.1.1
+  - cabana@0.5.0
+  - chai@2022.03.0 ~benchmarks ~tests
+  - conduit@0.8.3
+  - darshan-runtime@3.4.0
+  - darshan-util@3.4.0
+  - datatransferkit@3.1-rc3
+  - faodel@1.2108.1
+  - flit@2.1.0
+  - fortrilinos@2.0.0
+  - gasnet@2022.3.0
+  - ginkgo@1.4.0
+  - globalarrays@5.8
+  - gmp@6.2.1
+  - gotcha@1.0.3
+  - hdf5@1.12.2 +fortran +hl +shared
+  - hdf5-vol-async@1.2
+  - heffte@2.2.0 +fftw
+  - hypre@2.25.0
+  - kokkos@3.6.01 +openmp
+  - kokkos-kernels@3.6.00 +openmp
+  - lammps@20220623
+  - legion@21.03.0
+  - libnrm@0.1.0
+  - libquo@1.3.1 ^mpich
+  - libunwind@1.6.2
+  - loki@0.1.7
+  - mercury@2.1.0
+  - metall@0.21
+  - mfem@4.4.0
+  - mpark-variant@1.4.0
+  - mpifileutils@0.11.1 ~xattr
+  - nccmp@1.9.0.1
+  - nco@5.0.1
+  - netlib-scalapack@2.2.0
+  - omega-h@9.34.1
+  - papyrus@1.0.2
+  - parallel-netcdf@1.12.2
+  - parsec@3.0.2012 ~cuda
+  - petsc@3.17.4
+  - plasma@21.8.29
+  - plumed@2.8.0
+  - precice@2.5.0
+  - pumi@2.2.7
+  - py-jupyterhub@1.4.1
+  - qthreads@1.16 scheduler=distrib
+  - scr@3.0
+  - slepc@3.17.2
+  - stc@0.9.0
+  - strumpack@6.3.1 ~slate
+  - sundials@6.2.0
+  - superlu@5.3.0
+  - superlu-dist@7.2.0
+  - swig@4.0.2
+  - swig@4.0.2-fortran
+  - sz@2.1.12.2
+  - tau@2.31.1 +mpi +python ~pdt %oneapi ^binutils%gcc ^papi%gcc
+  - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+    +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+    +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+    +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+  - turbine@1.3.0 ^mpich
+  - umap@2.1.0
+  - umpire@2022.03.1
+  - upcxx@2022.3.0
+  - veloc@1.5
+  - vtk-m@1.8.0 ~openmp # can't build +openmp w/ %oneapi: https://github.com/spack/spack/issues/31830
+  - wannier90@3.1.0
+  - zfp@0.5.5
+  - charliecloud@0.27
+  - tasmanian@7.7
+
+
+  
+  # GPU
+  - aml@0.2.0 +ze
+  - amrex@22.08 +sycl
+  - cabana@0.5.0 +sycl ^kokkos@3.6.00 +sycl +openmp std=17 +tests +examples
+  - kokkos@3.6.00 +sycl +openmp std=17 +tests +examples
+  - kokkos-kernels@3.6.00 build_type=Release ^kokkos@3.6.00 +sycl +openmp std=17 +tests
+    +examples
+  - tau@2.31.1 +mpi +opencl +level_zero ~pdt %oneapi ^binutils@2.38%gcc ^papi@6.0.0.1%gcc
