@@ -2,6 +2,14 @@
 #
 # build summary:
 #  61/104 cpu_specs build OK
+#
+# NOTE: the version specs, paths, and module names of the oneapi/dpcpp compilers
+# and mpich package have been removed to comply with a CNDA.
+# The corresponding information has been replaced with the following:
+#   *@<version>
+#   /PATH/TO/*
+#   *-MODULES
+# You can search for the above strings to find where replacement is needed.
 
 spack:
   view: false
@@ -84,28 +92,28 @@ spack:
       spec: oneapi@<version>
       paths:
         cc: /PATH/TO/icx
-        cxx: PATH/TO/icpx
-        f77: PATH/TO/ifx
-        fc: PATH/TO/ifx
+        cxx: /PATH/TO/icpx
+        f77: /PATH/TO/ifx
+        fc: /PATH/TO/ifx
       flags: {}
       operating_system: opensuse_leap15
       target: x86_64
       modules:
-      - oneapi/<version>
+      - ONEAPI-MODULES
       environment: {}
       extra_rpaths: []
   - compiler:
       spec: dpcpp@<version>
       paths:
         cc: /PATH/TO/icx
-        cxx: PATH/TO/dpcpp
-        f77: PATH/TO/ifx
-        fc: PATH/TO/ifx
+        cxx: /PATH/TO/dpcpp
+        f77: /PATH/TO/ifx
+        fc: /PATH/TO/ifx
       flags: {}
       operating_system: opensuse_leap15
       target: x86_64
       modules:
-      - oneapi/<version>
+      - ONEAPI-MODULES
       environment: {}
       extra_rpaths: []
   packages:
@@ -136,9 +144,9 @@ spack:
       buildable: false
       externals:
       - spec: mpich@4.0a2~hydra device=ch4
-        prefix: PATH/TO/MPICH
+        prefix: /PATH/TO/MPICH
         modules:
-        - mpi/aurora_mpich/<version>
+        - MPICH-MODULES
     ncurses:
       variants: +termlib
     openblas:

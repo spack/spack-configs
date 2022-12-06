@@ -1,3 +1,11 @@
+# NOTE: the version specs, paths, and module names of the oneapi/dpcpp compilers
+# and mpich package have been removed to comply with a CNDA.
+# The corresponding information has been replaced with the following:
+#   *@<version>
+#   /PATH/TO/*
+#   *-MODULES
+# You can search for the above strings to find where replacement is needed.
+
 spack:
   view: false
   concretizer:

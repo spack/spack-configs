@@ -1,5 +1,13 @@
 # spack/e4s-22.05
 # Sun May 15 06:59:11 2022 -0400
+#
+# NOTE: the version specs, paths, and module names of the oneapi/dpcpp compilers
+# and mpich package have been removed to comply with a CNDA.
+# The corresponding information has been replaced with the following:
+#   *@<version>
+#   /PATH/TO/*
+#   *-MODULES
+# You can search for the above strings to find where replacement is needed.
 
 spack:
   view: false
@@ -42,7 +50,7 @@ spack:
         - DPCPP-MODULES
       environment:
         prepend_path:
-          LD_LIBRARY_PATH: ONEAPI_ROOT/linux/compiler/lib/intel64_lin:/soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libfabric-1.14.0-hp2bsvalxnpwh364mev25uz7ctjnyg6r/lib
+          LD_LIBRARY_PATH: /PATH/TO/ONEAPI/linux/compiler/lib/intel64_lin:/soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libfabric-1.14.0-hp2bsvalxnpwh364mev25uz7ctjnyg6r/lib
       extra_rpaths:
       - /soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libfabric-1.14.0-hp2bsvalxnpwh364mev25uz7ctjnyg6r/lib
   - compiler:
@@ -59,7 +67,7 @@ spack:
         - ONEAPI-MODULES
       environment:
         prepend_path:
-          LD_LIBRARY_PATH: ONEAPI_ROOT/linux/compiler/lib/intel64_lin:/soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libfabric-1.14.0-hp2bsvalxnpwh364mev25uz7ctjnyg6r/lib
+          LD_LIBRARY_PATH: /PATH/TO/ONEAPI/linux/compiler/lib/intel64_lin:/soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libfabric-1.14.0-hp2bsvalxnpwh364mev25uz7ctjnyg6r/lib
       extra_rpaths:
       - /soft/packaging/spack-builds/linux-opensuse_leap15-x86_64/gcc-10.2.0/libfabric-1.14.0-hp2bsvalxnpwh364mev25uz7ctjnyg6r/lib
   - compiler:
