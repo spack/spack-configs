@@ -2,11 +2,10 @@
 set -e
 
 ##############################################################################################
-# # This script will setup Spack on ParallelCluster compute nodes                            #
+# # This script will configure Spack on ParallelCluster compute nodes                        #
 # # Use as postinstall in AWS ParallelCluster (https://docs.aws.amazon.com/parallelcluster/) #
+# # via SlurmQueues:[n]:CustomActions:OnNodeConfigured:Script                                #
 ##############################################################################################
-
-# TODO: Once https://github.com/archspec/archspec-json/pull/57 makes it into Spack we need to rename: graviton2 -> neoverse_n1, graviton3 -> neoverse_v1
 
 # Install onto first shared storage device
 cluster_config="/opt/parallelcluster/shared/cluster-config.yaml"

@@ -4,6 +4,7 @@ set -e
 ##############################################################################################
 # # This script will setup Spack and best practices for a few applications.                  #
 # # Use as postinstall in AWS ParallelCluster (https://docs.aws.amazon.com/parallelcluster/) #
+# # via HeadNode:CustomActions:OnNodeConfigured:Script                                       #
 ##############################################################################################
 
 # TODO: Once https://github.com/archspec/archspec-json/pull/57 makes it into Spack we need to rename: graviton2 -> neoverse_n1, graviton3 -> neoverse_v1
