@@ -5,7 +5,7 @@ packages:
     variants: +external-libfabric
   gcc:
     require:
-    - one_of: ["gcc %gcc +binutils target=x86_64_v3"]
+    - one_of: ["gcc@11 %gcc +binutils target=x86_64_v3"]
   intel-oneapi-compilers:
     require:
     - one_of: ["intel-oneapi-compilers %gcc target=x86_64_v3"]
@@ -56,7 +56,7 @@ packages:
       ipp: [intel-oneapi-ipp, intel-ipp]
       lapack: [intel-oneapi-mkl, intel-mkl]
       mkl: [intel-oneapi-mkl, intel-mkl]
-      mpi: [intel-mpi, intel-oneapi-mpi, openmpi]
+      mpi: [intel-oneapi-mpi, intel-mpi, openmpi]
       tbb: [intel-oneapi-tbb, intel-tbb]
       scalapack: [intel-oneapi-mkl, intel-mkl]
     permissions:

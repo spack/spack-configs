@@ -5,7 +5,7 @@ packages:
     variants: +external-libfabric
   gcc:
     require:
-    - one_of: ["gcc %gcc target=x86_64_v3"]
+    - one_of: ["gcc@11 %gcc target=x86_64_v3"]
   intel-oneapi-compilers:
     require:
     - one_of: ["intel-oneapi-compilers %gcc target=x86_64_v3"]
