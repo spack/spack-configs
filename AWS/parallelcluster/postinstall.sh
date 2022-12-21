@@ -40,6 +40,13 @@ with open("${cluster_config}", 'r') as s:
     print(yaml.safe_load(s)["SharedStorage"][0]["MountDir"])
 EOF
                        )
+    scheduler=$(python << EOF
+#/usr/bin/env python
+import yaml
+with open("${cluster_config}", 'r') as s:
+    print(yaml.safe_load(s)["Scheduling"]["Scheduler"])
+EOF
+                )
 } || . /etc/parallelcluster/cfnconfig || {
     echo "Cannot find ParallelCluster configs"
     echo "Installing Spack into /shared/spack for ec2-user."
@@ -130,8 +137,18 @@ setup_spack() {
     # Load spack at login
     if [ -z "${SPACK_ROOT}" ]
     then
-        echo ". ${install_path}/share/spack/setup-env.sh" > /etc/profile.d/spack.sh
-        echo ". ${install_path}/share/spack/setup-env.csh" > /etc/profile.d/spack.csh
+        case "${scheduler}" in
+            slurm)
+                echo -e "\n# Spack setup from Github repo spack-configs" >> /opt/slurm/etc/slurm.sh
+                echo -e "\n# Spack setup from Github repo spack-configs" >> /opt/slurm/etc/slurm.csh
+                echo ". ${install_path}/share/spack/setup-env.sh &>/dev/null || true" >> /opt/slurm/etc/slurm.sh
+                echo ". ${install_path}/share/spack/setup-env.csh &>/dev/null || true" >> /opt/slurm/etc/slurm.csh
+                ;;
+            *)
+                echo "WARNING: Spack will need to be loaded manually when ssh-ing to compute instances."
+                echo ". ${install_path}/share/spack/setup-env.sh" > /etc/profile.d/spack.sh
+                echo ". ${install_path}/share/spack/setup-env.csh" > /etc/profile.d/spack.csh
+        esac
     fi
 
     . "${install_path}/share/spack/setup-env.sh"
