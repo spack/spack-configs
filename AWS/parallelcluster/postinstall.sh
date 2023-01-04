@@ -162,7 +162,7 @@ setup_spack() {
 }
 
 install_packages() {
-    . /etc/profile.d/spack.sh
+    . /opt/slurm/etc/slurm.sh || . /etc/profile.d/spack.sh
 
     # Compiler needed for all kinds of codes. It makes no sense not to install it.
     # Get gcc from buildcache
