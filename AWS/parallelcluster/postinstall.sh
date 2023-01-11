@@ -108,6 +108,9 @@ download_packages_yaml() {
             fi
             download_packages_yaml "${target}"
         done
+    else
+        # Exit "for target in ..." loop.
+        break
     fi
 }
 
