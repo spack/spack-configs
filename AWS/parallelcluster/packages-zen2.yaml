@@ -53,7 +53,7 @@ packages:
       ipp: [intel-oneapi-ipp, intel-ipp]
       lapack: [intel-oneapi-mkl, intel-mkl]
       mkl: [intel-oneapi-mkl, intel-mkl]
-      mpi: [intel-oneapi-mpi, intel-mpi, openmpi]
+      mpi: [intel-oneapi-mpi, openmpi]
       tbb: [intel-oneapi-tbb, intel-tbb]
       scalapack: [intel-oneapi-mkl, intel-mkl]
     permissions:

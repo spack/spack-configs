@@ -28,13 +28,13 @@ packages:
     buildable: False
   gromacs:
     require:
-    - one_of: ["gromacs@2020.1 +lapack+blas %intel ^intel-mpi ^intel-oneapi-mkl"]
+    - one_of: ["gromacs@2020.1 +lapack+blas %intel ^intel-oneapi-mpi ^intel-oneapi-mkl"]
   quantum-espresso:
     require:
     - one_of: ["quantum-espresso@6.6 %intel ^intel-mkl ^intel-oneapi-mpi"]
   openfoam:
     require:
-    - one_of: ["openfoam@2006_220610 cxxflags='-march=sandybridge' %intel ^scotch@6.0.9 ^intel-mpi"]
+    - one_of: ["openfoam@2006_220610 cxxflags='-march=sandybridge' %intel ^scotch@6.0.9 ^intel-oneapi-mpi"]
   wrf:
     require:
     - one_of: ["wrf@4 build_type=dm+sm %intel ^intel-oneapi-mpi"]
@@ -56,7 +56,7 @@ packages:
       ipp: [intel-oneapi-ipp, intel-ipp]
       lapack: [intel-oneapi-mkl, intel-mkl]
       mkl: [intel-oneapi-mkl, intel-mkl]
-      mpi: [intel-oneapi-mpi, intel-mpi, openmpi]
+      mpi: [intel-oneapi-mpi, openmpi]
       tbb: [intel-oneapi-tbb, intel-tbb]
       scalapack: [intel-oneapi-mkl, intel-mkl]
     permissions:
