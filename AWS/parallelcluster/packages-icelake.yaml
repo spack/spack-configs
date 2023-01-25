@@ -1,54 +1,54 @@
+---  # Icelake packages
 packages:
-  intel-oneapi-mpi:
-    variants: +external-libfabric generic-names=True
-  intel-mpi:
-    variants: +external-libfabric
   gcc:
     require:
-    - one_of: ["gcc@11 %gcc +binutils target=x86_64_v3"]
-  intel-oneapi-compilers:
-    require:
-    - one_of: ["intel-oneapi-compilers %gcc target=x86_64_v3"]
-  intel-parallel-studio:
-    require:
-    - one_of: ["target=x86_64_v3"]
-    compiler: [intel]
-  openmpi:
-    variants: ~atomics ~cuda ~cxx ~cxx_exceptions ~internal-hwloc ~java +legacylaunchers ~lustre ~memchecker +pmi +romio ~singularity +vt +wrapper-rpath fabrics=ofi schedulers=slurm
-  libfabric:
-    externals:
-    - spec: libfabric@${LIBFABRIC_VERSION} fabrics=efa
-      modules:
-      - ${LIBFABRIC_MODULE}
-    buildable: False
-  slurm:
-    externals:
-    - spec: slurm@${SLURM_VERSION} +pmix
-      prefix: /opt/slurm/
-    buildable: False
+      - one_of: ["gcc@11 %gcc +binutils target=x86_64_v3"]
   gromacs:
     require:
-    - one_of: ["gromacs@2020.1 +lapack+blas %intel ^intel-oneapi-mpi ^intel-oneapi-mkl"]
-  quantum-espresso:
+      - one_of: ["gromacs@2020.1 +lapack+blas %intel ^intel-oneapi-mpi ^intel-oneapi-mkl"]
+  intel-mpi:
+    variants: +external-libfabric
+  intel-oneapi-compilers:
     require:
-    - one_of: ["quantum-espresso@6.6 %intel ^intel-mkl ^intel-oneapi-mpi"]
-  openfoam:
-    require:
-    - one_of: ["openfoam@2006_220610 cxxflags='-march=sandybridge' %intel ^scotch@6.0.9 ^intel-oneapi-mpi"]
-  wrf:
-    require:
-    - one_of: ["wrf@4 build_type=dm+sm %intel ^intel-oneapi-mpi"]
+      - one_of: ["intel-oneapi-compilers %gcc target=x86_64_v3"]
+  intel-oneapi-mpi:
+    variants: +external-libfabric generic-names=True
   lammps:
     require:
-    - one_of: ["lammps@develop lammps_sizes=bigbig +molecule +kspace +rigid +asphere +opt +openmp +openmp-package +intel %intel ^intel-oneapi-mpi ^intel-oneapi-mkl"]
+      - one_of: ["lammps@develop lammps_sizes=bigbig +molecule +kspace +rigid +asphere +opt +openmp +openmp-package +intel %intel ^intel-oneapi-mpi ^intel-oneapi-mkl"]
+  libfabric:
+    buildable: false
+    externals:
+      - modules:
+          - ${LIBFABRIC_MODULE}
+        spec: libfabric@${LIBFABRIC_VERSION} fabrics=efa
   mpas-model:
     require:
-    - one_of: ["precision=single %intel ^parallelio+pnetcdf ^intel-oneapi-mpi"]
+      - one_of: ["precision=single %intel ^parallelio+pnetcdf ^intel-oneapi-mpi"]
+  openfoam:
+    require:
+      - one_of: ["openfoam %gcc ^scotch@6.0.9 ^intel-oneapi-mpi"]
+  openmpi:
+    variants: ~atomics ~cuda ~cxx ~cxx_exceptions ~internal-hwloc ~java +legacylaunchers ~lustre ~memchecker +pmi +romio ~singularity +vt +wrapper-rpath fabrics=ofi schedulers=slurm
   py-devito:
     require:
-    - one_of: ["+mpi %intel ^intel-oneapi-mpi ^py-scipy%gcc"]
+      - one_of: ["+mpi %intel ^intel-oneapi-mpi"]
+  quantum-espresso:
+    require:
+      - one_of: ["quantum-espresso@6.6 %intel ^intel-mkl ^intel-oneapi-mpi"]
+  slurm:
+    buildable: false
+    externals:
+      - prefix: /opt/slurm/
+        spec: slurm@${SLURM_VERSION} +pmix
+  wrf:
+    require:
+      - one_of: ["wrf@4 build_type=dm+sm %intel ^intel-oneapi-mpi"]
   all:
     compiler: [intel, gcc, clang]
+    permissions:
+      read: world
+      write: user
     providers:
       blas: [intel-oneapi-mkl, intel-mkl]
       daal: [intel-oneapi-dal, intel-daal]
@@ -59,6 +59,3 @@ packages:
       mpi: [intel-oneapi-mpi, openmpi]
       tbb: [intel-oneapi-tbb, intel-tbb]
       scalapack: [intel-oneapi-mkl, intel-mkl]
-    permissions:
-      read: world
-      write: user

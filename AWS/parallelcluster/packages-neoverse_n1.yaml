@@ -1,32 +1,43 @@
-
+---  # Neoverse N1 packages
 packages:
-  libfabric:
-    externals:
-    - spec: libfabric@${LIBFABRIC_VERSION} fabrics=efa
-      modules:
-      - ${LIBFABRIC_MODULE}
-    buildable: False
-  slurm:
-    externals:
-    - spec: slurm@${SLURM_VERSION} +pmix
-      prefix: /opt/slurm/
-    buildable: False
+  acfl:
+    target: [aarch64]
+    compiler: [gcc]
   gcc:
-     target: [aarch64]
-     compiler: [gcc]
-     require:
-     - one_of: ["+binutils"]
-  arm:
-    target: [aarch64]
     compiler: [gcc]
-  nvhpc:
+    require:
+      - one_of: ["+binutils"]
     target: [aarch64]
-    compiler: [gcc]
-  llvm:
-    variants: ~lldb
   gromacs:
     require:
-    - one_of: ["gromacs@2021.3 %gcc ^fftw^openmpi"]
+      - one_of: ["gromacs@2021.3 %gcc ^fftw^openmpi"]
+  libfabric:
+    buildable: false
+    externals:
+      - modules:
+          - ${LIBFABRIC_MODULE}
+        spec: libfabric@${LIBFABRIC_VERSION} fabrics=efa
+  llvm:
+    variants: ~lldb
+  nvhpc:
+    compiler: [gcc]
+    target: [aarch64]
+  openfoam:
+    require:
+      - one_of: ["openfoam %gcc ^scotch@6.0.9"]
+  openmpi:
+    variants: ~atomics ~cuda ~cxx ~cxx_exceptions ~internal-hwloc ~java +legacylaunchers ~lustre ~memchecker +pmi +romio ~singularity +vt +wrapper-rpath fabrics=ofi schedulers=slurm
+  py-devito:
+    require:
+      - one_of: ["py-devito %gcc +mpi"]
+  quantum-espresso:
+    require:
+      - one_of: ["quantum-espresso@6.6 %gcc ^armpl-gcc"]
+  slurm:
+    buildable: false
+    externals:
+      - prefix: /opt/slurm/
+        spec: slurm@${SLURM_VERSION} +pmix
   all:
     compiler: [nvhpc, gcc, clang]
     providers:
