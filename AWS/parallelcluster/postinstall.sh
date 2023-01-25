@@ -6,8 +6,6 @@ set -e
 # # Use as postinstall in AWS ParallelCluster (https://docs.aws.amazon.com/parallelcluster/) #
 ##############################################################################################
 
-# TODO: Once https://github.com/archspec/archspec-json/pull/57 makes it into Spack we need to rename: graviton2 -> neoverse_n1, graviton3 -> neoverse_v1
-
 # Install onto first shared storage device
 cluster_config="/opt/parallelcluster/shared/cluster-config.yaml"
 [ -f "${cluster_config}" ] && {
@@ -55,7 +53,12 @@ EOF
 }
 
 install_path=${SPACK_ROOT:-"${cfn_ebs_shared_dirs}/spack"}
-spack_branch="develop"
+# For now we use specific commits as markers as the last release is too old and
+# develop changes too fast.
+# spack_branch="develop"
+# Commit from Thu Jan 19 16:01:31 2023 +0100
+spack_commit="45ea7c19e5"
+
 scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 major_version() {
@@ -78,7 +81,14 @@ download_spack() {
     if [ -z "${SPACK_ROOT}" ]
     then
         [ -d ${install_path} ] || \
-            git clone https://github.com/spack/spack -b ${spack_branch} ${install_path}
+            if [ -n "${spack_branch}" ]
+            then
+                git clone https://github.com/spack/spack -b ${spack_branch} ${install_path}
+            elif [ -n "${spack_commit}" ]
+            then
+                git clone https://github.com/spack/spack ${install_path}
+                cd ${install_path} && git checkout ${spack_commit}
+            fi
     fi
 }
 
