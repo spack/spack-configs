@@ -1,7 +1,11 @@
 config:
-  install_tree: /spack/apps
-  module_roots:
-    lmod: /spack/apps/lmod
-  build_stage: /build
+  install_tree:
+    root: /spack/2206/apps
+  install_hash_length: 7
+  template_dirs:
+    - /spack/local/templates
+  build_stage: /build/spack/2206/stage
+  test_stage: /build/spack/2206/test
+  source_cache: /build/spack/2206/source_cache
+  misc_cache: /build/spack/2206/misc_cache
   build_jobs: 8
-  checksum: true
