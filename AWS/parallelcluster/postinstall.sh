@@ -69,13 +69,12 @@ major_version() {
 # Make first user owner of Spack installation when script exits.
 fix_owner() {
     rc=$?
-    if [ -z "${SPACK_ROOT}" ]
+    if [ ${downloaded} -eq 0 ]
     then
         chown -R ${cfn_cluster_user}:${cfn_cluster_user} "${install_path}"
     fi
     exit $rc
 }
-trap "fix_owner" SIGINT EXIT
 
 download_spack() {
     if [ -z "${SPACK_ROOT}" ]
@@ -89,6 +88,10 @@ download_spack() {
                 git clone https://github.com/spack/spack ${install_path}
                 cd ${install_path} && git checkout ${spack_commit}
             fi
+        return 0
+    else
+        # Let the script know we did not download spack, so the owner will not be fixed on exit.
+        return 1
     fi
 }
 
@@ -189,16 +192,13 @@ install_packages() {
     then
         # Add oneapi@latest & intel@latest
         spack install intel-oneapi-compilers-classic
-        (
-            . "$(spack location -i intel-oneapi-compilers)/setvars.sh"
-            spack compiler add --scope site
-        )
+        bash -c ". "$(spack location -i intel-oneapi-compilers)/setvars.sh"; spack compiler add --scope site"
     fi
 
     # Install any specs provided to the script.
     for spec in "$@"
     do
-        spack install -U "${spec}"
+        [ -z "${spec}" ] || spack install -U "${spec}"
     done
 }
 
@@ -207,7 +207,13 @@ if [ "3" != "$(major_version)" ]; then
     exit 1
 fi
 
-download_spack |& tee -a /var/log/spack-postinstall.log
-set_pcluster_defaults |& tee -a /var/log/spack-postinstall.log
-setup_spack |& tee -a /var/log/spack-postinstall.log
-install_packages "$@" |& tee -a /var/log/spack-postinstall.log
+(
+    trap "fix_owner" SIGINT EXIT
+    download_spack &> /var/log/spack-postinstall.log | true
+    downloaded=${PIPESTATUS[0]}
+    set_pcluster_defaults &>> /var/log/spack-postinstall.log
+    setup_spack &>> /var/log/spack-postinstall.log
+    install_packages "$@" &>> /var/log/spack-postinstall.log
+    echo "*** Spack setup completed ***" >> /var/log/spack-postinstall.log
+) &
+disown
