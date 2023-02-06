@@ -6,60 +6,62 @@ set -e
 # # Use as postinstall in AWS ParallelCluster (https://docs.aws.amazon.com/parallelcluster/) #
 ##############################################################################################
 
-# Install onto first shared storage device
-cluster_config="/opt/parallelcluster/shared/cluster-config.yaml"
-[ -f "${cluster_config}" ] && {
-    os=$(python << EOF
+setup_variables() {
+    # Install onto first shared storage device
+    cluster_config="/opt/parallelcluster/shared/cluster-config.yaml"
+    [ -f "${cluster_config}" ] && {
+        os=$(python << EOF
 #/usr/bin/env python
 import yaml
 with open("${cluster_config}", 'r') as s:
     print(yaml.safe_load(s)["Image"]["Os"])
 EOF
-      )
+          )
 
-    case "${os}" in
-        alinux*)
-            cfn_cluster_user="ec2-user"
-            ;;
-        centos*)
-            cfn_cluster_user="centos"
-            ;;
-        ubuntu*)
-            cfn_cluster_user="ubuntu"
-            ;;
-        *)
-            cfn_cluster_user=""
-    esac
+        case "${os}" in
+            alinux*)
+                cfn_cluster_user="ec2-user"
+                ;;
+            centos*)
+                cfn_cluster_user="centos"
+                ;;
+            ubuntu*)
+                cfn_cluster_user="ubuntu"
+                ;;
+            *)
+                cfn_cluster_user=""
+        esac
 
-    cfn_ebs_shared_dirs=$(python << EOF
+        cfn_ebs_shared_dirs=$(python << EOF
 #/usr/bin/env python
 import yaml
 with open("${cluster_config}", 'r') as s:
     print(yaml.safe_load(s)["SharedStorage"][0]["MountDir"])
 EOF
-                       )
-    scheduler=$(python << EOF
+                           )
+        scheduler=$(python << EOF
 #/usr/bin/env python
 import yaml
 with open("${cluster_config}", 'r') as s:
     print(yaml.safe_load(s)["Scheduling"]["Scheduler"])
 EOF
-                )
-} || . /etc/parallelcluster/cfnconfig || {
-    echo "Cannot find ParallelCluster configs"
-    echo "Installing Spack into /shared/spack for ec2-user."
-    cfn_ebs_shared_dirs="/shared"
-    cfn_cluster_user="ec2-user"
+                 )
+    } || . /etc/parallelcluster/cfnconfig || {
+            echo "Cannot find ParallelCluster configs"
+            echo "Installing Spack into /shared/spack for ec2-user."
+            cfn_ebs_shared_dirs="/shared"
+            cfn_cluster_user="ec2-user"
+        }
+
+    install_path=${SPACK_ROOT:-"${cfn_ebs_shared_dirs}/spack"}
+    # For now we use specific commits as markers as the last release is too old and
+    # develop changes too fast.
+    # spack_branch="develop"
+    # Commit from Thu Jan 19 16:01:31 2023 +0100
+    spack_commit="45ea7c19e5"
+
+    scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 }
-
-install_path=${SPACK_ROOT:-"${cfn_ebs_shared_dirs}/spack"}
-# For now we use specific commits as markers as the last release is too old and
-# develop changes too fast.
-# spack_branch="develop"
-# Commit from Thu Jan 19 16:01:31 2023 +0100
-spack_commit="45ea7c19e5"
-
-scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 major_version() {
     pcluster_version=$(grep -oE '[0-9]*\.[0-9]*\.[0-9]*' /opt/parallelcluster/.bootstrapped)
@@ -207,13 +209,18 @@ if [ "3" != "$(major_version)" ]; then
     exit 1
 fi
 
-(
-    trap "fix_owner" SIGINT EXIT
-    download_spack &> /var/log/spack-postinstall.log | true
-    downloaded=${PIPESTATUS[0]}
-    set_pcluster_defaults &>> /var/log/spack-postinstall.log
-    setup_spack &>> /var/log/spack-postinstall.log
-    install_packages "$@" &>> /var/log/spack-postinstall.log
-    echo "*** Spack setup completed ***" >> /var/log/spack-postinstall.log
-) &
-disown
+tmpfile=$(mktemp)
+echo "$(declare -pf)
+    trap \"fix_owner\" SIGINT EXIT
+    setup_variables
+    download_spack | true
+    downloaded=\${PIPESTATUS[0]}
+    set_pcluster_defaults
+    setup_spack
+    install_packages \"$@\"
+    echo \"*** Spack setup completed ***\"
+    rm -f ${tmpfile}
+" > ${tmpfile}
+
+nohup bash ${tmpfile} &> /var/log/spack-postinstall.log &
+disown -a
