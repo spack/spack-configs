@@ -1,0 +1,73 @@
+spack:
+  view:
+    default:
+      root: views/default
+      select: ['%gcc']      
+      link_type: symlink
+      link: roots
+      projections:
+        all: '{name}/{version}-{compiler.name}-{compiler.version}'
+  include:
+    - /global/common/software/spackecp/perlmutter/spack_settings/compilers.yaml
+    - /global/common/software/spackecp/perlmutter/spack_settings/packages.yaml
+  config:
+    concretization: separately
+    build_stage: $spack/var/spack/stage
+    misc_cache: $spack/var/spack/misc_cache
+    concretizer: clingo
+    install_tree:
+      padded_length: 128
+  concretizer:
+    reuse: false
+  cdash:
+    build-group: DOE nightly E4S builds
+    url: https://cdash.spack.io
+    project: Spack
+    site: NERSC - Perlmutter E4S-22.05 
+  mirrors:       
+    perlmutter-e4s-22.05: file:///global/common/software/spackecp/mirrors/perlmutter-e4s-22.05
+    source_mirror: file:///global/cfs/cdirs/m3503/mirrors/source_mirror    
+  gitlab-ci:
+    enable-artifacts-buildcache: false
+    rebuild-index: true
+    before_script:
+    - module reset
+    - module use /global/common/software/nersc/$(cat /etc/nersc_modules_rev)/extra_modulefiles
+    - module load cpu
+    - module load cray-pmi
+    - module list
+    - source setup-env.sh
+    - git clone --depth=10 -b e4s-22.05 $SPACK_REPO     
+    - . spack/share/spack/setup-env.sh
+    - which spack
+    - spack --version
+    - spack-python --path    
+    script:
+    - cd ${SPACK_CONCRETE_ENV_DIR} 
+    - spack env activate --without-view . 
+    - spack env st
+    - export SPACK_GNUPGHOME=$HOME/.gnupg
+    - spack gpg list
+    - spack -d ci rebuild
+    service-job-attributes:
+      tags: [perlmutter-e4s]
+      before_script:
+        - git clone --depth=10 -b e4s-22.05 $SPACK_REPO
+        - . spack/share/spack/setup-env.sh        
+        - spack --version
+        - ls -l /global/common/software/spackecp/mirrors/perlmutter-e4s-22.05/build_cache/_pgp
+      script:
+      - echo "End Pipeline"
+    mappings:
+    - match: [os=sles15]
+      runner-attributes:
+        tags: [perlmutter-e4s]
+  specs:
+  - $nersc_specs
+  - $utilities
+  - matrix:
+    - [$gcc_specs]
+    - [$gcc_compilers]
+  - matrix:
+    - - py-libensemble@0.9.1 ^py-numpy ~blas ~lapack
+    - ['%gcc@10.3.0']
