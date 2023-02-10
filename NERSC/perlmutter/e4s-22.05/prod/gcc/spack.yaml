@@ -1,0 +1,31 @@
+spack:
+  view:
+    default:
+      root: $spack/var/spack/environments/gcc/views/default
+      select: ['%gcc']
+      exclude: ['py-warpx']
+      link_type: symlink
+      link: roots
+      projections:
+        all: '{name}/{version}-{compiler.name}-{compiler.version}'
+  include:
+    - /global/common/software/spackecp/perlmutter/spack_settings/compilers.yaml
+    - /global/common/software/spackecp/perlmutter/spack_settings/packages.yaml
+  config:
+    concretization: separately
+    build_stage: $spack/var/spack/stage
+    misc_cache: $spack/var/spack/misc_cache
+    concretizer: clingo
+    install_tree: $spack/opt/spack
+  mirrors:
+    perlmutter-e4s-22.05: file:///global/common/software/spackecp/mirrors/perlmutter-e4s-22.05
+    source_mirror: file:///global/cfs/cdirs/m3503/mirrors/source_mirror  
+  specs:
+  - $nersc_specs
+  - $utilities  
+  - matrix:
+    - [$gcc_specs]
+    - [$gcc_compilers]
+  - matrix:
+    - - py-libensemble@0.9.1 ^py-numpy ~blas ~lapack
+    - ['%gcc@10.3.0']

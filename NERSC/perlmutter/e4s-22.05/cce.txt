@@ -1,0 +1,73 @@
+$ spack find --format "{name},{version},{compiler.name}@{compiler.version},{variants},{arch},{hash}"
+adios2,2.8.0,cce@15.0.0,+blosc+bzip2~cuda~dataman~dataspaces+fortran~hdf5~ipo+mpi+pic+png~python+shared+ssc+sst+sz+zfp build_type=Release,cray-sles15-zen3,75i5mf3hgsgog7zmcjhqi4fosyxtkbba
+bzip2,1.0.6,cce@15.0.0,~debug~pic+shared,cray-sles15-zen3,zkklztudhqampz36lanmtg5qvtndc6eh
+bzip2,1.0.6,gcc@11.2.0,~debug~pic+shared,cray-sles15-zen3,4g7s6qpmt2nsclyi2d2ndfek2ptey4m6
+c-blosc,1.21.1,gcc@11.2.0,+avx2~ipo build_type=RelWithDebInfo,cray-sles15-zen3,s7bxzenk3vmjzypxybcnerqytnk6z3ce
+cmake,3.23.1,cce@15.0.0,~doc+ncurses~ownlibs~qt build_type=Release,cray-sles15-zen3,lseuqioxybhjbp44q2tsfhe5ziqls76n
+cmake,3.23.1,cce@15.0.0,~doc+ncurses~ownlibs~qt build_type=Release,cray-sles15-zen3,mnjeaifk34ybqd63gyqprt5orx5ewhmt
+cmake,3.23.1,gcc@11.2.0,~doc+ncurses~ownlibs~qt build_type=Release,cray-sles15-zen3,p23fzuowp4yuitemelic7f65nwybthxd
+cray-libsci,22.11.1.2,cce@15.0.0,~mpi~openmp+shared,cray-sles15-zen3,xeenefs2ishn4bxt5nwbhqx7j2nsmh6t
+cray-mpich,8.1.22,cce@15.0.0,+wrappers,cray-sles15-zen3,e3i7fdkx4kjrjl7bfegg4odokg7ikgnc
+cray-mpich,8.1.22,gcc@11.2.0,+wrappers,cray-sles15-zen3,6yvclv72nfvhlx2fj72n5npigrgouojd
+curl,7.66.0,cce@15.0.0,~gssapi~ldap~libidn2~librtmp~libssh~libssh2~nghttp2 libs=shared,static tls=openssl,cray-sles15-zen3,e3frmq5xu7ftbyzjtz7fog7okovsrjia
+curl,7.66.0,gcc@11.2.0,~gssapi~ldap~libidn2~librtmp~libssh~libssh2~nghttp2 libs=shared,static tls=openssl,cray-sles15-zen3,zkrv7nh3jglxsimtfzld7vo4mhdqlh3u
+diffutils,3.6,cce@15.0.0,,cray-sles15-zen3,2mjyzjvwxw3ytowqrtezhu4zmvvaqzah
+expat,2.4.8,cce@15.0.0,+libbsd,cray-sles15-zen3,ehz6aeugq4k6juvtg43invv32md3cmoq
+expat,2.4.8,gcc@11.2.0,+libbsd,cray-sles15-zen3,yvchkv23jw7po7meyuxckpre5uroipmd
+gdbm,1.23,gcc@11.2.0,,cray-sles15-zen3,f7gevssmysanfynqonrerija665ay27c
+gettext,0.21,gcc@11.2.0,+bzip2+curses+git~libunistring+libxml2+tar+xz,cray-sles15-zen3,pjzq2klpfiufwsmh37vxms5qtejphfdz
+hdf5,1.10.7,cce@15.0.0,~cxx+fortran+hl~ipo~java+mpi+shared~szip~threadsafe+tools api=v18 build_type=RelWithDebInfo patches=2a1e311,cray-sles15-zen3,2hv5uoqvrajxrydzh64ky555xmka5wvf
+hdf5,1.12.2,gcc@11.2.0,~cxx+fortran+hl~ipo~java+mpi+shared~szip~threadsafe+tools api=v18 build_type=RelWithDebInfo,cray-sles15-zen3,wt4acmpuyuagi5wmeetnlnblubrrn3cg
+hypre,2.24.0,cce@15.0.0,~complex~cuda~debug+fortran~gptune~int64~internal-superlu~mixedint+mpi+openmp~rocm+shared+superlu-dist~unified-memory,cray-sles15-zen3,ngi2ghhdr7eykf2bz4dn5stvjjyv6rus
+kokkos,3.6.00,cce@15.0.0,~aggressive_vectorization~compiler_warnings~cuda~cuda_constexpr~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning~wrapper build_type=RelWithDebInfo std=14,cray-sles15-zen3,qvebczjetejndgko27jzazynohbpwcxf
+kokkos-kernels,3.6.00,cce@15.0.0,~blas~cblas~cublas~cuda~cusparse~ipo~lapack~lapacke~mkl+openmp~pthread~serial+shared~superlu build_type=RelWithDebInfo execspace_cuda=auto execspace_openmp=auto execspace_serial=auto execspace_threads=auto layouts=left memspace_cudaspace=auto memspace_cudauvmspace=auto offsets=int,size_t ordinals=int scalars=double,cray-sles15-zen3,aclkqoyapk7guookekbwn5o3yqdruu5z
+libarchive,3.5.2,cce@15.0.0,+iconv compression=bz2lib,lz4,lzma,lzo2,zlib crypto=mbedtls libs=shared,static programs=none xar=expat,cray-sles15-zen3,yf4f7i5slwtr5lc3qlgzb2z4oftghync
+libarchive,3.5.2,cce@15.0.0,+iconv compression=bz2lib,lz4,lzma,lzo2,zlib,zstd crypto=mbedtls libs=shared,static programs=none xar=expat,cray-sles15-zen3,2zpbznpepss2ahgarghcojh26malxhlj
+libarchive,3.5.2,gcc@11.2.0,+iconv compression=bz2lib,lz4,lzma,lzo2,zlib,zstd crypto=mbedtls libs=shared,static programs=none xar=expat,cray-sles15-zen3,d4gpdx2rxj4calconu7cd6kgq2ev5roe
+libbsd,0.11.5,cce@15.0.0,,cray-sles15-zen3,lu52rr5zxenvgmge2aylmwakruxq6x6k
+libbsd,0.11.5,gcc@11.2.0,,cray-sles15-zen3,uomjj7io3hhggbfyzofrw5jpw5chlv74
+libfabric,1.15.2.0,cce@15.0.0,~debug~kdreg fabrics=rxm,sockets,tcp,udp,cray-sles15-zen3,w26cggcp352wlimqjm3h5477szj7cpe6
+libffi,3.4.2,cce@15.0.0,,cray-sles15-zen3,iipxyr6l4mchav5cgmtqeoigi3vpuol6
+libffi,3.4.2,gcc@11.2.0,,cray-sles15-zen3,nchqwcqfdkjbx6vjbc32n4qqoqu6mysf
+libiconv,1.16,cce@15.0.0, libs=shared,static,cray-sles15-zen3,dw3j4pojuidrg7spwcb4nqwc23hw3rz3
+libiconv,1.16,gcc@11.2.0, libs=shared,static,cray-sles15-zen3,3xwztgyaaco4thqqhacdst65mmnr5is3
+libmd,1.0.4,cce@15.0.0,,cray-sles15-zen3,p4t4462odiqwzpfiqcxwzfo64hvvjmfx
+libmd,1.0.4,gcc@11.2.0,,cray-sles15-zen3,iynqjjkz4jgtxagqy2o2tvspqfn3yvog
+libpng,1.6.37,gcc@11.2.0,,cray-sles15-zen3,yjyj2imgdsfdl2lcupogm2u2ykmfuuq6
+libuv,1.44.1,cce@15.0.0,,cray-sles15-zen3,kk2j24ajw522neuy7s4dtuzdit2p6y6f
+libuv,1.44.1,gcc@11.2.0,,cray-sles15-zen3,gitz4v6soymrlpymzvygqlqibktfsp7a
+libxml2,2.9.13,gcc@11.2.0,~python,cray-sles15-zen3,u2ai4xjq2lmljvej4p3ly7qd6hfbrz7h
+lz4,1.9.3,cce@15.0.0, libs=shared,static,cray-sles15-zen3,zb4uvsnuncbxsn7ozu2ftikzi6lwwuqm
+lz4,1.9.3,gcc@11.2.0, libs=shared,static,cray-sles15-zen3,xxbkaphnofa6gxugxszqr5kzew7chrqa
+lzo,2.10,cce@15.0.0, libs=shared,static,cray-sles15-zen3,pyuisfklvgnshoaz3bxz34elb46272ql
+lzo,2.10,gcc@11.2.0, libs=shared,static,cray-sles15-zen3,rlpwurcqberlfjlpk62go3arnneonv6u
+mbedtls,2.28.0,cce@15.0.0,+pic build_type=Release libs=static,cray-sles15-zen3,533hwpbggpk2hbc4qxacew44qivwcbr6
+mbedtls,2.28.0,gcc@11.2.0,+pic build_type=Release libs=static,cray-sles15-zen3,ucarxpp47pj7yo7abt5povg3swygev3q
+metis,5.1.0,cce@15.0.0,~gdb~int64~real64+shared build_type=Release patches=4991da9,cray-sles15-zen3,cm2cg2w3hqv4prved5gbcinkemwofbap
+ncurses,6.1,cce@15.0.0,~symlinks+termlib abi=none,cray-sles15-zen3,23qqsbkoe3occq276bjne4ukw5fwy4rv
+ncurses,6.1,gcc@11.2.0,~symlinks+termlib abi=none,cray-sles15-zen3,i6ri5efvxr243dakip6bk7n6b3qfruyb
+parmetis,4.0.3,cce@15.0.0,~gdb~int64~ipo+shared build_type=RelWithDebInfo patches=4f89253,50ed208,704b84f,cray-sles15-zen3,afm4vf4j2cqgo6mwxe2ptojdmzmuatng
+parmetis,4.0.3,cce@15.0.0,~gdb~int64~ipo+shared build_type=RelWithDebInfo patches=4f89253,50ed208,704b84f,cray-sles15-zen3,qaypcbjln4x57yzcx7dfl7r5cfitqowk
+petsc,3.17.1,cce@15.0.0,~X~batch~cgns~complex~cuda~debug+double~exodusii~fftw+fortran~giflib+hdf5~hpddm~hwloc+hypre~int64~jpeg~knl~kokkos~libpng~libyaml~memkind+metis~mkl-pardiso~mmg~moab~mpfr+mpi~mumps+openmp~p4est~parmmg~ptscotch~random123~rocm~saws~scalapack+shared~strumpack~suite-sparse+superlu-dist~tetgen~trilinos~valgrind clanguage=C,cray-sles15-zen3,f5232qky3u635rlk3hj42u36mrrgdofu
+pkgconf,1.8.0,cce@15.0.0,,cray-sles15-zen3,u5yavugbylo4k7ng2kxc5tbcuxsavb57
+pkgconf,1.8.0,gcc@11.2.0,,cray-sles15-zen3,nugfov2wsvpllczfy6ff7bytzt4oi34q
+python,3.9.12,gcc@11.2.0,+bz2+ctypes+dbm~debug+ensurepip+libxml2+lzma~nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3~ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93,4c24573,ebdca64,f2fd060,cray-sles15-zen3,utz2tidmwjgzwfjrwnqmry7gu2emz6fx
+readline,7.0,gcc@11.2.0,,cray-sles15-zen3,t4czt7sxfvzpcrxhzmyj32d4k3oxmiyl
+rhash,1.4.2,cce@15.0.0, patches=093518c,3fbfe46,cray-sles15-zen3,3ji5563vce7m3xarjb3gyied464rrsel
+rhash,1.4.2,gcc@11.2.0, patches=093518c,3fbfe46,cray-sles15-zen3,xjxbsefahiue4isqlzwcobgc7sgfhmqm
+snappy,1.1.8,gcc@11.2.0,~ipo+pic+shared build_type=RelWithDebInfo patches=c9cfecb,cray-sles15-zen3,l76efrheg62rogph5b6bs34ycugpnnbb
+sqlite,3.38.5,gcc@11.2.0,+column_metadata+dynamic_extensions+fts~functions+rtree,cray-sles15-zen3,tnklb7kfek3kdrwaa6v3bwcceeop6obs
+sundials,6.2.0,cce@15.0.0,+ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL~cuda+examples+examples-install~f2003~fcmix+generic-math~hypre~int64~ipo~klu~lapack~magma~monitoring+mpi~openmp~petsc~profiling~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~sycl~trilinos build_type=RelWithDebInfo cstd=99 cxxstd=14 logging-level=0 precision=double,cray-sles15-zen3,vigxlllf5xxfltizzaulcgdydwgkt7oz
+superlu,5.3.0,cce@15.0.0,~ipo+pic build_type=RelWithDebInfo,cray-sles15-zen3,x7icfwrkyjfegtt4vz2lc7sam2474tnu
+superlu-dist,7.2.0,cce@15.0.0,~cuda~int64~ipo+openmp~rocm+shared build_type=RelWithDebInfo patches=8da9e21,cray-sles15-zen3,etmehqx5qxgry4fsp7jwb3t6zgc3y5zy
+superlu-dist,7.2.0,cce@15.0.0,~cuda~int64~ipo+openmp~rocm+shared build_type=RelWithDebInfo patches=8da9e21,cray-sles15-zen3,5kwghlmijpwan266bppzofy2o5ucworz
+sz,2.1.12,gcc@11.2.0,~fortran~hdf5~ipo~netcdf~pastri~python~random_access+shared~stats~time_compression build_type=RelWithDebInfo,cray-sles15-zen3,6tgi6ujhrqygp6y3pc7wkz37z4jfbe23
+tar,1.30,gcc@11.2.0,,cray-sles15-zen3,tkqxg4rnjbtm54gpfbunisofyszab4mo
+util-linux-uuid,2.36.2,gcc@11.2.0,,cray-sles15-zen3,l2dprqwvoue5kudyuvq3jspfzhgwnqqe
+xz,5.2.5,cce@15.0.0,~pic libs=shared,static,cray-sles15-zen3,cbnaud7mcsnkfs53e7luyxlhjysk6gk5
+xz,5.2.5,gcc@11.2.0,~pic libs=shared,static,cray-sles15-zen3,tyswlp4epqidsxgtgxyefciqoz2ju6oe
+zfp,0.5.5,cce@15.0.0,~aligned~c~cuda~fasthash~fortran~ipo~openmp~profile~python+shared~strided~twoway bsws=64 build_type=RelWithDebInfo,cray-sles15-zen3,csdllveul2uuqawmg7jfusuqua3bfz7i
+zlib,1.2.12,cce@15.0.0,+optimize+pic+shared patches=0d38234,cray-sles15-zen3,hytkr3dys4nwiovsboot7gzhnckwpm3n
+zlib,1.2.12,gcc@11.2.0,+optimize+pic+shared patches=0d38234,cray-sles15-zen3,ozmcyfjfv7i5gjjgklfsh43h67vzsuc5
+zstd,1.5.2,cce@15.0.0,~programs libs=shared,static,cray-sles15-zen3,3skpogk2jiklfjjm6dltdcq6hek6nizb
+zstd,1.5.2,gcc@11.2.0,~programs libs=shared,static,cray-sles15-zen3,rtaozj7xdfhxengzppbqbth4mya3edpq
