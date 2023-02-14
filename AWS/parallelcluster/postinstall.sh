@@ -9,7 +9,7 @@ set -e
 setup_variables() {
     # Install onto first shared storage device
     cluster_config="/opt/parallelcluster/shared/cluster-config.yaml"
-    [ -f "${cluster_config}" ] && {
+    if [ -f "${cluster_config}" ]; then
         os=$(python << EOF
 #/usr/bin/env python
 import yaml
@@ -46,12 +46,14 @@ with open("${cluster_config}", 'r') as s:
     print(yaml.safe_load(s)["Scheduling"]["Scheduler"])
 EOF
                  )
-    } || . /etc/parallelcluster/cfnconfig || {
-            echo "Cannot find ParallelCluster configs"
-            echo "Installing Spack into /shared/spack for ec2-user."
-            cfn_ebs_shared_dirs="/shared"
-            cfn_cluster_user="ec2-user"
-        }
+    elif [ -f /etc/parallelcluster/cfnconfig ]; then
+        . /etc/parallelcluster/cfnconfig
+    else
+        echo "Cannot find ParallelCluster configs"
+        echo "Installing Spack into /shared/spack for ec2-user."
+        cfn_ebs_shared_dirs="/shared"
+        cfn_cluster_user="ec2-user"
+    fi
 
     install_path=${SPACK_ROOT:-"${cfn_ebs_shared_dirs}/spack"}
     # For now we use specific commits as markers as the last release is too old and
@@ -125,7 +127,7 @@ download_packages_yaml() {
         done
     else
         # Exit "for target in ..." loop.
-        break
+        break &>/dev/null
     fi
 }
 
@@ -141,7 +143,7 @@ set_pcluster_defaults() {
     mkdir -p ${install_path}/etc/spack
 
     # Find suitable packages.yaml. If not for this architecture then for its parents.
-    download_packages_yaml "$(target)"
+    ( download_packages_yaml "$(target)" )
     eval "echo \"$(cat /tmp/packages.yaml)\"" > ${install_path}/etc/spack/packages.yaml
 
     for f in mirrors modules config; do
@@ -180,7 +182,7 @@ setup_spack() {
 }
 
 install_packages() {
-    . /opt/slurm/etc/slurm.sh || . /etc/profile.d/spack.sh
+    [ -f /opt/slurm/etc/slurm.sh ] && . /opt/slurm/etc/slurm.sh || . /etc/profile.d/spack.sh
 
     # Compiler needed for all kinds of codes. It makes no sense not to install it.
     # Get gcc from buildcache
