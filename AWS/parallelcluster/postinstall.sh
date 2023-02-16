@@ -50,9 +50,16 @@ EOF
         . /etc/parallelcluster/cfnconfig
     else
         echo "Cannot find ParallelCluster configs"
-        echo "Installing Spack into /shared/spack for ec2-user."
-        cfn_ebs_shared_dirs="/shared"
-        cfn_cluster_user="ec2-user"
+        cfn_ebs_shared_dirs=""
+    fi
+
+    # If we cannot find any shared directory, use $HOME of standard user
+    if [ -z "${cfn_ebs_shared_dirs}" ]; then
+        for cfn_cluster_user in ec2-user centos ubuntu; do
+            [ -d "/home/${cfn_cluster_user}" ] && break
+        done
+        echo "Installing Spack into $HOME/spack for ${cfn_cluster_user}."
+        cfn_ebs_shared_dirs="/home/${cfn_cluster_user}"
     fi
 
     install_path=${SPACK_ROOT:-"${cfn_ebs_shared_dirs}/spack"}
