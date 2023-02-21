@@ -8,7 +8,7 @@ packages:
       - one_of: ["gcc@11 %gcc target=x86_64_v3"]
   gromacs:
     require:
-      - one_of: ["+lapack+blas %intel ^intel-oneapi-mpi ^intel-oneapi-mkl"]
+      - one_of: ["+lapack+blas %intel ^intel-oneapi-mkl"]
   intel-mpi:
     variants: +external-libfabric
   intel-oneapi-compilers:
@@ -18,7 +18,7 @@ packages:
     variants: +external-libfabric generic-names=True
   lammps:
     require:
-      - one_of: ["lammps_sizes=bigbig +molecule +kspace +rigid +asphere +opt +openmp +openmp-package %intel ^intel-oneapi-mpi ^intel-oneapi-mkl"]
+      - one_of: ["lammps_sizes=bigbig +molecule +kspace +rigid +asphere +opt +openmp +openmp-package %intel ^intel-oneapi-mkl"]
   libfabric:
     buildable: false
     externals:
@@ -27,19 +27,22 @@ packages:
         spec: libfabric@${LIBFABRIC_VERSION} fabrics=efa
   mpas-model:
     require:
-      - one_of: ["precision=single %intel ^parallelio+pnetcdf ^intel-oneapi-mpi"]
+      - one_of: ["precision=single %intel ^parallelio+pnetcdf"]
+  mpich:
+    require:
+      - one_of: ["mpich pmi=pmi2 device=ch4 netmod=ofi +slurm"]
   openfoam:
     require:
-      - one_of: ["openfoam %gcc ^scotch@6.0.9 ^intel-oneapi-mpi"]
+      - one_of: ["openfoam %gcc ^scotch@6.0.9"]
   openmpi:
     variants: ~atomics ~cuda ~cxx ~cxx_exceptions ~internal-hwloc ~java +legacylaunchers ~lustre ~memchecker +pmi +romio ~singularity +vt +wrapper-rpath fabrics=ofi schedulers=slurm
   # TODO: Find out if we can get higher perf using intel-mkl with MKL_DEBUG_TYPE=5 or similar.
   py-devito:
     require:
-      - one_of: ["py-devito %intel +mpi ^intel-oneapi-mpi"]
+      - one_of: ["py-devito %intel +mpi"]
   quantum-espresso:
     require:
-      - one_of: ["quantum-espresso@6.6 %intel ^intel-mkl ^intel-oneapi-mpi"]
+      - one_of: ["quantum-espresso@6.6 %intel ^intel-mkl"]
   slurm:
     buildable: false
     externals:
@@ -47,7 +50,7 @@ packages:
         spec: slurm@${SLURM_VERSION} +pmix
   wrf:
     require:
-      - one_of: ["wrf@4 build_type=dm+sm %intel ^intel-oneapi-mpi"]
+      - one_of: ["wrf@4 build_type=dm+sm %intel", "wrf@4.2.2 +netcdf_classic fflags=\"-fp-model fast=2 -no-heap-arrays -no-prec-div -no-prec-sqrt -fno-common\" build_type=dm+sm %intel"]
   all:
     compiler: [intel, gcc, clang]
     permissions:
@@ -60,6 +63,6 @@ packages:
       ipp: [intel-oneapi-ipp, intel-ipp]
       lapack: [intel-oneapi-mkl, intel-mkl]
       mkl: [intel-oneapi-mkl, intel-mkl]
-      mpi: [intel-oneapi-mpi, openmpi]
+      mpi: [intel-oneapi-mpi, openmpi, mpich]
       tbb: [intel-oneapi-tbb, intel-tbb]
       scalapack: [intel-oneapi-mkl, intel-mkl]
