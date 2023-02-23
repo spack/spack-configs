@@ -10,6 +10,7 @@ setup_variables() {
     # Install onto first shared storage device
     cluster_config="/opt/parallelcluster/shared/cluster-config.yaml"
     if [ -f "${cluster_config}" ]; then
+        pip install pyyaml
         os=$(python << EOF
 #/usr/bin/env python
 import yaml
