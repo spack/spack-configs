@@ -1,6 +1,6 @@
 $ spack find --format "{name},{version},{compiler},{variants},{arch},{hash}"
-adios2,2.7.1,gcc@11.2.0,+blosc+bzip2~dataman~dataspaces~endian_reverse+fortran~hdf5~ipo+mpi+pic+png~python+shared+ssc+sst+sz+zfp build_type=Release patches=8d301e8232baf4049b547f22bd73774309662017a62dac36360d2965907062bf,cray-sles15-zen3,khjhrahaya4mmmxk2pestir5gn6kz7sw
-amrex,21.11,gcc@11.2.0,~amrdata~cuda~eb+fortran~hdf5~hypre~ipo+linear_solvers+mpi+openmp~particles~petsc~pic~plotfile_tools~rocm+shared~sundials amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none dimensions=3 precision=double,cray-sles15-zen3,llupfmtaobpmlpqsdbhbb6vl5uffuz6g
+adios2,2.7.1,gcc@11.2.0,+blosc+bzip2~dataman~dataspaces~endian_reverse+fortran~hdf5~ipo+mpi+pic+png~python+shared+ssc+sst+sz+zfp build_type=Release patches=8d301e8232baf4049b547f22bd73774309662017a62dac36360d2965907062bf,cray-sles15-zen3,wck773sfpvt6pi4wp52ahxtwqrhcksqd
+amrex,21.11,gcc@11.2.0,~amrdata~cuda~eb+fortran~hdf5~hypre~ipo+linear_solvers+mpi+openmp~particles~petsc~pic~plotfile_tools~rocm+shared~sundials amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none dimensions=3 precision=double,cray-sles15-zen3,wof5l27ambn7la6j7xkhomuogxlxruaa
 antlr,2.7.7,gcc@11.2.0,+cxx~java~python patches=33897ad12ad33878daa0aca55c9a234ec972407eb2b6c03808f6ed020c88b8db,cray-sles15-zen3,yej3fpuytbmlgsfllf6p3oi7xbpupt2l
 autoconf,2.69,gcc@11.2.0, patches=35c449281546376449766f92d49fc121ca50e330e60fefcfc9be2af3253082c2,7793209b33013dc0f81208718c68440c5aae80e7a1c4b8d336e382525af791a7,a49dd5bac3b62daa0ff688ab4d508d71dbd2f4f8d7e2a02321926346161bf3ee,cray-sles15-zen3,fu7i3o5agmgxqkfawrilqid4jj3uxuw7
 automake,1.16.3,gcc@11.2.0,,cray-sles15-zen3,ssb7g42ml7azc6pn6yjqigngoxnlekdk
@@ -12,39 +12,40 @@ boost,1.77.0,gcc@11.2.0,+atomic+chrono~clanglibcpp~container~context~coroutine+d
 bzip2,1.0.6,gcc@11.2.0,~debug~pic+shared,cray-sles15-zen3,c3mhclohvb5m76wazqviskyhfmww3b3m
 c-blosc,1.21.0,gcc@11.2.0,+avx2~ipo build_type=RelWithDebInfo,cray-sles15-zen3,fhxkllada45tjzovon24sac6jfkhtgp7
 camp,0.2.2,gcc@11.2.0,~cuda~ipo~rocm~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,cray-sles15-zen3,ld3qkpfg2myvy5iuh3tz7q4semjwdbi5
-camp,0.2.2,gcc@11.2.0,+cuda~ipo~rocm~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=80,cray-sles15-zen3,4p6pqwbdo2l6n2ipzppaypjgbt77lv7k
+camp,0.2.2,gcc@11.2.0,+cuda~ipo~rocm~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=80,cray-sles15-zen3,cxbmrpwu2ju4htiul6yyksivwqrb5g44
 chapel,1.24.1,gcc@11.2.0,,cray-sles15-zen3,bxouepsxderqxvczonbzh7qwyldfi52x
 cmake,3.21.4,gcc@11.2.0,~doc+ncurses~openssl+ownlibs~qt build_type=Release,cray-sles15-zen3,cvv7lxlppmeijntr4x6lvotruglea4ys
-conduit,0.7.2,gcc@11.2.0,~adios~doc~doxygen+fortran+hdf5+hdf5_compat~ipo+mpi~parmetis~python+shared~silo+test~zfp build_type=RelWithDebInfo patches=89d1829ad52f503f6179e43efddf998c239a95c14ca1f248463a3f61ad7d5cf7,cray-sles15-zen3,2co7titsxsgg3f7bhhx6lwi33oqi4kan
-cray-libsci,21.08.1.2,gcc@11.2.0,~mpi~openmp+shared,cray-sles15-zen3,onzzhizl63xj72v3yq76pprtorqer7rv
-cray-mpich,8.1.15,gcc@11.2.0,,cray-sles15-zen3,2p3f5tjjsfamjceejobmvatmcocvpsvk
+conduit,0.7.2,gcc@11.2.0,~adios~doc~doxygen+fortran+hdf5+hdf5_compat~ipo+mpi~parmetis~python+shared~silo+test~zfp build_type=RelWithDebInfo patches=89d1829ad52f503f6179e43efddf998c239a95c14ca1f248463a3f61ad7d5cf7,cray-sles15-zen3,jb5ab3udrn7sha3l4e76xq3aqs7cdve7
+cray-libsci,22.11.1.2,gcc@11.2.0,~mpi~openmp+shared,cray-sles15-zen3,x77we3xy6ltxy3cl5tf7ryirlmxaw6fq
+cray-mpich,8.1.22,gcc@11.2.0,,cray-sles15-zen3,6kccc2x6pazcarpdzsbh5cgttvpc274p
 cub,1.13.1,gcc@11.2.0,,cray-sles15-zen3,qrcpxjzjqszfmpeuqyp65su3a4cd7xpb
-cuda,11.5.0,gcc@11.2.0,~dev,cray-sles15-zen3,ko3d7ssyffso3oda2yslnqq2ftjprjqs
+cuda,11.7.0,gcc@11.2.0,~dev,cray-sles15-zen3,2xoeiktia6mlbny4to7yc72e636tccdu
 dyninst,11.0.1,gcc@11.2.0,~ipo+openmp~stat_dysect~static build_type=RelWithDebInfo,cray-sles15-zen3,pe5mzbu7nhiifyccssqkpf44c4og7hkb
 elfutils,0.185,gcc@11.2.0,+bzip2~debuginfod~nls~xz patches=d786d49c28d7f0c8fc27bab39ca8714e5f4d128c7f09bb18533a8ec99b38dbf8,cray-sles15-zen3,lpvstj2wwblyzuqnuk3ourosmux7uibz
 expat,2.4.1,gcc@11.2.0,+libbsd,cray-sles15-zen3,vocbz4g7gi3tfu6wmb5334ve4keepzfn
-fftw,3.3.10,gcc@11.2.0,+mpi~openmp~pfft_patches precision=double,float,cray-sles15-zen3,dmzvdgdlevpmaplagqfqm4zdiz47oa7c
+fftw,3.3.10,gcc@11.2.0,+mpi~openmp~pfft_patches precision=double,float,cray-sles15-zen3,5yeqnnbry4js7534erlv6vhygjgzsdhf
 flex,2.6.3,gcc@11.2.0,+lex~nls,cray-sles15-zen3,ccoko7wyt4jxwr2aiaxueklljy2lwwt6
 gasnet,2021.9.0,gcc@11.2.0,~debug conduits=none,cray-sles15-zen3,3ajgfaj4vmfrj6m5366felfbmwrwfnkc
 gasnet,2021.9.0,gcc@11.2.0,~debug conduits=smp,cray-sles15-zen3,3zaih34a6wx4ccupqxr6jq5umcopqh2s
 gdbm,1.19,gcc@11.2.0,,cray-sles15-zen3,ywzw7ligzvsqor7dgj6lnw53qspaq7ly
 gdbm,1.21,gcc@11.2.0,,cray-sles15-zen3,atw3wcomvpp5v4dyxk5zaw4euroaxw3x
 gettext,0.21,gcc@11.2.0,+bzip2+curses+git~libunistring+libxml2+tar+xz,cray-sles15-zen3,tsnrjhvijrae5v67gac5xvsxdij2i4s4
-globalarrays,5.8,gcc@11.2.0,~scalapack armci=mpi-ts,cray-sles15-zen3,ddt263nhmstfhugerosjrqj3bspjhpcm
-gromacs,2021.3,gcc@11.2.0,~blas~cuda~cycle_subcounters~double+hwloc~ipo~lapack~mdrun_only+mpi~nosuffix~opencl+openmp~plumed~relaxed_double_precision+shared~sycl build_type=RelWithDebInfo,cray-sles15-zen3,62bv3uuakbbc33hi7iulywz75d3ickpz
+globalarrays,5.8,gcc@11.2.0,~scalapack armci=mpi-ts,cray-sles15-zen3,ese54tn76cvay5zydbfmmr2prw7k7iof
+gromacs,2021.3,gcc@11.2.0,~blas~cuda~cycle_subcounters~double+hwloc~ipo~lapack~mdrun_only+mpi~nosuffix~opencl+openmp~plumed~relaxed_double_precision+shared~sycl build_type=RelWithDebInfo,cray-sles15-zen3,dmn2c6r2zlzvo43gh5g45d3pkca3yzs5
 gsl,2.7,gcc@11.2.0,~external-cblas,cray-sles15-zen3,2p3pcjckzogek2dubph7q4yd5msjuhxt
-hdf5,1.8.22,gcc@11.2.0,~cxx+fortran+hl~ipo~java+mpi+shared~szip~threadsafe+tools api=v18 build_type=RelWithDebInfo,cray-sles15-zen3,qqcfbsh5qpmb5q3omfumjytdahaj7z7k
-hdf5,1.12.1,gcc@11.2.0,~cxx+fortran+hl~ipo~java+mpi+shared~szip~threadsafe+tools api=v18 build_type=RelWithDebInfo,cray-sles15-zen3,qzzsqgsk3prvutw3uxeedgvkek7hexgt
+hdf5,1.8.22,gcc@11.2.0,~cxx+fortran+hl~ipo~java+mpi+shared~szip~threadsafe+tools api=v18 build_type=RelWithDebInfo,cray-sles15-zen3,vnoemkc3dfjvf367fvixufpc56q3edco
+hdf5,1.10.7,gcc@11.2.0,~cxx+fortran+hl~ipo~java+mpi+shared~szip~threadsafe+tools api=v18 build_type=RelWithDebInfo,cray-sles15-zen3,62qkqs4h4dmystiklfz4qfmnjsxorqat
+hdf5,1.12.1,gcc@11.2.0,~cxx+fortran+hl~ipo~java+mpi+shared~szip~threadsafe+tools api=v18 build_type=RelWithDebInfo,cray-sles15-zen3,m473qkqieq7xxud3i7soy6q7q7h45x64
 hwloc,2.6.0,gcc@11.2.0,~cairo~cuda~gl~libudev+libxml2~netloc~nvml~opencl+pci~rocm+shared,cray-sles15-zen3,zjdoodacucaizvrazwrxnwf5rgpnclu6
 intel-tbb,2020.3,gcc@11.2.0,~ipo+shared+tm build_type=RelWithDebInfo cxxstd=default patches=62ba015ebd1819c45bef47411540b789b493e31ca668c4ff4cb2afcbc306b476,ce1fb16fb932ce86a82ca87cf0431d1a8c83652af9f552b264213b2ff2945d73,d62cb666de4010998c339cde6f41c7623a07e9fc69e498f2e149821c0c2c6dd0,cray-sles15-zen3,ruevhc6wrxvfme5klskmgeezjeoywelc
 kokkos,3.4.01,gcc@11.2.0,~aggressive_vectorization~compiler_warnings~cuda~cuda_constexpr~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning~wrapper amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none std=14,cray-sles15-zen3,7a2enxire5aqgcqlpl5b5bu6qglghp4x
-kokkos,3.4.01,gcc@11.2.0,~aggressive_vectorization~compiler_warnings+cuda~cuda_constexpr~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning+wrapper amdgpu_target=none build_type=RelWithDebInfo cuda_arch=80 std=14,cray-sles15-zen3,ophrzpqz6jlk55kxe2gzrtiypun4tdtd
+kokkos,3.4.01,gcc@11.2.0,~aggressive_vectorization~compiler_warnings+cuda~cuda_constexpr~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning+wrapper amdgpu_target=none build_type=RelWithDebInfo cuda_arch=80 std=14,cray-sles15-zen3,oujowag5telknwotxphlvfuqfvseqrvh
 kokkos-kernels,3.4.01,gcc@11.2.0,~blas~cblas~cublas~cuda~cusparse~ipo~lapack~lapacke~mkl+openmp~pthread~serial+shared~superlu build_type=RelWithDebInfo cuda_arch=none execspace_cuda=auto execspace_openmp=auto execspace_serial=auto execspace_threads=auto layouts=left memspace_cudaspace=auto memspace_cudauvmspace=auto offsets=int,size_t ordinals=int scalars=double,cray-sles15-zen3,deruwpliyxpoxixfg76vbih6lzoluhqw
-kokkos-kernels,3.4.01,gcc@11.2.0,~blas~cblas~cublas+cuda~cusparse~ipo~lapack~lapacke~mkl+openmp~pthread~serial+shared~superlu build_type=RelWithDebInfo cuda_arch=80 execspace_cuda=auto execspace_openmp=auto execspace_serial=auto execspace_threads=auto layouts=left memspace_cudaspace=auto memspace_cudauvmspace=auto offsets=int,size_t ordinals=int scalars=double,cray-sles15-zen3,2g43rpxehkf374gfvrmkavlndi5a6ltz
-kokkos-nvcc-wrapper,3.2.00,gcc@11.2.0,+mpi,cray-sles15-zen3,7gxdet5vg7ksr6at72xfsjj76wugqrbd
+kokkos-kernels,3.4.01,gcc@11.2.0,~blas~cblas~cublas+cuda~cusparse~ipo~lapack~lapacke~mkl+openmp~pthread~serial+shared~superlu build_type=RelWithDebInfo cuda_arch=80 execspace_cuda=auto execspace_openmp=auto execspace_serial=auto execspace_threads=auto layouts=left memspace_cudaspace=auto memspace_cudauvmspace=auto offsets=int,size_t ordinals=int scalars=double,cray-sles15-zen3,6mnjxxr7tbchwenbozk6wiglrw5crdqp
+kokkos-nvcc-wrapper,3.2.00,gcc@11.2.0,+mpi,cray-sles15-zen3,67bmfpluminvarmd7hlyafa5cmitzkll
 libbsd,0.11.3,gcc@11.2.0,,cray-sles15-zen3,vwnxiuxmd7ezn627nwsn74mkhweikfsd
 libdwarf,20180129,gcc@11.2.0,,cray-sles15-zen3,rul4e2kl4s3xw3uowkip3s72fdm7day7
-libfabric,1.15.0.0,gcc@11.2.0,~debug~kdreg fabrics=rxm,sockets,tcp,udp,cray-sles15-zen3,535axzvud4qihtdjw4f5wgkhgf42iqhk
+libfabric,1.15.2.0,gcc@11.2.0,~debug~kdreg fabrics=rxm,sockets,tcp,udp,cray-sles15-zen3,o7sbo74nxfkivt3aga2iskncrqir3cdz
 libffi,3.3,gcc@11.2.0, patches=26f26c6f29a7ce9bf370ad3ab2610f99365b4bdd7b82e7c31df41a3370d685c0,cray-sles15-zen3,kqf23pbcx4klegqdh23pe6ls6f52mq6h
 libiberty,2.33.1,gcc@11.2.0,+pic,cray-sles15-zen3,f6uf53n64q3o4f7twcezws7xppdgvj2d
 libiconv,1.16,gcc@11.2.0, libs=shared,static,cray-sles15-zen3,l4kbzvfipqrntybop73s6hhtyif53ysm
@@ -56,51 +57,51 @@ libunwind,1.5.0,gcc@11.2.0,~block_signals~conservative_checks~cxx_exceptions~deb
 libxml2,2.9.12,gcc@11.2.0,~python,cray-sles15-zen3,hcb3viyc6awuljowljbctif7ofth6yny
 lz4,1.9.3,gcc@11.2.0, libs=shared,static,cray-sles15-zen3,wxmok7purmj4a6unhw74obgy4v3hjjys
 m4,1.4.18,gcc@11.2.0,+sigsegv patches=3877ab548f88597ab2327a2230ee048d2d07ace1062efe81fc92e91b7f39cd00,fc9b61654a3ba1a8d6cd78ce087e7c96366c290bc8d2c299f09828d793b853c8,cray-sles15-zen3,j2ty5m5pkz5jo23rmr55ntbalpmta4dm
-mercury,2.0.1,gcc@11.2.0,~bmi+boostsys~cci+checksum~debug~ipo~mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo,cray-sles15-zen3,pjhjl3lunim2nrn63xs3r7zhq5dolvyz
+mercury,2.0.1,gcc@11.2.0,~bmi+boostsys~cci+checksum~debug~ipo~mpi+ofi+shared+sm~udreg build_type=RelWithDebInfo,cray-sles15-zen3,hnknbxz6cuftuii73bw33hckcwkmofyj
 metis,5.1.0,gcc@11.2.0,~gdb~int64~real64+shared build_type=Release patches=4991da938c1d3a1d3dea78e49bbebecba00273f98df2a656e38b83d55b281da1,b1225da886605ea558db7ac08dd8054742ea5afe5ed61ad4d0fe7a495b1270d2,cray-sles15-zen3,lxe5bhakcmkcf7zuqcagulm7tihcav7q
 mpark-variant,1.4.0,gcc@11.2.0,~ipo build_type=RelWithDebInfo patches=21a4f8de3525204ee6db2e53758a3e3fd9c13817df29d2926d24376858a369e7,4e173fe8c853eb92956a40371688b4a19498189fe65b7ceac30f6b9d6663a985,b3501f726fd40129b4aaa11453a5891c8953a34af8ac84f5ab10a22afa5e7b9b,cray-sles15-zen3,4enc7omutawx7bodb2ohkjklxwhpwdea
-nccmp,1.9.0.1,gcc@11.2.0,~ipo build_type=RelWithDebInfo,cray-sles15-zen3,2gji5haxtnxzpbrzfgkbijzendu5tvr4
-nco,5.0.1,gcc@11.2.0,~doc,cray-sles15-zen3,cxi4ob252r5trx4nhxwdwdhfmdqcqarg
+nccmp,1.9.0.1,gcc@11.2.0,~ipo build_type=RelWithDebInfo,cray-sles15-zen3,d4y2kd6razmym6c63dd2csjk5u5hnymi
+nco,5.0.1,gcc@11.2.0,~doc,cray-sles15-zen3,pbxafqcrjt4d3fqrgbbikdm22kccoihk
 ncurses,6.1,gcc@11.2.0,~symlinks+termlib abi=none,cray-sles15-zen3,67sz4auzlr63x2wvc7ctutifwse3rnxk
-netcdf-c,4.8.1,gcc@11.2.0,~dap~fsync~hdf4~jna+mpi~parallel-netcdf+pic+shared,cray-sles15-zen3,4ebffgdzlacfc5knswza7i7eqq3cxdto
-netcdf-fortran,4.5.3,gcc@11.2.0,~doc+pic+shared,cray-sles15-zen3,tl7moihtoedftmzu5ksssbkaatvts6ud
+netcdf-c,4.8.1,gcc@11.2.0,~dap~fsync~hdf4~jna+mpi~parallel-netcdf+pic+shared,cray-sles15-zen3,tulniock5pzcbz4ytceocwk2gxnzlxey
+netcdf-fortran,4.5.3,gcc@11.2.0,~doc+pic+shared,cray-sles15-zen3,3xdaz3rvddwtacli4u2qkdlnu4ntynco
 nlohmann-json,3.10.4,gcc@11.2.0,~ipo~multiple_headers build_type=RelWithDebInfo,cray-sles15-zen3,fq4mxh4oqluiipo6rbehfjmbs4xngk2r
 numactl,2.0.14,gcc@11.2.0, patches=4e1d78cbbb85de625bad28705e748856033eaafab92a66dffd383a3d7e00cc94,62fc8a8bf7665a60e8f4c93ebbd535647cebf74198f7afafec4c085a8825c006,ff37630df599cfabf0740518b91ec8daaf18e8f288b19adaae5364dc1f6b2296,cray-sles15-zen3,ynogmtncsy224xhbvmtzvpyqnai3wlru
-openpmd-api,0.14.3,gcc@11.2.0,~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo,cray-sles15-zen3,ws2m4b4ydfi46kea4tqrpe4mfak2vzrg
+openpmd-api,0.14.3,gcc@11.2.0,~adios1+adios2+hdf5~ipo+mpi~python+shared build_type=RelWithDebInfo,cray-sles15-zen3,422uzrqxgle2wavubwrx7msjd45o2iqb
 otf2,2.3,gcc@11.2.0,,cray-sles15-zen3,kamydd463wvvdaxkaze32fb76anp23v7
 papi,6.0.0.1,gcc@11.2.0,~cuda+example~infiniband~lmsensors~nvml~powercap~rapl~rocm~rocm_smi~sde+shared~static_tools amdgpu_target=none,cray-sles15-zen3,nylggjgho6dzj6ghcnwvma5q6f6znnbn
-papyrus,1.0.2,gcc@11.2.0,~ipo build_type=RelWithDebInfo,cray-sles15-zen3,ul5ppojz2mcseqd3sxgwu2jv4jevbdjh
-parallel-netcdf,1.12.2,gcc@11.2.0,~burstbuffer+cxx+fortran+pic+shared,cray-sles15-zen3,de7v373qhona5jrz6oygkab345lw7vpt
-parmetis,4.0.3,gcc@11.2.0,~gdb~int64~ipo+shared build_type=RelWithDebInfo patches=4f892531eb0a807eb1b82e683a416d3e35154a455274cf9b162fb02054d11a5b,50ed2081bc939269689789942067c58b3e522c269269a430d5d34c00edbc5870,704b84f7c7444d4372cb59cca6e1209df4ef3b033bc4ee3cf50f369bce972a9d,cray-sles15-zen3,py3bi2lcqggzgqr2zud27a6y7gs24uig
+papyrus,1.0.2,gcc@11.2.0,~ipo build_type=RelWithDebInfo,cray-sles15-zen3,3v5ea26e27lkrug36sbx7rx4q3bnh7pm
+parallel-netcdf,1.12.2,gcc@11.2.0,~burstbuffer+cxx+fortran+pic+shared,cray-sles15-zen3,ur7zht53jasmewow4wftplfz5pv6e6ib
+parmetis,4.0.3,gcc@11.2.0,~gdb~int64~ipo+shared build_type=RelWithDebInfo patches=4f892531eb0a807eb1b82e683a416d3e35154a455274cf9b162fb02054d11a5b,50ed2081bc939269689789942067c58b3e522c269269a430d5d34c00edbc5870,704b84f7c7444d4372cb59cca6e1209df4ef3b033bc4ee3cf50f369bce972a9d,cray-sles15-zen3,5gbcrgh7pf7gib5sigrhrzurftzannhj
 pcre,8.44,gcc@11.2.0,~jit+multibyte+utf,cray-sles15-zen3,jw3guxya26yrsj7ygpkmsppoblch5fm3
 pdt,3.25.1,gcc@11.2.0,~pic,cray-sles15-zen3,btbtbjj34oigsxqvdunwam3gvprwthhw
 perl,5.34.0,gcc@11.2.0,+cpanm+shared+threads,cray-sles15-zen3,tjfn5srdiacnue2wb6ov27ivytuvfhz7
 pkgconf,1.8.0,gcc@11.2.0,,cray-sles15-zen3,kiw5m6f32d3hodo632qfgetsjk6vms7w
-python,3.8.12,gcc@11.2.0,+bz2+ctypes+dbm~debug+libxml2+lzma~nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3~ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87,4c2457325f2b608b1b6a2c63087df8c26e07db3e3d493caf36a56f0ecf6fb768,ebdca648c9c1d25f586d7e2a495b62e6d91973b55264a13d89eda1beff72ef56,f2fd060afc4b4618fe8104c4c5d771f36dc55b1db5a4623785a4ea707ec72fb4,cray-sles15-zen3,s4vfsbud4lccv37g7kghf7fzb6cfhfhs
+python,3.8.12,gcc@11.2.0,+bz2+ctypes+dbm~debug+libxml2+lzma~nis~optimizations+pic+pyexpat+pythoncmd+readline+shared+sqlite3~ssl~tix~tkinter~ucs4+uuid+zlib patches=0d98e93189bc278fbc37a50ed7f183bd8aaf249a8e1670a465f0db6bb4f8cf87,4c2457325f2b608b1b6a2c63087df8c26e07db3e3d493caf36a56f0ecf6fb768,ebdca648c9c1d25f586d7e2a495b62e6d91973b55264a13d89eda1beff72ef56,f2fd060afc4b4618fe8104c4c5d771f36dc55b1db5a4623785a4ea707ec72fb4,cray-sles15-zen3,5rl277qidjgwdvbv5hnvxm3mjdu7oxwy
 qthreads,1.16,gcc@11.2.0,+hwloc~spawn_cache+static scheduler=distrib stack_size=4096,cray-sles15-zen3,z6dctpffa2sulwolws2hbfdurwj64yrq
 raja,0.14.0,gcc@11.2.0,~cuda+examples+exercises~ipo+openmp~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,cray-sles15-zen3,z4ngxt3dtedwg2c46imkrpzkwddhsotz
-raja,0.14.0,gcc@11.2.0,+cuda+examples+exercises~ipo+openmp~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=80,cray-sles15-zen3,suhnhwbh3qudu3imjfjk3kno67ad3s4a
+raja,0.14.0,gcc@11.2.0,+cuda+examples+exercises~ipo+openmp~rocm+shared~tests amdgpu_target=none build_type=RelWithDebInfo cuda_arch=80,cray-sles15-zen3,qjrebvpvd7v6want5jqwoezw3b3o6bm5
 readline,7.0,gcc@11.2.0,,cray-sles15-zen3,4nkx33edjh2swiaeflbcsck3w2yphw2g
 snappy,1.1.8,gcc@11.2.0,~ipo+pic+shared build_type=RelWithDebInfo patches=c9cfecb1f7a623418590cf4e00ae7d308d1c3faeb15046c2e5090e38221da7cd,cray-sles15-zen3,mhhmq55pkmcnu5eskybcjwyt563fbum6
 sqlite,3.36.0,gcc@11.2.0,+column_metadata+fts~functions~rtree,cray-sles15-zen3,qjwtqbfibrcyvbuycr5ftipkaj5zlojk
-strumpack,6.1.0,gcc@11.2.0,~butterflypack+c_interface~count_flops~cuda~ipo+mpi+openmp+parmetis~rocm~scotch+shared~slate~task_timers+zfp amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,cray-sles15-zen3,tqwpox3uassk2ieyv3tqdmlfpejfmkj6
-sundials,5.8.0,gcc@11.2.0,+ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL~cuda+examples+examples-install~f2003~fcmix+generic-math~hypre~int64~ipo~klu~lapack~monitoring+mpi+openmp~petsc~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~sycl~trilinos amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none precision=double,cray-sles15-zen3,z2si2k6prxey4rpq67raxv7twfspwqna
-superlu,5.3.0,gcc@11.2.0,~ipo+pic build_type=RelWithDebInfo,cray-sles15-zen3,pio2jf2ule3b77kfvano5fu2crumrmp5
-superlu-dist,7.1.1,gcc@11.2.0,~cuda~int64~ipo+openmp+shared build_type=RelWithDebInfo cuda_arch=none,cray-sles15-zen3,2o3uyj2emgi6polllowuuhgvvg67fa5z
+strumpack,6.1.0,gcc@11.2.0,~butterflypack+c_interface~count_flops~cuda~ipo+mpi+openmp+parmetis~rocm~scotch+shared~slate~task_timers+zfp amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none,cray-sles15-zen3,6ikmi6mp7pm3uxvcvdb5ualy3vhorw5v
+sundials,5.8.0,gcc@11.2.0,+ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL~cuda+examples+examples-install~f2003~fcmix+generic-math~hypre~int64~ipo~klu~lapack~monitoring+mpi+openmp~petsc~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~sycl~trilinos amdgpu_target=none build_type=RelWithDebInfo cuda_arch=none precision=double,cray-sles15-zen3,u5joxftftgoouvqt3mar3rfhijupd4vg
+superlu,5.3.0,gcc@11.2.0,~ipo+pic build_type=RelWithDebInfo,cray-sles15-zen3,voqfhrjproxmbdg4xwnzprud6guksnqf
+superlu-dist,7.1.1,gcc@11.2.0,~cuda~int64~ipo+openmp+shared build_type=RelWithDebInfo cuda_arch=none,cray-sles15-zen3,faw6eldqomjf23ny3enx4wcysgopzvp4
 swig,4.0.2,gcc@11.2.0,,cray-sles15-zen3,rxwxbrwjjslam5ubuhlrfuxkhidmqwqw
 sz,2.1.12,gcc@11.2.0,~fortran~hdf5~ipo~netcdf~pastri~python~random_access+shared~stats~time_compression build_type=RelWithDebInfo,cray-sles15-zen3,yrvsidg3oko3jfhieql4va5ch2d3jcgi
 tar,1.30,gcc@11.2.0,,cray-sles15-zen3,45oigghbnkwuxsy2oesqvn6arypinfy4
-tau,2.31,gcc@11.2.0,~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads+python~rocm~rocprofiler~roctracer~scorep~shmem~sqlite~x86_64,cray-sles15-zen3,ujqdhgwudsj3bvm2z7yujxvejkzel7eo
-trilinos,13.0.1,gcc@11.2.0,~adios2+amesos+amesos2+anasazi+aztec~basker+belos+boost~chaco~complex~cuda~cuda_rdc~debug~dtk+epetra+epetraext~epetraextbtf~epetraextexperimental~epetraextgraphreorderings~exodus+explicit_template_instantiation~float+fortran~gtest~hdf5~hypre+ifpack+ifpack2+intrepid+intrepid2~ipo+isorropia+kokkos~mesquite+minitensor+ml+mpi+muelu~mumps+nox~openmp+phalanx+piro~python+rol+rythmos+sacado~scorec+shards+shared+shylu+stk+stokhos+stratimikos~strumpack~suite-sparse~superlu+superlu-dist+teko+tempus+tpetra+trilinoscouplings~wrapper~x11+zoltan+zoltan2 build_type=RelWithDebInfo cuda_arch=none cxxstd=14 gotype=long_long,cray-sles15-zen3,nlbuqnfp2rp5btluw3a7gilinvcpxxfy
+tau,2.31,gcc@11.2.0,~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads+python~rocm~rocprofiler~roctracer~scorep~shmem~sqlite~x86_64,cray-sles15-zen3,6aemccngw3lab7wtqstlv6lcnjttuvdo
+trilinos,13.0.1,gcc@11.2.0,~adios2+amesos+amesos2+anasazi+aztec~basker+belos+boost~chaco~complex~cuda~cuda_rdc~debug~dtk+epetra+epetraext~epetraextbtf~epetraextexperimental~epetraextgraphreorderings~exodus+explicit_template_instantiation~float+fortran~gtest~hdf5~hypre+ifpack+ifpack2+intrepid+intrepid2~ipo+isorropia+kokkos~mesquite+minitensor+ml+mpi+muelu~mumps+nox~openmp+phalanx+piro~python+rol+rythmos+sacado~scorec+shards+shared+shylu+stk+stokhos+stratimikos~strumpack~suite-sparse~superlu+superlu-dist+teko+tempus+tpetra+trilinoscouplings~wrapper~x11+zoltan+zoltan2 build_type=RelWithDebInfo cuda_arch=none cxxstd=14 gotype=long_long,cray-sles15-zen3,dl2yhjvpga753sfsfrwqvls7ky5mjsla
 udunits,2.2.28,gcc@11.2.0,,cray-sles15-zen3,fgtnglbr5sxbg22fey7c46k23w74l6c2
 umap,2.1.0,gcc@11.2.0,~ipo~logging~tests build_type=RelWithDebInfo,cray-sles15-zen3,j6ixsr6p7yvidmre3jc2rha4enhigdk6
-umpire,6.0.0,gcc@11.2.0,+c+cuda~deviceconst+examples~fortran~ipo~numa~openmp~rocm~shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=80 tests=none,cray-sles15-zen3,v7iisvod47rezjv3sczft6wz2cjpylqw
-upcxx,2021.9.0,gcc@11.2.0,~cuda+gasnet+mpi cross=none,cray-sles15-zen3,bk2wgb7y645foi6uecaqhq5q5hzmdtpa
-upcxx,2021.9.0,gcc@11.2.0,+cuda~gasnet~mpi cross=none,cray-sles15-zen3,xfoymd6ge7vyx3tsmasb324okxssljuy
-util-linux-uuid,2.33.1,gcc@11.2.0,,cray-sles15-zen3,ypzwh4o6235hddtk2sjc4fkwj7q36pab
+umpire,6.0.0,gcc@11.2.0,+c+cuda~deviceconst+examples~fortran~ipo~numa~openmp~rocm~shared amdgpu_target=none build_type=RelWithDebInfo cuda_arch=80 tests=none,cray-sles15-zen3,kfdztqi72khe5ajomwqz2n2tvhyfvutq
+upcxx,2021.9.0,gcc@11.2.0,~cuda+gasnet+mpi cross=none,cray-sles15-zen3,3bsbwb2kc6htktmbk5vcd36fqvyrimfd
+upcxx,2021.9.0,gcc@11.2.0,+cuda~gasnet~mpi cross=none,cray-sles15-zen3,eynoy67aprvffrcvhbmv7blc4y465ts7
+util-linux-uuid,2.36.2,gcc@11.2.0,,cray-sles15-zen3,6bni5bdax6edgltxotjr3puvn6pouipn
 util-macros,1.19.3,gcc@11.2.0,,cray-sles15-zen3,w4jpg7oett64sxqw2lpirutnwgrddgt5
 xz,5.2.5,gcc@11.2.0,~pic libs=shared,static,cray-sles15-zen3,i7ndio2ujvt23cmqidne74mx5pgh7ajk
 zfp,0.5.5,gcc@11.2.0,~aligned~c~cuda~fasthash~fortran~ipo~openmp~profile~python+shared~strided~twoway bsws=64 build_type=RelWithDebInfo cuda_arch=none,cray-sles15-zen3,2pctvx6mzsiiawvqsi7lys72iz34ullp
-zfp,0.5.5,gcc@11.2.0,~aligned~c+cuda~fasthash~fortran~ipo~openmp~profile~python+shared~strided~twoway bsws=64 build_type=RelWithDebInfo cuda_arch=80,cray-sles15-zen3,s54bixpx75d5mzx5xi3vy5ibjmak6oih
+zfp,0.5.5,gcc@11.2.0,~aligned~c+cuda~fasthash~fortran~ipo~openmp~profile~python+shared~strided~twoway bsws=64 build_type=RelWithDebInfo cuda_arch=80,cray-sles15-zen3,7cw6m6jcaxi6puj4axceakqjdzhewgss
 zlib,1.2.11,gcc@11.2.0,+optimize+pic+shared,cray-sles15-zen3,ekeupmdcqoimgroigtctln7tqkyh6pdm
 zstd,1.5.0,gcc@11.2.0,~programs,cray-sles15-zen3,5n2m4sgvpepvagb6nbqepsmjyuxjdbre
