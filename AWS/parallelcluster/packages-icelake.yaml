@@ -2,7 +2,7 @@
 packages:
   gcc:
     require:
-      - one_of: ["gcc@11 %gcc +binutils target=x86_64_v3"]
+      - one_of: ["gcc@11 %gcc +binutils ^binutils@2.37 target=x86_64_v3"]
   gromacs:
     require:
       - one_of: ["gromacs@2020.1 +lapack+blas %intel ^intel-oneapi-mkl"]
