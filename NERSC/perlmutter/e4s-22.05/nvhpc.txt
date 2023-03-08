@@ -1,26 +1,7 @@
-$ spack find --format "{name},{version},{compiler.name}@{compiler.version},{variants},{arch},{hash}"
-bzip2,1.0.6,nvhpc@22.5,~debug~pic+shared,cray-sles15-zen3,ze4oymchswkm2njyohv6neoqit5zqfsy
-cmake,3.23.1,nvhpc@22.5,~doc+ncurses~ownlibs~qt build_type=Release,cray-sles15-zen3,bczr6rjesss4ba7h6gtjc2mlhzvjmpcm
-cray-libsci,22.11.1.2,nvhpc@22.5,~mpi~openmp+shared,cray-sles15-zen3,fikps2ssf4ekts32psas3abnfq3yqqsx
-cray-mpich,8.1.22,nvhpc@22.5,+wrappers,cray-sles15-zen3,vtvgmo7ztcilxfqavsnxtr2nlq55lhxs
-curl,7.66.0,nvhpc@22.5,~gssapi~ldap~libidn2~librtmp~libssh~libssh2~nghttp2 libs=shared,static tls=openssl,cray-sles15-zen3,qfjwtzdkesl5l4iqzbglkn27qbtd2fsc
-expat,2.4.8,nvhpc@22.5,+libbsd,cray-sles15-zen3,yzaijt67tbtmlsyvli5ivu2ytjavkwsv
+$ spack find -x --format "{name},{version},{compiler.name}@{compiler.version},{variants},{arch},{hash}"
 hdf5,1.10.7,nvhpc@22.5,~cxx+fortran+hl~ipo~java+mpi+shared~szip~threadsafe+tools api=v18 build_type=RelWithDebInfo patches=2a1e311,cray-sles15-zen3,q7pqnuxpdgg2l5eton5pjsxf2z2rpnn5
 kokkos,3.6.00,nvhpc@22.5,~aggressive_vectorization~compiler_warnings~cuda~cuda_constexpr~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning~wrapper build_type=RelWithDebInfo std=14,cray-sles15-zen3,lbfztq6fmdxejs5chl32hld247iwvxl5
 kokkos-kernels,3.6.00,nvhpc@22.5,~blas~cblas~cublas~cuda~cusparse~ipo~lapack~lapacke~mkl+openmp~pthread~serial+shared~superlu build_type=RelWithDebInfo execspace_cuda=auto execspace_openmp=auto execspace_serial=auto execspace_threads=auto layouts=left memspace_cudaspace=auto memspace_cudauvmspace=auto offsets=int,size_t ordinals=int scalars=double,cray-sles15-zen3,qspw732h6ml2vlwluhplsmwdrr37sgai
-libarchive,3.5.2,nvhpc@22.5,+iconv compression=bz2lib,lz4,lzma,lzo2,zlib crypto=mbedtls libs=shared,static programs=none xar=expat,cray-sles15-zen3,k2paapvrwxje74tpxfi4gw6uxojdoc2h
-libbsd,0.11.3,nvhpc@22.5,,cray-sles15-zen3,x4dq5a7khl45tug73vbyrkzytwsibz6k
-libiconv,1.16,nvhpc@22.5, libs=shared,static,cray-sles15-zen3,vur4kupdflzsmuca7cyev2dl5g5qsflz
-libmd,1.0.4,nvhpc@22.5, patches=991953c,cray-sles15-zen3,retmbvarmsibthdbnfdbjjjdzrdol3v5
-libuv,1.44.1,nvhpc@22.5,,cray-sles15-zen3,mkepd5phepq4ozc4dx3wzs5xfwotyv7z
-lz4,1.9.3,nvhpc@22.5, libs=shared,static,cray-sles15-zen3,julaxenc2uynuvf3xce6vzbk3uu5p7if
-lzo,2.10,nvhpc@22.5, libs=shared,static,cray-sles15-zen3,wtg6rikgvpffgvplpy6l2prdtvvzmx2m
-mbedtls,2.28.0,nvhpc@22.5,+pic build_type=Release libs=static,cray-sles15-zen3,6rzghj725vv4z2mblollto4sreo4kszd
-ncurses,6.1,nvhpc@22.5,~symlinks+termlib abi=none patches=933af9e,cray-sles15-zen3,hp4w26qlckjyjkfycaecl5ff2opz3is5
-pkgconf,1.8.0,nvhpc@22.5,,cray-sles15-zen3,354t6cdxu4nakxoz24eoj4d6ur77nrc6
-rhash,1.4.2,nvhpc@22.5, patches=093518c,3fbfe46,cray-sles15-zen3,eevzogm566tt6o3uv2xheajvuntefeao
 sundials,6.2.0,nvhpc@22.5,+ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL~cuda+examples+examples-install~f2003~fcmix+generic-math~hypre~int64~ipo~klu~lapack~magma~monitoring+mpi~openmp~petsc~profiling~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~sycl~trilinos build_type=RelWithDebInfo cstd=99 cxxstd=14 logging-level=0 precision=double,cray-sles15-zen3,4bb7vwmmpl4dpljfl6upjmw7rrges677
 superlu,5.3.0,nvhpc@22.5,~ipo+pic build_type=RelWithDebInfo,cray-sles15-zen3,gs4k3my2wfacpwfmntngo3xlglrfa5rc
-xz,5.2.5,nvhpc@22.5,~pic libs=shared,static,cray-sles15-zen3,nsa56x2ms2scifx6wlpyoxmlzlqospfy
 zfp,0.5.5,nvhpc@22.5,~aligned~c~cuda~fasthash~fortran~ipo~openmp~profile~python+shared~strided~twoway bsws=64 build_type=RelWithDebInfo,cray-sles15-zen3,a3kwh2ug7cpxtezvlwhx57tkxxqyhvre
-zlib,1.2.12,nvhpc@22.5,+optimize+pic+shared patches=0d38234,cray-sles15-zen3,m6jr3t3h32pzf5q3hcxl6jb77yg4uxgn
