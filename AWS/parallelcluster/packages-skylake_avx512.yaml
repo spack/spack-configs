@@ -38,7 +38,7 @@ packages:
       - one_of: ["py-devito %intel +mpi"]
   quantum-espresso:
     require:
-      - one_of: ["quantum-espresso@6.6 %intel ^intel-mkl"]
+      - one_of: ["quantum-espresso@6.6 %intel ^intel-oneapi-mkl+cluster"]
   slurm:
     buildable: false
     externals:
