@@ -1,0 +1,79 @@
+ ~/ spack find -x --format "{name},{version},{compiler.name}@{compiler.version},{variants},{arch},{hash}"
+adios2,2.8.3,gcc@11.2.0,+blosc+bzip2~cuda~dataman~dataspaces+fortran~hdf5~ipo~libpressio+mpi+pic+png~python+shared+ssc+sst+sz+zfp build_system=cmake build_type=Release,linux-sles15-zen3,iiidb3vrojo4w7f7zczk5onv4gnkfxdw
+alquimia,1.0.10,gcc@11.2.0,~ipo+shared build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,lztmfixqqyoeimj5nuvsmxlqjgxbhdrl
+aml,0.2.0,gcc@11.2.0,~cuda~hip~hwloc~opencl~ze build_system=autotools hip-platform=none,linux-sles15-zen3,tvevpstkettkcufqoivmcl7zraa5jypp
+amrex,22.11,gcc@11.2.0,~amrdata~cuda~eb~fortran~hdf5~hypre~ipo+linear_solvers+mpi~openmp~particles~petsc~pic~plotfile_tools~rocm~shared~sundials~sycl~tiny_profile build_system=cmake build_type=RelWithDebInfo dimensions=3 precision=double,linux-sles15-zen3,yotm6qvs76ywjhg5akeelocqtzc6tndq
+arborx,1.3,gcc@11.2.0,~cuda~ipo+mpi~openmp~rocm+serial~sycl~trilinos build_system=cmake build_type=RelWithDebInfo cxxstd=17,linux-sles15-zen3,fcakmeorgtyr5hekwbngifls4rzmdoxf
+argobots,1.1,gcc@11.2.0,~affinity~debug+perf~stackunwind~tool~valgrind build_system=autotools stackguard=none,linux-sles15-zen3,5zlle2qkucopqngtfvtdxurg6kznl557
+autoconf,2.69,gcc@11.2.0, build_system=autotools patches=35c4492,7793209,a49dd5b,linux-sles15-zen3,5jmyymmac3kydj7aj5nu3igqu6ntktzm
+automake,1.16.5,gcc@11.2.0, build_system=autotools,linux-sles15-zen3,4acmj34llzi26tujohekzmxkbxchru44
+axom,0.7.0,gcc@11.2.0,+cpp14~cuda~devtools+examples+fortran+hdf5~ipo+lua~mfem+mpi+openmp~python+raja~rocm~scr+shared+tools+umpire build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,xrv223rexjbx7p2qfxol5oru5js6rxmp
+bolt,2.0,gcc@11.2.0,~ipo build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,346urvdp2ym67ucy6fifjpg47llxifkd
+butterflypack,2.2.2,gcc@11.2.0,~ipo+openmp+shared build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,5yxrfmewh4pcvcpctvyoflpnvkdlg4mc
+cabana,0.5.0,gcc@11.2.0,~arborx~cajita~cuda~examples~heffte~hypre~ipo+mpi~openmp~openmptarget~performance_testing~pthread~rocm+serial+shared~sycl~testing build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,3usqr6ymwxkd5rnwbm4eyxb77e3dk54y
+caliper,2.8.0,gcc@11.2.0,+adiak~cuda~fortran+gotcha~ipo+libdw~libpfm+libunwind+mpi+papi~rocm+sampler+shared~sosflow build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,grndumsxke7frjwoj7solxycenpop6lr
+chai,2022.03.0,gcc@11.2.0,~benchmarks~cuda~enable_pick+examples~ipo~openmp~raja~rocm+shared~tests build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,qgvfxu4srscf4hm25qz3l5riywn2iu6a
+chapel,1.24.1,gcc@11.2.0, build_system=autotools,linux-sles15-zen3,fxbqho6bdn3dculx24yx3xeqtnk3lruo
+datatransferkit,3.1-rc3,gcc@11.2.0,~external-arborx~ipo~openmp+serial+shared build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,yxdr7kga74a5oxu3typqkpsy6ekc6y7a
+dyninst,12.2.0,gcc@11.2.0,~ipo+openmp~stat_dysect~static build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,6w3ckjo4iboejer25zeh3rd5o64ykmut
+fftw,3.3.8,gcc@11.2.0,+mpi~openmp~pfft_patches build_system=autotools precision=double,float,linux-sles15-zen3,3u7tnd4odl4mt6rwshv4fl37vftcacqa
+fftw,3.3.9,gcc@11.2.0,+mpi~openmp~pfft_patches build_system=autotools precision=double,float,linux-sles15-zen3,pw73y5e432su5lgh5dhiqpqcxzpgekm7
+flecsi,1.4.2,gcc@11.2.0,~coverage~cuda~debug_backend~disable_metis~doc~doxygen+external_cinch~flecstan~flog~graphviz+hdf5~ipo~kokkos~openmp+shared~tutorial~unit_tests backend=mpi build_system=cmake build_type=RelWithDebInfo caliper_detail=none,linux-sles15-zen3,hr4tlwctqbk4stpi7tjtugk22gdhvry4
+flit,2.1.0,gcc@11.2.0, build_system=makefile,linux-sles15-zen3,33ouxjskpw4km75crb3zowmgwljt5m5k
+flux-core,0.44.0,gcc@11.2.0,~cuda~docs build_system=autotools,linux-sles15-zen3,ldsu6azndua2vng5rgblobxn3tmymvih
+fortrilinos,2.1.0,gcc@11.2.0,+hl~ipo+shared build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,6v4ndhwuaqbuwx7hhaor3cscfi4mqsio
+gasnet,2022.9.0,gcc@11.2.0,~cuda~debug~rocm build_system=generic conduits=smp,linux-sles15-zen3,4qbfhkqguzyxunpxdgqfc43uxhvcfnys
+gawk,5.1.1,gcc@11.2.0,~nls build_system=autotools,linux-sles15-zen3,irnrtwy5kc34c2d53ku7aeqw7jkjihyr
+ginkgo,1.4.0,gcc@11.2.0,~cuda~develtools~full_optimizations~hwloc~ipo~oneapi+openmp~rocm+shared build_system=cmake build_type=Release patches=43e571a,linux-sles15-zen3,zsf4hui3hueqjmkjhbaukrppd2n7hmbe
+git,2.35.3,gcc@11.2.0,+man+nls+perl+subtree~svn~tcltk build_system=autotools,linux-sles15-zen3,5rvgppfkmnpk47j3jjdwhgnpkx246n6x
+globalarrays,5.8,gcc@11.2.0,~scalapack armci=mpi-ts build_system=autotools,linux-sles15-zen3,bhzptifqqbe3ftjur3yw7qqnuk5omrth
+gotcha,1.0.4,gcc@11.2.0,~ipo~test build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,uhmaxr3ppjvdakdgksragncihhq3wihl
+gptune,3.0.0,gcc@11.2.0,~hypre~ipo~mpispawn~superlu build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,45363ukeaagg6ooxzk7sz7caag5zal3y
+gromacs,2022.3,gcc@11.2.0,~blas~cp2k~cuda~cycle_subcounters~double+hwloc~ipo~lapack~mdrun_only+mpi~nosuffix~opencl+openmp~plumed~relaxed_double_precision+shared~sycl build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,ibzwcibrlxpi76ihny7mofr6dvnoebim
+h5bench,1.3,gcc@11.2.0,~all~amrex~async~e3sm~exerciser~ipo~metadata~openpmd build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,zvi4g76wh7gnkarkud3ckjc3hb2ojtmt
+hdf5-vol-async,1.3,gcc@11.2.0,~ipo build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,inv6jsgzhrgwl5xiqttwua5ulcx7zfco
+heffte,2.3.0,gcc@11.2.0,~cuda+fftw~fortran~ipo~magma~mkl~python~rocm+shared build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,75xngjp5d6lqojfucdq3tj3bttl5iowt
+hpctoolkit,2022.10.01,gcc@11.2.0,~cray~cuda~debug~level_zero~mpi~opencl+papi~rocm+viewer build_system=autotools,linux-sles15-zen3,uw6cz6owrj756b3aklzfjvj4hhzhll6o
+hpx,1.8.1,gcc@11.2.0,~async_cuda~async_mpi~cuda~examples~generic_coroutines~ipo~rocm~tools build_system=cmake build_type=RelWithDebInfo cxxstd=17 instrumentation=none malloc=tcmalloc max_cpu_count=64 networking=mpi,linux-sles15-zen3,edo6z4i3pgibrexppfu35o4oukx6pmrc
+kokkos,3.7.00,gcc@11.2.0,~aggressive_vectorization~compiler_warnings~cuda~cuda_constexpr~cuda_lambda~cuda_ldg_intrinsic~cuda_relocatable_device_code~cuda_uvm~debug~debug_bounds_check~debug_dualview_modify_check~deprecated_code~examples~explicit_instantiation~hpx~hpx_async_dispatch~hwloc~ipo~memkind~numactl+openmp~openmptarget~pic+profiling~profiling_load_print~pthread~qthread~rocm+serial+shared~sycl~tests~tuning~wrapper build_system=cmake build_type=RelWithDebInfo intel_gpu_arch=none std=14,linux-sles15-zen3,qe4wcis2aorlr2a6tn7bgl36dtu7u6f5
+kokkos-kernels,3.7.00,gcc@11.2.0,~blas~cblas~cublas~cuda~cusparse~ipo~lapack~lapacke~mkl+openmp~pthread~serial+shared~superlu build_system=cmake build_type=RelWithDebInfo execspace_cuda=auto execspace_openmp=auto execspace_serial=auto execspace_threads=auto layouts=left memspace_cudaspace=auto memspace_cudauvmspace=auto offsets=int,size_t ordinals=int scalars=double,linux-sles15-zen3,r7ms5w3as2v5plg5lhlx57xqysbbbcar
+lammps,20220623,gcc@11.2.0,~adios~asphere~atc~awpmd~bocs~body~bpm~brownian~cg-sdk~class2~colloid~colvars~compress~coreshell~cuda~cuda_mps~dielectric~diffraction~dipole~dpd-basic~dpd-meso~dpd-react~dpd-smooth~drude~eff~electrode~exceptions~extra-compute~extra-dump~extra-fix~extra-molecule~extra-pair~fep+ffmpeg~granular~h5md~intel~interlayer~ipo+jpeg+kim~kokkos~kspace~latboltz~latte+lib~machdyn~manifold~manybody~mc~meam~mesont~mgpt~misc~ml-iap~ml-snap~mliap~mofff~molecule~molfile+mpi~mpiio~netcdf~opencl+openmp~openmp-package~opt~orient~peri~phonon~plugin~plumed+png~poems~ptm~python~qeq~qtb~reaction~reaxff~replica~rigid~shock~smtbq~snap~sph~spin~srd~tally~uef~user-adios~user-atc~user-awpmd~user-bocs~user-brownian~user-cgsdk~user-colvars~user-diffraction~user-dpd~user-drude~user-eff~user-fep~user-h5md~user-intel~user-lb~user-manifold~user-meamc~user-mesodpd~user-mesont~user-mgpt~user-misc~user-mofff~user-molfile~user-netcdf~user-omp~user-phonon~user-plumed~user-ptm~user-qtb~user-reaction~user-reaxc~user-sdpd~user-smd~user-smtbq~user-sph~user-tally~user-uef~user-yaff~voronoi~yaff build_system=cmake build_type=RelWithDebInfo lammps_sizes=smallbig,linux-sles15-zen3,tnann5kkmnten76v5ogvc3swkxjyslso
+legion,21.03.0,gcc@11.2.0,~bindings~bounds_checks~cuda~cuda_hijack~cuda_unsupported_compiler~enable_tls~fortran~gasnet_debug~hdf5~hwloc~ipo~kokkos+libdl~openmp~papi~privilege_checks~python~redop_complex~rocm~shared~spy+zlib build_system=cmake build_type=RelWithDebInfo conduit=none cuda_arch=70 cxxstd=11 gasnet_root=none max_dims=3 max_fields=512 network=none output_level=warning,linux-sles15-zen3,zv5bs3lc5rbxwhqqz676j46lh5c7va7p
+libquo,1.3.1,gcc@11.2.0, build_system=autotools,linux-sles15-zen3,ox54rg5noyuu3zrqzwg5vhxbfwm65xri
+mercury,2.1.0,gcc@11.2.0,~bmi+boostsys+checksum~debug~ipo~mpi+ofi+shared+sm~ucx~udreg build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,fa3wtdy65cebtn2ho6uryordsh6orlem
+mfem,4.5.0,gcc@11.2.0,~amgx~conduit~cuda~debug~examples~exceptions~fms~ginkgo~gnutls~gslib~hiop~lapack~libceed~libunwind+metis~miniapps~mpfr+mpi~netcdf~occa~openmp~petsc~pumi~raja~rocm~shared~slepc+static~strumpack~suite-sparse~sundials~superlu-dist~threadsafe~umpire+zlib build_system=generic timer=auto,linux-sles15-zen3,nro7oe4pr3iannkg6ct3hvzqljkxfyi2
+mpark-variant,1.4.0,gcc@11.2.0,~ipo build_system=cmake build_type=RelWithDebInfo patches=21a4f8d,4e173fe,b3501f7,linux-sles15-zen3,tavtg75jyyxaamkcyzzee2yajrzd5sse
+nano,6.3,gcc@11.2.0, build_system=autotools,linux-sles15-zen3,22srts4w3gxq4az2gu63ahyku3re62x3
+nccmp,1.9.0.1,gcc@11.2.0,~ipo build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,dcw5bqz55n4drvym6bkwpselntaff4hw
+nco,5.0.1,gcc@11.2.0,~doc build_system=autotools,linux-sles15-zen3,l7724yj7txf244b2e65djxxvxyglg7q4
+netcdf-c,4.9.0,gcc@11.2.0,~dap~fsync~hdf4~jna~mpi~parallel-netcdf+pic+shared+zstd build_system=autotools,linux-sles15-zen3,vmlqytb6xtekr2ycxuf6mgx3pp3vqkfu
+netcdf-fortran,4.6.0,gcc@11.2.0,~doc+pic+shared build_system=autotools,linux-sles15-zen3,t6pvp2h7x2sfaean3yoy2sanscm3n6b6
+omega-h,9.34.13,gcc@11.2.0,~cuda~examples~ipo+mpi+optimize+shared+symbols~throw+trilinos~warnings+zlib build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,smslqc6xe3st4k2oqgpyx47hvrrg6crs
+openblas,0.3.20,gcc@11.2.0,~bignuma~consistent_fpcsr~ilp64+locking+pic+shared build_system=makefile patches=9f12903 symbol_suffix=none threads=openmp,linux-sles15-zen3,cq2jdssocqpvb5jsrvfkjpa7s6tzreqw
+openpmd-api,0.14.5,gcc@11.2.0,~adios1~adios2+hdf5~ipo+mpi~python+shared build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,27fkqq2lyy53kc5vci73x4lb7k5nqrgv
+papyrus,1.0.2,gcc@11.2.0,~ipo build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,s7jp42sgyvh2xspmvwkcu6lmxy5vpqqc
+parallel-netcdf,1.12.3,gcc@11.2.0,~burstbuffer+cxx+fortran+pic+shared build_system=autotools,linux-sles15-zen3,mlpz3o2l4j4x5qy2anvxv42u6ygm5oqg
+parsec,3.0.2209,gcc@11.2.0,~cuda~debug_verbose~ipo~profile+shared build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,fkn7h2ov2cs6ackgc3zugnn7netafjvv
+pdt,3.25.1,gcc@11.2.0,~pic build_system=autotools,linux-sles15-zen3,wzpjxzxajnj6j2qa7n3xvhphkkgmylek
+precice,2.5.0,gcc@11.2.0,~ipo+mpi+petsc~python+shared build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,2l3sj2anhkegi2g4gdltoavponflreh3
+pumi,2.2.7,gcc@11.2.0,~fortran~int64~ipo~shared+simmodsuite_version_check~testing~zoltan build_system=cmake build_type=RelWithDebInfo simmodsuite=none,linux-sles15-zen3,zn7tuho5daybf4zybit5drtb3owolc3u
+py-h5py,3.7.0,gcc@11.2.0,~mpi build_system=python_pip,linux-sles15-zen3,mllwxuwt7ibctp6heeyzvy5b7fdwhrxt
+py-h5py,3.7.0,gcc@11.2.0,+mpi build_system=python_pip,linux-sles15-zen3,mfrljom5c5aazo5j7pn5xx4k2h26vco6
+py-libensemble,0.9.3,gcc@11.2.0,~deap~mpi~mpmath~nlopt~petsc4py~pyyaml~scipy~tasmanian build_system=python_pip,linux-sles15-zen3,qq3aj74mcuj37vtg3fom2f2ly4ydqq4l
+py-petsc4py,3.18.1,gcc@11.2.0,+mpi build_system=python_pip patches=d344e0e,linux-sles15-zen3,t4mdaejb6aczfh4b6gwuoowdy66osw6r
+py-warpx,22.10,gcc@11.2.0,+mpi build_system=python_pip,linux-sles15-zen3,xyblxobtju6p5yzms5bdgzeicdl5zgb4
+py-warpx,22.10,gcc@11.2.0,+mpi build_system=python_pip,linux-sles15-zen3,xjmhipkjwwyn6l2ih3cdsmdomi4tnf3f
+py-warpx,22.10,gcc@11.2.0,+mpi build_system=python_pip,linux-sles15-zen3,ypvqjjbiwtytfdhuzzgkhwumzvn6zspl
+qt,5.14.2,gcc@11.2.0,~dbus~debug~doc~examples~framework~gtk+gui~opengl~phonon+shared+sql~ssl+tools~webkit build_system=generic patches=2081e9c,51aeba5,75bcb42,7f34d48,8449b9f,84b0991,9378afd,ea411b9,linux-sles15-zen3,gjesivuw44ydkyqgromty23q4cg3kq45
+qthreads,1.16,gcc@11.2.0,+hwloc~spawn_cache+static build_system=autotools scheduler=distrib stack_size=4096,linux-sles15-zen3,5ucvryzks7d4gtl75gk7rhwhjp2slmvz
+quantum-espresso,7.1,gcc@11.2.0,~elpa+epw~ipo~libxc+mpi~nvtx+openmp+patch~qmcpack+scalapack build_system=cmake build_type=RelWithDebInfo hdf5=none,linux-sles15-zen3,utbuugnj4oinuvm3lgzoarvdxt5xsjuw
+slate,2022.07.00,gcc@11.2.0,~cuda~ipo+mpi+openmp~rocm+shared build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,d3zj4moordq5c63e5i6bz7ng2lje6jcg
+slepc,3.18.1,gcc@11.2.0,+arpack~blopex~cuda~rocm build_system=generic,linux-sles15-zen3,kfbhdayiaa4absw2nwkwqof7oih2va2c
+subversion,1.14.1,gcc@11.2.0,+apxs+nls~perl~serf build_system=autotools,linux-sles15-zen3,sjyn3mknc2ydmk6k3v7ihq6lz5ueacgl
+sundials,6.4.1,gcc@11.2.0,+ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL~cuda+examples+examples-install~f2003~fcmix+generic-math~ginkgo~hypre~int64~ipo~klu~kokkos~kokkos-kernels~lapack~magma~monitoring+mpi~openmp~petsc~profiling~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~sycl~trilinos build_system=cmake build_type=RelWithDebInfo cstd=99 cxxstd=14 logging-level=0 logging-mpi=OFF precision=double,linux-sles15-zen3,hpe3vx7kuxq6kagniri67ouolugldgir
+superlu,5.3.0,gcc@11.2.0,~ipo+pic build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,tnurd2ul2lqav4gc4nj3yla5yxdkyud6
+tasmanian,7.9,gcc@11.2.0,~blas~cuda~fortran~ipo~magma~mpi~openmp~python~rocm~xsdkflags build_system=cmake build_type=Release,linux-sles15-zen3,4aoihbryzmdg4ef4wq3tr6faal7z3df7
+tau,2.32,gcc@11.2.0,~adios2+binutils~comm~craycnl~cuda+elf+fortran~gasnet+io~level_zero+libdwarf+libunwind~likwid+mpi~ompt~opari~opencl~openmp+otf2+papi+pdt~phase~ppc64le~profileparam+pthreads+python~rocm~rocprofiler~roctracer~scorep~shmem~sqlite~x86_64 build_system=generic,linux-sles15-zen3,fqug27dng5axhcwkzpv2lb2vtadxutan
+umap,2.1.0,gcc@11.2.0,~ipo~logging~tests build_system=cmake build_type=RelWithDebInfo,linux-sles15-zen3,ac3biz34t3ka2ucysvb5d5ejkostjwyx
+upcxx,2022.9.0,gcc@11.2.0,~cuda~gasnet~mpi~rocm build_system=generic cross=none,linux-sles15-zen3,cge4wqs6btmshqp2bgx4jkgq7dphg7ug
+vtk-m,1.9.0,gcc@11.2.0,~64bitids+ascent_types~cuda+doubleprecision+examples~fpic~ipo~kokkos~logging~mpi+openmp+rendering~rocm~shared~tbb~testlib~virtuals build_system=cmake build_type=Release,linux-sles15-zen3,qab3xjpk2z2bnzlozmnawsfhxli5wtdg

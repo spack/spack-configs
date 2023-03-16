@@ -1,0 +1,174 @@
+  definitions:
+  - cce_compilers: ['%cce@15.0.0']
+  - gcc_compilers: ['%gcc@11.2.0']
+  - nvhpc_compilers: ['%nvhpc@22.5']  
+
+  - gcc_specs:
+    - adios2@2.8.3
+    - alquimia@1.0.10
+    - aml@0.2.0
+    - amrex@22.11
+    - arborx@1.3
+    - argobots@1.1    
+    - axom@0.7.0 
+    - bolt@2.0
+    - butterflypack@2.2.2
+    - cabana@0.5.0
+    - caliper@2.8.0
+    - chai@2022.03.0 ~benchmarks ~tests
+    - datatransferkit@3.1-rc3
+    - dyninst@12.2.0 ^intel-tbb
+    #- ecp-data-vis-sdk@1.0 ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 +paraview +pnetcdf +sz +unifyfs +veloc +visit +vtkm +zfp
+    - flecsi@1.4.2
+    - flit@2.1.0
+    - flux-core@0.44.0
+    - fortrilinos@2.1.0
+    - gasnet@2022.9.0
+    - ginkgo@1.4.0
+    - globalarrays@5.8
+    - gotcha@1.0.4
+    - gptune@3.0.0
+    - h5bench@1.3
+    - hdf5@1.12.2 +fortran +hl +shared
+    - hdf5-vol-async@1.3
+    - heffte@2.3.0 +fftw
+    - hpctoolkit@2022.10.01
+    - hpx@1.8.1 networking=mpi
+    - hypre@2.26.0
+    - kokkos@3.7.00 +openmp
+    - kokkos-kernels@3.7.00 +openmp
+    - lammps@20220623
+    - legion@21.03.0
+    - libquo@1.3.1
+    - libunwind@1.6.2
+    - mercury@2.1.0
+    - mfem@4.5.0
+    - mpark-variant@1.4.0
+    #- mpifileutils@0.11.1 ~xattr
+    - nccmp@1.9.0.1
+    - nco@5.0.1
+    - netlib-scalapack@2.2.0
+    - openblas@0.3.20 threads=openmp
+    - omega-h@9.34.13
+    - openpmd-api@0.14.5 ~adios2
+    - papi@6.0.0.1
+    - papyrus@1.0.2
+    - parallel-netcdf@1.12.3
+    - parsec@3.0.2209 ~cuda
+    - pdt@3.25.1
+    - petsc@3.18.1    
+    - precice@2.5.0
+    - pumi@2.2.7
+    - py-libensemble@0.9.3
+    - py-h5py +mpi
+    - py-h5py ~mpi
+    - py-petsc4py@3.18.1
+    - py-warpx@22.10 ^warpx dims=2
+    - py-warpx@22.10 ^warpx dims=3
+    - py-warpx@22.10 ^warpx dims=rz
+    - qt@5.14.2
+    - qthreads@1.16 scheduler=distrib
+    - quantum-espresso@7.1
+    - raja@2022.03.0
+    - slate@2022.07.0 ~cuda
+    - slepc@3.18.1
+    - strumpack@7.0.1 ~slate
+    - sundials@6.4.1
+    - superlu@5.3.0
+    - superlu-dist@8.1.1
+    - tasmanian@7.9
+    - tau@2.32 +mpi +python
+    - trilinos@13.0.1 +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext
+      +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu
+      +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos
+      +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long    
+    - umap@2.1.0
+    - umpire@2022.03.1
+    - upcxx@2022.9.0
+   
+    - vtk-m@1.9.0
+    - zfp@0.5.5
+
+    # - bricks@r0.1 build failure
+    # - conduit@0.8.4 build error
+    # - plasma@22.9.29 Could NOT find MKL (missing: MKL_INCLUDE_DIRS MKL_LIBRARIES) 
+    # - phist@1.11.2 build error
+    # - stc@0.9.0 build failure on swig
+    # - turbine@1.3.0  failed to build swig
+    # - upcxx+gasnet^gasnet@2022.9.2 # see https://software.nersc.gov/NERSC/spack-infrastructure/-/issues/45  Issue with getting checksum for gasnet   
+     # - visit@3.2.2 ~hdf5
+    # - wannier90@3.1.0 Error: Type mismatch between actual argument at (1) and actual argument at (2) (COMPLEX(8)/INTEGER(4)).../comms.F90:1214:22: 1214 |     call MPI_scatterv(rootglobalarray, counts, displs, MPI_double_precision, &
+  - cuda_specs:
+    - adios2@2.8.3 +cuda cuda_arch=80   # ecp-data-vis-sdk
+    - amrex@22.11 +cuda cuda_arch=80
+    - arborx@1.3 +cuda cuda_arch=80 ^kokkos@3.7.00 +wrapper
+    - cabana@0.5.0 +cuda ^kokkos@3.7.00 +wrapper +cuda_lambda +cuda cuda_arch=80
+    - caliper@2.8.0 +cuda cuda_arch=80
+    - chai@2022.03.0 ~benchmarks ~tests +cuda cuda_arch=80 ^umpire@2022.03.1 ~shared
+    - cusz@0.3 +cuda cuda_arch=80    
+    - flecsi@2.1.0 +cuda cuda_arch=80
+    - ginkgo@1.4.0 +cuda cuda_arch=80
+    - heffte@2.3.0 +cuda cuda_arch=80
+    - hpx@1.8.1 +cuda cuda_arch=80
+    - hypre@2.26.0 +cuda cuda_arch=80
+    - kokkos-kernels@3.7.00 +cuda cuda_arch=80 ^kokkos@3.7.00 +wrapper +cuda cuda_arch=80
+    - kokkos@3.7.00 +wrapper +cuda cuda_arch=80    
+    - mfem@4.5.0 +cuda cuda_arch=80
+    - omega-h@9.34.13 +cuda cuda_arch=80
+    - petsc@3.18.1 +cuda cuda_arch=80    
+    - slate@2022.07.0 +cuda cuda_arch=80
+    - slepc@3.18.1 +cuda cuda_arch=80
+    - strumpack@7.0.1 ~slate +cuda cuda_arch=80
+    - sundials@6.4.1 +cuda cuda_arch=80
+    - superlu-dist@8.1.1 +cuda cuda_arch=80
+    - tasmanian@7.9 +cuda cuda_arch=80    
+    - umpire@2022.03.1 ~shared +cuda cuda_arch=80
+    - vtk-m@1.9.0 +cuda cuda_arch=80    # ecp-data-vis-sdk
+    - zfp@0.5.5 +cuda cuda_arch=80      # ecp-data-vis-sdk
+        
+    #- ascent@0.8.0 +cuda cuda_arch=80   # unable to build vtk-h -- Could NOT find MPI_C (missing: MPI_C_LIB_NAMES) (found version "3.1")    
+    # - dealii@9.4.0 +cuda cuda_arch=80 # CUDA_LIBRARIES: *** Required variable "CUDA_cusparse_LIBRARY" set to NOTFOUND ***    
+    #- magma@2.6.2 +cuda cuda_arch=80 # CMake Error: The following variables are used in this project, but they are set to NOTFOUND.    
+    #- raja@2022.03.0 +cuda cuda_arch=80 # error: "RAJA::expt::Register<int32_t, RAJA::expt::avx2_register> &(const int32_t &)" contains a vector, which is not supported in device code
+    #- trilinos@13.4.0 +cuda cuda_arch=80
+    
+  - nvhpc_specs:
+    - hdf5@1.12.2 +fortran +hl +shared
+    - kokkos@3.7.00 +openmp
+    - kokkos-kernels@3.7.00 +openmp
+    - sundials@6.4.1
+    - superlu@5.3.0
+    #- superlu-dist@8.1.1 # error: this OpenMP construct is not supported in NVIDIA subset: The 'taskloop' construct is not supported.
+
+  - cce_specs:
+    - fftw@3.3.10    
+    - hdf5@1.12.2 +fortran +hl +shared
+    - hypre@2.26.0    
+    - kokkos@3.7.00 +openmp
+    - kokkos-kernels@3.7.00 +openmp
+    - netcdf-c@4.9.0
+    - netcdf-fortran@4.6.0 
+    - sundials@6.4.1
+    - superlu@5.3.0
+    - superlu-dist@8.1.1 
+
+  - nersc_specs:
+    - chapel@1.24.1
+    - gsl@2.7.1
+    - fftw@3.3.10
+    - fftw@3.3.9
+    - fftw@3.3.8        
+    - netcdf-c@4.9.0 ~mpi 
+    - netcdf-fortran@4.6.0 
+    - metis@5.1.0    
+    - parmetis@4.0.3
+    - gromacs@2022.3
+  - utilities:
+    - autoconf
+    - automake
+    - cmake
+    - git
+    - gmake
+    - gawk
+    - nano
+    - subversion
