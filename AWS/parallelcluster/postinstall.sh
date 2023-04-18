@@ -154,7 +154,7 @@ set_pcluster_defaults() {
     ( download_packages_yaml "$(target)" )
     eval "echo \"$(cat /tmp/packages.yaml)\"" > ${install_path}/etc/spack/packages.yaml
 
-    for f in mirrors modules config; do
+    for f in modules config; do
         curl -Ls https://raw.githubusercontent.com/spack/spack-configs/main/AWS/parallelcluster/${f}.yaml -o ${install_path}/etc/spack/${f}.yaml
     done
 }
