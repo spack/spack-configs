@@ -59,7 +59,7 @@ EOF
         for cfn_cluster_user in ec2-user centos ubuntu; do
             [ -d "/home/${cfn_cluster_user}" ] && break
         done
-        echo "Installing Spack into $HOME/spack for ${cfn_cluster_user}."
+        echo "Installing Spack into /home/${cfn_cluster_user} ."
         cfn_ebs_shared_dirs="/home/${cfn_cluster_user}"
     fi
 
@@ -141,7 +141,7 @@ download_packages_yaml() {
 
 set_pcluster_defaults() {
     # Set versions of pre-installed software in packages.yaml
-    SLURM_VERSION=$(. /etc/profile && sinfo --version | cut -d' ' -f 2 | sed -e 's?\.?-?g')
+    SLURM_VERSION=$(strings /opt/slurm/lib/libslurm.so | grep  -e '^VERSION'  | awk '{print $2}'  | sed -e 's?"??g')
     LIBFABRIC_MODULE=$(. /etc/profile && module avail libfabric 2>&1 | grep libfabric | head -n 1 | xargs )
     LIBFABRIC_MODULE_VERSION=$(. /etc/profile && module avail libfabric 2>&1 | grep libfabric | head -n 1 |  cut -d / -f 2 | sed -e 's?~??g' | xargs )
     LIBFABRIC_VERSION=${LIBFABRIC_MODULE_VERSION//amzn*}
