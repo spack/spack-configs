@@ -59,11 +59,11 @@ EOF
         for cfn_cluster_user in ec2-user centos ubuntu; do
             [ -d "/home/${cfn_cluster_user}" ] && break
         done
-        echo "Installing Spack into /home/${cfn_cluster_user} ."
         cfn_ebs_shared_dirs="/home/${cfn_cluster_user}"
     fi
 
     install_path=${SPACK_ROOT:-"${cfn_ebs_shared_dirs}/spack"}
+    echo "Installing Spack into ${install_path}."
     # For now we use specific commits as markers as the last release is too old and
     # develop changes too fast.
     # spack_branch="develop"
@@ -190,7 +190,7 @@ setup_spack() {
 }
 
 install_packages() {
-    [ -f /opt/slurm/etc/slurm.sh ] && . /opt/slurm/etc/slurm.sh || . /etc/profile.d/spack.sh
+    [ -z "${SPACK_ROOT}" ] && [ -f /opt/slurm/etc/slurm.sh ] && . /opt/slurm/etc/slurm.sh || . /etc/profile.d/spack.sh
 
     # Compiler needed for all kinds of codes. It makes no sense not to install it.
     # Get gcc from buildcache
