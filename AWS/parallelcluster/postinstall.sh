@@ -6,6 +6,24 @@ set -e
 # # Use as postinstall in AWS ParallelCluster (https://docs.aws.amazon.com/parallelcluster/) #
 ##############################################################################################
 
+install_in_foreground=false
+while [ $# -gt 1 ]; do
+    case $1 in
+        -v )
+            set -v
+            shift
+            ;;
+        -fg )
+            install_in_foreground=true
+            shift
+            ;;
+        * )
+            echo "Unknown argument: $1"
+            exit 1
+            ;;
+    esac
+done
+
 setup_variables() {
     # Install onto first shared storage device
     cluster_config="/opt/parallelcluster/shared/cluster-config.yaml"
@@ -141,11 +159,11 @@ download_packages_yaml() {
 
 set_pcluster_defaults() {
     # Set versions of pre-installed software in packages.yaml
-    SLURM_VERSION=$(strings /opt/slurm/lib/libslurm.so | grep  -e '^VERSION'  | awk '{print $2}'  | sed -e 's?"??g')
-    LIBFABRIC_MODULE_VERSION=$(grep 'Version:' /opt/amazon/efa/lib64/pkgconfig/libfabric.pc | awk '{print $2}')
-    LIBFABRIC_MODULE="libfabric-aws/${LIBFABRIC_MODULE_VERSION}"
-    LIBFABRIC_VERSION=${LIBFABRIC_MODULE_VERSION//amzn*}
-    GCC_VERSION=$(gcc -v 2>&1 |tail -n 1| awk '{print $3}' )
+    [ -z "${SLURM_VERSION}" ] && SLURM_VERSION=$(strings /opt/slurm/lib/libslurm.so | grep  -e '^VERSION'  | awk '{print $2}'  | sed -e 's?"??g')
+    [ -z "${LIBFABRIC_MODULE_VERSION}" ] && LIBFABRIC_MODULE_VERSION=$(grep 'Version:' /opt/amazon/efa/lib64/pkgconfig/libfabric.pc | awk '{print $2}')
+    [ -z "${LIBFABRIC_MODULE}" ] && LIBFABRIC_MODULE="libfabric-aws/${LIBFABRIC_MODULE_VERSION}"
+    [ -z "${LIBFABRIC_VERSION}" ] && LIBFABRIC_VERSION=${LIBFABRIC_MODULE_VERSION//amzn*}
+    [ -z "${GCC_VERSION}" ] && GCC_VERSION=$(gcc -v 2>&1 |tail -n 1| awk '{print $3}' )
 
     # Write the above as actual yaml file and only parse the \$.
     mkdir -p ${install_path}/etc/spack
@@ -232,5 +250,9 @@ echo "$(declare -pf)
     rm -f ${tmpfile}
 " > ${tmpfile}
 
-nohup bash ${tmpfile} &> /var/log/spack-postinstall.log &
-disown -a
+if ${install_in_foreground}; then
+    bash ${tmpfile}
+else
+    nohup bash ${tmpfile} &> /var/log/spack-postinstall.log &
+    disown -a
+fi
