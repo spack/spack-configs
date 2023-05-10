@@ -7,7 +7,7 @@ set -e
 ##############################################################################################
 
 install_in_foreground=false
-while [ $# -gt 1 ]; do
+while [ $# -gt 0 ]; do
     case $1 in
         -v )
             set -v
