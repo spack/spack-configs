@@ -17,6 +17,10 @@ while [ $# -gt 0 ]; do
             install_in_foreground=true
             shift
             ;;
+        -nointel )
+            export NO_INTEL_COMPILER=1
+            shift
+            ;;
         * )
             echo "Unknown argument: $1"
             exit 1
@@ -208,7 +212,9 @@ setup_spack() {
 }
 
 install_packages() {
-    [ -z "${SPACK_ROOT}" ] && [ -f /opt/slurm/etc/slurm.sh ] && . /opt/slurm/etc/slurm.sh || . /etc/profile.d/spack.sh
+    if [ -n "${SPACK_ROOT}" ]; then
+        [ -f /opt/slurm/etc/slurm.sh ] && . /opt/slurm/etc/slurm.sh || . /etc/profile.d/spack.sh
+    fi
 
     # Compiler needed for all kinds of codes. It makes no sense not to install it.
     # Get gcc from buildcache
@@ -218,7 +224,7 @@ install_packages() {
         spack compiler add --scope site
     )
 
-    if [ "x86_64" == "$(architecture)" ]
+    if [ -z "${NO_INTEL_COMPILER}" ] && [ "x86_64" == "$(architecture)" ]
     then
         # Add oneapi@latest & intel@latest
         spack install intel-oneapi-compilers-classic
