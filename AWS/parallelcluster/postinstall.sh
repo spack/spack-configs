@@ -28,8 +28,8 @@ setup_variables() {
     # Install onto first shared storage device
     cluster_config="/opt/parallelcluster/shared/cluster-config.yaml"
     if [ -f "${cluster_config}" ]; then
-        pip install pyyaml
-        os=$(python << EOF
+        pip3 install pyyaml
+        os=$(python3 << EOF
 #/usr/bin/env python
 import yaml
 with open("${cluster_config}", 'r') as s:
@@ -51,14 +51,14 @@ EOF
                 cfn_cluster_user=""
         esac
 
-        cfn_ebs_shared_dirs=$(python << EOF
+        cfn_ebs_shared_dirs=$(python3 << EOF
 #/usr/bin/env python
 import yaml
 with open("${cluster_config}", 'r') as s:
     print(yaml.safe_load(s)["SharedStorage"][0]["MountDir"])
 EOF
                            )
-        scheduler=$(python << EOF
+        scheduler=$(python3 << EOF
 #/usr/bin/env python
 import yaml
 with open("${cluster_config}", 'r') as s:
