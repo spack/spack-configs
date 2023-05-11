@@ -5,7 +5,7 @@ packages:
       - one_of: ["aocc +license-agreed %gcc target=x86_64_v3"]
   gcc:
     require:
-      - one_of: ["gcc %gcc +binutils ^binutils@2.37 target=x86_64_v3"]
+      - one_of: ["gcc@12 %gcc +binutils ^binutils@2.37 target=x86_64_v3"]
   gromacs:
     require:
       - one_of: ["+lapack+blas %intel ^intel-oneapi-mkl"]

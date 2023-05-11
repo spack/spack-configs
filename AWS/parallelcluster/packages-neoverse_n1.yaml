@@ -6,7 +6,7 @@ packages:
   gcc:
     compiler: [gcc]
     require:
-      - one_of: ["+binutils ^binutils@2.37"]
+      - one_of: ["gcc@12 +binutils ^binutils@2.37"]
     target: [aarch64]
   gromacs:
     require:
