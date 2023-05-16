@@ -19,6 +19,9 @@ packages:
   lammps:
     require:
       - one_of: ["lammps_sizes=bigbig +molecule +kspace +rigid +asphere +opt +openmp +openmp-package %intel ^intel-oneapi-mkl"]
+  libidn2:
+    require:
+      - one_of: ['cflags=-std=c18', '%gcc']
   libfabric:
     buildable: false
     externals:
