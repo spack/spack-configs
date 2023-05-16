@@ -59,7 +59,7 @@ packages:
         spec: slurm@${SLURM_VERSION} +pmix
   stream:
     require:
-      - one_of ["stream@5.10 +openmp cflags=\"-qopt-streaming-stores=always -mcmodel=large -O3 -shared-intel -qopenmp -DSTREAM_ARRAY_SIZE=268435456 -DNTIMES=100\""]
+      - one_of: ["stream@5.10 +openmp cflags=\"-qopt-streaming-stores=always -mcmodel=large -O3 -shared-intel -qopenmp -DSTREAM_ARRAY_SIZE=268435456 -DNTIMES=100\""]
   wrf:
     require:
       - one_of: ["wrf@4 build_type=dm+sm %intel", "wrf@4.2.2 +netcdf_classic fflags=\"-fp-model fast=2 -no-heap-arrays -no-prec-div -no-prec-sqrt -fno-common\" build_type=dm+sm %intel"]
