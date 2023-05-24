@@ -204,7 +204,7 @@ setup_spack() {
     # Remove all autotools/buildtools packages. These versions need to be managed by spack or it will
     # eventually end up in a version mismatch (e.g. when compiling gmp).
     spack tags build-tools | xargs -I {} spack config --scope site rm packages:{}
-    spack mirror add --scope site "aws-pcluster" "https://binaries.spack.io/develop/aws-pcluster-$(target | sed -e 's?_avx512??1')"
+    [ -z "${CI_PROJECT_DIR}" ] && spack mirror add --scope site "aws-pcluster" "https://binaries.spack.io/develop/aws-pcluster-$(target | sed -e 's?_avx512??1')"
     spack buildcache keys --install --trust
 }
 
