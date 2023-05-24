@@ -86,11 +86,7 @@ EOF
 
     install_path=${SPACK_ROOT:-"${cfn_ebs_shared_dirs}/spack"}
     echo "Installing Spack into ${install_path}."
-    # For now we use specific commits as markers as the last release is too old and
-    # develop changes too fast.
-    # spack_branch="develop"
-    # Commit from Thu Jan 19 16:01:31 2023 +0100
-    spack_commit="45ea7c19e5"
+    spack_branch="develop"
 
     scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 }
@@ -208,6 +204,7 @@ setup_spack() {
     # Remove all autotools/buildtools packages. These versions need to be managed by spack or it will
     # eventually end up in a version mismatch (e.g. when compiling gmp).
     spack tags build-tools | xargs -I {} spack config --scope site rm packages:{}
+    spack mirror add --scope site "aws-pcluster" "https://binaries.spack.io/develop/aws-pcluster-$(target | sed -e 's?_avx512??1')"
     spack buildcache keys --install --trust
 }
 
