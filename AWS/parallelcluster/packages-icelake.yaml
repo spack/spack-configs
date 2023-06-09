@@ -1,5 +1,8 @@
 ---  # Icelake packages
 packages:
+  cpio:
+    require:
+      - one_of: ['cflags=-std=c18', '%gcc']
   gcc:
     require:
       - one_of: ["gcc@12 %gcc +binutils ^binutils@2.37 target=x86_64_v3"]
