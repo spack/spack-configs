@@ -8,7 +8,7 @@ packages:
       - one_of: ["gcc@12 %gcc +binutils ^binutils@2.37 target=x86_64_v3"]
   gromacs:
     require:
-      - one_of: ["+lapack+blas%intel ^intel-oneapi-mkl"]
+      - one_of: ["+blas +intel_provided_gcc +lapack %intel ^intel-oneapi-mkl"]
   intel-mpi:
     variants: +external-libfabric
   intel-oneapi-compilers:
