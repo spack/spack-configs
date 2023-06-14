@@ -1,3 +1,0 @@
-# TODO Re-enable once binary cache is rebuilt with https://github.com/spack/spack/pull/33191
-# config:
-#   install_hash_length: 8
