@@ -32,6 +32,8 @@ packages:
   palace:
     require:
       - one_of: ["palace cxxflags=\"-include cstdint\" ^fmt@9.1.0"]
+  pmix:
+    require: ["pmix@3"]
   py-devito:
     require:
       - one_of: ["py-devito %gcc +mpi"]

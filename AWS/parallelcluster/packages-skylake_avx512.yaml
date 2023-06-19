@@ -45,6 +45,8 @@ packages:
   palace:
     require:
       - one_of: ["palace ^fmt@9.1.0"]
+  pmix:
+    require: ["pmix@3"]
   py-devito:
     require:
       - one_of: ["py-devito %intel +mpi"]
