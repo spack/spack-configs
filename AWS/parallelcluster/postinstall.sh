@@ -137,6 +137,16 @@ target() {
     )
 }
 
+cp_packages_yaml() {
+    . ${install_path}/share/spack/setup-env.sh
+    target="${1}"
+    if [ -f $SPACK_ROOT/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-"${target}"/packages.yaml ]; then
+        cp $SPACK_ROOT/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-"${target}"/packages.yaml /tmp/packages.yaml
+    else
+        false
+    fi
+}
+
 download_packages_yaml() {
     # $1: spack target
     . ${install_path}/share/spack/setup-env.sh
@@ -169,7 +179,7 @@ set_pcluster_defaults() {
     mkdir -p ${install_path}/etc/spack
 
     # Find suitable packages.yaml. If not for this architecture then for its parents.
-    ( download_packages_yaml "$(target)" )
+    ( cp_packages_yaml "echo $(target) | sed -e 's?_avx512??1'" || download_packages_yaml "$(target)" )
     eval "echo \"$(cat /tmp/packages.yaml)\"" > ${install_path}/etc/spack/packages.yaml
 
     curl -Ls https://raw.githubusercontent.com/spack/spack-configs/main/AWS/parallelcluster/modules.yaml -o ${install_path}/etc/spack/modules.yaml
