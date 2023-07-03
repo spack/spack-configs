@@ -179,7 +179,7 @@ set_pcluster_defaults() {
     mkdir -p ${install_path}/etc/spack
 
     # Find suitable packages.yaml. If not for this architecture then for its parents.
-    ( cp_packages_yaml "echo $(target) | sed -e 's?_avx512??1'" || download_packages_yaml "$(target)" )
+    ( cp_packages_yaml "$(echo $(target) | sed -e 's?_avx512??1')" || download_packages_yaml "$(target)" )
     eval "echo \"$(cat /tmp/packages.yaml)\"" > ${install_path}/etc/spack/packages.yaml
 
     curl -Ls https://raw.githubusercontent.com/spack/spack-configs/main/AWS/parallelcluster/modules.yaml -o ${install_path}/etc/spack/modules.yaml
@@ -346,6 +346,18 @@ install_packages() {
         spack install intel-oneapi-compilers-classic
         bash -c ". "$(spack location -i intel-oneapi-compilers)/setvars.sh"; spack compiler add --scope site"
     fi
+
+    # TODO: Handle this compiler in pipeline once WRF package gets added
+    if [ -z "${CI_PROJECT_DIR}" ] && [ "aarch64" == "$(architecture)" ]
+    then
+        spack install acfl@23.04.1
+        (
+            spack load acfl
+            spack compiler add --scope site
+        )
+    fi
+
+    patch_compilers_yaml
 
     # Install any specs provided to the script.
     for spec in "$@"
