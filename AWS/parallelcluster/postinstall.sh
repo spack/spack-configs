@@ -31,8 +31,8 @@ done
 setup_variables() {
     # Install onto first shared storage device
     cluster_config="/opt/parallelcluster/shared/cluster-config.yaml"
+    pip3 install pyyaml
     if [ -f "${cluster_config}" ]; then
-        pip3 install pyyaml
         os=$(python3 << EOF
 #/usr/bin/env python
 import yaml
@@ -112,10 +112,10 @@ download_spack() {
         [ -d ${install_path} ] || \
             if [ -n "${spack_branch}" ]
             then
-                git clone https://github.com/spack/spack -b ${spack_branch} ${install_path}
+                git clone -c feature.manyFiles=true https://github.com/spack/spack -b ${spack_branch} ${install_path}
             elif [ -n "${spack_commit}" ]
             then
-                git clone https://github.com/spack/spack ${install_path}
+                git clone -c feature.manyFiles=true https://github.com/spack/spack ${install_path}
                 cd ${install_path} && git checkout ${spack_commit}
             fi
         return 0
@@ -206,14 +206,125 @@ setup_spack() {
     spack buildcache keys --install --trust
 }
 
+patch_compilers_yaml() {
+    # Graceful exit if package not found by spack
+    set -o pipefail
+    compilers_yaml="${SPACK_ROOT}/etc/spack/compilers.yaml"
+    [ -f "${compilers_yaml}" ] || {
+        echo "Cannot find ${compilers_yaml}, compiler setup might now be optimal."
+        return
+    }
+
+    # System ld is too old for amzn linux2
+    spack_gcc_version=$(spack find --format '{version}' gcc)
+    binutils_path=$(spack find -p binutils | awk '/binutils/ {print $2}')
+    [ -d "${binutils_path}" ] && [ -n "${spack_gcc_version}" ] && python3 <<EOF
+import yaml
+
+with open("${compilers_yaml}",'r') as f:
+    compilers=yaml.safe_load(f)
+
+for c in compilers["compilers"]:
+    if "arm" in c["compiler"]["spec"] or "intel" in c["compiler"]["spec"] or "oneapi" in c["compiler"]["spec"] \
+       or "${spack_gcc_version}" in c["compiler"]["spec"]:
+        compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["environment"] = {"prepend_path":{"PATH":"${binutils_path}/bin"}}
+
+with open("${compilers_yaml}",'w') as f:
+    yaml.dump(compilers, f)
+EOF
+
+    # Oneapi needs extra_rpath to gcc libstdc++.so.6
+    # cmake 3.26 installed on grv3 (alinux2) also needs this
+    oneapi_gcc_version=$(spack find --format '{compiler}' intel-oneapi-compilers echo | sed -e 's/=//g') && \
+        [ -n "${oneapi_gcc_version}" ] && oneapi_gcc_path=$(spack find "${oneapi_gcc_version}" | grep "${oneapi_gcc_version}" | awk '{print $2}') && \
+        [ -d "${oneapi_gcc_path}" ] && python3 <<EOF
+import yaml
+
+with open("${compilers_yaml}",'r') as f:
+    compilers=yaml.safe_load(f)
+
+for c in compilers["compilers"]:
+    if "oneapi" in c["compiler"]["spec"]:
+        compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["extra_rpaths"] = ["${oneapi_gcc_path}/lib64"]
+
+with open("${compilers_yaml}",'w') as f:
+    yaml.dump(compilers, f)
+EOF
+
+    # Armclang needs to find its own libraries
+    acfl_path=$(spack find -p acfl | awk '/acfl/ {print $2}') && \
+        [ -d "${acfl_path}" ] && cpp_include_path=$(dirname "$(find "${acfl_path}" -name cassert)") && \
+        [ -d "${cpp_include_path}" ] && python3 <<EOF
+import yaml
+
+with open("${compilers_yaml}",'r') as f:
+    compilers=yaml.safe_load(f)
+
+for c in compilers["compilers"]:
+    if "arm" in c["compiler"]["spec"]:
+        compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["environment"] = {"prepend_path":{"CPATH":"${cpp_include_path}:${cpp_include_path}/aarch64-linux-gnu"}}
+
+with open("${compilers_yaml}",'w') as f:
+    yaml.dump(compilers, f)
+EOF
+
+    # Armclang needs extra_rpath to libstdc++.so
+    acfl_path=$(spack find -p acfl | awk '/acfl/ {print $2}') && \
+        acfl_libstdcpp_path=$(dirname "$(find "${acfl_path}" -name libstdc++.so | head -n1)") && \
+        [ -d "${acfl_libstdcpp_path}" ] && python3 <<EOF
+import yaml
+
+with open("${compilers_yaml}",'r') as f:
+    compilers=yaml.safe_load(f)
+
+for c in compilers["compilers"]:
+    if "arm" in c["compiler"]["spec"]:
+        compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["extra_rpaths"] = ["${acfl_libstdcpp_path}"]
+
+with open("${compilers_yaml}",'w') as f:
+    yaml.dump(compilers, f)
+EOF
+
+}
+
 install_packages() {
     if [ -n "${SPACK_ROOT}" ]; then
-        [ -f /opt/slurm/etc/slurm.sh ] && . /opt/slurm/etc/slurm.sh || . /etc/profile.d/spack.sh
+        if [ -f /opt/slurm/etc/slurm.sh ]; then
+            . /opt/slurm/etc/slurm.sh
+        else
+            . /etc/profile.d/spack.sh
+        fi
     fi
 
     # Compiler needed for all kinds of codes. It makes no sense not to install it.
     # Get gcc from buildcache
-    spack install gcc
+    cache_zip=$(mktemp)
+    # TODO: Enable. It runs without error right now, but needs to be changed once bootstrap-gcc-cache is available
+    # [ -z "${CI_PROJECT_DIR}" ] && curl -L "" -o "${cache_zip}"
+    # `gcc@12.3.0%gcc@7.3.1` is created as part of building the pipeline containers.
+    # https://github.com/spack/gitlab-runners/pkgs/container/pcluster-amazonlinux-2/106126845?tag=v2023-07-01 produced the following hashes.
+    if [ "x86_64" == "$(architecture)" ]; then
+        gcc_hash="yyvkvlgimaaxjhy32oa5x5eexqekrevc"
+    else
+        gcc_hash="jttj24nibqy5jsqf34as5m63umywfa3d"
+    fi
+    if file -b "${cache_zip}"  | grep -q "Zip archive"; then
+        pushd "$(dirname "${cache_zip}")"
+        unzip -uq "${cache_zip}"
+        spack mirror add --scope=site bootstrap-gcc-cache file://"$PWD"/bootstrap-gcc-cache && \
+            spack buildcache update-index bootstrap-gcc-cache
+        popd
+    fi
+
+    spack install --no-check-signature /${gcc_hash}
+
+    if spack mirror list | grep -q "bootstrap-gcc-cache"; then
+        pushd "$(dirname "${cache_zip}")"
+        spack mirror rm --scope=site bootstrap-gcc-cache
+        rm -rf bootstrap-gcc-cache "${cache_zip}"
+        popd
+    fi
+
     (
         spack load gcc
         spack compiler add --scope site
