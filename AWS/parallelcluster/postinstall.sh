@@ -244,7 +244,6 @@ with open("${compilers_yaml}",'w') as f:
 EOF
 
     # Oneapi needs extra_rpath to gcc libstdc++.so.6
-    # cmake 3.26 installed on grv3 (alinux2) also needs this
     oneapi_gcc_version=$(spack find --format '{compiler}' intel-oneapi-compilers echo | sed -e 's/=//g') && \
         [ -n "${oneapi_gcc_version}" ] && oneapi_gcc_path=$(spack find "${oneapi_gcc_version}" | grep "${oneapi_gcc_version}" | awk '{print $2}') && \
         [ -d "${oneapi_gcc_path}" ] && python3 <<EOF
@@ -298,7 +297,7 @@ EOF
 }
 
 install_packages() {
-    if [ -n "${SPACK_ROOT}" ]; then
+    if [ -z "${SPACK_ROOT}" ]; then
         if [ -f /opt/slurm/etc/slurm.sh ]; then
             . /opt/slurm/etc/slurm.sh
         else
@@ -350,7 +349,7 @@ install_packages() {
     # TODO: Handle this compiler in pipeline once WRF package gets added
     if [ -z "${CI_PROJECT_DIR}" ] && [ "aarch64" == "$(architecture)" ]
     then
-        spack install acfl@23.04.1
+        spack install acfl
         (
             spack load acfl
             spack compiler add --scope site
