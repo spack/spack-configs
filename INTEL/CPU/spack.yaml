@@ -1,0 +1,29 @@
+spack:
+  specs:
+    - gromacs@2022.3%oneapi cxxflags="-O3 -static-intel -qopt-zmm-usage=high" +mpi ~double ~shared +openmp +cycle_subcounters openmp_max_threads=256 build_type=Release ^intel-oneapi-mkl ^intel-oneapi-mpi
+    - hpcg%oneapi +openmp ^intel-oneapi-mpi
+    - hpl@2.3%oneapi +openmp ^intel-oneapi-mkl ^intel-oneapi-mpi
+    - lammps@20220623.2%oneapi +asphere +class2  +kspace +manybody +misc +molecule +mpiio +opt +replica  +rigid  +intel +openmp-package ^intel-oneapi-mkl ^intel-oneapi-mpi
+    - openfoam@2206%oneapi cxxflags="-O3 -qopt-zmm-usage=low" ^intel-oneapi-mpi
+    #- openfoam-org@10%oneapi cxxflags="-O3 -qopt-zmm-usage=low" ^intel-oneapi-mpi
+    - stream%oneapi +openmp stream_array_size=500000000 ntimes=500 cflags="-O3 -qopt-zmm-usage=high -mcmodel=large -qopt-streaming-stores=always -fno-builtin -qopt-prefetch-distance=128,16"
+    - wrf@4.4%oneapi ^intel-oneapi-mpi ^parallel-netcdf ^libtirpc@1.2.6 
+  packages:
+    all:
+      require: '%gcc@8.5:'
+    gromacs:
+      require: '%oneapi'
+    hpcg:
+      require: '%oneapi'
+    hpl:
+      require: '%oneapi'
+    lammps:
+      require: '%oneapi'
+    openfoam:
+      require: '%oneapi@2022.3.0:'
+    #openfoam-org:
+      #require: '%oneapi'
+    stream:
+      require: '%oneapi'
+    wrf:
+      require: '%oneapi'
