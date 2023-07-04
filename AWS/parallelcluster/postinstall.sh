@@ -325,7 +325,7 @@ install_packages() {
         popd
     fi
 
-    spack install --no-check-signature /${gcc_hash}
+    spack install --no-check-signature /${gcc_hash} || spack install gcc
 
     if spack mirror list | grep -q "bootstrap-gcc-cache"; then
         pushd "$(dirname "${cache_zip}")"
