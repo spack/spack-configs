@@ -170,7 +170,7 @@ download_packages_yaml() {
 set_pcluster_defaults() {
     # Set versions of pre-installed software in packages.yaml
     [ -z "${SLURM_VERSION}" ] && SLURM_VERSION=$(strings /opt/slurm/lib/libslurm.so | grep  -e '^VERSION'  | awk '{print $2}'  | sed -e 's?"??g')
-    [ -z "${LIBFABRIC_MODULE_VERSION}" ] && LIBFABRIC_MODULE_VERSION=$(grep 'Version:' /opt/amazon/efa/lib64/pkgconfig/libfabric.pc | awk '{print $2}')
+    [ -z "${LIBFABRIC_MODULE_VERSION}" ] && LIBFABRIC_MODULE_VERSION=$(grep 'Version:' "$(find /opt/amazon/efa/ -name libfabric.pc | head -n1)" | awk '{print $2}')
     [ -z "${LIBFABRIC_MODULE}" ] && LIBFABRIC_MODULE="libfabric-aws/${LIBFABRIC_MODULE_VERSION}"
     [ -z "${LIBFABRIC_VERSION}" ] && LIBFABRIC_VERSION=${LIBFABRIC_MODULE_VERSION//amzn*}
     [ -z "${GCC_VERSION}" ] && GCC_VERSION=$(gcc -v 2>&1 |tail -n 1| awk '{print $3}' )
@@ -228,7 +228,7 @@ patch_compilers_yaml() {
     # System ld is too old for amzn linux2
     spack_gcc_version=$(spack find --format '{version}' gcc)
     binutils_path=$(spack find -p binutils | awk '/binutils/ {print $2}')
-    [ -d "${binutils_path}" ] && [ -n "${spack_gcc_version}" ] && python3 <<EOF
+    if [ -d "${binutils_path}" ] && [ -n "${spack_gcc_version}" ]; then python3 <<EOF
 import yaml
 
 with open("${compilers_yaml}",'r') as f:
@@ -242,11 +242,12 @@ for c in compilers["compilers"]:
 with open("${compilers_yaml}",'w') as f:
     yaml.dump(compilers, f)
 EOF
+    fi
 
     # Oneapi needs extra_rpath to gcc libstdc++.so.6
-    oneapi_gcc_version=$(spack find --format '{compiler}' intel-oneapi-compilers echo | sed -e 's/=//g') && \
-        [ -n "${oneapi_gcc_version}" ] && oneapi_gcc_path=$(spack find "${oneapi_gcc_version}" | grep "${oneapi_gcc_version}" | awk '{print $2}') && \
-        [ -d "${oneapi_gcc_path}" ] && python3 <<EOF
+    if oneapi_gcc_version=$(spack find --format '{compiler}' intel-oneapi-compilers | sed -e 's/=//g') && \
+            [ -n "${oneapi_gcc_version}" ] && oneapi_gcc_path=$(spack find -p "${oneapi_gcc_version}" | grep "${oneapi_gcc_version}" | awk '{print $2}') && \
+            [ -d "${oneapi_gcc_path}" ]; then  python3 <<EOF
 import yaml
 
 with open("${compilers_yaml}",'r') as f:
@@ -259,11 +260,12 @@ for c in compilers["compilers"]:
 with open("${compilers_yaml}",'w') as f:
     yaml.dump(compilers, f)
 EOF
+    fi
 
     # Armclang needs to find its own libraries
-    acfl_path=$(spack find -p acfl | awk '/acfl/ {print $2}') && \
-        [ -d "${acfl_path}" ] && cpp_include_path=$(dirname "$(find "${acfl_path}" -name cassert)") && \
-        [ -d "${cpp_include_path}" ] && python3 <<EOF
+    if acfl_path=$(spack find -p acfl | awk '/acfl/ {print $2}') && \
+            [ -d "${acfl_path}" ] && cpp_include_path=$(dirname "$(find "${acfl_path}" -name cassert)") && \
+            [ -d "${cpp_include_path}" ]; then  python3 <<EOF
 import yaml
 
 with open("${compilers_yaml}",'r') as f:
@@ -276,11 +278,12 @@ for c in compilers["compilers"]:
 with open("${compilers_yaml}",'w') as f:
     yaml.dump(compilers, f)
 EOF
+    fi
 
     # Armclang needs extra_rpath to libstdc++.so
-    acfl_path=$(spack find -p acfl | awk '/acfl/ {print $2}') && \
-        acfl_libstdcpp_path=$(dirname "$(find "${acfl_path}" -name libstdc++.so | head -n1)") && \
-        [ -d "${acfl_libstdcpp_path}" ] && python3 <<EOF
+    if acfl_path=$(spack find -p acfl | awk '/acfl/ {print $2}') && \
+            acfl_libstdcpp_path=$(dirname "$(find "${acfl_path}" -name libstdc++.so | head -n1)") && \
+            [ -d "${acfl_libstdcpp_path}" ]; then python3 <<EOF
 import yaml
 
 with open("${compilers_yaml}",'r') as f:
@@ -293,7 +296,7 @@ for c in compilers["compilers"]:
 with open("${compilers_yaml}",'w') as f:
     yaml.dump(compilers, f)
 EOF
-
+    fi
 }
 
 install_packages() {
