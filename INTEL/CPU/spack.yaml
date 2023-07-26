@@ -1,6 +1,7 @@
 spack:
   # Tested for skylake, cascadelake and icelake targets. Should work on newer platofrms and more likely on some older platforms too.
   specs:
+    - py-devito%oneapi +mpi
     - gromacs@2022.3%oneapi cxxflags="-O3 -static-intel -qopt-zmm-usage=high" +mpi ~double ~shared +openmp +cycle_subcounters openmp_max_threads=256 build_type=Release ^intel-oneapi-mkl ^intel-oneapi-mpi
     - hpcg%oneapi +openmp ^intel-oneapi-mpi
     - hpl@2.3%oneapi +openmp ^intel-oneapi-mkl ^intel-oneapi-mpi
@@ -13,6 +14,8 @@ spack:
   packages:
     all:
       require: '%gcc@8.5:'
+    py-devito:
+      require: '%oneapi'
     gromacs:
       require: '%oneapi'
     hpcg:
