@@ -1,0 +1,20 @@
+spack:
+  view: false
+  include:
+  - /global/common/software/spackecp/perlmutter/spack_settings/compilers.yaml
+  - /global/common/software/spackecp/perlmutter/spack_settings/packages.yaml
+  config:
+    concretization: separately
+    build_stage: $spack/var/spack/stage
+    misc_cache: $spack/var/spack/misc_cache
+    concretizer: clingo
+    install_tree: $spack/opt/spack
+  concretizer:
+    reuse: false
+    unify: false
+  mirrors:
+    perlmutter-e4s-23.05: file:///global/common/software/spackecp/mirrors/perlmutter-e4s-23.05
+  specs:
+  - matrix:
+    - [$tools]
+    - [$gcc_compilers]

@@ -1,0 +1,10 @@
+spack find -x --format "{name},{version},{compiler.name}@{compiler.version},{variants},{arch},{hash}"
+autoconf,2.69,gcc@11.2.0, build_system=autotools patches=35c4492,7793209,a49dd5b,linux-sles15-zen3,n56hd3wy3emfw5ji6zjy5prpqxdf6nfs
+automake,1.16.5,gcc@11.2.0, build_system=autotools,linux-sles15-zen3,ygaxfzwbdzjwsiam6p26vdqbs7m7p55s
+ccache,4.8,gcc@11.2.0,~ipo+redis build_system=cmake build_type=Release generator=make,linux-sles15-zen3,eqk2d3bipbpkgwxq7ujlp6mckwal4dwz
+cmake,3.26.3,gcc@11.2.0,~doc+ncurses~ownlibs~qt build_system=generic build_type=Release,linux-sles15-zen3,j6xprhqvjwkyngr534kqdxnp5uhwf6j4
+gawk,5.2.1,gcc@11.2.0,~nls build_system=autotools,linux-sles15-zen3,tc3fqrfya4julpcft4mbbxxx4pcjm57m
+git,2.35.3,gcc@11.2.0,+man+nls+perl+subtree~svn~tcltk build_system=autotools,linux-sles15-zen3,3dteigpvssy3vuha6xpj266vzgtx7l2z
+gmake,4.4.1,gcc@11.2.0,~guile build_system=autotools,linux-sles15-zen3,6b72ibntxvoxfjc3vs32fsm3wlxccjgu
+nano,7.2,gcc@11.2.0, build_system=autotools,linux-sles15-zen3,yqlbruut2ne5fcawntymgteulurf5unp
+subversion,1.14.2,gcc@11.2.0,+apxs+nls~perl~serf build_system=autotools,linux-sles15-zen3,dcpxdffcrsw7drryxfa63zgfprjkvg2c
