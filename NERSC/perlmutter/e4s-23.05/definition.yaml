@@ -1,0 +1,230 @@
+ definitions:
+  - cce_compilers: ['%cce@=15.0.0']
+  - gcc_compilers: ['%gcc@=11.2.0']
+  - nvhpc_compilers: ['%nvhpc@=22.7']
+
+  - cce_specs:
+    - fftw
+    - hdf5 +fortran +hl +shared
+    - hypre
+    - kokkos +openmp
+    - kokkos-kernels +openmp
+    - netcdf-c
+    - netcdf-fortran
+    - papi
+    - petsc
+    - slepc
+    - sundials
+    - superlu
+    - superlu-dist
+
+  - math-libs:
+    - arborx
+    - fftw@=3.3.8
+    - fftw@=3.3.9
+    - fftw@=3.3.10
+    - ginkgo
+    - heffte
+    - hypre
+    - intel-mkl
+    - openblas
+    - petsc
+    - phist
+    - pumi
+    - slate
+    - slepc
+    - sundials
+    - superlu
+    - superlu-dist
+
+  - data_specs:
+    - datatransferkit
+    - hdf5
+    - hdf5-vol-async
+    - hdf5-vol-cache
+    - netcdf-c
+    - netcdf-fortran
+    - parallel-netcdf
+
+    #- hdf5-vol-log Build error
+
+  - nvhpc_specs:
+    - amrex
+    - boost
+    - hdf5 ~mpi
+    - sundials
+    - superlu
+
+    #- superlu-dist
+    #- hypre
+    #- kokkos
+    #- kokkos-kernels
+    #- papi   Build failud due to nvc-Error-Unknown switch: -Wno-error
+
+
+  - cuda_specs:
+    - adios2@=2.8.3 +cuda cuda_arch=80 # ecp-data-vis-sdk
+    - amrex +cuda cuda_arch=80
+    - arborx +cuda cuda_arch=80 ^kokkos +wrapper
+    - cabana +cuda ^kokkos +wrapper +cuda_lambda +cuda cuda_arch=80
+    - caliper +cuda cuda_arch=80
+    - chai ~benchmarks ~tests +cuda cuda_arch=80 ^umpire ~shared
+    - cusz +cuda cuda_arch=80
+    - flecsi +cuda cuda_arch=80
+    - ginkgo +cuda cuda_arch=80
+    - heffte +cuda cuda_arch=80
+    - hpx max_cpu_count=512 +cuda cuda_arch=80
+    - hypre +cuda cuda_arch=80
+    - kokkos +wrapper +cuda cuda_arch=80
+    - kokkos-kernels +cuda cuda_arch=80 ^kokkos +wrapper +cuda cuda_arch=80
+    - lammps +cuda cuda_arch=80
+    - legion +cuda cuda_arch=80
+    - magma +cuda cuda_arch=80
+    - mfem +cuda cuda_arch=80
+    - mgard +serial +openmp +timing +unstructured +cuda cuda_arch=80
+    - omega-h +cuda cuda_arch=80
+    - parsec +cuda cuda_arch=80
+    - petsc +cuda cuda_arch=80
+    - slate +cuda cuda_arch=80
+    - slepc +cuda cuda_arch=80
+    - strumpack ~slate +cuda cuda_arch=80
+    - sundials +cuda cuda_arch=80
+    - superlu-dist +cuda cuda_arch=80
+    - tasmanian +cuda cuda_arch=80
+    - umpire ~shared +cuda cuda_arch=80
+    - zfp +cuda cuda_arch=80
+
+    # - libpressio +bitgrooming +bzip2 +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp +json +remote +netcdf +cusz +mgard +cuda cuda_arch=80 ^cusz +cuda cuda_arch=80    # concretization issue with cuda
+
+    # CUDA NOARCH
+
+    - hpctoolkit +cuda
+    - papi +cuda
+    - tau +mpi +cuda
+
+    #- bricks +cuda
+    # - ecp-data-vis-sdk ~rocm +adios2 ~ascent +hdf5 ~paraview ~pnetcdf ~sz +vtkm +zfp +cuda cuda_arch=80
+    #- raja +cuda cuda_arch=80
+  - gcc_specs:
+    - alquimia
+    - aml
+    - amrex
+    - arborx
+    - argobots
+    - bolt
+    - boost
+    - butterflypack
+    - cabana
+    - caliper
+    - chai ~benchmarks ~tests
+    - datatransferkit
+    - dyninst ^intel-tbb
+    - flecsi
+    - flit
+    - fortrilinos
+    - ginkgo
+    - gotcha
+    - h5bench
+    - hdf5
+    - hdf5-vol-async
+    - hdf5-vol-cache
+    - heffte +fftw
+    - hpctoolkit
+    - hpx max_cpu_count=512 networking=mpi
+    - hypre
+    - kokkos +openmp
+    - kokkos-kernels +openmp
+    - lammps
+    - legion
+    - libnrm
+    - libpressio +bitgrooming +bzip2 ~cuda ~cusz +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp +json +remote +netcdf
+    - libquo
+    - libunwind
+    - loki
+    - mercury
+    - metall
+    - mfem
+    - mgard +serial +openmp +timing +unstructured ~cuda
+    - mpark-variant
+    - nccmp
+    - nco
+    - netlib-scalapack
+    - omega-h
+    - openpmd-api
+    - papi
+    - papyrus
+    - parsec ~cuda
+    - pdt
+    - petsc
+    - phist
+    - plasma
+    - plumed
+    - precice
+    - pumi
+    - py-h5py
+    - py-jupyterhub
+    - py-libensemble
+    - py-petsc4py
+    - qthreads scheduler=distrib
+    - raja
+    - slate ~cuda
+    - slepc
+    - stc
+    - strumpack ~slate
+    - sundials
+    - superlu
+    - superlu-dist
+    - swig@4.0.2-fortran
+    - sz3
+    - tasmanian
+    - tau +mpi +python
+    - trilinos +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    - turbine
+    - umap
+    - umpire
+    - unifyfs
+    - variorum
+
+    # build failures
+    # - axom ~mpi
+    #- globalarrays
+    #- wannier90
+    # - rempi
+    # - openfoam
+    # - mpifileutils ~xattr
+    # - lbann
+    # - hdf5-vol-log
+    # - flux-core
+        # - ecp-data-vis-sdk ~cuda ~rocm +adios2 +ascent +cinema +darshan +faodel +hdf5 ~paraview +pnetcdf +sz +unifyfs +veloc ~visit +vtkm +zfp # visit: font-util: [Makefile:756: install-data-hook] Error 1 share/fonts/X11/cyrillic: failed to write cache paraview: ispc: lex.cpp:398:9: error: 'yywrap' macro redefined [-Werror,-Wmacro-redefined]
+    # - exaworks
+    # - conduit ~mpi
+
+  - nersc_specs:
+    - chapel
+    - gsl
+    - netcdf-c ~mpi
+    - netcdf-fortran
+    - metis
+    - parmetis
+    - gromacs
+    - cdo
+    # trouble building esmf +mpi
+    #- ncl ^esmf~mpi
+    - ncl
+    - nco
+    - ncview
+    - libxc
+    - libcint
+    - libint tune=molgw-lmax-7
+    - intel-mkl
+
+  - tools:
+    - autoconf
+    - automake
+    - ccache
+    - cmake
+    - git
+    - gmake
+    - gawk
+    - nano
+    - subversion

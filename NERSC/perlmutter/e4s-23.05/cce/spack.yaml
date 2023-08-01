@@ -1,0 +1,68 @@
+spack:
+  view: false
+  include:
+  - /global/common/software/spackecp/perlmutter/spack_settings/compilers.yaml
+  - /global/common/software/spackecp/perlmutter/spack_settings/packages.yaml
+  config:
+    concretization: separately
+    build_stage: $spack/var/spack/stage
+    misc_cache: $spack/var/spack/misc_cache
+    concretizer: clingo
+    install_tree:
+      padded_length: 128
+  concretizer:
+    reuse: false
+    unify: false
+  mirrors:
+    perlmutter-e4s-23.05: file:///global/common/software/spackecp/mirrors/perlmutter-e4s-23.05
+  ci:
+    enable-artifacts-buildcache: false
+    rebuild-index: true
+    target: gitlab
+    pipeline-gen:
+    - submapping:
+      - match: [os=sles15]
+        build-job:
+          tags: [perlmutter-e4s]
+      match_behavior: first
+    - any-job:
+        before_script:
+        - git clone -c feature.manyFiles=true -b e4s-23.05 $SPACK_REPO
+        - . spack/share/spack/setup-env.sh
+        - which spack
+        - spack --version
+    - build-job:
+        tags: [perlmutter-e4s]
+        before_script:
+        - set +e
+        - module reset
+        - module use /global/common/software/nersc/$(cat /etc/nersc_modules_rev)/extra_modulefiles
+        - module load cpu
+        - module load cray-pmi
+        - module list
+        - source setup-env.sh
+        - git clone -c feature.manyFiles=true -b e4s-23.05 $SPACK_REPO
+        - . spack/share/spack/setup-env.sh
+        - which spack
+        - spack --version
+        - spack-python --path
+        script:
+        - cd ${SPACK_CONCRETE_ENV_DIR}
+        - spack env activate --without-view .
+        - spack env st
+        - export SPACK_GNUPGHOME=$HOME/.gnupg
+        - spack gpg list
+        - spack -d ci rebuild
+        - exit 0
+    - reindex-job:
+        tags: [perlmutter-e4s]
+        script:
+        - echo "End Pipeline"
+    - noop-job:
+        tags: [perlmutter-e4s]
+        script:
+        - echo "End Pipeline"
+  specs:
+    - matrix:
+      - [$cce_specs]
+      - [$cce_compilers]
