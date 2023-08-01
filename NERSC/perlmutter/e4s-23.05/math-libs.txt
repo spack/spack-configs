@@ -1,0 +1,21 @@
+spack find -x --format "{name},{version},{compiler.name}@{compiler.version},{variants},{arch},{hash}"
+arborx,1.3,gcc@11.2.0,~cuda~ipo+mpi~openmp~rocm+serial~sycl~trilinos build_system=cmake build_type=Release cxxstd=17 generator=make,linux-sles15-zen3,mr7ceay37jr6xaljuutsrcjpspgvu5xz
+cmake,3.26.3,gcc@11.2.0,~doc+ncurses~ownlibs~qt build_system=generic build_type=Release,linux-sles15-zen3,j6xprhqvjwkyngr534kqdxnp5uhwf6j4
+fftw,3.3.8,gcc@11.2.0,+mpi~openmp~pfft_patches build_system=autotools precision=double,float,linux-sles15-zen3,ez52v5bcdvim356fhrancx4n324be23j
+fftw,3.3.9,gcc@11.2.0,+mpi~openmp~pfft_patches build_system=autotools precision=double,float,linux-sles15-zen3,l2bn42vealwjstx6frgn36jw66dqbjox
+fftw,3.3.10,gcc@11.2.0,+mpi~openmp~pfft_patches build_system=autotools precision=double,float,linux-sles15-zen3,36sszom66i4fe3whlihz2qdlgw6mo63i
+ginkgo,1.5.0,gcc@11.2.0,~cuda~develtools~full_optimizations~hwloc~ipo~mpi~oneapi+openmp~rocm+shared build_system=cmake build_type=Release generator=make,linux-sles15-zen3,jzt3rmd34rv3npkjkrjzs35ms4l3toin
+gmake,4.4.1,gcc@11.2.0,~guile build_system=autotools,linux-sles15-zen3,6b72ibntxvoxfjc3vs32fsm3wlxccjgu
+hdf5,1.14.1-2,gcc@11.2.0,~cxx+fortran+hl~ipo~java~map+mpi+shared~szip~threadsafe+tools api=v18 build_system=cmake build_type=Release generator=make,linux-sles15-zen3,poditdtvjbpstv67rloti4pjrqm7h3ap
+heffte,2.3.0,gcc@11.2.0,~cuda~fftw~fortran~ipo~magma~mkl~python~rocm+shared build_system=cmake build_type=Release generator=make,linux-sles15-zen3,ev2zfvqhr757s66kyjbwmzppbficdxrb
+hypre,2.28.0,gcc@11.2.0,~complex~cuda~debug+fortran~gptune~int64~internal-superlu~mixedint+mpi+openmp~rocm+shared+superlu-dist~sycl~umpire~unified-memory build_system=autotools,linux-sles15-zen3,nbzvhjufqbgisghkl37q2wpzqhtw22b5
+intel-mkl,2020.4.304,gcc@11.2.0,~ilp64+shared build_system=generic threads=none,linux-sles15-zen3,3fzwgtwz6lm6pqim6rmlzotvmbxp55pd
+openblas,0.3.23,gcc@11.2.0,~bignuma~consistent_fpcsr+fortran~ilp64+locking+pic+shared build_system=makefile symbol_suffix=none threads=none,linux-sles15-zen3,hzwxhhr6tzqb4lpjluhyrbigothjv2c5
+petsc,3.19.1,gcc@11.2.0,~X~batch~cgns~complex~cuda~debug+double~exodusii~fftw+fortran~giflib+hdf5~hpddm~hwloc+hypre~int64~jpeg~knl~kokkos~libpng~libyaml~memkind+metis~mkl-pardiso~mmg~moab~mpfr+mpi~mumps+openmp~p4est~parmmg~ptscotch~random123~rocm~saws~scalapack+shared+strumpack~suite-sparse+superlu-dist~tetgen~trilinos~valgrind build_system=generic clanguage=C,linux-sles15-zen3,dxkzvrutt6lmegdebos6louv7y3ff4il
+phist,1.11.2,gcc@11.2.0,+fortran+host+int64~ipo+mpi+openmp~parmetis+scamac+shared~trilinos build_system=cmake build_type=Release generator=make kernel_lib=builtin outlev=2 patches=1fc9ac6,linux-sles15-zen3,s7sgoxyskyh75slsn3jrvc2hlluaugix
+pumi,2.2.7,gcc@11.2.0,~fortran~int64~ipo~shared+simmodsuite_version_check~testing~zoltan build_system=cmake build_type=Release generator=make simmodsuite=none,linux-sles15-zen3,pzp6dv3wio57pcprdy2pxmm6guq454dx
+slate,2022.07.00,gcc@11.2.0,~cuda~ipo+mpi+openmp~rocm+shared build_system=cmake build_type=Release generator=make,linux-sles15-zen3,erho6i76sf7m5bne65ul3wupiuw5lx3i
+slepc,3.19.0,gcc@11.2.0,+arpack~blopex~cuda~hpddm~rocm build_system=generic,linux-sles15-zen3,oyjp52b2epb3vky7xxem6a4keo5k2ki7
+sundials,6.5.1,gcc@11.2.0,+ARKODE+CVODE+CVODES+IDA+IDAS+KINSOL~cuda+examples+examples-install~f2003~fcmix+generic-math~ginkgo~hypre~int64~ipo~klu~kokkos~kokkos-kernels~lapack~magma~monitoring+mpi~openmp~petsc~profiling~pthread~raja~rocm+shared+static~superlu-dist~superlu-mt~sycl~trilinos build_system=cmake build_type=Release cstd=99 cxxstd=14 generator=make logging-level=0 logging-mpi=OFF precision=double,linux-sles15-zen3,2kddiuomyfpdwmrirkukwfl7qjua42m3
+superlu,5.3.0,gcc@11.2.0,~ipo+pic build_system=cmake build_type=Release generator=make,linux-sles15-zen3,6c72ycr77y7d66jryrmdsjmehn6ripnc
+superlu-dist,8.1.2,gcc@11.2.0,~cuda~int64~ipo+openmp~rocm+shared build_system=cmake build_type=Release generator=make,linux-sles15-zen3,idp7cstxek3yjz4opr2jk6zpa3xo2vua

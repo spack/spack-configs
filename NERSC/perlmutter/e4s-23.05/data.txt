@@ -1,0 +1,12 @@
+spack find -x --format "{name},{version},{compiler.name}@{compiler.version},{variants},{arch},{hash}"
+argobots,1.1,gcc@11.2.0,~affinity~debug+perf~stackunwind~tool~valgrind build_system=autotools stackguard=none,linux-sles15-zen3,5zlle2qkucopqngtfvtdxurg6kznl557
+cmake,3.26.3,gcc@11.2.0,~doc+ncurses~ownlibs~qt build_system=generic build_type=Release,linux-sles15-zen3,j6xprhqvjwkyngr534kqdxnp5uhwf6j4
+datatransferkit,3.1-rc3,gcc@11.2.0,~external-arborx~ipo~openmp+serial+shared build_system=cmake build_type=Release generator=make,linux-sles15-zen3,yadexsnnkcnxjpc5my73mwu5vitzdqqu
+gmake,4.4.1,gcc@11.2.0,~guile build_system=autotools,linux-sles15-zen3,6b72ibntxvoxfjc3vs32fsm3wlxccjgu
+hdf5,1.14.1-2,gcc@11.2.0,~cxx+fortran+hl~ipo~java~map+mpi+shared~szip~threadsafe+tools api=v18 build_system=cmake build_type=Release generator=make,linux-sles15-zen3,poditdtvjbpstv67rloti4pjrqm7h3ap
+hdf5-vol-async,1.5,gcc@11.2.0,~ipo~memcpy build_system=cmake build_type=Release generator=make,linux-sles15-zen3,nv3jybisxoudo6gllv5yo4qlf57ymhtp
+hdf5-vol-cache,v1.1,gcc@11.2.0,~ipo build_system=cmake build_type=Release generator=make,linux-sles15-zen3,jd52ydo7kiuskgsdaftqvym5yfhxx5ai
+netcdf-c,4.9.2,gcc@11.2.0,+blosc~byterange~dap~fsync~hdf4~jna+mpi~nczarr_zip+optimize~parallel-netcdf+pic+shared+szip+zstd build_system=autotools,linux-sles15-zen3,lbn5ej2le7jrsrxdjbz42kg2sd6e63dn
+netcdf-fortran,4.6.0,gcc@11.2.0,~doc+pic+shared build_system=autotools,linux-sles15-zen3,u3jje74fpszrbk425vev2l7wxcn6knte
+parallel-netcdf,1.12.3,gcc@11.2.0,~burstbuffer+cxx+fortran+pic+shared build_system=autotools,linux-sles15-zen3,gbnhsbvgsjyi3zvkyfmi35v3iqm4tmgz
+superlu-dist,8.1.2,gcc@11.2.0,~cuda~int64~ipo+openmp~rocm+shared build_system=cmake build_type=Release generator=make,linux-sles15-zen3,idp7cstxek3yjz4opr2jk6zpa3xo2vua
