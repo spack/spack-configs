@@ -29,6 +29,7 @@ packages:
       - one_of: ["openfoam %gcc ^scotch@6.0.9"]
   openmpi:
     variants: ~atomics ~cuda ~cxx ~cxx_exceptions ~internal-hwloc ~java +legacylaunchers ~lustre ~memchecker +pmi +romio ~singularity +vt +wrapper-rpath fabrics=ofi schedulers=slurm
+    require: '@4:'
   palace:
     require:
       - one_of: ["palace cxxflags=\"-include cstdint\" ^fmt@9.1.0"]
@@ -46,7 +47,7 @@ packages:
       - prefix: /opt/slurm/
         spec: slurm@${SLURM_VERSION} +pmix
   all:
-    compiler: [nvhpc, gcc, clang]
+    compiler: [gcc, arm, nvhpc, clang]
     providers:
       blas: [armpl-gcc, openblas]
       fftw-api: [armpl-gcc, fftw]
