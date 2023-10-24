@@ -1,0 +1,61 @@
+---  # Neoverse V1 packages
+packages:
+  acfl:
+    target: [aarch64]
+    compiler: [gcc]
+  gcc:
+    compiler: [gcc]
+    require:
+      - one_of: ["gcc@12 +binutils ^binutils@2.37 target=aarch64"]
+  gromacs:
+    require:
+      - one_of: ['gromacs@2021.3 %arm ^fftw ^openmpi', 'gromacs@2021.3 %gcc ^armpl-gcc ^openmpi']
+  libfabric:
+    buildable: false
+    externals:
+      - modules:
+          - ${LIBFABRIC_MODULE}
+        spec: libfabric@${LIBFABRIC_VERSION} fabrics=efa
+  mpas-model:
+    require: "precision=single make_target=llvm %arm ^parallelio+pnetcdf"
+  mpich:
+    require:
+      - one_of: ["mpich pmi=pmi2 device=ch4 netmod=ofi +slurm"]
+  openfoam:
+    require:
+      - one_of: ["openfoam %gcc ^scotch@6.0.9"]
+  openmpi:
+    variants: ~atomics ~cuda ~cxx ~cxx_exceptions ~internal-hwloc ~java +legacylaunchers ~lustre ~memchecker +pmi +romio ~singularity +vt +wrapper-rpath fabrics=ofi schedulers=slurm
+    require: '@4:'
+  slurm:
+    buildable: false
+    externals:
+      - prefix: /opt/slurm/
+        spec: slurm@${SLURM_VERSION} +pmix
+  wrf:
+    require:
+      - one_of: ["wrf%arm", "wrf%gcc"]
+  all:
+    compiler: [gcc, arm, nvhpc, clang]
+    providers:
+      blas: [armpl-gcc, openblas]
+      fftw-api: [armpl-gcc, fftw]
+      lapack: [armpl-gcc, openblas]
+      mpi: [openmpi, mpich]
+      scalapack: [netlib-scalapack]
+    permissions:
+      read: world
+      write: user
+
+
+    
+
+
+  # TODO: re-check after ompi releases something after 4.1.5
+  hpl:
+    require:
+      - one_of:
+          - 'hpl +openmp %arm ^acfl'
+          - 'hpl %gcc ^armpl-gcc'
+
+  #     - one_of['wrf%arm cflags=\"-Wno-implicit-function-declaration -Wno-int-conversion -Wno-implicit-int\" ^perl%gcc ^cmake%gcc ^jasper%gcc', 'wrf%gcc']
