@@ -217,7 +217,14 @@ setup_spack() {
     done
 
     [ -z "${CI_PROJECT_DIR}" ] && spack mirror add --scope site "aws-pcluster" "https://binaries.spack.io/develop/aws-pcluster-$(target | sed -e 's?_avx512??1')"
-    spack buildcache keys --install --trust
+
+    # Newer gpg2 versions on Ainux2 will not be able to validate the key. This allows spack to accept the buildcache keys.
+    if [ "$(gpg --version | awk '/gpg/{print $3}')" == "2.0.22" ]; then
+        mkdir -m 700 -p ${SPACK_ROOT}/opt/spack/gpg
+        echo "openpgp" >> ${SPACK_ROOT}/opt/spack/gpg/gpg.conf
+    fi
+
+    spack buildcache keys -it
 }
 
 patch_compilers_yaml() {
