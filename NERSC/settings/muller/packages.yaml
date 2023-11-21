@@ -1,0 +1,194 @@
+packages:
+  all:
+    compiler: [gcc@11.2.0, nvhpc@22.7, cce@15.0.0]
+    providers:
+      blas: [cray-libsci]
+      mpi: [cray-mpich]
+      pkgconfig: [pkg-config]
+  binutils:
+    variants: +ld +gold +headers +libiberty ~nls
+  bzip2:
+    buildable: false
+    version: [1.0.6]
+    externals:
+    - spec: bzip2@1.0.6
+      prefix: /usr
+  cray-libsci:
+    buildable: false
+    externals:
+    - spec: cray-libsci@os %gcc
+      modules: [cray-libsci]
+      prefix: /opt/cray/pe/libsci/default/GNU/9.1/x86_64
+    - spec: cray-libsci@os %nvhpc
+      modules: [cray-libsci]
+      prefix: /opt/cray/pe/libsci/default/NVIDIA/20.7/x86_64
+    - spec: cray-libsci@os %cce
+      modules: [cray-libsci]
+      prefix: /opt/cray/pe/libsci/default/CRAY/9.0/x86_64
+  cray-mpich:
+    buildable: false
+    externals:
+    - spec: cray-mpich@os %gcc@11.2.0
+      prefix: /opt/cray/pe/mpich/default/ofi/gnu/9.1
+      modules: [cray-mpich/8.1.25, cudatoolkit/11.7]
+    - spec: cray-mpich@os %nvhpc@22.7
+      prefix: /opt/cray/pe/mpich/default/ofi/nvidia/20.7
+      modules: [cray-mpich/8.1.25, cudatoolkit/11.7]
+    - spec: cray-mpich@os %cce@15.0.0
+      prefix: /opt/cray/pe/mpich/default/ofi/cray/10.0
+      modules:
+        - cray-mpich/8.1.25
+        - cudatoolkit/11.7
+  cray-pmi:
+    buildable: false
+    externals:
+    - spec: cray-pmi@6.1.10
+      modules: [cray-pmi]
+      prefix: /opt/cray/pe/pmi/default
+  cuda:
+    buildable: false
+    version: [11.7.0, 11.5.0]
+    externals:
+    - spec: cuda@11.7.0
+      prefix: /opt/nvidia/hpc_sdk/Linux_x86_64/22.7/cuda/11.7
+      modules: [cudatoolkit/11.7]
+    - spec: cuda@11.5.0
+      prefix: /opt/nvidia/hpc_sdk/Linux_x86_64/21.11/cuda/11.5
+      modules: [cudatoolkit/11.5]
+  cub:
+    buildable: false
+    externals:
+    # see https://docs.nvidia.com/hpc-sdk/archive/22.7/hpc-sdk-release-notes/index.html
+    - spec: cub@1.15.0
+      prefix: /opt/nvidia/hpc_sdk/Linux_x86_64/22.7/cuda/11.7/targets/x86_64-linux
+      modules: [cudatoolkit/11.7]
+    # see release notes for CUB version https://docs.nvidia.com/hpc-sdk/archive/21.11/hpc-sdk-release-notes/index.html
+    - spec: cub@1.13.1
+      prefix: /opt/nvidia/hpc_sdk/Linux_x86_64/21.11/cuda/11.5/targets/x86_64-linux
+      modules: [cudatoolkit/11.5]
+  curl:
+    buildable: false
+    externals:
+    - spec: curl@7.66.0
+      prefix: /usr
+  cpio:
+    buildable: false
+    version: [2.13]
+    externals:
+    - spec: cpio@2.13
+      prefix: /usr
+  diffutils:
+    buildable: false
+    version: [3.6]
+    externals:
+    - spec: diffutils@3.6
+      prefix: /usr
+  elfutils:
+    variants: +bzip2 ~nls
+  findutils:
+    version: [4.8.0]
+    externals:
+    - spec: findutils@4.8.0
+      prefix: /usr
+  hdf5:
+    variants: +fortran +hl +shared api=v18
+  hypre:
+    variants: +openmp +superlu-dist
+  git:
+    buildable: false
+    externals:
+    - spec: git@2.35.3
+      prefix: /usr
+  libfabric:
+    buildable: false
+    variants: fabrics=sockets,tcp,udp,rxm
+    externals:
+    - spec: libfabric@1.15.2.0
+      prefix: /opt/cray/libfabric/1.15.2.0
+      modules: [libfabric/1.15.2.0]
+  libunwind:
+    variants: +pic +xz
+  mercury:
+    variants: ~bmi
+  mesa:
+    variants: ~llvm
+  mesa18:
+    variants: ~llvm
+  mpi:
+    buildable: false
+  m4:
+    buildable: false
+    externals:
+    - spec: m4@1.4.18
+      prefix: /usr
+  ncurses:
+    variants: +termlib
+    externals:
+    - spec: ncurses@6.1
+      prefix: /usr
+  openssl:
+    version: [1.1.1d]
+    buildable: false
+    externals:
+    - spec: openssl@1.1.1d
+      prefix: /usr
+  openssh:
+    version: [8.4p1]
+    buildable: false
+    externals:
+    - spec: openssh@8.4p1
+      prefix: /usr
+  petsc:
+    variants: +openmp +strumpack
+  pdsh:
+    buildable: false
+    externals:
+    - spec: pdsh@2.34
+      prefix: /usr
+  pkg-config:
+    buildable: false
+    externals:
+    - spec: pkg-config@0.29.2
+      prefix: /usr
+  readline:
+    version: [7.0]
+    buildable: false
+    externals:
+    - spec: readline@7.0
+      prefix: /usr
+  slurm:
+    buildable: false
+    #version: [22.05.5]
+    externals:
+    - spec: slurm@os
+      prefix: /usr
+  superlu-dist:
+    variants: +openmp
+  strumpack:
+    variants: ~slate ~butterflypack
+  tar:
+    version: [1.34]
+    buildable: false
+    externals:
+    - spec: tar@1.30
+      prefix: /usr
+  trilinos:
+    variants: +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+  unzip:
+    version: [6.0]
+    buildable: false
+    externals:
+    - spec: unzip@6.0
+      prefix: /usr
+  util-linux-uuid:
+    version: [2.36.2]
+    buildable: false
+    externals:
+    - spec: util-linux-uuid@2.36.2
+      prefix: /usr
+  zsh:
+    version: [5.6]
+    buildable: false
+    externals:
+    - spec: zsh@5.6
+      prefix: /usr
