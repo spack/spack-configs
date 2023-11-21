@@ -1,0 +1,171 @@
+  
+  definitions:
+  - cce_compilers: ['%cce@=16.0.0']
+  - gcc_compilers: ['%gcc@=11.2.0']
+  - nvhpc_compilers: ['%nvhpc@=22.7']
+
+  - cce_specs:
+    - amrex
+    - boost
+    - hdf5
+    - hypre    
+    - kokkos +openmp
+    - kokkos-kernels +openmp
+    - sundials
+    - superlu
+  
+  - nvhpc_specs:
+    - amrex
+    - boost
+    - hdf5 ~mpi    
+    - sundials
+    - superlu
+  
+  - cuda_specs:
+    - amrex +cuda cuda_arch=80
+    - arborx +cuda cuda_arch=80 ^kokkos +wrapper
+    - caliper +cuda cuda_arch=80
+    - flecsi +cuda cuda_arch=80
+    - ginkgo +cuda cuda_arch=80
+    - heffte +cuda cuda_arch=80
+    - hpx +cuda cuda_arch=80
+    - hypre +cuda cuda_arch=80
+    - kokkos +wrapper +cuda cuda_arch=80
+    - kokkos-kernels +cuda cuda_arch=80 ^kokkos +wrapper +cuda cuda_arch=80
+    - lammps +cuda cuda_arch=80        
+    - magma +cuda cuda_arch=80
+    - mfem +cuda cuda_arch=80
+    - omega-h +cuda cuda_arch=80
+    - parsec +cuda cuda_arch=80
+    - petsc +cuda cuda_arch=80
+    - slate +cuda cuda_arch=80
+    - slepc +cuda cuda_arch=80
+    - strumpack ~slate +cuda cuda_arch=80
+    - sundials +cuda cuda_arch=80
+    - superlu-dist +cuda cuda_arch=80
+    - tasmanian +cuda cuda_arch=80
+    - umpire ~shared +cuda cuda_arch=80
+    - upcxx +cuda cuda_arch=80            
+    - hpctoolkit +cuda
+    - legion +cuda                     
+    - papi +cuda
+    - tau +mpi +cuda
+    
+
+  - gcc_specs:
+    - adios2
+    - alquimia
+    - amrex
+    - arborx
+    - argobots
+    - bolt
+    - boost
+    - butterflypack
+    - cabana
+    - caliper
+    - chai ~benchmarks ~tests
+    - datatransferkit
+    - dyninst ^intel-tbb
+    - flecsi
+    - flit
+    - fortrilinos
+    - gasnet
+    - ginkgo
+    - gotcha
+    - h5bench
+    - hdf5
+    - hdf5-vol-async
+    - hdf5-vol-cache
+    - heffte +fftw
+    - hpctoolkit
+    - hpx max_cpu_count=512 networking=mpi
+    - hypre
+    - kokkos +openmp
+    - kokkos-kernels +openmp
+    - lammps
+    - legion
+    - libnrm
+    - libpressio +bitgrooming +bzip2 ~cuda ~cusz +fpzip +hdf5 +libdistributed +lua +openmp +python +sz +sz3 +unix +zfp
+    - libquo
+    - libunwind
+    - likwid
+    - loki
+    - mercury
+    - metall
+    - mfem
+    - mgard +serial +openmp +timing +unstructured ~cuda
+    - mpark-variant
+    - nccmp
+    - nco
+    - netlib-scalapack
+    - omega-h
+    - openpmd-api
+    - papi
+    - papyrus
+    - parsec ~cuda
+    - pdt
+    - petsc
+    - phist
+    - plasma
+    - plumed
+    - precice
+    - pumi
+    - py-h5py
+    - py-jupyterhub
+    - py-libensemble
+    - py-petsc4py
+    - qthreads scheduler=distrib
+    - raja  
+    - slate ~cuda
+    - slepc
+    - stc
+    - strumpack ~slate
+    - sundials
+    - superlu
+    - superlu-dist
+    - swig@4.0.2-fortran
+    - sz3
+    - tasmanian
+    - tau +mpi +python
+    - trilinos +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long
+    - turbine
+    - umap
+    - umpire
+    - upcxx
+    - unifyfs
+    - variorum 
+    
+    # errors
+    # - aml  configure: error: C compiler cannot create executables
+    # - bricks ~cuda
+    # - hdf5-vol-log
+    # - lbann fails on conduit
+    # - pruners-ninja  configure: error: Failed to find C MPI Wrapper.
+
+  - nersc_specs:
+    - chapel
+    - gsl    
+    - netcdf-c ~mpi 
+    - netcdf-fortran
+    - metis
+    - parmetis
+    - gromacs
+    - cdo
+    - ncl 
+    - nco
+    - ncview
+    - libxc
+    - libcint
+    - libint tune=molgw-lmax-7
+    - intel-mkl
+
+  - tools:
+    - autoconf
+    - automake
+    - ccache
+    - cmake
+    - git
+    - gmake
+    - gawk
+    - nano
+    - subversion
