@@ -177,7 +177,7 @@ set_pcluster_defaults() {
     # Find suitable packages.yaml. If not for this architecture then for its parents.
     ( cp_packages_yaml "$(echo $(target) | sed -e 's?_avx512??1')" || download_packages_yaml "$(target)" )
     if [ "$(cat /tmp/packages.yaml)" != "404: Not Found" ]; then
-        eval "echo \"$(cat /tmp/packages.yaml)\"" > ${install_path}/etc/spack/packages.yaml
+        envsubst </tmp/packages.yaml >${install_path}/etc/spack/packages.yaml
     fi
 
     curl -Ls https://raw.githubusercontent.com/spack/spack-configs/main/AWS/parallelcluster/modules.yaml -o ${install_path}/etc/spack/modules.yaml
