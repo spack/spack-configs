@@ -1,10 +1,6 @@
 ---  # Neoverse N1 packages
 packages:
-  acfl:
-    target: [aarch64]
-    compiler: [gcc]
   gcc:
-    compiler: [gcc]
     require:
       - one_of: ["gcc@12 +binutils ^binutils@2.37 target=aarch64"]
   gromacs:
@@ -13,14 +9,10 @@ packages:
   libfabric:
     buildable: false
     externals:
-      - modules:
-          - ${LIBFABRIC_MODULE}
+      - prefix: /opt/amazon/efa/
         spec: libfabric@${LIBFABRIC_VERSION} fabrics=efa
   llvm:
     variants: ~lldb
-  nvhpc:
-    compiler: [gcc]
-    target: [aarch64]
   mpich:
     require:
       - one_of: ["mpich pmi=pmi2 device=ch4 netmod=ofi +slurm"]

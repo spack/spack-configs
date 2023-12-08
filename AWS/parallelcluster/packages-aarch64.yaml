@@ -1,7 +1,6 @@
 ---  # aarch64 packages (Basically only compiler)
 packages:
   gcc:
-    compiler: [gcc]
     require:
       - one_of: ["gcc@12 +binutils ^binutils@2.37 target=aarch64"]
   all:
