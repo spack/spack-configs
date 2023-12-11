@@ -6,6 +6,9 @@ set -e
 # # Use as postinstall in AWS ParallelCluster (https://docs.aws.amazon.com/parallelcluster/) #
 ##############################################################################################
 
+# CONFIG_BRANCH is a pointer to a custom user/repo/branch in case users wish to
+# provide or test their own configurations.
+CONFIG_BRANCH=spack/spack-configs/main
 install_in_foreground=false
 while [ $# -gt 0 ]; do
     case $1 in
@@ -21,6 +24,10 @@ while [ $# -gt 0 ]; do
             export NO_INTEL_COMPILER=1
             shift
             ;;
+        --config-branch )
+            CONFIG_BRANCH="$2"
+            shift;
+            shift;
         * )
             echo "Unknown argument: $1"
             exit 1
@@ -147,7 +154,7 @@ download_packages_yaml() {
     # $1: spack target
     . ${install_path}/share/spack/setup-env.sh
     target="${1}"
-    curl -Ls https://raw.githubusercontent.com/spack/spack-configs/main/AWS/parallelcluster/packages-"${target}".yaml -o /tmp/packages.yaml
+    curl -Ls https://raw.githubusercontent.com/${CONFIG_BRANCH}/AWS/parallelcluster/packages-"${target}".yaml -o /tmp/packages.yaml
     if [ "$(cat /tmp/packages.yaml)" = "404: Not Found" ]; then
         # Pick up parent if current generation is not available
         for target in $(spack-python -c 'print(" ".join(spack.platforms.host().target("'"${target}"'").microarchitecture.to_dict()["parents"]))'); do
@@ -177,10 +184,10 @@ set_pcluster_defaults() {
     # Find suitable packages.yaml. If not for this architecture then for its parents.
     ( cp_packages_yaml "$(echo $(target) | sed -e 's?_avx512??1')" || download_packages_yaml "$(target)" )
     if [ "$(cat /tmp/packages.yaml)" != "404: Not Found" ]; then
-        eval "echo \"$(cat /tmp/packages.yaml)\"" > ${install_path}/etc/spack/packages.yaml
+        envsubst </tmp/packages.yaml >${install_path}/etc/spack/packages.yaml
     fi
 
-    curl -Ls https://raw.githubusercontent.com/spack/spack-configs/main/AWS/parallelcluster/modules.yaml -o ${install_path}/etc/spack/modules.yaml
+    curl -Ls https://raw.githubusercontent.com/${CONFIG_BRANCH}/AWS/parallelcluster/modules.yaml -o ${install_path}/etc/spack/modules.yaml
 }
 
 setup_spack() {
