@@ -8,29 +8,40 @@ set -e
 
 # CONFIG_BRANCH is a pointer to a custom user/repo/branch in case users wish to
 # provide or test their own configurations.
-CONFIG_BRANCH=spack/spack-configs/main
+export CONFIG_BRANCH="spack/spack-configs/main"
+export SPACK_BRANCH="develop"
+install_specs=""
 install_in_foreground=false
 while [ $# -gt 0 ]; do
     case $1 in
-        -v )
-            set -v
-            shift
+        --config-branch )
+            CONFIG_BRANCH="$2"
+            shift 2
             ;;
         -fg )
             install_in_foreground=true
             shift
             ;;
-        -nointel )
+        --no-intel-compiler )
             export NO_INTEL_COMPILER=1
             shift
             ;;
-        --config-branch )
-            CONFIG_BRANCH="$2"
-            shift;
-            shift;
-        * )
-            echo "Unknown argument: $1"
+        --spack-branch )
+            SPACK_BRANCH="$2"
+            shift 2
+            ;;
+        -v )
+            set -v
+            shift
+            ;;
+        -* )
+            echo "Unknown option: $1"
             exit 1
+            ;;
+        * )
+            echo "Going to install: $1"
+            install_specs+=" ${1}"
+            shift
             ;;
     esac
 done
@@ -93,9 +104,6 @@ EOF
 
     install_path=${SPACK_ROOT:-"${cfn_ebs_shared_dirs}/spack"}
     echo "Installing Spack into ${install_path}."
-    spack_branch="develop"
-
-    scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 }
 
 major_version() {
@@ -116,14 +124,14 @@ fix_owner() {
 download_spack() {
     if [ -z "${SPACK_ROOT}" ]
     then
-        [ -d ${install_path} ] || \
-            if [ -n "${spack_branch}" ]
+        [ -d "${install_path}" ] || \
+            if [ -n "${SPACK_BRANCH}" ]
             then
-                git clone -c feature.manyFiles=true https://github.com/spack/spack -b ${spack_branch} ${install_path}
+                git clone -c feature.manyFiles=true https://github.com/spack/spack -b "${SPACK_BRANCH}" "${install_path}"
             elif [ -n "${spack_commit}" ]
             then
-                git clone -c feature.manyFiles=true https://github.com/spack/spack ${install_path}
-                cd ${install_path} && git checkout ${spack_commit}
+                git clone -c feature.manyFiles=true https://github.com/spack/spack "${install_path}"
+                cd "${install_path}" && git checkout "${spack_commit}"
             fi
         return 0
     else
@@ -135,16 +143,16 @@ download_spack() {
 # zen3 EC2 instances (e.g. hpc6a) is misidentified as zen2 so zen3 packages are found under packages-zen2.yaml.
 target() {
     (
-        . ${install_path}/share/spack/setup-env.sh
+        . "${install_path}/share/spack/setup-env.sh"
         spack arch -t
     )
 }
 
 cp_packages_yaml() {
-    . ${install_path}/share/spack/setup-env.sh
+    . "${install_path}/share/spack/setup-env.sh"
     target="${1}"
-    if [ -f $SPACK_ROOT/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-"${target}"/packages.yaml ]; then
-        cp $SPACK_ROOT/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-"${target}"/packages.yaml /tmp/packages.yaml
+    if [ -f "${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-${target}/packages.yaml" ]; then
+        cp "${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-${target}/packages.yaml" /tmp/packages.yaml
     else
         false
     fi
@@ -152,9 +160,9 @@ cp_packages_yaml() {
 
 download_packages_yaml() {
     # $1: spack target
-    . ${install_path}/share/spack/setup-env.sh
+    . "${install_path}/share/spack/setup-env.sh"
     target="${1}"
-    curl -Ls https://raw.githubusercontent.com/${CONFIG_BRANCH}/AWS/parallelcluster/packages-"${target}".yaml -o /tmp/packages.yaml
+    curl -Ls "https://raw.githubusercontent.com/${CONFIG_BRANCH}/AWS/parallelcluster/packages-${target}.yaml" -o /tmp/packages.yaml
     if [ "$(cat /tmp/packages.yaml)" = "404: Not Found" ]; then
         # Pick up parent if current generation is not available
         for target in $(spack-python -c 'print(" ".join(spack.platforms.host().target("'"${target}"'").microarchitecture.to_dict()["parents"]))'); do
@@ -173,21 +181,19 @@ download_packages_yaml() {
 set_pcluster_defaults() {
     # Set versions of pre-installed software in packages.yaml
     [ -z "${SLURM_VERSION}" ] && SLURM_VERSION=$(strings /opt/slurm/lib/libslurm.so | grep  -e '^VERSION'  | awk '{print $2}'  | sed -e 's?"??g')
-    [ -z "${LIBFABRIC_MODULE_VERSION}" ] && LIBFABRIC_MODULE_VERSION=$(grep 'Version:' "$(find /opt/amazon/efa/ -name libfabric.pc | head -n1)" | awk '{print $2}' | sed -e 's?~??g')
-    [ -z "${LIBFABRIC_MODULE}" ] && LIBFABRIC_MODULE="libfabric-aws/${LIBFABRIC_MODULE_VERSION}"
-    [ -z "${LIBFABRIC_VERSION}" ] && LIBFABRIC_VERSION=${LIBFABRIC_MODULE_VERSION//amzn*}
-    [ -z "${GCC_VERSION}" ] && GCC_VERSION=$(gcc -v 2>&1 |tail -n 1| awk '{print $3}' )
+    [ -z "${LIBFABRIC_VERSION}" ] && LIBFABRIC_VERSION=$(awk '/Version:/{print $2}' "$(find /opt/amazon/efa/ -name libfabric.pc | head -n1)" | sed -e 's?~??g' -e 's?amzn.*??g')
+    export SLURM_VERSION LIBFABRIC_VERSION
 
     # Write the above as actual yaml file and only parse the \$.
-    mkdir -p ${install_path}/etc/spack
+    mkdir -p "${install_path}/etc/spack"
 
     # Find suitable packages.yaml. If not for this architecture then for its parents.
     ( cp_packages_yaml "$(echo $(target) | sed -e 's?_avx512??1')" || download_packages_yaml "$(target)" )
     if [ "$(cat /tmp/packages.yaml)" != "404: Not Found" ]; then
-        envsubst </tmp/packages.yaml >${install_path}/etc/spack/packages.yaml
+        envsubst < /tmp/packages.yaml > "${install_path}/etc/spack/packages.yaml"
     fi
 
-    curl -Ls https://raw.githubusercontent.com/${CONFIG_BRANCH}/AWS/parallelcluster/modules.yaml -o ${install_path}/etc/spack/modules.yaml
+    curl -Ls "https://raw.githubusercontent.com/${CONFIG_BRANCH}/AWS/parallelcluster/modules.yaml" -o "${install_path}/etc/spack/modules.yaml"
 }
 
 setup_spack() {
@@ -219,7 +225,7 @@ setup_spack() {
     spack tags build-tools | xargs -I {} spack config --scope site rm packages:{}
 
     # Remove gcc-12 if identified in ubuntu2204. There is no g++ for gfortran that goes with it and this will cause problems.
-    for compiler in $(spack compiler list | grep -v '-' |grep -v '=>' | xargs); do 
+    for compiler in $(spack compiler list | grep -v '-' |grep -v '=>' | xargs); do
         spack compiler info --scope=site ${compiler} 2>/dev/null | grep -q " None" && spack compiler rm --scope=site ${compiler}
     done
 
@@ -389,7 +395,7 @@ echo "$(declare -pf)
     downloaded=\${PIPESTATUS[0]}
     set_pcluster_defaults
     setup_spack
-    install_packages \"$@\"
+    install_packages \"${install_specs}\"
     echo \"*** Spack setup completed ***\"
     rm -f ${tmpfile}
 " > ${tmpfile}
