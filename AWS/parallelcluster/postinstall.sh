@@ -6,11 +6,49 @@ set -e
 # # Use as postinstall in AWS ParallelCluster (https://docs.aws.amazon.com/parallelcluster/) #
 ##############################################################################################
 
-# CONFIG_BRANCH is a pointer to a custom user/repo/branch in case users wish to
+print_help() {
+    cat <<EOF
+Usage: postinstall.sh [-fg] [-v] [spec] [spec...]
+
+Installs spack on a parallel cluster with recommended configurations.
+Spack directory is cloned into a shared directory and recommended packages are
+configured.
+
+As the install can take more than an hour (especially on smaller instances), the
+default is to run the script in the background so that it can be used as
+pcluster's postinstall CloudFormation script without timing out during cluster
+initialization.  Output can be monitored in /var/log/spack-postinstall.log
+
+Options:
+ -h|--help              Print this help message.
+ -fg                    Run in foreground, without logs, blocking until
+                        complete.
+                        Ensure ssh connection is stable.
+ -v                     Be verbose during execution
+ --no-intel-compiler    Don't install Intel compilers
+ [spec]                 "spec" to be installed after initial
+                        configuration: e.g., gcc@12.3.0 or "gcc @ 13.0".
+                        Multiple specs can be listed, but they need to either
+                        be quoted or contain no spaces.
+
+Developer Options:
+ --config-branch        Pull configuration (e.g., packages.yaml) from this
+                        branch.  Default is "main".
+ --config-repo          Pull configuration (e.g., packages.yaml) from this
+                        github user/repo.  Default is "spack/spack-configs".
+ --spack-branch         Clone spack using this branch.  Default is "develop"
+ --spack-repo           Clone spack using this github user/repo. Default is
+                        "spack/spack".
+EOF
+}
+
+# CONFIG_REPO: a the user/repo on github to use for configuration.a custom user/repo/branch in case users wish to
 # provide or test their own configurations.
-export CONFIG_BRANCH="spack/spack-configs/main"
+export CONFIG_REPO="spack/spack-configs"
+export CONFIG_BRANCH="main"
+export SPACK_REPO="spack/spack"
 export SPACK_BRANCH="develop"
-install_specs=""
+install_specs=()
 install_in_foreground=false
 while [ $# -gt 0 ]; do
     case $1 in
@@ -18,9 +56,17 @@ while [ $# -gt 0 ]; do
             CONFIG_BRANCH="$2"
             shift 2
             ;;
+        --config-repo )
+            CONFIG_REPO="$2"
+            shift 2
+            ;;
         -fg )
             install_in_foreground=true
             shift
+            ;;
+        -h|--help )
+            print_help
+            exit 0
             ;;
         --no-intel-compiler )
             export NO_INTEL_COMPILER=1
@@ -30,17 +76,23 @@ while [ $# -gt 0 ]; do
             SPACK_BRANCH="$2"
             shift 2
             ;;
+        --spack-repo )
+            SPACK_REPO="$2"
+            shift 2
+            ;;
         -v )
             set -v
             shift
             ;;
         -* )
-            echo "Unknown option: $1"
+            print_help
+            echo
+            echo "ERROR: Unknown option: $1"
             exit 1
             ;;
         * )
             echo "Going to install: $1"
-            install_specs+=" ${1}"
+            install_specs+=("${1}")
             shift
             ;;
     esac
@@ -127,10 +179,10 @@ download_spack() {
         [ -d "${install_path}" ] || \
             if [ -n "${SPACK_BRANCH}" ]
             then
-                git clone -c feature.manyFiles=true https://github.com/spack/spack -b "${SPACK_BRANCH}" "${install_path}"
+                git clone -c feature.manyFiles=true "https://github.com/${SPACK_REPO}" -b "${SPACK_BRANCH}" "${install_path}"
             elif [ -n "${spack_commit}" ]
             then
-                git clone -c feature.manyFiles=true https://github.com/spack/spack "${install_path}"
+                git clone -c feature.manyFiles=true "https://github.com/${SPACK_REPO}" "${install_path}"
                 cd "${install_path}" && git checkout "${spack_commit}"
             fi
         return 0
@@ -162,7 +214,7 @@ download_packages_yaml() {
     # $1: spack target
     . "${install_path}/share/spack/setup-env.sh"
     target="${1}"
-    curl -Ls "https://raw.githubusercontent.com/${CONFIG_BRANCH}/AWS/parallelcluster/packages-${target}.yaml" -o /tmp/packages.yaml
+    curl -Ls "https://raw.githubusercontent.com/${CONFIG_REPO}/${CONFIG_BRANCH}/AWS/parallelcluster/packages-${target}.yaml" -o /tmp/packages.yaml
     if [ "$(cat /tmp/packages.yaml)" = "404: Not Found" ]; then
         # Pick up parent if current generation is not available
         for target in $(spack-python -c 'print(" ".join(spack.platforms.host().target("'"${target}"'").microarchitecture.to_dict()["parents"]))'); do
@@ -193,7 +245,7 @@ set_pcluster_defaults() {
         envsubst < /tmp/packages.yaml > "${install_path}/etc/spack/packages.yaml"
     fi
 
-    curl -Ls "https://raw.githubusercontent.com/${CONFIG_BRANCH}/AWS/parallelcluster/modules.yaml" -o "${install_path}/etc/spack/modules.yaml"
+    curl -Ls "https://raw.githubusercontent.com/${CONFIG_REPO}/${CONFIG_BRANCH}/AWS/parallelcluster/modules.yaml" -o "${install_path}/etc/spack/modules.yaml"
 }
 
 setup_spack() {
