@@ -25,6 +25,7 @@ Options:
                         complete.
                         Ensure ssh connection is stable.
  -v                     Be verbose during execution
+ --no-arm-compiler      Don't install ARM compilers (ACFL)
  --no-intel-compiler    Don't install Intel compilers
  [spec]                 "spec" to be installed after initial
                         configuration: e.g., gcc@12.3.0 or "gcc @ 13.0".
@@ -67,6 +68,10 @@ while [ $# -gt 0 ]; do
         -h|--help )
             print_help
             exit 0
+            ;;
+        --no-arm-compiler )
+            export NO_ARM_COMPILER=1
+            shift
             ;;
         --no-intel-compiler )
             export NO_INTEL_COMPILER=1
@@ -281,7 +286,7 @@ setup_spack() {
         spack compiler info --scope=site ${compiler} 2>/dev/null | grep -q " None" && spack compiler rm --scope=site ${compiler}
     done
 
-    [ -z "${CI_PROJECT_DIR}" ] && spack mirror add --scope site "aws-pcluster" "https://binaries.spack.io/develop/aws-pcluster-$(target | sed -e 's?_avx512??1')"
+    spack mirror add --scope site "aws-pcluster" "https://binaries.spack.io/develop/aws-pcluster-$(target | sed -e 's?_avx512??1')"
 
     # Newer gpg2 versions on Ainux2 will not be able to validate the key. This allows spack to accept the buildcache keys.
     if [ "$(gpg --version | awk '/gpg/{print $3}')" == "2.0.22" ]; then
@@ -416,7 +421,7 @@ install_packages() {
     fi
 
     # TODO: Handle this compiler in pipeline once WRF package gets added
-    if [ -z "${CI_PROJECT_DIR}" ] && [ "aarch64" == "$(arch)" ]
+    if [ -z "${NO_ARM_COMPILER}" ] && [ "aarch64" == "$(arch)" ]
     then
         spack install acfl
         (
