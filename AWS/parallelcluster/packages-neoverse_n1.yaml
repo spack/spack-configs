@@ -7,12 +7,14 @@ packages:
                 Edit $SPACK_ROOT/etc/spack/packages.yaml to change this default."
   gcc:
     require:
-      - one_of: ["gcc@12 +binutils %gcc ^binutils@2.37 target=aarch64"]
+      - one_of: ["gcc@12 +strip +binutils %gcc ^binutils@2.37 target=aarch64"]
         message: "GCC should be built with GCC and should be made available for the wide range of CPUs they actually support.
                 Edit $SPACK_ROOT/etc/spack/packages.yaml to change this default."
   gromacs:
     require:
       - one_of: ["gromacs@2021.3 %gcc ^fftw^openmpi"]
+  kripke:
+    require: "kripke@develop %gcc +openmp ^raja+openmp ^cmake%gcc"
   libfabric:
     buildable: false
     externals:
