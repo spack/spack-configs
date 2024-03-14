@@ -19,7 +19,8 @@ packages:
     buildable: false
     externals:
       - prefix: /opt/amazon/efa/
-        spec: libfabric@${LIBFABRIC_VERSION} fabrics=efa
+        spec: libfabric@${LIBFABRIC_VERSION}
+    require: ['fabrics=shm,efa']
   llvm:
     variants: ~lldb
   nvhpc:
@@ -40,7 +41,7 @@ packages:
     require:
       - one_of: ["palace cxxflags=\"-include cstdint\" ^fmt@9.1.0"]
   pmix:
-    require: ["pmix@3"]
+    require: ["pmix@3:"]
   py-devito:
     require:
       - one_of: ["py-devito %gcc +mpi"]

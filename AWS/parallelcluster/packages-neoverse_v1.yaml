@@ -17,7 +17,8 @@ packages:
     buildable: false
     externals:
       - prefix: /opt/amazon/efa/
-        spec: libfabric@${LIBFABRIC_VERSION} fabrics=efa
+        spec: libfabric@${LIBFABRIC_VERSION}
+    require: ['fabrics=shm,efa']
   mpas-model:
     require: "precision=single make_target=llvm %arm ^parallelio+pnetcdf"
   mpich:
@@ -38,6 +39,8 @@ packages:
   palace:
     require:
       - one_of: ["palace cxxflags=\"-include cstdint\" ^fmt@9.1.0"]
+  pmix:
+    require: ["pmix@3:"]
   slurm:
     buildable: false
     externals:

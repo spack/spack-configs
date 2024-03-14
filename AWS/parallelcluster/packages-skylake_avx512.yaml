@@ -28,7 +28,8 @@ packages:
     buildable: false
     externals:
       - prefix: /opt/amazon/efa/
-        spec: libfabric@${LIBFABRIC_VERSION} fabrics=efa
+        spec: libfabric@${LIBFABRIC_VERSION}
+    require: ['fabrics=shm,efa']
   libunistring:
     require:
       - one_of: ['cflags=-std=c18', '%gcc']
@@ -48,7 +49,7 @@ packages:
     require:
       - one_of: ["palace %oneapi ^fmt@9.1.0"]
   pmix:
-    require: ["pmix@3"]
+    require: ["pmix@3:"]
   py-devito:
     require:
       - one_of: ["py-devito %intel +mpi"]
