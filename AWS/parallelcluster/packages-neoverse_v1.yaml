@@ -34,6 +34,10 @@ packages:
   openmpi:
     variants: ~atomics ~cuda ~cxx ~cxx_exceptions ~internal-hwloc ~java +legacylaunchers ~lustre ~memchecker +pmi +romio ~singularity +vt +wrapper-rpath fabrics=ofi schedulers=slurm
     require: '@4:'
+  # Palace does not build correctly with armpl until https://github.com/awslabs/palace/pull/207 is merged into a version.
+  palace:
+    require:
+      - one_of: ["palace cxxflags=\"-include cstdint\" ^fmt@9.1.0"]
   slurm:
     buildable: false
     externals:
