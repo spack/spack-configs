@@ -391,23 +391,20 @@ install_packages() {
     fi
 
     # Compiler needed for all kinds of codes. It makes no sense not to install it.
-    # Get gcc from buildcache
-
-    # `gcc@12.3.0%gcc@7.3.1` is created as part of building the pipeline containers.
-    # https://github.com/spack/gitlab-runners/pkgs/container/pcluster-amazonlinux-2/106126845?tag=v2023-07-01 produced the following hashes.
-    if [ "x86_64" == "$(arch)" ]; then
-        gcc_hash="yyvkvlgimaaxjhy32oa5x5eexqekrevc"
-    else
-        gcc_hash="jttj24nibqy5jsqf34as5m63umywfa3d"
-    fi
-    # TODO: Make this point to correct location once uploaded
-    GCC_BOOTSTRAP_CACHE="https://binaries.spack.io/some_location/$(arch)"
-    if curl -sf ${GCC_BOOTSTRAP_CACHE}/build_cache/index.json >/dev/null; then
-    # if aws s3 ls ${GCC_BOOTSTRAP_CACHE}/ | grep -q build_cache; then
-        spack mirror add --scope=site bootstrap-gcc-cache ${GCC_BOOTSTRAP_CACHE} && \
+    # `gcc@12.3.0` is created as part of building the containers in https://github.com/spack/gitlab-runners
+    # and mirrored onto `$bootstrap_gcc_cache`:
+    bootstrap_gcc_cache="https://bootstrap.spack.io/pcluster/$(spack arch -o)/$(arch)"
+    if curl -sf "${bootstrap_gcc_cache}/build_cache/index.json" >/dev/null; then
+        spack mirror add --scope=site bootstrap-gcc-cache "${bootstrap_gcc_cache}" && \
             spack buildcache keys -it
+
+        # Make sure we select the gcc from the cache we just added (temporarily override all mirrors.yaml configuration files):
+        tmpdir=$(mktemp -d)
+        echo -e "mirrors::\n  bootstrap-gcc-cache: ${bootstrap_gcc_cache}" > "${tmpdir}/mirrors.yaml"
+        gcc_hash=$(spack --config-scope ${tmpdir} buildcache list -a -v -l gcc | grep -v -- "----" | tail -n1 | awk '{print $1}')
     fi
 
+    # Try to install from bootstrap-gcc-buildcache, fall back to generic version.
     spack install /${gcc_hash} 2>/dev/null || spack install gcc
     (
         spack load gcc
