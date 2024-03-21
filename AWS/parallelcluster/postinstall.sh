@@ -326,7 +326,7 @@ EOF
     fi
 
     # Oneapi needs extra_rpath to gcc libstdc++.so.6
-    if oneapi_gcc_version=$(spack find --format '{compiler}' intel-oneapi-compilers | sed -e 's/=//g') && \
+    if oneapi_gcc_version=$(spack find --format '{compiler}' intel-oneapi-compilers 2>/dev/null | sed -e 's/=//g') && \
             [ -n "${oneapi_gcc_version}" ] && oneapi_gcc_path=$(spack find -p "${oneapi_gcc_version}" | grep "${oneapi_gcc_version}" | awk '{print $2}' | head -n1) && \
             [ -d "${oneapi_gcc_path}" ]; then  python3 <<EOF
 import yaml
@@ -344,7 +344,7 @@ EOF
     fi
 
     # Armclang needs to find its own libraries
-    if acfl_path=$(spack find -p acfl | awk '/acfl/ {print $2}') && \
+    if acfl_path=$(spack find -p acfl 2>/dev/null | awk '/acfl/ {print $2}') && \
             [ -d "${acfl_path}" ] && cpp_include_path=$(dirname "$(find "${acfl_path}" -name cassert)") && \
             [ -d "${cpp_include_path}" ]; then  python3 <<EOF
 import yaml
@@ -362,7 +362,8 @@ EOF
     fi
 
     # Armclang needs extra_rpath to libstdc++.so
-    if acfl_path=$(spack find -p acfl | awk '/acfl/ {print $2}') && \
+    # TODO: FYI ACFL installer does this by adding libstdc++.so.6 path to LD_LIBRARY_PATH
+    if acfl_path=$(spack find -p acfl 2>/dev/null | awk '/acfl/ {print $2}') && \
             acfl_libstdcpp_path=$(dirname "$(find "${acfl_path}" -name libstdc++.so | head -n1)") && \
             [ -d "${acfl_libstdcpp_path}" ]; then python3 <<EOF
 import yaml
