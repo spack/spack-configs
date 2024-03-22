@@ -236,14 +236,6 @@ generic_target() {
     )
 }
 
-cp_packages_yaml() {
-    (
-        . "${install_path}/share/spack/setup-env.sh"
-        packages_yaml="${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-$(generic_target)/packages.yaml"
-        [ -f "${packages_yaml}" ] && cp "${packages_yaml}" /tmp/packages.yaml || echo "404: Not Found" /tmp/packages.yaml
-    )
-}
-
 download_packages_yaml() {
     # $1: spack target
     . "${install_path}/share/spack/setup-env.sh"
