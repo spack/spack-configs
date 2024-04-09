@@ -324,11 +324,9 @@ setup_pcluster_buildcache_stack() {
 setup_spack() {
     . "${install_path}/share/spack/setup-env.sh"
     spack compiler add --scope site
-    spack external find --scope site
-
-    # Remove all autotools/buildtools packages. These versions need to be managed by spack or it will
+    # Do not add  autotools/buildtools packages. These versions need to be managed by spack or it will
     # eventually end up in a version mismatch (e.g. when compiling gmp).
-    spack tags build-tools | xargs -I {} spack config --scope site rm packages:{}
+    spack external find --scope site --tag core-packages
 
     # Remove gcc-12 if identified in ubuntu2204. There is no g++ for gfortran that goes with it and this will cause problems.
     for compiler in $(spack compiler list | grep -v '-' |grep -v '=>' | xargs); do
