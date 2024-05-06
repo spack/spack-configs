@@ -227,12 +227,19 @@ target() {
     )
 }
 
-generic_target() {
+stack_arch() {
     (
         . "${install_path}/share/spack/setup-env.sh"
-        # x86_64_v3 packages also included in x86_64_v4 stack
-        # neoverse_n1 packages also included in neoverse_v1 stack
-        spack arch -g | sed -e 's?x86_64_v3?x86_64_v4?g' -e 's?neoverse_n1?neoverse_v1?g'
+        case $(arch) in
+            aarch64)
+                # neoverse_n1 packages also included in neoverse_v1 stack
+                spack arch -t | sed -e 's?neoverse_n1?neoverse_v1?g'
+                ;;
+            x86_64*)
+                # x86_64_v3 packages also included in x86_64_v4 stack
+                spack arch -g | sed -e 's?x86_64_v3?x86_64_v4?g'
+                ;;
+        esac
     )
 }
 
@@ -316,7 +323,7 @@ setup_pcluster_buildcache_stack() {
     . "${install_path}/share/spack/setup-env.sh"
     # Make sure the subshell which install the Intel compiler find the correct installation prefix
     echo -e "config:\n  install_tree:\n    root: ${SPACK_ROOT}/opt/spack\n" > $SPACK_ROOT/etc/spack/config.yaml
-    export SPACK_CI_STACK_NAME="aws-pcluster-$(generic_target)"
+    export SPACK_CI_STACK_NAME="aws-pcluster-$(stack_arch)"
     bash "${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/scripts/pcluster/setup-pcluster.sh"
     rm -f $SPACK_ROOT/etc/spack/config.yaml
 }
@@ -477,7 +484,7 @@ setup_mirrors() {
     . "${install_path}/share/spack/setup-env.sh"
 
     if ${generic_buildcache}; then
-        spack mirror add --scope site "aws-pcluster-$(generic_target)" "https://binaries.spack.io/develop/aws-pcluster-$(generic_target)"
+        spack mirror add --scope site "aws-pcluster-$(stack_arch)" "https://binaries.spack.io/develop/aws-pcluster-$(stack_arch)"
     fi
     # Add older specific target mirrors
     spack mirror add --scope site "aws-pcluster-legacy" "https://binaries.spack.io/develop/aws-pcluster-$(target | sed -e 's?_avx512??1')"
