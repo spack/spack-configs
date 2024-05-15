@@ -182,7 +182,7 @@ EOF
     else
         generic_buildcache=false
     fi
-
+    # TODO: Turn off generic_buildcache if SPACK_BRANCH is not develop or >v0.21.2
 }
 
 major_version() {
@@ -351,7 +351,7 @@ patch_compilers_yaml() {
     }
 
     # System ld is too old for amzn linux2
-    spack_gcc_version=$(spack find --format '{version}' gcc)
+    spack_gcc_version=$(spack find --format '{version}' gcc | xargs -n1 | tail -n1)
     binutils_path=$(spack find -p binutils | awk '/binutils/ {print $2}' | head -n1)
     if [ -d "${binutils_path}" ] && [ -n "${spack_gcc_version}" ]; then python3 <<EOF
 import yaml
@@ -360,9 +360,12 @@ with open("${compilers_yaml}",'r') as f:
     compilers=yaml.safe_load(f)
 
 for c in compilers["compilers"]:
-    if "arm" in c["compiler"]["spec"] or "intel" in c["compiler"]["spec"] or "oneapi" in c["compiler"]["spec"] \
+    if "aocc" in c["compiler"]["spec"] or "arm" in c["compiler"]["spec"] or "intel" in c["compiler"]["spec"] or "oneapi" in c["compiler"]["spec"] \
        or "${spack_gcc_version}" in c["compiler"]["spec"]:
-        compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["environment"] = {"prepend_path":{"PATH":"${binutils_path}/bin"}}
+           if "prepend_path" in compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["environment"]:
+               compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["environment"]["prepend_path"]["PATH"] = "${binutils_path}/bin"
+           else:
+               compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["environment"] = {"prepend_path":{"PATH":"${binutils_path}/bin"}}
 
 with open("${compilers_yaml}",'w') as f:
     yaml.dump(compilers, f)
@@ -387,12 +390,11 @@ with open("${compilers_yaml}",'w') as f:
 EOF
     fi
 
-    # TODO: AOCC also needs this (without aarch64-linux-gnu) when building m
     # TODO: Who needs this? WRF? gromacs will not build when this is active.
     # Armclang needs to find its own libraries
     if acfl_path=$(spack find -p acfl 2>/dev/null | awk '/acfl/ {print $2}') && \
             [ -d "${acfl_path}" ] && cpp_include_path=$(dirname "$(find "${acfl_path}" -name cassert)") && \
-            [ -d "${cpp_include_path}" ]; then  python3 <<EOF
+            [ -d "${cpp_include_path}" ]; then python3 <<EOF
 import yaml
 
 with open("${compilers_yaml}",'r') as f:
@@ -400,7 +402,10 @@ with open("${compilers_yaml}",'r') as f:
 
 for c in compilers["compilers"]:
     if "arm" in c["compiler"]["spec"]:
-        compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["environment"] = {"prepend_path":{"CPATH":"${cpp_include_path}:${cpp_include_path}/aarch64-linux-gnu"}}
+        if "prepend_path" in compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["environment"]:
+            compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["environment"]["prepend_path"]["CPATH"] = "${cpp_include_path}:${cpp_include_path}/aarch64-linux-gnu"
+        else:
+            compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["environment"] = {"prepend_path":{"CPATH":"${cpp_include_path}:${cpp_include_path}/aarch64-linux-gnu"}}
 
 with open("${compilers_yaml}",'w') as f:
     yaml.dump(compilers, f)
