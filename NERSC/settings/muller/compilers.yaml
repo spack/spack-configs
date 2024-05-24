@@ -1,31 +1,5 @@
 compilers:
   - compiler:
-      spec: gcc@7.5.0
-      paths:
-        cc: /usr/bin/gcc
-        cxx: /usr/bin/g++
-        f77: /usr/bin/gfortran
-        fc: /usr/bin/gfortran
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules: []
-  - compiler:
-      spec: nvhpc@21.11
-      paths:
-        cc: /opt/nvidia/hpc_sdk/Linux_x86_64/21.11/compilers/bin/nvc
-        cxx: /opt/nvidia/hpc_sdk/Linux_x86_64/21.11/compilers/bin/nvc++
-        f77: /opt/nvidia/hpc_sdk/Linux_x86_64/21.11/compilers/bin/nvfortran
-        fc: /opt/nvidia/hpc_sdk/Linux_x86_64/21.11/compilers/bin/nvfortran
-      flags: {}
-      operating_system: sles15
-      target: any
-      modules:
-      - PrgEnv-nvhpc
-      - nvhpc/21.11
-      - craype-x86-milan
-      - libfabric
-  - compiler:
       spec: nvhpc@22.7
       paths:
         cc: /opt/nvidia/hpc_sdk/Linux_x86_64/22.7/compilers/bin/nvc
@@ -53,6 +27,21 @@ compilers:
       modules:
       - PrgEnv-nvhpc
       - nvhpc/23.1
+      - craype-x86-milan
+      - libfabric
+  - compiler:
+      spec: nvhpc@23.9
+      paths:
+        cc: /opt/nvidia/hpc_sdk/Linux_x86_64/23.9/compilers/bin/nvc
+        cxx: /opt/nvidia/hpc_sdk/Linux_x86_64/23.9/compilers/bin/nvc++
+        f77: /opt/nvidia/hpc_sdk/Linux_x86_64/23.9/compilers/bin/nvfortran
+        fc: /opt/nvidia/hpc_sdk/Linux_x86_64/23.9/compilers/bin/nvfortran
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-nvhpc
+      - nvhpc/23.9
       - craype-x86-milan
       - libfabric
   - compiler:
@@ -88,7 +77,7 @@ compilers:
       - libfabric
       extra_rpaths: []
   - compiler:
-      spec: gcc@12.2.0
+      spec: gcc@12.3.0
       paths:
         cc: /opt/cray/pe/craype/default/bin/cc
         cxx: /opt/cray/pe/craype/default/bin/CC
@@ -99,7 +88,7 @@ compilers:
       target: any
       modules:
       - PrgEnv-gnu
-      - gcc/12.2.0
+      - gcc-native/12.3
       - craype-x86-milan
       - libfabric
       extra_rpaths: []
@@ -139,3 +128,20 @@ compilers:
       environment: {}
       extra_rpaths: []
 
+  - compiler:
+      spec: cce@17.0.0
+      paths:
+        cc: /opt/cray/pe/craype/default/bin/cc
+        cxx: /opt/cray/pe/craype/default/bin/CC
+        f77: /opt/cray/pe/craype/default/bin/ftn
+        fc: /opt/cray/pe/craype/default/bin/ftn
+      flags: {}
+      operating_system: sles15
+      target: any
+      modules:
+      - PrgEnv-cray
+      - cce/17.0.0
+      - craype-x86-milan
+      - libfabric
+      environment: {}
+      extra_rpaths: []
