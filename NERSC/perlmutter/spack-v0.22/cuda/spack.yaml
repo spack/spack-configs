@@ -1,0 +1,63 @@
+spack:
+  view: false
+  include:
+  - /global/common/software/spackecp/perlmutter/spack_settings/compilers.yaml
+  - /global/common/software/spackecp/perlmutter/spack_settings/packages.yaml
+  config:
+    concretization: separately
+    build_stage: $spack/var/spack/stage
+    misc_cache: $spack/var/spack/misc_cache
+    concretizer: clingo
+    install_tree:
+      padded_length: 128
+  concretizer:
+    reuse: true
+    unify: false
+  mirrors:
+    perlmutter-v0.22: file:///global/common/software/spackecp/mirrors/perlmutter-v0.22
+  ci:
+    enable-artifacts-buildcache: false
+    rebuild-index: true
+    target: gitlab
+    pipeline-gen:
+    - submapping:
+      - match: [os=sles15]
+        build-job:
+          tags: [perlmutter-e4s]
+      match_behavior: first
+    - any-job:
+        before_script:
+        - git clone -c feature.manyFiles=true -b releases/v0.22 $SPACK_REPO        
+        - . spack/share/spack/setup-env.sh
+        - which spack
+        - spack --version
+    - build-job:
+        tags: [perlmutter-e4s]
+        before_script:
+        - module reset
+        - module load cpu cray-pmi        
+        - module list
+        - source setup-env.sh
+        - git clone -c feature.manyFiles=true -b releases/v0.22 $SPACK_REPO
+        - . spack/share/spack/setup-env.sh
+        - which spack
+        - spack --version
+        - spack-python --path
+        script:
+        - spack env activate --without-view -d ${SPACK_CONCRETE_ENV_DIR}
+        - spack env st
+        - export SPACK_GNUPGHOME=$HOME/.gnupg
+        - spack gpg list
+        - spack -d ci rebuild
+    - reindex-job:
+        tags: [perlmutter-e4s]
+        script:
+        - echo "End Pipeline"
+    - noop-job:
+        tags: [perlmutter-e4s]
+        script:
+        - echo "End Pipeline"
+  specs:
+  - matrix:
+    - [$cuda_specs]
+    - [$gcc_compilers]  

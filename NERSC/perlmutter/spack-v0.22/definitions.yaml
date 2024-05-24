@@ -1,0 +1,85 @@
+  
+  definitions:
+  - gcc_compilers: ['%gcc@=12.3.0']
+  - gcc_specs:
+    - adios2
+    - amrex        
+    - boost
+    - butterflypack    
+    - caliper    
+    - datatransferkit    
+    - fortrilinos
+    - gasnet     
+    - h5bench
+    - hdf5
+    - heffte +fftw
+    - hpctoolkit
+    - hpx max_cpu_count=512 networking=mpi
+    - hypre
+    - kokkos +openmp
+    - kokkos-kernels +openmp        
+    - likwid    
+    - mercury    
+    - mfem
+    - nccmp
+    - nco
+    - netlib-scalapack    
+    - openpmd-api
+    - papi    
+    - pdt
+    - petsc
+    - phist
+    - plasma
+    - plumed    
+    - py-h5py        
+    - py-petsc4py
+    - qthreads scheduler=distrib
+    - slate ~cuda
+    - slepc    
+    - strumpack ~slate
+    - swig
+    - sundials
+    - superlu
+    - superlu-dist            
+    - tau +mpi +python
+    - trilinos +amesos +amesos2 +anasazi +aztec +belos +boost +epetra +epetraext +ifpack +ifpack2 +intrepid +intrepid2 +isorropia +kokkos +ml +minitensor +muelu +nox +piro +phalanx +rol +rythmos +sacado +stk +shards +shylu +stokhos +stratimikos +teko +tempus +tpetra +trilinoscouplings +zoltan +zoltan2 +superlu-dist gotype=long_long        
+    - upcxx        
+
+  - cuda_specs:
+    - amrex +cuda cuda_arch=80
+    - heffte +cuda cuda_arch=80
+    - hypre +cuda cuda_arch=80
+    - kokkos +wrapper +cuda cuda_arch=80
+    - kokkos-kernels +cuda cuda_arch=80 ^kokkos +wrapper +cuda cuda_arch=80
+    - magma +cuda cuda_arch=80
+    - petsc +cuda cuda_arch=80
+    - slate +cuda cuda_arch=80
+    - slepc +cuda cuda_arch=80
+    - strumpack ~slate +cuda cuda_arch=80
+    - sundials +cuda cuda_arch=80
+    - superlu-dist +cuda cuda_arch=80 
+
+  - nersc_specs:
+    - chapel
+    - gsl    
+    - netcdf-c ~mpi 
+    - netcdf-fortran
+    - metis
+    - parmetis
+    - gromacs
+    - cdo
+    - ncl 
+    - nco
+    - ncview
+    - libxc
+    - libcint
+    - libint tune=molgw-lmax-7
+
+  - tools:
+    - autoconf
+    - automake
+    - cmake
+    - git
+    - gmake
+    - gawk
+    - nano
