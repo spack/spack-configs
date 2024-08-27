@@ -504,7 +504,7 @@ install_packages() {
     done
 }
 
-if [ "3" != "$(major_version)" ]; then
+if [ -f "/opt/parallelcluster/.bootstrapped" ] && [ "3" != "$(major_version)" ]; then
     echo "ParallelCluster version $(major_version) not supported."
     exit 1
 fi
