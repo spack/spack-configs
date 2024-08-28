@@ -30,6 +30,9 @@ Options:
                         default for Amazon Linux2, disabled for other OSs.
  --no-arm-compiler      Don't install ARM compilers (ACFL)
  --no-intel-compiler    Don't install Intel compilers
+ --prefix <path>        This script will install Spack into the first shared drive
+                        found on ParallelCluster or $HOME if no shared drive can be
+                        found. Override the location with <path>.
  [spec]                 "spec" to be installed after initial
                         configuration: e.g., gcc@12.3.0 or "gcc @ 13.0".
                         Multiple specs can be listed, but they need to either
@@ -52,6 +55,7 @@ export CONFIG_REPO="spack/spack-configs"
 export CONFIG_BRANCH="main"
 export SPACK_REPO="spack/spack"
 export SPACK_BRANCH="develop"
+export PREFIX=""
 install_specs=()
 export generic_buildcache=""
 install_in_foreground=false
@@ -88,6 +92,10 @@ while [ $# -gt 0 ]; do
         --no-intel-compiler )
             export NO_INTEL_COMPILER=1
             shift
+            ;;
+        --prefix )
+            PREFIX="$2"
+            shift 2
             ;;
         --spack-branch )
             SPACK_BRANCH="$2"
@@ -163,6 +171,10 @@ EOF
         cfn_ebs_shared_dirs=""
     fi
 
+    # If no shared drives are configured, try finding a Lustre, then an EFS
+    [ -z "${cfn_ebs_shared_dirs}" ] && cfn_ebs_shared_dirs="$(mount -t lustre | cut -d\  -f 3 | head -n1)"
+    [ -z "${cfn_ebs_shared_dirs}" ] && cfn_ebs_shared_dirs="$(mount -t efs | cut -d\  -f 3 | head -n1)"
+
     # If we cannot find any shared directory, use $HOME of standard user
     if [ -z "${cfn_ebs_shared_dirs}" ]; then
         for cfn_cluster_user in ec2-user centos ubuntu; do
@@ -171,6 +183,10 @@ EOF
         cfn_ebs_shared_dirs="/home/${cfn_cluster_user}"
     fi
 
+    # Override install location with PREFIX if set
+    cfn_ebs_shared_dirs="${PREFIX:-${cfn_ebs_shared_dirs}}"
+
+    # Use external Spack if $SPACK_ROOT is already set
     install_path=${SPACK_ROOT:-"${cfn_ebs_shared_dirs}/spack"}
     echo "Installing Spack into ${install_path}."
 
