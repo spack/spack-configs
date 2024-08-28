@@ -125,10 +125,18 @@ done
 
 setup_variables() {
     # Determine default user
-    for default_user in ec2-user centos rocky ubuntu; do
-        grep -q "${default_user}" /etc/shadow && break
-        default_user=""
-    done
+    [ -f /etc/os-release ] && . /etc/os-release
+    case "$ID" in
+        amzn|rhel)
+            default_user="ec2-user"
+            ;;
+        centos|ubuntu|rocky)
+            default_user="${ID}"
+            ;;
+        *)
+            default_user=""
+            ;;
+    esac
 
     # Install onto first shared storage device
     cluster_config="/opt/parallelcluster/shared/cluster-config.yaml"
