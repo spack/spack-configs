@@ -275,7 +275,7 @@ set_modules() {
 set_pcluster_defaults() {
     # Set versions of pre-installed software in packages.yaml
     [ -z "${SLURM_ROOT}" ] && SLURM_ROOT=$(dirname $(dirname "$(awk '/ExecStart=/ {print $1}' /etc/systemd/system/slurm* | sed -e 's?^.*=??1' | head -n1)"))
-    [ -z "${SLURM_VERSION}" ] && SLURM_VERSION=$("${SLURM_ROOT}/sinfo" --version | cut -d\  -f2)
+    [ -z "${SLURM_VERSION}" ] && SLURM_VERSION=$("${SLURM_ROOT}/bin/sinfo" --version | cut -d\  -f2)
     [ -z "${LIBFABRIC_VERSION}" ] && LIBFABRIC_VERSION=$(awk '/Version:/{print $2}' "$(find /opt/amazon/efa/ -name libfabric.pc | head -n1)" | sed -e 's?~??g' -e 's?amzn.*??g')
     export SLURM_VERSION SLURM_ROOT LIBFABRIC_VERSION
 
