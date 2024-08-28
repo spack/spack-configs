@@ -124,6 +124,12 @@ while [ $# -gt 0 ]; do
 done
 
 setup_variables() {
+    # Determine default user
+    for default_user in ec2-user centos rocky ubuntu; do
+        grep -q "${default_user}" /etc/shadow && break
+        default_user=""
+    done
+
     # Install onto first shared storage device
     cluster_config="/opt/parallelcluster/shared/cluster-config.yaml"
     pip3 install pyyaml
@@ -135,20 +141,6 @@ with open("${cluster_config}", 'r') as s:
     print(yaml.safe_load(s)["Image"]["Os"])
 EOF
           )
-
-        case "${os}" in
-            alinux*)
-                cfn_cluster_user="ec2-user"
-                ;;
-            centos*)
-                cfn_cluster_user="centos"
-                ;;
-            ubuntu*)
-                cfn_cluster_user="ubuntu"
-                ;;
-            *)
-                cfn_cluster_user=""
-        esac
 
         cfn_ebs_shared_dirs=$(python3 << EOF
 #/usr/bin/env python
@@ -175,13 +167,8 @@ EOF
     [ -z "${cfn_ebs_shared_dirs}" ] && cfn_ebs_shared_dirs="$(mount -t lustre | cut -d\  -f 3 | head -n1)"
     [ -z "${cfn_ebs_shared_dirs}" ] && cfn_ebs_shared_dirs="$(mount -t efs | cut -d\  -f 3 | head -n1)"
 
-    # If we cannot find any shared directory, use $HOME of standard user
-    if [ -z "${cfn_ebs_shared_dirs}" ]; then
-        for cfn_cluster_user in ec2-user centos ubuntu; do
-            [ -d "/home/${cfn_cluster_user}" ] && break
-        done
-        cfn_ebs_shared_dirs="/home/${cfn_cluster_user}"
-    fi
+    # If we cannot find any shared directory, use default_user's $HOME
+    [ -z "${cfn_ebs_shared_dirs}" ] && cfn_ebs_shared_dirs=$(awk -F: '/'"${default_user}"'/{print $6}' /etc/passwd)
 
     # Override install location with PREFIX if set
     cfn_ebs_shared_dirs="${PREFIX:-${cfn_ebs_shared_dirs}}"
@@ -211,7 +198,7 @@ fix_owner() {
     rc=$?
     if [ ${downloaded} -eq 0 ]
     then
-        chown -R ${cfn_cluster_user}:${cfn_cluster_user} "${install_path}"
+        chown -R ${default_user}:${default_user} "${install_path}"
     fi
     exit $rc
 }
