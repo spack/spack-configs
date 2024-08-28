@@ -142,14 +142,6 @@ setup_variables() {
     cluster_config="/opt/parallelcluster/shared/cluster-config.yaml"
     pip3 install pyyaml
     if [ -f "${cluster_config}" ]; then
-        os=$(python3 << EOF
-#/usr/bin/env python
-import yaml
-with open("${cluster_config}", 'r') as s:
-    print(yaml.safe_load(s)["Image"]["Os"])
-EOF
-          )
-
         cfn_ebs_shared_dirs=$(python3 << EOF
 #/usr/bin/env python
 import yaml
@@ -185,10 +177,10 @@ EOF
     install_path=${SPACK_ROOT:-"${cfn_ebs_shared_dirs}/spack"}
     echo "Installing Spack into ${install_path}."
 
-    if [ "true" == "${generic_buildcache}" ] && [ "alinux2" != "${os}" ]; then
+    if [ "true" == "${generic_buildcache}" ] && [ "Amazon Linux 2" != "${PRETTY_NAME}" ]; then
         echo "Generic buildcache only available for Alinux2."
     fi
-    if [ -z "${generic_buildcache}" ] && [ "alinux2" == "${os}" ]; then
+    if [ -z "${generic_buildcache}" ] && [ "Amazon Linux 2" == "${PRETTY_NAME}" ]; then
         generic_buildcache=true
     else
         generic_buildcache=false
