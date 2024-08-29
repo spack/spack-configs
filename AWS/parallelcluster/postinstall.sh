@@ -175,8 +175,7 @@ EOF
 
     # Use external Spack if $SPACK_ROOT is already set
     install_path=${SPACK_ROOT:-"${cfn_ebs_shared_dirs}/spack"}
-    tmp_path="${cfn_ebs_shared_dirs}/tmp"
-    mkdir -p "${tmp_path}" && export TMPDIR="${tmp_path}"
+    tmp_path="$(mktemp -d -p "${cfn_ebs_shared_dirs}")" && export TMPDIR="${tmp_path}"
 
     echo "Installing Spack into ${install_path}."
 
@@ -203,7 +202,7 @@ cleanup() {
     then
         chown -R ${default_user}:${default_user} "${install_path}"
     fi
-    rm -rf "${tmp_path}"
+    [ -d "${tmp_path}" ] && rm -rf "${tmp_path}"
     exit $rc
 }
 
