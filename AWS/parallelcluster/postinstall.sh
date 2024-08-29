@@ -175,6 +175,9 @@ EOF
 
     # Use external Spack if $SPACK_ROOT is already set
     install_path=${SPACK_ROOT:-"${cfn_ebs_shared_dirs}/spack"}
+    tmp_path="${cfn_ebs_shared_dirs}/tmp"
+    mkdir -p "${tmp_path}" && export TMPDIR="${tmp_path}"
+
     echo "Installing Spack into ${install_path}."
 
     if [ "true" == "${generic_buildcache}" ] && [ "Amazon Linux 2" != "${PRETTY_NAME}" ]; then
@@ -194,12 +197,13 @@ major_version() {
 }
 
 # Make first user owner of Spack installation when script exits.
-fix_owner() {
+cleanup() {
     rc=$?
     if [ ${downloaded} -eq 0 ]
     then
         chown -R ${default_user}:${default_user} "${install_path}"
     fi
+    rm -rf "${tmp_path}"
     exit $rc
 }
 
@@ -515,7 +519,7 @@ fi
 
 tmpfile=$(mktemp)
 echo "$(declare -pf)
-    trap \"fix_owner\" SIGINT EXIT
+    trap \"cleanup\" SIGINT EXIT
     setup_variables
     download_spack | true
     downloaded=\${PIPESTATUS[0]}
