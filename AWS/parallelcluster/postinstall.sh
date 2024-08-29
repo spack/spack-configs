@@ -275,13 +275,17 @@ set_modules() {
          -o "${install_path}/etc/spack/modules.yaml"
 }
 
-set_pcluster_defaults() {
+set_variables() {
     # Set versions of pre-installed software in packages.yaml
     [ -z "${SLURM_ROOT}" ] && SLURM_ROOT=$(dirname $(dirname "$(awk '/ExecStart=/ {print $1}' /etc/systemd/system/slurm* | sed -e 's?^.*=??1' | head -n1)"))
     [ -z "${SLURM_VERSION}" ] && SLURM_VERSION=$("${SLURM_ROOT}/bin/sinfo" --version | cut -d\  -f2)
+    # Fallback to default location if SLURM not in systemd
+    [ -z "${SLURM_VERSION}" ] && SLURM_VERSION=$(strings /opt/slurm/lib/libslurm.so | grep  -e '^VERSION'  | awk '{print $2}'  | sed -e 's?"??g')
     [ -z "${LIBFABRIC_VERSION}" ] && LIBFABRIC_VERSION=$(awk '/Version:/{print $2}' "$(find /opt/amazon/efa/ -name libfabric.pc | head -n1)" | sed -e 's?~??g' -e 's?amzn.*??g')
     export SLURM_VERSION SLURM_ROOT LIBFABRIC_VERSION
+}
 
+set_pcluster_defaults() {
     # Write the above as actual yaml file and only parse the \$.
     mkdir -p "${install_path}/etc/spack"
     ( download_packages_yaml "$(target)" )
@@ -333,6 +337,8 @@ setup_pcluster_buildcache_stack() {
     export SPACK_CI_STACK_NAME="aws-pcluster-$(stack_arch)"
     bash "${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/scripts/pcluster/setup-pcluster.sh"
     rm -f $SPACK_ROOT/etc/spack/config.yaml
+    # Fix SLURM location if it's not the ParallelCluster standard /opt/slurm
+    [ -d "${SLURM_ROOT}" ] && sed -i "" -e "s?/opt/slurm?${SLURM_ROOT}?g" "${SPACK_ROOT}"/etc/spack/packages.yaml
 }
 
 setup_spack() {
@@ -525,6 +531,7 @@ echo "$(declare -pf)
     set_modules
     load_spack_at_login
     setup_bootstrap_mirrors
+    set_variables
     if \${generic_buildcache}; then
        setup_pcluster_buildcache_stack
     else
