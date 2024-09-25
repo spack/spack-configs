@@ -187,7 +187,6 @@ EOF
     else
         generic_buildcache=false
     fi
-    # TODO: Turn off generic_buildcache if SPACK_BRANCH is not develop or >v0.21.2
 }
 
 major_version() {
@@ -282,6 +281,9 @@ set_variables() {
     [ -z "${SLURM_VERSION}" ] && SLURM_VERSION=$(strings "${SLURM_ROOT:-/opt/slurm}"/lib/libslurm.so | grep -e '^VERSION' | awk '{print $2}' | sed -e 's?"??g')
     [ -z "${LIBFABRIC_VERSION}" ] && LIBFABRIC_VERSION=$(awk '/Version:/{print $2}' "$(find /opt/amazon/efa/ -name libfabric.pc | head -n1)" | sed -e 's?~??g' -e 's?amzn.*??g')
     export SLURM_VERSION SLURM_ROOT LIBFABRIC_VERSION
+
+    # Turn off generic_buildcache if CI stack does not exist
+    [ -f "${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-$(stack_arch)/packages.yaml" ] || generic_buildcache=false
 }
 
 set_pcluster_defaults() {
