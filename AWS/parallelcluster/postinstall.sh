@@ -255,7 +255,7 @@ download_packages_yaml() {
     curl -Ls "https://raw.githubusercontent.com/${CONFIG_REPO}/${CONFIG_BRANCH}/AWS/parallelcluster/packages-${target}.yaml" -o /tmp/packages.yaml
     if [ "$(cat /tmp/packages.yaml)" = "404: Not Found" ]; then
         # Pick up parent if current generation is not available
-        for target in $(spack-python -c 'print(" ".join(spack.platforms.host().target("'"${target}"'").microarchitecture.to_dict()["parents"]))'); do
+        for target in $(spack-python -c 'print(" ".join(spack.platforms.host().target("'"${target}"'").to_dict()["parents"]))'); do
             if [ -z "${target}" ] ; then
                 echo "Cannot find suitable packages.yaml"
                 exit 1
@@ -319,7 +319,7 @@ setup_bootstrap_mirrors() {
     # `gcc@12.3.0` is created as part of building the containers in https://github.com/spack/gitlab-runners
     # and mirrored onto `$bootstrap_gcc_cache`:
     bootstrap_gcc_cache="https://bootstrap.spack.io/pcluster/$(spack arch -o)/$(arch)"
-    if curl -sf "${bootstrap_gcc_cache}/build_cache/index.json" >/dev/null; then
+    if curl -fIsLo /dev/null "${bootstrap_gcc_cache}/build_cache/index.json"; then
         spack mirror add --scope=site bootstrap-gcc-cache "${bootstrap_gcc_cache}"
     fi
 
@@ -328,7 +328,8 @@ setup_bootstrap_mirrors() {
         mkdir -m 700 -p ${SPACK_ROOT}/opt/spack/gpg
         echo "openpgp" >> ${SPACK_ROOT}/opt/spack/gpg/gpg.conf
     fi
-    spack buildcache keys -it
+    # Add keys if binary mirrors have been added
+    spack-python -c 'sys.exit(len(spack.mirror.MirrorCollection(binary=True)._mirrors.values()) == 0)' && spack buildcache keys -it
 }
 
 setup_pcluster_buildcache_stack() {
@@ -456,7 +457,7 @@ install_compilers() {
     fi
 
     # Compiler needed for all kinds of codes. It makes no sense not to install it.
-    mirrors_entry=$(grep bootstrap-gcc-cache $SPACK_ROOT/etc/spack/mirrors.yaml)
+    mirrors_entry=$(grep -s bootstrap-gcc-cache $SPACK_ROOT/etc/spack/mirrors.yaml)
     if [ -n "${mirrors_entry}" ]; then
         # Make sure we select the gcc from the cache we just added (temporarily override all mirrors.yaml configuration files):
         tmpdir=$(mktemp -d)
@@ -505,9 +506,12 @@ setup_mirrors() {
     if ${generic_buildcache}; then
         spack mirror add --scope site "aws-pcluster-$(stack_arch)" "https://binaries.spack.io/develop/aws-pcluster-$(stack_arch)"
     fi
-    # Add older specific target mirrors
-    spack mirror add --scope site "aws-pcluster-legacy" "https://binaries.spack.io/develop/aws-pcluster-$(target | sed -e 's?_avx512??1')"
-    spack buildcache keys -it
+    # Add older specific target mirrors if they exist
+    mirror_url="https://binaries.spack.io/develop/aws-pcluster-$(target | sed -e 's?_avx512??1')"
+    if curl -fIsLo /dev/null "${mirror_url}/build_cache/index.json"; then
+        spack mirror add --scope site "aws-pcluster-legacy" "${mirror_url}"
+    fi
+    spack-python -c 'sys.exit(len(spack.mirror.MirrorCollection(binary=True)._mirrors.values()) == 0)' && spack buildcache keys -it
 }
 
 install_packages() {
