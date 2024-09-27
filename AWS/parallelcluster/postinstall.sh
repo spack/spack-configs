@@ -276,9 +276,11 @@ set_modules() {
 
 set_variables() {
     # Set versions of pre-installed software in packages.yaml
-    [ -z "${SLURM_ROOT}" ] && SLURM_ROOT=$(dirname $(dirname "$(awk '/ExecStart=/ {print $1}' /etc/systemd/system/slurm* | sed -e 's?^.*=??1' | head -n1)"))
+    [ -z "${SLURM_ROOT}" ] && ls /etc/systemd/system/slurm* &>/dev/null && \
+        SLURM_ROOT=$(dirname $(dirname "$(awk '/ExecStart=/ {print $1}' /etc/systemd/system/slurm* | sed -e 's?^.*=??1' | head -n1)"))
     # Fallback to default location if SLURM not in systemd
-    [ -z "${SLURM_VERSION}" ] && SLURM_VERSION=$(strings "${SLURM_ROOT:-/opt/slurm}"/lib/libslurm.so | grep -e '^VERSION' | awk '{print $2}' | sed -e 's?"??g')
+    [ -z "${SLURM_ROOT}" ] && [ -d "/opt/slurm" ] && SLURM_ROOT=/opt/slurm
+    [ -z "${SLURM_VERSION}" ] && SLURM_VERSION=$(strings "${SLURM_ROOT}"/lib/libslurm.so | grep -e '^VERSION' | awk '{print $2}' | sed -e 's?"??g')
     [ -z "${LIBFABRIC_VERSION}" ] && LIBFABRIC_VERSION=$(awk '/Version:/{print $2}' "$(find /opt/amazon/efa/ -name libfabric.pc | head -n1)" | sed -e 's?~??g' -e 's?amzn.*??g')
     export SLURM_VERSION SLURM_ROOT LIBFABRIC_VERSION
 
@@ -334,13 +336,13 @@ setup_bootstrap_mirrors() {
 
 setup_pcluster_buildcache_stack() {
     . "${install_path}/share/spack/setup-env.sh"
-    # Make sure the subshell which install the Intel compiler find the correct installation prefix
+    # Make sure the subshell which installs the Intel compiler finds the correct installation prefix
     echo -e "config:\n  install_tree:\n    root: ${SPACK_ROOT}/opt/spack\n" > $SPACK_ROOT/etc/spack/config.yaml
     export SPACK_CI_STACK_NAME="aws-pcluster-$(stack_arch)"
     bash "${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/scripts/pcluster/setup-pcluster.sh"
     rm -f $SPACK_ROOT/etc/spack/config.yaml
     # Fix SLURM location if it's not the ParallelCluster standard /opt/slurm
-    [ -d "${SLURM_ROOT}" ] && sed -i "" -e "s?/opt/slurm?${SLURM_ROOT}?g" "${SPACK_ROOT}"/etc/spack/packages.yaml
+    [ -d "${SLURM_ROOT}" ] && sed -i -e "s?/opt/slurm?${SLURM_ROOT}?g" "${SPACK_ROOT}"/etc/spack/packages.yaml
 }
 
 setup_spack() {
