@@ -5,6 +5,9 @@ modules:
     tcl:
       projections:
         all: '{name}/{version}-{compiler.name}-{compiler.version}'
+      exclude:
+        - glibc
+        - gcc-runtime
       all:
         conflict:
           - '{name}'
@@ -12,4 +15,4 @@ modules:
           set:
             '{name}_ROOT': '{prefix}'
         # Automatically load dependencies
-        autoload: all
+        autoload: direct
