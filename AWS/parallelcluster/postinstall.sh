@@ -261,10 +261,9 @@ download_packages_yaml() {
                 exit 1
             fi
             download_packages_yaml "${target}"
+            # Exit loop if found here or in deeper level.
+            [ "$(cat /tmp/packages.yaml)" = "404: Not Found" ] || break &>/dev/null
         done
-    else
-        # Exit "for target in ..." loop.
-        break &>/dev/null
     fi
 }
 
