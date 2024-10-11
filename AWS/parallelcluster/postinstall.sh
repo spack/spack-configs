@@ -58,6 +58,7 @@ export SPACK_BRANCH="develop"
 export PREFIX=""
 install_specs=()
 export generic_buildcache=""
+export EXTERNAL_SPACK="false"
 install_in_foreground=false
 while [ $# -gt 0 ]; do
     case $1 in
@@ -197,7 +198,7 @@ major_version() {
 # Make first user owner of Spack installation when script exits.
 cleanup() {
     rc=$?
-    if [ ${downloaded} -eq 0 ]
+    if ! ${EXTERNAL_SPACK}
     then
         chown -R ${default_user}:${default_user} "${install_path}"
     fi
@@ -208,19 +209,15 @@ cleanup() {
 download_spack() {
     if [ -z "${SPACK_ROOT}" ]
     then
-        [ -d "${install_path}" ] || \
-            if [ -n "${SPACK_BRANCH}" ]
-            then
-                git clone -c feature.manyFiles=true "https://github.com/${SPACK_REPO}" -b "${SPACK_BRANCH}" "${install_path}"
-            elif [ -n "${spack_commit}" ]
-            then
-                git clone -c feature.manyFiles=true "https://github.com/${SPACK_REPO}" "${install_path}"
-                cd "${install_path}" && git checkout "${spack_commit}"
-            fi
-        return 0
-    else
-        # Let the script know we did not download spack, so the owner will not be fixed on exit.
-        return 1
+        if [ -n "${SPACK_BRANCH}" ]
+        then
+            git clone -c feature.manyFiles=true "https://github.com/${SPACK_REPO}" -b "${SPACK_BRANCH}" "${install_path}"
+        elif [ -n "${spack_commit}" ]
+        then
+            git clone -c feature.manyFiles=true "https://github.com/${SPACK_REPO}" "${install_path}"
+            cd "${install_path}" && git checkout "${spack_commit}"
+        fi
+        cd "${install_path}"; patch -p1 <<< "$(curl -sL https://github.com/spack/spack/pull/46575.patch)"
     fi
 }
 
@@ -528,12 +525,14 @@ if [ -f "/opt/parallelcluster/.bootstrapped" ] && [ "3" != "$(major_version)" ];
     exit 1
 fi
 
+[ -n "${SPACK_ROOT}" ] && EXTERNAL_SPACK="true"
+
 tmpfile=$(mktemp)
 echo "$(declare -pf)
     trap \"cleanup\" SIGINT EXIT
     setup_variables
-    download_spack | true
-    downloaded=\${PIPESTATUS[0]}
+    [ -d \"${install_path}\" ] && EXTERNAL_SPACK=\"true\"
+    download_spack
     set_modules
     load_spack_at_login
     setup_bootstrap_mirrors
