@@ -217,7 +217,6 @@ download_spack() {
             git clone -c feature.manyFiles=true "https://github.com/${SPACK_REPO}" "${install_path}"
             cd "${install_path}" && git checkout "${spack_commit}"
         fi
-        cd "${install_path}"; patch -p1 <<< "$(curl -sL https://github.com/spack/spack/pull/46575.patch)"
     fi
 }
 
