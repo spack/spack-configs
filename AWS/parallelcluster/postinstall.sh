@@ -347,9 +347,10 @@ setup_spack() {
     # eventually end up in a version mismatch (e.g. when compiling gmp).
     spack external find --scope site --tag core-packages
 
-    # Remove gcc-12 if identified in ubuntu2204. There is no g++ for gfortran that goes with it and this will cause problems.
+    # Remove system installed `gcc` if there is no matching `g++`. Missing `gfortran` is OK,
+    # since gcc & g++ are sufficient for `spack install gcc@gcc`.
     for compiler in $(spack compiler list | grep -v '-' |grep -v '=>' | xargs); do
-        spack compiler info --scope=site ${compiler} 2>/dev/null | grep -q " None" && spack compiler rm --scope=site ${compiler}
+        spack compiler info --scope=site ${compiler} 2>/dev/null | grep -E 'cc =|cxx =' | grep -q " None" && spack compiler rm --scope=site ${compiler}
     done
 }
 
