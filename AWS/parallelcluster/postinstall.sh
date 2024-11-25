@@ -64,19 +64,17 @@ while [ $# -gt 0 ]; do
     case $1 in
         --buildcache )
             generic_buildcache=true
-            shift
             ;;
         --config-branch )
             CONFIG_BRANCH="$2"
-            shift 2
+            shift
             ;;
         --config-repo )
             CONFIG_REPO="$2"
-            shift 2
+            shift
             ;;
         -fg )
             install_in_foreground=true
-            shift
             ;;
         -h|--help )
             print_help
@@ -84,31 +82,27 @@ while [ $# -gt 0 ]; do
             ;;
         --no-arm-compiler )
             export NO_ARM_COMPILER=1
-            shift
             ;;
         --no-buildcache )
             generic_buildcache=false
-            shift
             ;;
         --no-intel-compiler )
             export NO_INTEL_COMPILER=1
-            shift
             ;;
         --prefix )
             PREFIX="$2"
-            shift 2
+            shift
             ;;
         --spack-branch )
             SPACK_BRANCH="$2"
-            shift 2
+            shift
             ;;
         --spack-repo )
             SPACK_REPO="$2"
-            shift 2
+            shift
             ;;
         -v )
             set -v
-            shift
             ;;
         -* )
             print_help
@@ -119,9 +113,9 @@ while [ $# -gt 0 ]; do
         * )
             echo "Going to install: $1"
             install_specs+=("${1}")
-            shift
             ;;
     esac
+    shift
 done
 
 setup_variables() {
