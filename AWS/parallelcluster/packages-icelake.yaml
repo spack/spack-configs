@@ -8,7 +8,8 @@ packages:
       - one_of: ["gcc@12 +strip %gcc +binutils ^binutils@2.37 target=x86_64_v3"]
   gromacs:
     require:
-      - one_of: ["gromacs@2020.1 +intel_provided_gcc %intel ^intel-oneapi-mkl"]
+      - one_of: ["gromacs@2020.1 +intel_provided_gcc ^intel-oneapi-mkl"]
+        when: "%intel"
   intel-oneapi-compilers:
     require:
       - one_of: ["intel-oneapi-compilers %gcc target=x86_64_v3"]
@@ -18,7 +19,8 @@ packages:
     require: "kripke@develop +openmp %oneapi ^cmake%gcc"
   lammps:
     require:
-      - one_of: ["lammps@develop lammps_sizes=bigbig +molecule +kspace +rigid +asphere +opt +openmp +openmp-package +intel %intel ^intel-oneapi-mkl"]
+      - one_of: ["lammps@develop lammps_sizes=bigbig +molecule +kspace +rigid +asphere +opt +openmp +openmp-package +intel ^intel-oneapi-mkl"]
+        when: "%intel"
   libidn2:
     require:
       - one_of: ['cflags=-std=c18', '%gcc']
@@ -33,7 +35,8 @@ packages:
       - one_of: ['cflags=-std=c18', '%gcc']
   mpas-model:
     require:
-      - one_of: ["precision=single %intel ^parallelio+pnetcdf"]
+      - one_of: ["precision=single ^parallelio+pnetcdf"]
+        when: "%intel"
   mpich:
     require:
       - one_of: ["mpich pmi=pmi2 device=ch4 netmod=ofi +slurm"]
@@ -50,10 +53,12 @@ packages:
     require: ["pmix@3:"]
   py-devito:
     require:
-      - one_of: ["+mpi %intel"]
+      - one_of: ["+mpi"]
+        when: "%intel"
   quantum-espresso:
     require:
-      - one_of: ["quantum-espresso@6.6 %intel ^intel-oneapi-mkl+cluster"]
+      - one_of: ["quantum-espresso@6.6 ^intel-oneapi-mkl+cluster"]
+        when: "%intel"
   slurm:
     buildable: false
     externals:
@@ -61,7 +66,8 @@ packages:
         spec: slurm@${SLURM_VERSION} +pmix
   wrf:
     require:
-      - one_of: ["wrf@4 build_type=dm+sm %intel"]
+      - one_of: ["wrf@4 build_type=dm+sm"]
+        when: "%intel"
   all:
     compiler: [intel, gcc, clang]
     permissions:
