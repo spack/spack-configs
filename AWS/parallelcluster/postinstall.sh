@@ -175,12 +175,14 @@ EOF
     echo "Installing Spack into ${install_path}."
 
     if [ "true" == "${generic_buildcache}" ] && [ "Amazon Linux 2" != "${PRETTY_NAME}" ]; then
-        echo "Generic buildcache only available for Alinux2."
+        echo "Generic buildcache only tested on Alinux2. You might experience issues with \"modules\" on other OSs. Use \"spack load\" in those cases."
     fi
-    if [ -z "${generic_buildcache}" ] && [ "Amazon Linux 2" == "${PRETTY_NAME}" ]; then
-        generic_buildcache=true
-    else
-        generic_buildcache=false
+    if [ -z "${generic_buildcache}" ]; then
+        if [ "Amazon Linux 2" == "${PRETTY_NAME}" ]; then
+            generic_buildcache=true
+        else
+            generic_buildcache=false
+        fi
     fi
 }
 
@@ -307,9 +309,10 @@ load_spack_at_login() {
 setup_bootstrap_mirrors() {
     . "${install_path}/share/spack/setup-env.sh"
 
-    # `gcc@12.3.0` is created as part of building the containers in https://github.com/spack/gitlab-runners
-    # and mirrored onto `$bootstrap_gcc_cache`:
-    bootstrap_gcc_cache="https://bootstrap.spack.io/pcluster/$(spack arch -o)/$(arch)"
+    # `gcc@12.4.0` is created as part of building the containers in https://github.com/spack/gitlab-runners
+    # and mirrored onto `$bootstrap_gcc_cache`. Since amzn2 has the oldest libc of all OSs supported by Pcluster/PCS
+    # we can always use this compiler.
+    bootstrap_gcc_cache="https://bootstrap.spack.io/pcluster/amzn2/$(arch)"
     if curl -fIsLo /dev/null "${bootstrap_gcc_cache}/build_cache/index.json"; then
         spack mirror add --scope=site bootstrap-gcc-cache "${bootstrap_gcc_cache}"
     fi
@@ -336,7 +339,7 @@ setup_pcluster_buildcache_stack() {
 
 setup_spack() {
     . "${install_path}/share/spack/setup-env.sh"
-    spack compiler add --scope site
+    spack compiler find --scope site
     # Do not add  autotools/buildtools packages. These versions need to be managed by spack or it will
     # eventually end up in a version mismatch (e.g. when compiling gmp).
     spack external find --scope site --tag core-packages
@@ -459,16 +462,15 @@ install_compilers() {
 
     # Try to install from bootstrap-gcc-buildcache, fall back to generic version.
     spack install /${gcc_hash} 2>/dev/null || spack install gcc
-    (
-        spack load gcc
-        spack compiler add --scope site
-    )
+    spack compiler find --scope site "$(spack find -p --no-groups gcc | tail -n 1 | awk '{print $2}')"/bin
 
     if [ -z "${NO_INTEL_COMPILER}" ] && [ "x86_64" == "$(arch)" ]
     then
-        # Add oneapi@latest & intel@latest
+        # Add oneapi@2023.2.4 & intel@2021.10.0 as they have the full Intel C compiler
         spack install intel-oneapi-compilers-classic
-        bash -c ". "$(spack location -i intel-oneapi-compilers)/setvars.sh"; spack compiler add --scope site"
+        # TODO: Make sure these paths still exists once the compiler version changes
+        spack compiler find --scope site \
+              "$(spack find -p --no-groups intel-oneapi-compilers | tail -n 1 | awk '{print $2}')"/compiler/latest/linux/bin/{,intel64}
     fi
 }
 
@@ -487,7 +489,7 @@ install_acfl() {
         spack install acfl
         (
             spack load acfl
-            spack compiler add --scope site
+            spack compiler find --scope site
         )
     fi
 }
