@@ -118,6 +118,25 @@ while [ $# -gt 0 ]; do
     shift
 done
 
+download_yq() {
+    if [ "x86_64" == "$(arch)" ]; then
+        ext="amd64"
+        md5sum="b94ae33c93edce5b8ca5b3034bd78049"
+    elif [ "aarch64" == "$(arch)" ]; then
+        ext="arm64"
+        md5sum="0434fe534ea262510c0122a3ccf2c60f"
+    fi
+    tmpdir="$(mktemp -d)"
+    curl -sL "https://github.com/mikefarah/yq/releases/download/v4.44.5/yq_linux_${ext}" -o $tmpdir/yq
+    if [ "$(md5sum ${tmpdir}/yq | cut -d' ' -f1)" != "${md5sum}" ]; then
+        echo "Could not verify yq."
+        exit 1
+    else
+        chmod +x ${tmpdir}/yq
+        PATH="${tmpdir}:$PATH"
+    fi
+}
+
 setup_variables() {
     # Determine default user
     [ -f /etc/os-release ] && . /etc/os-release
@@ -135,22 +154,9 @@ setup_variables() {
 
     # Install onto first shared storage device
     cluster_config="/opt/parallelcluster/shared/cluster-config.yaml"
-    pip3 install pyyaml
     if [ -f "${cluster_config}" ]; then
-        cfn_ebs_shared_dirs=$(python3 << EOF
-#/usr/bin/env python
-import yaml
-with open("${cluster_config}", 'r') as s:
-    print(yaml.safe_load(s)["SharedStorage"][0]["MountDir"])
-EOF
-                           )
-        scheduler=$(python3 << EOF
-#/usr/bin/env python
-import yaml
-with open("${cluster_config}", 'r') as s:
-    print(yaml.safe_load(s)["Scheduling"]["Scheduler"])
-EOF
-                 )
+        cfn_ebs_shared_dirs=$(yq ".SharedStorage[0].MountDir" $cluster_config)
+        scheduler=$(yq ".Scheduling.Scheduler" $cluster_config)
     elif [ -f /etc/parallelcluster/cfnconfig ]; then
         . /etc/parallelcluster/cfnconfig
     else
@@ -276,7 +282,10 @@ set_variables() {
     export SLURM_VERSION SLURM_ROOT LIBFABRIC_VERSION
 
     # Turn off generic_buildcache if CI stack does not exist
-    [ -f "${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-$(stack_arch)/packages.yaml" ] || generic_buildcache=false
+    # There are two possible places to look for. Either a standalone file packages.yaml or an `packages:` entry in spack.yaml.
+    if ! grep -q "packages:" "${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-$(stack_arch)/spack.yaml" && ! [ -f "${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-$(stack_arch)/packages.yaml" ]; then
+        generic_buildcache=false
+    fi
 }
 
 set_pcluster_defaults() {
@@ -319,22 +328,24 @@ setup_bootstrap_mirrors() {
 
     # Newer gpg2 versions on Ainux2 will not be able to validate the key. This allows spack to accept the buildcache keys.
     if [ "$(gpg --version | awk '/gpg/{print $3}')" == "2.0.22" ]; then
-        mkdir -m 700 -p ${SPACK_ROOT}/opt/spack/gpg
-        echo "openpgp" >> ${SPACK_ROOT}/opt/spack/gpg/gpg.conf
+        mkdir -m 700 -p "${SPACK_ROOT}/opt/spack/gpg"
+        echo "openpgp" >> "${SPACK_ROOT}/opt/spack/gpg/gpg.conf"
     fi
     # Add keys if binary mirrors have been added
     spack-python -c 'sys.exit(len(spack.mirror.MirrorCollection(binary=True)._mirrors.values()) == 0)' && spack buildcache keys -it
 }
 
 setup_pcluster_buildcache_stack() {
-    . "${install_path}/share/spack/setup-env.sh"
-    # Make sure the subshell which installs the Intel compiler finds the correct installation prefix
-    echo -e "config:\n  install_tree:\n    root: ${SPACK_ROOT}/opt/spack\n" > $SPACK_ROOT/etc/spack/config.yaml
-    export SPACK_CI_STACK_NAME="aws-pcluster-$(stack_arch)"
-    bash "${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/scripts/pcluster/setup-pcluster.sh"
-    rm -f $SPACK_ROOT/etc/spack/config.yaml
-    # Fix SLURM location if it's not the ParallelCluster standard /opt/slurm
-    [ -d "${SLURM_ROOT}" ] && sed -i -e "s?/opt/slurm?${SLURM_ROOT}?g" "${SPACK_ROOT}"/etc/spack/packages.yaml
+    if grep -q "packages:" "${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-$(stack_arch)/spack.yaml"; then
+        yq '.spack| with_entries(select(.key | test("packages")))' \
+           "${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-$(stack_arch)/spack.yaml" > "${SPACK_ROOT}"/etc/spack/packages.yaml
+    else
+        cp "${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-$(stack_arch)/packages.yaml" "${SPACK_ROOT}"/etc/spack/packages.yaml
+    fi
+    # Patch packages.yaml
+    [ -n "${SLURM_VERSION}" ] && yq -i ".packages.slurm.externals[0].spec = \"slurm@${SLURM_VERSION} +pmix\"" "${SPACK_ROOT}"/etc/spack/packages.yaml
+    [ -d "${SLURM_ROOT}" ] && yq -i ".packages.slurm.externals[0].prefix = \"${SLURM_ROOT}\"" "${SPACK_ROOT}"/etc/spack/packages.yaml
+    [ -n "${LIBFABRIC_VERSION}" ] && yq -i ".packages.libfabric.externals[0].spec = \"libfabric@${LIBFABRIC_VERSION}\"" "${SPACK_ROOT}"/etc/spack/packages.yaml
 }
 
 setup_spack() {
@@ -363,82 +374,31 @@ patch_compilers_yaml() {
     # System ld is too old for amzn linux2
     spack_gcc_version=$(spack find --format '{version}' gcc | xargs -n1 | tail -n1)
     binutils_path=$(spack find -p binutils | awk '/binutils/ {print $2}' | head -n1)
-    if [ -d "${binutils_path}" ] && [ -n "${spack_gcc_version}" ]; then python3 <<EOF
-import yaml
-
-with open("${compilers_yaml}",'r') as f:
-    compilers=yaml.safe_load(f)
-
-for c in compilers["compilers"]:
-    if "aocc" in c["compiler"]["spec"] or "arm" in c["compiler"]["spec"] or "intel" in c["compiler"]["spec"] or "oneapi" in c["compiler"]["spec"] \
-       or "${spack_gcc_version}" in c["compiler"]["spec"]:
-           if "prepend_path" in compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["environment"]:
-               compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["environment"]["prepend_path"]["PATH"] = "${binutils_path}/bin"
-           else:
-               compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["environment"] = {"prepend_path":{"PATH":"${binutils_path}/bin"}}
-
-with open("${compilers_yaml}",'w') as f:
-    yaml.dump(compilers, f)
-EOF
+    if [ -d "${binutils_path}" ] && [ -n "${spack_gcc_version}" ]; then
+        yq -i "(.compilers[] | select(.compiler.spec == \"aocc*\" or .compiler.spec == \"arm*\" or .compiler.spec == \"gcc*${spack_gcc_version}*\" or .compiler.spec == \"intel*\" or .compiler.spec == \"oneapi*\") | .compiler.environment.prepend_path.PATH) = \"${binutils_path}/bin\"" "${compilers_yaml}"
     fi
 
     # Oneapi needs extra_rpath to gcc libstdc++.so.6
     if oneapi_gcc_version=$(spack find --format '{compiler}' intel-oneapi-compilers 2>/dev/null | sed -e 's/=//g') && \
             [ -n "${oneapi_gcc_version}" ] && oneapi_gcc_path=$(spack find -p "${oneapi_gcc_version}" | grep "${oneapi_gcc_version}" | awk '{print $2}' | head -n1) && \
-            [ -d "${oneapi_gcc_path}" ]; then  python3 <<EOF
-import yaml
-
-with open("${compilers_yaml}",'r') as f:
-    compilers=yaml.safe_load(f)
-
-for c in compilers["compilers"]:
-    if "oneapi" in c["compiler"]["spec"]:
-        compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["extra_rpaths"] = ["${oneapi_gcc_path}/lib64"]
-
-with open("${compilers_yaml}",'w') as f:
-    yaml.dump(compilers, f)
-EOF
+            [ -d "${oneapi_gcc_path}" ]; then
+        yq -i "(.compilers[] | select(.compiler.spec == \"oneapi*\") | .compiler.extra_rpaths) = [\"${oneapi_gcc_path}/lib64\"]" "${compilers_yaml}"
     fi
 
     # TODO: Who needs this? WRF? gromacs will not build when this is active.
     # Armclang needs to find its own libraries
     if acfl_path=$(spack find -p acfl 2>/dev/null | awk '/acfl/ {print $2}') && \
             [ -d "${acfl_path}" ] && cpp_include_path=$(dirname "$(find "${acfl_path}" -name cassert)") && \
-            [ -d "${cpp_include_path}" ]; then python3 <<EOF
-import yaml
-
-with open("${compilers_yaml}",'r') as f:
-    compilers=yaml.safe_load(f)
-
-for c in compilers["compilers"]:
-    if "arm" in c["compiler"]["spec"]:
-        if "prepend_path" in compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["environment"]:
-            compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["environment"]["prepend_path"]["CPATH"] = "${cpp_include_path}:${cpp_include_path}/aarch64-linux-gnu"
-        else:
-            compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["environment"] = {"prepend_path":{"CPATH":"${cpp_include_path}:${cpp_include_path}/aarch64-linux-gnu"}}
-
-with open("${compilers_yaml}",'w') as f:
-    yaml.dump(compilers, f)
-EOF
+            [ -d "${cpp_include_path}" ]; then
+        yq -i "(.compilers[] | select(.compiler.spec == \"arm*\") | .compiler.environment.prepend_path.CPATH) = \"${cpp_include_path}:${cpp_include_path}/aarch64-linux-gnu\"" "${compilers_yaml}"
     fi
 
     # Armclang needs extra_rpath to libstdc++.so
     # TODO: FYI ACFL installer does this by adding libstdc++.so.6 path to LD_LIBRARY_PATH
     if acfl_path=$(spack find -p acfl 2>/dev/null | awk '/acfl/ {print $2}') && \
             acfl_libstdcpp_path=$(dirname "$(find "${acfl_path}" -name libstdc++.so | head -n1)") && \
-            [ -d "${acfl_libstdcpp_path}" ]; then python3 <<EOF
-import yaml
-
-with open("${compilers_yaml}",'r') as f:
-    compilers=yaml.safe_load(f)
-
-for c in compilers["compilers"]:
-    if "arm" in c["compiler"]["spec"]:
-        compilers["compilers"][compilers["compilers"].index(c)]["compiler"]["extra_rpaths"] = ["${acfl_libstdcpp_path}"]
-
-with open("${compilers_yaml}",'w') as f:
-    yaml.dump(compilers, f)
-EOF
+            [ -d "${acfl_libstdcpp_path}" ]; then
+        yq -i "(.compilers[] | select(.compiler.spec == \"arm*\") | .compiler.extra_rpaths) = [\"${acfl_libstdcpp_path}\"]" "${compilers_yaml}"
     fi
 }
 
@@ -452,12 +412,12 @@ install_compilers() {
     fi
 
     # Compiler needed for all kinds of codes. It makes no sense not to install it.
-    mirrors_entry=$(grep -s bootstrap-gcc-cache $SPACK_ROOT/etc/spack/mirrors.yaml)
+    mirrors_entry=$(grep -s bootstrap-gcc-cache "$SPACK_ROOT/etc/spack/mirrors.yaml")
     if [ -n "${mirrors_entry}" ]; then
         # Make sure we select the gcc from the cache we just added (temporarily override all mirrors.yaml configuration files):
         tmpdir=$(mktemp -d)
         echo -e "mirrors::\n${mirrors_entry}" > "${tmpdir}/mirrors.yaml"
-        gcc_hash=$(spack --config-scope ${tmpdir} buildcache list -a -v -l gcc | grep -v -- "----" | tail -n1 | awk '{print $1}')
+        gcc_hash=$(spack --config-scope "${tmpdir}" buildcache list -a -v -l gcc | grep -v -- "----" | tail -n1 | awk '{print $1}')
     fi
 
     # Try to install from bootstrap-gcc-buildcache, fall back to generic version.
@@ -467,7 +427,7 @@ install_compilers() {
     if [ -z "${NO_INTEL_COMPILER}" ] && [ "x86_64" == "$(arch)" ]
     then
         # Add oneapi@2023.2.4 & intel@2021.10.0 as they have the full Intel C compiler
-        spack install intel-oneapi-compilers-classic
+        spack install intel-oneapi-compilers@2023.2.4
         # TODO: Make sure these paths still exists once the compiler version changes
         spack compiler find --scope site \
               "$(spack find -p --no-groups intel-oneapi-compilers | tail -n 1 | awk '{print $2}')"/compiler/latest/linux/bin/{,intel64}
@@ -487,10 +447,7 @@ install_acfl() {
     if [ -z "${NO_ARM_COMPILER}" ] && [ "aarch64" == "$(arch)" ]
     then
         spack install acfl
-        (
-            spack load acfl
-            spack compiler find --scope site
-        )
+        spack compiler find --scope site "$(spack location -i acfl)"/arm-linux-compiler-"$(spack find --format '{version}' acfl)"_*/bin
     fi
 }
 
@@ -529,6 +486,7 @@ echo "$(declare -pf)
     setup_variables
     [ -d \"${install_path}\" ] && EXTERNAL_SPACK=\"true\"
     download_spack
+    download_yq
     set_modules
     load_spack_at_login
     setup_bootstrap_mirrors
@@ -537,11 +495,11 @@ echo "$(declare -pf)
        setup_pcluster_buildcache_stack
     else
         set_pcluster_defaults
-        setup_spack
-        install_compilers
-        install_acfl
-        patch_compilers_yaml
     fi
+    setup_spack
+    install_compilers
+    install_acfl
+    patch_compilers_yaml
     setup_mirrors
     install_packages \"${install_specs}\"
     echo \"*** Spack setup completed ***\"
