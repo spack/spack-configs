@@ -455,7 +455,13 @@ setup_mirrors() {
     . "${install_path}/share/spack/setup-env.sh"
 
     if ${generic_buildcache}; then
-        spack mirror add --scope site "aws-pcluster-$(stack_arch)" "https://binaries.spack.io/develop/aws-pcluster-$(stack_arch)"
+        # $SPACK_BRANCH can point to an existing release, e.g. v0.23.0: In this case there exists a versioned buildcache.
+        # Or it points to a development branch. In this case we want use the "develop" build cache.
+        if curl -sfLI "https://binaries.spack.io/${SPACK_BRANCH}/aws-pcluster-$(stack_arch)/build_cache/index.json" -o /dev/null; then
+            spack mirror add --scope site "aws-pcluster-$(stack_arch)" "https://binaries.spack.io/${SPACK_BRANCH}/aws-pcluster-$(stack_arch)"
+        else
+            spack mirror add --scope site "aws-pcluster-$(stack_arch)" "https://binaries.spack.io/develop/aws-pcluster-$(stack_arch)"
+        fi
     fi
     # Add older specific target mirrors if they exist
     mirror_url="https://binaries.spack.io/develop/aws-pcluster-$(target | sed -e 's?_avx512??1')"
