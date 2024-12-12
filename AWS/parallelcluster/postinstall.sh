@@ -318,21 +318,20 @@ load_spack_at_login() {
 setup_bootstrap_mirrors() {
     . "${install_path}/share/spack/setup-env.sh"
 
+    # Newer gpg2 versions on Ainux2 will not be able to validate the key. This allows spack to accept the buildcache keys.
+    if [ "$(gpg --version | awk '/gpg/{print $3}')" == "2.0.22" ]; then
+        mkdir -m 700 -p "${SPACK_ROOT}/opt/spack/gpg"
+        echo "openpgp" >> "${SPACK_ROOT}/opt/spack/gpg/gpg.conf"
+    fi
+
     # `gcc@12.4.0` is created as part of building the containers in https://github.com/spack/gitlab-runners
     # and mirrored onto `$bootstrap_gcc_cache`. Since amzn2 has the oldest libc of all OSs supported by Pcluster/PCS
     # we can always use this compiler.
     bootstrap_gcc_cache="https://bootstrap.spack.io/pcluster/amzn2/$(arch)"
     if curl -fIsLo /dev/null "${bootstrap_gcc_cache}/build_cache/index.json"; then
         spack mirror add --scope=site bootstrap-gcc-cache "${bootstrap_gcc_cache}"
+        spack buildcache keys -it
     fi
-
-    # Newer gpg2 versions on Ainux2 will not be able to validate the key. This allows spack to accept the buildcache keys.
-    if [ "$(gpg --version | awk '/gpg/{print $3}')" == "2.0.22" ]; then
-        mkdir -m 700 -p "${SPACK_ROOT}/opt/spack/gpg"
-        echo "openpgp" >> "${SPACK_ROOT}/opt/spack/gpg/gpg.conf"
-    fi
-    # Add keys if binary mirrors have been added
-    spack-python -c 'sys.exit(len(spack.mirror.MirrorCollection(binary=True)._mirrors.values()) == 0)' && spack buildcache keys -it
 }
 
 setup_pcluster_buildcache_stack() {
@@ -468,7 +467,7 @@ setup_mirrors() {
     if curl -fIsLo /dev/null "${mirror_url}/build_cache/index.json"; then
         spack mirror add --scope site "aws-pcluster-legacy" "${mirror_url}"
     fi
-    spack-python -c 'sys.exit(len(spack.mirror.MirrorCollection(binary=True)._mirrors.values()) == 0)' && spack buildcache keys -it
+    spack mirror list | grep -qE '\[.*b.*\]' && spack buildcache keys -it
 }
 
 install_packages() {
