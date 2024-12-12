@@ -1,0 +1,29 @@
+# This file contains best practices for selected applications. It is not an exhaustive list.
+# When running postinstall.sh this file gets merged with
+# $spack/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-x86_64_v4/spack.yaml.
+# A lot is already defined there. If a packages is defined here and in the build cache, the
+# build cache entry takes precedence. We do not attempt to deep merge except the "packges:all:"
+# since it can lead to inconsistent specs.
+
+packages:
+  gcc:
+    require:
+      - 'gcc@12 +strip +binutils %gcc ^binutils@2.37 target=aarch64'
+
+  gromacs:
+    require:
+      - spec: gromacs@2021.3 %gcc ^fftw^openmpi
+        when: "target=neoverse_n1"
+      - one_of:
+          - gromacs@2021.3 %arm ^fftw ^openmpi
+          - gromacs@2021.3 %gcc ^armpl-gcc ^openmpi
+        when: "target=neoverse_v1"
+  kripke:
+    require:
+      - kripke@develop %gcc +openmp ^raja+openmp ^cmake%gcc
+  mpas-model:
+    require:
+      - "precision=single make_target=llvm %arm ^parallelio+pnetcdf"
+  mpich:
+    require:
+      - "mpich pmi=pmi2 device=ch4 netmod=ofi +slurm"

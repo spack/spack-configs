@@ -281,9 +281,10 @@ set_variables() {
     [ -z "${LIBFABRIC_VERSION}" ] && LIBFABRIC_VERSION=$(awk '/Version:/{print $2}' "$(find /opt/amazon/efa/ -name libfabric.pc | head -n1)" | sed -e 's?~??g' -e 's?amzn.*??g')
     export SLURM_VERSION SLURM_ROOT LIBFABRIC_VERSION
 
+    export STACK_DIR="${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-$(stack_arch)"
     # Turn off generic_buildcache if CI stack does not exist
     # There are two possible places to look for. Either a standalone file packages.yaml or an `packages:` entry in spack.yaml.
-    if ! grep -q "packages:" "${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-$(stack_arch)/spack.yaml" && ! [ -f "${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-$(stack_arch)/packages.yaml" ]; then
+    if ! grep -q "packages:" "${STACK_DIR}/spack.yaml" && ! [ -f "${STACK_DIR}/packages.yaml" ]; then
         generic_buildcache=false
     fi
 }
@@ -335,11 +336,15 @@ setup_bootstrap_mirrors() {
 }
 
 setup_pcluster_buildcache_stack() {
-    if grep -q "packages:" "${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-$(stack_arch)/spack.yaml"; then
-        yq '.spack| with_entries(select(.key | test("packages")))' \
-           "${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-$(stack_arch)/spack.yaml" > "${SPACK_ROOT}"/etc/spack/packages.yaml
+    if grep -q "packages:" "${STACK_DIR}/spack.yaml"; then
+        # Overwrite all packages in merge-stack-{x86_64_v4,neoverse_v1}.yaml with the build cache entries, but deep merge "all:"
+        yq '.spack| with_entries(select(.key | test("packages")))' "${STACK_DIR}/spack.yaml" > "${SPACK_ROOT}"/etc/spack/packages.yaml
+        curl -Ls "https://raw.githubusercontent.com/${CONFIG_REPO}/${CONFIG_BRANCH}/AWS/parallelcluster/merge-stack-$(stack_arch).yaml" \
+             -o "/tmp/merge.yaml" && \
+            yq -i -P eval-all "select(fi == 1) * select(fi == 0) | sort_keys(..) | .packages.all *=+ load(\"/tmp/merge.yaml\").packages.all" \
+               "${SPACK_ROOT}"/etc/spack/packages.yaml /tmp/merge.yaml
     else
-        cp "${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-$(stack_arch)/packages.yaml" "${SPACK_ROOT}"/etc/spack/packages.yaml
+        cp "${STACK_DIR}/packages.yaml" "${SPACK_ROOT}"/etc/spack/packages.yaml
     fi
     # Patch packages.yaml
     [ -n "${SLURM_VERSION}" ] && yq -i ".packages.slurm.externals[0].spec = \"slurm@${SLURM_VERSION} +pmix\"" "${SPACK_ROOT}"/etc/spack/packages.yaml

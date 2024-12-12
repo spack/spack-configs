@@ -1,0 +1,50 @@
+# This file contains best practices for selected applications. It is not an exhaustive list.
+# When running postinstall.sh this file gets merged with
+# $spack/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-x86_64_v4/spack.yaml.
+# A lot is already defined there. If a packages is defined here and in the build cache, the
+# build cache entry takes precedence. We do not attempt to deep merge except the "packges:all:"
+# since it can lead to inconsistent specs.
+
+packages:
+  aocc:
+    require:
+      - "aocc +license-agreed %gcc target=x86_64_v3"
+  cpio:
+    require:
+      - spec: cflags="-std=c18"
+        when: "%intel"
+  gcc:
+    require: gcc@12 +strip %gcc +binutils ^binutils@2.37 target=x86_64_v3
+  intel-oneapi-compilers:
+    require:
+      - spec: "intel-oneapi-compilers %gcc target=x86_64_v3"
+  # TODO: Only add this once https://github.com/spack/spack/pull/38549 is fixed
+  # kripke:
+  #   require: "kripke@develop %gcc +openmp ^raja+openmp ^cmake%gcc"
+  laghos:
+    require: "laghos +metis +ofast"
+  libidn2:
+    require:
+      - spec: cflags="-std=c18"
+        when: "%intel"
+  libunistring:
+    require:
+      - spec: cflags="-std=c18"
+        when: "%intel"
+  mpas-model:
+    require:
+      - spec: "mpas-model precision=single ^parallelio+pnetcdf"
+        when: "%intel"
+  py-devito:
+    require:
+      - spec: "py-devito +mpi"
+        when: "%intel"
+  all:
+    compiler: [intel]
+
+  # TODO: Decide where this goes
+  # For zen2:
+  stream:
+    require:
+      - one_of: ["stream@5.10 +openmp cflags=\"-qopt-streaming-stores=always -mcmodel=large -O3 -shared-intel -qopenmp -DSTREAM_ARRAY_SIZE=268435456 -DNTIMES=100\""]
+
