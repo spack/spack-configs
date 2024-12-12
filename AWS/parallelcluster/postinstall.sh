@@ -425,11 +425,15 @@ install_compilers() {
 
     if [ -z "${NO_INTEL_COMPILER}" ] && [ "x86_64" == "$(arch)" ]
     then
-        # Add oneapi@2023.2.4 & intel@2021.10.0 as they have the full Intel C compiler
-        spack install intel-oneapi-compilers@2023.2.4
-        # TODO: Make sure these paths still exists once the compiler version changes
+        if ${generic_buildcache}; then
+            # Build cache uses oneapi@2024.1.0 since this is the latest compatible with amzn linux2.
+            spack install intel-oneapi-compilers@2024.1.0
+        else
+            # Add oneapi@2023.2.4 & intel@2021.10.0 as they have the full Intel C compiler
+            spack install intel-oneapi-compilers@2023.2.4
+        fi
         spack compiler find --scope site \
-              "$(spack find -p --no-groups intel-oneapi-compilers | tail -n 1 | awk '{print $2}')"/compiler/latest/linux/bin/{,intel64}
+              "$(spack find -p --no-groups intel-oneapi-compilers | tail -n 1 | awk '{print $2}')"/compiler/latest/{,linux}/bin/{,intel64}
     fi
 }
 
