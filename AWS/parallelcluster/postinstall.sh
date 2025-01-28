@@ -286,6 +286,7 @@ set_variables() {
     # There are two possible places to look for. Either a standalone file packages.yaml or an `packages:` entry in spack.yaml.
     if ! grep -q "packages:" "${STACK_DIR}/spack.yaml" && ! [ -f "${STACK_DIR}/packages.yaml" ]; then
         generic_buildcache=false
+        echo "Disabling buildcache.  No stack found for this architecture ($(stack_arch))."
     fi
 }
 
@@ -523,6 +524,7 @@ echo "$(declare -pf)
 if ${install_in_foreground}; then
     bash ${tmpfile}
 else
+    echo "Continuing in background.  Watch /var/log/spack-postinstall.log"
     nohup bash ${tmpfile} &> /var/log/spack-postinstall.log &
     disown -a
 fi
