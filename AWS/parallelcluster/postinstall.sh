@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euoo posix pipefail
 
 ##############################################################################################
 # # This script will setup Spack and best practices for a few applications.                  #
@@ -49,6 +49,35 @@ Developer Options:
 EOF
 }
 
+# By default we run in the background.  Accomplish this by calling ourselves
+# with all the same args and adding -fg and nohup-ing the new process.
+install_in_foreground=no
+BG_ARGS=()
+for ARG in "${@}"; do
+    # Main argument processing loop is below.
+    # This one only cares about -h and -fg
+    case $ARG in
+        -h|--help )
+            print_help
+            exit 0
+            ;;
+        -fg|--foreground )
+            install_in_foreground=yes
+            ;;
+        *)
+            BG_ARGS+=("$ARG")
+            ;;
+    esac
+done
+
+if [ $install_in_foreground == "no" ]; then
+    echo "Continuing in background.  Watch /var/log/spack-postinstall.log"
+    nohup bash $(realpath $0) -fg "${BG_ARGS[@]}" &> /var/log/spack-postinstall.log &
+    disown -a
+    exit 0
+fi
+
+
 # CONFIG_REPO: a the user/repo on github to use for configuration.a custom user/repo/branch in case users wish to
 # provide or test their own configurations.
 export CONFIG_REPO="spack/spack-configs"
@@ -59,7 +88,20 @@ export PREFIX=""
 install_specs=()
 export generic_buildcache=""
 export EXTERNAL_SPACK="false"
-install_in_foreground=false
+
+NO_INTEL_COMPILER=""
+NO_ARM_COMPILER=""
+install_path=""
+default_user=""
+
+# These variables can be overriden from the environment:
+export SPACK_ROOT="${SPACK_ROOT:-}"
+SLURM_ROOT="${SLURM_ROOT:-}"
+SLURM_VERSION="${SLURM_VERSION:-}"
+LIBFABRIC_ROOT="${LIBFABRIC_ROOT:-}"
+LIBFABRIC_VERSION="${LIBFABRIC_VERSION:-}"
+
+
 while [ $# -gt 0 ]; do
     case $1 in
         --buildcache )
@@ -73,8 +115,7 @@ while [ $# -gt 0 ]; do
             CONFIG_REPO="$2"
             shift
             ;;
-        -fg )
-            install_in_foreground=true
+        -fg|--foreground )
             ;;
         -h|--help )
             print_help
@@ -162,6 +203,7 @@ setup_variables() {
     else
         echo "Cannot find ParallelCluster configs"
         cfn_ebs_shared_dirs=""
+        scheduler=""
     fi
 
     # If no shared drives are configured, try finding a Lustre, then an EFS
@@ -211,6 +253,7 @@ cleanup() {
 download_spack() {
     if [ -z "${SPACK_ROOT}" ]
     then
+        echo "CLONING: $SPACK_ROOT and $install_path"
         if [ -n "${SPACK_BRANCH}" ]
         then
             git clone -c feature.manyFiles=true "https://github.com/${SPACK_REPO}" -b "${SPACK_BRANCH}" "${install_path}"
@@ -277,9 +320,19 @@ set_variables() {
         SLURM_ROOT=$(dirname $(dirname "$(awk '/ExecStart=/ {print $1}' /etc/systemd/system/slurm* | sed -e 's?^.*=??1' | head -n1)"))
     # Fallback to default location if SLURM not in systemd
     [ -z "${SLURM_ROOT}" ] && [ -d "/opt/slurm" ] && SLURM_ROOT=/opt/slurm
-    [ -z "${SLURM_VERSION}" ] && SLURM_VERSION=$(strings "${SLURM_ROOT}"/lib/libslurm.so | grep -e '^VERSION' | awk '{print $2}' | sed -e 's?"??g')
-    [ -z "${LIBFABRIC_VERSION}" ] && LIBFABRIC_VERSION=$(awk '/Version:/{print $2}' "$(find /opt/amazon/efa/ -name libfabric.pc | head -n1)" | sed -e 's?~??g' -e 's?amzn.*??g')
-    export SLURM_VERSION SLURM_ROOT LIBFABRIC_VERSION
+    if [ -n "${SLURM_ROOT}" ] && [ -z "${SLURM_VERSION}" ]; then
+        SLURM_VERSION=$(strings "${SLURM_ROOT}"/lib/libslurm.so | grep -e '^VERSION' | awk '{print $2}' | sed -e 's?"??g')
+    fi
+    if [ ! -d "${LIBFABRIC_ROOT}" ] && [ -d /opt/amazon/efa/ ]; then
+        LIBFABRIC_ROOT=/opt/amazon/efa/
+    fi
+    if [ -z "${LIBFABRIC_VERSION}" ] && [ -d "${LIBFABRIC_ROOT}" ]; then
+        PC_FILE=$(find "${LIBFABRIC_ROOT}" -name libfabric.pc | head -n1)
+        if [ -f "$PC_FILE" ]; then
+            LIBFABRIC_VERSION=$(awk '/Version:/{print $2}' $PC_FILE | sed -e 's?~??g' -e 's?amzn.*??g')
+        fi
+    fi
+    export SLURM_VERSION SLURM_ROOT LIBFABRIC_VERSION LIBFABRIC_ROOT
 
     export STACK_DIR="${SPACK_ROOT}/share/spack/gitlab/cloud_pipelines/stacks/aws-pcluster-$(stack_arch)"
     # Turn off generic_buildcache if CI stack does not exist
@@ -331,7 +384,8 @@ setup_bootstrap_mirrors() {
     # we can always use this compiler.
     bootstrap_gcc_cache="https://bootstrap.spack.io/pcluster/amzn2/$(arch)"
     if curl -fIsLo /dev/null "${bootstrap_gcc_cache}/build_cache/index.json"; then
-        spack mirror add --scope=site bootstrap-gcc-cache "${bootstrap_gcc_cache}"
+        spack mirror list | grep -q ${bootstrap_gcc_cache} || \
+            spack mirror add --scope=site bootstrap-gcc-cache "${bootstrap_gcc_cache}"
         spack buildcache keys -it
     fi
 }
@@ -351,6 +405,7 @@ setup_pcluster_buildcache_stack() {
     [ -n "${SLURM_VERSION}" ] && yq -i ".packages.slurm.externals[0].spec = \"slurm@${SLURM_VERSION} +pmix\"" "${SPACK_ROOT}"/etc/spack/packages.yaml
     [ -d "${SLURM_ROOT}" ] && yq -i ".packages.slurm.externals[0].prefix = \"${SLURM_ROOT}\"" "${SPACK_ROOT}"/etc/spack/packages.yaml
     [ -n "${LIBFABRIC_VERSION}" ] && yq -i ".packages.libfabric.externals[0].spec = \"libfabric@${LIBFABRIC_VERSION}\"" "${SPACK_ROOT}"/etc/spack/packages.yaml
+    return 0
 }
 
 setup_spack() {
@@ -363,7 +418,11 @@ setup_spack() {
     # Remove system installed `gcc` if there is no matching `g++`. Missing `gfortran` is OK,
     # since gcc & g++ are sufficient for `spack install gcc@gcc`.
     for compiler in $(spack compiler list | grep -v '-' |grep -v '=>' | xargs); do
-        spack compiler info --scope=site ${compiler} 2>/dev/null | grep -E 'cc =|cxx =' | grep -q " None" && spack compiler rm --scope=site ${compiler}
+        compiler_ok=no
+        spack compiler info --scope=site ${compiler} 2>/dev/null | grep -E 'cc =|cxx =' | grep -q " None" || compiler_ok=yes
+        if [ "$compiler_ok" == no ]; then
+            spack compiler rm --scope=site ${compiler}
+        fi
     done
 }
 
@@ -475,9 +534,11 @@ setup_mirrors() {
     # Add older specific target mirrors if they exist
     mirror_url="https://binaries.spack.io/v0.23.1/aws-pcluster-$(target | sed -e 's?_avx512??1')"
     if curl -fIsLo /dev/null "${mirror_url}/build_cache/index.json"; then
-        spack mirror add --scope site "aws-pcluster-legacy" "${mirror_url}"
+        spack mirror list | grep -q $mirror_url || \
+            spack mirror add --scope site "aws-pcluster-legacy" "${mirror_url}"
     fi
     spack mirror list | grep -qE '\[.*b.*\]' && spack buildcache keys -it
+    return 0
 }
 
 install_packages() {
@@ -495,36 +556,27 @@ fi
 
 [ -n "${SPACK_ROOT}" ] && EXTERNAL_SPACK="true"
 
-tmpfile=$(mktemp)
-echo "$(declare -pf)
-    trap \"cleanup\" SIGINT EXIT
-    setup_variables
-    [ -d \"${install_path}\" ] && EXTERNAL_SPACK=\"true\"
-    download_spack
-    download_yq
-    set_modules
-    load_spack_at_login
-    setup_bootstrap_mirrors
-    set_variables
-    if \${generic_buildcache}; then
-       setup_pcluster_buildcache_stack
-    else
-        set_pcluster_defaults
-    fi
-    setup_spack
-    install_compilers
-    install_acfl
-    patch_compilers_yaml
-    setup_mirrors
-    install_packages \"${install_specs}\"
-    echo \"*** Spack setup completed ***\"
-    rm -f ${tmpfile}
-" > ${tmpfile}
 
-if ${install_in_foreground}; then
-    bash ${tmpfile}
+trap "cleanup" SIGINT EXIT
+setup_variables
+[ -d "${install_path}" ] && EXTERNAL_SPACK="true"
+download_spack
+download_yq
+set_modules
+load_spack_at_login
+setup_bootstrap_mirrors
+set_variables
+if ${generic_buildcache}; then
+    setup_pcluster_buildcache_stack
 else
-    echo "Continuing in background.  Watch /var/log/spack-postinstall.log"
-    nohup bash ${tmpfile} &> /var/log/spack-postinstall.log &
-    disown -a
+    set_pcluster_defaults
 fi
+echo "now setting up spack"
+setup_spack
+echo "now installing compilers"
+install_compilers
+install_acfl
+patch_compilers_yaml
+setup_mirrors
+install_packages "${install_specs[@]:-}"
+echo "*** Spack setup completed ***"
