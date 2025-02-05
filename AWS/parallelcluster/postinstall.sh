@@ -512,11 +512,28 @@ install_acfl() {
         fi
     fi
 
-    if [ -z "${NO_ARM_COMPILER}" ] && [ "aarch64" == "$(arch)" ]
-    then
-        spack install acfl
-        spack compiler find --scope site "$(spack location -i acfl)"/arm-linux-compiler-"$(spack find --format '{version}' acfl)"_*/bin
+    if [ "${NO_ARM_COMPILER}" == 1 ] || [ "aarch64" != "$(arch)" ]; then
+        # Requested to not install, or wrong CPU arch.
+        # Nothing to do.
+        return 0
     fi
+
+    # ACfL is not supported by all OS's.
+    # See https://github.com/spack/spack/blob/develop/var/spack/repos/builtin/packages/acfl/package.py#L37
+    [ -f /etc/os-release ] && . /etc/os-release
+    case "$ID-$VERSION_ID" in
+        amzn-2023|amzn-2)
+            ;;
+        ubuntu-20.04|ubuntu-22.04)
+            ;;
+        *)
+            echo "Not installing ACfL for $ID $VERSION_ID"
+            return 0
+            ;;
+    esac
+
+    spack install acfl
+    spack compiler find --scope site "$(spack location -i acfl)"/arm-linux-compiler-"$(spack find --format '{version}' acfl)"_*/bin
 }
 
 setup_mirrors() {
