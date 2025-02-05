@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euoo posix pipefail
+set -euo posix
 
 ##############################################################################################
 # # This script will setup Spack and best practices for a few applications.                  #
@@ -72,7 +72,7 @@ done
 
 if [ $install_in_foreground == "no" ]; then
     echo "Continuing in background.  Watch /var/log/spack-postinstall.log"
-    nohup bash $(realpath $0) -fg "${BG_ARGS[@]}" &> /var/log/spack-postinstall.log &
+    nohup bash $(realpath $0) -fg "${BG_ARGS[@]:-}" &> /var/log/spack-postinstall.log &
     disown -a
     exit 0
 fi
@@ -100,6 +100,9 @@ SLURM_ROOT="${SLURM_ROOT:-}"
 SLURM_VERSION="${SLURM_VERSION:-}"
 LIBFABRIC_ROOT="${LIBFABRIC_ROOT:-}"
 LIBFABRIC_VERSION="${LIBFABRIC_VERSION:-}"
+
+# undocumented
+spack_commit="${spack_commit:-}"
 
 
 while [ $# -gt 0 ]; do
@@ -178,6 +181,26 @@ download_yq() {
     fi
 }
 
+install_os_dependencies() {
+    # if user isn't starting with parallel cluster, make sure a few required
+    # packages are installed.
+    [ -f /etc/os-release ] && . /etc/os-release
+    case "$ID" in
+        amzn|rhel|centos|rocky)
+            yum install -y git gcc-c++ make cmake unzip
+            yum install -y --allowerasing gnupg2 || yum install -y gnupg2
+            ;;
+        ubuntu)
+            apt-get update
+            apt-get install -y git g++ make cmake unzip
+            ;;
+        *)
+            echo "Operating system ${ID} not recognized. Could not automatically install system prerequisites."
+            echo "Attempting to continue anyways."
+            ;;
+    esac
+}
+
 setup_variables() {
     # Determine default user
     [ -f /etc/os-release ] && . /etc/os-release
@@ -253,15 +276,17 @@ cleanup() {
 download_spack() {
     if [ -z "${SPACK_ROOT}" ]
     then
-        echo "CLONING: $SPACK_ROOT and $install_path"
-        if [ -n "${SPACK_BRANCH}" ]
+        if [ -n "${spack_commit:-}" ]
         then
-            git clone -c feature.manyFiles=true "https://github.com/${SPACK_REPO}" -b "${SPACK_BRANCH}" "${install_path}"
-        elif [ -n "${spack_commit}" ]
-        then
+            echo "Cloning spack commit ${spack_commit} into $install_path"
             git clone -c feature.manyFiles=true "https://github.com/${SPACK_REPO}" "${install_path}"
             cd "${install_path}" && git checkout "${spack_commit}"
+        else
+            echo "Cloning spack branch ${SPACK_BRANCH} into $install_path"
+            git clone -c feature.manyFiles=true "https://github.com/${SPACK_REPO}" -b "${SPACK_BRANCH}" "${install_path}"
         fi
+    else
+        echo "Using existing spack found in ${SPACK_ROOT}"
     fi
 }
 
@@ -402,10 +427,20 @@ setup_pcluster_buildcache_stack() {
         cp "${STACK_DIR}/packages.yaml" "${SPACK_ROOT}"/etc/spack/packages.yaml
     fi
     # Patch packages.yaml
-    [ -n "${SLURM_VERSION}" ] && yq -i ".packages.slurm.externals[0].spec = \"slurm@${SLURM_VERSION} +pmix\"" "${SPACK_ROOT}"/etc/spack/packages.yaml
-    [ -d "${SLURM_ROOT}" ] && yq -i ".packages.slurm.externals[0].prefix = \"${SLURM_ROOT}\"" "${SPACK_ROOT}"/etc/spack/packages.yaml
-    [ -n "${LIBFABRIC_VERSION}" ] && yq -i ".packages.libfabric.externals[0].spec = \"libfabric@${LIBFABRIC_VERSION}\"" "${SPACK_ROOT}"/etc/spack/packages.yaml
-    return 0
+    [ -z "${SLURM_VERSION}" ] || yq -i ".packages.slurm.externals[0].spec = \"slurm@${SLURM_VERSION} +pmix\"" "${SPACK_ROOT}"/etc/spack/packages.yaml
+    [ ! -d "${SLURM_ROOT}" ] || yq -i ".packages.slurm.externals[0].prefix = \"${SLURM_ROOT}\"" "${SPACK_ROOT}"/etc/spack/packages.yaml
+    [ -z "${LIBFABRIC_VERSION}" ] || yq -i ".packages.libfabric.externals[0].spec = \"libfabric@${LIBFABRIC_VERSION}\"" "${SPACK_ROOT}"/etc/spack/packages.yaml
+}
+
+remove_missing_packages() {
+    if [ -z "${SLURM_ROOT}" -o ! -d "${SLURM_ROOT}" ]; then
+        echo "No slurm found, removing from packages.yaml"
+        yq -i "del(.packages.slurm)" "${SPACK_ROOT}"/etc/spack/packages.yaml
+    fi
+    if [ -z "${LIBFABRIC_ROOT}" -o ! -d "${LIBFABRIC_ROOT}" ]; then
+        echo "No libfabric found, removing from packages.yaml"
+        yq -i "del(.packages.libfabric)" "${SPACK_ROOT}"/etc/spack/packages.yaml
+    fi
 }
 
 setup_spack() {
@@ -548,12 +583,15 @@ setup_mirrors() {
             spack mirror add --scope site "aws-pcluster-$(stack_arch)" "https://binaries.spack.io/v0.23.1/aws-pcluster-$(stack_arch)"
         fi
     fi
+
     # Add older specific target mirrors if they exist
     mirror_url="https://binaries.spack.io/v0.23.1/aws-pcluster-$(target | sed -e 's?_avx512??1')"
     if curl -fIsLo /dev/null "${mirror_url}/build_cache/index.json"; then
         spack mirror list | grep -q $mirror_url || \
             spack mirror add --scope site "aws-pcluster-legacy" "${mirror_url}"
     fi
+
+    # add keys if we added any binary buildcaches.
     spack mirror list | grep -qE '\[.*b.*\]' && spack buildcache keys -it
     return 0
 }
@@ -575,6 +613,7 @@ fi
 
 
 trap "cleanup" SIGINT EXIT
+install_os_dependencies
 setup_variables
 [ -d "${install_path}" ] && EXTERNAL_SPACK="true"
 download_spack
@@ -588,6 +627,7 @@ if ${generic_buildcache}; then
 else
     set_pcluster_defaults
 fi
+remove_missing_packages
 echo "now setting up spack"
 setup_spack
 echo "now installing compilers"
