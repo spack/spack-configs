@@ -72,7 +72,7 @@ done
 
 if [ $install_in_foreground == "no" ]; then
     echo "Continuing in background.  Watch /var/log/spack-postinstall.log"
-    nohup bash $(realpath $0) -fg "${BG_ARGS[@]}" &> /var/log/spack-postinstall.log &
+    nohup bash $(realpath $0) -fg "${BG_ARGS[@]:-}" &> /var/log/spack-postinstall.log &
     disown -a
     exit 0
 fi
@@ -100,6 +100,9 @@ SLURM_ROOT="${SLURM_ROOT:-}"
 SLURM_VERSION="${SLURM_VERSION:-}"
 LIBFABRIC_ROOT="${LIBFABRIC_ROOT:-}"
 LIBFABRIC_VERSION="${LIBFABRIC_VERSION:-}"
+
+# undocumented
+spack_commit="${spack_commit:-}"
 
 
 while [ $# -gt 0 ]; do
@@ -178,6 +181,26 @@ download_yq() {
     fi
 }
 
+install_os_dependencies() {
+    # if user isn't starting with parallel cluster, make sure a few required
+    # packages are installed.
+    [ -f /etc/os-release ] && . /etc/os-release
+    case "$ID" in
+        amzn|rhel|centos|rocky)
+            yum install -y git gcc gcc-c++ gcc-gfortran make cmake glibc-devel unzip
+            yum install -y --allowerasing gnupg2 || yum install -y gnupg2
+            ;;
+        ubuntu)
+            apt-get update
+            apt-get install -y git gcc g++ gfortran make cmake libc-dev unzip
+            ;;
+        *)
+            echo "Operating system ${ID} not recognized. Could not automatically install system prerequisites."
+            echo "Attempting to continue anyways."
+            ;;
+    esac
+}
+
 setup_variables() {
     # Determine default user
     [ -f /etc/os-release ] && . /etc/os-release
@@ -253,15 +276,17 @@ cleanup() {
 download_spack() {
     if [ -z "${SPACK_ROOT}" ]
     then
-        echo "CLONING: $SPACK_ROOT and $install_path"
-        if [ -n "${SPACK_BRANCH}" ]
+        if [ -n "${spack_commit:-}" ]
         then
-            git clone -c feature.manyFiles=true "https://github.com/${SPACK_REPO}" -b "${SPACK_BRANCH}" "${install_path}"
-        elif [ -n "${spack_commit}" ]
-        then
+            echo "Cloning spack commit ${spack_commit} into $install_path"
             git clone -c feature.manyFiles=true "https://github.com/${SPACK_REPO}" "${install_path}"
             cd "${install_path}" && git checkout "${spack_commit}"
+        else
+            echo "Cloning spack branch ${SPACK_BRANCH} into $install_path"
+            git clone -c feature.manyFiles=true "https://github.com/${SPACK_REPO}" -b "${SPACK_BRANCH}" "${install_path}"
         fi
+    else
+        echo "Using existing spack found in ${SPACK_ROOT}"
     fi
 }
 
@@ -408,6 +433,17 @@ setup_pcluster_buildcache_stack() {
     return 0
 }
 
+remove_missing_packages() {
+    if [ -z "${SLURM_ROOT}" -o ! -d "${SLURM_ROOT}" ]; then
+        echo "No slurm found, removing from packages.yaml"
+        yq -i "del(.packages.slurm)" "${SPACK_ROOT}"/etc/spack/packages.yaml
+    fi
+    if [ -z "${LIBFABRIC_ROOT}" -o ! -d "${LIBFABRIC_ROOT}" ]; then
+        echo "No libfabric found, removing from packages.yaml"
+        yq -i "del(.packages.libfabric)" "${SPACK_ROOT}"/etc/spack/packages.yaml
+    fi
+}
+
 setup_spack() {
     . "${install_path}/share/spack/setup-env.sh"
     spack compiler find --scope site
@@ -540,18 +576,31 @@ setup_mirrors() {
     . "${install_path}/share/spack/setup-env.sh"
 
     if ${generic_buildcache}; then
-        # $SPACK_BRANCH can point to an existing release, e.g. v0.23.0: In this case there exists a versioned buildcache.
-        # Or it points to a development branch. In this case we want use the "develop" build cache.
-        mirror_url="https://binaries.spack.io/${SPACK_BRANCH:-develop}/aws-pcluster-$(stack_arch)"
-        spack mirror list | grep -q $mirror_url || \
-            spack mirror add --scope site "aws-pcluster-$(stack_arch)" "$mirror_url"
+        # $SPACK_BRANCH can point to: some custom feature branch, some release
+        # branch, or the develop branch.  In call cases let the develop branch
+        # try to provide binaries for packages with matching hashes.  And just
+        # in case it's a release branch, attempt to add a mirror for the
+        # matching branch.  If such a mirror doesn't exist, don't add it.
+        mirror_url="https://binaries.spack.io/${SPACK_BRANCH}/aws-pcluster-$(stack_arch)"
+        if curl -fIsLo /dev/null "${mirror_url}/build_cache/index.json"; then
+            spack mirror list | grep -q $mirror_url || \
+                spack mirror add --scope site "aws-pcluster-$(stack_arch)-${SPACK_BRANCH}" "$mirror_url"
+        fi
+        mirror_url="https://binaries.spack.io/develop/aws-pcluster-$(stack_arch)"
+        if curl -fIsLo /dev/null "${mirror_url}/build_cache/index.json"; then
+            spack mirror list | grep -q $mirror_url || \
+                spack mirror add --scope site "aws-pcluster-$(stack_arch)-develop" "$mirror_url"
+        fi
     fi
+
     # Add older specific target mirrors if they exist
-    mirror_url="https://binaries.spack.io/${SPACK_BRANCH:-develop}/aws-pcluster-$(target | sed -e 's?_avx512??1')"
+    mirror_url="https://binaries.spack.io/develop/aws-pcluster-$(target | sed -e 's?_avx512??1')"
     if curl -fIsLo /dev/null "${mirror_url}/build_cache/index.json"; then
         spack mirror list | grep -q $mirror_url || \
             spack mirror add --scope site "aws-pcluster-legacy" "${mirror_url}"
     fi
+
+    # add keys if we added any binary buildcaches.
     spack mirror list | grep -qE '\[.*b.*\]' && spack buildcache keys -it
     return 0
 }
@@ -573,6 +622,7 @@ fi
 
 
 trap "cleanup" SIGINT EXIT
+install_os_dependencies
 setup_variables
 [ -d "${install_path}" ] && EXTERNAL_SPACK="true"
 download_spack
@@ -586,6 +636,7 @@ if ${generic_buildcache}; then
 else
     set_pcluster_defaults
 fi
+remove_missing_packages
 echo "now setting up spack"
 setup_spack
 echo "now installing compilers"
