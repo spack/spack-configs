@@ -187,12 +187,12 @@ install_os_dependencies() {
     [ -f /etc/os-release ] && . /etc/os-release
     case "$ID" in
         amzn|rhel|centos|rocky)
-            yum install -y git gcc gcc-c++ gcc-gfortran make cmake glibc-devel unzip
+            yum install -y git gcc-c++ make cmake unzip
             yum install -y --allowerasing gnupg2 || yum install -y gnupg2
             ;;
         ubuntu)
             apt-get update
-            apt-get install -y git gcc g++ gfortran make cmake libc-dev unzip
+            apt-get install -y git gcc-g++ make cmake unzip
             ;;
         *)
             echo "Operating system ${ID} not recognized. Could not automatically install system prerequisites."
