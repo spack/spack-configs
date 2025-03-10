@@ -43,7 +43,7 @@ Developer Options:
                         branch.  Default is "main".
  --config-repo          Pull configuration (e.g., packages.yaml) from this
                         github user/repo.  Default is "spack/spack-configs".
- --spack-branch         Clone spack using this branch.  Default is "develop"
+ --spack-branch         Clone spack using this branch.  Default is "v0.23.1"
  --spack-repo           Clone spack using this github user/repo. Default is
                         "spack/spack".
 EOF
@@ -54,7 +54,7 @@ EOF
 export CONFIG_REPO="spack/spack-configs"
 export CONFIG_BRANCH="main"
 export SPACK_REPO="spack/spack"
-export SPACK_BRANCH="develop"
+export SPACK_BRANCH="v0.23.1"
 export PREFIX=""
 install_specs=()
 export generic_buildcache=""
@@ -464,15 +464,15 @@ setup_mirrors() {
 
     if ${generic_buildcache}; then
         # $SPACK_BRANCH can point to an existing release, e.g. v0.23.0: In this case there exists a versioned buildcache.
-        # Or it points to a development branch. In this case we want use the "develop" build cache.
+        # Or it points to a development branch. In this case we want use the "v0.23.1" build cache.
         if curl -sfLI "https://binaries.spack.io/${SPACK_BRANCH}/aws-pcluster-$(stack_arch)/build_cache/index.json" -o /dev/null; then
             spack mirror add --scope site "aws-pcluster-$(stack_arch)" "https://binaries.spack.io/${SPACK_BRANCH}/aws-pcluster-$(stack_arch)"
         else
-            spack mirror add --scope site "aws-pcluster-$(stack_arch)" "https://binaries.spack.io/develop/aws-pcluster-$(stack_arch)"
+            spack mirror add --scope site "aws-pcluster-$(stack_arch)" "https://binaries.spack.io/v0.23.1/aws-pcluster-$(stack_arch)"
         fi
     fi
     # Add older specific target mirrors if they exist
-    mirror_url="https://binaries.spack.io/develop/aws-pcluster-$(target | sed -e 's?_avx512??1')"
+    mirror_url="https://binaries.spack.io/v0.23.1/aws-pcluster-$(target | sed -e 's?_avx512??1')"
     if curl -fIsLo /dev/null "${mirror_url}/build_cache/index.json"; then
         spack mirror add --scope site "aws-pcluster-legacy" "${mirror_url}"
     fi
